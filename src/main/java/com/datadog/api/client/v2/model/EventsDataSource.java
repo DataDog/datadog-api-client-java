@@ -23,10 +23,38 @@ import java.util.Set;
 public class EventsDataSource extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("logs", "rum", "dora"));
+      new HashSet<String>(
+          Arrays.asList(
+              "logs",
+              "spans",
+              "network",
+              "rum",
+              "security_signals",
+              "profiles",
+              "audit",
+              "events",
+              "ci_tests",
+              "ci_pipelines",
+              "incident_analytics",
+              "product_analytics",
+              "on_call_events",
+              "dora"));
 
   public static final EventsDataSource LOGS = new EventsDataSource("logs");
+  public static final EventsDataSource SPANS = new EventsDataSource("spans");
+  public static final EventsDataSource NETWORK = new EventsDataSource("network");
   public static final EventsDataSource RUM = new EventsDataSource("rum");
+  public static final EventsDataSource SECURITY_SIGNALS = new EventsDataSource("security_signals");
+  public static final EventsDataSource PROFILES = new EventsDataSource("profiles");
+  public static final EventsDataSource AUDIT = new EventsDataSource("audit");
+  public static final EventsDataSource EVENTS = new EventsDataSource("events");
+  public static final EventsDataSource CI_TESTS = new EventsDataSource("ci_tests");
+  public static final EventsDataSource CI_PIPELINES = new EventsDataSource("ci_pipelines");
+  public static final EventsDataSource INCIDENT_ANALYTICS =
+      new EventsDataSource("incident_analytics");
+  public static final EventsDataSource PRODUCT_ANALYTICS =
+      new EventsDataSource("product_analytics");
+  public static final EventsDataSource ON_CALL_EVENTS = new EventsDataSource("on_call_events");
   public static final EventsDataSource DORA = new EventsDataSource("dora");
 
   EventsDataSource(String value) {

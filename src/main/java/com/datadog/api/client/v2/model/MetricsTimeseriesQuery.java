@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An individual timeseries metrics query. */
+/** A query against Datadog custom metrics or Cloud Cost data sources. */
 @JsonPropertyOrder({
   MetricsTimeseriesQuery.JSON_PROPERTY_DATA_SOURCE,
   MetricsTimeseriesQuery.JSON_PROPERTY_NAME,

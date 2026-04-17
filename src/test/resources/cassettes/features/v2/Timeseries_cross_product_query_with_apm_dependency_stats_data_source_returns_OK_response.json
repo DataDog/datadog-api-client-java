@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1775658332000,\"interval\":5000,\"queries\":[{\"data_source\":\"apm_dependency_stats\",\"env\":\"ci\",\"name\":\"a\",\"operation_name\":\"cassandra.query\",\"primary_tag_name\":\"datacenter\",\"primary_tag_value\":\"edge-eu1.prod.dog\",\"resource_name\":\"DELETE FROM monitor_history.monitor_state_change_history WHERE org_id = ? AND monitor_id IN ? AND group = ?\",\"service\":\"cassandra\",\"stat\":\"avg_duration\"}],\"to\":1775661932000},\"type\":\"timeseries_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/query/timeseries",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0\",\"type\":\"timeseries_response\",\"attributes\":{\"series\":[],\"times\":[],\"values\":[]}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9a8d6c68-9dd7-106e-cbc5-7c0aa5097500"
+  }
+]

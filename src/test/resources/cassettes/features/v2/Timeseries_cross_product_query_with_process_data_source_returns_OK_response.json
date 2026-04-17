@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1775658332000,\"interval\":5000,\"queries\":[{\"data_source\":\"process\",\"is_normalized_cpu\":false,\"limit\":10,\"metric\":\"process.stat.cpu.total_pct\",\"name\":\"a\",\"sort\":\"desc\",\"tag_filters\":[],\"text_filter\":\"\"}],\"to\":1775661932000},\"type\":\"timeseries_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/query/timeseries",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0\",\"type\":\"timeseries_response\",\"attributes\":{\"series\":[],\"times\":[],\"values\":[]}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a58d654e-c36c-d34b-c4fc-2730a933a4ef"
+  }
+]

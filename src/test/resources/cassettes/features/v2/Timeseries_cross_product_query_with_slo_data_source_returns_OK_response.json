@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1775658333000,\"interval\":5000,\"queries\":[{\"additional_query_filters\":\"*\",\"data_source\":\"slo\",\"group_mode\":\"overall\",\"measure\":\"slo_status\",\"name\":\"a\",\"slo_id\":\"12345678910\",\"slo_query_type\":\"metric\"}],\"to\":1775661933000},\"type\":\"timeseries_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/query/timeseries",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0\",\"type\":\"timeseries_response\",\"attributes\":{\"series\":[],\"times\":[],\"values\":[]}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "38b1dc77-d3ec-87e1-be52-9ab937e5a85c"
+  }
+]
