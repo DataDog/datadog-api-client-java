@@ -21,7 +21,7 @@ public class Example {
                 new DeletedTestsRequestDelete()
                     .attributes(
                         new DeletedTestsRequestDeleteAttributes()
-                            .publicIds(Collections.singletonList("")))
+                            .publicIds(Collections.singletonList("abc-def-123")))
                     .type(DeletedTestsRequestType.DELETE_TESTS_REQUEST));
 
     try {

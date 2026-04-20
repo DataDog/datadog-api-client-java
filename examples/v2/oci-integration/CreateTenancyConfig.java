@@ -62,13 +62,13 @@ mcwMY5r/WZ2qjFlPjeAqbL62aPDLidGjoaVo2iIoBPK/gjxQ/5f0MS4N/YQ0zWoYBueSQ0DGs
                                     .compartmentTagFilters(
                                         Arrays.asList("datadog:true", "env:prod"))
                                     .enabled(true)
-                                    .enabledServices(Arrays.asList("service_1", "service_1")))
+                                    .enabledServices(Arrays.asList("service_1", "service_2")))
                             .metricsConfig(
                                 new CreateTenancyConfigDataAttributesMetricsConfig()
                                     .compartmentTagFilters(
                                         Arrays.asList("datadog:true", "env:prod"))
                                     .enabled(true)
-                                    .excludedServices(Arrays.asList("service_1", "service_1")))
+                                    .excludedServices(Arrays.asList("service_1", "service_2")))
                             .regionsConfig(
                                 new CreateTenancyConfigDataAttributesRegionsConfig()
                                     .available(Arrays.asList("us-ashburn-1", "us-phoenix-1"))
