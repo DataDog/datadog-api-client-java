@@ -86,9 +86,11 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSignalResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalStateUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalSuggestedActionsResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalTriageUpdateResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsBulkAssigneeUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsBulkStateUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsBulkTriageUpdateResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalsBulkUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsListResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsSort;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateRequest;
@@ -598,6 +600,148 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Bulk update security signals.
+   *
+   * <p>See {@link #bulkEditSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @param body Attributes describing the signal updates. (required)
+   * @return SecurityMonitoringSignalsBulkTriageUpdateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalsBulkTriageUpdateResponse bulkEditSecurityMonitoringSignals(
+      SecurityMonitoringSignalsBulkUpdateRequest body) throws ApiException {
+    return bulkEditSecurityMonitoringSignalsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Bulk update security signals.
+   *
+   * <p>See {@link #bulkEditSecurityMonitoringSignalsWithHttpInfoAsync}.
+   *
+   * @param body Attributes describing the signal updates. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSignalsBulkTriageUpdateResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalsBulkTriageUpdateResponse>
+      bulkEditSecurityMonitoringSignalsAsync(SecurityMonitoringSignalsBulkUpdateRequest body) {
+    return bulkEditSecurityMonitoringSignalsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the triage state or assignee of multiple security signals at once. The maximum number of
+   * signals that can be updated in a single request is 199.
+   *
+   * @param body Attributes describing the signal updates. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSignalsBulkTriageUpdateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalsBulkTriageUpdateResponse>
+      bulkEditSecurityMonitoringSignalsWithHttpInfo(SecurityMonitoringSignalsBulkUpdateRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling bulkEditSecurityMonitoringSignals");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/signals/bulk/update";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.bulkEditSecurityMonitoringSignals",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalsBulkTriageUpdateResponse>() {});
+  }
+
+  /**
+   * Bulk update security signals.
+   *
+   * <p>See {@link #bulkEditSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @param body Attributes describing the signal updates. (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalsBulkTriageUpdateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalsBulkTriageUpdateResponse>>
+      bulkEditSecurityMonitoringSignalsWithHttpInfoAsync(
+          SecurityMonitoringSignalsBulkUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsBulkTriageUpdateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " bulkEditSecurityMonitoringSignals"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/signals/bulk/update";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.bulkEditSecurityMonitoringSignals",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsBulkTriageUpdateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalsBulkTriageUpdateResponse>() {});
   }
 
   /**
@@ -4702,6 +4846,174 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Update security signal triage state or assignee.
+   *
+   * <p>See {@link #editSecurityMonitoringSignalWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @param body Attributes describing the signal triage state or assignee update. (required)
+   * @return SecurityMonitoringSignalTriageUpdateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalTriageUpdateResponse editSecurityMonitoringSignal(
+      String signalId, SecurityMonitoringSignalUpdateRequest body) throws ApiException {
+    return editSecurityMonitoringSignalWithHttpInfo(signalId, body).getData();
+  }
+
+  /**
+   * Update security signal triage state or assignee.
+   *
+   * <p>See {@link #editSecurityMonitoringSignalWithHttpInfoAsync}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @param body Attributes describing the signal triage state or assignee update. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSignalTriageUpdateResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalTriageUpdateResponse>
+      editSecurityMonitoringSignalAsync(
+          String signalId, SecurityMonitoringSignalUpdateRequest body) {
+    return editSecurityMonitoringSignalWithHttpInfoAsync(signalId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the triage state or assignee of a security signal.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @param body Attributes describing the signal triage state or assignee update. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSignalTriageUpdateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalTriageUpdateResponse>
+      editSecurityMonitoringSignalWithHttpInfo(
+          String signalId, SecurityMonitoringSignalUpdateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'signalId' when calling editSecurityMonitoringSignal");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling editSecurityMonitoringSignal");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}/update"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.editSecurityMonitoringSignal",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalTriageUpdateResponse>() {});
+  }
+
+  /**
+   * Update security signal triage state or assignee.
+   *
+   * <p>See {@link #editSecurityMonitoringSignalWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @param body Attributes describing the signal triage state or assignee update. (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalTriageUpdateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalTriageUpdateResponse>>
+      editSecurityMonitoringSignalWithHttpInfoAsync(
+          String signalId, SecurityMonitoringSignalUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalTriageUpdateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'signalId' when calling"
+                  + " editSecurityMonitoringSignal"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalTriageUpdateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling editSecurityMonitoringSignal"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}/update"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.editSecurityMonitoringSignal",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalTriageUpdateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalTriageUpdateResponse>() {});
   }
 
   /**
