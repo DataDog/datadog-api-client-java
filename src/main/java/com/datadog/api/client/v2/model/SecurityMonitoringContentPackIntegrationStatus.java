@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The installation status of the related integration */
+/** The installation status of the related integration. */
 @JsonSerialize(
     using =
         SecurityMonitoringContentPackIntegrationStatus

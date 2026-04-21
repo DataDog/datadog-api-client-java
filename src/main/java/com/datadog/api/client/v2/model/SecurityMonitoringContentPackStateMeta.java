@@ -73,7 +73,7 @@ public class SecurityMonitoringContentPackStateMeta {
   }
 
   /**
-   * The SIEM pricing model (SKU) for the organization
+   * The Cloud SIEM pricing model (SKU) for the organization.
    *
    * @return sku
    */
