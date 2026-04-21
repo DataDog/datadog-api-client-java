@@ -267,8 +267,8 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Add one or more interactions (traces) to an annotation queue. At least one interaction must be
-   * provided.
+   * Add one or more interactions (traces or sessions) to an annotation queue. At least one
+   * interaction must be provided.
    *
    * @param queueId The ID of the LLM Observability annotation queue. (required)
    * @param body Add interactions payload. (required)
@@ -2491,7 +2491,8 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Retrieve all interactions and their annotations for a given annotation queue.
+   * Retrieve all interactions (traces and sessions) and their annotations for a given annotation
+   * queue.
    *
    * @param queueId The ID of the LLM Observability annotation queue. (required)
    * @return ApiResponse&lt;LLMObsAnnotatedInteractionsResponse&gt;

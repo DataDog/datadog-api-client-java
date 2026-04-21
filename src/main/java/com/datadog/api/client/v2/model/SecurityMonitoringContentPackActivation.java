@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The activation status of a content pack. */
+/** The activation status of a content pack */
 @JsonSerialize(
     using =
         SecurityMonitoringContentPackActivation.SecurityMonitoringContentPackActivationSerializer
