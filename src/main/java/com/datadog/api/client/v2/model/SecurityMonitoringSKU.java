@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The Cloud SIEM pricing model (SKU) for the organization. */
+/** The SIEM pricing model (SKU) for the organization */
 @JsonSerialize(using = SecurityMonitoringSKU.SecurityMonitoringSKUSerializer.class)
 public class SecurityMonitoringSKU extends ModelEnum<String> {
 

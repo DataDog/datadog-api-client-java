@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The current operational status of a content pack. */
+/** The current status of a content pack */
 @JsonSerialize(
     using = SecurityMonitoringContentPackStatus.SecurityMonitoringContentPackStatusSerializer.class)
 public class SecurityMonitoringContentPackStatus extends ModelEnum<String> {
