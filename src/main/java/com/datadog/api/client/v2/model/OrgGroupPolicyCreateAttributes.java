@@ -17,16 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Attributes for creating an org group policy. If <code>policy_type</code> or <code>
- * enforcement_tier</code> are not provided, they default to <code>org_config</code> and <code>
- * DEFAULT</code> respectively.
- */
+/** Attributes for creating an org group policy. */
 @JsonPropertyOrder({
   OrgGroupPolicyCreateAttributes.JSON_PROPERTY_CONTENT,
-  OrgGroupPolicyCreateAttributes.JSON_PROPERTY_ENFORCEMENT_TIER,
-  OrgGroupPolicyCreateAttributes.JSON_PROPERTY_POLICY_NAME,
-  OrgGroupPolicyCreateAttributes.JSON_PROPERTY_POLICY_TYPE
+  OrgGroupPolicyCreateAttributes.JSON_PROPERTY_POLICY_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,14 +29,8 @@ public class OrgGroupPolicyCreateAttributes {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private Map<String, Object> content = new HashMap<String, Object>();
 
-  public static final String JSON_PROPERTY_ENFORCEMENT_TIER = "enforcement_tier";
-  private OrgGroupPolicyEnforcementTier enforcementTier = OrgGroupPolicyEnforcementTier.DEFAULT;
-
   public static final String JSON_PROPERTY_POLICY_NAME = "policy_name";
   private String policyName;
-
-  public static final String JSON_PROPERTY_POLICY_TYPE = "policy_type";
-  private OrgGroupPolicyPolicyType policyType = OrgGroupPolicyPolicyType.ORG_CONFIG;
 
   public OrgGroupPolicyCreateAttributes() {}
 
@@ -79,35 +67,6 @@ public class OrgGroupPolicyCreateAttributes {
     this.content = content;
   }
 
-  public OrgGroupPolicyCreateAttributes enforcementTier(
-      OrgGroupPolicyEnforcementTier enforcementTier) {
-    this.enforcementTier = enforcementTier;
-    this.unparsed |= !enforcementTier.isValid();
-    return this;
-  }
-
-  /**
-   * The enforcement tier of the policy. <code>DEFAULT</code> means the policy is set but member
-   * orgs may mutate it. <code>ENFORCE</code> means the policy is strictly controlled and mutations
-   * are blocked for affected orgs. <code>DELEGATE</code> means each member org controls its own
-   * value.
-   *
-   * @return enforcementTier
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENFORCEMENT_TIER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OrgGroupPolicyEnforcementTier getEnforcementTier() {
-    return enforcementTier;
-  }
-
-  public void setEnforcementTier(OrgGroupPolicyEnforcementTier enforcementTier) {
-    if (!enforcementTier.isValid()) {
-      this.unparsed = true;
-    }
-    this.enforcementTier = enforcementTier;
-  }
-
   public OrgGroupPolicyCreateAttributes policyName(String policyName) {
     this.policyName = policyName;
     return this;
@@ -126,32 +85,6 @@ public class OrgGroupPolicyCreateAttributes {
 
   public void setPolicyName(String policyName) {
     this.policyName = policyName;
-  }
-
-  public OrgGroupPolicyCreateAttributes policyType(OrgGroupPolicyPolicyType policyType) {
-    this.policyType = policyType;
-    this.unparsed |= !policyType.isValid();
-    return this;
-  }
-
-  /**
-   * The type of the policy. Only <code>org_config</code> is supported, indicating a policy backed
-   * by an organization configuration setting.
-   *
-   * @return policyType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLICY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OrgGroupPolicyPolicyType getPolicyType() {
-    return policyType;
-  }
-
-  public void setPolicyType(OrgGroupPolicyPolicyType policyType) {
-    if (!policyType.isValid()) {
-      this.unparsed = true;
-    }
-    this.policyType = policyType;
   }
 
   /**
@@ -212,16 +145,14 @@ public class OrgGroupPolicyCreateAttributes {
     OrgGroupPolicyCreateAttributes orgGroupPolicyCreateAttributes =
         (OrgGroupPolicyCreateAttributes) o;
     return Objects.equals(this.content, orgGroupPolicyCreateAttributes.content)
-        && Objects.equals(this.enforcementTier, orgGroupPolicyCreateAttributes.enforcementTier)
         && Objects.equals(this.policyName, orgGroupPolicyCreateAttributes.policyName)
-        && Objects.equals(this.policyType, orgGroupPolicyCreateAttributes.policyType)
         && Objects.equals(
             this.additionalProperties, orgGroupPolicyCreateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, enforcementTier, policyName, policyType, additionalProperties);
+    return Objects.hash(content, policyName, additionalProperties);
   }
 
   @Override
@@ -229,9 +160,7 @@ public class OrgGroupPolicyCreateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrgGroupPolicyCreateAttributes {\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    enforcementTier: ").append(toIndentedString(enforcementTier)).append("\n");
     sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
-    sb.append("    policyType: ").append(toIndentedString(policyType)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -7,8 +7,6 @@ import com.datadog.api.client.v2.model.OrgGroupPolicyCreateAttributes;
 import com.datadog.api.client.v2.model.OrgGroupPolicyCreateData;
 import com.datadog.api.client.v2.model.OrgGroupPolicyCreateRelationships;
 import com.datadog.api.client.v2.model.OrgGroupPolicyCreateRequest;
-import com.datadog.api.client.v2.model.OrgGroupPolicyEnforcementTier;
-import com.datadog.api.client.v2.model.OrgGroupPolicyPolicyType;
 import com.datadog.api.client.v2.model.OrgGroupPolicyResponse;
 import com.datadog.api.client.v2.model.OrgGroupPolicyType;
 import com.datadog.api.client.v2.model.OrgGroupRelationshipToOne;
@@ -30,9 +28,7 @@ public class Example {
                     .attributes(
                         new OrgGroupPolicyCreateAttributes()
                             .content(Map.ofEntries(Map.entry("value", "UTC")))
-                            .enforcementTier(OrgGroupPolicyEnforcementTier.DEFAULT)
-                            .policyName("monitor_timezone")
-                            .policyType(OrgGroupPolicyPolicyType.ORG_CONFIG))
+                            .policyName("monitor_timezone"))
                     .relationships(
                         new OrgGroupPolicyCreateRelationships()
                             .orgGroup(
