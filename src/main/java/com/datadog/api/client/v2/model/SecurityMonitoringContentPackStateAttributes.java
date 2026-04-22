@@ -112,7 +112,7 @@ public class SecurityMonitoringContentPackStateAttributes {
   }
 
   /**
-   * The activation status of a content pack.
+   * The activation status of a content pack
    *
    * @return cpActivation
    */
@@ -136,8 +136,8 @@ public class SecurityMonitoringContentPackStateAttributes {
   }
 
   /**
-   * Whether filters (Security Filters or Index Query depending on the pricing model) are present
-   * and correctly configured to route logs into Cloud SIEM.
+   * Whether filters (Security Filters or Index Query depending on the pricing model) are configured
+   * for logs
    *
    * @return filtersConfiguredForLogs
    */
@@ -159,7 +159,7 @@ public class SecurityMonitoringContentPackStateAttributes {
   }
 
   /**
-   * The installation status of the related integration.
+   * The installation status of the related integration
    *
    * @return integrationInstalledStatus
    */
@@ -186,7 +186,7 @@ public class SecurityMonitoringContentPackStateAttributes {
   }
 
   /**
-   * Timestamp bucket indicating when logs were last collected.
+   * Timestamp bucket indicating when logs were last collected
    *
    * @return logsLastCollected
    */
@@ -210,8 +210,7 @@ public class SecurityMonitoringContentPackStateAttributes {
   }
 
   /**
-   * Whether logs for this content pack have been seen in any Datadog index within the last 72
-   * hours.
+   * Whether logs have been seen from any index
    *
    * @return logsSeenFromAnyIndex
    */
@@ -233,7 +232,7 @@ public class SecurityMonitoringContentPackStateAttributes {
   }
 
   /**
-   * The current operational status of a content pack.
+   * The current status of a content pack
    *
    * @return state
    */
