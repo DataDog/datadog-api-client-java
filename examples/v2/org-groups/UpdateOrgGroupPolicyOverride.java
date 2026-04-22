@@ -22,7 +22,7 @@ public class Example {
                 new OrgGroupPolicyOverrideUpdateData()
                     .attributes(
                         new OrgGroupPolicyOverrideUpdateAttributes()
-                            .orgSite("datadoghq.com")
+                            .orgSite("us1")
                             .orgUuid(UUID.fromString("c3d4e5f6-a7b8-9012-cdef-012345678901")))
                     .id(UUID.fromString("9f8e7d6c-5b4a-3210-fedc-ba0987654321"))
                     .type(OrgGroupPolicyOverrideType.ORG_GROUP_POLICY_OVERRIDES));

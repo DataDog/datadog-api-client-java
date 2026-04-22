@@ -158,7 +158,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #activateContentPackWithHttpInfo}.
    *
-   * @param contentPackId The ID of the content pack to activate. (required)
+   * @param contentPackId The ID of the content pack to activate (for example, <code>aws-cloudtrail
+   *     </code>). (required)
    * @throws ApiException if fails to make API call
    */
   public void activateContentPack(String contentPackId) throws ApiException {
@@ -170,7 +171,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #activateContentPackWithHttpInfoAsync}.
    *
-   * @param contentPackId The ID of the content pack to activate. (required)
+   * @param contentPackId The ID of the content pack to activate (for example, <code>aws-cloudtrail
+   *     </code>). (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> activateContentPackAsync(String contentPackId) {
@@ -182,11 +184,11 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Activate a security monitoring content pack. This operation configures the necessary log
-   * filters or security filters depending on the pricing model and updates the content pack
-   * activation state.
+   * Activate a Cloud SIEM content pack. This operation configures the necessary log filters or
+   * security filters depending on the pricing model and updates the content pack activation state.
    *
-   * @param contentPackId The ID of the content pack to activate. (required)
+   * @param contentPackId The ID of the content pack to activate (for example, <code>aws-cloudtrail
+   *     </code>). (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -232,7 +234,7 @@ public class SecurityMonitoringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PUT",
         builder,
@@ -249,7 +251,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #activateContentPackWithHttpInfo}.
    *
-   * @param contentPackId The ID of the content pack to activate. (required)
+   * @param contentPackId The ID of the content pack to activate (for example, <code>aws-cloudtrail
+   *     </code>). (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> activateContentPackWithHttpInfoAsync(
@@ -294,7 +297,7 @@ public class SecurityMonitoringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3423,7 +3426,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deactivateContentPackWithHttpInfo}.
    *
-   * @param contentPackId The ID of the content pack to deactivate. (required)
+   * @param contentPackId The ID of the content pack to deactivate (for example, <code>
+   *     aws-cloudtrail</code>). (required)
    * @throws ApiException if fails to make API call
    */
   public void deactivateContentPack(String contentPackId) throws ApiException {
@@ -3435,7 +3439,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deactivateContentPackWithHttpInfoAsync}.
    *
-   * @param contentPackId The ID of the content pack to deactivate. (required)
+   * @param contentPackId The ID of the content pack to deactivate (for example, <code>
+   *     aws-cloudtrail</code>). (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deactivateContentPackAsync(String contentPackId) {
@@ -3447,11 +3452,11 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Deactivate a security monitoring content pack. This operation removes the content pack's
-   * configuration from log filters or security filters and updates the content pack activation
-   * state.
+   * Deactivate a Cloud SIEM content pack. This operation removes the content pack's configuration
+   * from log filters or security filters and updates the content pack activation state.
    *
-   * @param contentPackId The ID of the content pack to deactivate. (required)
+   * @param contentPackId The ID of the content pack to deactivate (for example, <code>
+   *     aws-cloudtrail</code>). (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -3497,7 +3502,7 @@ public class SecurityMonitoringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PUT",
         builder,
@@ -3514,7 +3519,8 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #deactivateContentPackWithHttpInfo}.
    *
-   * @param contentPackId The ID of the content pack to deactivate. (required)
+   * @param contentPackId The ID of the content pack to deactivate (for example, <code>
+   *     aws-cloudtrail</code>). (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deactivateContentPackWithHttpInfoAsync(
@@ -3559,7 +3565,7 @@ public class SecurityMonitoringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -5759,9 +5765,8 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the activation and configuration states for all security monitoring content packs. This
-   * endpoint returns status information about each content pack including activation state,
-   * integration status, and log collection status.
+   * Get the activation state, integration status, and log collection status for all Cloud SIEM
+   * content packs.
    *
    * @return ApiResponse&lt;SecurityMonitoringContentPackStatesResponse&gt;
    * @throws ApiException if fails to make API call
@@ -5798,7 +5803,7 @@ public class SecurityMonitoringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -5846,7 +5851,7 @@ public class SecurityMonitoringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SecurityMonitoringContentPackStatesResponse>> result =
           new CompletableFuture<>();

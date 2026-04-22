@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Timestamp bucket indicating when logs were last collected */
+/** Timestamp bucket indicating when logs were last collected. */
 @JsonSerialize(
     using =
         SecurityMonitoringContentPackTimestampBucket
