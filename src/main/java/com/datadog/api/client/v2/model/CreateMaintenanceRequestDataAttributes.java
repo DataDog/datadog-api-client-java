@@ -60,10 +60,24 @@ public class CreateMaintenanceRequestDataAttributes {
 
   @JsonCreator
   public CreateMaintenanceRequestDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPLETED_DATE)
+          OffsetDateTime completedDate,
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPLETED_DESCRIPTION)
+          String completedDescription,
       @JsonProperty(required = true, value = JSON_PROPERTY_COMPONENTS_AFFECTED)
           List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IN_PROGRESS_DESCRIPTION)
+          String inProgressDescription,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SCHEDULED_DESCRIPTION)
+          String scheduledDescription,
+      @JsonProperty(required = true, value = JSON_PROPERTY_START_DATE) OffsetDateTime startDate,
       @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
+    this.completedDate = completedDate;
+    this.completedDescription = completedDescription;
     this.componentsAffected = componentsAffected;
+    this.inProgressDescription = inProgressDescription;
+    this.scheduledDescription = scheduledDescription;
+    this.startDate = startDate;
     this.title = title;
   }
 
@@ -77,9 +91,8 @@ public class CreateMaintenanceRequestDataAttributes {
    *
    * @return completedDate
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getCompletedDate() {
     return completedDate;
   }
@@ -98,9 +111,8 @@ public class CreateMaintenanceRequestDataAttributes {
    *
    * @return completedDescription
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETED_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCompletedDescription() {
     return completedDescription;
   }
@@ -153,9 +165,8 @@ public class CreateMaintenanceRequestDataAttributes {
    *
    * @return inProgressDescription
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IN_PROGRESS_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getInProgressDescription() {
     return inProgressDescription;
   }
@@ -174,9 +185,8 @@ public class CreateMaintenanceRequestDataAttributes {
    *
    * @return scheduledDescription
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCHEDULED_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getScheduledDescription() {
     return scheduledDescription;
   }
@@ -195,9 +205,8 @@ public class CreateMaintenanceRequestDataAttributes {
    *
    * @return startDate
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getStartDate() {
     return startDate;
   }
