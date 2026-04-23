@@ -23,11 +23,12 @@ import java.util.Set;
 public class LLMObsInteractionType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("trace", "experiment_trace"));
+      new HashSet<String>(Arrays.asList("trace", "experiment_trace", "session"));
 
   public static final LLMObsInteractionType TRACE = new LLMObsInteractionType("trace");
   public static final LLMObsInteractionType EXPERIMENT_TRACE =
       new LLMObsInteractionType("experiment_trace");
+  public static final LLMObsInteractionType SESSION = new LLMObsInteractionType("session");
 
   LLMObsInteractionType(String value) {
     super(value, allowedValues);
