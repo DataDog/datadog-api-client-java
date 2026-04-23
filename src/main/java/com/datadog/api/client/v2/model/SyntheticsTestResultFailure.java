@@ -16,111 +16,111 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Location from which the fast test was executed. */
+/** Details about the failure of a Synthetic test. */
 @JsonPropertyOrder({
-  SyntheticsFastTestResultLocation.JSON_PROPERTY_ID,
-  SyntheticsFastTestResultLocation.JSON_PROPERTY_NAME,
-  SyntheticsFastTestResultLocation.JSON_PROPERTY_VERSION,
-  SyntheticsFastTestResultLocation.JSON_PROPERTY_WORKER_ID
+  SyntheticsTestResultFailure.JSON_PROPERTY_CODE,
+  SyntheticsTestResultFailure.JSON_PROPERTY_INTERNAL_CODE,
+  SyntheticsTestResultFailure.JSON_PROPERTY_INTERNAL_MESSAGE,
+  SyntheticsTestResultFailure.JSON_PROPERTY_MESSAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsFastTestResultLocation {
+public class SyntheticsTestResultFailure {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_INTERNAL_CODE = "internal_code";
+  private String internalCode;
 
-  public static final String JSON_PROPERTY_VERSION = "version";
-  private String version;
+  public static final String JSON_PROPERTY_INTERNAL_MESSAGE = "internal_message";
+  private String internalMessage;
 
-  public static final String JSON_PROPERTY_WORKER_ID = "worker_id";
-  private String workerId;
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
-  public SyntheticsFastTestResultLocation id(String id) {
-    this.id = id;
+  public SyntheticsTestResultFailure code(String code) {
+    this.code = code;
     return this;
   }
 
   /**
-   * ID of the location.
+   * Error code for the failure.
    *
-   * @return id
+   * @return code
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  public String getCode() {
+    return code;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setCode(String code) {
+    this.code = code;
   }
 
-  public SyntheticsFastTestResultLocation name(String name) {
-    this.name = name;
+  public SyntheticsTestResultFailure internalCode(String internalCode) {
+    this.internalCode = internalCode;
     return this;
   }
 
   /**
-   * Display name of the location.
+   * Internal error code used for debugging.
    *
-   * @return name
+   * @return internalCode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_INTERNAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
+  public String getInternalCode() {
+    return internalCode;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setInternalCode(String internalCode) {
+    this.internalCode = internalCode;
   }
 
-  public SyntheticsFastTestResultLocation version(String version) {
-    this.version = version;
+  public SyntheticsTestResultFailure internalMessage(String internalMessage) {
+    this.internalMessage = internalMessage;
     return this;
   }
 
   /**
-   * Agent version running at this location.
+   * Internal error message used for debugging.
    *
-   * @return version
+   * @return internalMessage
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(JSON_PROPERTY_INTERNAL_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getVersion() {
-    return version;
+  public String getInternalMessage() {
+    return internalMessage;
   }
 
-  public void setVersion(String version) {
-    this.version = version;
+  public void setInternalMessage(String internalMessage) {
+    this.internalMessage = internalMessage;
   }
 
-  public SyntheticsFastTestResultLocation workerId(String workerId) {
-    this.workerId = workerId;
+  public SyntheticsTestResultFailure message(String message) {
+    this.message = message;
     return this;
   }
 
   /**
-   * Identifier of the specific worker that ran the test.
+   * Error message for the failure.
    *
-   * @return workerId
+   * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WORKER_ID)
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getWorkerId() {
-    return workerId;
+  public String getMessage() {
+    return message;
   }
 
-  public void setWorkerId(String workerId) {
-    this.workerId = workerId;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   /**
@@ -135,10 +135,10 @@ public class SyntheticsFastTestResultLocation {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsFastTestResultLocation
+   * @return SyntheticsTestResultFailure
    */
   @JsonAnySetter
-  public SyntheticsFastTestResultLocation putAdditionalProperty(String key, Object value) {
+  public SyntheticsTestResultFailure putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -169,7 +169,7 @@ public class SyntheticsFastTestResultLocation {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsFastTestResultLocation object is equal to o. */
+  /** Return true if this SyntheticsTestResultFailure object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -178,29 +178,28 @@ public class SyntheticsFastTestResultLocation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsFastTestResultLocation syntheticsFastTestResultLocation =
-        (SyntheticsFastTestResultLocation) o;
-    return Objects.equals(this.id, syntheticsFastTestResultLocation.id)
-        && Objects.equals(this.name, syntheticsFastTestResultLocation.name)
-        && Objects.equals(this.version, syntheticsFastTestResultLocation.version)
-        && Objects.equals(this.workerId, syntheticsFastTestResultLocation.workerId)
+    SyntheticsTestResultFailure syntheticsTestResultFailure = (SyntheticsTestResultFailure) o;
+    return Objects.equals(this.code, syntheticsTestResultFailure.code)
+        && Objects.equals(this.internalCode, syntheticsTestResultFailure.internalCode)
+        && Objects.equals(this.internalMessage, syntheticsTestResultFailure.internalMessage)
+        && Objects.equals(this.message, syntheticsTestResultFailure.message)
         && Objects.equals(
-            this.additionalProperties, syntheticsFastTestResultLocation.additionalProperties);
+            this.additionalProperties, syntheticsTestResultFailure.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, version, workerId, additionalProperties);
+    return Objects.hash(code, internalCode, internalMessage, message, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsFastTestResultLocation {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    workerId: ").append(toIndentedString(workerId)).append("\n");
+    sb.append("class SyntheticsTestResultFailure {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    internalCode: ").append(toIndentedString(internalCode)).append("\n");
+    sb.append("    internalMessage: ").append(toIndentedString(internalMessage)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

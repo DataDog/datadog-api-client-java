@@ -19,6 +19,7 @@ import com.datadog.api.client.v2.model.SyntheticsApiMultistepSubtestsResponse;
 import com.datadog.api.client.v2.model.SyntheticsFastTestResult;
 import com.datadog.api.client.v2.model.SyntheticsNetworkTestEditRequest;
 import com.datadog.api.client.v2.model.SyntheticsNetworkTestResponse;
+import com.datadog.api.client.v2.model.SyntheticsPollTestResultsResponse;
 import com.datadog.api.client.v2.model.SyntheticsSuiteResponse;
 import com.datadog.api.client.v2.model.SyntheticsSuiteSearchResponse;
 import com.datadog.api.client.v2.model.SyntheticsTestFileAbortMultipartUploadRequest;
@@ -27,7 +28,11 @@ import com.datadog.api.client.v2.model.SyntheticsTestFileDownloadRequest;
 import com.datadog.api.client.v2.model.SyntheticsTestFileDownloadResponse;
 import com.datadog.api.client.v2.model.SyntheticsTestFileMultipartPresignedUrlsRequest;
 import com.datadog.api.client.v2.model.SyntheticsTestFileMultipartPresignedUrlsResponse;
+import com.datadog.api.client.v2.model.SyntheticsTestLatestResultsResponse;
 import com.datadog.api.client.v2.model.SyntheticsTestParentSuitesResponse;
+import com.datadog.api.client.v2.model.SyntheticsTestResultResponse;
+import com.datadog.api.client.v2.model.SyntheticsTestResultRunType;
+import com.datadog.api.client.v2.model.SyntheticsTestResultStatus;
 import com.datadog.api.client.v2.model.SyntheticsTestVersionHistoryResponse;
 import com.datadog.api.client.v2.model.SyntheticsTestVersionResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -1462,6 +1467,266 @@ public class SyntheticsApi {
         new GenericType<OnDemandConcurrencyCapResponse>() {});
   }
 
+  /** Manage optional parameters to getSyntheticsBrowserTestResult. */
+  public static class GetSyntheticsBrowserTestResultOptionalParameters {
+    private String eventId;
+    private Long timestamp;
+
+    /**
+     * Set eventId.
+     *
+     * @param eventId The event ID used to look up the result in the event store. (optional)
+     * @return GetSyntheticsBrowserTestResultOptionalParameters
+     */
+    public GetSyntheticsBrowserTestResultOptionalParameters eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
+    }
+
+    /**
+     * Set timestamp.
+     *
+     * @param timestamp Timestamp in seconds to look up the result. (optional)
+     * @return GetSyntheticsBrowserTestResultOptionalParameters
+     */
+    public GetSyntheticsBrowserTestResultOptionalParameters timestamp(Long timestamp) {
+      this.timestamp = timestamp;
+      return this;
+    }
+  }
+
+  /**
+   * Get a browser test result.
+   *
+   * <p>See {@link #getSyntheticsBrowserTestResultWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic browser test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return SyntheticsTestResultResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestResultResponse getSyntheticsBrowserTestResult(
+      String publicId, String resultId) throws ApiException {
+    return getSyntheticsBrowserTestResultWithHttpInfo(
+            publicId, resultId, new GetSyntheticsBrowserTestResultOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a browser test result.
+   *
+   * <p>See {@link #getSyntheticsBrowserTestResultWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic browser test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return CompletableFuture&lt;SyntheticsTestResultResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestResultResponse> getSyntheticsBrowserTestResultAsync(
+      String publicId, String resultId) {
+    return getSyntheticsBrowserTestResultWithHttpInfoAsync(
+            publicId, resultId, new GetSyntheticsBrowserTestResultOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a browser test result.
+   *
+   * <p>See {@link #getSyntheticsBrowserTestResultWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic browser test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsTestResultResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestResultResponse getSyntheticsBrowserTestResult(
+      String publicId, String resultId, GetSyntheticsBrowserTestResultOptionalParameters parameters)
+      throws ApiException {
+    return getSyntheticsBrowserTestResultWithHttpInfo(publicId, resultId, parameters).getData();
+  }
+
+  /**
+   * Get a browser test result.
+   *
+   * <p>See {@link #getSyntheticsBrowserTestResultWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic browser test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SyntheticsTestResultResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestResultResponse> getSyntheticsBrowserTestResultAsync(
+      String publicId,
+      String resultId,
+      GetSyntheticsBrowserTestResultOptionalParameters parameters) {
+    return getSyntheticsBrowserTestResultWithHttpInfoAsync(publicId, resultId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific full result from a given Synthetic browser test.
+   *
+   * @param publicId The public ID of the Synthetic browser test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsTestResultResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestResultResponse> getSyntheticsBrowserTestResultWithHttpInfo(
+      String publicId, String resultId, GetSyntheticsBrowserTestResultOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'publicId' when calling getSyntheticsBrowserTestResult");
+    }
+
+    // verify the required parameter 'resultId' is set
+    if (resultId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'resultId' when calling getSyntheticsBrowserTestResult");
+    }
+    String eventId = parameters.eventId;
+    Long timestamp = parameters.timestamp;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/browser/{public_id}/results/{result_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()))
+            .replaceAll("\\{" + "result_id" + "\\}", apiClient.escapeString(resultId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_id", eventId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "timestamp", timestamp));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getSyntheticsBrowserTestResult",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestResultResponse>() {});
+  }
+
+  /**
+   * Get a browser test result.
+   *
+   * <p>See {@link #getSyntheticsBrowserTestResultWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic browser test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestResultResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestResultResponse>>
+      getSyntheticsBrowserTestResultWithHttpInfoAsync(
+          String publicId,
+          String resultId,
+          GetSyntheticsBrowserTestResultOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestResultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling"
+                  + " getSyntheticsBrowserTestResult"));
+      return result;
+    }
+
+    // verify the required parameter 'resultId' is set
+    if (resultId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestResultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'resultId' when calling"
+                  + " getSyntheticsBrowserTestResult"));
+      return result;
+    }
+    String eventId = parameters.eventId;
+    Long timestamp = parameters.timestamp;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/browser/{public_id}/results/{result_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()))
+            .replaceAll("\\{" + "result_id" + "\\}", apiClient.escapeString(resultId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_id", eventId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "timestamp", timestamp));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getSyntheticsBrowserTestResult",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestResultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestResultResponse>() {});
+  }
+
   /**
    * Get a fast test result.
    *
@@ -1863,6 +2128,258 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SyntheticsSuiteResponse>() {});
+  }
+
+  /** Manage optional parameters to getSyntheticsTestResult. */
+  public static class GetSyntheticsTestResultOptionalParameters {
+    private String eventId;
+    private Long timestamp;
+
+    /**
+     * Set eventId.
+     *
+     * @param eventId The event ID used to look up the result in the event store. (optional)
+     * @return GetSyntheticsTestResultOptionalParameters
+     */
+    public GetSyntheticsTestResultOptionalParameters eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
+    }
+
+    /**
+     * Set timestamp.
+     *
+     * @param timestamp Timestamp in seconds to look up the result. (optional)
+     * @return GetSyntheticsTestResultOptionalParameters
+     */
+    public GetSyntheticsTestResultOptionalParameters timestamp(Long timestamp) {
+      this.timestamp = timestamp;
+      return this;
+    }
+  }
+
+  /**
+   * Get a test result.
+   *
+   * <p>See {@link #getSyntheticsTestResultWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return SyntheticsTestResultResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestResultResponse getSyntheticsTestResult(String publicId, String resultId)
+      throws ApiException {
+    return getSyntheticsTestResultWithHttpInfo(
+            publicId, resultId, new GetSyntheticsTestResultOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a test result.
+   *
+   * <p>See {@link #getSyntheticsTestResultWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return CompletableFuture&lt;SyntheticsTestResultResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestResultResponse> getSyntheticsTestResultAsync(
+      String publicId, String resultId) {
+    return getSyntheticsTestResultWithHttpInfoAsync(
+            publicId, resultId, new GetSyntheticsTestResultOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a test result.
+   *
+   * <p>See {@link #getSyntheticsTestResultWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsTestResultResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestResultResponse getSyntheticsTestResult(
+      String publicId, String resultId, GetSyntheticsTestResultOptionalParameters parameters)
+      throws ApiException {
+    return getSyntheticsTestResultWithHttpInfo(publicId, resultId, parameters).getData();
+  }
+
+  /**
+   * Get a test result.
+   *
+   * <p>See {@link #getSyntheticsTestResultWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SyntheticsTestResultResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestResultResponse> getSyntheticsTestResultAsync(
+      String publicId, String resultId, GetSyntheticsTestResultOptionalParameters parameters) {
+    return getSyntheticsTestResultWithHttpInfoAsync(publicId, resultId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific full result from a given Synthetic test.
+   *
+   * @param publicId The public ID of the Synthetic test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsTestResultResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestResultResponse> getSyntheticsTestResultWithHttpInfo(
+      String publicId, String resultId, GetSyntheticsTestResultOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling getSyntheticsTestResult");
+    }
+
+    // verify the required parameter 'resultId' is set
+    if (resultId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'resultId' when calling getSyntheticsTestResult");
+    }
+    String eventId = parameters.eventId;
+    Long timestamp = parameters.timestamp;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/results/{result_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()))
+            .replaceAll("\\{" + "result_id" + "\\}", apiClient.escapeString(resultId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_id", eventId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "timestamp", timestamp));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getSyntheticsTestResult",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestResultResponse>() {});
+  }
+
+  /**
+   * Get a test result.
+   *
+   * <p>See {@link #getSyntheticsTestResultWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestResultResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestResultResponse>>
+      getSyntheticsTestResultWithHttpInfoAsync(
+          String publicId, String resultId, GetSyntheticsTestResultOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestResultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling getSyntheticsTestResult"));
+      return result;
+    }
+
+    // verify the required parameter 'resultId' is set
+    if (resultId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestResultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'resultId' when calling getSyntheticsTestResult"));
+      return result;
+    }
+    String eventId = parameters.eventId;
+    Long timestamp = parameters.timestamp;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/results/{result_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()))
+            .replaceAll("\\{" + "result_id" + "\\}", apiClient.escapeString(resultId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_id", eventId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "timestamp", timestamp));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getSyntheticsTestResult",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestResultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestResultResponse>() {});
   }
 
   /** Manage optional parameters to getSyntheticsTestVersion. */
@@ -2599,6 +3116,596 @@ public class SyntheticsApi {
         new GenericType<SyntheticsTestParentSuitesResponse>() {});
   }
 
+  /** Manage optional parameters to listSyntheticsBrowserTestLatestResults. */
+  public static class ListSyntheticsBrowserTestLatestResultsOptionalParameters {
+    private Long fromTs;
+    private Long toTs;
+    private SyntheticsTestResultStatus status;
+    private SyntheticsTestResultRunType runType;
+    private List<String> probeDc;
+    private List<String> deviceId;
+
+    /**
+     * Set fromTs.
+     *
+     * @param fromTs Timestamp in milliseconds from which to start querying results. (optional)
+     * @return ListSyntheticsBrowserTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsBrowserTestLatestResultsOptionalParameters fromTs(Long fromTs) {
+      this.fromTs = fromTs;
+      return this;
+    }
+
+    /**
+     * Set toTs.
+     *
+     * @param toTs Timestamp in milliseconds up to which to query results. (optional)
+     * @return ListSyntheticsBrowserTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsBrowserTestLatestResultsOptionalParameters toTs(Long toTs) {
+      this.toTs = toTs;
+      return this;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param status Filter results by status. (optional)
+     * @return ListSyntheticsBrowserTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsBrowserTestLatestResultsOptionalParameters status(
+        SyntheticsTestResultStatus status) {
+      this.status = status;
+      return this;
+    }
+
+    /**
+     * Set runType.
+     *
+     * @param runType Filter results by run type. (optional)
+     * @return ListSyntheticsBrowserTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsBrowserTestLatestResultsOptionalParameters runType(
+        SyntheticsTestResultRunType runType) {
+      this.runType = runType;
+      return this;
+    }
+
+    /**
+     * Set probeDc.
+     *
+     * @param probeDc Locations for which to query results. (optional)
+     * @return ListSyntheticsBrowserTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsBrowserTestLatestResultsOptionalParameters probeDc(List<String> probeDc) {
+      this.probeDc = probeDc;
+      return this;
+    }
+
+    /**
+     * Set deviceId.
+     *
+     * @param deviceId Device IDs for which to query results. (optional)
+     * @return ListSyntheticsBrowserTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsBrowserTestLatestResultsOptionalParameters deviceId(
+        List<String> deviceId) {
+      this.deviceId = deviceId;
+      return this;
+    }
+  }
+
+  /**
+   * Get a browser test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsBrowserTestLatestResultsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic browser test for which to search results.
+   *     (required)
+   * @return SyntheticsTestLatestResultsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestLatestResultsResponse listSyntheticsBrowserTestLatestResults(String publicId)
+      throws ApiException {
+    return listSyntheticsBrowserTestLatestResultsWithHttpInfo(
+            publicId, new ListSyntheticsBrowserTestLatestResultsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a browser test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsBrowserTestLatestResultsWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic browser test for which to search results.
+   *     (required)
+   * @return CompletableFuture&lt;SyntheticsTestLatestResultsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestLatestResultsResponse>
+      listSyntheticsBrowserTestLatestResultsAsync(String publicId) {
+    return listSyntheticsBrowserTestLatestResultsWithHttpInfoAsync(
+            publicId, new ListSyntheticsBrowserTestLatestResultsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a browser test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsBrowserTestLatestResultsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic browser test for which to search results.
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsTestLatestResultsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestLatestResultsResponse listSyntheticsBrowserTestLatestResults(
+      String publicId, ListSyntheticsBrowserTestLatestResultsOptionalParameters parameters)
+      throws ApiException {
+    return listSyntheticsBrowserTestLatestResultsWithHttpInfo(publicId, parameters).getData();
+  }
+
+  /**
+   * Get a browser test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsBrowserTestLatestResultsWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic browser test for which to search results.
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SyntheticsTestLatestResultsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestLatestResultsResponse>
+      listSyntheticsBrowserTestLatestResultsAsync(
+          String publicId, ListSyntheticsBrowserTestLatestResultsOptionalParameters parameters) {
+    return listSyntheticsBrowserTestLatestResultsWithHttpInfoAsync(publicId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the latest result summaries for a given Synthetic browser test.
+   *
+   * @param publicId The public ID of the Synthetic browser test for which to search results.
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsTestLatestResultsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestLatestResultsResponse>
+      listSyntheticsBrowserTestLatestResultsWithHttpInfo(
+          String publicId, ListSyntheticsBrowserTestLatestResultsOptionalParameters parameters)
+          throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'publicId' when calling"
+              + " listSyntheticsBrowserTestLatestResults");
+    }
+    Long fromTs = parameters.fromTs;
+    Long toTs = parameters.toTs;
+    SyntheticsTestResultStatus status = parameters.status;
+    SyntheticsTestResultRunType runType = parameters.runType;
+    List<String> probeDc = parameters.probeDc;
+    List<String> deviceId = parameters.deviceId;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/browser/{public_id}/results"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "status", status));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "runType", runType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "device_id", deviceId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.listSyntheticsBrowserTestLatestResults",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestLatestResultsResponse>() {});
+  }
+
+  /**
+   * Get a browser test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsBrowserTestLatestResultsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic browser test for which to search results.
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestLatestResultsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestLatestResultsResponse>>
+      listSyntheticsBrowserTestLatestResultsWithHttpInfoAsync(
+          String publicId, ListSyntheticsBrowserTestLatestResultsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestLatestResultsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling"
+                  + " listSyntheticsBrowserTestLatestResults"));
+      return result;
+    }
+    Long fromTs = parameters.fromTs;
+    Long toTs = parameters.toTs;
+    SyntheticsTestResultStatus status = parameters.status;
+    SyntheticsTestResultRunType runType = parameters.runType;
+    List<String> probeDc = parameters.probeDc;
+    List<String> deviceId = parameters.deviceId;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/browser/{public_id}/results"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "status", status));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "runType", runType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "device_id", deviceId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.listSyntheticsBrowserTestLatestResults",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestLatestResultsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestLatestResultsResponse>() {});
+  }
+
+  /** Manage optional parameters to listSyntheticsTestLatestResults. */
+  public static class ListSyntheticsTestLatestResultsOptionalParameters {
+    private Long fromTs;
+    private Long toTs;
+    private SyntheticsTestResultStatus status;
+    private SyntheticsTestResultRunType runType;
+    private List<String> probeDc;
+    private List<String> deviceId;
+
+    /**
+     * Set fromTs.
+     *
+     * @param fromTs Timestamp in milliseconds from which to start querying results. (optional)
+     * @return ListSyntheticsTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsTestLatestResultsOptionalParameters fromTs(Long fromTs) {
+      this.fromTs = fromTs;
+      return this;
+    }
+
+    /**
+     * Set toTs.
+     *
+     * @param toTs Timestamp in milliseconds up to which to query results. (optional)
+     * @return ListSyntheticsTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsTestLatestResultsOptionalParameters toTs(Long toTs) {
+      this.toTs = toTs;
+      return this;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param status Filter results by status. (optional)
+     * @return ListSyntheticsTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsTestLatestResultsOptionalParameters status(
+        SyntheticsTestResultStatus status) {
+      this.status = status;
+      return this;
+    }
+
+    /**
+     * Set runType.
+     *
+     * @param runType Filter results by run type. (optional)
+     * @return ListSyntheticsTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsTestLatestResultsOptionalParameters runType(
+        SyntheticsTestResultRunType runType) {
+      this.runType = runType;
+      return this;
+    }
+
+    /**
+     * Set probeDc.
+     *
+     * @param probeDc Locations for which to query results. (optional)
+     * @return ListSyntheticsTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsTestLatestResultsOptionalParameters probeDc(List<String> probeDc) {
+      this.probeDc = probeDc;
+      return this;
+    }
+
+    /**
+     * Set deviceId.
+     *
+     * @param deviceId Device IDs for which to query results. (optional)
+     * @return ListSyntheticsTestLatestResultsOptionalParameters
+     */
+    public ListSyntheticsTestLatestResultsOptionalParameters deviceId(List<String> deviceId) {
+      this.deviceId = deviceId;
+      return this;
+    }
+  }
+
+  /**
+   * Get a test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsTestLatestResultsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test for which to search results. (required)
+   * @return SyntheticsTestLatestResultsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestLatestResultsResponse listSyntheticsTestLatestResults(String publicId)
+      throws ApiException {
+    return listSyntheticsTestLatestResultsWithHttpInfo(
+            publicId, new ListSyntheticsTestLatestResultsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsTestLatestResultsWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test for which to search results. (required)
+   * @return CompletableFuture&lt;SyntheticsTestLatestResultsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestLatestResultsResponse>
+      listSyntheticsTestLatestResultsAsync(String publicId) {
+    return listSyntheticsTestLatestResultsWithHttpInfoAsync(
+            publicId, new ListSyntheticsTestLatestResultsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsTestLatestResultsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test for which to search results. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsTestLatestResultsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestLatestResultsResponse listSyntheticsTestLatestResults(
+      String publicId, ListSyntheticsTestLatestResultsOptionalParameters parameters)
+      throws ApiException {
+    return listSyntheticsTestLatestResultsWithHttpInfo(publicId, parameters).getData();
+  }
+
+  /**
+   * Get a test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsTestLatestResultsWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test for which to search results. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SyntheticsTestLatestResultsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestLatestResultsResponse>
+      listSyntheticsTestLatestResultsAsync(
+          String publicId, ListSyntheticsTestLatestResultsOptionalParameters parameters) {
+    return listSyntheticsTestLatestResultsWithHttpInfoAsync(publicId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the latest result summaries for a given Synthetic test.
+   *
+   * @param publicId The public ID of the Synthetic test for which to search results. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsTestLatestResultsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestLatestResultsResponse>
+      listSyntheticsTestLatestResultsWithHttpInfo(
+          String publicId, ListSyntheticsTestLatestResultsOptionalParameters parameters)
+          throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'publicId' when calling listSyntheticsTestLatestResults");
+    }
+    Long fromTs = parameters.fromTs;
+    Long toTs = parameters.toTs;
+    SyntheticsTestResultStatus status = parameters.status;
+    SyntheticsTestResultRunType runType = parameters.runType;
+    List<String> probeDc = parameters.probeDc;
+    List<String> deviceId = parameters.deviceId;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/results"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "status", status));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "runType", runType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "device_id", deviceId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.listSyntheticsTestLatestResults",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestLatestResultsResponse>() {});
+  }
+
+  /**
+   * Get a test&#39;s latest results.
+   *
+   * <p>See {@link #listSyntheticsTestLatestResultsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test for which to search results. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestLatestResultsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestLatestResultsResponse>>
+      listSyntheticsTestLatestResultsWithHttpInfoAsync(
+          String publicId, ListSyntheticsTestLatestResultsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestLatestResultsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling"
+                  + " listSyntheticsTestLatestResults"));
+      return result;
+    }
+    Long fromTs = parameters.fromTs;
+    Long toTs = parameters.toTs;
+    SyntheticsTestResultStatus status = parameters.status;
+    SyntheticsTestResultRunType runType = parameters.runType;
+    List<String> probeDc = parameters.probeDc;
+    List<String> deviceId = parameters.deviceId;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/results"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "status", status));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "runType", runType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "device_id", deviceId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.listSyntheticsTestLatestResults",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestLatestResultsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestLatestResultsResponse>() {});
+  }
+
   /** Manage optional parameters to listSyntheticsTestVersions. */
   public static class ListSyntheticsTestVersionsOptionalParameters {
     private Long lastVersionNumber;
@@ -3147,6 +4254,149 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SyntheticsSuiteResponse>() {});
+  }
+
+  /**
+   * Poll for test results.
+   *
+   * <p>See {@link #pollSyntheticsTestResultsWithHttpInfo}.
+   *
+   * @param resultIds A JSON-encoded array of result IDs to poll for. (required)
+   * @return SyntheticsPollTestResultsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsPollTestResultsResponse pollSyntheticsTestResults(String resultIds)
+      throws ApiException {
+    return pollSyntheticsTestResultsWithHttpInfo(resultIds).getData();
+  }
+
+  /**
+   * Poll for test results.
+   *
+   * <p>See {@link #pollSyntheticsTestResultsWithHttpInfoAsync}.
+   *
+   * @param resultIds A JSON-encoded array of result IDs to poll for. (required)
+   * @return CompletableFuture&lt;SyntheticsPollTestResultsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsPollTestResultsResponse> pollSyntheticsTestResultsAsync(
+      String resultIds) {
+    return pollSyntheticsTestResultsWithHttpInfoAsync(resultIds)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Poll for test results given a list of result IDs. This is typically used after triggering tests
+   * with CI/CD to retrieve results once they are available.
+   *
+   * @param resultIds A JSON-encoded array of result IDs to poll for. (required)
+   * @return ApiResponse&lt;SyntheticsPollTestResultsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsPollTestResultsResponse> pollSyntheticsTestResultsWithHttpInfo(
+      String resultIds) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'resultIds' is set
+    if (resultIds == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'resultIds' when calling pollSyntheticsTestResults");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/tests/poll_results";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "result_ids", resultIds));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.pollSyntheticsTestResults",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsPollTestResultsResponse>() {});
+  }
+
+  /**
+   * Poll for test results.
+   *
+   * <p>See {@link #pollSyntheticsTestResultsWithHttpInfo}.
+   *
+   * @param resultIds A JSON-encoded array of result IDs to poll for. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsPollTestResultsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsPollTestResultsResponse>>
+      pollSyntheticsTestResultsWithHttpInfoAsync(String resultIds) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'resultIds' is set
+    if (resultIds == null) {
+      CompletableFuture<ApiResponse<SyntheticsPollTestResultsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'resultIds' when calling pollSyntheticsTestResults"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/tests/poll_results";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "result_ids", resultIds));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.pollSyntheticsTestResults",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsPollTestResultsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsPollTestResultsResponse>() {});
   }
 
   /** Manage optional parameters to searchSuites. */
