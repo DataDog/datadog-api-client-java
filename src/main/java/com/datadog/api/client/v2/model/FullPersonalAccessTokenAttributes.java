@@ -22,7 +22,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a full personal access token, including the token key. */
 @JsonPropertyOrder({
-  FullPersonalAccessTokenAttributes.JSON_PROPERTY_ALIAS,
   FullPersonalAccessTokenAttributes.JSON_PROPERTY_CREATED_AT,
   FullPersonalAccessTokenAttributes.JSON_PROPERTY_EXPIRES_AT,
   FullPersonalAccessTokenAttributes.JSON_PROPERTY_KEY,
@@ -34,9 +33,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FullPersonalAccessTokenAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ALIAS = "alias";
-  private String alias;
-
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -54,18 +50,6 @@ public class FullPersonalAccessTokenAttributes {
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
   private List<String> scopes = null;
-
-  /**
-   * The alias (short identifier) of the personal access token.
-   *
-   * @return alias
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALIAS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAlias() {
-    return alias;
-  }
 
   /**
    * Creation date of the personal access token.
@@ -236,8 +220,7 @@ public class FullPersonalAccessTokenAttributes {
     }
     FullPersonalAccessTokenAttributes fullPersonalAccessTokenAttributes =
         (FullPersonalAccessTokenAttributes) o;
-    return Objects.equals(this.alias, fullPersonalAccessTokenAttributes.alias)
-        && Objects.equals(this.createdAt, fullPersonalAccessTokenAttributes.createdAt)
+    return Objects.equals(this.createdAt, fullPersonalAccessTokenAttributes.createdAt)
         && Objects.equals(this.expiresAt, fullPersonalAccessTokenAttributes.expiresAt)
         && Objects.equals(this.key, fullPersonalAccessTokenAttributes.key)
         && Objects.equals(this.name, fullPersonalAccessTokenAttributes.name)
@@ -250,14 +233,13 @@ public class FullPersonalAccessTokenAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        alias, createdAt, expiresAt, key, name, publicPortion, scopes, additionalProperties);
+        createdAt, expiresAt, key, name, publicPortion, scopes, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FullPersonalAccessTokenAttributes {\n");
-    sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");

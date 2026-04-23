@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UserAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
   UserAttributes.JSON_PROPERTY_STATUS,
   UserAttributes.JSON_PROPERTY_TITLE,
+  UserAttributes.JSON_PROPERTY_UUID,
   UserAttributes.JSON_PROPERTY_VERIFIED
 })
 @jakarta.annotation.Generated(
@@ -73,6 +74,9 @@ public class UserAttributes {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_UUID = "uuid";
+  private String uuid;
 
   public static final String JSON_PROPERTY_VERIFIED = "verified";
   private Boolean verified;
@@ -345,6 +349,18 @@ public class UserAttributes {
     this.title = JsonNullable.<String>of(title);
   }
 
+  /**
+   * UUID of the user.
+   *
+   * @return uuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUuid() {
+    return uuid;
+  }
+
   public UserAttributes verified(Boolean verified) {
     this.verified = verified;
     return this;
@@ -434,6 +450,7 @@ public class UserAttributes {
         && Objects.equals(this.serviceAccount, userAttributes.serviceAccount)
         && Objects.equals(this.status, userAttributes.status)
         && Objects.equals(this.title, userAttributes.title)
+        && Objects.equals(this.uuid, userAttributes.uuid)
         && Objects.equals(this.verified, userAttributes.verified)
         && Objects.equals(this.additionalProperties, userAttributes.additionalProperties);
   }
@@ -453,6 +470,7 @@ public class UserAttributes {
         serviceAccount,
         status,
         title,
+        uuid,
         verified,
         additionalProperties);
   }
@@ -473,6 +491,7 @@ public class UserAttributes {
     sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
