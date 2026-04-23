@@ -3,7 +3,6 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OrgGroupsApi;
-import com.datadog.api.client.v2.model.OrgGroupPolicyEnforcementTier;
 import com.datadog.api.client.v2.model.OrgGroupPolicyResponse;
 import com.datadog.api.client.v2.model.OrgGroupPolicyType;
 import com.datadog.api.client.v2.model.OrgGroupPolicyUpdateAttributes;
@@ -24,8 +23,7 @@ public class Example {
                 new OrgGroupPolicyUpdateData()
                     .attributes(
                         new OrgGroupPolicyUpdateAttributes()
-                            .content(Map.ofEntries(Map.entry("value", "UTC")))
-                            .enforcementTier(OrgGroupPolicyEnforcementTier.DEFAULT))
+                            .content(Map.ofEntries(Map.entry("value", "UTC"))))
                     .id(UUID.fromString("1a2b3c4d-5e6f-7890-abcd-ef0123456789"))
                     .type(OrgGroupPolicyType.ORG_GROUP_POLICIES));
 

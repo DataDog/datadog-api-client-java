@@ -976,8 +976,6 @@ public class ApiClient {
           put("v2.deleteOrgGroupPolicyOverride", false);
           put("v2.getOrgGroup", false);
           put("v2.getOrgGroupMembership", false);
-          put("v2.getOrgGroupPolicy", false);
-          put("v2.getOrgGroupPolicyOverride", false);
           put("v2.listOrgGroupMemberships", false);
           put("v2.listOrgGroupPolicies", false);
           put("v2.listOrgGroupPolicyConfigs", false);

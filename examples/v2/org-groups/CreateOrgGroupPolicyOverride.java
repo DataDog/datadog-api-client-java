@@ -29,7 +29,7 @@ public class Example {
                 new OrgGroupPolicyOverrideCreateData()
                     .attributes(
                         new OrgGroupPolicyOverrideCreateAttributes()
-                            .orgSite("us1")
+                            .orgSite("datadoghq.com")
                             .orgUuid(UUID.fromString("c3d4e5f6-a7b8-9012-cdef-012345678901")))
                     .relationships(
                         new OrgGroupPolicyOverrideCreateRelationships()

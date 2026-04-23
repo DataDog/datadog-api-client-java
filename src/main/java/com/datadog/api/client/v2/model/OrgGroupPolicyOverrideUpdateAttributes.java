@@ -18,10 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/**
- * Attributes for updating a policy override. The <code>org_uuid</code> and <code>org_site</code>
- * fields must match the existing override and cannot be changed.
- */
+/** Attributes for updating a policy override. */
 @JsonPropertyOrder({
   OrgGroupPolicyOverrideUpdateAttributes.JSON_PROPERTY_ORG_SITE,
   OrgGroupPolicyOverrideUpdateAttributes.JSON_PROPERTY_ORG_UUID

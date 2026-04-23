@@ -21,10 +21,9 @@ import java.util.Objects;
 /** Attributes of an org group policy. */
 @JsonPropertyOrder({
   OrgGroupPolicyAttributes.JSON_PROPERTY_CONTENT,
-  OrgGroupPolicyAttributes.JSON_PROPERTY_ENFORCEMENT_TIER,
+  OrgGroupPolicyAttributes.JSON_PROPERTY_ENFORCED_AT,
   OrgGroupPolicyAttributes.JSON_PROPERTY_MODIFIED_AT,
-  OrgGroupPolicyAttributes.JSON_PROPERTY_POLICY_NAME,
-  OrgGroupPolicyAttributes.JSON_PROPERTY_POLICY_TYPE
+  OrgGroupPolicyAttributes.JSON_PROPERTY_POLICY_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -33,8 +32,8 @@ public class OrgGroupPolicyAttributes {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private Map<String, Object> content = null;
 
-  public static final String JSON_PROPERTY_ENFORCEMENT_TIER = "enforcement_tier";
-  private OrgGroupPolicyEnforcementTier enforcementTier = OrgGroupPolicyEnforcementTier.DEFAULT;
+  public static final String JSON_PROPERTY_ENFORCED_AT = "enforced_at";
+  private OffsetDateTime enforcedAt;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -42,25 +41,16 @@ public class OrgGroupPolicyAttributes {
   public static final String JSON_PROPERTY_POLICY_NAME = "policy_name";
   private String policyName;
 
-  public static final String JSON_PROPERTY_POLICY_TYPE = "policy_type";
-  private OrgGroupPolicyPolicyType policyType = OrgGroupPolicyPolicyType.ORG_CONFIG;
-
   public OrgGroupPolicyAttributes() {}
 
   @JsonCreator
   public OrgGroupPolicyAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENFORCEMENT_TIER)
-          OrgGroupPolicyEnforcementTier enforcementTier,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENFORCED_AT) OffsetDateTime enforcedAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) OffsetDateTime modifiedAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_POLICY_NAME) String policyName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_POLICY_TYPE)
-          OrgGroupPolicyPolicyType policyType) {
-    this.enforcementTier = enforcementTier;
-    this.unparsed |= !enforcementTier.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_POLICY_NAME) String policyName) {
+    this.enforcedAt = enforcedAt;
     this.modifiedAt = modifiedAt;
     this.policyName = policyName;
-    this.policyType = policyType;
-    this.unparsed |= !policyType.isValid();
   }
 
   public OrgGroupPolicyAttributes content(Map<String, Object> content) {
@@ -92,31 +82,24 @@ public class OrgGroupPolicyAttributes {
     this.content = content;
   }
 
-  public OrgGroupPolicyAttributes enforcementTier(OrgGroupPolicyEnforcementTier enforcementTier) {
-    this.enforcementTier = enforcementTier;
-    this.unparsed |= !enforcementTier.isValid();
+  public OrgGroupPolicyAttributes enforcedAt(OffsetDateTime enforcedAt) {
+    this.enforcedAt = enforcedAt;
     return this;
   }
 
   /**
-   * The enforcement tier of the policy. <code>DEFAULT</code> means the policy is set but member
-   * orgs may mutate it. <code>ENFORCE</code> means the policy is strictly controlled and mutations
-   * are blocked for affected orgs. <code>DELEGATE</code> means each member org controls its own
-   * value.
+   * Timestamp when the policy was enforced.
    *
-   * @return enforcementTier
+   * @return enforcedAt
    */
-  @JsonProperty(JSON_PROPERTY_ENFORCEMENT_TIER)
+  @JsonProperty(JSON_PROPERTY_ENFORCED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OrgGroupPolicyEnforcementTier getEnforcementTier() {
-    return enforcementTier;
+  public OffsetDateTime getEnforcedAt() {
+    return enforcedAt;
   }
 
-  public void setEnforcementTier(OrgGroupPolicyEnforcementTier enforcementTier) {
-    if (!enforcementTier.isValid()) {
-      this.unparsed = true;
-    }
-    this.enforcementTier = enforcementTier;
+  public void setEnforcedAt(OffsetDateTime enforcedAt) {
+    this.enforcedAt = enforcedAt;
   }
 
   public OrgGroupPolicyAttributes modifiedAt(OffsetDateTime modifiedAt) {
@@ -157,31 +140,6 @@ public class OrgGroupPolicyAttributes {
 
   public void setPolicyName(String policyName) {
     this.policyName = policyName;
-  }
-
-  public OrgGroupPolicyAttributes policyType(OrgGroupPolicyPolicyType policyType) {
-    this.policyType = policyType;
-    this.unparsed |= !policyType.isValid();
-    return this;
-  }
-
-  /**
-   * The type of the policy. Only <code>org_config</code> is supported, indicating a policy backed
-   * by an organization configuration setting.
-   *
-   * @return policyType
-   */
-  @JsonProperty(JSON_PROPERTY_POLICY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OrgGroupPolicyPolicyType getPolicyType() {
-    return policyType;
-  }
-
-  public void setPolicyType(OrgGroupPolicyPolicyType policyType) {
-    if (!policyType.isValid()) {
-      this.unparsed = true;
-    }
-    this.policyType = policyType;
   }
 
   /**
@@ -241,17 +199,15 @@ public class OrgGroupPolicyAttributes {
     }
     OrgGroupPolicyAttributes orgGroupPolicyAttributes = (OrgGroupPolicyAttributes) o;
     return Objects.equals(this.content, orgGroupPolicyAttributes.content)
-        && Objects.equals(this.enforcementTier, orgGroupPolicyAttributes.enforcementTier)
+        && Objects.equals(this.enforcedAt, orgGroupPolicyAttributes.enforcedAt)
         && Objects.equals(this.modifiedAt, orgGroupPolicyAttributes.modifiedAt)
         && Objects.equals(this.policyName, orgGroupPolicyAttributes.policyName)
-        && Objects.equals(this.policyType, orgGroupPolicyAttributes.policyType)
         && Objects.equals(this.additionalProperties, orgGroupPolicyAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        content, enforcementTier, modifiedAt, policyName, policyType, additionalProperties);
+    return Objects.hash(content, enforcedAt, modifiedAt, policyName, additionalProperties);
   }
 
   @Override
@@ -259,10 +215,9 @@ public class OrgGroupPolicyAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrgGroupPolicyAttributes {\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    enforcementTier: ").append(toIndentedString(enforcementTier)).append("\n");
+    sb.append("    enforcedAt: ").append(toIndentedString(enforcedAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
-    sb.append("    policyType: ").append(toIndentedString(policyType)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
