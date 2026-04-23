@@ -34,8 +34,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FeatureFlagEnvironment.JSON_PROPERTY_OVERRIDE_VARIANT_ID,
   FeatureFlagEnvironment.JSON_PROPERTY_PENDING_SUGGESTION_ID,
   FeatureFlagEnvironment.JSON_PROPERTY_REQUIRE_FEATURE_FLAG_APPROVAL,
-  FeatureFlagEnvironment.JSON_PROPERTY_ROLLOUT_PERCENTAGE,
-  FeatureFlagEnvironment.JSON_PROPERTY_RULES,
   FeatureFlagEnvironment.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(
@@ -76,12 +74,6 @@ public class FeatureFlagEnvironment {
   public static final String JSON_PROPERTY_REQUIRE_FEATURE_FLAG_APPROVAL =
       "require_feature_flag_approval";
   private Boolean requireFeatureFlagApproval;
-
-  public static final String JSON_PROPERTY_ROLLOUT_PERCENTAGE = "rollout_percentage";
-  private Long rolloutPercentage;
-
-  public static final String JSON_PROPERTY_RULES = "rules";
-  private List<Map<String, Object>> rules = null;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private FeatureFlagStatus status;
@@ -387,56 +379,6 @@ public class FeatureFlagEnvironment {
     this.requireFeatureFlagApproval = requireFeatureFlagApproval;
   }
 
-  public FeatureFlagEnvironment rolloutPercentage(Long rolloutPercentage) {
-    this.rolloutPercentage = rolloutPercentage;
-    return this;
-  }
-
-  /**
-   * Rollout percentage for this environment. minimum: 0 maximum: 100
-   *
-   * @return rolloutPercentage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLLOUT_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRolloutPercentage() {
-    return rolloutPercentage;
-  }
-
-  public void setRolloutPercentage(Long rolloutPercentage) {
-    this.rolloutPercentage = rolloutPercentage;
-  }
-
-  public FeatureFlagEnvironment rules(List<Map<String, Object>> rules) {
-    this.rules = rules;
-    return this;
-  }
-
-  public FeatureFlagEnvironment addRulesItem(Map<String, Object> rulesItem) {
-    if (this.rules == null) {
-      this.rules = new ArrayList<>();
-    }
-    this.rules.add(rulesItem);
-    return this;
-  }
-
-  /**
-   * Environment targeting rules for this feature flag.
-   *
-   * @return rules
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Map<String, Object>> getRules() {
-    return rules;
-  }
-
-  public void setRules(List<Map<String, Object>> rules) {
-    this.rules = rules;
-  }
-
   public FeatureFlagEnvironment status(FeatureFlagStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -529,8 +471,6 @@ public class FeatureFlagEnvironment {
         && Objects.equals(this.pendingSuggestionId, featureFlagEnvironment.pendingSuggestionId)
         && Objects.equals(
             this.requireFeatureFlagApproval, featureFlagEnvironment.requireFeatureFlagApproval)
-        && Objects.equals(this.rolloutPercentage, featureFlagEnvironment.rolloutPercentage)
-        && Objects.equals(this.rules, featureFlagEnvironment.rules)
         && Objects.equals(this.status, featureFlagEnvironment.status)
         && Objects.equals(this.additionalProperties, featureFlagEnvironment.additionalProperties);
   }
@@ -549,8 +489,6 @@ public class FeatureFlagEnvironment {
         overrideVariantId,
         pendingSuggestionId,
         requireFeatureFlagApproval,
-        rolloutPercentage,
-        rules,
         status,
         additionalProperties);
   }
@@ -578,8 +516,6 @@ public class FeatureFlagEnvironment {
     sb.append("    requireFeatureFlagApproval: ")
         .append(toIndentedString(requireFeatureFlagApproval))
         .append("\n");
-    sb.append("    rolloutPercentage: ").append(toIndentedString(rolloutPercentage)).append("\n");
-    sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
