@@ -29,7 +29,7 @@ import java.util.Objects;
 public class ListFeatureFlagsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<FeatureFlag> data = new ArrayList<>();
+  private List<FeatureFlagListItem> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_META = "meta";
   private FeatureFlagsPaginationMeta meta;
@@ -38,19 +38,19 @@ public class ListFeatureFlagsResponse {
 
   @JsonCreator
   public ListFeatureFlagsResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<FeatureFlag> data) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<FeatureFlagListItem> data) {
     this.data = data;
   }
 
-  public ListFeatureFlagsResponse data(List<FeatureFlag> data) {
+  public ListFeatureFlagsResponse data(List<FeatureFlagListItem> data) {
     this.data = data;
-    for (FeatureFlag item : data) {
+    for (FeatureFlagListItem item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public ListFeatureFlagsResponse addDataItem(FeatureFlag dataItem) {
+  public ListFeatureFlagsResponse addDataItem(FeatureFlagListItem dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
@@ -63,11 +63,11 @@ public class ListFeatureFlagsResponse {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<FeatureFlag> getData() {
+  public List<FeatureFlagListItem> getData() {
     return data;
   }
 
-  public void setData(List<FeatureFlag> data) {
+  public void setData(List<FeatureFlagListItem> data) {
     this.data = data;
   }
 

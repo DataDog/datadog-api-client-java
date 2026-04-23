@@ -35,6 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FeatureFlagAttributes.JSON_PROPERTY_LAST_UPDATED_BY,
   FeatureFlagAttributes.JSON_PROPERTY_NAME,
   FeatureFlagAttributes.JSON_PROPERTY_REQUIRE_APPROVAL,
+  FeatureFlagAttributes.JSON_PROPERTY_STALENESS_STATUS,
   FeatureFlagAttributes.JSON_PROPERTY_TAGS,
   FeatureFlagAttributes.JSON_PROPERTY_UPDATED_AT,
   FeatureFlagAttributes.JSON_PROPERTY_VALUE_TYPE,
@@ -76,6 +77,9 @@ public class FeatureFlagAttributes {
 
   public static final String JSON_PROPERTY_REQUIRE_APPROVAL = "require_approval";
   private Boolean requireApproval;
+
+  public static final String JSON_PROPERTY_STALENESS_STATUS = "staleness_status";
+  private String stalenessStatus;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -368,6 +372,27 @@ public class FeatureFlagAttributes {
     this.requireApproval = requireApproval;
   }
 
+  public FeatureFlagAttributes stalenessStatus(String stalenessStatus) {
+    this.stalenessStatus = stalenessStatus;
+    return this;
+  }
+
+  /**
+   * Indicates the whether a feature flag is stale or not.
+   *
+   * @return stalenessStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STALENESS_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStalenessStatus() {
+    return stalenessStatus;
+  }
+
+  public void setStalenessStatus(String stalenessStatus) {
+    this.stalenessStatus = stalenessStatus;
+  }
+
   public FeatureFlagAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -539,6 +564,7 @@ public class FeatureFlagAttributes {
         && Objects.equals(this.lastUpdatedBy, featureFlagAttributes.lastUpdatedBy)
         && Objects.equals(this.name, featureFlagAttributes.name)
         && Objects.equals(this.requireApproval, featureFlagAttributes.requireApproval)
+        && Objects.equals(this.stalenessStatus, featureFlagAttributes.stalenessStatus)
         && Objects.equals(this.tags, featureFlagAttributes.tags)
         && Objects.equals(this.updatedAt, featureFlagAttributes.updatedAt)
         && Objects.equals(this.valueType, featureFlagAttributes.valueType)
@@ -560,6 +586,7 @@ public class FeatureFlagAttributes {
         lastUpdatedBy,
         name,
         requireApproval,
+        stalenessStatus,
         tags,
         updatedAt,
         valueType,
@@ -586,6 +613,7 @@ public class FeatureFlagAttributes {
     sb.append("    lastUpdatedBy: ").append(toIndentedString(lastUpdatedBy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    requireApproval: ").append(toIndentedString(requireApproval)).append("\n");
+    sb.append("    stalenessStatus: ").append(toIndentedString(stalenessStatus)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    valueType: ").append(toIndentedString(valueType)).append("\n");
