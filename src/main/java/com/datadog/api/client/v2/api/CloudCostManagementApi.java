@@ -520,12 +520,12 @@ public class CloudCostManagementApi {
    * specific tags. Requires: allocated_by (array of percentage allocations).
    *
    * <p><strong>Filter Conditions:</strong> - Use <strong>value</strong> for single-value
-   * conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is
-   * all values", "is untagged" - Use <strong>values</strong> for multi-value conditions: "in", "not
-   * in" - Cannot use both value and values simultaneously.
+   * conditions: "is", "is not", "contains", "=", "!=", "like", "not like" - Use
+   * <strong>values</strong> for multi-value conditions: "in", "not in" - Cannot use both value and
+   * values simultaneously.
    *
-   * <p><strong>Supported operators</strong>: is, is not, is all values, is untagged, contains, does
-   * not contain, in, not in, =, !=, like, not like
+   * <p><strong>Supported operators</strong>: is, is not, contains, in, not in, =, !=, like, not
+   * like
    *
    * @param body (required)
    * @return ApiResponse&lt;ArbitraryRuleResponse&gt;
@@ -4383,12 +4383,12 @@ public class CloudCostManagementApi {
    * <strong>USAGE_METRIC</strong>: Allocates based on usage metrics (implementation varies).
    *
    * <p><strong>Filter Conditions:</strong> - Use <strong>value</strong> for single-value
-   * conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is
-   * all values", "is untagged" - Use <strong>values</strong> for multi-value conditions: "in", "not
-   * in" - Cannot use both value and values simultaneously.
+   * conditions: "is", "is not", "contains", "=", "!=", "like", "not like" - Use
+   * <strong>values</strong> for multi-value conditions: "in", "not in" - Cannot use both value and
+   * values simultaneously.
    *
-   * <p><strong>Supported operators</strong>: is, is not, is all values, is untagged, contains, does
-   * not contain, in, not in, =, !=, like, not like
+   * <p><strong>Supported operators</strong>: is, is not, contains, in, not in, =, !=, like, not
+   * like
    *
    * @param ruleId The unique identifier of the custom allocation rule (required)
    * @param body (required)
