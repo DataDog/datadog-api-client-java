@@ -30,10 +30,10 @@ import java.util.Objects;
 public class SyntheticsFastTestResultAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEVICE = "device";
-  private SyntheticsFastTestResultDevice device;
+  private SyntheticsTestResultDevice device;
 
   public static final String JSON_PROPERTY_LOCATION = "location";
-  private SyntheticsFastTestResultLocation location;
+  private SyntheticsTestResultLocation location;
 
   public static final String JSON_PROPERTY_RESULT = "result";
   private SyntheticsFastTestResultDetail result;
@@ -42,52 +42,52 @@ public class SyntheticsFastTestResultAttributes {
   private SyntheticsFastTestSubType testSubType;
 
   public static final String JSON_PROPERTY_TEST_TYPE = "test_type";
-  private String testType;
+  private SyntheticsFastTestType testType;
 
   public static final String JSON_PROPERTY_TEST_VERSION = "test_version";
   private Long testVersion;
 
-  public SyntheticsFastTestResultAttributes device(SyntheticsFastTestResultDevice device) {
+  public SyntheticsFastTestResultAttributes device(SyntheticsTestResultDevice device) {
     this.device = device;
     this.unparsed |= device.unparsed;
     return this;
   }
 
   /**
-   * Device information for browser-based fast tests.
+   * Device information for the test result (browser and mobile tests).
    *
    * @return device
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsFastTestResultDevice getDevice() {
+  public SyntheticsTestResultDevice getDevice() {
     return device;
   }
 
-  public void setDevice(SyntheticsFastTestResultDevice device) {
+  public void setDevice(SyntheticsTestResultDevice device) {
     this.device = device;
   }
 
-  public SyntheticsFastTestResultAttributes location(SyntheticsFastTestResultLocation location) {
+  public SyntheticsFastTestResultAttributes location(SyntheticsTestResultLocation location) {
     this.location = location;
     this.unparsed |= location.unparsed;
     return this;
   }
 
   /**
-   * Location from which the fast test was executed.
+   * Location information for a Synthetic test result.
    *
    * @return location
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsFastTestResultLocation getLocation() {
+  public SyntheticsTestResultLocation getLocation() {
     return location;
   }
 
-  public void setLocation(SyntheticsFastTestResultLocation location) {
+  public void setLocation(SyntheticsTestResultLocation location) {
     this.location = location;
   }
 
@@ -139,25 +139,28 @@ public class SyntheticsFastTestResultAttributes {
     this.testSubType = testSubType;
   }
 
-  public SyntheticsFastTestResultAttributes testType(String testType) {
+  public SyntheticsFastTestResultAttributes testType(SyntheticsFastTestType testType) {
     this.testType = testType;
+    this.unparsed |= !testType.isValid();
     return this;
   }
 
   /**
-   * The type of the Synthetic test that produced this result (for example, <code>api</code> or
-   * <code>browser</code>).
+   * Type of the Synthetic fast test that produced this result.
    *
    * @return testType
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTestType() {
+  public SyntheticsFastTestType getTestType() {
     return testType;
   }
 
-  public void setTestType(String testType) {
+  public void setTestType(SyntheticsFastTestType testType) {
+    if (!testType.isValid()) {
+      this.unparsed = true;
+    }
     this.testType = testType;
   }
 

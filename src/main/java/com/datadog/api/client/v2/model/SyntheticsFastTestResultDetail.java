@@ -48,19 +48,19 @@ import java.util.Objects;
 public class SyntheticsFastTestResultDetail {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
-  private List<Map<String, Object>> assertions = null;
+  private List<SyntheticsTestResultAssertionResult> assertions = null;
 
   public static final String JSON_PROPERTY_CALL_TYPE = "call_type";
   private String callType;
 
   public static final String JSON_PROPERTY_CERT = "cert";
-  private Map<String, Object> cert = null;
+  private SyntheticsTestResultCertificate cert;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Double duration;
 
   public static final String JSON_PROPERTY_FAILURE = "failure";
-  private SyntheticsFastTestResultFailure failure;
+  private SyntheticsTestResultFailure failure;
 
   public static final String JSON_PROPERTY_FINISHED_AT = "finished_at";
   private Long finishedAt;
@@ -72,16 +72,16 @@ public class SyntheticsFastTestResultDetail {
   private Boolean isFastRetry;
 
   public static final String JSON_PROPERTY_REQUEST = "request";
-  private Map<String, Object> request = null;
+  private SyntheticsTestResultRequestInfo request;
 
   public static final String JSON_PROPERTY_RESOLVED_IP = "resolved_ip";
   private String resolvedIp;
 
   public static final String JSON_PROPERTY_RESPONSE = "response";
-  private Map<String, Object> response = null;
+  private SyntheticsTestResultResponseInfo response;
 
   public static final String JSON_PROPERTY_RUN_TYPE = "run_type";
-  private String runType;
+  private SyntheticsTestResultRunType runType;
 
   public static final String JSON_PROPERTY_STARTED_AT = "started_at";
   private Long startedAt;
@@ -90,13 +90,13 @@ public class SyntheticsFastTestResultDetail {
   private String status;
 
   public static final String JSON_PROPERTY_STEPS = "steps";
-  private List<Map<String, Object>> steps = null;
+  private List<SyntheticsTestResultStep> steps = null;
 
   public static final String JSON_PROPERTY_TIMINGS = "timings";
   private Map<String, Object> timings = null;
 
   public static final String JSON_PROPERTY_TRACEROUTE = "traceroute";
-  private List<Map<String, Object>> traceroute = null;
+  private List<SyntheticsTestResultTracerouteHop> traceroute = null;
 
   public static final String JSON_PROPERTY_TRIGGERED_AT = "triggered_at";
   private Long triggeredAt;
@@ -104,16 +104,22 @@ public class SyntheticsFastTestResultDetail {
   public static final String JSON_PROPERTY_TUNNEL = "tunnel";
   private Boolean tunnel;
 
-  public SyntheticsFastTestResultDetail assertions(List<Map<String, Object>> assertions) {
+  public SyntheticsFastTestResultDetail assertions(
+      List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
+    for (SyntheticsTestResultAssertionResult item : assertions) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public SyntheticsFastTestResultDetail addAssertionsItem(Map<String, Object> assertionsItem) {
+  public SyntheticsFastTestResultDetail addAssertionsItem(
+      SyntheticsTestResultAssertionResult assertionsItem) {
     if (this.assertions == null) {
       this.assertions = new ArrayList<>();
     }
     this.assertions.add(assertionsItem);
+    this.unparsed |= assertionsItem.unparsed;
     return this;
   }
 
@@ -125,11 +131,11 @@ public class SyntheticsFastTestResultDetail {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Map<String, Object>> getAssertions() {
+  public List<SyntheticsTestResultAssertionResult> getAssertions() {
     return assertions;
   }
 
-  public void setAssertions(List<Map<String, Object>> assertions) {
+  public void setAssertions(List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
   }
 
@@ -155,32 +161,25 @@ public class SyntheticsFastTestResultDetail {
     this.callType = callType;
   }
 
-  public SyntheticsFastTestResultDetail cert(Map<String, Object> cert) {
+  public SyntheticsFastTestResultDetail cert(SyntheticsTestResultCertificate cert) {
     this.cert = cert;
-    return this;
-  }
-
-  public SyntheticsFastTestResultDetail putCertItem(String key, Object certItem) {
-    if (this.cert == null) {
-      this.cert = new HashMap<>();
-    }
-    this.cert.put(key, certItem);
+    this.unparsed |= cert.unparsed;
     return this;
   }
 
   /**
-   * TLS certificate details, present for SSL tests.
+   * SSL/TLS certificate information returned from an SSL test.
    *
    * @return cert
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getCert() {
+  public SyntheticsTestResultCertificate getCert() {
     return cert;
   }
 
-  public void setCert(Map<String, Object> cert) {
+  public void setCert(SyntheticsTestResultCertificate cert) {
     this.cert = cert;
   }
 
@@ -205,25 +204,25 @@ public class SyntheticsFastTestResultDetail {
     this.duration = duration;
   }
 
-  public SyntheticsFastTestResultDetail failure(SyntheticsFastTestResultFailure failure) {
+  public SyntheticsFastTestResultDetail failure(SyntheticsTestResultFailure failure) {
     this.failure = failure;
     this.unparsed |= failure.unparsed;
     return this;
   }
 
   /**
-   * Failure details if the fast test did not pass.
+   * Details about the failure of a Synthetic test.
    *
    * @return failure
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsFastTestResultFailure getFailure() {
+  public SyntheticsTestResultFailure getFailure() {
     return failure;
   }
 
-  public void setFailure(SyntheticsFastTestResultFailure failure) {
+  public void setFailure(SyntheticsTestResultFailure failure) {
     this.failure = failure;
   }
 
@@ -290,32 +289,25 @@ public class SyntheticsFastTestResultDetail {
     this.isFastRetry = isFastRetry;
   }
 
-  public SyntheticsFastTestResultDetail request(Map<String, Object> request) {
+  public SyntheticsFastTestResultDetail request(SyntheticsTestResultRequestInfo request) {
     this.request = request;
-    return this;
-  }
-
-  public SyntheticsFastTestResultDetail putRequestItem(String key, Object requestItem) {
-    if (this.request == null) {
-      this.request = new HashMap<>();
-    }
-    this.request.put(key, requestItem);
+    this.unparsed |= request.unparsed;
     return this;
   }
 
   /**
-   * Details of the outgoing request made during the test.
+   * Details of the outgoing request made during the test execution.
    *
    * @return request
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getRequest() {
+  public SyntheticsTestResultRequestInfo getRequest() {
     return request;
   }
 
-  public void setRequest(Map<String, Object> request) {
+  public void setRequest(SyntheticsTestResultRequestInfo request) {
     this.request = request;
   }
 
@@ -340,53 +332,50 @@ public class SyntheticsFastTestResultDetail {
     this.resolvedIp = resolvedIp;
   }
 
-  public SyntheticsFastTestResultDetail response(Map<String, Object> response) {
+  public SyntheticsFastTestResultDetail response(SyntheticsTestResultResponseInfo response) {
     this.response = response;
-    return this;
-  }
-
-  public SyntheticsFastTestResultDetail putResponseItem(String key, Object responseItem) {
-    if (this.response == null) {
-      this.response = new HashMap<>();
-    }
-    this.response.put(key, responseItem);
+    this.unparsed |= response.unparsed;
     return this;
   }
 
   /**
-   * Details of the response received during the test.
+   * Details of the response received during the test execution.
    *
    * @return response
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getResponse() {
+  public SyntheticsTestResultResponseInfo getResponse() {
     return response;
   }
 
-  public void setResponse(Map<String, Object> response) {
+  public void setResponse(SyntheticsTestResultResponseInfo response) {
     this.response = response;
   }
 
-  public SyntheticsFastTestResultDetail runType(String runType) {
+  public SyntheticsFastTestResultDetail runType(SyntheticsTestResultRunType runType) {
     this.runType = runType;
+    this.unparsed |= !runType.isValid();
     return this;
   }
 
   /**
-   * Run type indicating how this test was triggered (for example, <code>fast</code>).
+   * The type of run for a Synthetic test result.
    *
    * @return runType
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRunType() {
+  public SyntheticsTestResultRunType getRunType() {
     return runType;
   }
 
-  public void setRunType(String runType) {
+  public void setRunType(SyntheticsTestResultRunType runType) {
+    if (!runType.isValid()) {
+      this.unparsed = true;
+    }
     this.runType = runType;
   }
 
@@ -432,16 +421,20 @@ public class SyntheticsFastTestResultDetail {
     this.status = status;
   }
 
-  public SyntheticsFastTestResultDetail steps(List<Map<String, Object>> steps) {
+  public SyntheticsFastTestResultDetail steps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
+    for (SyntheticsTestResultStep item : steps) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public SyntheticsFastTestResultDetail addStepsItem(Map<String, Object> stepsItem) {
+  public SyntheticsFastTestResultDetail addStepsItem(SyntheticsTestResultStep stepsItem) {
     if (this.steps == null) {
       this.steps = new ArrayList<>();
     }
     this.steps.add(stepsItem);
+    this.unparsed |= stepsItem.unparsed;
     return this;
   }
 
@@ -453,11 +446,11 @@ public class SyntheticsFastTestResultDetail {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Map<String, Object>> getSteps() {
+  public List<SyntheticsTestResultStep> getSteps() {
     return steps;
   }
 
-  public void setSteps(List<Map<String, Object>> steps) {
+  public void setSteps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
   }
 
@@ -490,16 +483,22 @@ public class SyntheticsFastTestResultDetail {
     this.timings = timings;
   }
 
-  public SyntheticsFastTestResultDetail traceroute(List<Map<String, Object>> traceroute) {
+  public SyntheticsFastTestResultDetail traceroute(
+      List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
+    for (SyntheticsTestResultTracerouteHop item : traceroute) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public SyntheticsFastTestResultDetail addTracerouteItem(Map<String, Object> tracerouteItem) {
+  public SyntheticsFastTestResultDetail addTracerouteItem(
+      SyntheticsTestResultTracerouteHop tracerouteItem) {
     if (this.traceroute == null) {
       this.traceroute = new ArrayList<>();
     }
     this.traceroute.add(tracerouteItem);
+    this.unparsed |= tracerouteItem.unparsed;
     return this;
   }
 
@@ -511,11 +510,11 @@ public class SyntheticsFastTestResultDetail {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRACEROUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Map<String, Object>> getTraceroute() {
+  public List<SyntheticsTestResultTracerouteHop> getTraceroute() {
     return traceroute;
   }
 
-  public void setTraceroute(List<Map<String, Object>> traceroute) {
+  public void setTraceroute(List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
   }
 
