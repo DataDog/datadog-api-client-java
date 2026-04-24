@@ -60,7 +60,9 @@ public class OrgGroupPolicyCreateData {
   }
 
   /**
-   * Attributes for creating an org group policy.
+   * Attributes for creating an org group policy. If <code>policy_type</code> or <code>
+   * enforcement_tier</code> are not provided, they default to <code>org_config</code> and <code>
+   * DEFAULT</code> respectively.
    *
    * @return attributes
    */
