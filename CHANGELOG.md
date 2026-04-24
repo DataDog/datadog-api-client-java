@@ -1,5 +1,56 @@
 # CHANGELOG
 
+## 2.54.0/2026-04-24
+
+### Changed
+* Add GET OrgGroupPolicy and OrgGroupPolicyOverride, Add policy_type/enforcement_tier fields, Remove enforced_at field [#3757](https://github.com/DataDog/datadog-api-client-java/pull/3757)
+* Rename pat_uuid to pat_id and remove alias field from PAT spec [#3753](https://github.com/DataDog/datadog-api-client-java/pull/3753)
+* Add GET OrgGroupPolicy and OrgGroupPolicyOverride, Add policy_type/enforcement_tier fields, Remove enforced_at field [#3739](https://github.com/DataDog/datadog-api-client-java/pull/3739)
+* Rename pat_uuid to pat_id and remove alias field from PAT spec [#3736](https://github.com/DataDog/datadog-api-client-java/pull/3736)
+* Security Monitoring - Revert rename of historical job API endpoints to threat hunting [#3725](https://github.com/DataDog/datadog-api-client-java/pull/3725)
+* Update SearchFlakyTests endpoint documentation [#3698](https://github.com/DataDog/datadog-api-client-java/pull/3698)
+
+### Removed
+* Remove unsupported operators from CCM Custom Allocation Rules feature [#3751](https://github.com/DataDog/datadog-api-client-java/pull/3751)
+
+### Added
+* Add us2.ddog-gov.com. [#3748](https://github.com/DataDog/datadog-api-client-java/pull/3748)
+* Add OpenAPI documentation for LLM Observability eval config CRUD endpoints [#3744](https://github.com/DataDog/datadog-api-client-java/pull/3744)
+* Add OpenAPI spec for v2 Synthetics test result endpoints [#3743](https://github.com/DataDog/datadog-api-client-java/pull/3743)
+* Document signals triage update endpoints [#3742](https://github.com/DataDog/datadog-api-client-java/pull/3742)
+* Security notifications - Add SAST and secret rule types [#3737](https://github.com/DataDog/datadog-api-client-java/pull/3737)
+* Add OpenAPI documentation for list and get indicators of compromise endpoints [#3734](https://github.com/DataDog/datadog-api-client-java/pull/3734)
+* Cloud SIEM - Document content packs SIEM endpoints [#3732](https://github.com/DataDog/datadog-api-client-java/pull/3732)
+* Add domain prefix filter query parameter to list status pages API [#3728](https://github.com/DataDog/datadog-api-client-java/pull/3728)
+* Add OpenAPI spec for Bits AI SRE investigations [#3724](https://github.com/DataDog/datadog-api-client-java/pull/3724)
+* Add API spec for security monitoring terraform export endpoints [#3722](https://github.com/DataDog/datadog-api-client-java/pull/3722)
+* Add team and assignee filters for Search Error Tracking Issues API [#3721](https://github.com/DataDog/datadog-api-client-java/pull/3721)
+* Add missing params to ListCustomCostsFiles [#3719](https://github.com/DataDog/datadog-api-client-java/pull/3719)
+* Add Product Analytics widget definitions [#3718](https://github.com/DataDog/datadog-api-client-java/pull/3718)
+* Add OpenAPI spec for Dashboard Secure Embed endpoints [#3717](https://github.com/DataDog/datadog-api-client-java/pull/3717)
+* Add fleet tracers, clusters, and instrumented pods endpoints [#3716](https://github.com/DataDog/datadog-api-client-java/pull/3716)
+* Add public POST/PATCH endpoints for Flaky Tests Management policies [#3715](https://github.com/DataDog/datadog-api-client-java/pull/3715)
+* Add CCM spend usage type breakdown fields [#3714](https://github.com/DataDog/datadog-api-client-java/pull/3714)
+* Adding all Observability Pipeline new hec_token related features into the api [#3712](https://github.com/DataDog/datadog-api-client-java/pull/3712)
+* Adding compression optional field to Amazon S3 source [#3708](https://github.com/DataDog/datadog-api-client-java/pull/3708)
+* Add Annotations endpoints [#3705](https://github.com/DataDog/datadog-api-client-java/pull/3705)
+* Add Org Groups API specification [#3704](https://github.com/DataDog/datadog-api-client-java/pull/3704)
+* Add Obs Pipelines Elasticsearch metrics destination and new fields [#3696](https://github.com/DataDog/datadog-api-client-java/pull/3696)
+* Add OpenAPI spec for Bits AI SRE investigations [#3695](https://github.com/DataDog/datadog-api-client-java/pull/3695)
+* Add PAT/SAT management API endpoints [#3692](https://github.com/DataDog/datadog-api-client-java/pull/3692)
+* Add query type schemas for timeseries-query data sources [#3688](https://github.com/DataDog/datadog-api-client-java/pull/3688)
+* Add OpenAPI documentation for signal investigation queries and suggested actions endpoints [#3687](https://github.com/DataDog/datadog-api-client-java/pull/3687)
+* add api spec for feature flags allocations and exposure schedules endpoints [#3683](https://github.com/DataDog/datadog-api-client-java/pull/3683)
+* Add Publish and Unpublish API documentation for Status Pages [#3681](https://github.com/DataDog/datadog-api-client-java/pull/3681)
+* feat: add drag and drop as new synthetics browser step type  [#3678](https://github.com/DataDog/datadog-api-client-java/pull/3678)
+* Allow monitor notification rule on restriction policy [#3674](https://github.com/DataDog/datadog-api-client-java/pull/3674)
+* Add support for configuring Splunk sourcetype in Custom Destinations [#3664](https://github.com/DataDog/datadog-api-client-java/pull/3664)
+* Add OpenAPI documentation for scorecards endpoints [#3464](https://github.com/DataDog/datadog-api-client-java/pull/3464)
+
+### Fixed
+* fix(formatter): use primitive type instead of schema name in get_response_type (AAWF-1199) [#3723](https://github.com/DataDog/datadog-api-client-java/pull/3723)
+* Add security_signals to SecurityMonitoringStandardDataSource [#3706](https://github.com/DataDog/datadog-api-client-java/pull/3706)
+
 ## 2.53.0/2026-04-01
 
 ### Added
