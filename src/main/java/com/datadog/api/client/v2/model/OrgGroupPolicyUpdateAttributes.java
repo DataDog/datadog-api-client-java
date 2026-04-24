@@ -17,13 +17,19 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Attributes for updating an org group policy. */
-@JsonPropertyOrder({OrgGroupPolicyUpdateAttributes.JSON_PROPERTY_CONTENT})
+@JsonPropertyOrder({
+  OrgGroupPolicyUpdateAttributes.JSON_PROPERTY_CONTENT,
+  OrgGroupPolicyUpdateAttributes.JSON_PROPERTY_ENFORCEMENT_TIER
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrgGroupPolicyUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTENT = "content";
   private Map<String, Object> content = null;
+
+  public static final String JSON_PROPERTY_ENFORCEMENT_TIER = "enforcement_tier";
+  private OrgGroupPolicyEnforcementTier enforcementTier = OrgGroupPolicyEnforcementTier.DEFAULT;
 
   public OrgGroupPolicyUpdateAttributes content(Map<String, Object> content) {
     this.content = content;
@@ -52,6 +58,35 @@ public class OrgGroupPolicyUpdateAttributes {
 
   public void setContent(Map<String, Object> content) {
     this.content = content;
+  }
+
+  public OrgGroupPolicyUpdateAttributes enforcementTier(
+      OrgGroupPolicyEnforcementTier enforcementTier) {
+    this.enforcementTier = enforcementTier;
+    this.unparsed |= !enforcementTier.isValid();
+    return this;
+  }
+
+  /**
+   * The enforcement tier of the policy. <code>DEFAULT</code> means the policy is set but member
+   * orgs may mutate it. <code>ENFORCE</code> means the policy is strictly controlled and mutations
+   * are blocked for affected orgs. <code>DELEGATE</code> means each member org controls its own
+   * value.
+   *
+   * @return enforcementTier
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENFORCEMENT_TIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OrgGroupPolicyEnforcementTier getEnforcementTier() {
+    return enforcementTier;
+  }
+
+  public void setEnforcementTier(OrgGroupPolicyEnforcementTier enforcementTier) {
+    if (!enforcementTier.isValid()) {
+      this.unparsed = true;
+    }
+    this.enforcementTier = enforcementTier;
   }
 
   /**
@@ -112,13 +147,14 @@ public class OrgGroupPolicyUpdateAttributes {
     OrgGroupPolicyUpdateAttributes orgGroupPolicyUpdateAttributes =
         (OrgGroupPolicyUpdateAttributes) o;
     return Objects.equals(this.content, orgGroupPolicyUpdateAttributes.content)
+        && Objects.equals(this.enforcementTier, orgGroupPolicyUpdateAttributes.enforcementTier)
         && Objects.equals(
             this.additionalProperties, orgGroupPolicyUpdateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, additionalProperties);
+    return Objects.hash(content, enforcementTier, additionalProperties);
   }
 
   @Override
@@ -126,6 +162,7 @@ public class OrgGroupPolicyUpdateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrgGroupPolicyUpdateAttributes {\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    enforcementTier: ").append(toIndentedString(enforcementTier)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

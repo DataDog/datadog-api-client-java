@@ -60,7 +60,8 @@ public class OrgGroupPolicyOverrideUpdateData {
   }
 
   /**
-   * Attributes for updating a policy override.
+   * Attributes for updating a policy override. The <code>org_uuid</code> and <code>org_site</code>
+   * fields must match the existing override and cannot be changed.
    *
    * @return attributes
    */

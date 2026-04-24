@@ -1475,6 +1475,332 @@ public class OrgGroupsApi {
         new GenericType<OrgGroupMembershipResponse>() {});
   }
 
+  /**
+   * Get an org group policy.
+   *
+   * <p>See {@link #getOrgGroupPolicyWithHttpInfo}.
+   *
+   * @param orgGroupPolicyId The ID of the org group policy. (required)
+   * @return OrgGroupPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OrgGroupPolicyResponse getOrgGroupPolicy(UUID orgGroupPolicyId) throws ApiException {
+    return getOrgGroupPolicyWithHttpInfo(orgGroupPolicyId).getData();
+  }
+
+  /**
+   * Get an org group policy.
+   *
+   * <p>See {@link #getOrgGroupPolicyWithHttpInfoAsync}.
+   *
+   * @param orgGroupPolicyId The ID of the org group policy. (required)
+   * @return CompletableFuture&lt;OrgGroupPolicyResponse&gt;
+   */
+  public CompletableFuture<OrgGroupPolicyResponse> getOrgGroupPolicyAsync(UUID orgGroupPolicyId) {
+    return getOrgGroupPolicyWithHttpInfoAsync(orgGroupPolicyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific organization group policy by its ID.
+   *
+   * @param orgGroupPolicyId The ID of the org group policy. (required)
+   * @return ApiResponse&lt;OrgGroupPolicyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OrgGroupPolicyResponse> getOrgGroupPolicyWithHttpInfo(UUID orgGroupPolicyId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getOrgGroupPolicy";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'orgGroupPolicyId' is set
+    if (orgGroupPolicyId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'orgGroupPolicyId' when calling getOrgGroupPolicy");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/org_group_policies/{org_group_policy_id}"
+            .replaceAll(
+                "\\{" + "org_group_policy_id" + "\\}",
+                apiClient.escapeString(orgGroupPolicyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrgGroupsApi.getOrgGroupPolicy",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgGroupPolicyResponse>() {});
+  }
+
+  /**
+   * Get an org group policy.
+   *
+   * <p>See {@link #getOrgGroupPolicyWithHttpInfo}.
+   *
+   * @param orgGroupPolicyId The ID of the org group policy. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OrgGroupPolicyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OrgGroupPolicyResponse>> getOrgGroupPolicyWithHttpInfoAsync(
+      UUID orgGroupPolicyId) {
+    // Check if unstable operation is enabled
+    String operationId = "getOrgGroupPolicy";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OrgGroupPolicyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'orgGroupPolicyId' is set
+    if (orgGroupPolicyId == null) {
+      CompletableFuture<ApiResponse<OrgGroupPolicyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'orgGroupPolicyId' when calling getOrgGroupPolicy"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/org_group_policies/{org_group_policy_id}"
+            .replaceAll(
+                "\\{" + "org_group_policy_id" + "\\}",
+                apiClient.escapeString(orgGroupPolicyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrgGroupsApi.getOrgGroupPolicy",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OrgGroupPolicyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgGroupPolicyResponse>() {});
+  }
+
+  /**
+   * Get an org group policy override.
+   *
+   * <p>See {@link #getOrgGroupPolicyOverrideWithHttpInfo}.
+   *
+   * @param orgGroupPolicyOverrideId The ID of the org group policy override. (required)
+   * @return OrgGroupPolicyOverrideResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OrgGroupPolicyOverrideResponse getOrgGroupPolicyOverride(UUID orgGroupPolicyOverrideId)
+      throws ApiException {
+    return getOrgGroupPolicyOverrideWithHttpInfo(orgGroupPolicyOverrideId).getData();
+  }
+
+  /**
+   * Get an org group policy override.
+   *
+   * <p>See {@link #getOrgGroupPolicyOverrideWithHttpInfoAsync}.
+   *
+   * @param orgGroupPolicyOverrideId The ID of the org group policy override. (required)
+   * @return CompletableFuture&lt;OrgGroupPolicyOverrideResponse&gt;
+   */
+  public CompletableFuture<OrgGroupPolicyOverrideResponse> getOrgGroupPolicyOverrideAsync(
+      UUID orgGroupPolicyOverrideId) {
+    return getOrgGroupPolicyOverrideWithHttpInfoAsync(orgGroupPolicyOverrideId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific organization group policy override by its ID.
+   *
+   * @param orgGroupPolicyOverrideId The ID of the org group policy override. (required)
+   * @return ApiResponse&lt;OrgGroupPolicyOverrideResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OrgGroupPolicyOverrideResponse> getOrgGroupPolicyOverrideWithHttpInfo(
+      UUID orgGroupPolicyOverrideId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getOrgGroupPolicyOverride";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'orgGroupPolicyOverrideId' is set
+    if (orgGroupPolicyOverrideId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'orgGroupPolicyOverrideId' when calling"
+              + " getOrgGroupPolicyOverride");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}"
+            .replaceAll(
+                "\\{" + "org_group_policy_override_id" + "\\}",
+                apiClient.escapeString(orgGroupPolicyOverrideId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrgGroupsApi.getOrgGroupPolicyOverride",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgGroupPolicyOverrideResponse>() {});
+  }
+
+  /**
+   * Get an org group policy override.
+   *
+   * <p>See {@link #getOrgGroupPolicyOverrideWithHttpInfo}.
+   *
+   * @param orgGroupPolicyOverrideId The ID of the org group policy override. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OrgGroupPolicyOverrideResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OrgGroupPolicyOverrideResponse>>
+      getOrgGroupPolicyOverrideWithHttpInfoAsync(UUID orgGroupPolicyOverrideId) {
+    // Check if unstable operation is enabled
+    String operationId = "getOrgGroupPolicyOverride";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OrgGroupPolicyOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'orgGroupPolicyOverrideId' is set
+    if (orgGroupPolicyOverrideId == null) {
+      CompletableFuture<ApiResponse<OrgGroupPolicyOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'orgGroupPolicyOverrideId' when calling"
+                  + " getOrgGroupPolicyOverride"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}"
+            .replaceAll(
+                "\\{" + "org_group_policy_override_id" + "\\}",
+                apiClient.escapeString(orgGroupPolicyOverrideId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrgGroupsApi.getOrgGroupPolicyOverride",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OrgGroupPolicyOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgGroupPolicyOverrideResponse>() {});
+  }
+
   /** Manage optional parameters to listOrgGroupMemberships. */
   public static class ListOrgGroupMembershipsOptionalParameters {
     private UUID filterOrgGroupId;
@@ -3054,7 +3380,7 @@ public class OrgGroupsApi {
   }
 
   /**
-   * Update the content of an existing organization group policy.
+   * Update an existing organization group policy.
    *
    * @param orgGroupPolicyId The ID of the org group policy. (required)
    * @param body (required)
