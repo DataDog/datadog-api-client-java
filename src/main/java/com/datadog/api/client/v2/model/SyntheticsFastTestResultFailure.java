@@ -16,61 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Total duration of a Synthetic test execution. */
+/** Failure details if the fast test did not pass. */
 @JsonPropertyOrder({
-  SyntheticsTestResultDuration.JSON_PROPERTY_HAS_DURATION,
-  SyntheticsTestResultDuration.JSON_PROPERTY_VALUE
+  SyntheticsFastTestResultFailure.JSON_PROPERTY_CODE,
+  SyntheticsFastTestResultFailure.JSON_PROPERTY_MESSAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsTestResultDuration {
+public class SyntheticsFastTestResultFailure {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_HAS_DURATION = "has_duration";
-  private Boolean hasDuration;
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private Long value;
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
-  public SyntheticsTestResultDuration hasDuration(Boolean hasDuration) {
-    this.hasDuration = hasDuration;
+  public SyntheticsFastTestResultFailure code(String code) {
+    this.code = code;
     return this;
   }
 
   /**
-   * Whether a duration was recorded for this execution.
+   * Error code identifying the failure type.
    *
-   * @return hasDuration
+   * @return code
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAS_DURATION)
+  @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getHasDuration() {
-    return hasDuration;
+  public String getCode() {
+    return code;
   }
 
-  public void setHasDuration(Boolean hasDuration) {
-    this.hasDuration = hasDuration;
+  public void setCode(String code) {
+    this.code = code;
   }
 
-  public SyntheticsTestResultDuration value(Long value) {
-    this.value = value;
+  public SyntheticsFastTestResultFailure message(String message) {
+    this.message = message;
     return this;
   }
 
   /**
-   * Duration value in milliseconds.
+   * Human-readable description of the failure.
    *
-   * @return value
+   * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getValue() {
-    return value;
+  public String getMessage() {
+    return message;
   }
 
-  public void setValue(Long value) {
-    this.value = value;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   /**
@@ -85,10 +85,10 @@ public class SyntheticsTestResultDuration {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsTestResultDuration
+   * @return SyntheticsFastTestResultFailure
    */
   @JsonAnySetter
-  public SyntheticsTestResultDuration putAdditionalProperty(String key, Object value) {
+  public SyntheticsFastTestResultFailure putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -119,7 +119,7 @@ public class SyntheticsTestResultDuration {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestResultDuration object is equal to o. */
+  /** Return true if this SyntheticsFastTestResultFailure object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,24 +128,25 @@ public class SyntheticsTestResultDuration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestResultDuration syntheticsTestResultDuration = (SyntheticsTestResultDuration) o;
-    return Objects.equals(this.hasDuration, syntheticsTestResultDuration.hasDuration)
-        && Objects.equals(this.value, syntheticsTestResultDuration.value)
+    SyntheticsFastTestResultFailure syntheticsFastTestResultFailure =
+        (SyntheticsFastTestResultFailure) o;
+    return Objects.equals(this.code, syntheticsFastTestResultFailure.code)
+        && Objects.equals(this.message, syntheticsFastTestResultFailure.message)
         && Objects.equals(
-            this.additionalProperties, syntheticsTestResultDuration.additionalProperties);
+            this.additionalProperties, syntheticsFastTestResultFailure.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hasDuration, value, additionalProperties);
+    return Objects.hash(code, message, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestResultDuration {\n");
-    sb.append("    hasDuration: ").append(toIndentedString(hasDuration)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("class SyntheticsFastTestResultFailure {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -16,70 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A step executed during a goal-based browser test turn. */
+/** Device information for browser-based fast tests. */
 @JsonPropertyOrder({
-  SyntheticsTestResultTurnStep.JSON_PROPERTY_BUCKET_KEYS,
-  SyntheticsTestResultTurnStep.JSON_PROPERTY_CONFIG
+  SyntheticsFastTestResultDevice.JSON_PROPERTY_ID,
+  SyntheticsFastTestResultDevice.JSON_PROPERTY_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsTestResultTurnStep {
+public class SyntheticsFastTestResultDevice {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BUCKET_KEYS = "bucket_keys";
-  private SyntheticsTestResultBucketKeys bucketKeys;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_CONFIG = "config";
-  private Map<String, Object> config = null;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public SyntheticsTestResultTurnStep bucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
-    this.bucketKeys = bucketKeys;
-    this.unparsed |= bucketKeys.unparsed;
+  public SyntheticsFastTestResultDevice id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Storage bucket keys for artifacts produced during a step or test.
+   * Device identifier.
    *
-   * @return bucketKeys
+   * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BUCKET_KEYS)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultBucketKeys getBucketKeys() {
-    return bucketKeys;
+  public String getId() {
+    return id;
   }
 
-  public void setBucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
-    this.bucketKeys = bucketKeys;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public SyntheticsTestResultTurnStep config(Map<String, Object> config) {
-    this.config = config;
-    return this;
-  }
-
-  public SyntheticsTestResultTurnStep putConfigItem(String key, Object configItem) {
-    if (this.config == null) {
-      this.config = new HashMap<>();
-    }
-    this.config.put(key, configItem);
+  public SyntheticsFastTestResultDevice name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Browser step configuration for this turn step.
+   * Display name of the device.
    *
-   * @return config
+   * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getConfig() {
-    return config;
+  public String getName() {
+    return name;
   }
 
-  public void setConfig(Map<String, Object> config) {
-    this.config = config;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -94,10 +85,10 @@ public class SyntheticsTestResultTurnStep {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsTestResultTurnStep
+   * @return SyntheticsFastTestResultDevice
    */
   @JsonAnySetter
-  public SyntheticsTestResultTurnStep putAdditionalProperty(String key, Object value) {
+  public SyntheticsFastTestResultDevice putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -128,7 +119,7 @@ public class SyntheticsTestResultTurnStep {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestResultTurnStep object is equal to o. */
+  /** Return true if this SyntheticsFastTestResultDevice object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -137,24 +128,25 @@ public class SyntheticsTestResultTurnStep {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestResultTurnStep syntheticsTestResultTurnStep = (SyntheticsTestResultTurnStep) o;
-    return Objects.equals(this.bucketKeys, syntheticsTestResultTurnStep.bucketKeys)
-        && Objects.equals(this.config, syntheticsTestResultTurnStep.config)
+    SyntheticsFastTestResultDevice syntheticsFastTestResultDevice =
+        (SyntheticsFastTestResultDevice) o;
+    return Objects.equals(this.id, syntheticsFastTestResultDevice.id)
+        && Objects.equals(this.name, syntheticsFastTestResultDevice.name)
         && Objects.equals(
-            this.additionalProperties, syntheticsTestResultTurnStep.additionalProperties);
+            this.additionalProperties, syntheticsFastTestResultDevice.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketKeys, config, additionalProperties);
+    return Objects.hash(id, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestResultTurnStep {\n");
-    sb.append("    bucketKeys: ").append(toIndentedString(bucketKeys)).append("\n");
-    sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("class SyntheticsFastTestResultDevice {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
