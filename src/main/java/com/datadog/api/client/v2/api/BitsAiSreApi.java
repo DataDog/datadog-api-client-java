@@ -21,14 +21,14 @@ import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BitsAiApi {
+public class BitsAiSreApi {
   private ApiClient apiClient;
 
-  public BitsAiApi() {
+  public BitsAiSreApi() {
     this(ApiClient.getDefaultApiClient());
   }
 
-  public BitsAiApi(ApiClient apiClient) {
+  public BitsAiSreApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -51,7 +51,7 @@ public class BitsAiApi {
   }
 
   /**
-   * Get a Bits AI investigation.
+   * Get a Bits AI SRE investigation.
    *
    * <p>See {@link #getInvestigationWithHttpInfo}.
    *
@@ -64,7 +64,7 @@ public class BitsAiApi {
   }
 
   /**
-   * Get a Bits AI investigation.
+   * Get a Bits AI SRE investigation.
    *
    * <p>See {@link #getInvestigationWithHttpInfoAsync}.
    *
@@ -80,7 +80,7 @@ public class BitsAiApi {
   }
 
   /**
-   * Get a specific Bits AI investigation by ID.
+   * Get a specific Bits AI SRE investigation by ID.
    *
    * @param id The ID of the investigation. (required)
    * @return ApiResponse&lt;GetInvestigationResponse&gt;
@@ -120,7 +120,7 @@ public class BitsAiApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.BitsAiApi.getInvestigation",
+            "v2.BitsAiSreApi.getInvestigation",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -139,7 +139,7 @@ public class BitsAiApi {
   }
 
   /**
-   * Get a Bits AI investigation.
+   * Get a Bits AI SRE investigation.
    *
    * <p>See {@link #getInvestigationWithHttpInfo}.
    *
@@ -179,7 +179,7 @@ public class BitsAiApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.BitsAiApi.getInvestigation",
+              "v2.BitsAiSreApi.getInvestigation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -243,7 +243,7 @@ public class BitsAiApi {
   }
 
   /**
-   * List Bits AI investigations.
+   * List Bits AI SRE investigations.
    *
    * <p>See {@link #listInvestigationsWithHttpInfo}.
    *
@@ -255,7 +255,7 @@ public class BitsAiApi {
   }
 
   /**
-   * List Bits AI investigations.
+   * List Bits AI SRE investigations.
    *
    * <p>See {@link #listInvestigationsWithHttpInfoAsync}.
    *
@@ -270,7 +270,7 @@ public class BitsAiApi {
   }
 
   /**
-   * List Bits AI investigations.
+   * List Bits AI SRE investigations.
    *
    * <p>See {@link #listInvestigationsWithHttpInfo}.
    *
@@ -284,7 +284,7 @@ public class BitsAiApi {
   }
 
   /**
-   * List Bits AI investigations.
+   * List Bits AI SRE investigations.
    *
    * <p>See {@link #listInvestigationsWithHttpInfoAsync}.
    *
@@ -301,7 +301,7 @@ public class BitsAiApi {
   }
 
   /**
-   * List Bits AI investigations.
+   * List Bits AI SRE investigations.
    *
    * <p>See {@link #listInvestigationsWithHttpInfo}.
    *
@@ -313,7 +313,7 @@ public class BitsAiApi {
   }
 
   /**
-   * List Bits AI investigations.
+   * List Bits AI SRE investigations.
    *
    * <p>See {@link #listInvestigationsWithHttpInfo}.
    *
@@ -354,7 +354,7 @@ public class BitsAiApi {
   }
 
   /**
-   * List all Bits AI investigations for the organization.
+   * List all Bits AI SRE investigations for the organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListInvestigationsResponse&gt;
@@ -394,7 +394,7 @@ public class BitsAiApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.BitsAiApi.listInvestigations",
+            "v2.BitsAiSreApi.listInvestigations",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -413,7 +413,7 @@ public class BitsAiApi {
   }
 
   /**
-   * List Bits AI investigations.
+   * List Bits AI SRE investigations.
    *
    * <p>See {@link #listInvestigationsWithHttpInfo}.
    *
@@ -451,7 +451,7 @@ public class BitsAiApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.BitsAiApi.listInvestigations",
+              "v2.BitsAiSreApi.listInvestigations",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -475,7 +475,7 @@ public class BitsAiApi {
   }
 
   /**
-   * Trigger a Bits AI investigation.
+   * Trigger a Bits AI SRE investigation.
    *
    * <p>See {@link #triggerInvestigationWithHttpInfo}.
    *
@@ -489,7 +489,7 @@ public class BitsAiApi {
   }
 
   /**
-   * Trigger a Bits AI investigation.
+   * Trigger a Bits AI SRE investigation.
    *
    * <p>See {@link #triggerInvestigationWithHttpInfoAsync}.
    *
@@ -506,7 +506,7 @@ public class BitsAiApi {
   }
 
   /**
-   * Trigger a new Bits AI investigation based on a monitor alert.
+   * Trigger a new Bits AI SRE investigation based on a monitor alert.
    *
    * @param body Trigger investigation request body. (required)
    * @return ApiResponse&lt;TriggerInvestigationResponse&gt;
@@ -543,7 +543,7 @@ public class BitsAiApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.BitsAiApi.triggerInvestigation",
+            "v2.BitsAiSreApi.triggerInvestigation",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -562,7 +562,7 @@ public class BitsAiApi {
   }
 
   /**
-   * Trigger a Bits AI investigation.
+   * Trigger a Bits AI SRE investigation.
    *
    * <p>See {@link #triggerInvestigationWithHttpInfo}.
    *
@@ -602,7 +602,7 @@ public class BitsAiApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.BitsAiApi.triggerInvestigation",
+              "v2.BitsAiSreApi.triggerInvestigation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

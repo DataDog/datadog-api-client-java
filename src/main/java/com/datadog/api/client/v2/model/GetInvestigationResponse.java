@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for a single Bits AI investigation. */
+/** Response for a single Bits AI SRE investigation. */
 @JsonPropertyOrder({
   GetInvestigationResponse.JSON_PROPERTY_DATA,
   GetInvestigationResponse.JSON_PROPERTY_LINKS
