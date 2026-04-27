@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -333,6 +334,139 @@ public class UsersApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UserResponse>() {});
+  }
+
+  /**
+   * Delete a pending user&#39;s invitations.
+   *
+   * <p>See {@link #deleteUserInvitationsWithHttpInfo}.
+   *
+   * @param userId The UUID of the user whose pending invitations should be canceled. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteUserInvitations(UUID userId) throws ApiException {
+    deleteUserInvitationsWithHttpInfo(userId);
+  }
+
+  /**
+   * Delete a pending user&#39;s invitations.
+   *
+   * <p>See {@link #deleteUserInvitationsWithHttpInfoAsync}.
+   *
+   * @param userId The UUID of the user whose pending invitations should be canceled. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteUserInvitationsAsync(UUID userId) {
+    return deleteUserInvitationsWithHttpInfoAsync(userId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Cancel all pending invitations for a specified user. Requires the <code>user_access_invite
+   * </code> permission.
+   *
+   * @param userId The UUID of the user whose pending invitations should be canceled. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteUserInvitationsWithHttpInfo(UUID userId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling deleteUserInvitations");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/users/{user_id}/invitations"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsersApi.deleteUserInvitations",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a pending user&#39;s invitations.
+   *
+   * <p>See {@link #deleteUserInvitationsWithHttpInfo}.
+   *
+   * @param userId The UUID of the user whose pending invitations should be canceled. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteUserInvitationsWithHttpInfoAsync(UUID userId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userId' when calling deleteUserInvitations"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/users/{user_id}/invitations"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsersApi.deleteUserInvitations",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**

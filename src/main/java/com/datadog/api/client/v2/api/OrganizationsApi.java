@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.ManagedOrgsResponse;
 import com.datadog.api.client.v2.model.OrgConfigGetResponse;
 import com.datadog.api.client.v2.model.OrgConfigListResponse;
 import com.datadog.api.client.v2.model.OrgConfigWriteRequest;
@@ -12,6 +13,7 @@ import jakarta.ws.rs.core.GenericType;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -296,6 +298,174 @@ public class OrganizationsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OrgConfigListResponse>() {});
+  }
+
+  /** Manage optional parameters to listOrgs. */
+  public static class ListOrgsOptionalParameters {
+    private String filterName;
+
+    /**
+     * Set filterName.
+     *
+     * @param filterName Filter managed organizations by name. (optional)
+     * @return ListOrgsOptionalParameters
+     */
+    public ListOrgsOptionalParameters filterName(String filterName) {
+      this.filterName = filterName;
+      return this;
+    }
+  }
+
+  /**
+   * List your managed organizations.
+   *
+   * <p>See {@link #listOrgsWithHttpInfo}.
+   *
+   * @return ManagedOrgsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ManagedOrgsResponse listOrgs() throws ApiException {
+    return listOrgsWithHttpInfo(new ListOrgsOptionalParameters()).getData();
+  }
+
+  /**
+   * List your managed organizations.
+   *
+   * <p>See {@link #listOrgsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ManagedOrgsResponse&gt;
+   */
+  public CompletableFuture<ManagedOrgsResponse> listOrgsAsync() {
+    return listOrgsWithHttpInfoAsync(new ListOrgsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List your managed organizations.
+   *
+   * <p>See {@link #listOrgsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ManagedOrgsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ManagedOrgsResponse listOrgs(ListOrgsOptionalParameters parameters) throws ApiException {
+    return listOrgsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List your managed organizations.
+   *
+   * <p>See {@link #listOrgsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ManagedOrgsResponse&gt;
+   */
+  public CompletableFuture<ManagedOrgsResponse> listOrgsAsync(
+      ListOrgsOptionalParameters parameters) {
+    return listOrgsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the current organization and its managed organizations in JSON:API format.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ManagedOrgsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ManagedOrgsResponse> listOrgsWithHttpInfo(
+      ListOrgsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String filterName = parameters.filterName;
+    // create path and map variables
+    String localVarPath = "/api/v2/org";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.listOrgs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ManagedOrgsResponse>() {});
+  }
+
+  /**
+   * List your managed organizations.
+   *
+   * <p>See {@link #listOrgsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ManagedOrgsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ManagedOrgsResponse>> listOrgsWithHttpInfoAsync(
+      ListOrgsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String filterName = parameters.filterName;
+    // create path and map variables
+    String localVarPath = "/api/v2/org";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.listOrgs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ManagedOrgsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ManagedOrgsResponse>() {});
   }
 
   /**
