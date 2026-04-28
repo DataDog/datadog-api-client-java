@@ -43,6 +43,8 @@ import com.datadog.api.client.v2.model.ListHistoricalJobsResponse;
 import com.datadog.api.client.v2.model.ListSecurityFindingsResponse;
 import com.datadog.api.client.v2.model.ListVulnerabilitiesResponse;
 import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
+import com.datadog.api.client.v2.model.MuteFindingsRequest;
+import com.datadog.api.client.v2.model.MuteFindingsResponse;
 import com.datadog.api.client.v2.model.NotificationRuleResponse;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
@@ -15220,6 +15222,163 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<BulkMuteFindingsResponse>() {});
+  }
+
+  /**
+   * Mute or unmute security findings.
+   *
+   * <p>See {@link #muteSecurityFindingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return MuteFindingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteFindingsResponse muteSecurityFindings(MuteFindingsRequest body) throws ApiException {
+    return muteSecurityFindingsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Mute or unmute security findings.
+   *
+   * <p>See {@link #muteSecurityFindingsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;MuteFindingsResponse&gt;
+   */
+  public CompletableFuture<MuteFindingsResponse> muteSecurityFindingsAsync(
+      MuteFindingsRequest body) {
+    return muteSecurityFindingsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Mute or unmute security findings. You can mute or unmute up to 100 security findings per
+   * request. The request body must include <code>is_muted</code> and <code>reason</code>
+   * attributes. The allowed reasons depend on whether the finding is being muted or unmuted: - To
+   * mute a finding: <code>PENDING_FIX</code>, <code>FALSE_POSITIVE</code>, <code>OTHER</code>,
+   * <code>NO_FIX</code>, <code>DUPLICATE</code>, <code>RISK_ACCEPTED</code>. - To unmute a finding:
+   * <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>NO_LONGER_ACCEPTED_RISK</code>,
+   * <code>OTHER</code>.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;MuteFindingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteFindingsResponse> muteSecurityFindingsWithHttpInfo(
+      MuteFindingsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "muteSecurityFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling muteSecurityFindings");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/mute";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.muteSecurityFindings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteFindingsResponse>() {});
+  }
+
+  /**
+   * Mute or unmute security findings.
+   *
+   * <p>See {@link #muteSecurityFindingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteFindingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteFindingsResponse>> muteSecurityFindingsWithHttpInfoAsync(
+      MuteFindingsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "muteSecurityFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MuteFindingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MuteFindingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling muteSecurityFindings"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/mute";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.muteSecurityFindings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteFindingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteFindingsResponse>() {});
   }
 
   /**

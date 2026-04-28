@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"mute\":{\"description\":\"Resolved.\",\"is_muted\":false,\"reason\":\"NO_PENDING_FIX\"}},\"relationships\":{\"findings\":{\"data\":[{\"id\":\"ZGVmLTAwcC1pZXJ-aS0wZjhjNjMyZDNmMzRlZTgzNw==\",\"type\":\"findings\"}]}},\"type\":\"mute\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security/findings/mute",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"finding not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "34adfc8f-6e21-678f-ad92-6e9d27183f3f"
+  }
+]
