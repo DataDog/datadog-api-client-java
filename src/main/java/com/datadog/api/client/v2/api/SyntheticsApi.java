@@ -16,6 +16,9 @@ import com.datadog.api.client.v2.model.SuiteCreateEditRequest;
 import com.datadog.api.client.v2.model.SuiteJsonPatchRequest;
 import com.datadog.api.client.v2.model.SyntheticsApiMultistepParentTestsResponse;
 import com.datadog.api.client.v2.model.SyntheticsApiMultistepSubtestsResponse;
+import com.datadog.api.client.v2.model.SyntheticsDowntimeRequest;
+import com.datadog.api.client.v2.model.SyntheticsDowntimeResponse;
+import com.datadog.api.client.v2.model.SyntheticsDowntimesResponse;
 import com.datadog.api.client.v2.model.SyntheticsFastTestResult;
 import com.datadog.api.client.v2.model.SyntheticsNetworkTestEditRequest;
 import com.datadog.api.client.v2.model.SyntheticsNetworkTestResponse;
@@ -236,6 +239,171 @@ public class SyntheticsApi {
   }
 
   /**
+   * Add a test to a Synthetics downtime.
+   *
+   * <p>See {@link #addTestToSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime. (required)
+   * @param testId The public ID of the Synthetics test to associate with the downtime. (required)
+   * @return SyntheticsDowntimeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsDowntimeResponse addTestToSyntheticsDowntime(String downtimeId, String testId)
+      throws ApiException {
+    return addTestToSyntheticsDowntimeWithHttpInfo(downtimeId, testId).getData();
+  }
+
+  /**
+   * Add a test to a Synthetics downtime.
+   *
+   * <p>See {@link #addTestToSyntheticsDowntimeWithHttpInfoAsync}.
+   *
+   * @param downtimeId The ID of the downtime. (required)
+   * @param testId The public ID of the Synthetics test to associate with the downtime. (required)
+   * @return CompletableFuture&lt;SyntheticsDowntimeResponse&gt;
+   */
+  public CompletableFuture<SyntheticsDowntimeResponse> addTestToSyntheticsDowntimeAsync(
+      String downtimeId, String testId) {
+    return addTestToSyntheticsDowntimeWithHttpInfoAsync(downtimeId, testId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Associate a Synthetics test with a downtime.
+   *
+   * @param downtimeId The ID of the downtime. (required)
+   * @param testId The public ID of the Synthetics test to associate with the downtime. (required)
+   * @return ApiResponse&lt;SyntheticsDowntimeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsDowntimeResponse> addTestToSyntheticsDowntimeWithHttpInfo(
+      String downtimeId, String testId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'downtimeId' when calling addTestToSyntheticsDowntime");
+    }
+
+    // verify the required parameter 'testId' is set
+    if (testId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'testId' when calling addTestToSyntheticsDowntime");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()))
+            .replaceAll("\\{" + "test_id" + "\\}", apiClient.escapeString(testId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.addTestToSyntheticsDowntime",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
+  }
+
+  /**
+   * Add a test to a Synthetics downtime.
+   *
+   * <p>See {@link #addTestToSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime. (required)
+   * @param testId The public ID of the Synthetics test to associate with the downtime. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsDowntimeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>>
+      addTestToSyntheticsDowntimeWithHttpInfoAsync(String downtimeId, String testId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'downtimeId' when calling"
+                  + " addTestToSyntheticsDowntime"));
+      return result;
+    }
+
+    // verify the required parameter 'testId' is set
+    if (testId == null) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'testId' when calling addTestToSyntheticsDowntime"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()))
+            .replaceAll("\\{" + "test_id" + "\\}", apiClient.escapeString(testId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.addTestToSyntheticsDowntime",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
+  }
+
+  /**
    * Complete a multipart upload of a test file.
    *
    * <p>See {@link #completeTestFileMultipartUploadWithHttpInfo}.
@@ -396,6 +564,139 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Create a Synthetics downtime.
+   *
+   * <p>See {@link #createSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SyntheticsDowntimeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsDowntimeResponse createSyntheticsDowntime(SyntheticsDowntimeRequest body)
+      throws ApiException {
+    return createSyntheticsDowntimeWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a Synthetics downtime.
+   *
+   * <p>See {@link #createSyntheticsDowntimeWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SyntheticsDowntimeResponse&gt;
+   */
+  public CompletableFuture<SyntheticsDowntimeResponse> createSyntheticsDowntimeAsync(
+      SyntheticsDowntimeRequest body) {
+    return createSyntheticsDowntimeWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new Synthetics downtime.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SyntheticsDowntimeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsDowntimeResponse> createSyntheticsDowntimeWithHttpInfo(
+      SyntheticsDowntimeRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createSyntheticsDowntime");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/downtimes";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.createSyntheticsDowntime",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
+  }
+
+  /**
+   * Create a Synthetics downtime.
+   *
+   * <p>See {@link #createSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsDowntimeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>>
+      createSyntheticsDowntimeWithHttpInfoAsync(SyntheticsDowntimeRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createSyntheticsDowntime"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/downtimes";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.createSyntheticsDowntime",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
   }
 
   /**
@@ -659,6 +960,144 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SyntheticsSuiteResponse>() {});
+  }
+
+  /**
+   * Delete a Synthetics downtime.
+   *
+   * <p>See {@link #deleteSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime to delete. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSyntheticsDowntime(String downtimeId) throws ApiException {
+    deleteSyntheticsDowntimeWithHttpInfo(downtimeId);
+  }
+
+  /**
+   * Delete a Synthetics downtime.
+   *
+   * <p>See {@link #deleteSyntheticsDowntimeWithHttpInfoAsync}.
+   *
+   * @param downtimeId The ID of the downtime to delete. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSyntheticsDowntimeAsync(String downtimeId) {
+    return deleteSyntheticsDowntimeWithHttpInfoAsync(downtimeId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Synthetics downtime by its ID.
+   *
+   * @param downtimeId The ID of the downtime to delete. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSyntheticsDowntimeWithHttpInfo(String downtimeId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'downtimeId' when calling deleteSyntheticsDowntime");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.deleteSyntheticsDowntime",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Synthetics downtime.
+   *
+   * <p>See {@link #deleteSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime to delete. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteSyntheticsDowntimeWithHttpInfoAsync(
+      String downtimeId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'downtimeId' when calling deleteSyntheticsDowntime"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.deleteSyntheticsDowntime",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -1725,6 +2164,146 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SyntheticsTestResultResponse>() {});
+  }
+
+  /**
+   * Get a Synthetics downtime.
+   *
+   * <p>See {@link #getSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime to retrieve. (required)
+   * @return SyntheticsDowntimeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsDowntimeResponse getSyntheticsDowntime(String downtimeId) throws ApiException {
+    return getSyntheticsDowntimeWithHttpInfo(downtimeId).getData();
+  }
+
+  /**
+   * Get a Synthetics downtime.
+   *
+   * <p>See {@link #getSyntheticsDowntimeWithHttpInfoAsync}.
+   *
+   * @param downtimeId The ID of the downtime to retrieve. (required)
+   * @return CompletableFuture&lt;SyntheticsDowntimeResponse&gt;
+   */
+  public CompletableFuture<SyntheticsDowntimeResponse> getSyntheticsDowntimeAsync(
+      String downtimeId) {
+    return getSyntheticsDowntimeWithHttpInfoAsync(downtimeId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a Synthetics downtime by its ID.
+   *
+   * @param downtimeId The ID of the downtime to retrieve. (required)
+   * @return ApiResponse&lt;SyntheticsDowntimeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsDowntimeResponse> getSyntheticsDowntimeWithHttpInfo(
+      String downtimeId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'downtimeId' when calling getSyntheticsDowntime");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getSyntheticsDowntime",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
+  }
+
+  /**
+   * Get a Synthetics downtime.
+   *
+   * <p>See {@link #getSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime to retrieve. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsDowntimeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>>
+      getSyntheticsDowntimeWithHttpInfoAsync(String downtimeId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'downtimeId' when calling getSyntheticsDowntime"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getSyntheticsDowntime",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
   }
 
   /**
@@ -3415,6 +3994,196 @@ public class SyntheticsApi {
         new GenericType<SyntheticsTestLatestResultsResponse>() {});
   }
 
+  /** Manage optional parameters to listSyntheticsDowntimes. */
+  public static class ListSyntheticsDowntimesOptionalParameters {
+    private String filterTestIds;
+    private String filterActive;
+
+    /**
+     * Set filterTestIds.
+     *
+     * @param filterTestIds Comma-separated list of Synthetics test public IDs to filter downtimes
+     *     by. (optional)
+     * @return ListSyntheticsDowntimesOptionalParameters
+     */
+    public ListSyntheticsDowntimesOptionalParameters filterTestIds(String filterTestIds) {
+      this.filterTestIds = filterTestIds;
+      return this;
+    }
+
+    /**
+     * Set filterActive.
+     *
+     * @param filterActive If set to <code>true</code>, return only downtimes that are currently
+     *     active. (optional)
+     * @return ListSyntheticsDowntimesOptionalParameters
+     */
+    public ListSyntheticsDowntimesOptionalParameters filterActive(String filterActive) {
+      this.filterActive = filterActive;
+      return this;
+    }
+  }
+
+  /**
+   * List Synthetics downtimes.
+   *
+   * <p>See {@link #listSyntheticsDowntimesWithHttpInfo}.
+   *
+   * @return SyntheticsDowntimesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsDowntimesResponse listSyntheticsDowntimes() throws ApiException {
+    return listSyntheticsDowntimesWithHttpInfo(new ListSyntheticsDowntimesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List Synthetics downtimes.
+   *
+   * <p>See {@link #listSyntheticsDowntimesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SyntheticsDowntimesResponse&gt;
+   */
+  public CompletableFuture<SyntheticsDowntimesResponse> listSyntheticsDowntimesAsync() {
+    return listSyntheticsDowntimesWithHttpInfoAsync(new ListSyntheticsDowntimesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Synthetics downtimes.
+   *
+   * <p>See {@link #listSyntheticsDowntimesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsDowntimesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsDowntimesResponse listSyntheticsDowntimes(
+      ListSyntheticsDowntimesOptionalParameters parameters) throws ApiException {
+    return listSyntheticsDowntimesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Synthetics downtimes.
+   *
+   * <p>See {@link #listSyntheticsDowntimesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SyntheticsDowntimesResponse&gt;
+   */
+  public CompletableFuture<SyntheticsDowntimesResponse> listSyntheticsDowntimesAsync(
+      ListSyntheticsDowntimesOptionalParameters parameters) {
+    return listSyntheticsDowntimesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of all Synthetics downtimes for your organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsDowntimesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsDowntimesResponse> listSyntheticsDowntimesWithHttpInfo(
+      ListSyntheticsDowntimesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String filterTestIds = parameters.filterTestIds;
+    String filterActive = parameters.filterActive;
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/downtimes";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[test_ids]", filterTestIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[active]", filterActive));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.listSyntheticsDowntimes",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimesResponse>() {});
+  }
+
+  /**
+   * List Synthetics downtimes.
+   *
+   * <p>See {@link #listSyntheticsDowntimesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsDowntimesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsDowntimesResponse>>
+      listSyntheticsDowntimesWithHttpInfoAsync(
+          ListSyntheticsDowntimesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String filterTestIds = parameters.filterTestIds;
+    String filterActive = parameters.filterActive;
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/downtimes";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[test_ids]", filterTestIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[active]", filterActive));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.listSyntheticsDowntimes",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimesResponse>() {});
+  }
+
   /** Manage optional parameters to listSyntheticsTestLatestResults. */
   public static class ListSyntheticsTestLatestResultsOptionalParameters {
     private Long fromTs;
@@ -4399,6 +5168,178 @@ public class SyntheticsApi {
         new GenericType<SyntheticsPollTestResultsResponse>() {});
   }
 
+  /**
+   * Remove a test from a Synthetics downtime.
+   *
+   * <p>See {@link #removeTestFromSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime. (required)
+   * @param testId The public ID of the Synthetics test to disassociate from the downtime.
+   *     (required)
+   * @return SyntheticsDowntimeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsDowntimeResponse removeTestFromSyntheticsDowntime(
+      String downtimeId, String testId) throws ApiException {
+    return removeTestFromSyntheticsDowntimeWithHttpInfo(downtimeId, testId).getData();
+  }
+
+  /**
+   * Remove a test from a Synthetics downtime.
+   *
+   * <p>See {@link #removeTestFromSyntheticsDowntimeWithHttpInfoAsync}.
+   *
+   * @param downtimeId The ID of the downtime. (required)
+   * @param testId The public ID of the Synthetics test to disassociate from the downtime.
+   *     (required)
+   * @return CompletableFuture&lt;SyntheticsDowntimeResponse&gt;
+   */
+  public CompletableFuture<SyntheticsDowntimeResponse> removeTestFromSyntheticsDowntimeAsync(
+      String downtimeId, String testId) {
+    return removeTestFromSyntheticsDowntimeWithHttpInfoAsync(downtimeId, testId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Disassociate a Synthetics test from a downtime.
+   *
+   * @param downtimeId The ID of the downtime. (required)
+   * @param testId The public ID of the Synthetics test to disassociate from the downtime.
+   *     (required)
+   * @return ApiResponse&lt;SyntheticsDowntimeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsDowntimeResponse> removeTestFromSyntheticsDowntimeWithHttpInfo(
+      String downtimeId, String testId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'downtimeId' when calling"
+              + " removeTestFromSyntheticsDowntime");
+    }
+
+    // verify the required parameter 'testId' is set
+    if (testId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'testId' when calling removeTestFromSyntheticsDowntime");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()))
+            .replaceAll("\\{" + "test_id" + "\\}", apiClient.escapeString(testId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.removeTestFromSyntheticsDowntime",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
+  }
+
+  /**
+   * Remove a test from a Synthetics downtime.
+   *
+   * <p>See {@link #removeTestFromSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime. (required)
+   * @param testId The public ID of the Synthetics test to disassociate from the downtime.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsDowntimeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>>
+      removeTestFromSyntheticsDowntimeWithHttpInfoAsync(String downtimeId, String testId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'downtimeId' when calling"
+                  + " removeTestFromSyntheticsDowntime"));
+      return result;
+    }
+
+    // verify the required parameter 'testId' is set
+    if (testId == null) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'testId' when calling"
+                  + " removeTestFromSyntheticsDowntime"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()))
+            .replaceAll("\\{" + "test_id" + "\\}", apiClient.escapeString(testId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.removeTestFromSyntheticsDowntime",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
+  }
+
   /** Manage optional parameters to searchSuites. */
   public static class SearchSuitesOptionalParameters {
     private String query;
@@ -4765,6 +5706,166 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OnDemandConcurrencyCapResponse>() {});
+  }
+
+  /**
+   * Update a Synthetics downtime.
+   *
+   * <p>See {@link #updateSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime to update. (required)
+   * @param body (required)
+   * @return SyntheticsDowntimeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsDowntimeResponse updateSyntheticsDowntime(
+      String downtimeId, SyntheticsDowntimeRequest body) throws ApiException {
+    return updateSyntheticsDowntimeWithHttpInfo(downtimeId, body).getData();
+  }
+
+  /**
+   * Update a Synthetics downtime.
+   *
+   * <p>See {@link #updateSyntheticsDowntimeWithHttpInfoAsync}.
+   *
+   * @param downtimeId The ID of the downtime to update. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SyntheticsDowntimeResponse&gt;
+   */
+  public CompletableFuture<SyntheticsDowntimeResponse> updateSyntheticsDowntimeAsync(
+      String downtimeId, SyntheticsDowntimeRequest body) {
+    return updateSyntheticsDowntimeWithHttpInfoAsync(downtimeId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a Synthetics downtime by its ID.
+   *
+   * @param downtimeId The ID of the downtime to update. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SyntheticsDowntimeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsDowntimeResponse> updateSyntheticsDowntimeWithHttpInfo(
+      String downtimeId, SyntheticsDowntimeRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'downtimeId' when calling updateSyntheticsDowntime");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateSyntheticsDowntime");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.updateSyntheticsDowntime",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
+  }
+
+  /**
+   * Update a Synthetics downtime.
+   *
+   * <p>See {@link #updateSyntheticsDowntimeWithHttpInfo}.
+   *
+   * @param downtimeId The ID of the downtime to update. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsDowntimeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>>
+      updateSyntheticsDowntimeWithHttpInfoAsync(String downtimeId, SyntheticsDowntimeRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'downtimeId' is set
+    if (downtimeId == null) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'downtimeId' when calling updateSyntheticsDowntime"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateSyntheticsDowntime"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/downtimes/{downtime_id}"
+            .replaceAll(
+                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.updateSyntheticsDowntime",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsDowntimeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsDowntimeResponse>() {});
   }
 
   /**
