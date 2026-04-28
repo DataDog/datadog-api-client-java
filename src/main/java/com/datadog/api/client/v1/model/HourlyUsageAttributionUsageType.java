@@ -74,6 +74,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "incident_management_monthly_active_users_usage",
               "indexed_spans_usage",
               "infra_host_usage",
+              "infra_host_basic_usage",
               "ingested_logs_bytes_usage",
               "ingested_spans_bytes_usage",
               "invocations_usage",
@@ -204,6 +205,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("indexed_spans_usage");
   public static final HourlyUsageAttributionUsageType INFRA_HOST_USAGE =
       new HourlyUsageAttributionUsageType("infra_host_usage");
+  public static final HourlyUsageAttributionUsageType INFRA_HOST_BASIC_USAGE =
+      new HourlyUsageAttributionUsageType("infra_host_basic_usage");
   public static final HourlyUsageAttributionUsageType INGESTED_LOGS_BYTES_USAGE =
       new HourlyUsageAttributionUsageType("ingested_logs_bytes_usage");
   public static final HourlyUsageAttributionUsageType INGESTED_SPANS_BYTES_USAGE =
