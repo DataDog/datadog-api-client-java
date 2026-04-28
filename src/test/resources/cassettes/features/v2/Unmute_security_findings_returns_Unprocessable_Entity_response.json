@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"mute\":{\"description\":\"Resolved.\",\"is_muted\":false,\"reason\":\"RISK_ACCEPTED\"}},\"relationships\":{\"findings\":{\"data\":[{\"id\":\"ZGVmLTAwcC1pZXJ-aS0wZjhjNjMyZDNmMzRlZTgzNw==\",\"type\":\"findings\"}]}},\"type\":\"mute\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security/findings/mute",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"422\",\"title\":\"Invalid Request\",\"detail\":\"The provided reason is not valid for the specified mute action. Possible values: [NO_PENDING_FIX HUMAN_ERROR NO_LONGER_ACCEPTED_RISK OTHER]\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 422,
+      "reasonPhrase": "Unprocessable Entity"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b8eefd7f-eab6-4592-abc6-fa34ec940734"
+  }
+]

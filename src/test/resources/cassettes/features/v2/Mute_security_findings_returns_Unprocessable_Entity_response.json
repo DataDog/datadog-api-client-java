@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"mute\":{\"description\":\"To be resolved later.\",\"expire_at\":1,\"is_muted\":true,\"reason\":\"RISK_ACCEPTED\"}},\"relationships\":{\"findings\":{\"data\":[{\"id\":\"ZGVmLTAwcC1pZXJ-aS0wZjhjNjMyZDNmMzRlZTgzNw==\",\"type\":\"findings\"}]}},\"type\":\"mute\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security/findings/mute",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"422\",\"title\":\"Invalid Request\",\"detail\":\"Invalid expiration date. Please provide an expiration date in the future\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 422,
+      "reasonPhrase": "Unprocessable Entity"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "53c23a76-c624-b9b3-333b-bf7d895a6cae"
+  }
+]
