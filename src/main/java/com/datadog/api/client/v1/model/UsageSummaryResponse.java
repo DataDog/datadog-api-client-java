@@ -156,6 +156,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INFRA_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
@@ -775,6 +776,10 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_INFRA_HOST_TOP99P_SUM = "infra_host_top99p_sum";
   private Long infraHostTop99pSum;
+
+  public static final String JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG_SUM =
+      "infra_storage_mgmt_objects_count_avg_sum";
+  private Long infraStorageMgmtObjectsCountAvgSum;
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM =
       "ingested_events_bytes_agg_sum";
@@ -4214,6 +4219,29 @@ public class UsageSummaryResponse {
     this.infraHostTop99pSum = infraHostTop99pSum;
   }
 
+  public UsageSummaryResponse infraStorageMgmtObjectsCountAvgSum(
+      Long infraStorageMgmtObjectsCountAvgSum) {
+    this.infraStorageMgmtObjectsCountAvgSum = infraStorageMgmtObjectsCountAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of storage management objects over all hours in the current month for
+   * all organizations.
+   *
+   * @return infraStorageMgmtObjectsCountAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraStorageMgmtObjectsCountAvgSum() {
+    return infraStorageMgmtObjectsCountAvgSum;
+  }
+
+  public void setInfraStorageMgmtObjectsCountAvgSum(Long infraStorageMgmtObjectsCountAvgSum) {
+    this.infraStorageMgmtObjectsCountAvgSum = infraStorageMgmtObjectsCountAvgSum;
+  }
+
   public UsageSummaryResponse ingestedEventsBytesAggSum(Long ingestedEventsBytesAggSum) {
     this.ingestedEventsBytesAggSum = ingestedEventsBytesAggSum;
     return this;
@@ -7251,6 +7279,9 @@ public class UsageSummaryResponse {
             this.infraHostBasicTop99pSum, usageSummaryResponse.infraHostBasicTop99pSum)
         && Objects.equals(this.infraHostTop99pSum, usageSummaryResponse.infraHostTop99pSum)
         && Objects.equals(
+            this.infraStorageMgmtObjectsCountAvgSum,
+            usageSummaryResponse.infraStorageMgmtObjectsCountAvgSum)
+        && Objects.equals(
             this.ingestedEventsBytesAggSum, usageSummaryResponse.ingestedEventsBytesAggSum)
         && Objects.equals(this.iotDeviceAggSum, usageSummaryResponse.iotDeviceAggSum)
         && Objects.equals(this.iotDeviceTop99pSum, usageSummaryResponse.iotDeviceTop99pSum)
@@ -7658,6 +7689,7 @@ public class UsageSummaryResponse {
         infraHostBasicInfraBasicVsphereTop99pSum,
         infraHostBasicTop99pSum,
         infraHostTop99pSum,
+        infraStorageMgmtObjectsCountAvgSum,
         ingestedEventsBytesAggSum,
         iotDeviceAggSum,
         iotDeviceTop99pSum,
@@ -8136,6 +8168,9 @@ public class UsageSummaryResponse {
         .append(toIndentedString(infraHostBasicTop99pSum))
         .append("\n");
     sb.append("    infraHostTop99pSum: ").append(toIndentedString(infraHostTop99pSum)).append("\n");
+    sb.append("    infraStorageMgmtObjectsCountAvgSum: ")
+        .append(toIndentedString(infraStorageMgmtObjectsCountAvgSum))
+        .append("\n");
     sb.append("    ingestedEventsBytesAggSum: ")
         .append(toIndentedString(ingestedEventsBytesAggSum))
         .append("\n");
