@@ -151,6 +151,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
@@ -735,6 +736,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_INFRA_HOST_TOP99P = "infra_host_top99p";
   private Long infraHostTop99p;
+
+  public static final String JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG =
+      "infra_storage_mgmt_objects_count_avg";
+  private Long infraStorageMgmtObjectsCountAvg;
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM = "ingested_events_bytes_sum";
   private Long ingestedEventsBytesSum;
@@ -4122,6 +4127,28 @@ public class UsageSummaryDateOrg {
     this.infraHostTop99p = infraHostTop99p;
   }
 
+  public UsageSummaryDateOrg infraStorageMgmtObjectsCountAvg(Long infraStorageMgmtObjectsCountAvg) {
+    this.infraStorageMgmtObjectsCountAvg = infraStorageMgmtObjectsCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average number of storage management objects over all hours in the current date for
+   * the given org.
+   *
+   * @return infraStorageMgmtObjectsCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraStorageMgmtObjectsCountAvg() {
+    return infraStorageMgmtObjectsCountAvg;
+  }
+
+  public void setInfraStorageMgmtObjectsCountAvg(Long infraStorageMgmtObjectsCountAvg) {
+    this.infraStorageMgmtObjectsCountAvg = infraStorageMgmtObjectsCountAvg;
+  }
+
   public UsageSummaryDateOrg ingestedEventsBytesSum(Long ingestedEventsBytesSum) {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
     return this;
@@ -6920,6 +6947,9 @@ public class UsageSummaryDateOrg {
             usageSummaryDateOrg.infraHostBasicInfraBasicVsphereTop99p)
         && Objects.equals(this.infraHostBasicTop99p, usageSummaryDateOrg.infraHostBasicTop99p)
         && Objects.equals(this.infraHostTop99p, usageSummaryDateOrg.infraHostTop99p)
+        && Objects.equals(
+            this.infraStorageMgmtObjectsCountAvg,
+            usageSummaryDateOrg.infraStorageMgmtObjectsCountAvg)
         && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDateOrg.ingestedEventsBytesSum)
         && Objects.equals(this.iotDeviceAggSum, usageSummaryDateOrg.iotDeviceAggSum)
         && Objects.equals(this.iotDeviceTop99pSum, usageSummaryDateOrg.iotDeviceTop99pSum)
@@ -7289,6 +7319,7 @@ public class UsageSummaryDateOrg {
         infraHostBasicInfraBasicVsphereTop99p,
         infraHostBasicTop99p,
         infraHostTop99p,
+        infraStorageMgmtObjectsCountAvg,
         ingestedEventsBytesSum,
         iotDeviceAggSum,
         iotDeviceTop99pSum,
@@ -7720,6 +7751,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(infraHostBasicTop99p))
         .append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
+    sb.append("    infraStorageMgmtObjectsCountAvg: ")
+        .append(toIndentedString(infraStorageMgmtObjectsCountAvg))
+        .append("\n");
     sb.append("    ingestedEventsBytesSum: ")
         .append(toIndentedString(ingestedEventsBytesSum))
         .append("\n");
