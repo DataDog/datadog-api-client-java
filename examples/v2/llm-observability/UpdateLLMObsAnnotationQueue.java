@@ -8,6 +8,11 @@ import com.datadog.api.client.v2.model.LLMObsAnnotationQueueType;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueUpdateDataAttributesRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueUpdateDataRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueUpdateRequest;
+import com.datadog.api.client.v2.model.LLMObsAnnotationSchema;
+import com.datadog.api.client.v2.model.LLMObsLabelSchema;
+import com.datadog.api.client.v2.model.LLMObsLabelSchemaType;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,6 +26,22 @@ public class Example {
                 new LLMObsAnnotationQueueUpdateDataRequest()
                     .attributes(
                         new LLMObsAnnotationQueueUpdateDataAttributesRequest()
+                            .annotationSchema(
+                                new LLMObsAnnotationSchema()
+                                    .labelSchemas(
+                                        Collections.singletonList(
+                                            new LLMObsLabelSchema()
+                                                .description("Rating of the response quality.")
+                                                .hasAssessment(false)
+                                                .hasReasoning(false)
+                                                .id("ab12cd34")
+                                                .isAssessment(false)
+                                                .isInteger(false)
+                                                .isRequired(true)
+                                                .max(5.0)
+                                                .name("quality")
+                                                .type(LLMObsLabelSchemaType.SCORE)
+                                                .values(Arrays.asList("good", "bad", "neutral")))))
                             .description("Updated description")
                             .name("Updated queue name"))
                     .type(LLMObsAnnotationQueueType.QUEUES));

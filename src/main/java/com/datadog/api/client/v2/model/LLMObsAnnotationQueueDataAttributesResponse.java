@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Attributes of an LLM Observability annotation queue. */
 @JsonPropertyOrder({
+  LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_ANNOTATION_SCHEMA,
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_CREATED_AT,
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_CREATED_BY,
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_DESCRIPTION,
@@ -33,6 +34,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsAnnotationQueueDataAttributesResponse {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ANNOTATION_SCHEMA = "annotation_schema";
+  private LLMObsAnnotationSchema annotationSchema;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -77,6 +81,29 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
     this.name = name;
     this.ownedBy = ownedBy;
     this.projectId = projectId;
+  }
+
+  public LLMObsAnnotationQueueDataAttributesResponse annotationSchema(
+      LLMObsAnnotationSchema annotationSchema) {
+    this.annotationSchema = annotationSchema;
+    this.unparsed |= annotationSchema.unparsed;
+    return this;
+  }
+
+  /**
+   * Schema defining the labels for an annotation queue.
+   *
+   * @return annotationSchema
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ANNOTATION_SCHEMA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsAnnotationSchema getAnnotationSchema() {
+    return annotationSchema;
+  }
+
+  public void setAnnotationSchema(LLMObsAnnotationSchema annotationSchema) {
+    this.annotationSchema = annotationSchema;
   }
 
   public LLMObsAnnotationQueueDataAttributesResponse createdAt(OffsetDateTime createdAt) {
@@ -297,7 +324,9 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
     }
     LLMObsAnnotationQueueDataAttributesResponse llmObsAnnotationQueueDataAttributesResponse =
         (LLMObsAnnotationQueueDataAttributesResponse) o;
-    return Objects.equals(this.createdAt, llmObsAnnotationQueueDataAttributesResponse.createdAt)
+    return Objects.equals(
+            this.annotationSchema, llmObsAnnotationQueueDataAttributesResponse.annotationSchema)
+        && Objects.equals(this.createdAt, llmObsAnnotationQueueDataAttributesResponse.createdAt)
         && Objects.equals(this.createdBy, llmObsAnnotationQueueDataAttributesResponse.createdBy)
         && Objects.equals(this.description, llmObsAnnotationQueueDataAttributesResponse.description)
         && Objects.equals(this.modifiedAt, llmObsAnnotationQueueDataAttributesResponse.modifiedAt)
@@ -313,6 +342,7 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
   @Override
   public int hashCode() {
     return Objects.hash(
+        annotationSchema,
         createdAt,
         createdBy,
         description,
@@ -328,6 +358,7 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsAnnotationQueueDataAttributesResponse {\n");
+    sb.append("    annotationSchema: ").append(toIndentedString(annotationSchema)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
