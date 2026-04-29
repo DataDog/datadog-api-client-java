@@ -8,6 +8,11 @@ import com.datadog.api.client.v2.model.LLMObsAnnotationQueueDataRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueType;
+import com.datadog.api.client.v2.model.LLMObsAnnotationSchema;
+import com.datadog.api.client.v2.model.LLMObsLabelSchema;
+import com.datadog.api.client.v2.model.LLMObsLabelSchemaType;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,6 +26,22 @@ public class Example {
                 new LLMObsAnnotationQueueDataRequest()
                     .attributes(
                         new LLMObsAnnotationQueueDataAttributesRequest()
+                            .annotationSchema(
+                                new LLMObsAnnotationSchema()
+                                    .labelSchemas(
+                                        Collections.singletonList(
+                                            new LLMObsLabelSchema()
+                                                .description("Rating of the response quality.")
+                                                .hasAssessment(false)
+                                                .hasReasoning(false)
+                                                .id("ab12cd34")
+                                                .isAssessment(false)
+                                                .isInteger(false)
+                                                .isRequired(true)
+                                                .max(5.0)
+                                                .name("quality")
+                                                .type(LLMObsLabelSchemaType.SCORE)
+                                                .values(Arrays.asList("good", "bad", "neutral")))))
                             .description("Queue for annotating customer support traces")
                             .name("My annotation queue")
                             .projectId("a33671aa-24fd-4dcd-9b33-a8ec7dde7751"))

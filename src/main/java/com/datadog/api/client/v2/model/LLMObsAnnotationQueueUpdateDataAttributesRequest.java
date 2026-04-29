@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Attributes for updating an LLM Observability annotation queue. All fields are optional. */
 @JsonPropertyOrder({
+  LLMObsAnnotationQueueUpdateDataAttributesRequest.JSON_PROPERTY_ANNOTATION_SCHEMA,
   LLMObsAnnotationQueueUpdateDataAttributesRequest.JSON_PROPERTY_DESCRIPTION,
   LLMObsAnnotationQueueUpdateDataAttributesRequest.JSON_PROPERTY_NAME
 })
@@ -25,11 +26,37 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsAnnotationQueueUpdateDataAttributesRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ANNOTATION_SCHEMA = "annotation_schema";
+  private LLMObsAnnotationSchema annotationSchema;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public LLMObsAnnotationQueueUpdateDataAttributesRequest annotationSchema(
+      LLMObsAnnotationSchema annotationSchema) {
+    this.annotationSchema = annotationSchema;
+    this.unparsed |= annotationSchema.unparsed;
+    return this;
+  }
+
+  /**
+   * Schema defining the labels for an annotation queue.
+   *
+   * @return annotationSchema
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ANNOTATION_SCHEMA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsAnnotationSchema getAnnotationSchema() {
+    return annotationSchema;
+  }
+
+  public void setAnnotationSchema(LLMObsAnnotationSchema annotationSchema) {
+    this.annotationSchema = annotationSchema;
+  }
 
   public LLMObsAnnotationQueueUpdateDataAttributesRequest description(String description) {
     this.description = description;
@@ -133,6 +160,9 @@ public class LLMObsAnnotationQueueUpdateDataAttributesRequest {
         llmObsAnnotationQueueUpdateDataAttributesRequest =
             (LLMObsAnnotationQueueUpdateDataAttributesRequest) o;
     return Objects.equals(
+            this.annotationSchema,
+            llmObsAnnotationQueueUpdateDataAttributesRequest.annotationSchema)
+        && Objects.equals(
             this.description, llmObsAnnotationQueueUpdateDataAttributesRequest.description)
         && Objects.equals(this.name, llmObsAnnotationQueueUpdateDataAttributesRequest.name)
         && Objects.equals(
@@ -142,13 +172,14 @@ public class LLMObsAnnotationQueueUpdateDataAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, additionalProperties);
+    return Objects.hash(annotationSchema, description, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsAnnotationQueueUpdateDataAttributesRequest {\n");
+    sb.append("    annotationSchema: ").append(toIndentedString(annotationSchema)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")

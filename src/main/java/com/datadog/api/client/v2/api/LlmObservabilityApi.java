@@ -7,6 +7,8 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.LLMObsAnnotatedInteractionsResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsResponse;
+import com.datadog.api.client.v2.model.LLMObsAnnotationQueueLabelSchemaResponse;
+import com.datadog.api.client.v2.model.LLMObsAnnotationQueueLabelSchemaUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueUpdateRequest;
@@ -106,10 +108,10 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create a new annotation queue. Only <code>name</code>, <code>project_id</code>, and <code>
-   * description</code> are accepted. Fields such as <code>created_by</code>, <code>owned_by</code>,
-   * <code>created_at</code>, <code>modified_by</code>, and <code>modified_at</code> are inferred by
-   * the backend.
+   * Create an annotation queue. The <code>name</code> and <code>project_id</code> fields are
+   * required. An optional <code>annotation_schema</code> can be provided to define the labels for
+   * the queue. Fields such as <code>created_by</code>, <code>owned_by</code>, <code>created_at
+   * </code>, <code>modified_by</code>, and <code>modified_at</code> are inferred by the backend.
    *
    * @param body Create annotation queue payload. (required)
    * @return ApiResponse&lt;LLMObsAnnotationQueueResponse&gt;
@@ -2622,6 +2624,169 @@ public class LlmObservabilityApi {
   }
 
   /**
+   * Get annotation queue label schema.
+   *
+   * <p>See {@link #getLLMObsAnnotationQueueLabelSchemaWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return LLMObsAnnotationQueueLabelSchemaResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotationQueueLabelSchemaResponse getLLMObsAnnotationQueueLabelSchema(
+      String queueId) throws ApiException {
+    return getLLMObsAnnotationQueueLabelSchemaWithHttpInfo(queueId).getData();
+  }
+
+  /**
+   * Get annotation queue label schema.
+   *
+   * <p>See {@link #getLLMObsAnnotationQueueLabelSchemaWithHttpInfoAsync}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return CompletableFuture&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotationQueueLabelSchemaResponse>
+      getLLMObsAnnotationQueueLabelSchemaAsync(String queueId) {
+    return getLLMObsAnnotationQueueLabelSchemaWithHttpInfoAsync(queueId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve the label schema for a given annotation queue.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return ApiResponse&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>
+      getLLMObsAnnotationQueueLabelSchemaWithHttpInfo(String queueId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsAnnotationQueueLabelSchema";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'queueId' when calling"
+              + " getLLMObsAnnotationQueueLabelSchema");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.getLLMObsAnnotationQueueLabelSchema",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueLabelSchemaResponse>() {});
+  }
+
+  /**
+   * Get annotation queue label schema.
+   *
+   * <p>See {@link #getLLMObsAnnotationQueueLabelSchemaWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>>
+      getLLMObsAnnotationQueueLabelSchemaWithHttpInfoAsync(String queueId) {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsAnnotationQueueLabelSchema";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'queueId' when calling"
+                  + " getLLMObsAnnotationQueueLabelSchema"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.getLLMObsAnnotationQueueLabelSchema",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueLabelSchemaResponse>() {});
+  }
+
+  /**
    * Get a custom evaluator configuration.
    *
    * <p>See {@link #getLLMObsCustomEvalConfigWithHttpInfo}.
@@ -4068,8 +4233,8 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Partially update an annotation queue. Only <code>name</code> and <code>description</code> can
-   * be updated.
+   * Partially update an annotation queue. The <code>name</code>, <code>description</code>, and
+   * <code>annotation_schema</code> fields can be updated.
    *
    * @param queueId The ID of the LLM Observability annotation queue. (required)
    * @param body Update annotation queue payload. (required)
@@ -4215,6 +4380,200 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsAnnotationQueueResponse>() {});
+  }
+
+  /**
+   * Update annotation queue label schema.
+   *
+   * <p>See {@link #updateLLMObsAnnotationQueueLabelSchemaWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Update label schema payload. (required)
+   * @return LLMObsAnnotationQueueLabelSchemaResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotationQueueLabelSchemaResponse updateLLMObsAnnotationQueueLabelSchema(
+      String queueId, LLMObsAnnotationQueueLabelSchemaUpdateRequest body) throws ApiException {
+    return updateLLMObsAnnotationQueueLabelSchemaWithHttpInfo(queueId, body).getData();
+  }
+
+  /**
+   * Update annotation queue label schema.
+   *
+   * <p>See {@link #updateLLMObsAnnotationQueueLabelSchemaWithHttpInfoAsync}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Update label schema payload. (required)
+   * @return CompletableFuture&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotationQueueLabelSchemaResponse>
+      updateLLMObsAnnotationQueueLabelSchemaAsync(
+          String queueId, LLMObsAnnotationQueueLabelSchemaUpdateRequest body) {
+    return updateLLMObsAnnotationQueueLabelSchemaWithHttpInfoAsync(queueId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create or replace the label schema for a given annotation queue. The label schema defines the
+   * labels annotators can apply to interactions in the queue. Label names must be unique within the
+   * queue and match the pattern <code>^[a-zA-Z0-9_-]+$</code>. Each label must have a valid type:
+   * score, categorical, boolean, or text.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Update label schema payload. (required)
+   * @return ApiResponse&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>
+      updateLLMObsAnnotationQueueLabelSchemaWithHttpInfo(
+          String queueId, LLMObsAnnotationQueueLabelSchemaUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateLLMObsAnnotationQueueLabelSchema";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'queueId' when calling"
+              + " updateLLMObsAnnotationQueueLabelSchema");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateLLMObsAnnotationQueueLabelSchema");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.updateLLMObsAnnotationQueueLabelSchema",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueLabelSchemaResponse>() {});
+  }
+
+  /**
+   * Update annotation queue label schema.
+   *
+   * <p>See {@link #updateLLMObsAnnotationQueueLabelSchemaWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Update label schema payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>>
+      updateLLMObsAnnotationQueueLabelSchemaWithHttpInfoAsync(
+          String queueId, LLMObsAnnotationQueueLabelSchemaUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateLLMObsAnnotationQueueLabelSchema";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'queueId' when calling"
+                  + " updateLLMObsAnnotationQueueLabelSchema"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateLLMObsAnnotationQueueLabelSchema"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.updateLLMObsAnnotationQueueLabelSchema",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueLabelSchemaResponse>() {});
   }
 
   /**
