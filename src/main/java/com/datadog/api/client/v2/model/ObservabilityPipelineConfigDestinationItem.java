@@ -1272,6 +1272,60 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             e);
       }
 
+      // deserialize ObservabilityPipelineDatabricksZerobusDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineDatabricksZerobusDestination.class.equals(Integer.class)
+            || ObservabilityPipelineDatabricksZerobusDestination.class.equals(Long.class)
+            || ObservabilityPipelineDatabricksZerobusDestination.class.equals(Float.class)
+            || ObservabilityPipelineDatabricksZerobusDestination.class.equals(Double.class)
+            || ObservabilityPipelineDatabricksZerobusDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineDatabricksZerobusDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineDatabricksZerobusDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineDatabricksZerobusDestination.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineDatabricksZerobusDestination.class.equals(Float.class)
+                        || ObservabilityPipelineDatabricksZerobusDestination.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineDatabricksZerobusDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineDatabricksZerobusDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineDatabricksZerobusDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineDatabricksZerobusDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineDatabricksZerobusDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineDatabricksZerobusDestination'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineDatadogMetricsDestination
       try {
         boolean attemptParsing = true;
@@ -1480,6 +1534,12 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   }
 
   public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineDatabricksZerobusDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(
       ObservabilityPipelineDatadogMetricsDestination o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1552,6 +1612,9 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
         "ObservabilityPipelineSyslogNgDestination",
         new GenericType<ObservabilityPipelineSyslogNgDestination>() {});
     schemas.put(
+        "ObservabilityPipelineDatabricksZerobusDestination",
+        new GenericType<ObservabilityPipelineDatabricksZerobusDestination>() {});
+    schemas.put(
         "ObservabilityPipelineDatadogMetricsDestination",
         new GenericType<ObservabilityPipelineDatadogMetricsDestination>() {});
     JSON.registerDescendants(
@@ -1578,7 +1641,8 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * ObservabilityPipelineOpenSearchDestination, ObservabilityPipelineRsyslogDestination,
    * ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineSocketDestination,
    * ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
-   * ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatadogMetricsDestination
+   * ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatabricksZerobusDestination,
+   * ObservabilityPipelineDatadogMetricsDestination
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1707,6 +1771,13 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       return;
     }
     if (JSON.isInstanceOf(
+        ObservabilityPipelineDatabricksZerobusDestination.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
         ObservabilityPipelineDatadogMetricsDestination.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1737,6 +1808,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             + " ObservabilityPipelineSocketDestination, ObservabilityPipelineSplunkHecDestination,"
             + " ObservabilityPipelineSumoLogicDestination,"
             + " ObservabilityPipelineSyslogNgDestination,"
+            + " ObservabilityPipelineDatabricksZerobusDestination,"
             + " ObservabilityPipelineDatadogMetricsDestination");
   }
 
@@ -1755,7 +1827,8 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * ObservabilityPipelineOpenSearchDestination, ObservabilityPipelineRsyslogDestination,
    * ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineSocketDestination,
    * ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
-   * ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatadogMetricsDestination
+   * ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatabricksZerobusDestination,
+   * ObservabilityPipelineDatadogMetricsDestination
    *
    * @return The actual instance (ObservabilityPipelineElasticsearchDestination,
    *     ObservabilityPipelineHttpClientDestination,
@@ -1772,7 +1845,9 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    *     ObservabilityPipelineOpenSearchDestination, ObservabilityPipelineRsyslogDestination,
    *     ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineSocketDestination,
    *     ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
-   *     ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatadogMetricsDestination)
+   *     ObservabilityPipelineSyslogNgDestination,
+   *     ObservabilityPipelineDatabricksZerobusDestination,
+   *     ObservabilityPipelineDatadogMetricsDestination)
    */
   @Override
   public Object getActualInstance() {
@@ -2069,6 +2144,20 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   public ObservabilityPipelineSyslogNgDestination getObservabilityPipelineSyslogNgDestination()
       throws ClassCastException {
     return (ObservabilityPipelineSyslogNgDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineDatabricksZerobusDestination`. If the actual
+   * instance is not `ObservabilityPipelineDatabricksZerobusDestination`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineDatabricksZerobusDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineDatabricksZerobusDestination`
+   */
+  public ObservabilityPipelineDatabricksZerobusDestination
+      getObservabilityPipelineDatabricksZerobusDestination() throws ClassCastException {
+    return (ObservabilityPipelineDatabricksZerobusDestination) super.getActualInstance();
   }
 
   /**
