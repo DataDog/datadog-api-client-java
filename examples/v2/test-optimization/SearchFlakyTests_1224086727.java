@@ -16,7 +16,6 @@ import com.datadog.api.client.v2.model.FlakyTestsSearchSort;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.searchFlakyTests", true);
     TestOptimizationApi apiInstance = new TestOptimizationApi(defaultClient);
 
     FlakyTestsSearchRequest body =

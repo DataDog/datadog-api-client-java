@@ -12,7 +12,6 @@ import com.datadog.api.client.v2.model.TestOptimizationGetFlakyTestsManagementPo
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.getFlakyTestsManagementPolicies", true);
     TestOptimizationApi apiInstance = new TestOptimizationApi(defaultClient);
 
     TestOptimizationFlakyTestsManagementPoliciesGetRequest body =

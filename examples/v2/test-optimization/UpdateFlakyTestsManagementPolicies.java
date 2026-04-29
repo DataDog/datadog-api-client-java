@@ -22,7 +22,6 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.updateFlakyTestsManagementPolicies", true);
     TestOptimizationApi apiInstance = new TestOptimizationApi(defaultClient);
 
     TestOptimizationFlakyTestsManagementPoliciesUpdateRequest body =

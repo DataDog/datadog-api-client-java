@@ -822,13 +822,6 @@ public class ApiClient {
           put("v2.getChangeRequest", false);
           put("v2.updateChangeRequest", false);
           put("v2.updateChangeRequestDecision", false);
-          put("v2.deleteTestOptimizationServiceSettings", false);
-          put("v2.getFlakyTestsManagementPolicies", false);
-          put("v2.getTestOptimizationServiceSettings", false);
-          put("v2.searchFlakyTests", false);
-          put("v2.updateFlakyTests", false);
-          put("v2.updateFlakyTestsManagementPolicies", false);
-          put("v2.updateTestOptimizationServiceSettings", false);
           put("v2.createAWSCloudAuthPersonaMapping", false);
           put("v2.deleteAWSCloudAuthPersonaMapping", false);
           put("v2.getAWSCloudAuthPersonaMapping", false);
