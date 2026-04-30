@@ -130,6 +130,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG,
@@ -659,6 +660,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM = "fargate_tasks_count_hwm";
   private Long fargateTasksCountHwm;
+
+  public static final String JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM =
+      "feature_flags_config_requests_sum";
+  private Long featureFlagsConfigRequestsSum;
 
   public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG =
       "flex_logs_compute_large_avg";
@@ -3649,6 +3654,28 @@ public class UsageSummaryDateOrg {
 
   public void setFargateTasksCountHwm(Long fargateTasksCountHwm) {
     this.fargateTasksCountHwm = fargateTasksCountHwm;
+  }
+
+  public UsageSummaryDateOrg featureFlagsConfigRequestsSum(Long featureFlagsConfigRequestsSum) {
+    this.featureFlagsConfigRequestsSum = featureFlagsConfigRequestsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Feature Flags Client-Side SDK config requests over all hours in the
+   * current date for the given org.
+   *
+   * @return featureFlagsConfigRequestsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFeatureFlagsConfigRequestsSum() {
+    return featureFlagsConfigRequestsSum;
+  }
+
+  public void setFeatureFlagsConfigRequestsSum(Long featureFlagsConfigRequestsSum) {
+    this.featureFlagsConfigRequestsSum = featureFlagsConfigRequestsSum;
   }
 
   public UsageSummaryDateOrg flexLogsComputeLargeAvg(Long flexLogsComputeLargeAvg) {
@@ -6883,6 +6910,8 @@ public class UsageSummaryDateOrg {
             usageSummaryDateOrg.fargateContainerProfilerProfilingFargateEksAvg)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDateOrg.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDateOrg.fargateTasksCountHwm)
+        && Objects.equals(
+            this.featureFlagsConfigRequestsSum, usageSummaryDateOrg.featureFlagsConfigRequestsSum)
         && Objects.equals(this.flexLogsComputeLargeAvg, usageSummaryDateOrg.flexLogsComputeLargeAvg)
         && Objects.equals(
             this.flexLogsComputeMediumAvg, usageSummaryDateOrg.flexLogsComputeMediumAvg)
@@ -7268,6 +7297,7 @@ public class UsageSummaryDateOrg {
         fargateContainerProfilerProfilingFargateEksAvg,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
+        featureFlagsConfigRequestsSum,
         flexLogsComputeLargeAvg,
         flexLogsComputeMediumAvg,
         flexLogsComputeSmallAvg,
@@ -7668,6 +7698,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    fargateTasksCountHwm: ")
         .append(toIndentedString(fargateTasksCountHwm))
+        .append("\n");
+    sb.append("    featureFlagsConfigRequestsSum: ")
+        .append(toIndentedString(featureFlagsConfigRequestsSum))
         .append("\n");
     sb.append("    flexLogsComputeLargeAvg: ")
         .append(toIndentedString(flexLogsComputeLargeAvg))
