@@ -1119,6 +1119,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'PowerpackWidgetDefinition'", e);
       }
 
+      // deserialize PointPlotWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (PointPlotWidgetDefinition.class.equals(Integer.class)
+            || PointPlotWidgetDefinition.class.equals(Long.class)
+            || PointPlotWidgetDefinition.class.equals(Float.class)
+            || PointPlotWidgetDefinition.class.equals(Double.class)
+            || PointPlotWidgetDefinition.class.equals(Boolean.class)
+            || PointPlotWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((PointPlotWidgetDefinition.class.equals(Integer.class)
+                        || PointPlotWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((PointPlotWidgetDefinition.class.equals(Float.class)
+                        || PointPlotWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (PointPlotWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (PointPlotWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(PointPlotWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((PointPlotWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'PointPlotWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'PointPlotWidgetDefinition'", e);
+      }
+
       // deserialize QueryValueWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -2028,6 +2073,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(PointPlotWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public WidgetDefinition(QueryValueWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -2141,6 +2191,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         "MonitorSummaryWidgetDefinition", new GenericType<MonitorSummaryWidgetDefinition>() {});
     schemas.put("NoteWidgetDefinition", new GenericType<NoteWidgetDefinition>() {});
     schemas.put("PowerpackWidgetDefinition", new GenericType<PowerpackWidgetDefinition>() {});
+    schemas.put("PointPlotWidgetDefinition", new GenericType<PointPlotWidgetDefinition>() {});
     schemas.put("QueryValueWidgetDefinition", new GenericType<QueryValueWidgetDefinition>() {});
     schemas.put(
         "RetentionCurveWidgetDefinition", new GenericType<RetentionCurveWidgetDefinition>() {});
@@ -2178,12 +2229,12 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
    * ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
    * MonitorSummaryWidgetDefinition, NoteWidgetDefinition, PowerpackWidgetDefinition,
-   * QueryValueWidgetDefinition, RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,
-   * SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
-   * SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   * SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TopologyMapWidgetDefinition,
-   * TreeMapWidgetDefinition, WildcardWidgetDefinition
+   * PointPlotWidgetDefinition, QueryValueWidgetDefinition, RetentionCurveWidgetDefinition,
+   * RunWorkflowWidgetDefinition, SLOListWidgetDefinition, SLOWidgetDefinition,
+   * ScatterPlotWidgetDefinition, SankeyWidgetDefinition, ServiceMapWidgetDefinition,
+   * ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition, SunburstWidgetDefinition,
+   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   * TopologyMapWidgetDefinition, TreeMapWidgetDefinition, WildcardWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -2284,6 +2335,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(PointPlotWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(QueryValueWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -2368,7 +2423,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             + " GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,"
             + " IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,"
             + " LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,"
-            + " PowerpackWidgetDefinition, QueryValueWidgetDefinition,"
+            + " PowerpackWidgetDefinition, PointPlotWidgetDefinition, QueryValueWidgetDefinition,"
             + " RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,"
             + " SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,"
             + " SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
@@ -2386,12 +2441,13 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
    * IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
    * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   * PowerpackWidgetDefinition, QueryValueWidgetDefinition, RetentionCurveWidgetDefinition,
-   * RunWorkflowWidgetDefinition, SLOListWidgetDefinition, SLOWidgetDefinition,
-   * ScatterPlotWidgetDefinition, SankeyWidgetDefinition, ServiceMapWidgetDefinition,
-   * ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition, SunburstWidgetDefinition,
-   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   * TopologyMapWidgetDefinition, TreeMapWidgetDefinition, WildcardWidgetDefinition
+   * PowerpackWidgetDefinition, PointPlotWidgetDefinition, QueryValueWidgetDefinition,
+   * RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition, SLOListWidgetDefinition,
+   * SLOWidgetDefinition, ScatterPlotWidgetDefinition, SankeyWidgetDefinition,
+   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition,
+   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   * ToplistWidgetDefinition, TopologyMapWidgetDefinition, TreeMapWidgetDefinition,
+   * WildcardWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     BarChartWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,
@@ -2401,12 +2457,12 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    *     HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
    *     ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
    *     MonitorSummaryWidgetDefinition, NoteWidgetDefinition, PowerpackWidgetDefinition,
-   *     QueryValueWidgetDefinition, RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,
-   *     SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
-   *     SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   *     SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TopologyMapWidgetDefinition,
-   *     TreeMapWidgetDefinition, WildcardWidgetDefinition)
+   *     PointPlotWidgetDefinition, QueryValueWidgetDefinition, RetentionCurveWidgetDefinition,
+   *     RunWorkflowWidgetDefinition, SLOListWidgetDefinition, SLOWidgetDefinition,
+   *     ScatterPlotWidgetDefinition, SankeyWidgetDefinition, ServiceMapWidgetDefinition,
+   *     ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition, SunburstWidgetDefinition,
+   *     TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   *     TopologyMapWidgetDefinition, TreeMapWidgetDefinition, WildcardWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -2667,6 +2723,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public PowerpackWidgetDefinition getPowerpackWidgetDefinition() throws ClassCastException {
     return (PowerpackWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `PointPlotWidgetDefinition`. If the actual instance is not
+   * `PointPlotWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `PointPlotWidgetDefinition`
+   * @throws ClassCastException if the instance is not `PointPlotWidgetDefinition`
+   */
+  public PointPlotWidgetDefinition getPointPlotWidgetDefinition() throws ClassCastException {
+    return (PointPlotWidgetDefinition) super.getActualInstance();
   }
 
   /**
