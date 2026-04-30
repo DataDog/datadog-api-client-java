@@ -136,6 +136,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG_SUM,
@@ -700,6 +701,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM =
       "fargate_tasks_count_hwm_sum";
   private Long fargateTasksCountHwmSum;
+
+  public static final String JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_AGG_SUM =
+      "feature_flags_config_requests_agg_sum";
+  private Long featureFlagsConfigRequestsAggSum;
 
   public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG_SUM =
       "flex_logs_compute_large_avg_sum";
@@ -3757,6 +3762,29 @@ public class UsageSummaryResponse {
 
   public void setFargateTasksCountHwmSum(Long fargateTasksCountHwmSum) {
     this.fargateTasksCountHwmSum = fargateTasksCountHwmSum;
+  }
+
+  public UsageSummaryResponse featureFlagsConfigRequestsAggSum(
+      Long featureFlagsConfigRequestsAggSum) {
+    this.featureFlagsConfigRequestsAggSum = featureFlagsConfigRequestsAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Feature Flags Client-Side SDK config requests over all hours in the
+   * current month for all organizations.
+   *
+   * @return featureFlagsConfigRequestsAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFeatureFlagsConfigRequestsAggSum() {
+    return featureFlagsConfigRequestsAggSum;
+  }
+
+  public void setFeatureFlagsConfigRequestsAggSum(Long featureFlagsConfigRequestsAggSum) {
+    this.featureFlagsConfigRequestsAggSum = featureFlagsConfigRequestsAggSum;
   }
 
   public UsageSummaryResponse flexLogsComputeLargeAvgSum(Long flexLogsComputeLargeAvgSum) {
@@ -7210,6 +7238,9 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.fargateTasksCountHwmSum, usageSummaryResponse.fargateTasksCountHwmSum)
         && Objects.equals(
+            this.featureFlagsConfigRequestsAggSum,
+            usageSummaryResponse.featureFlagsConfigRequestsAggSum)
+        && Objects.equals(
             this.flexLogsComputeLargeAvgSum, usageSummaryResponse.flexLogsComputeLargeAvgSum)
         && Objects.equals(
             this.flexLogsComputeMediumAvgSum, usageSummaryResponse.flexLogsComputeMediumAvgSum)
@@ -7638,6 +7669,7 @@ public class UsageSummaryResponse {
         fargateContainerProfilerProfilingFargateEksAvgSum,
         fargateTasksCountAvgSum,
         fargateTasksCountHwmSum,
+        featureFlagsConfigRequestsAggSum,
         flexLogsComputeLargeAvgSum,
         flexLogsComputeMediumAvgSum,
         flexLogsComputeSmallAvgSum,
@@ -8079,6 +8111,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    fargateTasksCountHwmSum: ")
         .append(toIndentedString(fargateTasksCountHwmSum))
+        .append("\n");
+    sb.append("    featureFlagsConfigRequestsAggSum: ")
+        .append(toIndentedString(featureFlagsConfigRequestsAggSum))
         .append("\n");
     sb.append("    flexLogsComputeLargeAvgSum: ")
         .append(toIndentedString(flexLogsComputeLargeAvgSum))
