@@ -11,7 +11,6 @@ import com.datadog.api.client.v2.model.TestOptimizationDeleteServiceSettingsRequ
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.deleteTestOptimizationServiceSettings", true);
     TestOptimizationApi apiInstance = new TestOptimizationApi(defaultClient);
 
     TestOptimizationDeleteServiceSettingsRequest body =

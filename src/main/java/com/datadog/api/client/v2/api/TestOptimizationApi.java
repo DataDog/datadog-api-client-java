@@ -109,13 +109,6 @@ public class TestOptimizationApi {
    */
   public ApiResponse<Void> deleteTestOptimizationServiceSettingsWithHttpInfo(
       TestOptimizationDeleteServiceSettingsRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteTestOptimizationServiceSettings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -161,16 +154,6 @@ public class TestOptimizationApi {
   public CompletableFuture<ApiResponse<Void>>
       deleteTestOptimizationServiceSettingsWithHttpInfoAsync(
           TestOptimizationDeleteServiceSettingsRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteTestOptimizationServiceSettings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -267,13 +250,6 @@ public class TestOptimizationApi {
   public ApiResponse<TestOptimizationFlakyTestsManagementPoliciesResponse>
       getFlakyTestsManagementPoliciesWithHttpInfo(
           TestOptimizationFlakyTestsManagementPoliciesGetRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getFlakyTestsManagementPolicies";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -319,17 +295,6 @@ public class TestOptimizationApi {
   public CompletableFuture<ApiResponse<TestOptimizationFlakyTestsManagementPoliciesResponse>>
       getFlakyTestsManagementPoliciesWithHttpInfoAsync(
           TestOptimizationFlakyTestsManagementPoliciesGetRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "getFlakyTestsManagementPolicies";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TestOptimizationFlakyTestsManagementPoliciesResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -428,13 +393,6 @@ public class TestOptimizationApi {
   public ApiResponse<TestOptimizationServiceSettingsResponse>
       getTestOptimizationServiceSettingsWithHttpInfo(TestOptimizationGetServiceSettingsRequest body)
           throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getTestOptimizationServiceSettings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -479,17 +437,6 @@ public class TestOptimizationApi {
   public CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>>
       getTestOptimizationServiceSettingsWithHttpInfoAsync(
           TestOptimizationGetServiceSettingsRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "getTestOptimizationServiceSettings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -709,13 +656,6 @@ public class TestOptimizationApi {
    */
   public ApiResponse<FlakyTestsSearchResponse> searchFlakyTestsWithHttpInfo(
       SearchFlakyTestsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "searchFlakyTests";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/test/flaky-test-management/tests";
@@ -752,16 +692,6 @@ public class TestOptimizationApi {
    */
   public CompletableFuture<ApiResponse<FlakyTestsSearchResponse>> searchFlakyTestsWithHttpInfoAsync(
       SearchFlakyTestsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "searchFlakyTests";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FlakyTestsSearchResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/test/flaky-test-management/tests";
@@ -844,13 +774,6 @@ public class TestOptimizationApi {
    */
   public ApiResponse<UpdateFlakyTestsResponse> updateFlakyTestsWithHttpInfo(
       UpdateFlakyTestsRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateFlakyTests";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -893,16 +816,6 @@ public class TestOptimizationApi {
    */
   public CompletableFuture<ApiResponse<UpdateFlakyTestsResponse>> updateFlakyTestsWithHttpInfoAsync(
       UpdateFlakyTestsRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateFlakyTests";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<UpdateFlakyTestsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -998,13 +911,6 @@ public class TestOptimizationApi {
   public ApiResponse<TestOptimizationFlakyTestsManagementPoliciesResponse>
       updateFlakyTestsManagementPoliciesWithHttpInfo(
           TestOptimizationFlakyTestsManagementPoliciesUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateFlakyTestsManagementPolicies";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1050,17 +956,6 @@ public class TestOptimizationApi {
   public CompletableFuture<ApiResponse<TestOptimizationFlakyTestsManagementPoliciesResponse>>
       updateFlakyTestsManagementPoliciesWithHttpInfoAsync(
           TestOptimizationFlakyTestsManagementPoliciesUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateFlakyTestsManagementPolicies";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TestOptimizationFlakyTestsManagementPoliciesResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1161,13 +1056,6 @@ public class TestOptimizationApi {
   public ApiResponse<TestOptimizationServiceSettingsResponse>
       updateTestOptimizationServiceSettingsWithHttpInfo(
           TestOptimizationUpdateServiceSettingsRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateTestOptimizationServiceSettings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1213,17 +1101,6 @@ public class TestOptimizationApi {
   public CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>>
       updateTestOptimizationServiceSettingsWithHttpInfoAsync(
           TestOptimizationUpdateServiceSettingsRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateTestOptimizationServiceSettings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
