@@ -1,0 +1,239 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v1.model;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+/** Request configuration for the point plot widget. */
+@JsonPropertyOrder({
+  PointPlotWidgetRequest.JSON_PROPERTY_LIMIT,
+  PointPlotWidgetRequest.JSON_PROPERTY_PROJECTION,
+  PointPlotWidgetRequest.JSON_PROPERTY_QUERY,
+  PointPlotWidgetRequest.JSON_PROPERTY_REQUEST_TYPE
+})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class PointPlotWidgetRequest {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private Long limit;
+
+  public static final String JSON_PROPERTY_PROJECTION = "projection";
+  private PointPlotProjection projection;
+
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private DataProjectionQuery query;
+
+  public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
+  private DataProjectionRequestType requestType;
+
+  public PointPlotWidgetRequest() {}
+
+  @JsonCreator
+  public PointPlotWidgetRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECTION)
+          PointPlotProjection projection,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) DataProjectionQuery query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST_TYPE)
+          DataProjectionRequestType requestType) {
+    this.projection = projection;
+    this.unparsed |= projection.unparsed;
+    this.query = query;
+    this.unparsed |= query.unparsed;
+    this.requestType = requestType;
+    this.unparsed |= !requestType.isValid();
+  }
+
+  public PointPlotWidgetRequest limit(Long limit) {
+    this.limit = limit;
+    return this;
+  }
+
+  /**
+   * Maximum number of data points to return.
+   *
+   * @return limit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
+  }
+
+  public PointPlotWidgetRequest projection(PointPlotProjection projection) {
+    this.projection = projection;
+    this.unparsed |= projection.unparsed;
+    return this;
+  }
+
+  /**
+   * Projection configuration for the point plot widget.
+   *
+   * @return projection
+   */
+  @JsonProperty(JSON_PROPERTY_PROJECTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public PointPlotProjection getProjection() {
+    return projection;
+  }
+
+  public void setProjection(PointPlotProjection projection) {
+    this.projection = projection;
+  }
+
+  public PointPlotWidgetRequest query(DataProjectionQuery query) {
+    this.query = query;
+    this.unparsed |= query.unparsed;
+    return this;
+  }
+
+  /**
+   * Query configuration for a data projection request.
+   *
+   * @return query
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public DataProjectionQuery getQuery() {
+    return query;
+  }
+
+  public void setQuery(DataProjectionQuery query) {
+    this.query = query;
+  }
+
+  public PointPlotWidgetRequest requestType(DataProjectionRequestType requestType) {
+    this.requestType = requestType;
+    this.unparsed |= !requestType.isValid();
+    return this;
+  }
+
+  /**
+   * Type of a data projection request.
+   *
+   * @return requestType
+   */
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public DataProjectionRequestType getRequestType() {
+    return requestType;
+  }
+
+  public void setRequestType(DataProjectionRequestType requestType) {
+    if (!requestType.isValid()) {
+      this.unparsed = true;
+    }
+    this.requestType = requestType;
+  }
+
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return PointPlotWidgetRequest
+   */
+  @JsonAnySetter
+  public PointPlotWidgetRequest putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
+  /** Return true if this PointPlotWidgetRequest object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PointPlotWidgetRequest pointPlotWidgetRequest = (PointPlotWidgetRequest) o;
+    return Objects.equals(this.limit, pointPlotWidgetRequest.limit)
+        && Objects.equals(this.projection, pointPlotWidgetRequest.projection)
+        && Objects.equals(this.query, pointPlotWidgetRequest.query)
+        && Objects.equals(this.requestType, pointPlotWidgetRequest.requestType)
+        && Objects.equals(this.additionalProperties, pointPlotWidgetRequest.additionalProperties);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(limit, projection, query, requestType, additionalProperties);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PointPlotWidgetRequest {\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    projection: ").append(toIndentedString(projection)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
+    sb.append('}');
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
