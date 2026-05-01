@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   OrgGroupListResponse.JSON_PROPERTY_DATA,
   OrgGroupListResponse.JSON_PROPERTY_INCLUDED,
+  OrgGroupListResponse.JSON_PROPERTY_LINKS,
   OrgGroupListResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
@@ -34,6 +35,9 @@ public class OrgGroupListResponse {
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<OrgGroupMembershipData> included = null;
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private OrgGroupPaginationLinks links;
 
   public static final String JSON_PROPERTY_META = "meta";
   private OrgGroupPaginationMeta meta;
@@ -109,6 +113,28 @@ public class OrgGroupListResponse {
     this.included = included;
   }
 
+  public OrgGroupListResponse links(OrgGroupPaginationLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Pagination links for navigating between pages of an org group list response.
+   *
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OrgGroupPaginationLinks getLinks() {
+    return links;
+  }
+
+  public void setLinks(OrgGroupPaginationLinks links) {
+    this.links = links;
+  }
+
   public OrgGroupListResponse meta(OrgGroupPaginationMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -116,7 +142,7 @@ public class OrgGroupListResponse {
   }
 
   /**
-   * Pagination metadata.
+   * Pagination metadata for org group list responses.
    *
    * @return meta
    */
@@ -189,13 +215,14 @@ public class OrgGroupListResponse {
     OrgGroupListResponse orgGroupListResponse = (OrgGroupListResponse) o;
     return Objects.equals(this.data, orgGroupListResponse.data)
         && Objects.equals(this.included, orgGroupListResponse.included)
+        && Objects.equals(this.links, orgGroupListResponse.links)
         && Objects.equals(this.meta, orgGroupListResponse.meta)
         && Objects.equals(this.additionalProperties, orgGroupListResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, meta, additionalProperties);
+    return Objects.hash(data, included, links, meta, additionalProperties);
   }
 
   @Override
@@ -204,6 +231,7 @@ public class OrgGroupListResponse {
     sb.append("class OrgGroupListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

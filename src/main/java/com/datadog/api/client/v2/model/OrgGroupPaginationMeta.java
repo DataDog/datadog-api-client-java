@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Pagination metadata. */
+/** Pagination metadata for org group list responses. */
 @JsonPropertyOrder({OrgGroupPaginationMeta.JSON_PROPERTY_PAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -26,15 +25,6 @@ public class OrgGroupPaginationMeta {
   public static final String JSON_PROPERTY_PAGE = "page";
   private OrgGroupPaginationMetaPage page;
 
-  public OrgGroupPaginationMeta() {}
-
-  @JsonCreator
-  public OrgGroupPaginationMeta(
-      @JsonProperty(required = true, value = JSON_PROPERTY_PAGE) OrgGroupPaginationMetaPage page) {
-    this.page = page;
-    this.unparsed |= page.unparsed;
-  }
-
   public OrgGroupPaginationMeta page(OrgGroupPaginationMetaPage page) {
     this.page = page;
     this.unparsed |= page.unparsed;
@@ -42,12 +32,13 @@ public class OrgGroupPaginationMeta {
   }
 
   /**
-   * Page-based pagination details.
+   * Page-based pagination details for org group list responses.
    *
    * @return page
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrgGroupPaginationMetaPage getPage() {
     return page;
   }

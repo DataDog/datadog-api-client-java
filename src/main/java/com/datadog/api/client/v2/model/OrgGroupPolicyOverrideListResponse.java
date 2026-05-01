@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Response containing a list of org group policy overrides. */
 @JsonPropertyOrder({
   OrgGroupPolicyOverrideListResponse.JSON_PROPERTY_DATA,
+  OrgGroupPolicyOverrideListResponse.JSON_PROPERTY_LINKS,
   OrgGroupPolicyOverrideListResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
@@ -30,6 +31,9 @@ public class OrgGroupPolicyOverrideListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<OrgGroupPolicyOverrideData> data = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private OrgGroupPaginationLinks links;
 
   public static final String JSON_PROPERTY_META = "meta";
   private OrgGroupPaginationMeta meta;
@@ -72,6 +76,28 @@ public class OrgGroupPolicyOverrideListResponse {
     this.data = data;
   }
 
+  public OrgGroupPolicyOverrideListResponse links(OrgGroupPaginationLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Pagination links for navigating between pages of an org group list response.
+   *
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OrgGroupPaginationLinks getLinks() {
+    return links;
+  }
+
+  public void setLinks(OrgGroupPaginationLinks links) {
+    this.links = links;
+  }
+
   public OrgGroupPolicyOverrideListResponse meta(OrgGroupPaginationMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -79,7 +105,7 @@ public class OrgGroupPolicyOverrideListResponse {
   }
 
   /**
-   * Pagination metadata.
+   * Pagination metadata for org group list responses.
    *
    * @return meta
    */
@@ -152,6 +178,7 @@ public class OrgGroupPolicyOverrideListResponse {
     OrgGroupPolicyOverrideListResponse orgGroupPolicyOverrideListResponse =
         (OrgGroupPolicyOverrideListResponse) o;
     return Objects.equals(this.data, orgGroupPolicyOverrideListResponse.data)
+        && Objects.equals(this.links, orgGroupPolicyOverrideListResponse.links)
         && Objects.equals(this.meta, orgGroupPolicyOverrideListResponse.meta)
         && Objects.equals(
             this.additionalProperties, orgGroupPolicyOverrideListResponse.additionalProperties);
@@ -159,7 +186,7 @@ public class OrgGroupPolicyOverrideListResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(data, links, meta, additionalProperties);
   }
 
   @Override
@@ -167,6 +194,7 @@ public class OrgGroupPolicyOverrideListResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrgGroupPolicyOverrideListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
