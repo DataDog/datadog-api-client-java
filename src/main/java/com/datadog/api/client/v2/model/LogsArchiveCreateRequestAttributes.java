@@ -22,6 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The attributes associated with the archive. */
 @JsonPropertyOrder({
+  LogsArchiveCreateRequestAttributes.JSON_PROPERTY_COMPRESSION_METHOD,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_DESTINATION,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_INCLUDE_TAGS,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_NAME,
@@ -33,6 +34,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveCreateRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPRESSION_METHOD = "compression_method";
+  private LogsArchiveAttributesCompressionMethod compressionMethod =
+      LogsArchiveAttributesCompressionMethod.GZIP;
+
   public static final String JSON_PROPERTY_DESTINATION = "destination";
   private LogsArchiveCreateRequestDestination destination;
 
@@ -64,6 +69,32 @@ public class LogsArchiveCreateRequestAttributes {
     this.unparsed |= destination.unparsed;
     this.name = name;
     this.query = query;
+  }
+
+  public LogsArchiveCreateRequestAttributes compressionMethod(
+      LogsArchiveAttributesCompressionMethod compressionMethod) {
+    this.compressionMethod = compressionMethod;
+    this.unparsed |= !compressionMethod.isValid();
+    return this;
+  }
+
+  /**
+   * The type of compression for the archive.
+   *
+   * @return compressionMethod
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPRESSION_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsArchiveAttributesCompressionMethod getCompressionMethod() {
+    return compressionMethod;
+  }
+
+  public void setCompressionMethod(LogsArchiveAttributesCompressionMethod compressionMethod) {
+    if (!compressionMethod.isValid()) {
+      this.unparsed = true;
+    }
+    this.compressionMethod = compressionMethod;
   }
 
   public LogsArchiveCreateRequestAttributes destination(
@@ -269,7 +300,9 @@ public class LogsArchiveCreateRequestAttributes {
     }
     LogsArchiveCreateRequestAttributes logsArchiveCreateRequestAttributes =
         (LogsArchiveCreateRequestAttributes) o;
-    return Objects.equals(this.destination, logsArchiveCreateRequestAttributes.destination)
+    return Objects.equals(
+            this.compressionMethod, logsArchiveCreateRequestAttributes.compressionMethod)
+        && Objects.equals(this.destination, logsArchiveCreateRequestAttributes.destination)
         && Objects.equals(this.includeTags, logsArchiveCreateRequestAttributes.includeTags)
         && Objects.equals(this.name, logsArchiveCreateRequestAttributes.name)
         && Objects.equals(this.query, logsArchiveCreateRequestAttributes.query)
@@ -284,6 +317,7 @@ public class LogsArchiveCreateRequestAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        compressionMethod,
         destination,
         includeTags,
         name,
@@ -297,6 +331,7 @@ public class LogsArchiveCreateRequestAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsArchiveCreateRequestAttributes {\n");
+    sb.append("    compressionMethod: ").append(toIndentedString(compressionMethod)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    includeTags: ").append(toIndentedString(includeTags)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
