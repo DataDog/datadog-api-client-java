@@ -33,6 +33,7 @@ import java.util.Objects;
   SunburstWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   SunburstWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   SunburstWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
+  SunburstWidgetRequest.JSON_PROPERTY_SORT,
   SunburstWidgetRequest.JSON_PROPERTY_STYLE
 })
 @jakarta.annotation.Generated(
@@ -77,6 +78,9 @@ public class SunburstWidgetRequest {
 
   public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
   private LogQueryDefinition securityQuery;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private WidgetSortBy sort;
 
   public static final String JSON_PROPERTY_STYLE = "style";
   private WidgetStyle style;
@@ -395,6 +399,28 @@ public class SunburstWidgetRequest {
     this.securityQuery = securityQuery;
   }
 
+  public SunburstWidgetRequest sort(WidgetSortBy sort) {
+    this.sort = sort;
+    this.unparsed |= sort.unparsed;
+    return this;
+  }
+
+  /**
+   * The controls for sorting the widget.
+   *
+   * @return sort
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetSortBy getSort() {
+    return sort;
+  }
+
+  public void setSort(WidgetSortBy sort) {
+    this.sort = sort;
+  }
+
   public SunburstWidgetRequest style(WidgetStyle style) {
     this.style = style;
     this.unparsed |= style.unparsed;
@@ -486,6 +512,7 @@ public class SunburstWidgetRequest {
         && Objects.equals(this.responseFormat, sunburstWidgetRequest.responseFormat)
         && Objects.equals(this.rumQuery, sunburstWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, sunburstWidgetRequest.securityQuery)
+        && Objects.equals(this.sort, sunburstWidgetRequest.sort)
         && Objects.equals(this.style, sunburstWidgetRequest.style)
         && Objects.equals(this.additionalProperties, sunburstWidgetRequest.additionalProperties);
   }
@@ -506,6 +533,7 @@ public class SunburstWidgetRequest {
         responseFormat,
         rumQuery,
         securityQuery,
+        sort,
         style,
         additionalProperties);
   }
@@ -529,6 +557,7 @@ public class SunburstWidgetRequest {
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
