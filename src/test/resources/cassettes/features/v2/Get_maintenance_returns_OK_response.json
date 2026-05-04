@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"1abcffd6cf16459e\",\"enabled\":true,\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"9905c0ddab704862\",\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"a3f37f49-7dd9-4eaa-96c7-e274fa73ad68\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"de3c3f87-8534-40db-bdc4-9e4cce07e94a\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"961b7857-5f48-4cbb-8daa-d103d4e4722d\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"81b6ec9d-2881-43aa-8e5d-29eef9ba9d31\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-03-31T18:43:58.744798Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"1abcffd6cf16459e\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-03-31T18:43:58.744798Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/a3f37f49-7dd9-4eaa-96c7-e274fa73ad68/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"f94e1859-5f7d-4725-8cea-36933d0ee44a\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"95f2748c-0715-4ec7-8eff-cfd50880fa31\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"7814c703-ad55-4ec5-b1d4-f339b42849e9\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"af0c0031-b691-4326-8178-3b8285560b3f\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-04-24T14:12:52.130767Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"9905c0ddab704862\",\"email_header_image\":null,\"enabled\":false,\"favicon\":null,\"modified_at\":\"2026-04-24T14:12:52.130767Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/f94e1859-5f7d-4725-8cea-36933d0ee44a/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "43da5f71-bd36-3ae2-9b18-98667555f7d8"
+    "id": "9f5a5d49-cbb8-fc70-f2e5-6797ecd6efe7"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"completed_date\":\"2026-03-31T20:43:58.660Z\",\"completed_description\":\"We have completed maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"961b7857-5f48-4cbb-8daa-d103d4e4722d\",\"status\":\"operational\"}],\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance.\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance.\",\"start_date\":\"2026-03-31T19:43:58.660Z\",\"title\":\"API Maintenance\"},\"type\":\"maintenances\"}}"
+        "json": "{\"data\":{\"attributes\":{\"completed_date\":\"2026-04-24T16:12:52.035Z\",\"completed_description\":\"We have completed maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"7814c703-ad55-4ec5-b1d4-f339b42849e9\",\"status\":\"operational\"}],\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance.\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance.\",\"start_date\":\"2026-04-24T15:12:52.035Z\",\"title\":\"API Maintenance\"},\"type\":\"maintenances\"}}"
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/statuspages/a3f37f49-7dd9-4eaa-96c7-e274fa73ad68/maintenances",
+      "path": "/api/v2/statuspages/f94e1859-5f7d-4725-8cea-36933d0ee44a/maintenances",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"6a647e94-a2f8-4469-9c21-d4a75a2ecd39\",\"type\":\"maintenances\",\"attributes\":{\"completed_date\":\"2026-03-31T20:43:58.66Z\",\"completed_description\":\"We have completed maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"961b7857-5f48-4cbb-8daa-d103d4e4722d\",\"name\":\"Login\",\"status\":\"operational\"}],\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance.\",\"modified_at\":\"2026-03-31T18:43:59.331709Z\",\"published_date\":\"2026-03-31T18:43:59.331709Z\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance.\",\"start_date\":\"2026-03-31T19:43:58.66Z\",\"status\":\"scheduled\",\"title\":\"API Maintenance\",\"updates\":[{\"id\":\"b53298a6-257c-4360-ae12-8a7c73723110\",\"created_at\":\"2026-03-31T18:43:59.331709Z\",\"modified_at\":\"2026-03-31T18:43:59.331709Z\",\"started_at\":\"2026-03-31T18:43:59.331709Z\",\"manual_transition\":false,\"status\":\"scheduled\",\"description\":\"We will be performing maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"961b7857-5f48-4cbb-8daa-d103d4e4722d\",\"name\":\"Login\",\"status\":\"operational\"}]}]},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"a3f37f49-7dd9-4eaa-96c7-e274fa73ad68\",\"type\":\"status_pages\"}}}}}",
+      "body": "{\"data\":{\"id\":\"01ffa7f4-fc91-47a3-b9e0-2b0892891107\",\"type\":\"maintenances\",\"attributes\":{\"completed_date\":\"2026-04-24T16:12:52.035Z\",\"completed_description\":\"We have completed maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"7814c703-ad55-4ec5-b1d4-f339b42849e9\",\"name\":\"Login\",\"status\":\"operational\"}],\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance.\",\"modified_at\":\"2026-04-24T14:12:52.838015Z\",\"published_date\":\"2026-04-24T14:12:52.838015Z\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance.\",\"start_date\":\"2026-04-24T15:12:52.035Z\",\"status\":\"scheduled\",\"title\":\"API Maintenance\",\"updates\":[{\"id\":\"0bc62e28-e5de-49ef-a781-9c362bb8e58e\",\"created_at\":\"2026-04-24T14:12:52.838015Z\",\"modified_at\":\"2026-04-24T14:12:52.838015Z\",\"started_at\":\"2026-04-24T14:12:52.838015Z\",\"manual_transition\":false,\"status\":\"scheduled\",\"description\":\"We will be performing maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"7814c703-ad55-4ec5-b1d4-f339b42849e9\",\"name\":\"Login\",\"status\":\"operational\"}]}]},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"f94e1859-5f7d-4725-8cea-36933d0ee44a\",\"type\":\"status_pages\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c8f44f30-70ea-c021-7ba2-1ef0e3c5dca8"
+    "id": "fa3bc94b-ebbd-1454-8255-d593fa4eccc0"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/statuspages/a3f37f49-7dd9-4eaa-96c7-e274fa73ad68/maintenances/6a647e94-a2f8-4469-9c21-d4a75a2ecd39",
+      "path": "/api/v2/statuspages/f94e1859-5f7d-4725-8cea-36933d0ee44a/maintenances/01ffa7f4-fc91-47a3-b9e0-2b0892891107",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"6a647e94-a2f8-4469-9c21-d4a75a2ecd39\",\"type\":\"maintenances\",\"attributes\":{\"completed_date\":\"2026-03-31T20:43:58.66Z\",\"completed_description\":\"We have completed maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"961b7857-5f48-4cbb-8daa-d103d4e4722d\",\"name\":\"Login\",\"status\":\"operational\"}],\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance.\",\"modified_at\":\"2026-03-31T18:43:59.331709Z\",\"published_date\":\"2026-03-31T18:43:59.331709Z\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance.\",\"start_date\":\"2026-03-31T19:43:58.66Z\",\"status\":\"scheduled\",\"title\":\"API Maintenance\",\"updates\":[{\"id\":\"b53298a6-257c-4360-ae12-8a7c73723110\",\"created_at\":\"2026-03-31T18:43:59.331709Z\",\"modified_at\":\"2026-03-31T18:43:59.331709Z\",\"started_at\":\"2026-03-31T18:43:59.331709Z\",\"manual_transition\":false,\"status\":\"scheduled\",\"description\":\"We will be performing maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"961b7857-5f48-4cbb-8daa-d103d4e4722d\",\"name\":\"Login\",\"status\":\"operational\"}]}]},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"a3f37f49-7dd9-4eaa-96c7-e274fa73ad68\",\"type\":\"status_pages\"}}}}}",
+      "body": "{\"data\":{\"id\":\"01ffa7f4-fc91-47a3-b9e0-2b0892891107\",\"type\":\"maintenances\",\"attributes\":{\"completed_date\":\"2026-04-24T16:12:52.035Z\",\"completed_description\":\"We have completed maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"7814c703-ad55-4ec5-b1d4-f339b42849e9\",\"name\":\"Login\",\"status\":\"operational\"}],\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance.\",\"modified_at\":\"2026-04-24T14:12:52.838015Z\",\"published_date\":\"2026-04-24T14:12:52.838015Z\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance.\",\"start_date\":\"2026-04-24T15:12:52.035Z\",\"status\":\"scheduled\",\"title\":\"API Maintenance\",\"updates\":[{\"id\":\"0bc62e28-e5de-49ef-a781-9c362bb8e58e\",\"created_at\":\"2026-04-24T14:12:52.838015Z\",\"modified_at\":\"2026-04-24T14:12:52.838015Z\",\"started_at\":\"2026-04-24T14:12:52.838015Z\",\"manual_transition\":false,\"status\":\"scheduled\",\"description\":\"We will be performing maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"7814c703-ad55-4ec5-b1d4-f339b42849e9\",\"name\":\"Login\",\"status\":\"operational\"}]}]},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"f94e1859-5f7d-4725-8cea-36933d0ee44a\",\"type\":\"status_pages\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -83,13 +83,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f49ffccd-7a33-c22e-cd65-e1696682873b"
+    "id": "65d16d50-bf28-1617-211f-1324d596b743"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/statuspages/a3f37f49-7dd9-4eaa-96c7-e274fa73ad68",
+      "path": "/api/v2/statuspages/f94e1859-5f7d-4725-8cea-36933d0ee44a",
       "keepAlive": false,
       "secure": true
     },
@@ -104,6 +104,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ab0509ce-c613-5cb7-8c15-ac8e9d5f093d"
+    "id": "81df5a10-13ee-6f8e-8942-e91c731927f8"
   }
 ]

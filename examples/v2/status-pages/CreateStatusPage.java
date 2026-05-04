@@ -37,7 +37,6 @@ public class Example {
                                         .name("Settings")
                                         .type(CreateComponentRequestDataAttributesType.COMPONENT)
                                         .position(1L)))
-                            .enabled(true)
                             .type(CreateStatusPageRequestDataAttributesType.INTERNAL)
                             .visualizationType(
                                 CreateStatusPageRequestDataAttributesVisualizationType

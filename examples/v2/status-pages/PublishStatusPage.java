@@ -10,17 +10,16 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     StatusPagesApi apiInstance = new StatusPagesApi(defaultClient);
 
-    // there is a valid "unpublished_status_page" in the system
-    UUID UNPUBLISHED_STATUS_PAGE_DATA_ID = null;
+    // there is a valid "status_page" in the system
+    UUID STATUS_PAGE_DATA_ID = null;
     try {
-      UNPUBLISHED_STATUS_PAGE_DATA_ID =
-          UUID.fromString(System.getenv("UNPUBLISHED_STATUS_PAGE_DATA_ID"));
+      STATUS_PAGE_DATA_ID = UUID.fromString(System.getenv("STATUS_PAGE_DATA_ID"));
     } catch (IllegalArgumentException e) {
       System.err.println("Error parsing UUID: " + e.getMessage());
     }
 
     try {
-      apiInstance.publishStatusPage(UNPUBLISHED_STATUS_PAGE_DATA_ID);
+      apiInstance.publishStatusPage(STATUS_PAGE_DATA_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling StatusPagesApi#publishStatusPage");
       System.err.println("Status code: " + e.getCode());

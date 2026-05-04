@@ -25,7 +25,6 @@ import java.util.Objects;
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_COMPONENTS,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_DOMAIN_PREFIX,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_EMAIL_HEADER_IMAGE,
-  CreateStatusPageRequestDataAttributes.JSON_PROPERTY_ENABLED,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_FAVICON,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_NAME,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_SUBSCRIPTIONS_ENABLED,
@@ -48,9 +47,6 @@ public class CreateStatusPageRequestDataAttributes {
   public static final String JSON_PROPERTY_EMAIL_HEADER_IMAGE = "email_header_image";
   private String emailHeaderImage;
 
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private Boolean enabled;
-
   public static final String JSON_PROPERTY_FAVICON = "favicon";
   private String favicon;
 
@@ -71,14 +67,12 @@ public class CreateStatusPageRequestDataAttributes {
   @JsonCreator
   public CreateStatusPageRequestDataAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN_PREFIX) String domainPrefix,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           CreateStatusPageRequestDataAttributesType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_VISUALIZATION_TYPE)
           CreateStatusPageRequestDataAttributesVisualizationType visualizationType) {
     this.domainPrefix = domainPrefix;
-    this.enabled = enabled;
     this.name = name;
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -183,26 +177,6 @@ public class CreateStatusPageRequestDataAttributes {
 
   public void setEmailHeaderImage(String emailHeaderImage) {
     this.emailHeaderImage = emailHeaderImage;
-  }
-
-  public CreateStatusPageRequestDataAttributes enabled(Boolean enabled) {
-    this.enabled = enabled;
-    return this;
-  }
-
-  /**
-   * Whether the status page is enabled.
-   *
-   * @return enabled
-   */
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
   }
 
   public CreateStatusPageRequestDataAttributes favicon(String favicon) {
@@ -380,7 +354,6 @@ public class CreateStatusPageRequestDataAttributes {
         && Objects.equals(this.domainPrefix, createStatusPageRequestDataAttributes.domainPrefix)
         && Objects.equals(
             this.emailHeaderImage, createStatusPageRequestDataAttributes.emailHeaderImage)
-        && Objects.equals(this.enabled, createStatusPageRequestDataAttributes.enabled)
         && Objects.equals(this.favicon, createStatusPageRequestDataAttributes.favicon)
         && Objects.equals(this.name, createStatusPageRequestDataAttributes.name)
         && Objects.equals(
@@ -399,7 +372,6 @@ public class CreateStatusPageRequestDataAttributes {
         components,
         domainPrefix,
         emailHeaderImage,
-        enabled,
         favicon,
         name,
         subscriptionsEnabled,
@@ -416,7 +388,6 @@ public class CreateStatusPageRequestDataAttributes {
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    domainPrefix: ").append(toIndentedString(domainPrefix)).append("\n");
     sb.append("    emailHeaderImage: ").append(toIndentedString(emailHeaderImage)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    favicon: ").append(toIndentedString(favicon)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    subscriptionsEnabled: ")
