@@ -856,6 +856,7 @@ public class ApiClient {
           put("v2.muteSecurityFindings", false);
           put("v2.runHistoricalJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
+          put("v2.upsertSyncConfig", false);
           put("v2.getCodeCoverageBranchSummary", false);
           put("v2.getCodeCoverageCommitSummary", false);
           put("v2.createDashboardSecureEmbed", false);
