@@ -29,6 +29,7 @@ import com.datadog.api.client.v2.model.GCPUsageCostConfigPostRequest;
 import com.datadog.api.client.v2.model.GCPUsageCostConfigResponse;
 import com.datadog.api.client.v2.model.GCPUsageCostConfigsResponse;
 import com.datadog.api.client.v2.model.GcpUcConfigResponse;
+import com.datadog.api.client.v2.model.OCIConfigsResponse;
 import com.datadog.api.client.v2.model.ReorderRuleResourceArray;
 import com.datadog.api.client.v2.model.ReorderRulesetResourceArray;
 import com.datadog.api.client.v2.model.RulesValidateQueryRequest;
@@ -3097,6 +3098,115 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GCPUsageCostConfigsResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management OCI configs.
+   *
+   * <p>See {@link #listCostOCIConfigsWithHttpInfo}.
+   *
+   * @return OCIConfigsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OCIConfigsResponse listCostOCIConfigs() throws ApiException {
+    return listCostOCIConfigsWithHttpInfo().getData();
+  }
+
+  /**
+   * List Cloud Cost Management OCI configs.
+   *
+   * <p>See {@link #listCostOCIConfigsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OCIConfigsResponse&gt;
+   */
+  public CompletableFuture<OCIConfigsResponse> listCostOCIConfigsAsync() {
+    return listCostOCIConfigsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the OCI configs.
+   *
+   * @return ApiResponse&lt;OCIConfigsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OCIConfigsResponse> listCostOCIConfigsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/oci_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostOCIConfigs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OCIConfigsResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management OCI configs.
+   *
+   * <p>See {@link #listCostOCIConfigsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;OCIConfigsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OCIConfigsResponse>> listCostOCIConfigsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/oci_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostOCIConfigs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OCIConfigsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OCIConfigsResponse>() {});
   }
 
   /**
