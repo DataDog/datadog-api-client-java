@@ -23,7 +23,9 @@ import java.util.Objects;
   TreeMapWidgetRequest.JSON_PROPERTY_FORMULAS,
   TreeMapWidgetRequest.JSON_PROPERTY_Q,
   TreeMapWidgetRequest.JSON_PROPERTY_QUERIES,
-  TreeMapWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT
+  TreeMapWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
+  TreeMapWidgetRequest.JSON_PROPERTY_SORT,
+  TreeMapWidgetRequest.JSON_PROPERTY_STYLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,6 +42,12 @@ public class TreeMapWidgetRequest {
 
   public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
   private FormulaAndFunctionResponseFormat responseFormat;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private WidgetSortBy sort;
+
+  public static final String JSON_PROPERTY_STYLE = "style";
+  private WidgetRequestStyle style;
 
   public TreeMapWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
@@ -158,6 +166,50 @@ public class TreeMapWidgetRequest {
     this.responseFormat = responseFormat;
   }
 
+  public TreeMapWidgetRequest sort(WidgetSortBy sort) {
+    this.sort = sort;
+    this.unparsed |= sort.unparsed;
+    return this;
+  }
+
+  /**
+   * The controls for sorting the widget.
+   *
+   * @return sort
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetSortBy getSort() {
+    return sort;
+  }
+
+  public void setSort(WidgetSortBy sort) {
+    this.sort = sort;
+  }
+
+  public TreeMapWidgetRequest style(WidgetRequestStyle style) {
+    this.style = style;
+    this.unparsed |= style.unparsed;
+    return this;
+  }
+
+  /**
+   * Define request widget style.
+   *
+   * @return style
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetRequestStyle getStyle() {
+    return style;
+  }
+
+  public void setStyle(WidgetRequestStyle style) {
+    this.style = style;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -218,12 +270,14 @@ public class TreeMapWidgetRequest {
         && Objects.equals(this.q, treeMapWidgetRequest.q)
         && Objects.equals(this.queries, treeMapWidgetRequest.queries)
         && Objects.equals(this.responseFormat, treeMapWidgetRequest.responseFormat)
+        && Objects.equals(this.sort, treeMapWidgetRequest.sort)
+        && Objects.equals(this.style, treeMapWidgetRequest.style)
         && Objects.equals(this.additionalProperties, treeMapWidgetRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(formulas, q, queries, responseFormat, additionalProperties);
+    return Objects.hash(formulas, q, queries, responseFormat, sort, style, additionalProperties);
   }
 
   @Override
@@ -234,6 +288,8 @@ public class TreeMapWidgetRequest {
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
