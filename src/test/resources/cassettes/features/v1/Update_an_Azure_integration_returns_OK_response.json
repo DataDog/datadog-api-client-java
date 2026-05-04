@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17344717-0000-0000-0000-173447178100\",\"client_secret\":\"TestingRh2nx664kUy5dIApvM54T4AtO\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"metrics_enabled\":true,\"metrics_enabled_default\":true,\"new_client_id\":\"17344717-0000-0000-0000-173447178100\",\"new_tenant_name\":\"17344717-0000-0000-0000-173447178100\",\"resource_collection_enabled\":true,\"resource_provider_configs\":[{\"metrics_enabled\":false,\"namespace\":\"Microsoft.Compute\"},{\"metrics_enabled\":false,\"namespace\":\"Microsoft.Web\"}],\"tenant_name\":\"17344717-0000-0000-0000-173447178100\",\"usage_metrics_enabled\":true}"
+        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17779030-0000-0000-0000-177790301200\",\"client_secret\":\"TestingRh2nx664kUy5dIApvM54T4AtO\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"metrics_enabled\":true,\"metrics_enabled_default\":true,\"new_client_id\":\"17779030-0000-0000-0000-177790301200\",\"new_tenant_name\":\"17779030-0000-0000-0000-177790301200\",\"resource_collection_enabled\":true,\"resource_provider_configs\":[{\"metrics_enabled\":false,\"namespace\":\"Microsoft.Compute\"},{\"metrics_enabled\":false,\"namespace\":\"Microsoft.Web\"}],\"secretless_auth_enabled\":false,\"tenant_name\":\"17779030-0000-0000-0000-177790301200\",\"usage_metrics_enabled\":true}"
       },
       "headers": {},
       "method": "POST",
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6ba1c834-178d-7fbd-05a9-8c57c5b3a59c"
+    "id": "83288968-90a5-00af-afa2-381253802da5"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17344717-0000-0000-0000-173447178100\",\"client_secret\":\"TestingRh2nx664kUy5dIApvM54T4AtO\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17344717-0000-0000-0000-173447178100\",\"new_tenant_name\":\"17344717-0000-0000-0000-173447178100\",\"resource_collection_enabled\":true,\"tenant_name\":\"17344717-0000-0000-0000-173447178100\"}"
+        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17779030-0000-0000-0000-177790301200\",\"client_secret\":\"TestingRh2nx664kUy5dIApvM54T4AtO\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17779030-0000-0000-0000-177790301200\",\"new_tenant_name\":\"17779030-0000-0000-0000-177790301200\",\"resource_collection_enabled\":true,\"secretless_auth_enabled\":true,\"tenant_name\":\"17779030-0000-0000-0000-177790301200\"}"
       },
       "headers": {},
       "method": "PUT",
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d21774b0-7473-079b-4c57-d1a122d1c43a"
+    "id": "b3b0ff38-35d5-4672-3d69-3c128a1cc3df"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"client_id\":\"17344717-0000-0000-0000-173447178100\",\"tenant_name\":\"17344717-0000-0000-0000-173447178100\"}"
+        "json": "{\"client_id\":\"17779030-0000-0000-0000-177790301200\",\"tenant_name\":\"17779030-0000-0000-0000-177790301200\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -87,6 +87,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5f728266-9032-95f3-5a63-47b82c4cbe45"
+    "id": "1e3bb8a0-dee7-9c9d-969e-5f72687ff090"
   }
 ]
