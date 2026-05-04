@@ -838,9 +838,9 @@ public class StatusPagesApi {
   }
 
   /**
-   * Creates a new status page. <strong>Note</strong>: Publishing a status page on creation via the
-   * <code>enabled</code> property will be deprecated. Use the dedicated <a
-   * href="#publish-status-page">publish</a> status page endpoint after creation instead.
+   * Creates a new status page in an unpublished state. Use the dedicated <a
+   * href="#publish-status-page">publish</a> status page endpoint to publish the page after
+   * creation.
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
