@@ -205,7 +205,7 @@ public class {{ name }} {
   args.put("optionalParams", parameters);
   {%- endif  %}
 
-  PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, {% if pagination.pageParam %}false{% else %}true{% endif %}, limit, args, {{ pagination.pageStart | default(0) }});
+  PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, {% if pagination.pageParam %}false{% else %}true{% endif %}, {% if pagination.cursorParam %}true{% else %}false{% endif %}, limit, args, {{ pagination.pageStart | default(0) }});
 
   return iterator;
 {%- endmacro %}

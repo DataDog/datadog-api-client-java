@@ -880,6 +880,7 @@ public class RumApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            true,
             limit,
             args,
             0);
@@ -1072,6 +1073,7 @@ public class RumApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             true,
             limit,
             args,

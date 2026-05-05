@@ -346,6 +346,7 @@ public class BitsAiApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            false,
             limit,
             args,
             0);

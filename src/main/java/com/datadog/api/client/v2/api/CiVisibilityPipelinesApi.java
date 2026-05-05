@@ -520,6 +520,7 @@ public class CiVisibilityPipelinesApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            true,
             limit,
             args,
             0);
@@ -780,6 +781,7 @@ public class CiVisibilityPipelinesApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             true,
             limit,
             args,

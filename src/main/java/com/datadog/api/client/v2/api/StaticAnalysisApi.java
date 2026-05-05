@@ -1743,6 +1743,7 @@ public class StaticAnalysisApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            false,
             limit,
             args,
             0);

@@ -619,6 +619,7 @@ public class TestOptimizationApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            true,
             limit,
             args,
             0);
