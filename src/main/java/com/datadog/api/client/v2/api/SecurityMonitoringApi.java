@@ -69,6 +69,8 @@ import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetUpdateRequ
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetsResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringPaginatedSuppressionsResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleBulkDeletePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleBulkDeleteResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleBulkExportPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertResponse;
@@ -605,6 +607,147 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Bulk delete security monitoring rules.
+   *
+   * <p>See {@link #bulkDeleteSecurityMonitoringRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringRuleBulkDeleteResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleBulkDeleteResponse bulkDeleteSecurityMonitoringRules(
+      SecurityMonitoringRuleBulkDeletePayload body) throws ApiException {
+    return bulkDeleteSecurityMonitoringRulesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Bulk delete security monitoring rules.
+   *
+   * <p>See {@link #bulkDeleteSecurityMonitoringRulesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleBulkDeleteResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleBulkDeleteResponse>
+      bulkDeleteSecurityMonitoringRulesAsync(SecurityMonitoringRuleBulkDeletePayload body) {
+    return bulkDeleteSecurityMonitoringRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete multiple security monitoring rules in a single request. Default rules cannot be deleted.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleBulkDeleteResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleBulkDeleteResponse>
+      bulkDeleteSecurityMonitoringRulesWithHttpInfo(SecurityMonitoringRuleBulkDeletePayload body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling bulkDeleteSecurityMonitoringRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/bulk_delete";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.bulkDeleteSecurityMonitoringRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleBulkDeleteResponse>() {});
+  }
+
+  /**
+   * Bulk delete security monitoring rules.
+   *
+   * <p>See {@link #bulkDeleteSecurityMonitoringRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleBulkDeleteResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleBulkDeleteResponse>>
+      bulkDeleteSecurityMonitoringRulesWithHttpInfoAsync(
+          SecurityMonitoringRuleBulkDeletePayload body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleBulkDeleteResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " bulkDeleteSecurityMonitoringRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/bulk_delete";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.bulkDeleteSecurityMonitoringRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleBulkDeleteResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleBulkDeleteResponse>() {});
   }
 
   /**
