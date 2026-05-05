@@ -370,6 +370,7 @@ public class CiVisibilityTestsApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            true,
             limit,
             args,
             0);
@@ -627,6 +628,7 @@ public class CiVisibilityTestsApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             true,
             limit,
             args,

@@ -679,6 +679,7 @@ public class DowntimesApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            false,
             limit,
             args,
             0);
@@ -936,6 +937,7 @@ public class DowntimesApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            false,
             limit,
             args,
             0);

@@ -1448,6 +1448,7 @@ public class ScorecardsApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            false,
             limit,
             args,
             0);
@@ -1826,6 +1827,7 @@ public class ScorecardsApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            false,
             limit,
             args,
             0);

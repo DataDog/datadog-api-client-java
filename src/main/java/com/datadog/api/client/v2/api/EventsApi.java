@@ -514,6 +514,7 @@ public class EventsApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            true,
             limit,
             args,
             0);
@@ -767,6 +768,7 @@ public class EventsApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             true,
             limit,
             args,

@@ -1855,6 +1855,7 @@ public class MetricsApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            true,
             limit,
             args,
             0);

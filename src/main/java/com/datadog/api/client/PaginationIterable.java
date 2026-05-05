@@ -16,6 +16,7 @@ public class PaginationIterable<T> implements Iterable<T> {
   String[] valueSetterPath;
   Boolean valueSetterParamOptional;
   Boolean offsetPageIncrement;
+  Boolean cursorPagination;
   Object limit;
   LinkedHashMap<String, Object> args;
   int pageStart;
@@ -28,6 +29,7 @@ public class PaginationIterable<T> implements Iterable<T> {
       String valueSetterPath,
       Boolean valueSetterParamOptional,
       Boolean offsetPageIncrement,
+      Boolean cursorPagination,
       Object limit,
       LinkedHashMap<String, Object> args,
       int pageStart) {
@@ -45,6 +47,7 @@ public class PaginationIterable<T> implements Iterable<T> {
     this.valueSetterPath = valueSetterPath.split("\\.");
     this.valueSetterParamOptional = valueSetterParamOptional;
     this.offsetPageIncrement = offsetPageIncrement;
+    this.cursorPagination = cursorPagination;
     this.limit = limit;
     this.args = args;
     this.pageStart = pageStart;

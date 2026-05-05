@@ -234,6 +234,7 @@ public class ProcessesApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            true,
             limit,
             args,
             0);

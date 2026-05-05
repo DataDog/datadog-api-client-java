@@ -147,7 +147,11 @@ public class PaginationIterator<T> implements Iterator<T> {
       return true;
     }
 
-    if (this.data.size() < convertToInt(this.iterable.limit)) {
+    if (this.iterable.cursorPagination) {
+      if (this.data.size() == 0) {
+        return false;
+      }
+    } else if (this.data.size() < convertToInt(this.iterable.limit)) {
       return false;
     }
 

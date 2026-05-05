@@ -232,6 +232,7 @@ public class AuditApi {
             valueSetterPath,
             valueSetterParamOptional,
             true,
+            true,
             limit,
             args,
             0);
@@ -485,6 +486,7 @@ public class AuditApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             true,
             limit,
             args,
