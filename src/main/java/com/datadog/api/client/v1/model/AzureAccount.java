@@ -35,7 +35,6 @@ import java.util.Objects;
   AzureAccount.JSON_PROPERTY_NEW_TENANT_NAME,
   AzureAccount.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED,
   AzureAccount.JSON_PROPERTY_RESOURCE_PROVIDER_CONFIGS,
-  AzureAccount.JSON_PROPERTY_SECRETLESS_AUTH_ENABLED,
   AzureAccount.JSON_PROPERTY_TENANT_NAME,
   AzureAccount.JSON_PROPERTY_USAGE_METRICS_ENABLED
 })
@@ -88,9 +87,6 @@ public class AzureAccount {
 
   public static final String JSON_PROPERTY_RESOURCE_PROVIDER_CONFIGS = "resource_provider_configs";
   private List<ResourceProviderConfig> resourceProviderConfigs = null;
-
-  public static final String JSON_PROPERTY_SECRETLESS_AUTH_ENABLED = "secretless_auth_enabled";
-  private Boolean secretlessAuthEnabled;
 
   public static final String JSON_PROPERTY_TENANT_NAME = "tenant_name";
   private String tenantName;
@@ -442,28 +438,6 @@ public class AzureAccount {
     this.resourceProviderConfigs = resourceProviderConfigs;
   }
 
-  public AzureAccount secretlessAuthEnabled(Boolean secretlessAuthEnabled) {
-    this.secretlessAuthEnabled = secretlessAuthEnabled;
-    return this;
-  }
-
-  /**
-   * (Preview) When enabled, Datadog authenticates with this app registration using federated
-   * workload identity credentials instead of a client secret.
-   *
-   * @return secretlessAuthEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECRETLESS_AUTH_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getSecretlessAuthEnabled() {
-    return secretlessAuthEnabled;
-  }
-
-  public void setSecretlessAuthEnabled(Boolean secretlessAuthEnabled) {
-    this.secretlessAuthEnabled = secretlessAuthEnabled;
-  }
-
   public AzureAccount tenantName(String tenantName) {
     this.tenantName = tenantName;
     return this;
@@ -577,7 +551,6 @@ public class AzureAccount {
         && Objects.equals(this.newTenantName, azureAccount.newTenantName)
         && Objects.equals(this.resourceCollectionEnabled, azureAccount.resourceCollectionEnabled)
         && Objects.equals(this.resourceProviderConfigs, azureAccount.resourceProviderConfigs)
-        && Objects.equals(this.secretlessAuthEnabled, azureAccount.secretlessAuthEnabled)
         && Objects.equals(this.tenantName, azureAccount.tenantName)
         && Objects.equals(this.usageMetricsEnabled, azureAccount.usageMetricsEnabled)
         && Objects.equals(this.additionalProperties, azureAccount.additionalProperties);
@@ -601,7 +574,6 @@ public class AzureAccount {
         newTenantName,
         resourceCollectionEnabled,
         resourceProviderConfigs,
-        secretlessAuthEnabled,
         tenantName,
         usageMetricsEnabled,
         additionalProperties);
@@ -637,9 +609,6 @@ public class AzureAccount {
         .append("\n");
     sb.append("    resourceProviderConfigs: ")
         .append(toIndentedString(resourceProviderConfigs))
-        .append("\n");
-    sb.append("    secretlessAuthEnabled: ")
-        .append(toIndentedString(secretlessAuthEnabled))
         .append("\n");
     sb.append("    tenantName: ").append(toIndentedString(tenantName)).append("\n");
     sb.append("    usageMetricsEnabled: ")

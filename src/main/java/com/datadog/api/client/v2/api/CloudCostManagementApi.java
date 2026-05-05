@@ -7,6 +7,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ArbitraryCostUpsertRequest;
 import com.datadog.api.client.v2.model.ArbitraryRuleResponse;
 import com.datadog.api.client.v2.model.ArbitraryRuleResponseArray;
+import com.datadog.api.client.v2.model.ArbitraryRuleStatusResponseArray;
 import com.datadog.api.client.v2.model.AwsCURConfigPatchRequest;
 import com.datadog.api.client.v2.model.AwsCURConfigPostRequest;
 import com.datadog.api.client.v2.model.AwsCURConfigsResponse;
@@ -36,6 +37,7 @@ import com.datadog.api.client.v2.model.RulesValidateQueryRequest;
 import com.datadog.api.client.v2.model.RulesValidateQueryResponse;
 import com.datadog.api.client.v2.model.RulesetResp;
 import com.datadog.api.client.v2.model.RulesetRespArray;
+import com.datadog.api.client.v2.model.RulesetStatusRespArray;
 import com.datadog.api.client.v2.model.UCConfigPair;
 import com.datadog.api.client.v2.model.UpdateRulesetRequest;
 import com.datadog.api.client.v2.model.ValidationResponse;
@@ -3320,6 +3322,119 @@ public class CloudCostManagementApi {
         new GenericType<ArbitraryRuleResponseArray>() {});
   }
 
+  /**
+   * List custom allocation rules status.
+   *
+   * <p>See {@link #listCustomAllocationRulesStatusWithHttpInfo}.
+   *
+   * @return ArbitraryRuleStatusResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public ArbitraryRuleStatusResponseArray listCustomAllocationRulesStatus() throws ApiException {
+    return listCustomAllocationRulesStatusWithHttpInfo().getData();
+  }
+
+  /**
+   * List custom allocation rules status.
+   *
+   * <p>See {@link #listCustomAllocationRulesStatusWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ArbitraryRuleStatusResponseArray&gt;
+   */
+  public CompletableFuture<ArbitraryRuleStatusResponseArray>
+      listCustomAllocationRulesStatusAsync() {
+    return listCustomAllocationRulesStatusWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the processing status of all custom allocation rules. Returns only the ID and processing
+   * status for each rule.
+   *
+   * @return ApiResponse&lt;ArbitraryRuleStatusResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ArbitraryRuleStatusResponseArray> listCustomAllocationRulesStatusWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule/status";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCustomAllocationRulesStatus",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleStatusResponseArray>() {});
+  }
+
+  /**
+   * List custom allocation rules status.
+   *
+   * <p>See {@link #listCustomAllocationRulesStatusWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ArbitraryRuleStatusResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ArbitraryRuleStatusResponseArray>>
+      listCustomAllocationRulesStatusWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule/status";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCustomAllocationRulesStatus",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ArbitraryRuleStatusResponseArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleStatusResponseArray>() {});
+  }
+
   /** Manage optional parameters to listCustomCostsFiles. */
   public static class ListCustomCostsFilesOptionalParameters {
     private Long pageNumber;
@@ -3680,6 +3795,117 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<RulesetRespArray>() {});
+  }
+
+  /**
+   * List tag pipeline rulesets status.
+   *
+   * <p>See {@link #listTagPipelinesRulesetsStatusWithHttpInfo}.
+   *
+   * @return RulesetStatusRespArray
+   * @throws ApiException if fails to make API call
+   */
+  public RulesetStatusRespArray listTagPipelinesRulesetsStatus() throws ApiException {
+    return listTagPipelinesRulesetsStatusWithHttpInfo().getData();
+  }
+
+  /**
+   * List tag pipeline rulesets status.
+   *
+   * <p>See {@link #listTagPipelinesRulesetsStatusWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;RulesetStatusRespArray&gt;
+   */
+  public CompletableFuture<RulesetStatusRespArray> listTagPipelinesRulesetsStatusAsync() {
+    return listTagPipelinesRulesetsStatusWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the processing status of all tag pipeline rulesets. Returns only the ID and processing
+   * status for each ruleset.
+   *
+   * @return ApiResponse&lt;RulesetStatusRespArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RulesetStatusRespArray> listTagPipelinesRulesetsStatusWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment/status";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listTagPipelinesRulesetsStatus",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetStatusRespArray>() {});
+  }
+
+  /**
+   * List tag pipeline rulesets status.
+   *
+   * <p>See {@link #listTagPipelinesRulesetsStatusWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;RulesetStatusRespArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RulesetStatusRespArray>>
+      listTagPipelinesRulesetsStatusWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment/status";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listTagPipelinesRulesetsStatus",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RulesetStatusRespArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetStatusRespArray>() {});
   }
 
   /**
