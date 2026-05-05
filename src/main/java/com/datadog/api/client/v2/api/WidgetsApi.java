@@ -55,12 +55,7 @@ public class WidgetsApi {
    * <p>See {@link #createWidgetWithHttpInfo}.
    *
    * @param experienceType The experience type for the widget. (required)
-   * @param body Widget request body. The <code>definition</code> object's required fields vary by
-   *     <code>widget.definition.type</code>: every type requires <code>requests</code>, and some
-   *     types require additional fields (e.g. <code>cloud_cost_summary</code> requires <code>
-   *     graph_options</code>, <code>geomap</code> requires <code>style</code> and <code>view</code>
-   *     ). The example below shows a complete <code>cloud_cost_summary</code> payload for the
-   *     <code>ccm_reports</code> experience type. (required)
+   * @param body Widget request body. (required)
    * @return WidgetResponse
    * @throws ApiException if fails to make API call
    */
@@ -75,12 +70,7 @@ public class WidgetsApi {
    * <p>See {@link #createWidgetWithHttpInfoAsync}.
    *
    * @param experienceType The experience type for the widget. (required)
-   * @param body Widget request body. The <code>definition</code> object's required fields vary by
-   *     <code>widget.definition.type</code>: every type requires <code>requests</code>, and some
-   *     types require additional fields (e.g. <code>cloud_cost_summary</code> requires <code>
-   *     graph_options</code>, <code>geomap</code> requires <code>style</code> and <code>view</code>
-   *     ). The example below shows a complete <code>cloud_cost_summary</code> payload for the
-   *     <code>ccm_reports</code> experience type. (required)
+   * @param body Widget request body. (required)
    * @return CompletableFuture&lt;WidgetResponse&gt;
    */
   public CompletableFuture<WidgetResponse> createWidgetAsync(
@@ -96,12 +86,7 @@ public class WidgetsApi {
    * Create a new widget for a given experience type.
    *
    * @param experienceType The experience type for the widget. (required)
-   * @param body Widget request body. The <code>definition</code> object's required fields vary by
-   *     <code>widget.definition.type</code>: every type requires <code>requests</code>, and some
-   *     types require additional fields (e.g. <code>cloud_cost_summary</code> requires <code>
-   *     graph_options</code>, <code>geomap</code> requires <code>style</code> and <code>view</code>
-   *     ). The example below shows a complete <code>cloud_cost_summary</code> payload for the
-   *     <code>ccm_reports</code> experience type. (required)
+   * @param body Widget request body. (required)
    * @return ApiResponse&lt;WidgetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -164,12 +149,7 @@ public class WidgetsApi {
    * <p>See {@link #createWidgetWithHttpInfo}.
    *
    * @param experienceType The experience type for the widget. (required)
-   * @param body Widget request body. The <code>definition</code> object's required fields vary by
-   *     <code>widget.definition.type</code>: every type requires <code>requests</code>, and some
-   *     types require additional fields (e.g. <code>cloud_cost_summary</code> requires <code>
-   *     graph_options</code>, <code>geomap</code> requires <code>style</code> and <code>view</code>
-   *     ). The example below shows a complete <code>cloud_cost_summary</code> payload for the
-   *     <code>ccm_reports</code> experience type. (required)
+   * @param body Widget request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;WidgetResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<WidgetResponse>> createWidgetWithHttpInfoAsync(
@@ -879,9 +859,7 @@ public class WidgetsApi {
    *
    * @param experienceType The experience type for the widget. (required)
    * @param uuid The UUID of the widget. (required)
-   * @param body Widget request body. The <code>definition</code> object's required fields vary by
-   *     <code>widget.definition.type</code>; see <code>CreateWidget</code> above for a complete
-   *     worked payload. Update is a full replacement of the widget definition. (required)
+   * @param body Widget request body. (required)
    * @return WidgetResponse
    * @throws ApiException if fails to make API call
    */
@@ -898,9 +876,7 @@ public class WidgetsApi {
    *
    * @param experienceType The experience type for the widget. (required)
    * @param uuid The UUID of the widget. (required)
-   * @param body Widget request body. The <code>definition</code> object's required fields vary by
-   *     <code>widget.definition.type</code>; see <code>CreateWidget</code> above for a complete
-   *     worked payload. Update is a full replacement of the widget definition. (required)
+   * @param body Widget request body. (required)
    * @return CompletableFuture&lt;WidgetResponse&gt;
    */
   public CompletableFuture<WidgetResponse> updateWidgetAsync(
@@ -918,9 +894,7 @@ public class WidgetsApi {
    *
    * @param experienceType The experience type for the widget. (required)
    * @param uuid The UUID of the widget. (required)
-   * @param body Widget request body. The <code>definition</code> object's required fields vary by
-   *     <code>widget.definition.type</code>; see <code>CreateWidget</code> above for a complete
-   *     worked payload. Update is a full replacement of the widget definition. (required)
+   * @param body Widget request body. (required)
    * @return ApiResponse&lt;WidgetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -993,9 +967,7 @@ public class WidgetsApi {
    *
    * @param experienceType The experience type for the widget. (required)
    * @param uuid The UUID of the widget. (required)
-   * @param body Widget request body. The <code>definition</code> object's required fields vary by
-   *     <code>widget.definition.type</code>; see <code>CreateWidget</code> above for a complete
-   *     worked payload. Update is a full replacement of the widget definition. (required)
+   * @param body Widget request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;WidgetResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<WidgetResponse>> updateWidgetWithHttpInfoAsync(
