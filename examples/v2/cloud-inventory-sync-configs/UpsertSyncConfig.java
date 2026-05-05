@@ -1,4 +1,4 @@
-// Create or update a sync configuration returns "OK" response
+// Enable Storage Management for a bucket returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

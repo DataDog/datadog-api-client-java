@@ -17,8 +17,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Provider-specific configuration. Include the object that matches <code>data.id</code> (<code>aws
- * </code>, <code>gcp</code>, or <code>azure</code>).
+ * Settings for the cloud provider specified in <code>data.id</code>. Include only the matching
+ * provider object (<code>aws</code>, <code>gcp</code>, or <code>azure</code>).
  */
 @JsonPropertyOrder({
   UpsertCloudInventorySyncConfigRequestAttributes.JSON_PROPERTY_AWS,
@@ -46,7 +46,7 @@ public class UpsertCloudInventorySyncConfigRequestAttributes {
   }
 
   /**
-   * AWS settings for the customer bucket that stores inventory reports.
+   * AWS settings for the S3 bucket Storage Management reads inventory reports from.
    *
    * @return aws
    */

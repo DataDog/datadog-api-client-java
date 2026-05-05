@@ -18,8 +18,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Attributes for a cloud inventory sync configuration. Values beyond <code>id</code> may be omitted
- * immediately after upsert.
+ * Attributes for a Storage Management configuration. Fields other than <code>id</code> may be empty
+ * in the response immediately after a create or update; subsequent reads return the full
+ * configuration.
  */
 @JsonPropertyOrder({
   CloudInventorySyncConfigAttributes.JSON_PROPERTY_AWS_ACCOUNT_ID,
@@ -373,7 +374,8 @@ public class CloudInventorySyncConfigAttributes {
   }
 
   /**
-   * Object key prefix or <code>/</code> when the entire bucket is synced.
+   * Object key prefix where inventory reports are written. Returns <code>/</code> when reports are
+   * written at the bucket root.
    *
    * @return prefix
    */

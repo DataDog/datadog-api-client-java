@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** JSON:API data object for a sync configuration. */
+/** Storage Management configuration data. */
 @JsonPropertyOrder({
   CloudInventorySyncConfigResponseData.JSON_PROPERTY_ATTRIBUTES,
   CloudInventorySyncConfigResponseData.JSON_PROPERTY_ID,
@@ -60,8 +60,9 @@ public class CloudInventorySyncConfigResponseData {
   }
 
   /**
-   * Attributes for a cloud inventory sync configuration. Values beyond <code>id</code> may be
-   * omitted immediately after upsert.
+   * Attributes for a Storage Management configuration. Fields other than <code>id</code> may be
+   * empty in the response immediately after a create or update; subsequent reads return the full
+   * configuration.
    *
    * @return attributes
    */
@@ -81,7 +82,7 @@ public class CloudInventorySyncConfigResponseData {
   }
 
   /**
-   * Unique identifier for the recurring sync configuration.
+   * Unique identifier for this Storage Management configuration.
    *
    * @return id
    */
@@ -102,7 +103,7 @@ public class CloudInventorySyncConfigResponseData {
   }
 
   /**
-   * JSON:API type for sync configuration resources.
+   * Always <code>sync_configs</code>.
    *
    * @return type
    */

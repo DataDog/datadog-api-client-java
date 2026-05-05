@@ -45,7 +45,7 @@ public class CloudInventorySyncConfigsApi {
   }
 
   /**
-   * Create or update a sync configuration.
+   * Enable Storage Management for a bucket.
    *
    * <p>See {@link #upsertSyncConfigWithHttpInfo}.
    *
@@ -59,7 +59,7 @@ public class CloudInventorySyncConfigsApi {
   }
 
   /**
-   * Create or update a sync configuration.
+   * Enable Storage Management for a bucket.
    *
    * <p>See {@link #upsertSyncConfigWithHttpInfoAsync}.
    *
@@ -76,9 +76,11 @@ public class CloudInventorySyncConfigsApi {
   }
 
   /**
-   * Create or update a cloud inventory sync configuration. Specify the cloud provider in <code>
-   * data.id</code> and provider-specific settings under <code>data.attributes</code>. This endpoint
-   * uses an upsert model.
+   * Enable Storage Management for an S3 bucket, GCS bucket, or Azure container by registering the
+   * destination that holds its inventory reports. Set <code>data.id</code> to the cloud provider (
+   * <code>aws</code>, <code>gcp</code>, or <code>azure</code>) and provide the matching settings
+   * under data.attributes. Calling this endpoint with the same provider replaces the existing
+   * configuration.
    *
    * @param body (required)
    * @return ApiResponse&lt;CloudInventorySyncConfigResponse&gt;
@@ -135,7 +137,7 @@ public class CloudInventorySyncConfigsApi {
   }
 
   /**
-   * Create or update a sync configuration.
+   * Enable Storage Management for a bucket.
    *
    * <p>See {@link #upsertSyncConfigWithHttpInfo}.
    *
