@@ -20,6 +20,7 @@ import com.datadog.api.client.v2.model.PersonalAccessTokenCreateResponse;
 import com.datadog.api.client.v2.model.PersonalAccessTokenResponse;
 import com.datadog.api.client.v2.model.PersonalAccessTokenUpdateRequest;
 import com.datadog.api.client.v2.model.PersonalAccessTokensSort;
+import com.datadog.api.client.v2.model.ValidateV2Response;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -3463,5 +3464,132 @@ public class KeyManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<PersonalAccessTokenResponse>() {});
+  }
+
+  /**
+   * Validate API key.
+   *
+   * <p>See {@link #validateV2WithHttpInfo}.
+   *
+   * @return ValidateV2Response
+   * @throws ApiException if fails to make API call
+   */
+  public ValidateV2Response validateV2() throws ApiException {
+    return validateV2WithHttpInfo().getData();
+  }
+
+  /**
+   * Validate API key.
+   *
+   * <p>See {@link #validateV2WithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ValidateV2Response&gt;
+   */
+  public CompletableFuture<ValidateV2Response> validateV2Async() {
+    return validateV2WithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Check if the API key is valid. Returns the organization UUID, API key ID, and associated
+   * scopes.
+   *
+   * @return ApiResponse&lt;ValidateV2Response&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ValidateV2Response> validateV2WithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "validateV2";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.KeyManagementApi.validateV2",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ValidateV2Response>() {});
+  }
+
+  /**
+   * Validate API key.
+   *
+   * <p>See {@link #validateV2WithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ValidateV2Response&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ValidateV2Response>> validateV2WithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "validateV2";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ValidateV2Response>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.KeyManagementApi.validateV2",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ValidateV2Response>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ValidateV2Response>() {});
   }
 }
