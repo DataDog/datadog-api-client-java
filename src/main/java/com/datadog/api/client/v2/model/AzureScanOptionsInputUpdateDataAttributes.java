@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Attributes for updating Azure scan options configuration. */
 @JsonPropertyOrder({
+  AzureScanOptionsInputUpdateDataAttributes.JSON_PROPERTY_COMPLIANCE_HOST,
   AzureScanOptionsInputUpdateDataAttributes.JSON_PROPERTY_VULN_CONTAINERS_OS,
   AzureScanOptionsInputUpdateDataAttributes.JSON_PROPERTY_VULN_HOST_OS
 })
@@ -25,11 +26,35 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AzureScanOptionsInputUpdateDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPLIANCE_HOST = "compliance_host";
+  private Boolean complianceHost;
+
   public static final String JSON_PROPERTY_VULN_CONTAINERS_OS = "vuln_containers_os";
   private Boolean vulnContainersOs;
 
   public static final String JSON_PROPERTY_VULN_HOST_OS = "vuln_host_os";
   private Boolean vulnHostOs;
+
+  public AzureScanOptionsInputUpdateDataAttributes complianceHost(Boolean complianceHost) {
+    this.complianceHost = complianceHost;
+    return this;
+  }
+
+  /**
+   * Indicates whether host compliance scanning is enabled.
+   *
+   * @return complianceHost
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getComplianceHost() {
+    return complianceHost;
+  }
+
+  public void setComplianceHost(Boolean complianceHost) {
+    this.complianceHost = complianceHost;
+  }
 
   public AzureScanOptionsInputUpdateDataAttributes vulnContainersOs(Boolean vulnContainersOs) {
     this.vulnContainersOs = vulnContainersOs;
@@ -131,6 +156,8 @@ public class AzureScanOptionsInputUpdateDataAttributes {
     AzureScanOptionsInputUpdateDataAttributes azureScanOptionsInputUpdateDataAttributes =
         (AzureScanOptionsInputUpdateDataAttributes) o;
     return Objects.equals(
+            this.complianceHost, azureScanOptionsInputUpdateDataAttributes.complianceHost)
+        && Objects.equals(
             this.vulnContainersOs, azureScanOptionsInputUpdateDataAttributes.vulnContainersOs)
         && Objects.equals(this.vulnHostOs, azureScanOptionsInputUpdateDataAttributes.vulnHostOs)
         && Objects.equals(
@@ -140,13 +167,14 @@ public class AzureScanOptionsInputUpdateDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(vulnContainersOs, vulnHostOs, additionalProperties);
+    return Objects.hash(complianceHost, vulnContainersOs, vulnHostOs, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AzureScanOptionsInputUpdateDataAttributes {\n");
+    sb.append("    complianceHost: ").append(toIndentedString(complianceHost)).append("\n");
     sb.append("    vulnContainersOs: ").append(toIndentedString(vulnContainersOs)).append("\n");
     sb.append("    vulnHostOs: ").append(toIndentedString(vulnHostOs)).append("\n");
     sb.append("    additionalProperties: ")

@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** Attributes for the AWS scan options to create. */
 @JsonPropertyOrder({
+  AwsScanOptionsCreateAttributes.JSON_PROPERTY_COMPLIANCE_HOST,
   AwsScanOptionsCreateAttributes.JSON_PROPERTY_LAMBDA,
   AwsScanOptionsCreateAttributes.JSON_PROPERTY_SENSITIVE_DATA,
   AwsScanOptionsCreateAttributes.JSON_PROPERTY_VULN_CONTAINERS_OS,
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AwsScanOptionsCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPLIANCE_HOST = "compliance_host";
+  private Boolean complianceHost;
+
   public static final String JSON_PROPERTY_LAMBDA = "lambda";
   private Boolean lambda;
 
@@ -44,15 +48,37 @@ public class AwsScanOptionsCreateAttributes {
 
   @JsonCreator
   public AwsScanOptionsCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPLIANCE_HOST) Boolean complianceHost,
       @JsonProperty(required = true, value = JSON_PROPERTY_LAMBDA) Boolean lambda,
       @JsonProperty(required = true, value = JSON_PROPERTY_SENSITIVE_DATA) Boolean sensitiveData,
       @JsonProperty(required = true, value = JSON_PROPERTY_VULN_CONTAINERS_OS)
           Boolean vulnContainersOs,
       @JsonProperty(required = true, value = JSON_PROPERTY_VULN_HOST_OS) Boolean vulnHostOs) {
+    this.complianceHost = complianceHost;
     this.lambda = lambda;
     this.sensitiveData = sensitiveData;
     this.vulnContainersOs = vulnContainersOs;
     this.vulnHostOs = vulnHostOs;
+  }
+
+  public AwsScanOptionsCreateAttributes complianceHost(Boolean complianceHost) {
+    this.complianceHost = complianceHost;
+    return this;
+  }
+
+  /**
+   * Indicates whether host compliance scanning is enabled.
+   *
+   * @return complianceHost
+   */
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getComplianceHost() {
+    return complianceHost;
+  }
+
+  public void setComplianceHost(Boolean complianceHost) {
+    this.complianceHost = complianceHost;
   }
 
   public AwsScanOptionsCreateAttributes lambda(Boolean lambda) {
@@ -192,7 +218,8 @@ public class AwsScanOptionsCreateAttributes {
     }
     AwsScanOptionsCreateAttributes awsScanOptionsCreateAttributes =
         (AwsScanOptionsCreateAttributes) o;
-    return Objects.equals(this.lambda, awsScanOptionsCreateAttributes.lambda)
+    return Objects.equals(this.complianceHost, awsScanOptionsCreateAttributes.complianceHost)
+        && Objects.equals(this.lambda, awsScanOptionsCreateAttributes.lambda)
         && Objects.equals(this.sensitiveData, awsScanOptionsCreateAttributes.sensitiveData)
         && Objects.equals(this.vulnContainersOs, awsScanOptionsCreateAttributes.vulnContainersOs)
         && Objects.equals(this.vulnHostOs, awsScanOptionsCreateAttributes.vulnHostOs)
@@ -202,13 +229,15 @@ public class AwsScanOptionsCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lambda, sensitiveData, vulnContainersOs, vulnHostOs, additionalProperties);
+    return Objects.hash(
+        complianceHost, lambda, sensitiveData, vulnContainersOs, vulnHostOs, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AwsScanOptionsCreateAttributes {\n");
+    sb.append("    complianceHost: ").append(toIndentedString(complianceHost)).append("\n");
     sb.append("    lambda: ").append(toIndentedString(lambda)).append("\n");
     sb.append("    sensitiveData: ").append(toIndentedString(sensitiveData)).append("\n");
     sb.append("    vulnContainersOs: ").append(toIndentedString(vulnContainersOs)).append("\n");
