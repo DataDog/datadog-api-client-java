@@ -24,7 +24,8 @@ import java.util.Objects;
   CreateDegradationRequestDataAttributes.JSON_PROPERTY_COMPONENTS_AFFECTED,
   CreateDegradationRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   CreateDegradationRequestDataAttributes.JSON_PROPERTY_STATUS,
-  CreateDegradationRequestDataAttributes.JSON_PROPERTY_TITLE
+  CreateDegradationRequestDataAttributes.JSON_PROPERTY_TITLE,
+  CreateDegradationRequestDataAttributes.JSON_PROPERTY_UPDATES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,6 +43,9 @@ public class CreateDegradationRequestDataAttributes {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public static final String JSON_PROPERTY_UPDATES = "updates";
+  private List<CreateDegradationRequestDataAttributesUpdatesItems> updates = null;
 
   public CreateDegradationRequestDataAttributes() {}
 
@@ -157,6 +161,41 @@ public class CreateDegradationRequestDataAttributes {
     this.title = title;
   }
 
+  public CreateDegradationRequestDataAttributes updates(
+      List<CreateDegradationRequestDataAttributesUpdatesItems> updates) {
+    this.updates = updates;
+    for (CreateDegradationRequestDataAttributesUpdatesItems item : updates) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public CreateDegradationRequestDataAttributes addUpdatesItem(
+      CreateDegradationRequestDataAttributesUpdatesItems updatesItem) {
+    if (this.updates == null) {
+      this.updates = new ArrayList<>();
+    }
+    this.updates.add(updatesItem);
+    this.unparsed |= updatesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Getupdates
+   *
+   * @return updates
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CreateDegradationRequestDataAttributesUpdatesItems> getUpdates() {
+    return updates;
+  }
+
+  public void setUpdates(List<CreateDegradationRequestDataAttributesUpdatesItems> updates) {
+    this.updates = updates;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -219,13 +258,15 @@ public class CreateDegradationRequestDataAttributes {
         && Objects.equals(this.description, createDegradationRequestDataAttributes.description)
         && Objects.equals(this.status, createDegradationRequestDataAttributes.status)
         && Objects.equals(this.title, createDegradationRequestDataAttributes.title)
+        && Objects.equals(this.updates, createDegradationRequestDataAttributes.updates)
         && Objects.equals(
             this.additionalProperties, createDegradationRequestDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(componentsAffected, description, status, title, additionalProperties);
+    return Objects.hash(
+        componentsAffected, description, status, title, updates, additionalProperties);
   }
 
   @Override
@@ -236,6 +277,7 @@ public class CreateDegradationRequestDataAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    updates: ").append(toIndentedString(updates)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
