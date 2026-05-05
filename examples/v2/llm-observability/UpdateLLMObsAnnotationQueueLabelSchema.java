@@ -34,7 +34,7 @@ public class Example {
                                                 .description("Rating of the response quality.")
                                                 .hasAssessment(false)
                                                 .hasReasoning(false)
-                                                .id("ab12cd34")
+                                                .id("abc-123")
                                                 .isAssessment(false)
                                                 .isInteger(false)
                                                 .isRequired(true)
@@ -47,7 +47,7 @@ public class Example {
     try {
       LLMObsAnnotationQueueLabelSchemaResponse result =
           apiInstance.updateLLMObsAnnotationQueueLabelSchema(
-              "b5e7f3a1-9c2d-4f8b-a1e6-3d7e9f0a2b4c", body);
+              "00000000-0000-0000-0000-000000000001", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(

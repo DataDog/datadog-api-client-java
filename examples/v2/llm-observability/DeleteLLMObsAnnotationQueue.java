@@ -11,7 +11,7 @@ public class Example {
     LlmObservabilityApi apiInstance = new LlmObservabilityApi(defaultClient);
 
     try {
-      apiInstance.deleteLLMObsAnnotationQueue("b5e7f3a1-9c2d-4f8b-a1e6-3d7e9f0a2b4c");
+      apiInstance.deleteLLMObsAnnotationQueue("00000000-0000-0000-0000-000000000001");
     } catch (ApiException e) {
       System.err.println("Exception when calling LlmObservabilityApi#deleteLLMObsAnnotationQueue");
       System.err.println("Status code: " + e.getCode());
