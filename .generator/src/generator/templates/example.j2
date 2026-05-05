@@ -14,9 +14,9 @@ import {{ package }}.{{ import }};
 
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
-import com.datadog.api.client.{{ version }}.api.{{ context.api_instance.name|camel_case|upperfirst }}Api;
+import com.datadog.api.client.{{ version }}.api.{{ context.api_instance.raw_tag|camel_case|upperfirst }}Api;
 {%- if optional_parameters %}
-import com.datadog.api.client.{{ version }}.api.{{ context.api_instance.name|camel_case|upperfirst }}Api.{{ context.api_request.operation_id }}OptionalParameters;
+import com.datadog.api.client.{{ version }}.api.{{ context.api_instance.raw_tag|camel_case|upperfirst }}Api.{{ context.api_request.operation_id }}OptionalParameters;
 {%- endif %}
 {%- if api_reponse_type_import %}
 import {{ api_reponse_type_import}};
@@ -44,7 +44,7 @@ public class Example {
 {%- for operation in context._enable_operations|sort %}
     defaultClient.setUnstableOperationEnabled("{{ version }}.{{ operation|untitle_case }}", true);
 {%- endfor %}
-    {{ context.api_instance.name|camel_case|upperfirst }}Api apiInstance = new {{ context.api_instance.name|camel_case|upperfirst }}Api(defaultClient);
+    {{ context.api_instance.raw_tag|camel_case|upperfirst }}Api apiInstance = new {{ context.api_instance.raw_tag|camel_case|upperfirst }}Api(defaultClient);
 
 {%- for name, values in context._given.items() %}
 
@@ -86,7 +86,7 @@ public class Example {
        System.out.println(item);
       }
     } catch (RuntimeException e) {
-      System.err.println("Exception when calling {{ context.api_instance.name|camel_case|upperfirst }}Api#{{ context.api_request.operation_id|untitle_case }}WithPagination");
+      System.err.println("Exception when calling {{ context.api_instance.raw_tag|camel_case|upperfirst }}Api#{{ context.api_request.operation_id|untitle_case }}WithPagination");
       System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();
     }
@@ -98,7 +98,7 @@ public class Example {
       System.out.println(result);
       {%- endif %}
     } catch (ApiException e) {
-      System.err.println("Exception when calling {{ context.api_instance.name|camel_case|upperfirst }}Api#{{ context.api_request.operation_id|untitle_case }}");
+      System.err.println("Exception when calling {{ context.api_instance.raw_tag|camel_case|upperfirst }}Api#{{ context.api_request.operation_id|untitle_case }}");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
