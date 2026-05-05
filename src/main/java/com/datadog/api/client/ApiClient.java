@@ -803,11 +803,6 @@ public class ApiClient {
           put("v2.updateLLMObsExperiment", false);
           put("v2.updateLLMObsProject", false);
           put("v2.anonymizeUsers", false);
-          put("v2.createOpenAPI", false);
-          put("v2.deleteOpenAPI", false);
-          put("v2.getOpenAPI", false);
-          put("v2.listAPIs", false);
-          put("v2.updateOpenAPI", false);
           put("v2.getInvestigation", false);
           put("v2.listInvestigations", false);
           put("v2.triggerInvestigation", false);
