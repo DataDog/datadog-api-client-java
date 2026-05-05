@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS settings for the customer bucket that stores inventory reports. */
+/** AWS settings for the S3 bucket Storage Management reads inventory reports from. */
 @JsonPropertyOrder({
   CloudInventorySyncConfigAWSRequestAttributes.JSON_PROPERTY_AWS_ACCOUNT_ID,
   CloudInventorySyncConfigAWSRequestAttributes.JSON_PROPERTY_DESTINATION_BUCKET_NAME,
@@ -122,8 +122,8 @@ public class CloudInventorySyncConfigAWSRequestAttributes {
   }
 
   /**
-   * Optional object key prefix for inventory files. Use <code>/</code> or omit for the entire
-   * bucket.
+   * Object key prefix where inventory reports are written. Omit or set to <code>/</code> when
+   * reports are written at the bucket root.
    *
    * @return destinationPrefix
    */

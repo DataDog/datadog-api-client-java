@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API type for sync configuration resources. */
+/** Always <code>sync_configs</code>. */
 @JsonSerialize(
     using =
         CloudInventorySyncConfigResourceType.CloudInventorySyncConfigResourceTypeSerializer.class)
