@@ -167,6 +167,52 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SendTeamsMessageAction'", e);
       }
 
+      // deserialize TriggerWorkflowAutomationAction
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (TriggerWorkflowAutomationAction.class.equals(Integer.class)
+            || TriggerWorkflowAutomationAction.class.equals(Long.class)
+            || TriggerWorkflowAutomationAction.class.equals(Float.class)
+            || TriggerWorkflowAutomationAction.class.equals(Double.class)
+            || TriggerWorkflowAutomationAction.class.equals(Boolean.class)
+            || TriggerWorkflowAutomationAction.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((TriggerWorkflowAutomationAction.class.equals(Integer.class)
+                        || TriggerWorkflowAutomationAction.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((TriggerWorkflowAutomationAction.class.equals(Float.class)
+                        || TriggerWorkflowAutomationAction.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (TriggerWorkflowAutomationAction.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (TriggerWorkflowAutomationAction.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(TriggerWorkflowAutomationAction.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((TriggerWorkflowAutomationAction) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'TriggerWorkflowAutomationAction'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'TriggerWorkflowAutomationAction'", e);
+      }
+
       RoutingRuleAction ret = new RoutingRuleAction();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -205,9 +251,16 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public RoutingRuleAction(TriggerWorkflowAutomationAction o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SendSlackMessageAction", new GenericType<SendSlackMessageAction>() {});
     schemas.put("SendTeamsMessageAction", new GenericType<SendTeamsMessageAction>() {});
+    schemas.put(
+        "TriggerWorkflowAutomationAction", new GenericType<TriggerWorkflowAutomationAction>() {});
     JSON.registerDescendants(RoutingRuleAction.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -218,7 +271,8 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SendSlackMessageAction, SendTeamsMessageAction
+   * against the oneOf child schemas: SendSlackMessageAction, SendTeamsMessageAction,
+   * TriggerWorkflowAutomationAction
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -233,20 +287,27 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        TriggerWorkflowAutomationAction.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be SendSlackMessageAction, SendTeamsMessageAction");
+        "Invalid instance type. Must be SendSlackMessageAction, SendTeamsMessageAction,"
+            + " TriggerWorkflowAutomationAction");
   }
 
   /**
    * Get the actual instance, which can be the following: SendSlackMessageAction,
-   * SendTeamsMessageAction
+   * SendTeamsMessageAction, TriggerWorkflowAutomationAction
    *
-   * @return The actual instance (SendSlackMessageAction, SendTeamsMessageAction)
+   * @return The actual instance (SendSlackMessageAction, SendTeamsMessageAction,
+   *     TriggerWorkflowAutomationAction)
    */
   @Override
   public Object getActualInstance() {
@@ -273,5 +334,17 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
    */
   public SendTeamsMessageAction getSendTeamsMessageAction() throws ClassCastException {
     return (SendTeamsMessageAction) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `TriggerWorkflowAutomationAction`. If the actual instance is not
+   * `TriggerWorkflowAutomationAction`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `TriggerWorkflowAutomationAction`
+   * @throws ClassCastException if the instance is not `TriggerWorkflowAutomationAction`
+   */
+  public TriggerWorkflowAutomationAction getTriggerWorkflowAutomationAction()
+      throws ClassCastException {
+    return (TriggerWorkflowAutomationAction) super.getActualInstance();
   }
 }
