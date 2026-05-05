@@ -674,7 +674,8 @@ public class MetricsApi {
     /**
      * Set filterGroups.
      *
-     * @param filterGroups Filtered tag keys that the metric is configured to query with. (optional)
+     * @param filterGroups Comma-separated list of tag keys that the metric is configured to query
+     *     with. For example: <code>filter[groups]=app,host</code>. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterGroups(String filterGroups) {
@@ -1670,10 +1671,12 @@ public class MetricsApi {
     /**
      * Set filterQueriedWindowSeconds.
      *
-     * @param filterQueriedWindowSeconds Only return metrics that have been queried or not queried
-     *     in the specified window. Dependent on being sent with <code>filter[queried]</code>. The
-     *     default value is 2,592,000 seconds (30 days), the maximum value is 15,552,000 seconds
-     *     (180 days), and the minimum value is 1 second. (optional, default to 2592000)
+     * @param filterQueriedWindowSeconds This parameter has no effect unless <code>filter[queried]
+     *     </code> is also set. Only return metrics that have been queried or not queried in the
+     *     specified window. The default value is 2,592,000 seconds (30 days), the maximum value is
+     *     15,552,000 seconds (180 days), and the minimum value is 1 second. For example: <code>
+     *     filter[queried]=true&amp;filter[queried][window][seconds]=604800</code>. (optional,
+     *     default to 2592000)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterQueriedWindowSeconds(
@@ -1686,7 +1689,8 @@ public class MetricsApi {
      * Set filterTags.
      *
      * @param filterTags Only return metrics that were submitted with tags matching this expression.
-     *     You can use AND, OR, IN, and wildcards (for example, service:web*). (optional)
+     *     You can use AND, OR, IN, and wildcards. For example: <code>
+     *     filter[tags]=env IN (staging,test) AND service:web*</code>. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterTags(String filterTags) {
@@ -1723,8 +1727,10 @@ public class MetricsApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Maximum number of results per page. Use with <code>page[cursor]</code> for
-     *     pagination. The default value is 10000, the maximum value is 10000, and the minimum value
+     * @param pageSize Maximum number of results per page. Send <code>page[size]</code> on the first
+     *     request to opt in to pagination. On each subsequent request, send <code>page[cursor]
+     *     </code> set to the value of <code>meta.pagination.next_cursor</code> from the previous
+     *     response. The default value is 10000, the maximum value is 10000, and the minimum value
      *     is 1. (optional, default to 10000)
      * @return ListTagConfigurationsOptionalParameters
      */
@@ -1866,6 +1872,11 @@ public class MetricsApi {
   /**
    * Get a list of actively reporting metrics for your organization. Pagination is optional using
    * the <code>page[cursor]</code> and <code>page[size]</code> query parameters.
+   *
+   * <p>Query parameters use bracket notation (for example, <code>filter[tags]</code>, <code>
+   * filter[queried][window][seconds]</code>). Pass them as standard URL query strings, URL-encoding
+   * the brackets if your client does not handle them. For example: <code>
+   * GET /api/v2/metrics?filter[tags]=env:prod&amp;window[seconds]=86400&amp;page[size]=500</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
