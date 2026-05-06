@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Sankey widget with RUM data source. */
+/** Product Analytics or RUM data source type. */
 @JsonSerialize(using = SankeyRumDataSource.SankeyRumDataSourceSerializer.class)
 public class SankeyRumDataSource extends ModelEnum<String> {
 

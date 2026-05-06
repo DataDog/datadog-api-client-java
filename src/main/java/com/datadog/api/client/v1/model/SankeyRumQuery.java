@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Sankey widget with RUM data source query. */
+/** Query configuration for Product Analytics or RUM Sankey widget. */
 @JsonPropertyOrder({
   SankeyRumQuery.JSON_PROPERTY_AUDIENCE_FILTERS,
   SankeyRumQuery.JSON_PROPERTY_DATA_SOURCE,
@@ -35,7 +35,7 @@ public class SankeyRumQuery {
   private ProductAnalyticsAudienceFilters audienceFilters;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-  private SankeyRumDataSource dataSource = SankeyRumDataSource.RUM;
+  private SankeyRumDataSource dataSource = SankeyRumDataSource.PRODUCT_ANALYTICS;
 
   public static final String JSON_PROPERTY_ENTRIES_PER_STEP = "entries_per_step";
   private Long entriesPerStep;
@@ -108,7 +108,7 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Sankey widget with RUM data source.
+   * Product Analytics or RUM data source type.
    *
    * @return dataSource
    */
@@ -175,7 +175,7 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Sankey mode for RUM queries.
+   * Sankey mode for Product Analytics or RUM queries.
    *
    * @return mode
    */
