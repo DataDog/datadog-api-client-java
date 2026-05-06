@@ -22,6 +22,7 @@ public class Example {
                     .type(AwsScanOptionsType.AWS_SCAN_OPTIONS)
                     .attributes(
                         new AwsScanOptionsCreateAttributes()
+                            .complianceHost(true)
                             .lambda(true)
                             .sensitiveData(false)
                             .vulnContainersOs(true)
