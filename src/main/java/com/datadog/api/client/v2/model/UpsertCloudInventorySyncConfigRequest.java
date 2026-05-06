@@ -44,7 +44,7 @@ public class UpsertCloudInventorySyncConfigRequest {
   }
 
   /**
-   * JSON:API data envelope for an upsert sync configuration request.
+   * Storage Management configuration data for the create or update request.
    *
    * @return data
    */

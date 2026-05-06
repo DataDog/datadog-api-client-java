@@ -15,14 +15,14 @@ import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CloudInventorySyncConfigsApi {
+public class StorageManagementApi {
   private ApiClient apiClient;
 
-  public CloudInventorySyncConfigsApi() {
+  public StorageManagementApi() {
     this(ApiClient.getDefaultApiClient());
   }
 
-  public CloudInventorySyncConfigsApi(ApiClient apiClient) {
+  public StorageManagementApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -45,7 +45,7 @@ public class CloudInventorySyncConfigsApi {
   }
 
   /**
-   * Create or update a sync configuration.
+   * Enable Storage Management for a bucket.
    *
    * <p>See {@link #upsertSyncConfigWithHttpInfo}.
    *
@@ -59,7 +59,7 @@ public class CloudInventorySyncConfigsApi {
   }
 
   /**
-   * Create or update a sync configuration.
+   * Enable Storage Management for a bucket.
    *
    * <p>See {@link #upsertSyncConfigWithHttpInfoAsync}.
    *
@@ -76,9 +76,11 @@ public class CloudInventorySyncConfigsApi {
   }
 
   /**
-   * Create or update a cloud inventory sync configuration. Specify the cloud provider in <code>
-   * data.id</code> and provider-specific settings under <code>data.attributes</code>. This endpoint
-   * uses an upsert model.
+   * Enable Storage Management for an S3 bucket, GCS bucket, or Azure container by registering the
+   * destination that holds its inventory reports. Set <code>data.id</code> to the cloud provider (
+   * <code>aws</code>, <code>gcp</code>, or <code>azure</code>) and provide the matching settings
+   * under data.attributes. Calling this endpoint with the same provider replaces the existing
+   * configuration.
    *
    * @param body (required)
    * @return ApiResponse&lt;CloudInventorySyncConfigResponse&gt;
@@ -95,13 +97,6 @@ public class CloudInventorySyncConfigsApi {
    */
   public ApiResponse<CloudInventorySyncConfigResponse> upsertSyncConfigWithHttpInfo(
       UpsertCloudInventorySyncConfigRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "upsertSyncConfig";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -116,7 +111,7 @@ public class CloudInventorySyncConfigsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudInventorySyncConfigsApi.upsertSyncConfig",
+            "v2.StorageManagementApi.upsertSyncConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -135,7 +130,7 @@ public class CloudInventorySyncConfigsApi {
   }
 
   /**
-   * Create or update a sync configuration.
+   * Enable Storage Management for a bucket.
    *
    * <p>See {@link #upsertSyncConfigWithHttpInfo}.
    *
@@ -144,17 +139,6 @@ public class CloudInventorySyncConfigsApi {
    */
   public CompletableFuture<ApiResponse<CloudInventorySyncConfigResponse>>
       upsertSyncConfigWithHttpInfoAsync(UpsertCloudInventorySyncConfigRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "upsertSyncConfig";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CloudInventorySyncConfigResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -175,7 +159,7 @@ public class CloudInventorySyncConfigsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudInventorySyncConfigsApi.upsertSyncConfig",
+              "v2.StorageManagementApi.upsertSyncConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
