@@ -236,6 +236,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_APM_APM_FARGATE_ECS_TASKS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDRUN_INSTANCES_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_APM_AVG_SUM,
   UsageSummaryResponse
       .JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG_SUM,
@@ -247,6 +248,8 @@ import java.util.Objects;
       .JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG_SUM,
   UsageSummaryResponse
       .JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG_SUM,
+  UsageSummaryResponse
+      .JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_AZURE_CONTAINER_APP_INSTANCES_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG_SUM,
@@ -264,9 +267,12 @@ import java.util.Objects;
       .JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG_SUM,
   UsageSummaryResponse
       .JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_RUN_INSTANCES_AVG_SUM,
+  UsageSummaryResponse
+      .JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_RUN_INSTANCES_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_START_DATE,
@@ -1082,6 +1088,10 @@ public class UsageSummaryResponse {
       "serverless_apps_apm_apm_gcp_cloudrun_instances_avg_sum";
   private Long serverlessAppsApmApmGcpCloudrunInstancesAvgSum;
 
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG_SUM =
+      "serverless_apps_apm_apm_gcp_gke_autopilot_pods_avg_sum";
+  private Long serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum;
+
   public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_AVG_SUM =
       "serverless_apps_apm_avg_sum";
   private Long serverlessAppsApmAvgSum;
@@ -1110,6 +1120,11 @@ public class UsageSummaryResponse {
       JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG_SUM =
           "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg_sum";
   private Long serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum;
+
+  public static final String
+      JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG_SUM =
+          "serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg_sum";
+  private Long serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum;
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG_SUM =
       "serverless_apps_apm_excl_fargate_avg_sum";
@@ -1169,6 +1184,11 @@ public class UsageSummaryResponse {
   private Long serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum;
 
   public static final String
+      JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG_SUM =
+          "serverless_apps_excl_fargate_infra_gcp_gke_autopilot_pods_avg_sum";
+  private Long serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum;
+
+  public static final String
       JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG_SUM =
           "serverless_apps_google_cloud_functions_instances_avg_sum";
   private Long serverlessAppsGoogleCloudFunctionsInstancesAvgSum;
@@ -1180,6 +1200,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG_SUM =
       "serverless_apps_google_count_avg_sum";
   private Long serverlessAppsGoogleCountAvgSum;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG_SUM =
+      "serverless_apps_infra_gcp_gke_autopilot_pods_avg_sum";
+  private Long serverlessAppsInfraGcpGkeAutopilotPodsAvgSum;
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG_SUM =
       "serverless_apps_total_count_avg_sum";
@@ -6082,6 +6106,32 @@ public class UsageSummaryResponse {
         serverlessAppsApmApmGcpCloudrunInstancesAvgSum;
   }
 
+  public UsageSummaryResponse serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum(
+      Long serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum) {
+    this.serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum =
+        serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum;
+    return this;
+  }
+
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring for Google
+   * Kubernetes Engine Autopilot pods in the current month for all organizations.
+   *
+   * @return serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getServerlessAppsApmApmGcpGkeAutopilotPodsAvgSum() {
+    return serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum;
+  }
+
+  public void setServerlessAppsApmApmGcpGkeAutopilotPodsAvgSum(
+      Long serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum) {
+    this.serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum =
+        serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum;
+  }
+
   public UsageSummaryResponse serverlessAppsApmAvgSum(Long serverlessAppsApmAvgSum) {
     this.serverlessAppsApmAvgSum = serverlessAppsApmAvgSum;
     return this;
@@ -6238,6 +6288,32 @@ public class UsageSummaryResponse {
       Long serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum) {
     this.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum =
         serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum;
+  }
+
+  public UsageSummaryResponse serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum(
+      Long serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum) {
+    this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum =
+        serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum;
+    return this;
+  }
+
+  /**
+   * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding
+   * Fargate for Google Kubernetes Engine Autopilot pods in the current month for all organizations.
+   *
+   * @return serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getServerlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum() {
+    return serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum;
+  }
+
+  public void setServerlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum(
+      Long serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum) {
+    this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum =
+        serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum;
   }
 
   public UsageSummaryResponse serverlessAppsApmExclFargateAvgSum(
@@ -6558,6 +6634,32 @@ public class UsageSummaryResponse {
         serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum;
   }
 
+  public UsageSummaryResponse serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum(
+      Long serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum) {
+    this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum =
+        serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum;
+    return this;
+  }
+
+  /**
+   * Sum of the average number of Serverless Apps excluding Fargate for Google Kubernetes Engine
+   * Autopilot pods in the current month for all organizations.
+   *
+   * @return serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getServerlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum() {
+    return serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum;
+  }
+
+  public void setServerlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum(
+      Long serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum) {
+    this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum =
+        serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum;
+  }
+
   public UsageSummaryResponse serverlessAppsGoogleCloudFunctionsInstancesAvgSum(
       Long serverlessAppsGoogleCloudFunctionsInstancesAvgSum) {
     this.serverlessAppsGoogleCloudFunctionsInstancesAvgSum =
@@ -6629,6 +6731,32 @@ public class UsageSummaryResponse {
 
   public void setServerlessAppsGoogleCountAvgSum(Long serverlessAppsGoogleCountAvgSum) {
     this.serverlessAppsGoogleCountAvgSum = serverlessAppsGoogleCountAvgSum;
+  }
+
+  public UsageSummaryResponse serverlessAppsInfraGcpGkeAutopilotPodsAvgSum(
+      Long serverlessAppsInfraGcpGkeAutopilotPodsAvgSum) {
+    this.serverlessAppsInfraGcpGkeAutopilotPodsAvgSum =
+        serverlessAppsInfraGcpGkeAutopilotPodsAvgSum;
+    return this;
+  }
+
+  /**
+   * Sum of the average number of Serverless Apps for Google Kubernetes Engine Autopilot pods in the
+   * current month for all organizations.
+   *
+   * @return serverlessAppsInfraGcpGkeAutopilotPodsAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getServerlessAppsInfraGcpGkeAutopilotPodsAvgSum() {
+    return serverlessAppsInfraGcpGkeAutopilotPodsAvgSum;
+  }
+
+  public void setServerlessAppsInfraGcpGkeAutopilotPodsAvgSum(
+      Long serverlessAppsInfraGcpGkeAutopilotPodsAvgSum) {
+    this.serverlessAppsInfraGcpGkeAutopilotPodsAvgSum =
+        serverlessAppsInfraGcpGkeAutopilotPodsAvgSum;
   }
 
   public UsageSummaryResponse serverlessAppsTotalCountAvgSum(Long serverlessAppsTotalCountAvgSum) {
@@ -7455,6 +7583,9 @@ public class UsageSummaryResponse {
             this.serverlessAppsApmApmGcpCloudrunInstancesAvgSum,
             usageSummaryResponse.serverlessAppsApmApmGcpCloudrunInstancesAvgSum)
         && Objects.equals(
+            this.serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum,
+            usageSummaryResponse.serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum)
+        && Objects.equals(
             this.serverlessAppsApmAvgSum, usageSummaryResponse.serverlessAppsApmAvgSum)
         && Objects.equals(
             this.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvgSum,
@@ -7471,6 +7602,9 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum,
             usageSummaryResponse.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum)
+        && Objects.equals(
+            this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum,
+            usageSummaryResponse.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum)
         && Objects.equals(
             this.serverlessAppsApmExclFargateAvgSum,
             usageSummaryResponse.serverlessAppsApmExclFargateAvgSum)
@@ -7509,6 +7643,9 @@ public class UsageSummaryResponse {
             this.serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum,
             usageSummaryResponse.serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum)
         && Objects.equals(
+            this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum,
+            usageSummaryResponse.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum)
+        && Objects.equals(
             this.serverlessAppsGoogleCloudFunctionsInstancesAvgSum,
             usageSummaryResponse.serverlessAppsGoogleCloudFunctionsInstancesAvgSum)
         && Objects.equals(
@@ -7517,6 +7654,9 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.serverlessAppsGoogleCountAvgSum,
             usageSummaryResponse.serverlessAppsGoogleCountAvgSum)
+        && Objects.equals(
+            this.serverlessAppsInfraGcpGkeAutopilotPodsAvgSum,
+            usageSummaryResponse.serverlessAppsInfraGcpGkeAutopilotPodsAvgSum)
         && Objects.equals(
             this.serverlessAppsTotalCountAvgSum,
             usageSummaryResponse.serverlessAppsTotalCountAvgSum)
@@ -7769,12 +7909,14 @@ public class UsageSummaryResponse {
         serverlessAppsApmApmFargateEcsTasksAvgSum,
         serverlessAppsApmApmGcpCloudfunctionInstancesAvgSum,
         serverlessAppsApmApmGcpCloudrunInstancesAvgSum,
+        serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum,
         serverlessAppsApmAvgSum,
         serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvgSum,
         serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvgSum,
         serverlessAppsApmExclFargateApmAzureContainerappInstancesAvgSum,
         serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvgSum,
         serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum,
+        serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum,
         serverlessAppsApmExclFargateAvgSum,
         serverlessAppsAzureContainerAppInstancesAvgSum,
         serverlessAppsAzureCountAvgSum,
@@ -7788,9 +7930,11 @@ public class UsageSummaryResponse {
         serverlessAppsExclFargateAzureWebAppInstancesAvgSum,
         serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvgSum,
         serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum,
+        serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum,
         serverlessAppsGoogleCloudFunctionsInstancesAvgSum,
         serverlessAppsGoogleCloudRunInstancesAvgSum,
         serverlessAppsGoogleCountAvgSum,
+        serverlessAppsInfraGcpGkeAutopilotPodsAvgSum,
         serverlessAppsTotalCountAvgSum,
         siemAnalyzedLogsAddOnCountAggSum,
         startDate,
@@ -8384,6 +8528,9 @@ public class UsageSummaryResponse {
     sb.append("    serverlessAppsApmApmGcpCloudrunInstancesAvgSum: ")
         .append(toIndentedString(serverlessAppsApmApmGcpCloudrunInstancesAvgSum))
         .append("\n");
+    sb.append("    serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum: ")
+        .append(toIndentedString(serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum))
+        .append("\n");
     sb.append("    serverlessAppsApmAvgSum: ")
         .append(toIndentedString(serverlessAppsApmAvgSum))
         .append("\n");
@@ -8401,6 +8548,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum: ")
         .append(toIndentedString(serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum))
+        .append("\n");
+    sb.append("    serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum: ")
+        .append(toIndentedString(serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum))
         .append("\n");
     sb.append("    serverlessAppsApmExclFargateAvgSum: ")
         .append(toIndentedString(serverlessAppsApmExclFargateAvgSum))
@@ -8441,6 +8591,9 @@ public class UsageSummaryResponse {
     sb.append("    serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum: ")
         .append(toIndentedString(serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum))
         .append("\n");
+    sb.append("    serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum: ")
+        .append(toIndentedString(serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum))
+        .append("\n");
     sb.append("    serverlessAppsGoogleCloudFunctionsInstancesAvgSum: ")
         .append(toIndentedString(serverlessAppsGoogleCloudFunctionsInstancesAvgSum))
         .append("\n");
@@ -8449,6 +8602,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    serverlessAppsGoogleCountAvgSum: ")
         .append(toIndentedString(serverlessAppsGoogleCountAvgSum))
+        .append("\n");
+    sb.append("    serverlessAppsInfraGcpGkeAutopilotPodsAvgSum: ")
+        .append(toIndentedString(serverlessAppsInfraGcpGkeAutopilotPodsAvgSum))
         .append("\n");
     sb.append("    serverlessAppsTotalCountAvgSum: ")
         .append(toIndentedString(serverlessAppsTotalCountAvgSum))
