@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Attributes for the AWS scan options to update. */
 @JsonPropertyOrder({
+  AwsScanOptionsUpdateAttributes.JSON_PROPERTY_COMPLIANCE_HOST,
   AwsScanOptionsUpdateAttributes.JSON_PROPERTY_LAMBDA,
   AwsScanOptionsUpdateAttributes.JSON_PROPERTY_SENSITIVE_DATA,
   AwsScanOptionsUpdateAttributes.JSON_PROPERTY_VULN_CONTAINERS_OS,
@@ -27,6 +28,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AwsScanOptionsUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPLIANCE_HOST = "compliance_host";
+  private Boolean complianceHost;
+
   public static final String JSON_PROPERTY_LAMBDA = "lambda";
   private Boolean lambda;
 
@@ -38,6 +42,27 @@ public class AwsScanOptionsUpdateAttributes {
 
   public static final String JSON_PROPERTY_VULN_HOST_OS = "vuln_host_os";
   private Boolean vulnHostOs;
+
+  public AwsScanOptionsUpdateAttributes complianceHost(Boolean complianceHost) {
+    this.complianceHost = complianceHost;
+    return this;
+  }
+
+  /**
+   * Indicates whether host compliance scanning is enabled.
+   *
+   * @return complianceHost
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getComplianceHost() {
+    return complianceHost;
+  }
+
+  public void setComplianceHost(Boolean complianceHost) {
+    this.complianceHost = complianceHost;
+  }
 
   public AwsScanOptionsUpdateAttributes lambda(Boolean lambda) {
     this.lambda = lambda;
@@ -180,7 +205,8 @@ public class AwsScanOptionsUpdateAttributes {
     }
     AwsScanOptionsUpdateAttributes awsScanOptionsUpdateAttributes =
         (AwsScanOptionsUpdateAttributes) o;
-    return Objects.equals(this.lambda, awsScanOptionsUpdateAttributes.lambda)
+    return Objects.equals(this.complianceHost, awsScanOptionsUpdateAttributes.complianceHost)
+        && Objects.equals(this.lambda, awsScanOptionsUpdateAttributes.lambda)
         && Objects.equals(this.sensitiveData, awsScanOptionsUpdateAttributes.sensitiveData)
         && Objects.equals(this.vulnContainersOs, awsScanOptionsUpdateAttributes.vulnContainersOs)
         && Objects.equals(this.vulnHostOs, awsScanOptionsUpdateAttributes.vulnHostOs)
@@ -190,13 +216,15 @@ public class AwsScanOptionsUpdateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lambda, sensitiveData, vulnContainersOs, vulnHostOs, additionalProperties);
+    return Objects.hash(
+        complianceHost, lambda, sensitiveData, vulnContainersOs, vulnHostOs, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AwsScanOptionsUpdateAttributes {\n");
+    sb.append("    complianceHost: ").append(toIndentedString(complianceHost)).append("\n");
     sb.append("    lambda: ").append(toIndentedString(lambda)).append("\n");
     sb.append("    sensitiveData: ").append(toIndentedString(sensitiveData)).append("\n");
     sb.append("    vulnContainersOs: ").append(toIndentedString(vulnContainersOs)).append("\n");

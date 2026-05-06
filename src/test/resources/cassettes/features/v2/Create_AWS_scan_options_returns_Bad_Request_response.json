@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"lambda\":true,\"sensitive_data\":false,\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"123\",\"type\":\"aws_scan_options\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compliance_host\":true,\"lambda\":true,\"sensitive_data\":false,\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"123\",\"type\":\"aws_scan_options\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e2891484-5e4d-166a-c2fe-dce7aead5f71"
+    "id": "8c3648f2-359f-22e2-414a-e65c22255c5c"
   }
 ]
