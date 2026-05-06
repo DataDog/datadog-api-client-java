@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.LogsArchivesApi;
 import com.datadog.api.client.v2.model.LogsArchive;
+import com.datadog.api.client.v2.model.LogsArchiveAttributesCompressionMethod;
 import com.datadog.api.client.v2.model.LogsArchiveCreateRequest;
 import com.datadog.api.client.v2.model.LogsArchiveCreateRequestAttributes;
 import com.datadog.api.client.v2.model.LogsArchiveCreateRequestDefinition;
@@ -24,6 +25,7 @@ public class Example {
                 new LogsArchiveCreateRequestDefinition()
                     .attributes(
                         new LogsArchiveCreateRequestAttributes()
+                            .compressionMethod(LogsArchiveAttributesCompressionMethod.GZIP)
                             .destination(
                                 new LogsArchiveCreateRequestDestination(
                                     new LogsArchiveDestinationAzure()
