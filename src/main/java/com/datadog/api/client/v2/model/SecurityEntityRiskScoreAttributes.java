@@ -71,10 +71,10 @@ public class SecurityEntityRiskScoreAttributes {
   private Long lastDetected;
 
   public static final String JSON_PROPERTY_RISK_SCORE = "riskScore";
-  private Double riskScore;
+  private Long riskScore;
 
   public static final String JSON_PROPERTY_RISK_SCORE_EVOLUTION = "riskScoreEvolution";
-  private Double riskScoreEvolution;
+  private Long riskScoreEvolution;
 
   public static final String JSON_PROPERTY_SEVERITY = "severity";
   private SecurityEntityRiskScoreAttributesSeverity severity;
@@ -98,9 +98,9 @@ public class SecurityEntityRiskScoreAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_LAST_ACTIVITY_TITLE)
           String lastActivityTitle,
       @JsonProperty(required = true, value = JSON_PROPERTY_LAST_DETECTED) Long lastDetected,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RISK_SCORE) Double riskScore,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RISK_SCORE) Long riskScore,
       @JsonProperty(required = true, value = JSON_PROPERTY_RISK_SCORE_EVOLUTION)
-          Double riskScoreEvolution,
+          Long riskScoreEvolution,
       @JsonProperty(required = true, value = JSON_PROPERTY_SEVERITY)
           SecurityEntityRiskScoreAttributesSeverity severity,
       @JsonProperty(required = true, value = JSON_PROPERTY_SIGNALS_DETECTED) Long signalsDetected) {
@@ -338,7 +338,7 @@ public class SecurityEntityRiskScoreAttributes {
     this.lastDetected = lastDetected;
   }
 
-  public SecurityEntityRiskScoreAttributes riskScore(Double riskScore) {
+  public SecurityEntityRiskScoreAttributes riskScore(Long riskScore) {
     this.riskScore = riskScore;
     return this;
   }
@@ -350,15 +350,15 @@ public class SecurityEntityRiskScoreAttributes {
    */
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getRiskScore() {
+  public Long getRiskScore() {
     return riskScore;
   }
 
-  public void setRiskScore(Double riskScore) {
+  public void setRiskScore(Long riskScore) {
     this.riskScore = riskScore;
   }
 
-  public SecurityEntityRiskScoreAttributes riskScoreEvolution(Double riskScoreEvolution) {
+  public SecurityEntityRiskScoreAttributes riskScoreEvolution(Long riskScoreEvolution) {
     this.riskScoreEvolution = riskScoreEvolution;
     return this;
   }
@@ -370,11 +370,11 @@ public class SecurityEntityRiskScoreAttributes {
    */
   @JsonProperty(JSON_PROPERTY_RISK_SCORE_EVOLUTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getRiskScoreEvolution() {
+  public Long getRiskScoreEvolution() {
     return riskScoreEvolution;
   }
 
-  public void setRiskScoreEvolution(Double riskScoreEvolution) {
+  public void setRiskScoreEvolution(Long riskScoreEvolution) {
     this.riskScoreEvolution = riskScoreEvolution;
   }
 
