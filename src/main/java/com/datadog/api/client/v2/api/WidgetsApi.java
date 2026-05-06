@@ -618,8 +618,12 @@ public class WidgetsApi {
     /**
      * Set sort.
      *
-     * @param sort Sort field for the results. Prefix with <code>-</code> for descending order.
-     *     Allowed values: <code>title</code>, <code>created_at</code>, <code>modified_at</code>.
+     * @param sort Sort field for the results. <strong><code>title</code>, <code>created_at</code>,
+     *     <code>modified_at</code></strong> — both ascending and descending are supported. Use the
+     *     bare field name for ascending (e.g. <code>sort=title</code>) or prefix with <code>-
+     *     </code> for descending (e.g. <code>sort=-modified_at</code>). <strong><code>is_favorited
+     *     </code></strong> — returns favorites-first ordering (favorited widgets first, then the
+     *     rest). Direction is fixed; the <code>-</code> prefix is ignored for this field.
      *     (optional, default to "-modified_at")
      * @return SearchWidgetsOptionalParameters
      */
@@ -717,8 +721,17 @@ public class WidgetsApi {
   }
 
   /**
-   * Search and list widgets for a given experience type. Supports filtering by widget type,
-   * creator, title, and tags, as well as sorting and pagination.
+   * Search and list widgets for a given experience type, with filtering, sorting, and pagination.
+   *
+   * <p><strong>Response meta</strong> carries totals scoped to the current filter: - <code>
+   * filtered_total</code> — widgets matching the filter. - <code>created_by_you_total</code> —
+   * among the matches, how many the current user created. - <code>favorited_by_you_total</code> —
+   * among the matches, how many the current user has favorited. - <code>created_by_anyone_total
+   * </code> — total widgets in the experience type, ignoring filters.
+   *
+   * <p>Each returned widget includes <code>is_favorited</code> reflecting the current user's
+   * favorite status. Favoriting itself is performed through the shared favorites API, not this
+   * endpoint.
    *
    * @param experienceType The experience type for the widget. (required)
    * @param parameters Optional parameters for the request.
