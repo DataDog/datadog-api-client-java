@@ -302,6 +302,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'CheckStatusWidgetDefinition'", e);
       }
 
+      // deserialize CloudcraftWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (CloudcraftWidgetDefinition.class.equals(Integer.class)
+            || CloudcraftWidgetDefinition.class.equals(Long.class)
+            || CloudcraftWidgetDefinition.class.equals(Float.class)
+            || CloudcraftWidgetDefinition.class.equals(Double.class)
+            || CloudcraftWidgetDefinition.class.equals(Boolean.class)
+            || CloudcraftWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((CloudcraftWidgetDefinition.class.equals(Integer.class)
+                        || CloudcraftWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((CloudcraftWidgetDefinition.class.equals(Float.class)
+                        || CloudcraftWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (CloudcraftWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (CloudcraftWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(CloudcraftWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((CloudcraftWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'CloudcraftWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'CloudcraftWidgetDefinition'", e);
+      }
+
       // deserialize CohortWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -1938,6 +1983,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(CloudcraftWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public WidgetDefinition(CohortWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -2119,6 +2169,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put("BarChartWidgetDefinition", new GenericType<BarChartWidgetDefinition>() {});
     schemas.put("ChangeWidgetDefinition", new GenericType<ChangeWidgetDefinition>() {});
     schemas.put("CheckStatusWidgetDefinition", new GenericType<CheckStatusWidgetDefinition>() {});
+    schemas.put("CloudcraftWidgetDefinition", new GenericType<CloudcraftWidgetDefinition>() {});
     schemas.put("CohortWidgetDefinition", new GenericType<CohortWidgetDefinition>() {});
     schemas.put("DistributionWidgetDefinition", new GenericType<DistributionWidgetDefinition>() {});
     schemas.put("EventStreamWidgetDefinition", new GenericType<EventStreamWidgetDefinition>() {});
@@ -2172,18 +2223,18 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    * BarChartWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,
-   * CohortWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition,
-   * EventTimelineWidgetDefinition, FreeTextWidgetDefinition, FunnelWidgetDefinition,
-   * ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
-   * HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
-   * ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
-   * MonitorSummaryWidgetDefinition, NoteWidgetDefinition, PowerpackWidgetDefinition,
-   * QueryValueWidgetDefinition, RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,
-   * SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
-   * SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   * SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TopologyMapWidgetDefinition,
-   * TreeMapWidgetDefinition, WildcardWidgetDefinition
+   * CloudcraftWidgetDefinition, CohortWidgetDefinition, DistributionWidgetDefinition,
+   * EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
+   * FunnelWidgetDefinition, ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition,
+   * GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
+   * IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
+   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
+   * PowerpackWidgetDefinition, QueryValueWidgetDefinition, RetentionCurveWidgetDefinition,
+   * RunWorkflowWidgetDefinition, SLOListWidgetDefinition, SLOWidgetDefinition,
+   * ScatterPlotWidgetDefinition, SankeyWidgetDefinition, ServiceMapWidgetDefinition,
+   * ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition, SunburstWidgetDefinition,
+   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   * TopologyMapWidgetDefinition, TreeMapWidgetDefinition, WildcardWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -2207,6 +2258,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       return;
     }
     if (JSON.isInstanceOf(CheckStatusWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(CloudcraftWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -2362,8 +2417,9 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     throw new RuntimeException(
         "Invalid instance type. Must be AlertGraphWidgetDefinition, AlertValueWidgetDefinition,"
             + " BarChartWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,"
-            + " CohortWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition,"
-            + " EventTimelineWidgetDefinition, FreeTextWidgetDefinition, FunnelWidgetDefinition,"
+            + " CloudcraftWidgetDefinition, CohortWidgetDefinition, DistributionWidgetDefinition,"
+            + " EventStreamWidgetDefinition, EventTimelineWidgetDefinition,"
+            + " FreeTextWidgetDefinition, FunnelWidgetDefinition,"
             + " ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition,"
             + " GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,"
             + " IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,"
@@ -2380,33 +2436,34 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   /**
    * Get the actual instance, which can be the following: AlertGraphWidgetDefinition,
    * AlertValueWidgetDefinition, BarChartWidgetDefinition, ChangeWidgetDefinition,
-   * CheckStatusWidgetDefinition, CohortWidgetDefinition, DistributionWidgetDefinition,
-   * EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
-   * FunnelWidgetDefinition, ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition,
-   * GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
-   * IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
-   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   * PowerpackWidgetDefinition, QueryValueWidgetDefinition, RetentionCurveWidgetDefinition,
-   * RunWorkflowWidgetDefinition, SLOListWidgetDefinition, SLOWidgetDefinition,
-   * ScatterPlotWidgetDefinition, SankeyWidgetDefinition, ServiceMapWidgetDefinition,
-   * ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition, SunburstWidgetDefinition,
-   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   * TopologyMapWidgetDefinition, TreeMapWidgetDefinition, WildcardWidgetDefinition
+   * CheckStatusWidgetDefinition, CloudcraftWidgetDefinition, CohortWidgetDefinition,
+   * DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition,
+   * FreeTextWidgetDefinition, FunnelWidgetDefinition, ProductAnalyticsFunnelWidgetDefinition,
+   * GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
+   * HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
+   * ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
+   * NoteWidgetDefinition, PowerpackWidgetDefinition, QueryValueWidgetDefinition,
+   * RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition, SLOListWidgetDefinition,
+   * SLOWidgetDefinition, ScatterPlotWidgetDefinition, SankeyWidgetDefinition,
+   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition,
+   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   * ToplistWidgetDefinition, TopologyMapWidgetDefinition, TreeMapWidgetDefinition,
+   * WildcardWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     BarChartWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,
-   *     CohortWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition,
-   *     EventTimelineWidgetDefinition, FreeTextWidgetDefinition, FunnelWidgetDefinition,
-   *     ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
-   *     HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
-   *     ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
-   *     MonitorSummaryWidgetDefinition, NoteWidgetDefinition, PowerpackWidgetDefinition,
-   *     QueryValueWidgetDefinition, RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,
-   *     SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
-   *     SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   *     SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TopologyMapWidgetDefinition,
-   *     TreeMapWidgetDefinition, WildcardWidgetDefinition)
+   *     CloudcraftWidgetDefinition, CohortWidgetDefinition, DistributionWidgetDefinition,
+   *     EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
+   *     FunnelWidgetDefinition, ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition,
+   *     GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
+   *     IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
+   *     LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
+   *     PowerpackWidgetDefinition, QueryValueWidgetDefinition, RetentionCurveWidgetDefinition,
+   *     RunWorkflowWidgetDefinition, SLOListWidgetDefinition, SLOWidgetDefinition,
+   *     ScatterPlotWidgetDefinition, SankeyWidgetDefinition, ServiceMapWidgetDefinition,
+   *     ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition, SunburstWidgetDefinition,
+   *     TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   *     TopologyMapWidgetDefinition, TreeMapWidgetDefinition, WildcardWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -2466,6 +2523,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public CheckStatusWidgetDefinition getCheckStatusWidgetDefinition() throws ClassCastException {
     return (CheckStatusWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `CloudcraftWidgetDefinition`. If the actual instance is not
+   * `CloudcraftWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `CloudcraftWidgetDefinition`
+   * @throws ClassCastException if the instance is not `CloudcraftWidgetDefinition`
+   */
+  public CloudcraftWidgetDefinition getCloudcraftWidgetDefinition() throws ClassCastException {
+    return (CloudcraftWidgetDefinition) super.getActualInstance();
   }
 
   /**
