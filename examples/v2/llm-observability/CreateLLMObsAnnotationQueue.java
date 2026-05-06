@@ -34,7 +34,7 @@ public class Example {
                                                 .description("Rating of the response quality.")
                                                 .hasAssessment(false)
                                                 .hasReasoning(false)
-                                                .id("ab12cd34")
+                                                .id("abc-123")
                                                 .isAssessment(false)
                                                 .isInteger(false)
                                                 .isRequired(true)
@@ -44,7 +44,7 @@ public class Example {
                                                 .values(Arrays.asList("good", "bad", "neutral")))))
                             .description("Queue for annotating customer support traces")
                             .name("My annotation queue")
-                            .projectId("a33671aa-24fd-4dcd-9b33-a8ec7dde7751"))
+                            .projectId("00000000-0000-0000-0000-000000000002"))
                     .type(LLMObsAnnotationQueueType.QUEUES));
 
     try {
