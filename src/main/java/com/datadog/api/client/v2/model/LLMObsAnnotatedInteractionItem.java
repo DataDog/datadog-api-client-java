@@ -93,7 +93,7 @@ public class LLMObsAnnotatedInteractionItem {
   }
 
   /**
-   * Identifier of the content for this interaction.
+   * Identifier of the content (trace ID or session ID) for this interaction.
    *
    * @return contentId
    */
