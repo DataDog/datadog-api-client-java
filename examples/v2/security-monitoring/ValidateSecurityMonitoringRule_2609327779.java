@@ -11,8 +11,6 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleEvaluationWindow;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleMaxSignalDuration;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleNewValueOptions;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleNewValueOptionsForgetAfter;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleNewValueOptionsLearningDuration;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleNewValueOptionsLearningMethod;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleNewValueOptionsLearningThreshold;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleOptions;
@@ -51,11 +49,9 @@ public class Example {
                         .detectionMethod(SecurityMonitoringRuleDetectionMethod.NEW_VALUE)
                         .newValueOptions(
                             new SecurityMonitoringRuleNewValueOptions()
-                                .forgetAfter(
-                                    SecurityMonitoringRuleNewValueOptionsForgetAfter.ONE_WEEK)
+                                .forgetAfter(7)
                                 .instantaneousBaseline(true)
-                                .learningDuration(
-                                    SecurityMonitoringRuleNewValueOptionsLearningDuration.ONE_DAY)
+                                .learningDuration(1)
                                 .learningThreshold(
                                     SecurityMonitoringRuleNewValueOptionsLearningThreshold
                                         .ZERO_OCCURRENCES)
