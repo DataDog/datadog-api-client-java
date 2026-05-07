@@ -19,7 +19,11 @@ import com.datadog.api.client.v2.model.BudgetArray;
 import com.datadog.api.client.v2.model.BudgetValidationRequest;
 import com.datadog.api.client.v2.model.BudgetValidationResponse;
 import com.datadog.api.client.v2.model.BudgetWithEntries;
+import com.datadog.api.client.v2.model.CostAIPreferredTagsResponse;
+import com.datadog.api.client.v2.model.CostSettingResponse;
+import com.datadog.api.client.v2.model.CostTagPipelineActiveKeyResponse;
 import com.datadog.api.client.v2.model.CreateRulesetRequest;
+import com.datadog.api.client.v2.model.CustomAllocationRuleStatusResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileLineItem;
 import com.datadog.api.client.v2.model.CustomCostsFileListResponse;
@@ -36,6 +40,7 @@ import com.datadog.api.client.v2.model.RulesValidateQueryRequest;
 import com.datadog.api.client.v2.model.RulesValidateQueryResponse;
 import com.datadog.api.client.v2.model.RulesetResp;
 import com.datadog.api.client.v2.model.RulesetRespArray;
+import com.datadog.api.client.v2.model.TagPipelinesRulesetStatusResponse;
 import com.datadog.api.client.v2.model.UCConfigPair;
 import com.datadog.api.client.v2.model.UpdateRulesetRequest;
 import com.datadog.api.client.v2.model.ValidationResponse;
@@ -1840,6 +1845,136 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * Get preferred cost allocation tags.
+   *
+   * <p>See {@link #getCostAIPreferredTagsWithHttpInfo}.
+   *
+   * @return CostAIPreferredTagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostAIPreferredTagsResponse getCostAIPreferredTags() throws ApiException {
+    return getCostAIPreferredTagsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get preferred cost allocation tags.
+   *
+   * <p>See {@link #getCostAIPreferredTagsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CostAIPreferredTagsResponse&gt;
+   */
+  public CompletableFuture<CostAIPreferredTagsResponse> getCostAIPreferredTagsAsync() {
+    return getCostAIPreferredTagsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the preferred cost allocation tags for AI agent use. Returns a simplified response with
+   * contextual messaging based on configuration status.
+   *
+   * @return ApiResponse&lt;CostAIPreferredTagsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostAIPreferredTagsResponse> getCostAIPreferredTagsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCostAIPreferredTags";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/ai/preferred_tags";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostAIPreferredTags",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostAIPreferredTagsResponse>() {});
+  }
+
+  /**
+   * Get preferred cost allocation tags.
+   *
+   * <p>See {@link #getCostAIPreferredTagsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;CostAIPreferredTagsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostAIPreferredTagsResponse>>
+      getCostAIPreferredTagsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getCostAIPreferredTags";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostAIPreferredTagsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/ai/preferred_tags";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostAIPreferredTags",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostAIPreferredTagsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostAIPreferredTagsResponse>() {});
+  }
+
+  /**
    * Get cost AWS CUR config.
    *
    * <p>See {@link #getCostAWSCURConfigWithHttpInfo}.
@@ -2254,6 +2389,160 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GcpUcConfigResponse>() {});
+  }
+
+  /**
+   * Get cost setting.
+   *
+   * <p>See {@link #getCostSettingWithHttpInfo}.
+   *
+   * @param settingType The type of cost setting. (required)
+   * @return CostSettingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostSettingResponse getCostSetting(String settingType) throws ApiException {
+    return getCostSettingWithHttpInfo(settingType).getData();
+  }
+
+  /**
+   * Get cost setting.
+   *
+   * <p>See {@link #getCostSettingWithHttpInfoAsync}.
+   *
+   * @param settingType The type of cost setting. (required)
+   * @return CompletableFuture&lt;CostSettingResponse&gt;
+   */
+  public CompletableFuture<CostSettingResponse> getCostSettingAsync(String settingType) {
+    return getCostSettingWithHttpInfoAsync(settingType)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific cost management setting by type.
+   *
+   * @param settingType The type of cost setting. (required)
+   * @return ApiResponse&lt;CostSettingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostSettingResponse> getCostSettingWithHttpInfo(String settingType)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCostSetting";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'settingType' is set
+    if (settingType == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'settingType' when calling getCostSetting");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/settings/{setting_type}"
+            .replaceAll(
+                "\\{" + "setting_type" + "\\}", apiClient.escapeString(settingType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostSetting",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostSettingResponse>() {});
+  }
+
+  /**
+   * Get cost setting.
+   *
+   * <p>See {@link #getCostSettingWithHttpInfo}.
+   *
+   * @param settingType The type of cost setting. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CostSettingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostSettingResponse>> getCostSettingWithHttpInfoAsync(
+      String settingType) {
+    // Check if unstable operation is enabled
+    String operationId = "getCostSetting";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostSettingResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'settingType' is set
+    if (settingType == null) {
+      CompletableFuture<ApiResponse<CostSettingResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'settingType' when calling getCostSetting"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/settings/{setting_type}"
+            .replaceAll(
+                "\\{" + "setting_type" + "\\}", apiClient.escapeString(settingType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostSetting",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostSettingResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostSettingResponse>() {});
   }
 
   /**
@@ -3210,6 +3499,136 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * List active tag pipeline keys.
+   *
+   * <p>See {@link #listCostTagPipelineActiveKeysWithHttpInfo}.
+   *
+   * @return CostTagPipelineActiveKeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagPipelineActiveKeyResponse listCostTagPipelineActiveKeys() throws ApiException {
+    return listCostTagPipelineActiveKeysWithHttpInfo().getData();
+  }
+
+  /**
+   * List active tag pipeline keys.
+   *
+   * <p>See {@link #listCostTagPipelineActiveKeysWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CostTagPipelineActiveKeyResponse&gt;
+   */
+  public CompletableFuture<CostTagPipelineActiveKeyResponse> listCostTagPipelineActiveKeysAsync() {
+    return listCostTagPipelineActiveKeysWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the tag keys that are actively set by tag pipeline rules, sorted by rule count in
+   * descending order.
+   *
+   * @return ApiResponse&lt;CostTagPipelineActiveKeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostTagPipelineActiveKeyResponse> listCostTagPipelineActiveKeysWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagPipelineActiveKeys";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/ai/tag_pipelines/active_keys";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostTagPipelineActiveKeys",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagPipelineActiveKeyResponse>() {});
+  }
+
+  /**
+   * List active tag pipeline keys.
+   *
+   * <p>See {@link #listCostTagPipelineActiveKeysWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;CostTagPipelineActiveKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostTagPipelineActiveKeyResponse>>
+      listCostTagPipelineActiveKeysWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagPipelineActiveKeys";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostTagPipelineActiveKeyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/ai/tag_pipelines/active_keys";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostTagPipelineActiveKeys",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostTagPipelineActiveKeyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagPipelineActiveKeyResponse>() {});
+  }
+
+  /**
    * List custom allocation rules.
    *
    * <p>See {@link #listCustomAllocationRulesWithHttpInfo}.
@@ -3318,6 +3737,136 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ArbitraryRuleResponseArray>() {});
+  }
+
+  /**
+   * List custom allocation rule statuses.
+   *
+   * <p>See {@link #listCustomAllocationRulesStatusWithHttpInfo}.
+   *
+   * @return CustomAllocationRuleStatusResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomAllocationRuleStatusResponse listCustomAllocationRulesStatus() throws ApiException {
+    return listCustomAllocationRulesStatusWithHttpInfo().getData();
+  }
+
+  /**
+   * List custom allocation rule statuses.
+   *
+   * <p>See {@link #listCustomAllocationRulesStatusWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CustomAllocationRuleStatusResponse&gt;
+   */
+  public CompletableFuture<CustomAllocationRuleStatusResponse>
+      listCustomAllocationRulesStatusAsync() {
+    return listCustomAllocationRulesStatusWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the processing status of all custom allocation rules.
+   *
+   * @return ApiResponse&lt;CustomAllocationRuleStatusResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CustomAllocationRuleStatusResponse>
+      listCustomAllocationRulesStatusWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCustomAllocationRulesStatus";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule/status";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCustomAllocationRulesStatus",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomAllocationRuleStatusResponse>() {});
+  }
+
+  /**
+   * List custom allocation rule statuses.
+   *
+   * <p>See {@link #listCustomAllocationRulesStatusWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;CustomAllocationRuleStatusResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CustomAllocationRuleStatusResponse>>
+      listCustomAllocationRulesStatusWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listCustomAllocationRulesStatus";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CustomAllocationRuleStatusResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule/status";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCustomAllocationRulesStatus",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CustomAllocationRuleStatusResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomAllocationRuleStatusResponse>() {});
   }
 
   /** Manage optional parameters to listCustomCostsFiles. */
@@ -3680,6 +4229,136 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<RulesetRespArray>() {});
+  }
+
+  /**
+   * List tag pipeline ruleset statuses.
+   *
+   * <p>See {@link #listTagPipelinesRulesetsStatusWithHttpInfo}.
+   *
+   * @return TagPipelinesRulesetStatusResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagPipelinesRulesetStatusResponse listTagPipelinesRulesetsStatus() throws ApiException {
+    return listTagPipelinesRulesetsStatusWithHttpInfo().getData();
+  }
+
+  /**
+   * List tag pipeline ruleset statuses.
+   *
+   * <p>See {@link #listTagPipelinesRulesetsStatusWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;TagPipelinesRulesetStatusResponse&gt;
+   */
+  public CompletableFuture<TagPipelinesRulesetStatusResponse>
+      listTagPipelinesRulesetsStatusAsync() {
+    return listTagPipelinesRulesetsStatusWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the processing status of all tag pipeline rulesets.
+   *
+   * @return ApiResponse&lt;TagPipelinesRulesetStatusResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagPipelinesRulesetStatusResponse> listTagPipelinesRulesetsStatusWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listTagPipelinesRulesetsStatus";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment/status";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listTagPipelinesRulesetsStatus",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagPipelinesRulesetStatusResponse>() {});
+  }
+
+  /**
+   * List tag pipeline ruleset statuses.
+   *
+   * <p>See {@link #listTagPipelinesRulesetsStatusWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;TagPipelinesRulesetStatusResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagPipelinesRulesetStatusResponse>>
+      listTagPipelinesRulesetsStatusWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listTagPipelinesRulesetsStatus";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagPipelinesRulesetStatusResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment/status";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listTagPipelinesRulesetsStatus",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagPipelinesRulesetStatusResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagPipelinesRulesetStatusResponse>() {});
   }
 
   /**

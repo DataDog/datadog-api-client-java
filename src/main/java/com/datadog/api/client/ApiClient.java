@@ -859,6 +859,11 @@ public class ApiClient {
           put("v2.upsertSyncConfig", false);
           put("v2.getCodeCoverageBranchSummary", false);
           put("v2.getCodeCoverageCommitSummary", false);
+          put("v2.getCostAIPreferredTags", false);
+          put("v2.getCostSetting", false);
+          put("v2.listCostTagPipelineActiveKeys", false);
+          put("v2.listCustomAllocationRulesStatus", false);
+          put("v2.listTagPipelinesRulesetsStatus", false);
           put("v2.createDashboardSecureEmbed", false);
           put("v2.deleteDashboardSecureEmbed", false);
           put("v2.getDashboardSecureEmbed", false);
