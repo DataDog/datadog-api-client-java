@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Sankey mode for RUM queries. */
+/** Sankey mode for Product Analytics or RUM queries. */
 @JsonSerialize(using = SankeyRumQueryMode.SankeyRumQueryModeSerializer.class)
 public class SankeyRumQueryMode extends ModelEnum<String> {
 

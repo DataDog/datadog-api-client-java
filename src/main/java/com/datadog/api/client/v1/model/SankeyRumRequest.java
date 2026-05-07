@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Sankey widget with RUM data source. */
+/** Sankey widget request for Product Analytics or RUM data source. */
 @JsonPropertyOrder({
   SankeyRumRequest.JSON_PROPERTY_QUERY,
   SankeyRumRequest.JSON_PROPERTY_REQUEST_TYPE
@@ -48,7 +48,7 @@ public class SankeyRumRequest {
   }
 
   /**
-   * Sankey widget with RUM data source query.
+   * Query configuration for Product Analytics or RUM Sankey widget.
    *
    * @return query
    */
