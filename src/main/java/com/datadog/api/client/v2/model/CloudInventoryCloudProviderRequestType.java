@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API type for upsert sync configuration requests. */
+/** Always <code>cloud_provider</code>. */
 @JsonSerialize(
     using =
         CloudInventoryCloudProviderRequestType.CloudInventoryCloudProviderRequestTypeSerializer

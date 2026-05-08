@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Response containing the upserted sync configuration. Additional read-only fields appear on list
- * and get.
+ * Storage Management configuration returned after a create or update. Additional read-only fields
+ * appear on list and get responses.
  */
 @JsonPropertyOrder({CloudInventorySyncConfigResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
@@ -46,7 +46,7 @@ public class CloudInventorySyncConfigResponse {
   }
 
   /**
-   * JSON:API data object for a sync configuration.
+   * Storage Management configuration data.
    *
    * @return data
    */
