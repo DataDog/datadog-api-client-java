@@ -13,13 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** A query for SLO status, error budget, and burn rate metrics. */
 @JsonPropertyOrder({
   SloQuery.JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS,
+  SloQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
   SloQuery.JSON_PROPERTY_DATA_SOURCE,
   SloQuery.JSON_PROPERTY_GROUP_MODE,
   SloQuery.JSON_PROPERTY_MEASURE,
@@ -33,6 +36,9 @@ public class SloQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS = "additional_query_filters";
   private String additionalQueryFilters;
+
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private SloDataSource dataSource = SloDataSource.SLO;
@@ -85,6 +91,37 @@ public class SloQuery {
 
   public void setAdditionalQueryFilters(String additionalQueryFilters) {
     this.additionalQueryFilters = additionalQueryFilters;
+  }
+
+  public SloQuery crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public SloQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * Organization UUIDs to query when using <a
+   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
+   * visibility</a>. Limited to one organization UUID.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public SloQuery dataSource(SloDataSource dataSource) {
@@ -283,6 +320,7 @@ public class SloQuery {
     }
     SloQuery sloQuery = (SloQuery) o;
     return Objects.equals(this.additionalQueryFilters, sloQuery.additionalQueryFilters)
+        && Objects.equals(this.crossOrgUuids, sloQuery.crossOrgUuids)
         && Objects.equals(this.dataSource, sloQuery.dataSource)
         && Objects.equals(this.groupMode, sloQuery.groupMode)
         && Objects.equals(this.measure, sloQuery.measure)
@@ -296,6 +334,7 @@ public class SloQuery {
   public int hashCode() {
     return Objects.hash(
         additionalQueryFilters,
+        crossOrgUuids,
         dataSource,
         groupMode,
         measure,
@@ -312,6 +351,7 @@ public class SloQuery {
     sb.append("    additionalQueryFilters: ")
         .append(toIndentedString(additionalQueryFilters))
         .append("\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    groupMode: ").append(toIndentedString(groupMode)).append("\n");
     sb.append("    measure: ").append(toIndentedString(measure)).append("\n");

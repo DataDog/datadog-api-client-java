@@ -22,6 +22,7 @@ import java.util.Objects;
 /** A query for host-level process metrics such as CPU and memory usage. */
 @JsonPropertyOrder({
   ProcessScalarQuery.JSON_PROPERTY_AGGREGATOR,
+  ProcessScalarQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
   ProcessScalarQuery.JSON_PROPERTY_DATA_SOURCE,
   ProcessScalarQuery.JSON_PROPERTY_IS_NORMALIZED_CPU,
   ProcessScalarQuery.JSON_PROPERTY_LIMIT,
@@ -37,6 +38,9 @@ public class ProcessScalarQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private MetricsAggregator aggregator = MetricsAggregator.AVG;
+
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ProcessDataSource dataSource = ProcessDataSource.PROCESS;
@@ -99,6 +103,37 @@ public class ProcessScalarQuery {
       this.unparsed = true;
     }
     this.aggregator = aggregator;
+  }
+
+  public ProcessScalarQuery crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public ProcessScalarQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * Organization UUIDs to query when using <a
+   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
+   * visibility</a>. Limited to one organization UUID.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public ProcessScalarQuery dataSource(ProcessDataSource dataSource) {
@@ -339,6 +374,7 @@ public class ProcessScalarQuery {
     }
     ProcessScalarQuery processScalarQuery = (ProcessScalarQuery) o;
     return Objects.equals(this.aggregator, processScalarQuery.aggregator)
+        && Objects.equals(this.crossOrgUuids, processScalarQuery.crossOrgUuids)
         && Objects.equals(this.dataSource, processScalarQuery.dataSource)
         && Objects.equals(this.isNormalizedCpu, processScalarQuery.isNormalizedCpu)
         && Objects.equals(this.limit, processScalarQuery.limit)
@@ -354,6 +390,7 @@ public class ProcessScalarQuery {
   public int hashCode() {
     return Objects.hash(
         aggregator,
+        crossOrgUuids,
         dataSource,
         isNormalizedCpu,
         limit,
@@ -370,6 +407,7 @@ public class ProcessScalarQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessScalarQuery {\n");
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    isNormalizedCpu: ").append(toIndentedString(isNormalizedCpu)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");

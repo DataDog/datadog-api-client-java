@@ -13,12 +13,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** A query against Datadog custom metrics or Cloud Cost data sources. */
 @JsonPropertyOrder({
+  MetricsTimeseriesQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
   MetricsTimeseriesQuery.JSON_PROPERTY_DATA_SOURCE,
   MetricsTimeseriesQuery.JSON_PROPERTY_NAME,
   MetricsTimeseriesQuery.JSON_PROPERTY_QUERY
@@ -27,6 +30,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsTimeseriesQuery {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
+
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private MetricsDataSource dataSource = MetricsDataSource.METRICS;
 
@@ -46,6 +52,37 @@ public class MetricsTimeseriesQuery {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     this.query = query;
+  }
+
+  public MetricsTimeseriesQuery crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public MetricsTimeseriesQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * Organization UUIDs to query when using <a
+   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
+   * visibility</a>. Limited to one organization UUID.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public MetricsTimeseriesQuery dataSource(MetricsDataSource dataSource) {
@@ -169,7 +206,8 @@ public class MetricsTimeseriesQuery {
       return false;
     }
     MetricsTimeseriesQuery metricsTimeseriesQuery = (MetricsTimeseriesQuery) o;
-    return Objects.equals(this.dataSource, metricsTimeseriesQuery.dataSource)
+    return Objects.equals(this.crossOrgUuids, metricsTimeseriesQuery.crossOrgUuids)
+        && Objects.equals(this.dataSource, metricsTimeseriesQuery.dataSource)
         && Objects.equals(this.name, metricsTimeseriesQuery.name)
         && Objects.equals(this.query, metricsTimeseriesQuery.query)
         && Objects.equals(this.additionalProperties, metricsTimeseriesQuery.additionalProperties);
@@ -177,13 +215,14 @@ public class MetricsTimeseriesQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSource, name, query, additionalProperties);
+    return Objects.hash(crossOrgUuids, dataSource, name, query, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricsTimeseriesQuery {\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");

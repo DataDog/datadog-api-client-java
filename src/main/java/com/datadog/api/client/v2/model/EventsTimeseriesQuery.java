@@ -26,6 +26,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   EventsTimeseriesQuery.JSON_PROPERTY_COMPUTE,
+  EventsTimeseriesQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
   EventsTimeseriesQuery.JSON_PROPERTY_DATA_SOURCE,
   EventsTimeseriesQuery.JSON_PROPERTY_GROUP_BY,
   EventsTimeseriesQuery.JSON_PROPERTY_INDEXES,
@@ -38,6 +39,9 @@ public class EventsTimeseriesQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private EventsCompute compute;
+
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private EventsDataSource dataSource = EventsDataSource.LOGS;
@@ -86,6 +90,37 @@ public class EventsTimeseriesQuery {
 
   public void setCompute(EventsCompute compute) {
     this.compute = compute;
+  }
+
+  public EventsTimeseriesQuery crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public EventsTimeseriesQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * Organization UUIDs to query when using <a
+   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
+   * visibility</a>. Limited to one organization UUID.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public EventsTimeseriesQuery dataSource(EventsDataSource dataSource) {
@@ -274,6 +309,7 @@ public class EventsTimeseriesQuery {
     }
     EventsTimeseriesQuery eventsTimeseriesQuery = (EventsTimeseriesQuery) o;
     return Objects.equals(this.compute, eventsTimeseriesQuery.compute)
+        && Objects.equals(this.crossOrgUuids, eventsTimeseriesQuery.crossOrgUuids)
         && Objects.equals(this.dataSource, eventsTimeseriesQuery.dataSource)
         && Objects.equals(this.groupBy, eventsTimeseriesQuery.groupBy)
         && Objects.equals(this.indexes, eventsTimeseriesQuery.indexes)
@@ -284,7 +320,8 @@ public class EventsTimeseriesQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute, dataSource, groupBy, indexes, name, search, additionalProperties);
+    return Objects.hash(
+        compute, crossOrgUuids, dataSource, groupBy, indexes, name, search, additionalProperties);
   }
 
   @Override
@@ -292,6 +329,7 @@ public class EventsTimeseriesQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventsTimeseriesQuery {\n");
     sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
