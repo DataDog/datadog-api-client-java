@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** A query for host-level process metrics such as CPU and memory usage. */
 @JsonPropertyOrder({
+  ProcessTimeseriesQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
   ProcessTimeseriesQuery.JSON_PROPERTY_DATA_SOURCE,
   ProcessTimeseriesQuery.JSON_PROPERTY_IS_NORMALIZED_CPU,
   ProcessTimeseriesQuery.JSON_PROPERTY_LIMIT,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessTimeseriesQuery {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
+
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ProcessDataSource dataSource = ProcessDataSource.PROCESS;
 
@@ -70,6 +74,37 @@ public class ProcessTimeseriesQuery {
     this.unparsed |= !dataSource.isValid();
     this.metric = metric;
     this.name = name;
+  }
+
+  public ProcessTimeseriesQuery crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public ProcessTimeseriesQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * Organization UUIDs to query when using <a
+   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
+   * visibility</a>. Limited to one organization UUID.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public ProcessTimeseriesQuery dataSource(ProcessDataSource dataSource) {
@@ -309,7 +344,8 @@ public class ProcessTimeseriesQuery {
       return false;
     }
     ProcessTimeseriesQuery processTimeseriesQuery = (ProcessTimeseriesQuery) o;
-    return Objects.equals(this.dataSource, processTimeseriesQuery.dataSource)
+    return Objects.equals(this.crossOrgUuids, processTimeseriesQuery.crossOrgUuids)
+        && Objects.equals(this.dataSource, processTimeseriesQuery.dataSource)
         && Objects.equals(this.isNormalizedCpu, processTimeseriesQuery.isNormalizedCpu)
         && Objects.equals(this.limit, processTimeseriesQuery.limit)
         && Objects.equals(this.metric, processTimeseriesQuery.metric)
@@ -323,6 +359,7 @@ public class ProcessTimeseriesQuery {
   @Override
   public int hashCode() {
     return Objects.hash(
+        crossOrgUuids,
         dataSource,
         isNormalizedCpu,
         limit,
@@ -338,6 +375,7 @@ public class ProcessTimeseriesQuery {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessTimeseriesQuery {\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    isNormalizedCpu: ").append(toIndentedString(isNormalizedCpu)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");

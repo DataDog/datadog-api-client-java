@@ -13,12 +13,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** A query for APM dependency statistics between services, such as call latency and error rates. */
 @JsonPropertyOrder({
+  ApmDependencyStatsQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
   ApmDependencyStatsQuery.JSON_PROPERTY_DATA_SOURCE,
   ApmDependencyStatsQuery.JSON_PROPERTY_ENV,
   ApmDependencyStatsQuery.JSON_PROPERTY_IS_UPSTREAM,
@@ -34,6 +37,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApmDependencyStatsQuery {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
+
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ApmDependencyStatsDataSource dataSource =
       ApmDependencyStatsDataSource.APM_DEPENDENCY_STATS;
@@ -86,6 +92,37 @@ public class ApmDependencyStatsQuery {
     this.service = service;
     this.stat = stat;
     this.unparsed |= !stat.isValid();
+  }
+
+  public ApmDependencyStatsQuery crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public ApmDependencyStatsQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * Organization UUIDs to query when using <a
+   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
+   * visibility</a>. Limited to one organization UUID.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public ApmDependencyStatsQuery dataSource(ApmDependencyStatsDataSource dataSource) {
@@ -358,7 +395,8 @@ public class ApmDependencyStatsQuery {
       return false;
     }
     ApmDependencyStatsQuery apmDependencyStatsQuery = (ApmDependencyStatsQuery) o;
-    return Objects.equals(this.dataSource, apmDependencyStatsQuery.dataSource)
+    return Objects.equals(this.crossOrgUuids, apmDependencyStatsQuery.crossOrgUuids)
+        && Objects.equals(this.dataSource, apmDependencyStatsQuery.dataSource)
         && Objects.equals(this.env, apmDependencyStatsQuery.env)
         && Objects.equals(this.isUpstream, apmDependencyStatsQuery.isUpstream)
         && Objects.equals(this.name, apmDependencyStatsQuery.name)
@@ -374,6 +412,7 @@ public class ApmDependencyStatsQuery {
   @Override
   public int hashCode() {
     return Objects.hash(
+        crossOrgUuids,
         dataSource,
         env,
         isUpstream,
@@ -391,6 +430,7 @@ public class ApmDependencyStatsQuery {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApmDependencyStatsQuery {\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    isUpstream: ").append(toIndentedString(isUpstream)).append("\n");

@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** A query for container-level metrics such as CPU and memory usage. */
 @JsonPropertyOrder({
+  ContainerTimeseriesQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
   ContainerTimeseriesQuery.JSON_PROPERTY_DATA_SOURCE,
   ContainerTimeseriesQuery.JSON_PROPERTY_IS_NORMALIZED_CPU,
   ContainerTimeseriesQuery.JSON_PROPERTY_LIMIT,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ContainerTimeseriesQuery {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
+
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ContainerDataSource dataSource = ContainerDataSource.CONTAINER;
 
@@ -70,6 +74,37 @@ public class ContainerTimeseriesQuery {
     this.unparsed |= !dataSource.isValid();
     this.metric = metric;
     this.name = name;
+  }
+
+  public ContainerTimeseriesQuery crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public ContainerTimeseriesQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * Organization UUIDs to query when using <a
+   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
+   * visibility</a>. Limited to one organization UUID.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public ContainerTimeseriesQuery dataSource(ContainerDataSource dataSource) {
@@ -309,7 +344,8 @@ public class ContainerTimeseriesQuery {
       return false;
     }
     ContainerTimeseriesQuery containerTimeseriesQuery = (ContainerTimeseriesQuery) o;
-    return Objects.equals(this.dataSource, containerTimeseriesQuery.dataSource)
+    return Objects.equals(this.crossOrgUuids, containerTimeseriesQuery.crossOrgUuids)
+        && Objects.equals(this.dataSource, containerTimeseriesQuery.dataSource)
         && Objects.equals(this.isNormalizedCpu, containerTimeseriesQuery.isNormalizedCpu)
         && Objects.equals(this.limit, containerTimeseriesQuery.limit)
         && Objects.equals(this.metric, containerTimeseriesQuery.metric)
@@ -323,6 +359,7 @@ public class ContainerTimeseriesQuery {
   @Override
   public int hashCode() {
     return Objects.hash(
+        crossOrgUuids,
         dataSource,
         isNormalizedCpu,
         limit,
@@ -338,6 +375,7 @@ public class ContainerTimeseriesQuery {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContainerTimeseriesQuery {\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    isNormalizedCpu: ").append(toIndentedString(isNormalizedCpu)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");

@@ -22,6 +22,7 @@ import java.util.Objects;
 /** A query for container-level metrics such as CPU and memory usage. */
 @JsonPropertyOrder({
   ContainerScalarQuery.JSON_PROPERTY_AGGREGATOR,
+  ContainerScalarQuery.JSON_PROPERTY_CROSS_ORG_UUIDS,
   ContainerScalarQuery.JSON_PROPERTY_DATA_SOURCE,
   ContainerScalarQuery.JSON_PROPERTY_IS_NORMALIZED_CPU,
   ContainerScalarQuery.JSON_PROPERTY_LIMIT,
@@ -37,6 +38,9 @@ public class ContainerScalarQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private MetricsAggregator aggregator = MetricsAggregator.AVG;
+
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ContainerDataSource dataSource = ContainerDataSource.CONTAINER;
@@ -99,6 +103,37 @@ public class ContainerScalarQuery {
       this.unparsed = true;
     }
     this.aggregator = aggregator;
+  }
+
+  public ContainerScalarQuery crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public ContainerScalarQuery addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * Organization UUIDs to query when using <a
+   * href="/account_management/org_settings/cross_org_visibility/">cross-organization
+   * visibility</a>. Limited to one organization UUID.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public ContainerScalarQuery dataSource(ContainerDataSource dataSource) {
@@ -339,6 +374,7 @@ public class ContainerScalarQuery {
     }
     ContainerScalarQuery containerScalarQuery = (ContainerScalarQuery) o;
     return Objects.equals(this.aggregator, containerScalarQuery.aggregator)
+        && Objects.equals(this.crossOrgUuids, containerScalarQuery.crossOrgUuids)
         && Objects.equals(this.dataSource, containerScalarQuery.dataSource)
         && Objects.equals(this.isNormalizedCpu, containerScalarQuery.isNormalizedCpu)
         && Objects.equals(this.limit, containerScalarQuery.limit)
@@ -354,6 +390,7 @@ public class ContainerScalarQuery {
   public int hashCode() {
     return Objects.hash(
         aggregator,
+        crossOrgUuids,
         dataSource,
         isNormalizedCpu,
         limit,
@@ -370,6 +407,7 @@ public class ContainerScalarQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContainerScalarQuery {\n");
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    isNormalizedCpu: ").append(toIndentedString(isNormalizedCpu)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
