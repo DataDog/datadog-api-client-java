@@ -27,6 +27,7 @@ import java.util.UUID;
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_ORDER_BY,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_PERSONA,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_QUERY,
+  IssuesSearchRequestDataAttributes.JSON_PROPERTY_STATES,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_TEAM_IDS,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_TO,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_TRACK
@@ -49,6 +50,9 @@ public class IssuesSearchRequestDataAttributes {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_STATES = "states";
+  private List<IssueState> states = null;
 
   public static final String JSON_PROPERTY_TEAM_IDS = "team_ids";
   private List<UUID> teamIds = null;
@@ -192,6 +196,36 @@ public class IssuesSearchRequestDataAttributes {
     this.query = query;
   }
 
+  public IssuesSearchRequestDataAttributes states(List<IssueState> states) {
+    this.states = states;
+    return this;
+  }
+
+  public IssuesSearchRequestDataAttributes addStatesItem(IssueState statesItem) {
+    if (this.states == null) {
+      this.states = new ArrayList<>();
+    }
+    this.states.add(statesItem);
+    this.unparsed |= !statesItem.isValid();
+    return this;
+  }
+
+  /**
+   * Filter issues by state. Multiple values are combined with OR logic.
+   *
+   * @return states
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IssueState> getStates() {
+    return states;
+  }
+
+  public void setStates(List<IssueState> states) {
+    this.states = states;
+  }
+
   public IssuesSearchRequestDataAttributes teamIds(List<UUID> teamIds) {
     this.teamIds = teamIds;
     return this;
@@ -328,6 +362,7 @@ public class IssuesSearchRequestDataAttributes {
         && Objects.equals(this.orderBy, issuesSearchRequestDataAttributes.orderBy)
         && Objects.equals(this.persona, issuesSearchRequestDataAttributes.persona)
         && Objects.equals(this.query, issuesSearchRequestDataAttributes.query)
+        && Objects.equals(this.states, issuesSearchRequestDataAttributes.states)
         && Objects.equals(this.teamIds, issuesSearchRequestDataAttributes.teamIds)
         && Objects.equals(this.to, issuesSearchRequestDataAttributes.to)
         && Objects.equals(this.track, issuesSearchRequestDataAttributes.track)
@@ -338,7 +373,16 @@ public class IssuesSearchRequestDataAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        assigneeIds, from, orderBy, persona, query, teamIds, to, track, additionalProperties);
+        assigneeIds,
+        from,
+        orderBy,
+        persona,
+        query,
+        states,
+        teamIds,
+        to,
+        track,
+        additionalProperties);
   }
 
   @Override
@@ -350,6 +394,7 @@ public class IssuesSearchRequestDataAttributes {
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    persona: ").append(toIndentedString(persona)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    states: ").append(toIndentedString(states)).append("\n");
     sb.append("    teamIds: ").append(toIndentedString(teamIds)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    track: ").append(toIndentedString(track)).append("\n");
