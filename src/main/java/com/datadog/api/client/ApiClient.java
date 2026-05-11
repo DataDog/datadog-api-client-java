@@ -882,7 +882,6 @@ public class ApiClient {
           put("v2.triggerDeploymentGatesEvaluation", false);
           put("v2.updateDeploymentGate", false);
           put("v2.updateDeploymentRule", false);
-          put("v2.createEmailTransportWebhookIntake", false);
           put("v2.createHamrOrgConnection", false);
           put("v2.getHamrOrgConnection", false);
           put("v2.createGlobalIncidentHandle", false);
