@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test Environment Test-Create_an_environment_returns_Created_response-1773768383\",\"queries\":[\"test-Test-Create_an_environment_returns_Created_response-1773768383\",\"env-Test-Create_an_environment_returns_Created_response-1773768383\"]},\"type\":\"environments\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test Environment Test-Create_an_environment_returns_Created_response-1776888955\",\"queries\":[\"test-Test-Create_an_environment_returns_Created_response-1776888955\",\"env-Test-Create_an_environment_returns_Created_response-1776888955\"]},\"type\":\"environments\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"b7fd5cfe-3350-4db5-9731-1702b2fc9ab7\",\"type\":\"environments\",\"attributes\":{\"is_production\":false,\"name\":\"Test Environment Test-Create_an_environment_returns_Created_response-1773768383\",\"queries\":[\"test-Test-Create_an_environment_returns_Created_response-1773768383\",\"env-Test-Create_an_environment_returns_Created_response-1773768383\"],\"require_feature_flag_approval\":false}}}",
+      "body": "{\"data\":{\"id\":\"e8d345e2-dca2-4270-912f-1189174ee338\",\"type\":\"environments\",\"attributes\":{\"is_production\":false,\"name\":\"Test Environment Test-Create_an_environment_returns_Created_response-1776888955\",\"queries\":[\"test-Test-Create_an_environment_returns_Created_response-1776888955\",\"env-Test-Create_an_environment_returns_Created_response-1776888955\"],\"require_feature_flag_approval\":false}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ab87ebd6-cb38-c6e2-cde2-71eeb436dc8d"
+    "id": "45b983d4-f1ff-03d3-7b14-1a225dc7a042"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/feature-flags/environments/b7fd5cfe-3350-4db5-9731-1702b2fc9ab7",
+      "path": "/api/v2/feature-flags/environments/e8d345e2-dca2-4270-912f-1189174ee338",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "70868c2f-5d6c-8b94-0250-e3f5ccb37ac8"
+    "id": "7fe3c723-eed1-c96a-5589-d491b9fb46f3"
   }
 ]

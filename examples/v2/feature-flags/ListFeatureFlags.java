@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.FeatureFlagsApi;
+import com.datadog.api.client.v2.api.FeatureFlagsApi.ListFeatureFlagsOptionalParameters;
 import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
 
 public class Example {
@@ -11,7 +12,8 @@ public class Example {
     FeatureFlagsApi apiInstance = new FeatureFlagsApi(defaultClient);
 
     try {
-      ListFeatureFlagsResponse result = apiInstance.listFeatureFlags();
+      ListFeatureFlagsResponse result =
+          apiInstance.listFeatureFlags(new ListFeatureFlagsOptionalParameters().limit(10));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FeatureFlagsApi#listFeatureFlags");
