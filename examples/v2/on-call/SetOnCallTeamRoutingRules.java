@@ -5,6 +5,8 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
 import com.datadog.api.client.v2.api.OnCallApi.SetOnCallTeamRoutingRulesOptionalParameters;
 import com.datadog.api.client.v2.model.RoutingRuleAction;
+import com.datadog.api.client.v2.model.RoutingRuleEscalationPolicyAction;
+import com.datadog.api.client.v2.model.RoutingRuleEscalationPolicyActionType;
 import com.datadog.api.client.v2.model.SendSlackMessageAction;
 import com.datadog.api.client.v2.model.SendSlackMessageActionType;
 import com.datadog.api.client.v2.model.TeamRoutingRules;
@@ -66,9 +68,40 @@ public class Example {
                                                             .startDay(Weekday.TUESDAY)
                                                             .startTime("09:00:00")))),
                                     new TeamRoutingRulesRequestRule()
-                                        .policyId(ESCALATION_POLICY_DATA_ID)
-                                        .query("")
-                                        .urgency(Urgency.LOW))))
+                                        .actions(
+                                            Collections.singletonList(
+                                                new RoutingRuleAction(
+                                                    new RoutingRuleEscalationPolicyAction()
+                                                        .ackTimeoutMinutes(10L)
+                                                        .policyId(ESCALATION_POLICY_DATA_ID)
+                                                        .supportHours(
+                                                            new TimeRestrictions()
+                                                                .timeZone("Europe/Paris")
+                                                                .restrictions(
+                                                                    Collections.singletonList(
+                                                                        new TimeRestriction()
+                                                                            .endDay(Weekday.FRIDAY)
+                                                                            .endTime("17:00:00")
+                                                                            .startDay(
+                                                                                Weekday.MONDAY)
+                                                                            .startTime(
+                                                                                "09:00:00"))))
+                                                        .type(
+                                                            RoutingRuleEscalationPolicyActionType
+                                                                .ESCALATION_POLICY)
+                                                        .urgency(Urgency.LOW))))
+                                        .query("tags.service:test"),
+                                    new TeamRoutingRulesRequestRule()
+                                        .actions(
+                                            Collections.singletonList(
+                                                new RoutingRuleAction(
+                                                    new RoutingRuleEscalationPolicyAction()
+                                                        .policyId(ESCALATION_POLICY_DATA_ID)
+                                                        .type(
+                                                            RoutingRuleEscalationPolicyActionType
+                                                                .ESCALATION_POLICY)
+                                                        .urgency(Urgency.LOW))))
+                                        .query(""))))
                     .id(DD_TEAM_DATA_ID)
                     .type(TeamRoutingRulesRequestDataType.TEAM_ROUTING_RULES));
 
