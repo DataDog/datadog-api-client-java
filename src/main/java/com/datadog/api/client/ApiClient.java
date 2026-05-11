@@ -1028,6 +1028,11 @@ public class ApiClient {
           put("v2.addMemberTeam", false);
           put("v2.listMemberTeams", false);
           put("v2.removeMemberTeam", false);
+          put("v2.createWebIntegrationAccount", false);
+          put("v2.deleteWebIntegrationAccount", false);
+          put("v2.getWebIntegrationAccount", false);
+          put("v2.listWebIntegrationAccounts", false);
+          put("v2.updateWebIntegrationAccount", false);
         }
       };
   protected static final java.util.logging.Logger logger =
