@@ -4,6 +4,8 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.CreateBackfilledDegradationRequest;
+import com.datadog.api.client.v2.model.CreateBackfilledMaintenanceRequest;
 import com.datadog.api.client.v2.model.CreateComponentRequest;
 import com.datadog.api.client.v2.model.CreateDegradationRequest;
 import com.datadog.api.client.v2.model.CreateMaintenanceRequest;
@@ -58,6 +60,468 @@ public class StatusPagesApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /** Manage optional parameters to createBackfilledDegradation. */
+  public static class CreateBackfilledDegradationOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of resources to include. Supported values:
+     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @return CreateBackfilledDegradationOptionalParameters
+     */
+    public CreateBackfilledDegradationOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create backfilled degradation.
+   *
+   * <p>See {@link #createBackfilledDegradationWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @return Degradation
+   * @throws ApiException if fails to make API call
+   */
+  public Degradation createBackfilledDegradation(
+      UUID pageId, CreateBackfilledDegradationRequest body) throws ApiException {
+    return createBackfilledDegradationWithHttpInfo(
+            pageId, body, new CreateBackfilledDegradationOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create backfilled degradation.
+   *
+   * <p>See {@link #createBackfilledDegradationWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;Degradation&gt;
+   */
+  public CompletableFuture<Degradation> createBackfilledDegradationAsync(
+      UUID pageId, CreateBackfilledDegradationRequest body) {
+    return createBackfilledDegradationWithHttpInfoAsync(
+            pageId, body, new CreateBackfilledDegradationOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create backfilled degradation.
+   *
+   * <p>See {@link #createBackfilledDegradationWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return Degradation
+   * @throws ApiException if fails to make API call
+   */
+  public Degradation createBackfilledDegradation(
+      UUID pageId,
+      CreateBackfilledDegradationRequest body,
+      CreateBackfilledDegradationOptionalParameters parameters)
+      throws ApiException {
+    return createBackfilledDegradationWithHttpInfo(pageId, body, parameters).getData();
+  }
+
+  /**
+   * Create backfilled degradation.
+   *
+   * <p>See {@link #createBackfilledDegradationWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;Degradation&gt;
+   */
+  public CompletableFuture<Degradation> createBackfilledDegradationAsync(
+      UUID pageId,
+      CreateBackfilledDegradationRequest body,
+      CreateBackfilledDegradationOptionalParameters parameters) {
+    return createBackfilledDegradationWithHttpInfoAsync(pageId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a backfilled degradation with predefined updates.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Degradation&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Degradation> createBackfilledDegradationWithHttpInfo(
+      UUID pageId,
+      CreateBackfilledDegradationRequest body,
+      CreateBackfilledDegradationOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling createBackfilledDegradation");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createBackfilledDegradation");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/degradations/backfill"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.createBackfilledDegradation",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Degradation>() {});
+  }
+
+  /**
+   * Create backfilled degradation.
+   *
+   * <p>See {@link #createBackfilledDegradationWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Degradation&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Degradation>> createBackfilledDegradationWithHttpInfoAsync(
+      UUID pageId,
+      CreateBackfilledDegradationRequest body,
+      CreateBackfilledDegradationOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'pageId' when calling createBackfilledDegradation"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createBackfilledDegradation"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/degradations/backfill"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.createBackfilledDegradation",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Degradation>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Degradation>() {});
+  }
+
+  /** Manage optional parameters to createBackfilledMaintenance. */
+  public static class CreateBackfilledMaintenanceOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of resources to include. Supported values:
+     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @return CreateBackfilledMaintenanceOptionalParameters
+     */
+    public CreateBackfilledMaintenanceOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create backfilled maintenance.
+   *
+   * <p>See {@link #createBackfilledMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @return Maintenance
+   * @throws ApiException if fails to make API call
+   */
+  public Maintenance createBackfilledMaintenance(
+      UUID pageId, CreateBackfilledMaintenanceRequest body) throws ApiException {
+    return createBackfilledMaintenanceWithHttpInfo(
+            pageId, body, new CreateBackfilledMaintenanceOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create backfilled maintenance.
+   *
+   * <p>See {@link #createBackfilledMaintenanceWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;Maintenance&gt;
+   */
+  public CompletableFuture<Maintenance> createBackfilledMaintenanceAsync(
+      UUID pageId, CreateBackfilledMaintenanceRequest body) {
+    return createBackfilledMaintenanceWithHttpInfoAsync(
+            pageId, body, new CreateBackfilledMaintenanceOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create backfilled maintenance.
+   *
+   * <p>See {@link #createBackfilledMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return Maintenance
+   * @throws ApiException if fails to make API call
+   */
+  public Maintenance createBackfilledMaintenance(
+      UUID pageId,
+      CreateBackfilledMaintenanceRequest body,
+      CreateBackfilledMaintenanceOptionalParameters parameters)
+      throws ApiException {
+    return createBackfilledMaintenanceWithHttpInfo(pageId, body, parameters).getData();
+  }
+
+  /**
+   * Create backfilled maintenance.
+   *
+   * <p>See {@link #createBackfilledMaintenanceWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;Maintenance&gt;
+   */
+  public CompletableFuture<Maintenance> createBackfilledMaintenanceAsync(
+      UUID pageId,
+      CreateBackfilledMaintenanceRequest body,
+      CreateBackfilledMaintenanceOptionalParameters parameters) {
+    return createBackfilledMaintenanceWithHttpInfoAsync(pageId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a backfilled maintenance with predefined updates.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Maintenance&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Maintenance> createBackfilledMaintenanceWithHttpInfo(
+      UUID pageId,
+      CreateBackfilledMaintenanceRequest body,
+      CreateBackfilledMaintenanceOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling createBackfilledMaintenance");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createBackfilledMaintenance");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances/backfill"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.createBackfilledMaintenance",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Maintenance>() {});
+  }
+
+  /**
+   * Create backfilled maintenance.
+   *
+   * <p>See {@link #createBackfilledMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Maintenance&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Maintenance>> createBackfilledMaintenanceWithHttpInfoAsync(
+      UUID pageId,
+      CreateBackfilledMaintenanceRequest body,
+      CreateBackfilledMaintenanceOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'pageId' when calling createBackfilledMaintenance"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createBackfilledMaintenance"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances/backfill"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.createBackfilledMaintenance",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Maintenance>() {});
   }
 
   /** Manage optional parameters to createComponent. */

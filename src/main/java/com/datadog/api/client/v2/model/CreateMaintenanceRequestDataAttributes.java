@@ -28,7 +28,8 @@ import java.util.Objects;
   CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_IN_PROGRESS_DESCRIPTION,
   CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_SCHEDULED_DESCRIPTION,
   CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_START_DATE,
-  CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_TITLE
+  CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_TITLE,
+  CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_UPDATES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -55,6 +56,9 @@ public class CreateMaintenanceRequestDataAttributes {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public static final String JSON_PROPERTY_UPDATES = "updates";
+  private List<CreateMaintenanceRequestDataAttributesUpdatesItems> updates = null;
 
   public CreateMaintenanceRequestDataAttributes() {}
 
@@ -235,6 +239,41 @@ public class CreateMaintenanceRequestDataAttributes {
     this.title = title;
   }
 
+  public CreateMaintenanceRequestDataAttributes updates(
+      List<CreateMaintenanceRequestDataAttributesUpdatesItems> updates) {
+    this.updates = updates;
+    for (CreateMaintenanceRequestDataAttributesUpdatesItems item : updates) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public CreateMaintenanceRequestDataAttributes addUpdatesItem(
+      CreateMaintenanceRequestDataAttributesUpdatesItems updatesItem) {
+    if (this.updates == null) {
+      this.updates = new ArrayList<>();
+    }
+    this.updates.add(updatesItem);
+    this.unparsed |= updatesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Getupdates
+   *
+   * @return updates
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CreateMaintenanceRequestDataAttributesUpdatesItems> getUpdates() {
+    return updates;
+  }
+
+  public void setUpdates(List<CreateMaintenanceRequestDataAttributesUpdatesItems> updates) {
+    this.updates = updates;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -304,6 +343,7 @@ public class CreateMaintenanceRequestDataAttributes {
             this.scheduledDescription, createMaintenanceRequestDataAttributes.scheduledDescription)
         && Objects.equals(this.startDate, createMaintenanceRequestDataAttributes.startDate)
         && Objects.equals(this.title, createMaintenanceRequestDataAttributes.title)
+        && Objects.equals(this.updates, createMaintenanceRequestDataAttributes.updates)
         && Objects.equals(
             this.additionalProperties, createMaintenanceRequestDataAttributes.additionalProperties);
   }
@@ -318,6 +358,7 @@ public class CreateMaintenanceRequestDataAttributes {
         scheduledDescription,
         startDate,
         title,
+        updates,
         additionalProperties);
   }
 
@@ -338,6 +379,7 @@ public class CreateMaintenanceRequestDataAttributes {
         .append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    updates: ").append(toIndentedString(updates)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
