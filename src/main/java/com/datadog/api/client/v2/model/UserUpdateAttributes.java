@@ -15,12 +15,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of the edited user. */
 @JsonPropertyOrder({
   UserUpdateAttributes.JSON_PROPERTY_DISABLED,
   UserUpdateAttributes.JSON_PROPERTY_EMAIL,
-  UserUpdateAttributes.JSON_PROPERTY_NAME
+  UserUpdateAttributes.JSON_PROPERTY_NAME,
+  UserUpdateAttributes.JSON_PROPERTY_TITLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,13 +37,17 @@ public class UserUpdateAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private JsonNullable<String> title = JsonNullable.<String>undefined();
+
   public UserUpdateAttributes disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
 
   /**
-   * If the user is enabled or disabled.
+   * When set to <code>true</code>, the user is deactivated and can no longer log in. When <code>
+   * false</code>, the user is active.
    *
    * @return disabled
    */
@@ -62,7 +68,7 @@ public class UserUpdateAttributes {
   }
 
   /**
-   * The email of the user.
+   * The email address of the user, used for login and notifications. Must be a valid email format.
    *
    * @return email
    */
@@ -83,7 +89,8 @@ public class UserUpdateAttributes {
   }
 
   /**
-   * The name of the user.
+   * The full display name of the user as shown in the Datadog UI. Maximum 55 characters, cannot
+   * contain <code>&lt;</code> or <code>&gt;</code>.
    *
    * @return name
    */
@@ -96,6 +103,37 @@ public class UserUpdateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public UserUpdateAttributes title(String title) {
+    this.title = JsonNullable.<String>of(title);
+    return this;
+  }
+
+  /**
+   * The job title of the user (for example, "Senior Engineer" or "Product Manager").
+   *
+   * @return title
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getTitle() {
+    return title.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getTitle_JsonNullable() {
+    return title;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
+    this.title = title;
+  }
+
+  public void setTitle(String title) {
+    this.title = JsonNullable.<String>of(title);
   }
 
   /**
@@ -157,12 +195,13 @@ public class UserUpdateAttributes {
     return Objects.equals(this.disabled, userUpdateAttributes.disabled)
         && Objects.equals(this.email, userUpdateAttributes.email)
         && Objects.equals(this.name, userUpdateAttributes.name)
+        && Objects.equals(this.title, userUpdateAttributes.title)
         && Objects.equals(this.additionalProperties, userUpdateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(disabled, email, name, additionalProperties);
+    return Objects.hash(disabled, email, name, title, additionalProperties);
   }
 
   @Override
@@ -172,6 +211,7 @@ public class UserUpdateAttributes {
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -602,6 +602,118 @@ public class UsersApi {
   }
 
   /**
+   * Get current user.
+   *
+   * <p>See {@link #getCurrentUserWithHttpInfo}.
+   *
+   * @return UserResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UserResponse getCurrentUser() throws ApiException {
+    return getCurrentUserWithHttpInfo().getData();
+  }
+
+  /**
+   * Get current user.
+   *
+   * <p>See {@link #getCurrentUserWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
+  public CompletableFuture<UserResponse> getCurrentUserAsync() {
+    return getCurrentUserWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the user associated with the current authentication context. The response includes the
+   * user's profile attributes (name, email, handle, status, MFA state), along with related
+   * resources: the user's organization, assigned roles with their granted permissions, and
+   * team-scoped roles. No additional permissions are required beyond valid authentication.
+   *
+   * @return ApiResponse&lt;UserResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UserResponse> getCurrentUserWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/current_user";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsersApi.getCurrentUser",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UserResponse>() {});
+  }
+
+  /**
+   * Get current user.
+   *
+   * <p>See {@link #getCurrentUserWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;UserResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UserResponse>> getCurrentUserWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/current_user";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsersApi.getCurrentUser",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UserResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UserResponse>() {});
+  }
+
+  /**
    * Get a user invitation.
    *
    * <p>See {@link #getInvitationWithHttpInfo}.
@@ -1583,6 +1695,143 @@ public class UsersApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UserInvitationsResponse>() {});
+  }
+
+  /**
+   * Update current user.
+   *
+   * <p>See {@link #updateCurrentUserWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return UserResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UserResponse updateCurrentUser(UserUpdateRequest body) throws ApiException {
+    return updateCurrentUserWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Update current user.
+   *
+   * <p>See {@link #updateCurrentUserWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
+  public CompletableFuture<UserResponse> updateCurrentUserAsync(UserUpdateRequest body) {
+    return updateCurrentUserWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Edit the profile of the currently authenticated user. Updatable fields include <code>name
+   * </code>, <code>title</code>, <code>email</code>, and <code>disabled</code> status. The <code>id
+   * </code> field in the request body must match the authenticated user's UUID; a mismatch returns
+   * a 422 error. Email address changes are recorded in the audit trail. Requires the <code>
+   * user_self_profile_write</code> permission.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;UserResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UserResponse> updateCurrentUserWithHttpInfo(UserUpdateRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateCurrentUser");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/current_user";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsersApi.updateCurrentUser",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UserResponse>() {});
+  }
+
+  /**
+   * Update current user.
+   *
+   * <p>See {@link #updateCurrentUserWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UserResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UserResponse>> updateCurrentUserWithHttpInfoAsync(
+      UserUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UserResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateCurrentUser"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/current_user";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsersApi.updateCurrentUser",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UserResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UserResponse>() {});
   }
 
   /**

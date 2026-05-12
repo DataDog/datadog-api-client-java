@@ -87,7 +87,7 @@ public class UserAttributes {
   }
 
   /**
-   * Creation time of the user.
+   * The ISO 8601 timestamp of when the user account was created.
    *
    * @return createdAt
    */
@@ -108,7 +108,7 @@ public class UserAttributes {
   }
 
   /**
-   * Whether the user is disabled.
+   * Whether the user account is deactivated. Disabled users cannot log in.
    *
    * @return disabled
    */
@@ -129,7 +129,7 @@ public class UserAttributes {
   }
 
   /**
-   * Email of the user.
+   * The email address of the user, used for login and notifications.
    *
    * @return email
    */
@@ -150,7 +150,7 @@ public class UserAttributes {
   }
 
   /**
-   * Handle of the user.
+   * The unique handle (username) of the user, typically matching their email prefix.
    *
    * @return handle
    */
@@ -171,7 +171,7 @@ public class UserAttributes {
   }
 
   /**
-   * URL of the user's icon.
+   * URL of the user's profile icon, typically a Gravatar URL derived from the email address.
    *
    * @return icon
    */
@@ -187,7 +187,8 @@ public class UserAttributes {
   }
 
   /**
-   * The last time the user logged in.
+   * The ISO 8601 timestamp of the user's most recent login, or null if the user has never logged
+   * in.
    *
    * @return lastLoginTime
    */
@@ -213,7 +214,7 @@ public class UserAttributes {
   }
 
   /**
-   * If user has MFA enabled.
+   * Whether multi-factor authentication (MFA) is enabled for the user's account.
    *
    * @return mfaEnabled
    */
@@ -230,7 +231,7 @@ public class UserAttributes {
   }
 
   /**
-   * Time that the user was last modified.
+   * The ISO 8601 timestamp of when the user account was last modified.
    *
    * @return modifiedAt
    */
@@ -251,7 +252,7 @@ public class UserAttributes {
   }
 
   /**
-   * Name of the user.
+   * The full display name of the user as shown in the Datadog UI.
    *
    * @return name
    */
@@ -282,7 +283,8 @@ public class UserAttributes {
   }
 
   /**
-   * Whether the user is a service account.
+   * Whether this is a service account rather than a human user. Service accounts are used for
+   * programmatic API access.
    *
    * @return serviceAccount
    */
@@ -303,7 +305,8 @@ public class UserAttributes {
   }
 
   /**
-   * Status of the user.
+   * The current status of the user account (for example, <code>Active</code>, <code>Pending</code>,
+   * or <code>Disabled</code>).
    *
    * @return status
    */
@@ -324,7 +327,7 @@ public class UserAttributes {
   }
 
   /**
-   * Title of the user.
+   * The job title of the user (for example, "Senior Engineer" or "Product Manager").
    *
    * @return title
    */
@@ -350,7 +353,7 @@ public class UserAttributes {
   }
 
   /**
-   * UUID of the user.
+   * The globally unique identifier (UUID) of the user.
    *
    * @return uuid
    */
@@ -367,7 +370,7 @@ public class UserAttributes {
   }
 
   /**
-   * Whether the user is verified.
+   * Whether the user's email address has been verified.
    *
    * @return verified
    */
