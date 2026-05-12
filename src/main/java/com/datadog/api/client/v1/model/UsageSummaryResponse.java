@@ -157,6 +157,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INFRA_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
@@ -276,6 +277,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_START_DATE,
+  UsageSummaryResponse.JSON_PROPERTY_STORAGE_MANAGEMENT_OBJECT_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_AGG_SUM,
@@ -787,6 +789,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_INFRA_HOST_TOP99P_SUM = "infra_host_top99p_sum";
   private Long infraHostTop99pSum;
 
+  public static final String JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_AVG_SUM =
+      "infra_storage_mgmt_objects_avg_sum";
+  private Long infraStorageMgmtObjectsAvgSum;
+
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM =
       "ingested_events_bytes_agg_sum";
   private Long ingestedEventsBytesAggSum;
@@ -1215,6 +1221,10 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
   private OffsetDateTime startDate;
+
+  public static final String JSON_PROPERTY_STORAGE_MANAGEMENT_OBJECT_COUNT_AVG_SUM =
+      "storage_management_object_count_avg_sum";
+  private Long storageManagementObjectCountAvgSum;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM =
       "synthetics_browser_check_calls_count_agg_sum";
@@ -4266,6 +4276,28 @@ public class UsageSummaryResponse {
     this.infraHostTop99pSum = infraHostTop99pSum;
   }
 
+  public UsageSummaryResponse infraStorageMgmtObjectsAvgSum(Long infraStorageMgmtObjectsAvgSum) {
+    this.infraStorageMgmtObjectsAvgSum = infraStorageMgmtObjectsAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average of all storage management objects over all hours in the current month for all
+   * organizations.
+   *
+   * @return infraStorageMgmtObjectsAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraStorageMgmtObjectsAvgSum() {
+    return infraStorageMgmtObjectsAvgSum;
+  }
+
+  public void setInfraStorageMgmtObjectsAvgSum(Long infraStorageMgmtObjectsAvgSum) {
+    this.infraStorageMgmtObjectsAvgSum = infraStorageMgmtObjectsAvgSum;
+  }
+
   public UsageSummaryResponse ingestedEventsBytesAggSum(Long ingestedEventsBytesAggSum) {
     this.ingestedEventsBytesAggSum = ingestedEventsBytesAggSum;
     return this;
@@ -6825,6 +6857,29 @@ public class UsageSummaryResponse {
     this.startDate = startDate;
   }
 
+  public UsageSummaryResponse storageManagementObjectCountAvgSum(
+      Long storageManagementObjectCountAvgSum) {
+    this.storageManagementObjectCountAvgSum = storageManagementObjectCountAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average of all storage management objects over all hours in the current month for all
+   * organizations.
+   *
+   * @return storageManagementObjectCountAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORAGE_MANAGEMENT_OBJECT_COUNT_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStorageManagementObjectCountAvgSum() {
+    return storageManagementObjectCountAvgSum;
+  }
+
+  public void setStorageManagementObjectCountAvgSum(Long storageManagementObjectCountAvgSum) {
+    this.storageManagementObjectCountAvgSum = storageManagementObjectCountAvgSum;
+  }
+
   public UsageSummaryResponse syntheticsBrowserCheckCallsCountAggSum(
       Long syntheticsBrowserCheckCallsCountAggSum) {
     this.syntheticsBrowserCheckCallsCountAggSum = syntheticsBrowserCheckCallsCountAggSum;
@@ -7410,6 +7465,8 @@ public class UsageSummaryResponse {
             this.infraHostBasicTop99pSum, usageSummaryResponse.infraHostBasicTop99pSum)
         && Objects.equals(this.infraHostTop99pSum, usageSummaryResponse.infraHostTop99pSum)
         && Objects.equals(
+            this.infraStorageMgmtObjectsAvgSum, usageSummaryResponse.infraStorageMgmtObjectsAvgSum)
+        && Objects.equals(
             this.ingestedEventsBytesAggSum, usageSummaryResponse.ingestedEventsBytesAggSum)
         && Objects.equals(this.iotDeviceAggSum, usageSummaryResponse.iotDeviceAggSum)
         && Objects.equals(this.iotDeviceTop99pSum, usageSummaryResponse.iotDeviceTop99pSum)
@@ -7665,6 +7722,9 @@ public class UsageSummaryResponse {
             usageSummaryResponse.siemAnalyzedLogsAddOnCountAggSum)
         && Objects.equals(this.startDate, usageSummaryResponse.startDate)
         && Objects.equals(
+            this.storageManagementObjectCountAvgSum,
+            usageSummaryResponse.storageManagementObjectCountAvgSum)
+        && Objects.equals(
             this.syntheticsBrowserCheckCallsCountAggSum,
             usageSummaryResponse.syntheticsBrowserCheckCallsCountAggSum)
         && Objects.equals(
@@ -7830,6 +7890,7 @@ public class UsageSummaryResponse {
         infraHostBasicInfraBasicVsphereTop99pSum,
         infraHostBasicTop99pSum,
         infraHostTop99pSum,
+        infraStorageMgmtObjectsAvgSum,
         ingestedEventsBytesAggSum,
         iotDeviceAggSum,
         iotDeviceTop99pSum,
@@ -7938,6 +7999,7 @@ public class UsageSummaryResponse {
         serverlessAppsTotalCountAvgSum,
         siemAnalyzedLogsAddOnCountAggSum,
         startDate,
+        storageManagementObjectCountAvgSum,
         syntheticsBrowserCheckCallsCountAggSum,
         syntheticsCheckCallsCountAggSum,
         syntheticsMobileTestRunsAggSum,
@@ -8315,6 +8377,9 @@ public class UsageSummaryResponse {
         .append(toIndentedString(infraHostBasicTop99pSum))
         .append("\n");
     sb.append("    infraHostTop99pSum: ").append(toIndentedString(infraHostTop99pSum)).append("\n");
+    sb.append("    infraStorageMgmtObjectsAvgSum: ")
+        .append(toIndentedString(infraStorageMgmtObjectsAvgSum))
+        .append("\n");
     sb.append("    ingestedEventsBytesAggSum: ")
         .append(toIndentedString(ingestedEventsBytesAggSum))
         .append("\n");
@@ -8613,6 +8678,9 @@ public class UsageSummaryResponse {
         .append(toIndentedString(siemAnalyzedLogsAddOnCountAggSum))
         .append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    storageManagementObjectCountAvgSum: ")
+        .append(toIndentedString(storageManagementObjectCountAvgSum))
+        .append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountAggSum: ")
         .append(toIndentedString(syntheticsBrowserCheckCallsCountAggSum))
         .append("\n");

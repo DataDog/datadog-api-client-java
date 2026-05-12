@@ -152,6 +152,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
@@ -260,6 +261,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_STORAGE_MANAGEMENT_OBJECT_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM,
@@ -745,6 +747,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_INFRA_HOST_TOP99P = "infra_host_top99p";
   private Long infraHostTop99p;
 
+  public static final String JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_AVG =
+      "infra_storage_mgmt_objects_avg";
+  private Long infraStorageMgmtObjectsAvg;
+
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM = "ingested_events_bytes_sum";
   private Long ingestedEventsBytesSum;
 
@@ -1139,6 +1145,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM =
       "siem_analyzed_logs_add_on_count_sum";
   private Long siemAnalyzedLogsAddOnCountSum;
+
+  public static final String JSON_PROPERTY_STORAGE_MANAGEMENT_OBJECT_COUNT_AVG =
+      "storage_management_object_count_avg";
+  private Long storageManagementObjectCountAvg;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM =
       "synthetics_browser_check_calls_count_sum";
@@ -4171,6 +4181,28 @@ public class UsageSummaryDateOrg {
     this.infraHostTop99p = infraHostTop99p;
   }
 
+  public UsageSummaryDateOrg infraStorageMgmtObjectsAvg(Long infraStorageMgmtObjectsAvg) {
+    this.infraStorageMgmtObjectsAvg = infraStorageMgmtObjectsAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all storage management objects over all hours in the current date for the
+   * given org.
+   *
+   * @return infraStorageMgmtObjectsAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraStorageMgmtObjectsAvg() {
+    return infraStorageMgmtObjectsAvg;
+  }
+
+  public void setInfraStorageMgmtObjectsAvg(Long infraStorageMgmtObjectsAvg) {
+    this.infraStorageMgmtObjectsAvg = infraStorageMgmtObjectsAvg;
+  }
+
   public UsageSummaryDateOrg ingestedEventsBytesSum(Long ingestedEventsBytesSum) {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
     return this;
@@ -6570,6 +6602,28 @@ public class UsageSummaryDateOrg {
     this.siemAnalyzedLogsAddOnCountSum = siemAnalyzedLogsAddOnCountSum;
   }
 
+  public UsageSummaryDateOrg storageManagementObjectCountAvg(Long storageManagementObjectCountAvg) {
+    this.storageManagementObjectCountAvg = storageManagementObjectCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all storage management objects over all hours in the current date for the
+   * given org.
+   *
+   * @return storageManagementObjectCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORAGE_MANAGEMENT_OBJECT_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStorageManagementObjectCountAvg() {
+    return storageManagementObjectCountAvg;
+  }
+
+  public void setStorageManagementObjectCountAvg(Long storageManagementObjectCountAvg) {
+    this.storageManagementObjectCountAvg = storageManagementObjectCountAvg;
+  }
+
   public UsageSummaryDateOrg syntheticsBrowserCheckCallsCountSum(
       Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
@@ -7071,6 +7125,8 @@ public class UsageSummaryDateOrg {
             usageSummaryDateOrg.infraHostBasicInfraBasicVsphereTop99p)
         && Objects.equals(this.infraHostBasicTop99p, usageSummaryDateOrg.infraHostBasicTop99p)
         && Objects.equals(this.infraHostTop99p, usageSummaryDateOrg.infraHostTop99p)
+        && Objects.equals(
+            this.infraStorageMgmtObjectsAvg, usageSummaryDateOrg.infraStorageMgmtObjectsAvg)
         && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDateOrg.ingestedEventsBytesSum)
         && Objects.equals(this.iotDeviceAggSum, usageSummaryDateOrg.iotDeviceAggSum)
         && Objects.equals(this.iotDeviceTop99pSum, usageSummaryDateOrg.iotDeviceTop99pSum)
@@ -7291,6 +7347,9 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.siemAnalyzedLogsAddOnCountSum, usageSummaryDateOrg.siemAnalyzedLogsAddOnCountSum)
         && Objects.equals(
+            this.storageManagementObjectCountAvg,
+            usageSummaryDateOrg.storageManagementObjectCountAvg)
+        && Objects.equals(
             this.syntheticsBrowserCheckCallsCountSum,
             usageSummaryDateOrg.syntheticsBrowserCheckCallsCountSum)
         && Objects.equals(
@@ -7453,6 +7512,7 @@ public class UsageSummaryDateOrg {
         infraHostBasicInfraBasicVsphereTop99p,
         infraHostBasicTop99p,
         infraHostTop99p,
+        infraStorageMgmtObjectsAvg,
         ingestedEventsBytesSum,
         iotDeviceAggSum,
         iotDeviceTop99pSum,
@@ -7556,6 +7616,7 @@ public class UsageSummaryDateOrg {
         serverlessAppsInfraGcpGkeAutopilotPodsAvg,
         serverlessAppsTotalCountAvg,
         siemAnalyzedLogsAddOnCountSum,
+        storageManagementObjectCountAvg,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
         syntheticsMobileTestRunsSum,
@@ -7891,6 +7952,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(infraHostBasicTop99p))
         .append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
+    sb.append("    infraStorageMgmtObjectsAvg: ")
+        .append(toIndentedString(infraStorageMgmtObjectsAvg))
+        .append("\n");
     sb.append("    ingestedEventsBytesSum: ")
         .append(toIndentedString(ingestedEventsBytesSum))
         .append("\n");
@@ -8163,6 +8227,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    siemAnalyzedLogsAddOnCountSum: ")
         .append(toIndentedString(siemAnalyzedLogsAddOnCountSum))
+        .append("\n");
+    sb.append("    storageManagementObjectCountAvg: ")
+        .append(toIndentedString(storageManagementObjectCountAvg))
         .append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ")
         .append(toIndentedString(syntheticsBrowserCheckCallsCountSum))
