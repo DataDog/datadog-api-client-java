@@ -20,6 +20,7 @@ import com.datadog.api.client.v2.model.BudgetArray;
 import com.datadog.api.client.v2.model.BudgetValidationRequest;
 import com.datadog.api.client.v2.model.BudgetValidationResponse;
 import com.datadog.api.client.v2.model.BudgetWithEntries;
+import com.datadog.api.client.v2.model.CostTagDescriptionsResponse;
 import com.datadog.api.client.v2.model.CreateRulesetRequest;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileLineItem;
@@ -3209,6 +3210,180 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OCIConfigsResponse>() {});
+  }
+
+  /** Manage optional parameters to listCostTagDescriptions. */
+  public static class ListCostTagDescriptionsOptionalParameters {
+    private String filterCloud;
+
+    /**
+     * Set filterCloud.
+     *
+     * @param filterCloud Filter descriptions to a specific cloud provider (for example, <code>aws
+     *     </code>). Omit to return descriptions across all clouds. (optional)
+     * @return ListCostTagDescriptionsOptionalParameters
+     */
+    public ListCostTagDescriptionsOptionalParameters filterCloud(String filterCloud) {
+      this.filterCloud = filterCloud;
+      return this;
+    }
+  }
+
+  /**
+   * List Cloud Cost Management tag descriptions.
+   *
+   * <p>See {@link #listCostTagDescriptionsWithHttpInfo}.
+   *
+   * @return CostTagDescriptionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagDescriptionsResponse listCostTagDescriptions() throws ApiException {
+    return listCostTagDescriptionsWithHttpInfo(new ListCostTagDescriptionsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List Cloud Cost Management tag descriptions.
+   *
+   * <p>See {@link #listCostTagDescriptionsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CostTagDescriptionsResponse&gt;
+   */
+  public CompletableFuture<CostTagDescriptionsResponse> listCostTagDescriptionsAsync() {
+    return listCostTagDescriptionsWithHttpInfoAsync(new ListCostTagDescriptionsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tag descriptions.
+   *
+   * <p>See {@link #listCostTagDescriptionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CostTagDescriptionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagDescriptionsResponse listCostTagDescriptions(
+      ListCostTagDescriptionsOptionalParameters parameters) throws ApiException {
+    return listCostTagDescriptionsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Cloud Cost Management tag descriptions.
+   *
+   * <p>See {@link #listCostTagDescriptionsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostTagDescriptionsResponse&gt;
+   */
+  public CompletableFuture<CostTagDescriptionsResponse> listCostTagDescriptionsAsync(
+      ListCostTagDescriptionsOptionalParameters parameters) {
+    return listCostTagDescriptionsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tag key descriptions for the organization. Use <code>filter[cloud]
+   * </code> to scope the result to a single cloud provider; when omitted, both cross-cloud defaults
+   * and cloud-specific descriptions are returned.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostTagDescriptionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostTagDescriptionsResponse> listCostTagDescriptionsWithHttpInfo(
+      ListCostTagDescriptionsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String filterCloud = parameters.filterCloud;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_descriptions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[cloud]", filterCloud));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostTagDescriptions",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagDescriptionsResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management tag descriptions.
+   *
+   * <p>See {@link #listCostTagDescriptionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostTagDescriptionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostTagDescriptionsResponse>>
+      listCostTagDescriptionsWithHttpInfoAsync(
+          ListCostTagDescriptionsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String filterCloud = parameters.filterCloud;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_descriptions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[cloud]", filterCloud));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostTagDescriptions",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostTagDescriptionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagDescriptionsResponse>() {});
   }
 
   /**
