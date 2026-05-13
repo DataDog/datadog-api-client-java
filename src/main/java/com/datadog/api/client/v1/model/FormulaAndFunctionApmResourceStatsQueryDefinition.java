@@ -19,7 +19,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** APM resource stats query using formulas and functions. */
+/**
+ * APM resource stats query using formulas and functions. Deprecated - Use <code>apm_metrics</code>
+ * query type instead.
+ *
+ * @deprecated
+ */
+@Deprecated
 @JsonPropertyOrder({
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_CROSS_ORG_UUIDS,
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
