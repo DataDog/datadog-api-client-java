@@ -23,6 +23,9 @@ import com.datadog.api.client.v2.model.BudgetWithEntries;
 import com.datadog.api.client.v2.model.CostAnomaliesResponse;
 import com.datadog.api.client.v2.model.CostAnomalyResponse;
 import com.datadog.api.client.v2.model.CostTagDescriptionsResponse;
+import com.datadog.api.client.v2.model.CostTagKeyResponse;
+import com.datadog.api.client.v2.model.CostTagKeysResponse;
+import com.datadog.api.client.v2.model.CostTagsResponse;
 import com.datadog.api.client.v2.model.CreateRulesetRequest;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileLineItem;
@@ -2414,6 +2417,227 @@ public class CloudCostManagementApi {
         new GenericType<GcpUcConfigResponse>() {});
   }
 
+  /** Manage optional parameters to getCostTagKey. */
+  public static class GetCostTagKeyOptionalParameters {
+    private String filterMetric;
+    private Integer pageSize;
+
+    /**
+     * Set filterMetric.
+     *
+     * @param filterMetric The Cloud Cost Management metric to scope the tag key details to. When
+     *     omitted, returns details across all metrics. (optional)
+     * @return GetCostTagKeyOptionalParameters
+     */
+    public GetCostTagKeyOptionalParameters filterMetric(String filterMetric) {
+      this.filterMetric = filterMetric;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Controls the size of the internal tag value search scope. This does
+     *     <strong>not</strong> restrict the number of example tag values returned in the response.
+     *     Defaults to 50, maximum 10000. (optional, default to 50)
+     * @return GetCostTagKeyOptionalParameters
+     */
+    public GetCostTagKeyOptionalParameters pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+  }
+
+  /**
+   * Get a Cloud Cost Management tag key.
+   *
+   * <p>See {@link #getCostTagKeyWithHttpInfo}.
+   *
+   * @param tagKey The Cloud Cost Management tag key. Tag keys can contain forward slashes (for
+   *     example, <code>kubernetes/instance</code>). (required)
+   * @return CostTagKeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagKeyResponse getCostTagKey(String tagKey) throws ApiException {
+    return getCostTagKeyWithHttpInfo(tagKey, new GetCostTagKeyOptionalParameters()).getData();
+  }
+
+  /**
+   * Get a Cloud Cost Management tag key.
+   *
+   * <p>See {@link #getCostTagKeyWithHttpInfoAsync}.
+   *
+   * @param tagKey The Cloud Cost Management tag key. Tag keys can contain forward slashes (for
+   *     example, <code>kubernetes/instance</code>). (required)
+   * @return CompletableFuture&lt;CostTagKeyResponse&gt;
+   */
+  public CompletableFuture<CostTagKeyResponse> getCostTagKeyAsync(String tagKey) {
+    return getCostTagKeyWithHttpInfoAsync(tagKey, new GetCostTagKeyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a Cloud Cost Management tag key.
+   *
+   * <p>See {@link #getCostTagKeyWithHttpInfo}.
+   *
+   * @param tagKey The Cloud Cost Management tag key. Tag keys can contain forward slashes (for
+   *     example, <code>kubernetes/instance</code>). (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostTagKeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagKeyResponse getCostTagKey(String tagKey, GetCostTagKeyOptionalParameters parameters)
+      throws ApiException {
+    return getCostTagKeyWithHttpInfo(tagKey, parameters).getData();
+  }
+
+  /**
+   * Get a Cloud Cost Management tag key.
+   *
+   * <p>See {@link #getCostTagKeyWithHttpInfoAsync}.
+   *
+   * @param tagKey The Cloud Cost Management tag key. Tag keys can contain forward slashes (for
+   *     example, <code>kubernetes/instance</code>). (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostTagKeyResponse&gt;
+   */
+  public CompletableFuture<CostTagKeyResponse> getCostTagKeyAsync(
+      String tagKey, GetCostTagKeyOptionalParameters parameters) {
+    return getCostTagKeyWithHttpInfoAsync(tagKey, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get details for a specific Cloud Cost Management tag key, including example tag values and
+   * description.
+   *
+   * @param tagKey The Cloud Cost Management tag key. Tag keys can contain forward slashes (for
+   *     example, <code>kubernetes/instance</code>). (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostTagKeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostTagKeyResponse> getCostTagKeyWithHttpInfo(
+      String tagKey, GetCostTagKeyOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'tagKey' when calling getCostTagKey");
+    }
+    String filterMetric = parameters.filterMetric;
+    Integer pageSize = parameters.pageSize;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_keys/{tag_key}"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostTagKey",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagKeyResponse>() {});
+  }
+
+  /**
+   * Get a Cloud Cost Management tag key.
+   *
+   * <p>See {@link #getCostTagKeyWithHttpInfo}.
+   *
+   * @param tagKey The Cloud Cost Management tag key. Tag keys can contain forward slashes (for
+   *     example, <code>kubernetes/instance</code>). (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostTagKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostTagKeyResponse>> getCostTagKeyWithHttpInfoAsync(
+      String tagKey, GetCostTagKeyOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      CompletableFuture<ApiResponse<CostTagKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'tagKey' when calling getCostTagKey"));
+      return result;
+    }
+    String filterMetric = parameters.filterMetric;
+    Integer pageSize = parameters.pageSize;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_keys/{tag_key}"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostTagKey",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostTagKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagKeyResponse>() {});
+  }
+
   /**
    * Get custom allocation rule.
    *
@@ -3902,6 +4126,437 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CostTagDescriptionsResponse>() {});
+  }
+
+  /** Manage optional parameters to listCostTagKeys. */
+  public static class ListCostTagKeysOptionalParameters {
+    private String filterMetric;
+    private List<String> filterTags;
+
+    /**
+     * Set filterMetric.
+     *
+     * @param filterMetric The Cloud Cost Management metric to scope the tag keys to. When omitted,
+     *     returns tag keys across all metrics. (optional)
+     * @return ListCostTagKeysOptionalParameters
+     */
+    public ListCostTagKeysOptionalParameters filterMetric(String filterMetric) {
+      this.filterMetric = filterMetric;
+      return this;
+    }
+
+    /**
+     * Set filterTags.
+     *
+     * @param filterTags Filter to return only tag keys that appear with the given <code>key:value
+     *     </code> tag values. For example, <code>filter[tags]=providername:aws</code> returns tag
+     *     keys found on the same cost data, such as <code>is_aws_ec2_compute</code> and <code>
+     *     aws_instance_type</code>. (optional)
+     * @return ListCostTagKeysOptionalParameters
+     */
+    public ListCostTagKeysOptionalParameters filterTags(List<String> filterTags) {
+      this.filterTags = filterTags;
+      return this;
+    }
+  }
+
+  /**
+   * List Cloud Cost Management tag keys.
+   *
+   * <p>See {@link #listCostTagKeysWithHttpInfo}.
+   *
+   * @return CostTagKeysResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagKeysResponse listCostTagKeys() throws ApiException {
+    return listCostTagKeysWithHttpInfo(new ListCostTagKeysOptionalParameters()).getData();
+  }
+
+  /**
+   * List Cloud Cost Management tag keys.
+   *
+   * <p>See {@link #listCostTagKeysWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CostTagKeysResponse&gt;
+   */
+  public CompletableFuture<CostTagKeysResponse> listCostTagKeysAsync() {
+    return listCostTagKeysWithHttpInfoAsync(new ListCostTagKeysOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tag keys.
+   *
+   * <p>See {@link #listCostTagKeysWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CostTagKeysResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagKeysResponse listCostTagKeys(ListCostTagKeysOptionalParameters parameters)
+      throws ApiException {
+    return listCostTagKeysWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Cloud Cost Management tag keys.
+   *
+   * <p>See {@link #listCostTagKeysWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostTagKeysResponse&gt;
+   */
+  public CompletableFuture<CostTagKeysResponse> listCostTagKeysAsync(
+      ListCostTagKeysOptionalParameters parameters) {
+    return listCostTagKeysWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tag keys.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostTagKeysResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostTagKeysResponse> listCostTagKeysWithHttpInfo(
+      ListCostTagKeysOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String filterMetric = parameters.filterMetric;
+    List<String> filterTags = parameters.filterTags;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_keys";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "filter[tags]", filterTags));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostTagKeys",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagKeysResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management tag keys.
+   *
+   * <p>See {@link #listCostTagKeysWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostTagKeysResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostTagKeysResponse>> listCostTagKeysWithHttpInfoAsync(
+      ListCostTagKeysOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String filterMetric = parameters.filterMetric;
+    List<String> filterTags = parameters.filterTags;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_keys";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "filter[tags]", filterTags));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostTagKeys",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostTagKeysResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagKeysResponse>() {});
+  }
+
+  /** Manage optional parameters to listCostTags. */
+  public static class ListCostTagsOptionalParameters {
+    private String filterMetric;
+    private String filterMatch;
+    private List<String> filterTags;
+    private List<String> filterTagKeys;
+    private Integer pageSize;
+
+    /**
+     * Set filterMetric.
+     *
+     * @param filterMetric The Cloud Cost Management metric to scope the tags to. When omitted,
+     *     returns tags across all metrics. (optional)
+     * @return ListCostTagsOptionalParameters
+     */
+    public ListCostTagsOptionalParameters filterMetric(String filterMetric) {
+      this.filterMetric = filterMetric;
+      return this;
+    }
+
+    /**
+     * Set filterMatch.
+     *
+     * @param filterMatch A substring used to filter the returned tags by name. (optional)
+     * @return ListCostTagsOptionalParameters
+     */
+    public ListCostTagsOptionalParameters filterMatch(String filterMatch) {
+      this.filterMatch = filterMatch;
+      return this;
+    }
+
+    /**
+     * Set filterTags.
+     *
+     * @param filterTags Filter to return only tags that appear with the given <code>key:value
+     *     </code> tag values. For example, <code>filter[tags]=providername:aws</code> returns tags
+     *     found on the same cost data, such as <code>aws_instance_type:t3.micro</code> and <code>
+     *     aws_instance_type:m5.large</code>. (optional)
+     * @return ListCostTagsOptionalParameters
+     */
+    public ListCostTagsOptionalParameters filterTags(List<String> filterTags) {
+      this.filterTags = filterTags;
+      return this;
+    }
+
+    /**
+     * Set filterTagKeys.
+     *
+     * @param filterTagKeys Restrict the returned tags to those whose key matches one of the given
+     *     tag keys. (optional)
+     * @return ListCostTagsOptionalParameters
+     */
+    public ListCostTagsOptionalParameters filterTagKeys(List<String> filterTagKeys) {
+      this.filterTagKeys = filterTagKeys;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Controls the size of the internal tag search scope. This does
+     *     <strong>not</strong> restrict the number of tags returned in the response. Defaults to
+     *     50, maximum 10000. (optional, default to 50)
+     * @return ListCostTagsOptionalParameters
+     */
+    public ListCostTagsOptionalParameters pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+  }
+
+  /**
+   * List Cloud Cost Management tags.
+   *
+   * <p>See {@link #listCostTagsWithHttpInfo}.
+   *
+   * @return CostTagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagsResponse listCostTags() throws ApiException {
+    return listCostTagsWithHttpInfo(new ListCostTagsOptionalParameters()).getData();
+  }
+
+  /**
+   * List Cloud Cost Management tags.
+   *
+   * <p>See {@link #listCostTagsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CostTagsResponse&gt;
+   */
+  public CompletableFuture<CostTagsResponse> listCostTagsAsync() {
+    return listCostTagsWithHttpInfoAsync(new ListCostTagsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tags.
+   *
+   * <p>See {@link #listCostTagsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CostTagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagsResponse listCostTags(ListCostTagsOptionalParameters parameters)
+      throws ApiException {
+    return listCostTagsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Cloud Cost Management tags.
+   *
+   * <p>See {@link #listCostTagsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostTagsResponse&gt;
+   */
+  public CompletableFuture<CostTagsResponse> listCostTagsAsync(
+      ListCostTagsOptionalParameters parameters) {
+    return listCostTagsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tags for a given metric.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostTagsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostTagsResponse> listCostTagsWithHttpInfo(
+      ListCostTagsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String filterMetric = parameters.filterMetric;
+    String filterMatch = parameters.filterMatch;
+    List<String> filterTags = parameters.filterTags;
+    List<String> filterTagKeys = parameters.filterTagKeys;
+    Integer pageSize = parameters.pageSize;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tags";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[match]", filterMatch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[tag_keys]", filterTagKeys));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostTags",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagsResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management tags.
+   *
+   * <p>See {@link #listCostTagsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostTagsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostTagsResponse>> listCostTagsWithHttpInfoAsync(
+      ListCostTagsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String filterMetric = parameters.filterMetric;
+    String filterMatch = parameters.filterMatch;
+    List<String> filterTags = parameters.filterTags;
+    List<String> filterTagKeys = parameters.filterTagKeys;
+    Integer pageSize = parameters.pageSize;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tags";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[match]", filterMatch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[tag_keys]", filterTagKeys));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostTags",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagsResponse>() {});
   }
 
   /**
