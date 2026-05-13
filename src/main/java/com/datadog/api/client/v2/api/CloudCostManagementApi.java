@@ -20,6 +20,8 @@ import com.datadog.api.client.v2.model.BudgetArray;
 import com.datadog.api.client.v2.model.BudgetValidationRequest;
 import com.datadog.api.client.v2.model.BudgetValidationResponse;
 import com.datadog.api.client.v2.model.BudgetWithEntries;
+import com.datadog.api.client.v2.model.CostAnomaliesResponse;
+import com.datadog.api.client.v2.model.CostAnomalyResponse;
 import com.datadog.api.client.v2.model.CostTagDescriptionsResponse;
 import com.datadog.api.client.v2.model.CreateRulesetRequest;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
@@ -1843,6 +1845,159 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * Get cost anomaly.
+   *
+   * <p>See {@link #getCostAnomalyWithHttpInfo}.
+   *
+   * @param anomalyId The UUID of the cost anomaly. (required)
+   * @return CostAnomalyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostAnomalyResponse getCostAnomaly(String anomalyId) throws ApiException {
+    return getCostAnomalyWithHttpInfo(anomalyId).getData();
+  }
+
+  /**
+   * Get cost anomaly.
+   *
+   * <p>See {@link #getCostAnomalyWithHttpInfoAsync}.
+   *
+   * @param anomalyId The UUID of the cost anomaly. (required)
+   * @return CompletableFuture&lt;CostAnomalyResponse&gt;
+   */
+  public CompletableFuture<CostAnomalyResponse> getCostAnomalyAsync(String anomalyId) {
+    return getCostAnomalyWithHttpInfoAsync(anomalyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a detected Cloud Cost Management anomaly by UUID.
+   *
+   * @param anomalyId The UUID of the cost anomaly. (required)
+   * @return ApiResponse&lt;CostAnomalyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostAnomalyResponse> getCostAnomalyWithHttpInfo(String anomalyId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCostAnomaly";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'anomalyId' is set
+    if (anomalyId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'anomalyId' when calling getCostAnomaly");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/anomalies/{anomaly_id}"
+            .replaceAll("\\{" + "anomaly_id" + "\\}", apiClient.escapeString(anomalyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostAnomaly",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostAnomalyResponse>() {});
+  }
+
+  /**
+   * Get cost anomaly.
+   *
+   * <p>See {@link #getCostAnomalyWithHttpInfo}.
+   *
+   * @param anomalyId The UUID of the cost anomaly. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CostAnomalyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostAnomalyResponse>> getCostAnomalyWithHttpInfoAsync(
+      String anomalyId) {
+    // Check if unstable operation is enabled
+    String operationId = "getCostAnomaly";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostAnomalyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'anomalyId' is set
+    if (anomalyId == null) {
+      CompletableFuture<ApiResponse<CostAnomalyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'anomalyId' when calling getCostAnomaly"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/anomalies/{anomaly_id}"
+            .replaceAll("\\{" + "anomaly_id" + "\\}", apiClient.escapeString(anomalyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostAnomaly",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostAnomalyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostAnomalyResponse>() {});
+  }
+
+  /**
    * Get cost AWS CUR config.
    *
    * <p>See {@link #getCostAWSCURConfigWithHttpInfo}.
@@ -2767,6 +2922,369 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<BudgetArray>() {});
+  }
+
+  /** Manage optional parameters to listCostAnomalies. */
+  public static class ListCostAnomaliesOptionalParameters {
+    private Long start;
+    private Long end;
+    private String filter;
+    private String minAnomalousThreshold;
+    private String minCostThreshold;
+    private String dismissalCause;
+    private String orderBy;
+    private String order;
+    private Integer limit;
+    private Integer offset;
+    private List<String> providerIds;
+
+    /**
+     * Set start.
+     *
+     * @param start Start time as Unix milliseconds. Defaults to the start of the latest stable
+     *     seven-day window. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters start(Long start) {
+      this.start = start;
+      return this;
+    }
+
+    /**
+     * Set end.
+     *
+     * @param end End time as Unix milliseconds. Defaults to the end of the latest stable seven-day
+     *     window. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters end(Long end) {
+      this.end = end;
+      return this;
+    }
+
+    /**
+     * Set filter.
+     *
+     * @param filter Optional JSON object mapping cost tag keys to allowed values, for example
+     *     <code>{"team":["payments"],"env":["prod"]}</code>. Filters match anomaly dimensions or
+     *     correlated tags. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+
+    /**
+     * Set minAnomalousThreshold.
+     *
+     * @param minAnomalousThreshold Minimum absolute anomalous cost change to include. Numeric
+     *     value; defaults to <code>1</code>. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters minAnomalousThreshold(String minAnomalousThreshold) {
+      this.minAnomalousThreshold = minAnomalousThreshold;
+      return this;
+    }
+
+    /**
+     * Set minCostThreshold.
+     *
+     * @param minCostThreshold Minimum absolute actual cost to include. Numeric value; defaults to
+     *     <code>0</code>. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters minCostThreshold(String minCostThreshold) {
+      this.minCostThreshold = minCostThreshold;
+      return this;
+    }
+
+    /**
+     * Set dismissalCause.
+     *
+     * @param dismissalCause Filter by resolution state. Use <code>none</code> for unresolved
+     *     anomalies, <code>all</code> or <code>*</code> for resolved anomalies, or a
+     *     comma-separated list of causes. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters dismissalCause(String dismissalCause) {
+      this.dismissalCause = dismissalCause;
+      return this;
+    }
+
+    /**
+     * Set orderBy.
+     *
+     * @param orderBy Sort field. One of <code>start_date</code>, <code>end_date</code>, <code>
+     *     duration</code>, <code>max_cost</code>, <code>anomalous_cost</code>, or <code>
+     *     dismissal_date</code>. Defaults to <code>anomalous_cost</code>. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters orderBy(String orderBy) {
+      this.orderBy = orderBy;
+      return this;
+    }
+
+    /**
+     * Set order.
+     *
+     * @param order Sort direction. One of <code>asc</code> or <code>desc</code>. Defaults to <code>
+     *     desc</code>. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters order(String order) {
+      this.order = order;
+      return this;
+    }
+
+    /**
+     * Set limit.
+     *
+     * @param limit Maximum number of anomalies to return. Defaults to <code>200</code>. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters limit(Integer limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set offset.
+     *
+     * @param offset Pagination offset. Defaults to <code>0</code>. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters offset(Integer offset) {
+      this.offset = offset;
+      return this;
+    }
+
+    /**
+     * Set providerIds.
+     *
+     * @param providerIds Optional repeated cloud or SaaS provider filters, such as <code>aws</code>
+     *     , <code>gcp</code>, <code>azure</code>, <code>Oracle</code>, <code>datadog</code>, <code>
+     *     OpenAI</code>, or <code>Anthropic</code>. (optional)
+     * @return ListCostAnomaliesOptionalParameters
+     */
+    public ListCostAnomaliesOptionalParameters providerIds(List<String> providerIds) {
+      this.providerIds = providerIds;
+      return this;
+    }
+  }
+
+  /**
+   * List cost anomalies.
+   *
+   * <p>See {@link #listCostAnomaliesWithHttpInfo}.
+   *
+   * @return CostAnomaliesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostAnomaliesResponse listCostAnomalies() throws ApiException {
+    return listCostAnomaliesWithHttpInfo(new ListCostAnomaliesOptionalParameters()).getData();
+  }
+
+  /**
+   * List cost anomalies.
+   *
+   * <p>See {@link #listCostAnomaliesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CostAnomaliesResponse&gt;
+   */
+  public CompletableFuture<CostAnomaliesResponse> listCostAnomaliesAsync() {
+    return listCostAnomaliesWithHttpInfoAsync(new ListCostAnomaliesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List cost anomalies.
+   *
+   * <p>See {@link #listCostAnomaliesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CostAnomaliesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostAnomaliesResponse listCostAnomalies(ListCostAnomaliesOptionalParameters parameters)
+      throws ApiException {
+    return listCostAnomaliesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List cost anomalies.
+   *
+   * <p>See {@link #listCostAnomaliesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostAnomaliesResponse&gt;
+   */
+  public CompletableFuture<CostAnomaliesResponse> listCostAnomaliesAsync(
+      ListCostAnomaliesOptionalParameters parameters) {
+    return listCostAnomaliesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List detected Cloud Cost Management anomalies for the organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostAnomaliesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostAnomaliesResponse> listCostAnomaliesWithHttpInfo(
+      ListCostAnomaliesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCostAnomalies";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long start = parameters.start;
+    Long end = parameters.end;
+    String filter = parameters.filter;
+    String minAnomalousThreshold = parameters.minAnomalousThreshold;
+    String minCostThreshold = parameters.minCostThreshold;
+    String dismissalCause = parameters.dismissalCause;
+    String orderBy = parameters.orderBy;
+    String order = parameters.order;
+    Integer limit = parameters.limit;
+    Integer offset = parameters.offset;
+    List<String> providerIds = parameters.providerIds;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/anomalies";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "min_anomalous_threshold", minAnomalousThreshold));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "min_cost_threshold", minCostThreshold));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dismissal_cause", dismissalCause));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "order_by", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "order", order));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "provider_ids", providerIds));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostAnomalies",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostAnomaliesResponse>() {});
+  }
+
+  /**
+   * List cost anomalies.
+   *
+   * <p>See {@link #listCostAnomaliesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostAnomaliesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostAnomaliesResponse>> listCostAnomaliesWithHttpInfoAsync(
+      ListCostAnomaliesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listCostAnomalies";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostAnomaliesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long start = parameters.start;
+    Long end = parameters.end;
+    String filter = parameters.filter;
+    String minAnomalousThreshold = parameters.minAnomalousThreshold;
+    String minCostThreshold = parameters.minCostThreshold;
+    String dismissalCause = parameters.dismissalCause;
+    String orderBy = parameters.orderBy;
+    String order = parameters.order;
+    Integer limit = parameters.limit;
+    Integer offset = parameters.offset;
+    List<String> providerIds = parameters.providerIds;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/anomalies";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "min_anomalous_threshold", minAnomalousThreshold));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "min_cost_threshold", minCostThreshold));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dismissal_cause", dismissalCause));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "order_by", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "order", order));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "provider_ids", providerIds));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostAnomalies",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostAnomaliesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostAnomaliesResponse>() {});
   }
 
   /**
