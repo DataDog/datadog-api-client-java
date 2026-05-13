@@ -31,6 +31,7 @@ import java.util.Objects;
   IssueAttributes.JSON_PROPERTY_LAST_SEEN,
   IssueAttributes.JSON_PROPERTY_LAST_SEEN_VERSION,
   IssueAttributes.JSON_PROPERTY_PLATFORM,
+  IssueAttributes.JSON_PROPERTY_REGRESSION,
   IssueAttributes.JSON_PROPERTY_SERVICE,
   IssueAttributes.JSON_PROPERTY_STATE
 })
@@ -70,6 +71,9 @@ public class IssueAttributes {
 
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   private IssuePlatform platform;
+
+  public static final String JSON_PROPERTY_REGRESSION = "regression";
+  private IssueRegression regression;
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
@@ -321,6 +325,28 @@ public class IssueAttributes {
     this.platform = platform;
   }
 
+  public IssueAttributes regression(IssueRegression regression) {
+    this.regression = regression;
+    this.unparsed |= regression.unparsed;
+    return this;
+  }
+
+  /**
+   * Regression information for an issue that was previously resolved and then reopened.
+   *
+   * @return regression
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IssueRegression getRegression() {
+    return regression;
+  }
+
+  public void setRegression(IssueRegression regression) {
+    this.regression = regression;
+  }
+
   public IssueAttributes service(String service) {
     this.service = service;
     return this;
@@ -434,6 +460,7 @@ public class IssueAttributes {
         && Objects.equals(this.lastSeen, issueAttributes.lastSeen)
         && Objects.equals(this.lastSeenVersion, issueAttributes.lastSeenVersion)
         && Objects.equals(this.platform, issueAttributes.platform)
+        && Objects.equals(this.regression, issueAttributes.regression)
         && Objects.equals(this.service, issueAttributes.service)
         && Objects.equals(this.state, issueAttributes.state)
         && Objects.equals(this.additionalProperties, issueAttributes.additionalProperties);
@@ -453,6 +480,7 @@ public class IssueAttributes {
         lastSeen,
         lastSeenVersion,
         platform,
+        regression,
         service,
         state,
         additionalProperties);
@@ -473,6 +501,7 @@ public class IssueAttributes {
     sb.append("    lastSeen: ").append(toIndentedString(lastSeen)).append("\n");
     sb.append("    lastSeenVersion: ").append(toIndentedString(lastSeenVersion)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    regression: ").append(toIndentedString(regression)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    additionalProperties: ")
