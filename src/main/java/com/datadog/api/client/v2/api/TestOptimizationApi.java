@@ -639,8 +639,8 @@ public class TestOptimizationApi {
    * <p>Set <code>include_history</code> to <code>true</code> in the request to receive the status
    * change history for each test. History is disabled by default for better performance.
    *
-   * <p>Results support filtering by various facets including service, environment, repository,
-   * branch, and test state.
+   * <p>Results support filtering by various facets, including service, environment, repository,
+   * branch, test state, failure rate, and pipeline failures.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;FlakyTestsSearchResponse&gt;
