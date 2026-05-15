@@ -20,6 +20,16 @@ import com.datadog.api.client.v2.model.BudgetArray;
 import com.datadog.api.client.v2.model.BudgetValidationRequest;
 import com.datadog.api.client.v2.model.BudgetValidationResponse;
 import com.datadog.api.client.v2.model.BudgetWithEntries;
+import com.datadog.api.client.v2.model.CommitmentsCommitmentType;
+import com.datadog.api.client.v2.model.CommitmentsCoverageScalarResponse;
+import com.datadog.api.client.v2.model.CommitmentsCoverageTimeseriesResponse;
+import com.datadog.api.client.v2.model.CommitmentsListResponse;
+import com.datadog.api.client.v2.model.CommitmentsOnDemandHotspotsScalarResponse;
+import com.datadog.api.client.v2.model.CommitmentsProvider;
+import com.datadog.api.client.v2.model.CommitmentsSavingsScalarResponse;
+import com.datadog.api.client.v2.model.CommitmentsSavingsTimeseriesResponse;
+import com.datadog.api.client.v2.model.CommitmentsUtilizationScalarResponse;
+import com.datadog.api.client.v2.model.CommitmentsUtilizationTimeseriesResponse;
 import com.datadog.api.client.v2.model.CostAnomaliesResponse;
 import com.datadog.api.client.v2.model.CostAnomalyResponse;
 import com.datadog.api.client.v2.model.CostTagDescriptionsResponse;
@@ -1845,6 +1855,2650 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<BudgetWithEntries>() {});
+  }
+
+  /** Manage optional parameters to getCommitmentsCommitmentList. */
+  public static class GetCommitmentsCommitmentListOptionalParameters {
+    private String filterBy;
+    private CommitmentsCommitmentType commitmentType;
+
+    /**
+     * Set filterBy.
+     *
+     * @param filterBy Optional filter expression to narrow down results. (optional)
+     * @return GetCommitmentsCommitmentListOptionalParameters
+     */
+    public GetCommitmentsCommitmentListOptionalParameters filterBy(String filterBy) {
+      this.filterBy = filterBy;
+      return this;
+    }
+
+    /**
+     * Set commitmentType.
+     *
+     * @param commitmentType Type of commitment to query. ri for Reserved Instances, sp for Savings
+     *     Plans. Defaults to ri. (optional)
+     * @return GetCommitmentsCommitmentListOptionalParameters
+     */
+    public GetCommitmentsCommitmentListOptionalParameters commitmentType(
+        CommitmentsCommitmentType commitmentType) {
+      this.commitmentType = commitmentType;
+      return this;
+    }
+  }
+
+  /**
+   * Get commitments list.
+   *
+   * <p>See {@link #getCommitmentsCommitmentListWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CommitmentsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsListResponse getCommitmentsCommitmentList(
+      CommitmentsProvider provider, String product, Long start, Long end) throws ApiException {
+    return getCommitmentsCommitmentListWithHttpInfo(
+            provider, product, start, end, new GetCommitmentsCommitmentListOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get commitments list.
+   *
+   * <p>See {@link #getCommitmentsCommitmentListWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CompletableFuture&lt;CommitmentsListResponse&gt;
+   */
+  public CompletableFuture<CommitmentsListResponse> getCommitmentsCommitmentListAsync(
+      CommitmentsProvider provider, String product, Long start, Long end) {
+    return getCommitmentsCommitmentListWithHttpInfoAsync(
+            provider, product, start, end, new GetCommitmentsCommitmentListOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get commitments list.
+   *
+   * <p>See {@link #getCommitmentsCommitmentListWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CommitmentsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsListResponse getCommitmentsCommitmentList(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsCommitmentListOptionalParameters parameters)
+      throws ApiException {
+    return getCommitmentsCommitmentListWithHttpInfo(provider, product, start, end, parameters)
+        .getData();
+  }
+
+  /**
+   * Get commitments list.
+   *
+   * <p>See {@link #getCommitmentsCommitmentListWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CommitmentsListResponse&gt;
+   */
+  public CompletableFuture<CommitmentsListResponse> getCommitmentsCommitmentListAsync(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsCommitmentListOptionalParameters parameters) {
+    return getCommitmentsCommitmentListWithHttpInfoAsync(provider, product, start, end, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of individual cloud commitments (Reserved Instances or Savings Plans) with their
+   * utilization details. The response schema varies based on the provider, product, and commitment
+   * type.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CommitmentsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CommitmentsListResponse> getCommitmentsCommitmentListWithHttpInfo(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsCommitmentListOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsCommitmentList";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'provider' when calling getCommitmentsCommitmentList");
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'product' when calling getCommitmentsCommitmentList");
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'start' when calling getCommitmentsCommitmentList");
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'end' when calling getCommitmentsCommitmentList");
+    }
+    String filterBy = parameters.filterBy;
+    CommitmentsCommitmentType commitmentType = parameters.commitmentType;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/commitment-list";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "commitmentType", commitmentType));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCommitmentsCommitmentList",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsListResponse>() {});
+  }
+
+  /**
+   * Get commitments list.
+   *
+   * <p>See {@link #getCommitmentsCommitmentListWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CommitmentsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CommitmentsListResponse>>
+      getCommitmentsCommitmentListWithHttpInfoAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsCommitmentListOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsCommitmentList";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CommitmentsListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      CompletableFuture<ApiResponse<CommitmentsListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'provider' when calling"
+                  + " getCommitmentsCommitmentList"));
+      return result;
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      CompletableFuture<ApiResponse<CommitmentsListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'product' when calling"
+                  + " getCommitmentsCommitmentList"));
+      return result;
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      CompletableFuture<ApiResponse<CommitmentsListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'start' when calling getCommitmentsCommitmentList"));
+      return result;
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      CompletableFuture<ApiResponse<CommitmentsListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'end' when calling getCommitmentsCommitmentList"));
+      return result;
+    }
+    String filterBy = parameters.filterBy;
+    CommitmentsCommitmentType commitmentType = parameters.commitmentType;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/commitment-list";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "commitmentType", commitmentType));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCommitmentsCommitmentList",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CommitmentsListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsListResponse>() {});
+  }
+
+  /** Manage optional parameters to getCommitmentsCoverageScalar. */
+  public static class GetCommitmentsCoverageScalarOptionalParameters {
+    private String filterBy;
+
+    /**
+     * Set filterBy.
+     *
+     * @param filterBy Optional filter expression to narrow down results. (optional)
+     * @return GetCommitmentsCoverageScalarOptionalParameters
+     */
+    public GetCommitmentsCoverageScalarOptionalParameters filterBy(String filterBy) {
+      this.filterBy = filterBy;
+      return this;
+    }
+  }
+
+  /**
+   * Get commitments coverage (scalar).
+   *
+   * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CommitmentsCoverageScalarResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsCoverageScalarResponse getCommitmentsCoverageScalar(
+      CommitmentsProvider provider, String product, Long start, Long end) throws ApiException {
+    return getCommitmentsCoverageScalarWithHttpInfo(
+            provider, product, start, end, new GetCommitmentsCoverageScalarOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get commitments coverage (scalar).
+   *
+   * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CompletableFuture&lt;CommitmentsCoverageScalarResponse&gt;
+   */
+  public CompletableFuture<CommitmentsCoverageScalarResponse> getCommitmentsCoverageScalarAsync(
+      CommitmentsProvider provider, String product, Long start, Long end) {
+    return getCommitmentsCoverageScalarWithHttpInfoAsync(
+            provider, product, start, end, new GetCommitmentsCoverageScalarOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get commitments coverage (scalar).
+   *
+   * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CommitmentsCoverageScalarResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsCoverageScalarResponse getCommitmentsCoverageScalar(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsCoverageScalarOptionalParameters parameters)
+      throws ApiException {
+    return getCommitmentsCoverageScalarWithHttpInfo(provider, product, start, end, parameters)
+        .getData();
+  }
+
+  /**
+   * Get commitments coverage (scalar).
+   *
+   * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CommitmentsCoverageScalarResponse&gt;
+   */
+  public CompletableFuture<CommitmentsCoverageScalarResponse> getCommitmentsCoverageScalarAsync(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsCoverageScalarOptionalParameters parameters) {
+    return getCommitmentsCoverageScalarWithHttpInfoAsync(provider, product, start, end, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get scalar coverage metrics for cloud commitment programs, including hours and cost coverage
+   * percentages.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CommitmentsCoverageScalarResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CommitmentsCoverageScalarResponse> getCommitmentsCoverageScalarWithHttpInfo(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsCoverageScalarOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsCoverageScalar";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'provider' when calling getCommitmentsCoverageScalar");
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'product' when calling getCommitmentsCoverageScalar");
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'start' when calling getCommitmentsCoverageScalar");
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'end' when calling getCommitmentsCoverageScalar");
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/coverage/scalar";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCommitmentsCoverageScalar",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsCoverageScalarResponse>() {});
+  }
+
+  /**
+   * Get commitments coverage (scalar).
+   *
+   * <p>See {@link #getCommitmentsCoverageScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CommitmentsCoverageScalarResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CommitmentsCoverageScalarResponse>>
+      getCommitmentsCoverageScalarWithHttpInfoAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsCoverageScalarOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsCoverageScalar";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CommitmentsCoverageScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'provider' when calling"
+                  + " getCommitmentsCoverageScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'product' when calling"
+                  + " getCommitmentsCoverageScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'start' when calling getCommitmentsCoverageScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'end' when calling getCommitmentsCoverageScalar"));
+      return result;
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/coverage/scalar";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCommitmentsCoverageScalar",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsCoverageScalarResponse>() {});
+  }
+
+  /** Manage optional parameters to getCommitmentsCoverageTimeseries. */
+  public static class GetCommitmentsCoverageTimeseriesOptionalParameters {
+    private String filterBy;
+
+    /**
+     * Set filterBy.
+     *
+     * @param filterBy Optional filter expression to narrow down results. (optional)
+     * @return GetCommitmentsCoverageTimeseriesOptionalParameters
+     */
+    public GetCommitmentsCoverageTimeseriesOptionalParameters filterBy(String filterBy) {
+      this.filterBy = filterBy;
+      return this;
+    }
+  }
+
+  /**
+   * Get commitments coverage (timeseries).
+   *
+   * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CommitmentsCoverageTimeseriesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsCoverageTimeseriesResponse getCommitmentsCoverageTimeseries(
+      CommitmentsProvider provider, String product, Long start, Long end) throws ApiException {
+    return getCommitmentsCoverageTimeseriesWithHttpInfo(
+            provider, product, start, end, new GetCommitmentsCoverageTimeseriesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get commitments coverage (timeseries).
+   *
+   * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CompletableFuture&lt;CommitmentsCoverageTimeseriesResponse&gt;
+   */
+  public CompletableFuture<CommitmentsCoverageTimeseriesResponse>
+      getCommitmentsCoverageTimeseriesAsync(
+          CommitmentsProvider provider, String product, Long start, Long end) {
+    return getCommitmentsCoverageTimeseriesWithHttpInfoAsync(
+            provider, product, start, end, new GetCommitmentsCoverageTimeseriesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get commitments coverage (timeseries).
+   *
+   * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CommitmentsCoverageTimeseriesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsCoverageTimeseriesResponse getCommitmentsCoverageTimeseries(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsCoverageTimeseriesOptionalParameters parameters)
+      throws ApiException {
+    return getCommitmentsCoverageTimeseriesWithHttpInfo(provider, product, start, end, parameters)
+        .getData();
+  }
+
+  /**
+   * Get commitments coverage (timeseries).
+   *
+   * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CommitmentsCoverageTimeseriesResponse&gt;
+   */
+  public CompletableFuture<CommitmentsCoverageTimeseriesResponse>
+      getCommitmentsCoverageTimeseriesAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsCoverageTimeseriesOptionalParameters parameters) {
+    return getCommitmentsCoverageTimeseriesWithHttpInfoAsync(
+            provider, product, start, end, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get timeseries coverage metrics for cloud commitment programs, broken down by coverage type
+   * (Reserved Instances, Savings Plans, On-Demand, and Spot) for both hours and cost.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CommitmentsCoverageTimeseriesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CommitmentsCoverageTimeseriesResponse>
+      getCommitmentsCoverageTimeseriesWithHttpInfo(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsCoverageTimeseriesOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsCoverageTimeseries";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'provider' when calling"
+              + " getCommitmentsCoverageTimeseries");
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'product' when calling getCommitmentsCoverageTimeseries");
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'start' when calling getCommitmentsCoverageTimeseries");
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'end' when calling getCommitmentsCoverageTimeseries");
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/coverage/timeseries";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCommitmentsCoverageTimeseries",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsCoverageTimeseriesResponse>() {});
+  }
+
+  /**
+   * Get commitments coverage (timeseries).
+   *
+   * <p>See {@link #getCommitmentsCoverageTimeseriesWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CommitmentsCoverageTimeseriesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CommitmentsCoverageTimeseriesResponse>>
+      getCommitmentsCoverageTimeseriesWithHttpInfoAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsCoverageTimeseriesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsCoverageTimeseries";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CommitmentsCoverageTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'provider' when calling"
+                  + " getCommitmentsCoverageTimeseries"));
+      return result;
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'product' when calling"
+                  + " getCommitmentsCoverageTimeseries"));
+      return result;
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'start' when calling"
+                  + " getCommitmentsCoverageTimeseries"));
+      return result;
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'end' when calling"
+                  + " getCommitmentsCoverageTimeseries"));
+      return result;
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/coverage/timeseries";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCommitmentsCoverageTimeseries",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CommitmentsCoverageTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsCoverageTimeseriesResponse>() {});
+  }
+
+  /** Manage optional parameters to getCommitmentsOnDemandHotspotsScalar. */
+  public static class GetCommitmentsOnDemandHotspotsScalarOptionalParameters {
+    private String filterBy;
+
+    /**
+     * Set filterBy.
+     *
+     * @param filterBy Optional filter expression to narrow down results. (optional)
+     * @return GetCommitmentsOnDemandHotspotsScalarOptionalParameters
+     */
+    public GetCommitmentsOnDemandHotspotsScalarOptionalParameters filterBy(String filterBy) {
+      this.filterBy = filterBy;
+      return this;
+    }
+  }
+
+  /**
+   * Get commitments on-demand hot spots (scalar).
+   *
+   * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CommitmentsOnDemandHotspotsScalarResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsOnDemandHotspotsScalarResponse getCommitmentsOnDemandHotspotsScalar(
+      CommitmentsProvider provider, String product, Long start, Long end) throws ApiException {
+    return getCommitmentsOnDemandHotspotsScalarWithHttpInfo(
+            provider,
+            product,
+            start,
+            end,
+            new GetCommitmentsOnDemandHotspotsScalarOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get commitments on-demand hot spots (scalar).
+   *
+   * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CompletableFuture&lt;CommitmentsOnDemandHotspotsScalarResponse&gt;
+   */
+  public CompletableFuture<CommitmentsOnDemandHotspotsScalarResponse>
+      getCommitmentsOnDemandHotspotsScalarAsync(
+          CommitmentsProvider provider, String product, Long start, Long end) {
+    return getCommitmentsOnDemandHotspotsScalarWithHttpInfoAsync(
+            provider,
+            product,
+            start,
+            end,
+            new GetCommitmentsOnDemandHotspotsScalarOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get commitments on-demand hot spots (scalar).
+   *
+   * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CommitmentsOnDemandHotspotsScalarResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsOnDemandHotspotsScalarResponse getCommitmentsOnDemandHotspotsScalar(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsOnDemandHotspotsScalarOptionalParameters parameters)
+      throws ApiException {
+    return getCommitmentsOnDemandHotspotsScalarWithHttpInfo(
+            provider, product, start, end, parameters)
+        .getData();
+  }
+
+  /**
+   * Get commitments on-demand hot spots (scalar).
+   *
+   * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CommitmentsOnDemandHotspotsScalarResponse&gt;
+   */
+  public CompletableFuture<CommitmentsOnDemandHotspotsScalarResponse>
+      getCommitmentsOnDemandHotspotsScalarAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsOnDemandHotspotsScalarOptionalParameters parameters) {
+    return getCommitmentsOnDemandHotspotsScalarWithHttpInfoAsync(
+            provider, product, start, end, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get scalar on-demand hot-spots data for cloud commitment programs, showing per-dimension
+   * breakdowns of on-demand spending with coverage metrics and potential savings.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CommitmentsOnDemandHotspotsScalarResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CommitmentsOnDemandHotspotsScalarResponse>
+      getCommitmentsOnDemandHotspotsScalarWithHttpInfo(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsOnDemandHotspotsScalarOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsOnDemandHotspotsScalar";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'provider' when calling"
+              + " getCommitmentsOnDemandHotspotsScalar");
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'product' when calling"
+              + " getCommitmentsOnDemandHotspotsScalar");
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'start' when calling"
+              + " getCommitmentsOnDemandHotspotsScalar");
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'end' when calling getCommitmentsOnDemandHotspotsScalar");
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/on-demand-hot-spots/scalar";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCommitmentsOnDemandHotspotsScalar",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsOnDemandHotspotsScalarResponse>() {});
+  }
+
+  /**
+   * Get commitments on-demand hot spots (scalar).
+   *
+   * <p>See {@link #getCommitmentsOnDemandHotspotsScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CommitmentsOnDemandHotspotsScalarResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CommitmentsOnDemandHotspotsScalarResponse>>
+      getCommitmentsOnDemandHotspotsScalarWithHttpInfoAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsOnDemandHotspotsScalarOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsOnDemandHotspotsScalar";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CommitmentsOnDemandHotspotsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      CompletableFuture<ApiResponse<CommitmentsOnDemandHotspotsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'provider' when calling"
+                  + " getCommitmentsOnDemandHotspotsScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      CompletableFuture<ApiResponse<CommitmentsOnDemandHotspotsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'product' when calling"
+                  + " getCommitmentsOnDemandHotspotsScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      CompletableFuture<ApiResponse<CommitmentsOnDemandHotspotsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'start' when calling"
+                  + " getCommitmentsOnDemandHotspotsScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      CompletableFuture<ApiResponse<CommitmentsOnDemandHotspotsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'end' when calling"
+                  + " getCommitmentsOnDemandHotspotsScalar"));
+      return result;
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/on-demand-hot-spots/scalar";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCommitmentsOnDemandHotspotsScalar",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CommitmentsOnDemandHotspotsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsOnDemandHotspotsScalarResponse>() {});
+  }
+
+  /** Manage optional parameters to getCommitmentsSavingsScalar. */
+  public static class GetCommitmentsSavingsScalarOptionalParameters {
+    private String filterBy;
+
+    /**
+     * Set filterBy.
+     *
+     * @param filterBy Optional filter expression to narrow down results. (optional)
+     * @return GetCommitmentsSavingsScalarOptionalParameters
+     */
+    public GetCommitmentsSavingsScalarOptionalParameters filterBy(String filterBy) {
+      this.filterBy = filterBy;
+      return this;
+    }
+  }
+
+  /**
+   * Get commitments savings (scalar).
+   *
+   * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CommitmentsSavingsScalarResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsSavingsScalarResponse getCommitmentsSavingsScalar(
+      CommitmentsProvider provider, String product, Long start, Long end) throws ApiException {
+    return getCommitmentsSavingsScalarWithHttpInfo(
+            provider, product, start, end, new GetCommitmentsSavingsScalarOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get commitments savings (scalar).
+   *
+   * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CompletableFuture&lt;CommitmentsSavingsScalarResponse&gt;
+   */
+  public CompletableFuture<CommitmentsSavingsScalarResponse> getCommitmentsSavingsScalarAsync(
+      CommitmentsProvider provider, String product, Long start, Long end) {
+    return getCommitmentsSavingsScalarWithHttpInfoAsync(
+            provider, product, start, end, new GetCommitmentsSavingsScalarOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get commitments savings (scalar).
+   *
+   * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CommitmentsSavingsScalarResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsSavingsScalarResponse getCommitmentsSavingsScalar(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsSavingsScalarOptionalParameters parameters)
+      throws ApiException {
+    return getCommitmentsSavingsScalarWithHttpInfo(provider, product, start, end, parameters)
+        .getData();
+  }
+
+  /**
+   * Get commitments savings (scalar).
+   *
+   * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CommitmentsSavingsScalarResponse&gt;
+   */
+  public CompletableFuture<CommitmentsSavingsScalarResponse> getCommitmentsSavingsScalarAsync(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsSavingsScalarOptionalParameters parameters) {
+    return getCommitmentsSavingsScalarWithHttpInfoAsync(provider, product, start, end, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get scalar savings metrics for cloud commitment programs, including realized savings and
+   * effective savings rate.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CommitmentsSavingsScalarResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CommitmentsSavingsScalarResponse> getCommitmentsSavingsScalarWithHttpInfo(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsSavingsScalarOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsSavingsScalar";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'provider' when calling getCommitmentsSavingsScalar");
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'product' when calling getCommitmentsSavingsScalar");
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'start' when calling getCommitmentsSavingsScalar");
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'end' when calling getCommitmentsSavingsScalar");
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/savings/scalar";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCommitmentsSavingsScalar",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsSavingsScalarResponse>() {});
+  }
+
+  /**
+   * Get commitments savings (scalar).
+   *
+   * <p>See {@link #getCommitmentsSavingsScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CommitmentsSavingsScalarResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CommitmentsSavingsScalarResponse>>
+      getCommitmentsSavingsScalarWithHttpInfoAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsSavingsScalarOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsSavingsScalar";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CommitmentsSavingsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'provider' when calling"
+                  + " getCommitmentsSavingsScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'product' when calling getCommitmentsSavingsScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'start' when calling getCommitmentsSavingsScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'end' when calling getCommitmentsSavingsScalar"));
+      return result;
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/savings/scalar";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCommitmentsSavingsScalar",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsSavingsScalarResponse>() {});
+  }
+
+  /** Manage optional parameters to getCommitmentsSavingsTimeseries. */
+  public static class GetCommitmentsSavingsTimeseriesOptionalParameters {
+    private String filterBy;
+
+    /**
+     * Set filterBy.
+     *
+     * @param filterBy Optional filter expression to narrow down results. (optional)
+     * @return GetCommitmentsSavingsTimeseriesOptionalParameters
+     */
+    public GetCommitmentsSavingsTimeseriesOptionalParameters filterBy(String filterBy) {
+      this.filterBy = filterBy;
+      return this;
+    }
+  }
+
+  /**
+   * Get commitments savings (timeseries).
+   *
+   * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CommitmentsSavingsTimeseriesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsSavingsTimeseriesResponse getCommitmentsSavingsTimeseries(
+      CommitmentsProvider provider, String product, Long start, Long end) throws ApiException {
+    return getCommitmentsSavingsTimeseriesWithHttpInfo(
+            provider, product, start, end, new GetCommitmentsSavingsTimeseriesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get commitments savings (timeseries).
+   *
+   * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CompletableFuture&lt;CommitmentsSavingsTimeseriesResponse&gt;
+   */
+  public CompletableFuture<CommitmentsSavingsTimeseriesResponse>
+      getCommitmentsSavingsTimeseriesAsync(
+          CommitmentsProvider provider, String product, Long start, Long end) {
+    return getCommitmentsSavingsTimeseriesWithHttpInfoAsync(
+            provider, product, start, end, new GetCommitmentsSavingsTimeseriesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get commitments savings (timeseries).
+   *
+   * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CommitmentsSavingsTimeseriesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsSavingsTimeseriesResponse getCommitmentsSavingsTimeseries(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsSavingsTimeseriesOptionalParameters parameters)
+      throws ApiException {
+    return getCommitmentsSavingsTimeseriesWithHttpInfo(provider, product, start, end, parameters)
+        .getData();
+  }
+
+  /**
+   * Get commitments savings (timeseries).
+   *
+   * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CommitmentsSavingsTimeseriesResponse&gt;
+   */
+  public CompletableFuture<CommitmentsSavingsTimeseriesResponse>
+      getCommitmentsSavingsTimeseriesAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsSavingsTimeseriesOptionalParameters parameters) {
+    return getCommitmentsSavingsTimeseriesWithHttpInfoAsync(
+            provider, product, start, end, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get timeseries savings metrics for cloud commitment programs, including actual cost, on-demand
+   * equivalent cost, realized savings, and effective savings rate over time.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CommitmentsSavingsTimeseriesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CommitmentsSavingsTimeseriesResponse>
+      getCommitmentsSavingsTimeseriesWithHttpInfo(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsSavingsTimeseriesOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsSavingsTimeseries";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'provider' when calling getCommitmentsSavingsTimeseries");
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'product' when calling getCommitmentsSavingsTimeseries");
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'start' when calling getCommitmentsSavingsTimeseries");
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'end' when calling getCommitmentsSavingsTimeseries");
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/savings/timeseries";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCommitmentsSavingsTimeseries",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsSavingsTimeseriesResponse>() {});
+  }
+
+  /**
+   * Get commitments savings (timeseries).
+   *
+   * <p>See {@link #getCommitmentsSavingsTimeseriesWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CommitmentsSavingsTimeseriesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CommitmentsSavingsTimeseriesResponse>>
+      getCommitmentsSavingsTimeseriesWithHttpInfoAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsSavingsTimeseriesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsSavingsTimeseries";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CommitmentsSavingsTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'provider' when calling"
+                  + " getCommitmentsSavingsTimeseries"));
+      return result;
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'product' when calling"
+                  + " getCommitmentsSavingsTimeseries"));
+      return result;
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'start' when calling"
+                  + " getCommitmentsSavingsTimeseries"));
+      return result;
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'end' when calling getCommitmentsSavingsTimeseries"));
+      return result;
+    }
+    String filterBy = parameters.filterBy;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/savings/timeseries";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCommitmentsSavingsTimeseries",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CommitmentsSavingsTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsSavingsTimeseriesResponse>() {});
+  }
+
+  /** Manage optional parameters to getCommitmentsUtilizationScalar. */
+  public static class GetCommitmentsUtilizationScalarOptionalParameters {
+    private String filterBy;
+    private CommitmentsCommitmentType commitmentType;
+
+    /**
+     * Set filterBy.
+     *
+     * @param filterBy Optional filter expression to narrow down results. (optional)
+     * @return GetCommitmentsUtilizationScalarOptionalParameters
+     */
+    public GetCommitmentsUtilizationScalarOptionalParameters filterBy(String filterBy) {
+      this.filterBy = filterBy;
+      return this;
+    }
+
+    /**
+     * Set commitmentType.
+     *
+     * @param commitmentType Type of commitment to query. ri for Reserved Instances, sp for Savings
+     *     Plans. Defaults to ri. (optional)
+     * @return GetCommitmentsUtilizationScalarOptionalParameters
+     */
+    public GetCommitmentsUtilizationScalarOptionalParameters commitmentType(
+        CommitmentsCommitmentType commitmentType) {
+      this.commitmentType = commitmentType;
+      return this;
+    }
+  }
+
+  /**
+   * Get commitments utilization (scalar).
+   *
+   * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CommitmentsUtilizationScalarResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsUtilizationScalarResponse getCommitmentsUtilizationScalar(
+      CommitmentsProvider provider, String product, Long start, Long end) throws ApiException {
+    return getCommitmentsUtilizationScalarWithHttpInfo(
+            provider, product, start, end, new GetCommitmentsUtilizationScalarOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get commitments utilization (scalar).
+   *
+   * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CompletableFuture&lt;CommitmentsUtilizationScalarResponse&gt;
+   */
+  public CompletableFuture<CommitmentsUtilizationScalarResponse>
+      getCommitmentsUtilizationScalarAsync(
+          CommitmentsProvider provider, String product, Long start, Long end) {
+    return getCommitmentsUtilizationScalarWithHttpInfoAsync(
+            provider, product, start, end, new GetCommitmentsUtilizationScalarOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get commitments utilization (scalar).
+   *
+   * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CommitmentsUtilizationScalarResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsUtilizationScalarResponse getCommitmentsUtilizationScalar(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsUtilizationScalarOptionalParameters parameters)
+      throws ApiException {
+    return getCommitmentsUtilizationScalarWithHttpInfo(provider, product, start, end, parameters)
+        .getData();
+  }
+
+  /**
+   * Get commitments utilization (scalar).
+   *
+   * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CommitmentsUtilizationScalarResponse&gt;
+   */
+  public CompletableFuture<CommitmentsUtilizationScalarResponse>
+      getCommitmentsUtilizationScalarAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsUtilizationScalarOptionalParameters parameters) {
+    return getCommitmentsUtilizationScalarWithHttpInfoAsync(
+            provider, product, start, end, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get scalar utilization metrics for cloud commitment programs, including utilization percentage
+   * and unused cost.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CommitmentsUtilizationScalarResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CommitmentsUtilizationScalarResponse>
+      getCommitmentsUtilizationScalarWithHttpInfo(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsUtilizationScalarOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsUtilizationScalar";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'provider' when calling getCommitmentsUtilizationScalar");
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'product' when calling getCommitmentsUtilizationScalar");
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'start' when calling getCommitmentsUtilizationScalar");
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'end' when calling getCommitmentsUtilizationScalar");
+    }
+    String filterBy = parameters.filterBy;
+    CommitmentsCommitmentType commitmentType = parameters.commitmentType;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/utilization/scalar";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "commitmentType", commitmentType));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCommitmentsUtilizationScalar",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsUtilizationScalarResponse>() {});
+  }
+
+  /**
+   * Get commitments utilization (scalar).
+   *
+   * <p>See {@link #getCommitmentsUtilizationScalarWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CommitmentsUtilizationScalarResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CommitmentsUtilizationScalarResponse>>
+      getCommitmentsUtilizationScalarWithHttpInfoAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsUtilizationScalarOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsUtilizationScalar";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'provider' when calling"
+                  + " getCommitmentsUtilizationScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'product' when calling"
+                  + " getCommitmentsUtilizationScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'start' when calling"
+                  + " getCommitmentsUtilizationScalar"));
+      return result;
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'end' when calling getCommitmentsUtilizationScalar"));
+      return result;
+    }
+    String filterBy = parameters.filterBy;
+    CommitmentsCommitmentType commitmentType = parameters.commitmentType;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/utilization/scalar";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "commitmentType", commitmentType));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCommitmentsUtilizationScalar",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsUtilizationScalarResponse>() {});
+  }
+
+  /** Manage optional parameters to getCommitmentsUtilizationTimeseries. */
+  public static class GetCommitmentsUtilizationTimeseriesOptionalParameters {
+    private String filterBy;
+    private CommitmentsCommitmentType commitmentType;
+
+    /**
+     * Set filterBy.
+     *
+     * @param filterBy Optional filter expression to narrow down results. (optional)
+     * @return GetCommitmentsUtilizationTimeseriesOptionalParameters
+     */
+    public GetCommitmentsUtilizationTimeseriesOptionalParameters filterBy(String filterBy) {
+      this.filterBy = filterBy;
+      return this;
+    }
+
+    /**
+     * Set commitmentType.
+     *
+     * @param commitmentType Type of commitment to query. ri for Reserved Instances, sp for Savings
+     *     Plans. Defaults to ri. (optional)
+     * @return GetCommitmentsUtilizationTimeseriesOptionalParameters
+     */
+    public GetCommitmentsUtilizationTimeseriesOptionalParameters commitmentType(
+        CommitmentsCommitmentType commitmentType) {
+      this.commitmentType = commitmentType;
+      return this;
+    }
+  }
+
+  /**
+   * Get commitments utilization (timeseries).
+   *
+   * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CommitmentsUtilizationTimeseriesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsUtilizationTimeseriesResponse getCommitmentsUtilizationTimeseries(
+      CommitmentsProvider provider, String product, Long start, Long end) throws ApiException {
+    return getCommitmentsUtilizationTimeseriesWithHttpInfo(
+            provider,
+            product,
+            start,
+            end,
+            new GetCommitmentsUtilizationTimeseriesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get commitments utilization (timeseries).
+   *
+   * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @return CompletableFuture&lt;CommitmentsUtilizationTimeseriesResponse&gt;
+   */
+  public CompletableFuture<CommitmentsUtilizationTimeseriesResponse>
+      getCommitmentsUtilizationTimeseriesAsync(
+          CommitmentsProvider provider, String product, Long start, Long end) {
+    return getCommitmentsUtilizationTimeseriesWithHttpInfoAsync(
+            provider,
+            product,
+            start,
+            end,
+            new GetCommitmentsUtilizationTimeseriesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get commitments utilization (timeseries).
+   *
+   * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CommitmentsUtilizationTimeseriesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CommitmentsUtilizationTimeseriesResponse getCommitmentsUtilizationTimeseries(
+      CommitmentsProvider provider,
+      String product,
+      Long start,
+      Long end,
+      GetCommitmentsUtilizationTimeseriesOptionalParameters parameters)
+      throws ApiException {
+    return getCommitmentsUtilizationTimeseriesWithHttpInfo(
+            provider, product, start, end, parameters)
+        .getData();
+  }
+
+  /**
+   * Get commitments utilization (timeseries).
+   *
+   * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfoAsync}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CommitmentsUtilizationTimeseriesResponse&gt;
+   */
+  public CompletableFuture<CommitmentsUtilizationTimeseriesResponse>
+      getCommitmentsUtilizationTimeseriesAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsUtilizationTimeseriesOptionalParameters parameters) {
+    return getCommitmentsUtilizationTimeseriesWithHttpInfoAsync(
+            provider, product, start, end, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get timeseries utilization metrics for cloud commitment programs, including used and unused
+   * cost series over time.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CommitmentsUtilizationTimeseriesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CommitmentsUtilizationTimeseriesResponse>
+      getCommitmentsUtilizationTimeseriesWithHttpInfo(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsUtilizationTimeseriesOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsUtilizationTimeseries";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'provider' when calling"
+              + " getCommitmentsUtilizationTimeseries");
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'product' when calling"
+              + " getCommitmentsUtilizationTimeseries");
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'start' when calling"
+              + " getCommitmentsUtilizationTimeseries");
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'end' when calling getCommitmentsUtilizationTimeseries");
+    }
+    String filterBy = parameters.filterBy;
+    CommitmentsCommitmentType commitmentType = parameters.commitmentType;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/utilization/timeseries";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "commitmentType", commitmentType));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCommitmentsUtilizationTimeseries",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsUtilizationTimeseriesResponse>() {});
+  }
+
+  /**
+   * Get commitments utilization (timeseries).
+   *
+   * <p>See {@link #getCommitmentsUtilizationTimeseriesWithHttpInfo}.
+   *
+   * @param provider Cloud provider for commitment programs (aws or azure). (required)
+   * @param product Cloud product identifier (for example, ec2, rds, virtualmachines). (required)
+   * @param start Start of the query time range in Unix milliseconds. (required)
+   * @param end End of the query time range in Unix milliseconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CommitmentsUtilizationTimeseriesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CommitmentsUtilizationTimeseriesResponse>>
+      getCommitmentsUtilizationTimeseriesWithHttpInfoAsync(
+          CommitmentsProvider provider,
+          String product,
+          Long start,
+          Long end,
+          GetCommitmentsUtilizationTimeseriesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getCommitmentsUtilizationTimeseries";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'provider' is set
+    if (provider == null) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'provider' when calling"
+                  + " getCommitmentsUtilizationTimeseries"));
+      return result;
+    }
+
+    // verify the required parameter 'product' is set
+    if (product == null) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'product' when calling"
+                  + " getCommitmentsUtilizationTimeseries"));
+      return result;
+    }
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'start' when calling"
+                  + " getCommitmentsUtilizationTimeseries"));
+      return result;
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'end' when calling"
+                  + " getCommitmentsUtilizationTimeseries"));
+      return result;
+    }
+    String filterBy = parameters.filterBy;
+    CommitmentsCommitmentType commitmentType = parameters.commitmentType;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/commitments/utilization/timeseries";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "provider", provider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "product", product));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterBy", filterBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "commitmentType", commitmentType));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCommitmentsUtilizationTimeseries",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CommitmentsUtilizationTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CommitmentsUtilizationTimeseriesResponse>() {});
   }
 
   /**
