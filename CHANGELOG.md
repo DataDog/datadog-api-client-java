@@ -1,5 +1,60 @@
 # CHANGELOG
 
+## 2.55.0/2026-05-15
+
+### Changed
+* Mark email transport webhook endpoint as private [#3837](https://github.com/DataDog/datadog-api-client-java/pull/3837)
+* Mark email transport webhook endpoint as private [#3823](https://github.com/DataDog/datadog-api-client-java/pull/3823)
+* Document Annotations label schema API for AI Observability [#3771](https://github.com/DataDog/datadog-api-client-java/pull/3771)
+* Security Monitoring - expand learningDuration and forgetAfter to support up to 30 days [#3733](https://github.com/DataDog/datadog-api-client-java/pull/3733)
+
+### Added
+* Add Compliance Findings rule-based view endpoint to OpenAPI v2 [#3833](https://github.com/DataDog/datadog-api-client-java/pull/3833)
+* Add window[seconds] query parameter for look back [#3831](https://github.com/DataDog/datadog-api-client-java/pull/3831)
+* Add OpenAPI spec for cost-planning-api commitment program endpoints [#3829](https://github.com/DataDog/datadog-api-client-java/pull/3829)
+* Add regression fields to Error Tracking API responses [#3828](https://github.com/DataDog/datadog-api-client-java/pull/3828)
+* Add OpenAPI for Cloud Cost Management anomalies endpoints [#3825](https://github.com/DataDog/datadog-api-client-java/pull/3825)
+* Allow errors data source in formula event queries for dashboards [#3819](https://github.com/DataDog/datadog-api-client-java/pull/3819)
+* Document Cloud Cost Management v2 tags and tag_keys endpoints [#3818](https://github.com/DataDog/datadog-api-client-java/pull/3818)
+* Add OpenAPI definition for CCM ListCostTagDescriptions [#3815](https://github.com/DataDog/datadog-api-client-java/pull/3815)
+* Add OpenAPI spec for current user endpoints [#3811](https://github.com/DataDog/datadog-api-client-java/pull/3811)
+* Add state filter for Search Error Tracking Issues API [#3804](https://github.com/DataDog/datadog-api-client-java/pull/3804)
+* Add OpenAPI spec for email transport webhook intake [#3803](https://github.com/DataDog/datadog-api-client-java/pull/3803)
+* Add integration_type for Microsoft Teams to IncidentIntegrationMetadataAttributes [#3802](https://github.com/DataDog/datadog-api-client-java/pull/3802)
+* Add cross_org_uuids to v2 query endpoints [#3800](https://github.com/DataDog/datadog-api-client-java/pull/3800)
+* Add GKE Autopilot usage types to API documentation [#3795](https://github.com/DataDog/datadog-api-client-java/pull/3795)
+* Add session interaction type to LLM Observability API spec [#3794](https://github.com/DataDog/datadog-api-client-java/pull/3794)
+* Add OpenAPI spec for authn-validation /api/v2/validate endpoint [#3793](https://github.com/DataDog/datadog-api-client-java/pull/3793)
+* Add OpenAPI definitions for CCM status endpoints [#3792](https://github.com/DataDog/datadog-api-client-java/pull/3792)
+* Add style and sort to TreeMapWidgetRequest and sort to SunburstWidgetRequest for Dashboards [#3781](https://github.com/DataDog/datadog-api-client-java/pull/3781)
+* Add `compression_method` field to Log Archives [#3780](https://github.com/DataDog/datadog-api-client-java/pull/3780)
+* Cloud inventory api sync config endpoint documentation [#3779](https://github.com/DataDog/datadog-api-client-java/pull/3779)
+* Add Point Plot widget to dashboard API spec [#3777](https://github.com/DataDog/datadog-api-client-java/pull/3777)
+* Add backfilled degradation and maintenance endpoints to Status Pages [#3776](https://github.com/DataDog/datadog-api-client-java/pull/3776)
+* Add Cloud Cost Management ListCostOCIConfigs endpoint [#3775](https://github.com/DataDog/datadog-api-client-java/pull/3775)
+* Add Observability pipelines databricks_zerobus destination [#3770](https://github.com/DataDog/datadog-api-client-java/pull/3770)
+* Add infra_storage_mgmt_objects_count_avg fields to usage summary API [#3768](https://github.com/DataDog/datadog-api-client-java/pull/3768)
+* RUM - Add Source Map Intake API endpoint specification [#3767](https://github.com/DataDog/datadog-api-client-java/pull/3767)
+* Document bulk delete security monitoring rules endpoint [#3762](https://github.com/DataDog/datadog-api-client-java/pull/3762)
+* Add compliance_host to Agentless Scanning scan options [#3761](https://github.com/DataDog/datadog-api-client-java/pull/3761)
+* Add MuteSecurityFindings endpoint spec [#3755](https://github.com/DataDog/datadog-api-client-java/pull/3755)
+* Add OpenAPI documentation for Synthetics downtime endpoints [#3754](https://github.com/DataDog/datadog-api-client-java/pull/3754)
+* Add feature_flags_config_requests to usage summary API [#3727](https://github.com/DataDog/datadog-api-client-java/pull/3727)
+* Add specs for ListOrgsV2 and DeleteUserInvitations [#3709](https://github.com/DataDog/datadog-api-client-java/pull/3709)
+* Add infra_host_basic and eph_infra_host_basic to usage metering API [#3677](https://github.com/DataDog/datadog-api-client-java/pull/3677)
+
+### Removed
+* Remove deprecated incident teams endpoints [#3808](https://github.com/DataDog/datadog-api-client-java/pull/3808)
+* Remove deprecated allocation key fields from feature flags API [#3749](https://github.com/DataDog/datadog-api-client-java/pull/3749)
+
+### Fixed
+* Widgets API - add complete create/update example for cloud_cost_summary [#3789](https://github.com/DataDog/datadog-api-client-java/pull/3789)
+* Fix Org Groups pagination response shape (meta.page + links) [#3782](https://github.com/DataDog/datadog-api-client-java/pull/3782)
+* Clarify metrics API query strings [#3772](https://github.com/DataDog/datadog-api-client-java/pull/3772)
+
+### Deprecated
+* Update Status Pages API documentation to reflect deprecation of creating a published status page [#3758](https://github.com/DataDog/datadog-api-client-java/pull/3758)
+
 ## 2.54.0/2026-04-24
 
 ### Changed
