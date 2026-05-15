@@ -32,9 +32,15 @@ import com.datadog.api.client.v2.model.CommitmentsUtilizationScalarResponse;
 import com.datadog.api.client.v2.model.CommitmentsUtilizationTimeseriesResponse;
 import com.datadog.api.client.v2.model.CostAnomaliesResponse;
 import com.datadog.api.client.v2.model.CostAnomalyResponse;
+import com.datadog.api.client.v2.model.CostCurrencyResponse;
+import com.datadog.api.client.v2.model.CostMetricsResponse;
+import com.datadog.api.client.v2.model.CostOrchestratorsResponse;
 import com.datadog.api.client.v2.model.CostTagDescriptionsResponse;
+import com.datadog.api.client.v2.model.CostTagKeyMetadataResponse;
 import com.datadog.api.client.v2.model.CostTagKeyResponse;
+import com.datadog.api.client.v2.model.CostTagKeySourcesResponse;
 import com.datadog.api.client.v2.model.CostTagKeysResponse;
+import com.datadog.api.client.v2.model.CostTagMetadataDailyFilter;
 import com.datadog.api.client.v2.model.CostTagsResponse;
 import com.datadog.api.client.v2.model.CreateRulesetRequest;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
@@ -5292,6 +5298,231 @@ public class CloudCostManagementApi {
         new GenericType<CostTagKeyResponse>() {});
   }
 
+  /** Manage optional parameters to getCostTagMetadataCurrency. */
+  public static class GetCostTagMetadataCurrencyOptionalParameters {
+    private String filterProvider;
+
+    /**
+     * Set filterProvider.
+     *
+     * @param filterProvider Filter results to a specific provider. Common cloud values are <code>
+     *     aws</code>, <code>azure</code>, <code>gcp</code>, <code>Oracle</code> (OCI), and <code>
+     *     custom</code>. SaaS billing integrations (for example, <code>Snowflake</code>, <code>
+     *     MongoDB</code>, <code>Databricks</code>) are also accepted using their display-name
+     *     string. Values are case-sensitive. (optional)
+     * @return GetCostTagMetadataCurrencyOptionalParameters
+     */
+    public GetCostTagMetadataCurrencyOptionalParameters filterProvider(String filterProvider) {
+      this.filterProvider = filterProvider;
+      return this;
+    }
+  }
+
+  /**
+   * Get the Cloud Cost Management billing currency.
+   *
+   * <p>See {@link #getCostTagMetadataCurrencyWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CostCurrencyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostCurrencyResponse getCostTagMetadataCurrency(String filterMonth) throws ApiException {
+    return getCostTagMetadataCurrencyWithHttpInfo(
+            filterMonth, new GetCostTagMetadataCurrencyOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get the Cloud Cost Management billing currency.
+   *
+   * <p>See {@link #getCostTagMetadataCurrencyWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CompletableFuture&lt;CostCurrencyResponse&gt;
+   */
+  public CompletableFuture<CostCurrencyResponse> getCostTagMetadataCurrencyAsync(
+      String filterMonth) {
+    return getCostTagMetadataCurrencyWithHttpInfoAsync(
+            filterMonth, new GetCostTagMetadataCurrencyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the Cloud Cost Management billing currency.
+   *
+   * <p>See {@link #getCostTagMetadataCurrencyWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostCurrencyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostCurrencyResponse getCostTagMetadataCurrency(
+      String filterMonth, GetCostTagMetadataCurrencyOptionalParameters parameters)
+      throws ApiException {
+    return getCostTagMetadataCurrencyWithHttpInfo(filterMonth, parameters).getData();
+  }
+
+  /**
+   * Get the Cloud Cost Management billing currency.
+   *
+   * <p>See {@link #getCostTagMetadataCurrencyWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostCurrencyResponse&gt;
+   */
+  public CompletableFuture<CostCurrencyResponse> getCostTagMetadataCurrencyAsync(
+      String filterMonth, GetCostTagMetadataCurrencyOptionalParameters parameters) {
+    return getCostTagMetadataCurrencyWithHttpInfoAsync(filterMonth, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the dominant billing currency observed in Cloud Cost Management data for the requested
+   * period. The response wraps the currency in a JSON:API <code>data</code> array containing at
+   * most one entry; the array is empty when no currency data is available.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostCurrencyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostCurrencyResponse> getCostTagMetadataCurrencyWithHttpInfo(
+      String filterMonth, GetCostTagMetadataCurrencyOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCostTagMetadataCurrency";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterMonth' when calling getCostTagMetadataCurrency");
+    }
+    String filterProvider = parameters.filterProvider;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/currency";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostTagMetadataCurrency",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostCurrencyResponse>() {});
+  }
+
+  /**
+   * Get the Cloud Cost Management billing currency.
+   *
+   * <p>See {@link #getCostTagMetadataCurrencyWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostCurrencyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostCurrencyResponse>>
+      getCostTagMetadataCurrencyWithHttpInfoAsync(
+          String filterMonth, GetCostTagMetadataCurrencyOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getCostTagMetadataCurrency";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostCurrencyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      CompletableFuture<ApiResponse<CostCurrencyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterMonth' when calling"
+                  + " getCostTagMetadataCurrency"));
+      return result;
+    }
+    String filterProvider = parameters.filterProvider;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/currency";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostTagMetadataCurrency",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostCurrencyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostCurrencyResponse>() {});
+  }
+
   /**
    * Get custom allocation rule.
    *
@@ -6969,6 +7200,948 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CostTagKeysResponse>() {});
+  }
+
+  /** Manage optional parameters to listCostTagKeySources. */
+  public static class ListCostTagKeySourcesOptionalParameters {
+    private String filterProvider;
+
+    /**
+     * Set filterProvider.
+     *
+     * @param filterProvider Filter results to a specific provider. Common cloud values are <code>
+     *     aws</code>, <code>azure</code>, <code>gcp</code>, <code>Oracle</code> (OCI), and <code>
+     *     custom</code>. SaaS billing integrations (for example, <code>Snowflake</code>, <code>
+     *     MongoDB</code>, <code>Databricks</code>) are also accepted using their display-name
+     *     string. Values are case-sensitive. (optional)
+     * @return ListCostTagKeySourcesOptionalParameters
+     */
+    public ListCostTagKeySourcesOptionalParameters filterProvider(String filterProvider) {
+      this.filterProvider = filterProvider;
+      return this;
+    }
+  }
+
+  /**
+   * List Cloud Cost Management tag sources.
+   *
+   * <p>See {@link #listCostTagKeySourcesWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CostTagKeySourcesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagKeySourcesResponse listCostTagKeySources(String filterMonth) throws ApiException {
+    return listCostTagKeySourcesWithHttpInfo(
+            filterMonth, new ListCostTagKeySourcesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List Cloud Cost Management tag sources.
+   *
+   * <p>See {@link #listCostTagKeySourcesWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CompletableFuture&lt;CostTagKeySourcesResponse&gt;
+   */
+  public CompletableFuture<CostTagKeySourcesResponse> listCostTagKeySourcesAsync(
+      String filterMonth) {
+    return listCostTagKeySourcesWithHttpInfoAsync(
+            filterMonth, new ListCostTagKeySourcesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tag sources.
+   *
+   * <p>See {@link #listCostTagKeySourcesWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostTagKeySourcesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagKeySourcesResponse listCostTagKeySources(
+      String filterMonth, ListCostTagKeySourcesOptionalParameters parameters) throws ApiException {
+    return listCostTagKeySourcesWithHttpInfo(filterMonth, parameters).getData();
+  }
+
+  /**
+   * List Cloud Cost Management tag sources.
+   *
+   * <p>See {@link #listCostTagKeySourcesWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostTagKeySourcesResponse&gt;
+   */
+  public CompletableFuture<CostTagKeySourcesResponse> listCostTagKeySourcesAsync(
+      String filterMonth, ListCostTagKeySourcesOptionalParameters parameters) {
+    return listCostTagKeySourcesWithHttpInfoAsync(filterMonth, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tag keys observed for the requested period, along with the origin
+   * sources that produced them (for example, <code>aws-user-defined</code>, <code>custom</code>).
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostTagKeySourcesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostTagKeySourcesResponse> listCostTagKeySourcesWithHttpInfo(
+      String filterMonth, ListCostTagKeySourcesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagKeySources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterMonth' when calling listCostTagKeySources");
+    }
+    String filterProvider = parameters.filterProvider;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/tag_sources";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostTagKeySources",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagKeySourcesResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management tag sources.
+   *
+   * <p>See {@link #listCostTagKeySourcesWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostTagKeySourcesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostTagKeySourcesResponse>>
+      listCostTagKeySourcesWithHttpInfoAsync(
+          String filterMonth, ListCostTagKeySourcesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagKeySources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostTagKeySourcesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      CompletableFuture<ApiResponse<CostTagKeySourcesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterMonth' when calling listCostTagKeySources"));
+      return result;
+    }
+    String filterProvider = parameters.filterProvider;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/tag_sources";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostTagKeySources",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostTagKeySourcesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagKeySourcesResponse>() {});
+  }
+
+  /** Manage optional parameters to listCostTagMetadata. */
+  public static class ListCostTagMetadataOptionalParameters {
+    private String filterProvider;
+    private String filterMetric;
+    private String filterTagKey;
+    private CostTagMetadataDailyFilter filterDaily;
+
+    /**
+     * Set filterProvider.
+     *
+     * @param filterProvider Filter results to a specific provider. Common cloud values are <code>
+     *     aws</code>, <code>azure</code>, <code>gcp</code>, <code>Oracle</code> (OCI), and <code>
+     *     custom</code>. SaaS billing integrations (for example, <code>Snowflake</code>, <code>
+     *     MongoDB</code>, <code>Databricks</code>) are also accepted using their display-name
+     *     string. Values are case-sensitive. (optional)
+     * @return ListCostTagMetadataOptionalParameters
+     */
+    public ListCostTagMetadataOptionalParameters filterProvider(String filterProvider) {
+      this.filterProvider = filterProvider;
+      return this;
+    }
+
+    /**
+     * Set filterMetric.
+     *
+     * @param filterMetric Filter results to a specific Cloud Cost Management metric (for example,
+     *     <code>aws.cost.net.amortized</code>). When omitted, every available metric for the
+     *     requested period is returned. (optional)
+     * @return ListCostTagMetadataOptionalParameters
+     */
+    public ListCostTagMetadataOptionalParameters filterMetric(String filterMetric) {
+      this.filterMetric = filterMetric;
+      return this;
+    }
+
+    /**
+     * Set filterTagKey.
+     *
+     * @param filterTagKey Restrict results to a single tag key. (optional)
+     * @return ListCostTagMetadataOptionalParameters
+     */
+    public ListCostTagMetadataOptionalParameters filterTagKey(String filterTagKey) {
+      this.filterTagKey = filterTagKey;
+      return this;
+    }
+
+    /**
+     * Set filterDaily.
+     *
+     * @param filterDaily When <code>true</code>, return one row per day with the day in the <code>
+     *     date</code> attribute. Defaults to the monthly roll-up when omitted. (optional)
+     * @return ListCostTagMetadataOptionalParameters
+     */
+    public ListCostTagMetadataOptionalParameters filterDaily(
+        CostTagMetadataDailyFilter filterDaily) {
+      this.filterDaily = filterDaily;
+      return this;
+    }
+  }
+
+  /**
+   * List Cloud Cost Management tag key metadata.
+   *
+   * <p>See {@link #listCostTagMetadataWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CostTagKeyMetadataResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagKeyMetadataResponse listCostTagMetadata(String filterMonth) throws ApiException {
+    return listCostTagMetadataWithHttpInfo(filterMonth, new ListCostTagMetadataOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List Cloud Cost Management tag key metadata.
+   *
+   * <p>See {@link #listCostTagMetadataWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CompletableFuture&lt;CostTagKeyMetadataResponse&gt;
+   */
+  public CompletableFuture<CostTagKeyMetadataResponse> listCostTagMetadataAsync(
+      String filterMonth) {
+    return listCostTagMetadataWithHttpInfoAsync(
+            filterMonth, new ListCostTagMetadataOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tag key metadata.
+   *
+   * <p>See {@link #listCostTagMetadataWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostTagKeyMetadataResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagKeyMetadataResponse listCostTagMetadata(
+      String filterMonth, ListCostTagMetadataOptionalParameters parameters) throws ApiException {
+    return listCostTagMetadataWithHttpInfo(filterMonth, parameters).getData();
+  }
+
+  /**
+   * List Cloud Cost Management tag key metadata.
+   *
+   * <p>See {@link #listCostTagMetadataWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostTagKeyMetadataResponse&gt;
+   */
+  public CompletableFuture<CostTagKeyMetadataResponse> listCostTagMetadataAsync(
+      String filterMonth, ListCostTagMetadataOptionalParameters parameters) {
+    return listCostTagMetadataWithHttpInfoAsync(filterMonth, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management tag key metadata, including row counts, cost covered, cardinality,
+   * and a sample of top tag values per cloud account. Use <code>filter[daily]=true</code> to return
+   * daily rows instead of the default monthly roll-up.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostTagKeyMetadataResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostTagKeyMetadataResponse> listCostTagMetadataWithHttpInfo(
+      String filterMonth, ListCostTagMetadataOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagMetadata";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterMonth' when calling listCostTagMetadata");
+    }
+    String filterProvider = parameters.filterProvider;
+    String filterMetric = parameters.filterMetric;
+    String filterTagKey = parameters.filterTagKey;
+    CostTagMetadataDailyFilter filterDaily = parameters.filterDaily;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tag_key]", filterTagKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[daily]", filterDaily));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostTagMetadata",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagKeyMetadataResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management tag key metadata.
+   *
+   * <p>See {@link #listCostTagMetadataWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostTagKeyMetadataResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostTagKeyMetadataResponse>>
+      listCostTagMetadataWithHttpInfoAsync(
+          String filterMonth, ListCostTagMetadataOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagMetadata";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostTagKeyMetadataResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      CompletableFuture<ApiResponse<CostTagKeyMetadataResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterMonth' when calling listCostTagMetadata"));
+      return result;
+    }
+    String filterProvider = parameters.filterProvider;
+    String filterMetric = parameters.filterMetric;
+    String filterTagKey = parameters.filterTagKey;
+    CostTagMetadataDailyFilter filterDaily = parameters.filterDaily;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tag_key]", filterTagKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[daily]", filterDaily));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostTagMetadata",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostTagKeyMetadataResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagKeyMetadataResponse>() {});
+  }
+
+  /** Manage optional parameters to listCostTagMetadataMetrics. */
+  public static class ListCostTagMetadataMetricsOptionalParameters {
+    private String filterProvider;
+
+    /**
+     * Set filterProvider.
+     *
+     * @param filterProvider Filter results to a specific provider. Common cloud values are <code>
+     *     aws</code>, <code>azure</code>, <code>gcp</code>, <code>Oracle</code> (OCI), and <code>
+     *     custom</code>. SaaS billing integrations (for example, <code>Snowflake</code>, <code>
+     *     MongoDB</code>, <code>Databricks</code>) are also accepted using their display-name
+     *     string. Values are case-sensitive. (optional)
+     * @return ListCostTagMetadataMetricsOptionalParameters
+     */
+    public ListCostTagMetadataMetricsOptionalParameters filterProvider(String filterProvider) {
+      this.filterProvider = filterProvider;
+      return this;
+    }
+  }
+
+  /**
+   * List available Cloud Cost Management metrics.
+   *
+   * <p>See {@link #listCostTagMetadataMetricsWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CostMetricsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostMetricsResponse listCostTagMetadataMetrics(String filterMonth) throws ApiException {
+    return listCostTagMetadataMetricsWithHttpInfo(
+            filterMonth, new ListCostTagMetadataMetricsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List available Cloud Cost Management metrics.
+   *
+   * <p>See {@link #listCostTagMetadataMetricsWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CompletableFuture&lt;CostMetricsResponse&gt;
+   */
+  public CompletableFuture<CostMetricsResponse> listCostTagMetadataMetricsAsync(
+      String filterMonth) {
+    return listCostTagMetadataMetricsWithHttpInfoAsync(
+            filterMonth, new ListCostTagMetadataMetricsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List available Cloud Cost Management metrics.
+   *
+   * <p>See {@link #listCostTagMetadataMetricsWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostMetricsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostMetricsResponse listCostTagMetadataMetrics(
+      String filterMonth, ListCostTagMetadataMetricsOptionalParameters parameters)
+      throws ApiException {
+    return listCostTagMetadataMetricsWithHttpInfo(filterMonth, parameters).getData();
+  }
+
+  /**
+   * List available Cloud Cost Management metrics.
+   *
+   * <p>See {@link #listCostTagMetadataMetricsWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostMetricsResponse&gt;
+   */
+  public CompletableFuture<CostMetricsResponse> listCostTagMetadataMetricsAsync(
+      String filterMonth, ListCostTagMetadataMetricsOptionalParameters parameters) {
+    return listCostTagMetadataMetricsWithHttpInfoAsync(filterMonth, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management metrics that have data for the requested period.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostMetricsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostMetricsResponse> listCostTagMetadataMetricsWithHttpInfo(
+      String filterMonth, ListCostTagMetadataMetricsOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagMetadataMetrics";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterMonth' when calling listCostTagMetadataMetrics");
+    }
+    String filterProvider = parameters.filterProvider;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/metrics";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostTagMetadataMetrics",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostMetricsResponse>() {});
+  }
+
+  /**
+   * List available Cloud Cost Management metrics.
+   *
+   * <p>See {@link #listCostTagMetadataMetricsWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostMetricsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostMetricsResponse>>
+      listCostTagMetadataMetricsWithHttpInfoAsync(
+          String filterMonth, ListCostTagMetadataMetricsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagMetadataMetrics";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostMetricsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      CompletableFuture<ApiResponse<CostMetricsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterMonth' when calling"
+                  + " listCostTagMetadataMetrics"));
+      return result;
+    }
+    String filterProvider = parameters.filterProvider;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/metrics";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostTagMetadataMetrics",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostMetricsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostMetricsResponse>() {});
+  }
+
+  /** Manage optional parameters to listCostTagMetadataOrchestrators. */
+  public static class ListCostTagMetadataOrchestratorsOptionalParameters {
+    private String filterProvider;
+
+    /**
+     * Set filterProvider.
+     *
+     * @param filterProvider Filter results to a specific provider. Common cloud values are <code>
+     *     aws</code>, <code>azure</code>, <code>gcp</code>, <code>Oracle</code> (OCI), and <code>
+     *     custom</code>. SaaS billing integrations (for example, <code>Snowflake</code>, <code>
+     *     MongoDB</code>, <code>Databricks</code>) are also accepted using their display-name
+     *     string. Values are case-sensitive. (optional)
+     * @return ListCostTagMetadataOrchestratorsOptionalParameters
+     */
+    public ListCostTagMetadataOrchestratorsOptionalParameters filterProvider(
+        String filterProvider) {
+      this.filterProvider = filterProvider;
+      return this;
+    }
+  }
+
+  /**
+   * List Cloud Cost Management orchestrators.
+   *
+   * <p>See {@link #listCostTagMetadataOrchestratorsWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CostOrchestratorsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostOrchestratorsResponse listCostTagMetadataOrchestrators(String filterMonth)
+      throws ApiException {
+    return listCostTagMetadataOrchestratorsWithHttpInfo(
+            filterMonth, new ListCostTagMetadataOrchestratorsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List Cloud Cost Management orchestrators.
+   *
+   * <p>See {@link #listCostTagMetadataOrchestratorsWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @return CompletableFuture&lt;CostOrchestratorsResponse&gt;
+   */
+  public CompletableFuture<CostOrchestratorsResponse> listCostTagMetadataOrchestratorsAsync(
+      String filterMonth) {
+    return listCostTagMetadataOrchestratorsWithHttpInfoAsync(
+            filterMonth, new ListCostTagMetadataOrchestratorsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Cloud Cost Management orchestrators.
+   *
+   * <p>See {@link #listCostTagMetadataOrchestratorsWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostOrchestratorsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostOrchestratorsResponse listCostTagMetadataOrchestrators(
+      String filterMonth, ListCostTagMetadataOrchestratorsOptionalParameters parameters)
+      throws ApiException {
+    return listCostTagMetadataOrchestratorsWithHttpInfo(filterMonth, parameters).getData();
+  }
+
+  /**
+   * List Cloud Cost Management orchestrators.
+   *
+   * <p>See {@link #listCostTagMetadataOrchestratorsWithHttpInfoAsync}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostOrchestratorsResponse&gt;
+   */
+  public CompletableFuture<CostOrchestratorsResponse> listCostTagMetadataOrchestratorsAsync(
+      String filterMonth, ListCostTagMetadataOrchestratorsOptionalParameters parameters) {
+    return listCostTagMetadataOrchestratorsWithHttpInfoAsync(filterMonth, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List container orchestrators (for example, <code>kubernetes</code>, <code>ecs</code>) detected
+   * in Cloud Cost Management data for the requested period.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostOrchestratorsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostOrchestratorsResponse> listCostTagMetadataOrchestratorsWithHttpInfo(
+      String filterMonth, ListCostTagMetadataOrchestratorsOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagMetadataOrchestrators";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterMonth' when calling"
+              + " listCostTagMetadataOrchestrators");
+    }
+    String filterProvider = parameters.filterProvider;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/orchestrators";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostTagMetadataOrchestrators",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostOrchestratorsResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management orchestrators.
+   *
+   * <p>See {@link #listCostTagMetadataOrchestratorsWithHttpInfo}.
+   *
+   * @param filterMonth The month to scope the query to, in <code>YYYY-MM</code> format. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostOrchestratorsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostOrchestratorsResponse>>
+      listCostTagMetadataOrchestratorsWithHttpInfoAsync(
+          String filterMonth, ListCostTagMetadataOrchestratorsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagMetadataOrchestrators";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostOrchestratorsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterMonth' is set
+    if (filterMonth == null) {
+      CompletableFuture<ApiResponse<CostOrchestratorsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterMonth' when calling"
+                  + " listCostTagMetadataOrchestrators"));
+      return result;
+    }
+    String filterProvider = parameters.filterProvider;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/orchestrators";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostTagMetadataOrchestrators",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostOrchestratorsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostOrchestratorsResponse>() {});
   }
 
   /** Manage optional parameters to listCostTags. */
