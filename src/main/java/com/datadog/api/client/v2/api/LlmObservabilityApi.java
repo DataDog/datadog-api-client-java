@@ -269,8 +269,18 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Add one or more interactions (traces or sessions) to an annotation queue. At least one
-   * interaction must be provided.
+   * Add one or more interactions to an annotation queue. At least one interaction must be provided.
+   * Each interaction has a <code>type</code>:
+   *
+   * <ul>
+   *   <li><code>trace</code>, <code>experiment_trace</code>, <code>session</code>: <code>content_id
+   *       </code> references the upstream entity; the server fetches the actual content.
+   *   <li><code>display_block</code>: omit <code>content_id</code> and provide the rendered content
+   *       in <code>display_block</code>. The server generates <code>content_id</code> as a
+   *       deterministic hash of the block list.
+   * </ul>
+   *
+   * <p>Items of different types can be mixed in a single request.
    *
    * @param queueId The ID of the LLM Observability annotation queue. (required)
    * @param body Add interactions payload. (required)

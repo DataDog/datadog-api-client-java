@@ -9,7 +9,8 @@ import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsDataRequ
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsType;
-import com.datadog.api.client.v2.model.LLMObsInteractionType;
+import com.datadog.api.client.v2.model.LLMObsTraceInteractionItem;
+import com.datadog.api.client.v2.model.LLMObsTraceInteractionType;
 import java.util.Collections;
 
 public class Example {
@@ -26,9 +27,10 @@ public class Example {
                         new LLMObsAnnotationQueueInteractionsDataAttributesRequest()
                             .interactions(
                                 Collections.singletonList(
-                                    new LLMObsAnnotationQueueInteractionItem()
-                                        .contentId("trace-abc-123")
-                                        .type(LLMObsInteractionType.TRACE))))
+                                    new LLMObsAnnotationQueueInteractionItem(
+                                        new LLMObsTraceInteractionItem()
+                                            .contentId("trace-abc-123")
+                                            .type(LLMObsTraceInteractionType.TRACE)))))
                     .type(LLMObsAnnotationQueueInteractionsType.INTERACTIONS));
 
     try {
