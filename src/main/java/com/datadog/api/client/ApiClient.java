@@ -860,6 +860,14 @@ public class ApiClient {
           put("v2.getCodeCoverageBranchSummary", false);
           put("v2.getCodeCoverageCommitSummary", false);
           put("v2.getRuleBasedView", false);
+          put("v2.getCommitmentsCommitmentList", false);
+          put("v2.getCommitmentsCoverageScalar", false);
+          put("v2.getCommitmentsCoverageTimeseries", false);
+          put("v2.getCommitmentsOnDemandHotspotsScalar", false);
+          put("v2.getCommitmentsSavingsScalar", false);
+          put("v2.getCommitmentsSavingsTimeseries", false);
+          put("v2.getCommitmentsUtilizationScalar", false);
+          put("v2.getCommitmentsUtilizationTimeseries", false);
           put("v2.getCostAnomaly", false);
           put("v2.listCostAnomalies", false);
           put("v2.createDashboardSecureEmbed", false);
