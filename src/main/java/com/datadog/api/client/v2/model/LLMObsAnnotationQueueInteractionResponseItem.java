@@ -6,234 +6,309 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** A single interaction result. */
-@JsonPropertyOrder({
-  LLMObsAnnotationQueueInteractionResponseItem.JSON_PROPERTY_ALREADY_EXISTED,
-  LLMObsAnnotationQueueInteractionResponseItem.JSON_PROPERTY_CONTENT_ID,
-  LLMObsAnnotationQueueInteractionResponseItem.JSON_PROPERTY_ID,
-  LLMObsAnnotationQueueInteractionResponseItem.JSON_PROPERTY_TYPE
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class LLMObsAnnotationQueueInteractionResponseItem {
+@JsonDeserialize(
+    using =
+        LLMObsAnnotationQueueInteractionResponseItem
+            .LLMObsAnnotationQueueInteractionResponseItemDeserializer.class)
+@JsonSerialize(
+    using =
+        LLMObsAnnotationQueueInteractionResponseItem
+            .LLMObsAnnotationQueueInteractionResponseItemSerializer.class)
+public class LLMObsAnnotationQueueInteractionResponseItem extends AbstractOpenApiSchema {
+  private static final Logger log =
+      Logger.getLogger(LLMObsAnnotationQueueInteractionResponseItem.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ALREADY_EXISTED = "already_existed";
-  private Boolean alreadyExisted;
 
-  public static final String JSON_PROPERTY_CONTENT_ID = "content_id";
-  private String contentId;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private LLMObsInteractionType type;
-
-  public LLMObsAnnotationQueueInteractionResponseItem() {}
-
-  @JsonCreator
-  public LLMObsAnnotationQueueInteractionResponseItem(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ALREADY_EXISTED) Boolean alreadyExisted,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsInteractionType type) {
-    this.alreadyExisted = alreadyExisted;
-    this.contentId = contentId;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public LLMObsAnnotationQueueInteractionResponseItem alreadyExisted(Boolean alreadyExisted) {
-    this.alreadyExisted = alreadyExisted;
-    return this;
-  }
-
-  /**
-   * Whether this interaction already existed in the queue.
-   *
-   * @return alreadyExisted
-   */
-  @JsonProperty(JSON_PROPERTY_ALREADY_EXISTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getAlreadyExisted() {
-    return alreadyExisted;
-  }
-
-  public void setAlreadyExisted(Boolean alreadyExisted) {
-    this.alreadyExisted = alreadyExisted;
-  }
-
-  public LLMObsAnnotationQueueInteractionResponseItem contentId(String contentId) {
-    this.contentId = contentId;
-    return this;
-  }
-
-  /**
-   * Identifier of the content (trace ID or session ID) for this interaction.
-   *
-   * @return contentId
-   */
-  @JsonProperty(JSON_PROPERTY_CONTENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getContentId() {
-    return contentId;
-  }
-
-  public void setContentId(String contentId) {
-    this.contentId = contentId;
-  }
-
-  public LLMObsAnnotationQueueInteractionResponseItem id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Unique identifier of the interaction.
-   *
-   * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public LLMObsAnnotationQueueInteractionResponseItem type(LLMObsInteractionType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Type of interaction in an annotation queue.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsInteractionType getType() {
-    return type;
-  }
-
-  public void setType(LLMObsInteractionType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+  public static class LLMObsAnnotationQueueInteractionResponseItemSerializer
+      extends StdSerializer<LLMObsAnnotationQueueInteractionResponseItem> {
+    public LLMObsAnnotationQueueInteractionResponseItemSerializer(
+        Class<LLMObsAnnotationQueueInteractionResponseItem> t) {
+      super(t);
     }
-    this.type = type;
-  }
 
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return LLMObsAnnotationQueueInteractionResponseItem
-   */
-  @JsonAnySetter
-  public LLMObsAnnotationQueueInteractionResponseItem putAdditionalProperty(
-      String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+    public LLMObsAnnotationQueueInteractionResponseItemSerializer() {
+      this(null);
     }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
+    @Override
+    public void serialize(
+        LLMObsAnnotationQueueInteractionResponseItem value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
     }
-    return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsAnnotationQueueInteractionResponseItem object is equal to o. */
+  public static class LLMObsAnnotationQueueInteractionResponseItemDeserializer
+      extends StdDeserializer<LLMObsAnnotationQueueInteractionResponseItem> {
+    public LLMObsAnnotationQueueInteractionResponseItemDeserializer() {
+      this(LLMObsAnnotationQueueInteractionResponseItem.class);
+    }
+
+    public LLMObsAnnotationQueueInteractionResponseItemDeserializer(Class<?> vc) {
+      super(vc);
+    }
+
+    @Override
+    public LLMObsAnnotationQueueInteractionResponseItem deserialize(
+        JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize LLMObsTraceInteractionResponseItem
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (LLMObsTraceInteractionResponseItem.class.equals(Integer.class)
+            || LLMObsTraceInteractionResponseItem.class.equals(Long.class)
+            || LLMObsTraceInteractionResponseItem.class.equals(Float.class)
+            || LLMObsTraceInteractionResponseItem.class.equals(Double.class)
+            || LLMObsTraceInteractionResponseItem.class.equals(Boolean.class)
+            || LLMObsTraceInteractionResponseItem.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((LLMObsTraceInteractionResponseItem.class.equals(Integer.class)
+                        || LLMObsTraceInteractionResponseItem.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((LLMObsTraceInteractionResponseItem.class.equals(Float.class)
+                        || LLMObsTraceInteractionResponseItem.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (LLMObsTraceInteractionResponseItem.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (LLMObsTraceInteractionResponseItem.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(LLMObsTraceInteractionResponseItem.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((LLMObsTraceInteractionResponseItem) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'LLMObsTraceInteractionResponseItem'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'LLMObsTraceInteractionResponseItem'",
+            e);
+      }
+
+      // deserialize LLMObsDisplayBlockInteractionResponseItem
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (LLMObsDisplayBlockInteractionResponseItem.class.equals(Integer.class)
+            || LLMObsDisplayBlockInteractionResponseItem.class.equals(Long.class)
+            || LLMObsDisplayBlockInteractionResponseItem.class.equals(Float.class)
+            || LLMObsDisplayBlockInteractionResponseItem.class.equals(Double.class)
+            || LLMObsDisplayBlockInteractionResponseItem.class.equals(Boolean.class)
+            || LLMObsDisplayBlockInteractionResponseItem.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((LLMObsDisplayBlockInteractionResponseItem.class.equals(Integer.class)
+                        || LLMObsDisplayBlockInteractionResponseItem.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((LLMObsDisplayBlockInteractionResponseItem.class.equals(Float.class)
+                        || LLMObsDisplayBlockInteractionResponseItem.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (LLMObsDisplayBlockInteractionResponseItem.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (LLMObsDisplayBlockInteractionResponseItem.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(LLMObsDisplayBlockInteractionResponseItem.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((LLMObsDisplayBlockInteractionResponseItem) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'LLMObsDisplayBlockInteractionResponseItem'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'LLMObsDisplayBlockInteractionResponseItem'",
+            e);
+      }
+
+      LLMObsAnnotationQueueInteractionResponseItem ret =
+          new LLMObsAnnotationQueueInteractionResponseItem();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
+    }
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public LLMObsAnnotationQueueInteractionResponseItem getNullValue(DeserializationContext ctxt)
+        throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "LLMObsAnnotationQueueInteractionResponseItem cannot be null");
+    }
+  }
+
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public LLMObsAnnotationQueueInteractionResponseItem() {
+    super("oneOf", Boolean.FALSE);
+  }
+
+  public LLMObsAnnotationQueueInteractionResponseItem(LLMObsTraceInteractionResponseItem o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public LLMObsAnnotationQueueInteractionResponseItem(LLMObsDisplayBlockInteractionResponseItem o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put(
+        "LLMObsTraceInteractionResponseItem",
+        new GenericType<LLMObsTraceInteractionResponseItem>() {});
+    schemas.put(
+        "LLMObsDisplayBlockInteractionResponseItem",
+        new GenericType<LLMObsDisplayBlockInteractionResponseItem>() {});
+    JSON.registerDescendants(
+        LLMObsAnnotationQueueInteractionResponseItem.class, Collections.unmodifiableMap(schemas));
+  }
+
   @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LLMObsAnnotationQueueInteractionResponseItem llmObsAnnotationQueueInteractionResponseItem =
-        (LLMObsAnnotationQueueInteractionResponseItem) o;
-    return Objects.equals(
-            this.alreadyExisted, llmObsAnnotationQueueInteractionResponseItem.alreadyExisted)
-        && Objects.equals(this.contentId, llmObsAnnotationQueueInteractionResponseItem.contentId)
-        && Objects.equals(this.id, llmObsAnnotationQueueInteractionResponseItem.id)
-        && Objects.equals(this.type, llmObsAnnotationQueueInteractionResponseItem.type)
-        && Objects.equals(
-            this.additionalProperties,
-            llmObsAnnotationQueueInteractionResponseItem.additionalProperties);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(alreadyExisted, contentId, id, type, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LLMObsAnnotationQueueInteractionResponseItem {\n");
-    sb.append("    alreadyExisted: ").append(toIndentedString(alreadyExisted)).append("\n");
-    sb.append("    contentId: ").append(toIndentedString(contentId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
-    sb.append('}');
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return LLMObsAnnotationQueueInteractionResponseItem.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: LLMObsTraceInteractionResponseItem,
+   * LLMObsDisplayBlockInteractionResponseItem
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        LLMObsTraceInteractionResponseItem.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(
+        LLMObsDisplayBlockInteractionResponseItem.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be LLMObsTraceInteractionResponseItem,"
+            + " LLMObsDisplayBlockInteractionResponseItem");
+  }
+
+  /**
+   * Get the actual instance, which can be the following: LLMObsTraceInteractionResponseItem,
+   * LLMObsDisplayBlockInteractionResponseItem
+   *
+   * @return The actual instance (LLMObsTraceInteractionResponseItem,
+   *     LLMObsDisplayBlockInteractionResponseItem)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LLMObsTraceInteractionResponseItem`. If the actual instance is not
+   * `LLMObsTraceInteractionResponseItem`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LLMObsTraceInteractionResponseItem`
+   * @throws ClassCastException if the instance is not `LLMObsTraceInteractionResponseItem`
+   */
+  public LLMObsTraceInteractionResponseItem getLLMObsTraceInteractionResponseItem()
+      throws ClassCastException {
+    return (LLMObsTraceInteractionResponseItem) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LLMObsDisplayBlockInteractionResponseItem`. If the actual instance
+   * is not `LLMObsDisplayBlockInteractionResponseItem`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LLMObsDisplayBlockInteractionResponseItem`
+   * @throws ClassCastException if the instance is not `LLMObsDisplayBlockInteractionResponseItem`
+   */
+  public LLMObsDisplayBlockInteractionResponseItem getLLMObsDisplayBlockInteractionResponseItem()
+      throws ClassCastException {
+    return (LLMObsDisplayBlockInteractionResponseItem) super.getActualInstance();
   }
 }

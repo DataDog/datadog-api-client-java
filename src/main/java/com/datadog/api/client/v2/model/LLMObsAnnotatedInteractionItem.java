@@ -6,243 +6,302 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** An interaction with its associated annotations. */
-@JsonPropertyOrder({
-  LLMObsAnnotatedInteractionItem.JSON_PROPERTY_ANNOTATIONS,
-  LLMObsAnnotatedInteractionItem.JSON_PROPERTY_CONTENT_ID,
-  LLMObsAnnotatedInteractionItem.JSON_PROPERTY_ID,
-  LLMObsAnnotatedInteractionItem.JSON_PROPERTY_TYPE
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class LLMObsAnnotatedInteractionItem {
+@JsonDeserialize(
+    using = LLMObsAnnotatedInteractionItem.LLMObsAnnotatedInteractionItemDeserializer.class)
+@JsonSerialize(
+    using = LLMObsAnnotatedInteractionItem.LLMObsAnnotatedInteractionItemSerializer.class)
+public class LLMObsAnnotatedInteractionItem extends AbstractOpenApiSchema {
+  private static final Logger log =
+      Logger.getLogger(LLMObsAnnotatedInteractionItem.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ANNOTATIONS = "annotations";
-  private List<LLMObsAnnotationItem> annotations = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_CONTENT_ID = "content_id";
-  private String contentId;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private LLMObsInteractionType type;
-
-  public LLMObsAnnotatedInteractionItem() {}
-
-  @JsonCreator
-  public LLMObsAnnotatedInteractionItem(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
-          List<LLMObsAnnotationItem> annotations,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsInteractionType type) {
-    this.annotations = annotations;
-    this.contentId = contentId;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public LLMObsAnnotatedInteractionItem annotations(List<LLMObsAnnotationItem> annotations) {
-    this.annotations = annotations;
-    for (LLMObsAnnotationItem item : annotations) {
-      this.unparsed |= item.unparsed;
+  public static class LLMObsAnnotatedInteractionItemSerializer
+      extends StdSerializer<LLMObsAnnotatedInteractionItem> {
+    public LLMObsAnnotatedInteractionItemSerializer(Class<LLMObsAnnotatedInteractionItem> t) {
+      super(t);
     }
-    return this;
-  }
 
-  public LLMObsAnnotatedInteractionItem addAnnotationsItem(LLMObsAnnotationItem annotationsItem) {
-    this.annotations.add(annotationsItem);
-    this.unparsed |= annotationsItem.unparsed;
-    return this;
-  }
-
-  /**
-   * List of annotations for this interaction.
-   *
-   * @return annotations
-   */
-  @JsonProperty(JSON_PROPERTY_ANNOTATIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<LLMObsAnnotationItem> getAnnotations() {
-    return annotations;
-  }
-
-  public void setAnnotations(List<LLMObsAnnotationItem> annotations) {
-    this.annotations = annotations;
-  }
-
-  public LLMObsAnnotatedInteractionItem contentId(String contentId) {
-    this.contentId = contentId;
-    return this;
-  }
-
-  /**
-   * Identifier of the content (trace ID or session ID) for this interaction.
-   *
-   * @return contentId
-   */
-  @JsonProperty(JSON_PROPERTY_CONTENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getContentId() {
-    return contentId;
-  }
-
-  public void setContentId(String contentId) {
-    this.contentId = contentId;
-  }
-
-  public LLMObsAnnotatedInteractionItem id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Unique identifier of the interaction.
-   *
-   * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public LLMObsAnnotatedInteractionItem type(LLMObsInteractionType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Type of interaction in an annotation queue.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsInteractionType getType() {
-    return type;
-  }
-
-  public void setType(LLMObsInteractionType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+    public LLMObsAnnotatedInteractionItemSerializer() {
+      this(null);
     }
-    this.type = type;
-  }
 
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return LLMObsAnnotatedInteractionItem
-   */
-  @JsonAnySetter
-  public LLMObsAnnotatedInteractionItem putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+    @Override
+    public void serialize(
+        LLMObsAnnotatedInteractionItem value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
     }
-    this.additionalProperties.put(key, value);
-    return this;
   }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
+  public static class LLMObsAnnotatedInteractionItemDeserializer
+      extends StdDeserializer<LLMObsAnnotatedInteractionItem> {
+    public LLMObsAnnotatedInteractionItemDeserializer() {
+      this(LLMObsAnnotatedInteractionItem.class);
     }
-    return this.additionalProperties.get(key);
+
+    public LLMObsAnnotatedInteractionItemDeserializer(Class<?> vc) {
+      super(vc);
+    }
+
+    @Override
+    public LLMObsAnnotatedInteractionItem deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize LLMObsTraceAnnotatedInteractionItem
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (LLMObsTraceAnnotatedInteractionItem.class.equals(Integer.class)
+            || LLMObsTraceAnnotatedInteractionItem.class.equals(Long.class)
+            || LLMObsTraceAnnotatedInteractionItem.class.equals(Float.class)
+            || LLMObsTraceAnnotatedInteractionItem.class.equals(Double.class)
+            || LLMObsTraceAnnotatedInteractionItem.class.equals(Boolean.class)
+            || LLMObsTraceAnnotatedInteractionItem.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((LLMObsTraceAnnotatedInteractionItem.class.equals(Integer.class)
+                        || LLMObsTraceAnnotatedInteractionItem.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((LLMObsTraceAnnotatedInteractionItem.class.equals(Float.class)
+                        || LLMObsTraceAnnotatedInteractionItem.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (LLMObsTraceAnnotatedInteractionItem.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (LLMObsTraceAnnotatedInteractionItem.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(LLMObsTraceAnnotatedInteractionItem.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((LLMObsTraceAnnotatedInteractionItem) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'LLMObsTraceAnnotatedInteractionItem'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'LLMObsTraceAnnotatedInteractionItem'",
+            e);
+      }
+
+      // deserialize LLMObsDisplayBlockAnnotatedInteractionItem
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Integer.class)
+            || LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Long.class)
+            || LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Float.class)
+            || LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Double.class)
+            || LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Boolean.class)
+            || LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Integer.class)
+                        || LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Float.class)
+                        || LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (LLMObsDisplayBlockAnnotatedInteractionItem.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(LLMObsDisplayBlockAnnotatedInteractionItem.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((LLMObsDisplayBlockAnnotatedInteractionItem) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'LLMObsDisplayBlockAnnotatedInteractionItem'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'LLMObsDisplayBlockAnnotatedInteractionItem'",
+            e);
+      }
+
+      LLMObsAnnotatedInteractionItem ret = new LLMObsAnnotatedInteractionItem();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
+    }
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public LLMObsAnnotatedInteractionItem getNullValue(DeserializationContext ctxt)
+        throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "LLMObsAnnotatedInteractionItem cannot be null");
+    }
   }
 
-  /** Return true if this LLMObsAnnotatedInteractionItem object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LLMObsAnnotatedInteractionItem llmObsAnnotatedInteractionItem =
-        (LLMObsAnnotatedInteractionItem) o;
-    return Objects.equals(this.annotations, llmObsAnnotatedInteractionItem.annotations)
-        && Objects.equals(this.contentId, llmObsAnnotatedInteractionItem.contentId)
-        && Objects.equals(this.id, llmObsAnnotatedInteractionItem.id)
-        && Objects.equals(this.type, llmObsAnnotatedInteractionItem.type)
-        && Objects.equals(
-            this.additionalProperties, llmObsAnnotatedInteractionItem.additionalProperties);
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public LLMObsAnnotatedInteractionItem() {
+    super("oneOf", Boolean.FALSE);
   }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(annotations, contentId, id, type, additionalProperties);
+  public LLMObsAnnotatedInteractionItem(LLMObsTraceAnnotatedInteractionItem o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public LLMObsAnnotatedInteractionItem(LLMObsDisplayBlockAnnotatedInteractionItem o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put(
+        "LLMObsTraceAnnotatedInteractionItem",
+        new GenericType<LLMObsTraceAnnotatedInteractionItem>() {});
+    schemas.put(
+        "LLMObsDisplayBlockAnnotatedInteractionItem",
+        new GenericType<LLMObsDisplayBlockAnnotatedInteractionItem>() {});
+    JSON.registerDescendants(
+        LLMObsAnnotatedInteractionItem.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LLMObsAnnotatedInteractionItem {\n");
-    sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
-    sb.append("    contentId: ").append(toIndentedString(contentId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
-    sb.append('}');
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return LLMObsAnnotatedInteractionItem.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: LLMObsTraceAnnotatedInteractionItem,
+   * LLMObsDisplayBlockAnnotatedInteractionItem
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        LLMObsTraceAnnotatedInteractionItem.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(
+        LLMObsDisplayBlockAnnotatedInteractionItem.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be LLMObsTraceAnnotatedInteractionItem,"
+            + " LLMObsDisplayBlockAnnotatedInteractionItem");
+  }
+
+  /**
+   * Get the actual instance, which can be the following: LLMObsTraceAnnotatedInteractionItem,
+   * LLMObsDisplayBlockAnnotatedInteractionItem
+   *
+   * @return The actual instance (LLMObsTraceAnnotatedInteractionItem,
+   *     LLMObsDisplayBlockAnnotatedInteractionItem)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LLMObsTraceAnnotatedInteractionItem`. If the actual instance is not
+   * `LLMObsTraceAnnotatedInteractionItem`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LLMObsTraceAnnotatedInteractionItem`
+   * @throws ClassCastException if the instance is not `LLMObsTraceAnnotatedInteractionItem`
+   */
+  public LLMObsTraceAnnotatedInteractionItem getLLMObsTraceAnnotatedInteractionItem()
+      throws ClassCastException {
+    return (LLMObsTraceAnnotatedInteractionItem) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LLMObsDisplayBlockAnnotatedInteractionItem`. If the actual instance
+   * is not `LLMObsDisplayBlockAnnotatedInteractionItem`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LLMObsDisplayBlockAnnotatedInteractionItem`
+   * @throws ClassCastException if the instance is not `LLMObsDisplayBlockAnnotatedInteractionItem`
+   */
+  public LLMObsDisplayBlockAnnotatedInteractionItem getLLMObsDisplayBlockAnnotatedInteractionItem()
+      throws ClassCastException {
+    return (LLMObsDisplayBlockAnnotatedInteractionItem) super.getActualInstance();
   }
 }
