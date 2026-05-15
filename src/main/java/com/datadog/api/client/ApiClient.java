@@ -869,7 +869,12 @@ public class ApiClient {
           put("v2.getCommitmentsUtilizationScalar", false);
           put("v2.getCommitmentsUtilizationTimeseries", false);
           put("v2.getCostAnomaly", false);
+          put("v2.getCostTagMetadataCurrency", false);
           put("v2.listCostAnomalies", false);
+          put("v2.listCostTagKeySources", false);
+          put("v2.listCostTagMetadata", false);
+          put("v2.listCostTagMetadataMetrics", false);
+          put("v2.listCostTagMetadataOrchestrators", false);
           put("v2.createDashboardSecureEmbed", false);
           put("v2.deleteDashboardSecureEmbed", false);
           put("v2.getDashboardSecureEmbed", false);
