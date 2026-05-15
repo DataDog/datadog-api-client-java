@@ -7,15 +7,22 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AppsSortField;
 import com.datadog.api.client.v2.model.CreateAppRequest;
 import com.datadog.api.client.v2.model.CreateAppResponse;
+import com.datadog.api.client.v2.model.CreatePublishRequestRequest;
 import com.datadog.api.client.v2.model.DeleteAppResponse;
 import com.datadog.api.client.v2.model.DeleteAppsRequest;
 import com.datadog.api.client.v2.model.DeleteAppsResponse;
 import com.datadog.api.client.v2.model.GetAppResponse;
+import com.datadog.api.client.v2.model.ListAppVersionsResponse;
 import com.datadog.api.client.v2.model.ListAppsResponse;
 import com.datadog.api.client.v2.model.PublishAppResponse;
 import com.datadog.api.client.v2.model.UnpublishAppResponse;
+import com.datadog.api.client.v2.model.UpdateAppFavoriteRequest;
+import com.datadog.api.client.v2.model.UpdateAppProtectionLevelRequest;
 import com.datadog.api.client.v2.model.UpdateAppRequest;
 import com.datadog.api.client.v2.model.UpdateAppResponse;
+import com.datadog.api.client.v2.model.UpdateAppSelfServiceRequest;
+import com.datadog.api.client.v2.model.UpdateAppTagsRequest;
+import com.datadog.api.client.v2.model.UpdateAppVersionNameRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -187,6 +194,165 @@ public class AppBuilderApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CreateAppResponse>() {});
+  }
+
+  /**
+   * Create Publish Request.
+   *
+   * <p>See {@link #createPublishRequestWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return PublishAppResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PublishAppResponse createPublishRequest(UUID appId, CreatePublishRequestRequest body)
+      throws ApiException {
+    return createPublishRequestWithHttpInfo(appId, body).getData();
+  }
+
+  /**
+   * Create Publish Request.
+   *
+   * <p>See {@link #createPublishRequestWithHttpInfoAsync}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;PublishAppResponse&gt;
+   */
+  public CompletableFuture<PublishAppResponse> createPublishRequestAsync(
+      UUID appId, CreatePublishRequestRequest body) {
+    return createPublishRequestWithHttpInfoAsync(appId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a publish request to ask for approval to publish an app whose protection level is <code>
+   * approval_required</code>. Publishing happens automatically once the request is approved by a
+   * user with the appropriate permissions.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;PublishAppResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PublishAppResponse> createPublishRequestWithHttpInfo(
+      UUID appId, CreatePublishRequestRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling createPublishRequest");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createPublishRequest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/publish-request"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.createPublishRequest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PublishAppResponse>() {});
+  }
+
+  /**
+   * Create Publish Request.
+   *
+   * <p>See {@link #createPublishRequestWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PublishAppResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PublishAppResponse>> createPublishRequestWithHttpInfoAsync(
+      UUID appId, CreatePublishRequestRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<PublishAppResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling createPublishRequest"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PublishAppResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createPublishRequest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/publish-request"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.createPublishRequest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PublishAppResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PublishAppResponse>() {});
   }
 
   /**
@@ -997,6 +1163,217 @@ public class AppBuilderApi {
         new GenericType<ListAppsResponse>() {});
   }
 
+  /** Manage optional parameters to listAppVersions. */
+  public static class ListAppVersionsOptionalParameters {
+    private Long limit;
+    private Long page;
+
+    /**
+     * Set limit.
+     *
+     * @param limit The number of versions to return per page. (optional)
+     * @return ListAppVersionsOptionalParameters
+     */
+    public ListAppVersionsOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set page.
+     *
+     * @param page The page number to return. (optional)
+     * @return ListAppVersionsOptionalParameters
+     */
+    public ListAppVersionsOptionalParameters page(Long page) {
+      this.page = page;
+      return this;
+    }
+  }
+
+  /**
+   * List App Versions.
+   *
+   * <p>See {@link #listAppVersionsWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @return ListAppVersionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListAppVersionsResponse listAppVersions(UUID appId) throws ApiException {
+    return listAppVersionsWithHttpInfo(appId, new ListAppVersionsOptionalParameters()).getData();
+  }
+
+  /**
+   * List App Versions.
+   *
+   * <p>See {@link #listAppVersionsWithHttpInfoAsync}.
+   *
+   * @param appId The ID of the app. (required)
+   * @return CompletableFuture&lt;ListAppVersionsResponse&gt;
+   */
+  public CompletableFuture<ListAppVersionsResponse> listAppVersionsAsync(UUID appId) {
+    return listAppVersionsWithHttpInfoAsync(appId, new ListAppVersionsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List App Versions.
+   *
+   * <p>See {@link #listAppVersionsWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ListAppVersionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListAppVersionsResponse listAppVersions(
+      UUID appId, ListAppVersionsOptionalParameters parameters) throws ApiException {
+    return listAppVersionsWithHttpInfo(appId, parameters).getData();
+  }
+
+  /**
+   * List App Versions.
+   *
+   * <p>See {@link #listAppVersionsWithHttpInfoAsync}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListAppVersionsResponse&gt;
+   */
+  public CompletableFuture<ListAppVersionsResponse> listAppVersionsAsync(
+      UUID appId, ListAppVersionsOptionalParameters parameters) {
+    return listAppVersionsWithHttpInfoAsync(appId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the versions of an app. This endpoint is paginated.
+   *
+   * @param appId The ID of the app. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListAppVersionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListAppVersionsResponse> listAppVersionsWithHttpInfo(
+      UUID appId, ListAppVersionsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling listAppVersions");
+    }
+    Long limit = parameters.limit;
+    Long page = parameters.page;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/versions"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.listAppVersions",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListAppVersionsResponse>() {});
+  }
+
+  /**
+   * List App Versions.
+   *
+   * <p>See {@link #listAppVersionsWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListAppVersionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListAppVersionsResponse>> listAppVersionsWithHttpInfoAsync(
+      UUID appId, ListAppVersionsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<ListAppVersionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling listAppVersions"));
+      return result;
+    }
+    Long limit = parameters.limit;
+    Long page = parameters.page;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/versions"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.listAppVersions",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListAppVersionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListAppVersionsResponse>() {});
+  }
+
   /**
    * Publish App.
    *
@@ -1135,6 +1512,173 @@ public class AppBuilderApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<PublishAppResponse>() {});
+  }
+
+  /**
+   * Revert App.
+   *
+   * <p>See {@link #revertAppWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param version The version number of the app to revert to. Cannot be <code>latest</code>. The
+   *     special value <code>deployed</code> can be used to revert to the currently published
+   *     version. (required)
+   * @return UpdateAppResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UpdateAppResponse revertApp(UUID appId, String version) throws ApiException {
+    return revertAppWithHttpInfo(appId, version).getData();
+  }
+
+  /**
+   * Revert App.
+   *
+   * <p>See {@link #revertAppWithHttpInfoAsync}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param version The version number of the app to revert to. Cannot be <code>latest</code>. The
+   *     special value <code>deployed</code> can be used to revert to the currently published
+   *     version. (required)
+   * @return CompletableFuture&lt;UpdateAppResponse&gt;
+   */
+  public CompletableFuture<UpdateAppResponse> revertAppAsync(UUID appId, String version) {
+    return revertAppWithHttpInfoAsync(appId, version)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Revert an app to a previous version. The version to revert to is selected through the <code>
+   * version</code> query parameter. The reverted version becomes the new latest version of the app.
+   *
+   * @param appId The ID of the app. (required)
+   * @param version The version number of the app to revert to. Cannot be <code>latest</code>. The
+   *     special value <code>deployed</code> can be used to revert to the currently published
+   *     version. (required)
+   * @return ApiResponse&lt;UpdateAppResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UpdateAppResponse> revertAppWithHttpInfo(UUID appId, String version)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(400, "Missing the required parameter 'appId' when calling revertApp");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'version' when calling revertApp");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/revert"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.revertApp",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateAppResponse>() {});
+  }
+
+  /**
+   * Revert App.
+   *
+   * <p>See {@link #revertAppWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param version The version number of the app to revert to. Cannot be <code>latest</code>. The
+   *     special value <code>deployed</code> can be used to revert to the currently published
+   *     version. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UpdateAppResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UpdateAppResponse>> revertAppWithHttpInfoAsync(
+      UUID appId, String version) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<UpdateAppResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'appId' when calling revertApp"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<UpdateAppResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'version' when calling revertApp"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/revert"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.revertApp",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UpdateAppResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateAppResponse>() {});
   }
 
   /**
@@ -1412,6 +1956,822 @@ public class AppBuilderApi {
       builder =
           apiClient.createBuilder(
               "v2.AppBuilderApi.updateApp",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UpdateAppResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateAppResponse>() {});
+  }
+
+  /**
+   * Update App Favorite Status.
+   *
+   * <p>See {@link #updateAppFavoriteWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateAppFavorite(UUID appId, UpdateAppFavoriteRequest body) throws ApiException {
+    updateAppFavoriteWithHttpInfo(appId, body);
+  }
+
+  /**
+   * Update App Favorite Status.
+   *
+   * <p>See {@link #updateAppFavoriteWithHttpInfoAsync}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateAppFavoriteAsync(UUID appId, UpdateAppFavoriteRequest body) {
+    return updateAppFavoriteWithHttpInfoAsync(appId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add or remove an app from the current user's favorites. Favorited apps can be filtered for
+   * using the <code>filter[favorite]</code> query parameter on the <a
+   * href="https://docs.datadoghq.com/api/latest/app-builder/#list-apps">List Apps</a> endpoint.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateAppFavoriteWithHttpInfo(UUID appId, UpdateAppFavoriteRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling updateAppFavorite");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateAppFavorite");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/favorite"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.updateAppFavorite",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update App Favorite Status.
+   *
+   * <p>See {@link #updateAppFavoriteWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateAppFavoriteWithHttpInfoAsync(
+      UUID appId, UpdateAppFavoriteRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling updateAppFavorite"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateAppFavorite"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/favorite"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.updateAppFavorite",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update App Self-Service Status.
+   *
+   * <p>See {@link #updateAppSelfServiceWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateAppSelfService(UUID appId, UpdateAppSelfServiceRequest body)
+      throws ApiException {
+    updateAppSelfServiceWithHttpInfo(appId, body);
+  }
+
+  /**
+   * Update App Self-Service Status.
+   *
+   * <p>See {@link #updateAppSelfServiceWithHttpInfoAsync}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateAppSelfServiceAsync(
+      UUID appId, UpdateAppSelfServiceRequest body) {
+    return updateAppSelfServiceWithHttpInfoAsync(appId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Enable or disable self-service for an app. Self-service apps can be discovered and run by users
+   * in your organization without explicit access being granted.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateAppSelfServiceWithHttpInfo(
+      UUID appId, UpdateAppSelfServiceRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling updateAppSelfService");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateAppSelfService");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/self-service"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.updateAppSelfService",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update App Self-Service Status.
+   *
+   * <p>See {@link #updateAppSelfServiceWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateAppSelfServiceWithHttpInfoAsync(
+      UUID appId, UpdateAppSelfServiceRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling updateAppSelfService"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateAppSelfService"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/self-service"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.updateAppSelfService",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update App Tags.
+   *
+   * <p>See {@link #updateAppTagsWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateAppTags(UUID appId, UpdateAppTagsRequest body) throws ApiException {
+    updateAppTagsWithHttpInfo(appId, body);
+  }
+
+  /**
+   * Update App Tags.
+   *
+   * <p>See {@link #updateAppTagsWithHttpInfoAsync}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateAppTagsAsync(UUID appId, UpdateAppTagsRequest body) {
+    return updateAppTagsWithHttpInfoAsync(appId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Replace the tags on an app. The provided list overwrites the existing tags entirely; tags not
+   * present in the request body are removed.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateAppTagsWithHttpInfo(UUID appId, UpdateAppTagsRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling updateAppTags");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateAppTags");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/tags"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.updateAppTags",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update App Tags.
+   *
+   * <p>See {@link #updateAppTagsWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateAppTagsWithHttpInfoAsync(
+      UUID appId, UpdateAppTagsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling updateAppTags"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateAppTags"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/tags"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.updateAppTags",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Name App Version.
+   *
+   * <p>See {@link #updateAppVersionNameWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param version The version number of the app to name. The special values <code>latest</code>
+   *     and <code>deployed</code> can also be used to target the latest or currently published
+   *     version. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateAppVersionName(UUID appId, String version, UpdateAppVersionNameRequest body)
+      throws ApiException {
+    updateAppVersionNameWithHttpInfo(appId, version, body);
+  }
+
+  /**
+   * Name App Version.
+   *
+   * <p>See {@link #updateAppVersionNameWithHttpInfoAsync}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param version The version number of the app to name. The special values <code>latest</code>
+   *     and <code>deployed</code> can also be used to target the latest or currently published
+   *     version. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateAppVersionNameAsync(
+      UUID appId, String version, UpdateAppVersionNameRequest body) {
+    return updateAppVersionNameWithHttpInfoAsync(appId, version, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Assign a human-readable name to a specific version of an app. The version is selected through
+   * the <code>version</code> query parameter.
+   *
+   * @param appId The ID of the app. (required)
+   * @param version The version number of the app to name. The special values <code>latest</code>
+   *     and <code>deployed</code> can also be used to target the latest or currently published
+   *     version. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateAppVersionNameWithHttpInfo(
+      UUID appId, String version, UpdateAppVersionNameRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling updateAppVersionName");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'version' when calling updateAppVersionName");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateAppVersionName");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/version-name"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.updateAppVersionName",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Name App Version.
+   *
+   * <p>See {@link #updateAppVersionNameWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param version The version number of the app to name. The special values <code>latest</code>
+   *     and <code>deployed</code> can also be used to target the latest or currently published
+   *     version. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateAppVersionNameWithHttpInfoAsync(
+      UUID appId, String version, UpdateAppVersionNameRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling updateAppVersionName"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'version' when calling updateAppVersionName"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateAppVersionName"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/version-name"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.updateAppVersionName",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update App Protection Level.
+   *
+   * <p>See {@link #updateProtectionLevelWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return UpdateAppResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UpdateAppResponse updateProtectionLevel(UUID appId, UpdateAppProtectionLevelRequest body)
+      throws ApiException {
+    return updateProtectionLevelWithHttpInfo(appId, body).getData();
+  }
+
+  /**
+   * Update App Protection Level.
+   *
+   * <p>See {@link #updateProtectionLevelWithHttpInfoAsync}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;UpdateAppResponse&gt;
+   */
+  public CompletableFuture<UpdateAppResponse> updateProtectionLevelAsync(
+      UUID appId, UpdateAppProtectionLevelRequest body) {
+    return updateProtectionLevelWithHttpInfoAsync(appId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the publication protection level of an app. When set to <code>approval_required</code>,
+   * future publishes must go through an approval workflow before going live.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;UpdateAppResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UpdateAppResponse> updateProtectionLevelWithHttpInfo(
+      UUID appId, UpdateAppProtectionLevelRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling updateProtectionLevel");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateProtectionLevel");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/protection-level"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.updateProtectionLevel",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateAppResponse>() {});
+  }
+
+  /**
+   * Update App Protection Level.
+   *
+   * <p>See {@link #updateProtectionLevelWithHttpInfo}.
+   *
+   * @param appId The ID of the app. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UpdateAppResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UpdateAppResponse>> updateProtectionLevelWithHttpInfoAsync(
+      UUID appId, UpdateAppProtectionLevelRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<UpdateAppResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appId' when calling updateProtectionLevel"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UpdateAppResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateProtectionLevel"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/apps/{app_id}/protection-level"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.updateProtectionLevel",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
