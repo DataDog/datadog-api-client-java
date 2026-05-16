@@ -1,0 +1,39 @@
+// Approve a flag suggestion returns "OK" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.FeatureFlagsApi;
+import com.datadog.api.client.v2.model.FlagSuggestionEventDataType;
+import com.datadog.api.client.v2.model.FlagSuggestionResponse;
+import com.datadog.api.client.v2.model.ReviewFlagSuggestionAttributes;
+import com.datadog.api.client.v2.model.ReviewFlagSuggestionData;
+import com.datadog.api.client.v2.model.ReviewFlagSuggestionRequest;
+import java.util.UUID;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    FeatureFlagsApi apiInstance = new FeatureFlagsApi(defaultClient);
+
+    ReviewFlagSuggestionRequest body =
+        new ReviewFlagSuggestionRequest()
+            .data(
+                new ReviewFlagSuggestionData()
+                    .attributes(
+                        new ReviewFlagSuggestionAttributes().comment("Looks good, approved!"))
+                    .type(FlagSuggestionEventDataType.FLAG_SUGGESTION_EVENTS));
+
+    try {
+      FlagSuggestionResponse result =
+          apiInstance.approveFlagSuggestion(
+              UUID.fromString("550e8400-e29b-41d4-a716-446655440020"), body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FeatureFlagsApi#approveFlagSuggestion");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
