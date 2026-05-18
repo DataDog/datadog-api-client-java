@@ -18,10 +18,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Scatterplot request containing formulas and functions. */
+/**
+ * Scatterplot table request. Supports two modes: - <strong>Formulas and functions</strong>
+ * (default): <code>request_type</code> is absent or <code>"table"</code>. Uses <code>queries</code>
+ * and <code>formulas</code>. - <strong>Data projection</strong>: <code>request_type</code> is
+ * <code>"data_projection"</code>. Uses <code>query</code>, <code>projection</code>, and optionally
+ * <code>limit</code>.
+ */
 @JsonPropertyOrder({
   ScatterplotTableRequest.JSON_PROPERTY_FORMULAS,
+  ScatterplotTableRequest.JSON_PROPERTY_LIMIT,
+  ScatterplotTableRequest.JSON_PROPERTY_PROJECTION,
   ScatterplotTableRequest.JSON_PROPERTY_QUERIES,
+  ScatterplotTableRequest.JSON_PROPERTY_QUERY,
+  ScatterplotTableRequest.JSON_PROPERTY_REQUEST_TYPE,
   ScatterplotTableRequest.JSON_PROPERTY_RESPONSE_FORMAT
 })
 @jakarta.annotation.Generated(
@@ -31,8 +41,20 @@ public class ScatterplotTableRequest {
   public static final String JSON_PROPERTY_FORMULAS = "formulas";
   private List<ScatterplotWidgetFormula> formulas = null;
 
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private Long limit;
+
+  public static final String JSON_PROPERTY_PROJECTION = "projection";
+  private ScatterplotDataProjectionProjection projection;
+
   public static final String JSON_PROPERTY_QUERIES = "queries";
   private List<FormulaAndFunctionQueryDefinition> queries = null;
+
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private ScatterplotDataProjectionQuery query;
+
+  public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
+  private ScatterplotTableRequestType requestType;
 
   public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
   private FormulaAndFunctionResponseFormat responseFormat;
@@ -70,6 +92,50 @@ public class ScatterplotTableRequest {
     this.formulas = formulas;
   }
 
+  public ScatterplotTableRequest limit(Long limit) {
+    this.limit = limit;
+    return this;
+  }
+
+  /**
+   * Maximum number of rows to return. Used when <code>request_type</code> is <code>
+   * "data_projection"</code>.
+   *
+   * @return limit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
+  }
+
+  public ScatterplotTableRequest projection(ScatterplotDataProjectionProjection projection) {
+    this.projection = projection;
+    this.unparsed |= projection.unparsed;
+    return this;
+  }
+
+  /**
+   * The projection configuration for a scatterplot data projection request.
+   *
+   * @return projection
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROJECTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScatterplotDataProjectionProjection getProjection() {
+    return projection;
+  }
+
+  public void setProjection(ScatterplotDataProjectionProjection projection) {
+    this.projection = projection;
+  }
+
   public ScatterplotTableRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
     for (FormulaAndFunctionQueryDefinition item : queries) {
@@ -101,6 +167,53 @@ public class ScatterplotTableRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+  }
+
+  public ScatterplotTableRequest query(ScatterplotDataProjectionQuery query) {
+    this.query = query;
+    this.unparsed |= query.unparsed;
+    return this;
+  }
+
+  /**
+   * The query for a scatterplot data projection request.
+   *
+   * @return query
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScatterplotDataProjectionQuery getQuery() {
+    return query;
+  }
+
+  public void setQuery(ScatterplotDataProjectionQuery query) {
+    this.query = query;
+  }
+
+  public ScatterplotTableRequest requestType(ScatterplotTableRequestType requestType) {
+    this.requestType = requestType;
+    this.unparsed |= !requestType.isValid();
+    return this;
+  }
+
+  /**
+   * The type of the scatterplot table request.
+   *
+   * @return requestType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScatterplotTableRequestType getRequestType() {
+    return requestType;
+  }
+
+  public void setRequestType(ScatterplotTableRequestType requestType) {
+    if (!requestType.isValid()) {
+      this.unparsed = true;
+    }
+    this.requestType = requestType;
   }
 
   public ScatterplotTableRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
@@ -186,14 +299,26 @@ public class ScatterplotTableRequest {
     }
     ScatterplotTableRequest scatterplotTableRequest = (ScatterplotTableRequest) o;
     return Objects.equals(this.formulas, scatterplotTableRequest.formulas)
+        && Objects.equals(this.limit, scatterplotTableRequest.limit)
+        && Objects.equals(this.projection, scatterplotTableRequest.projection)
         && Objects.equals(this.queries, scatterplotTableRequest.queries)
+        && Objects.equals(this.query, scatterplotTableRequest.query)
+        && Objects.equals(this.requestType, scatterplotTableRequest.requestType)
         && Objects.equals(this.responseFormat, scatterplotTableRequest.responseFormat)
         && Objects.equals(this.additionalProperties, scatterplotTableRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(formulas, queries, responseFormat, additionalProperties);
+    return Objects.hash(
+        formulas,
+        limit,
+        projection,
+        queries,
+        query,
+        requestType,
+        responseFormat,
+        additionalProperties);
   }
 
   @Override
@@ -201,7 +326,11 @@ public class ScatterplotTableRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScatterplotTableRequest {\n");
     sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    projection: ").append(toIndentedString(projection)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
