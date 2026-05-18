@@ -29,11 +29,11 @@ import java.util.Objects;
   ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_ID,
-  ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_INGESTION_ENDPOINT,
+  ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_INGESTION_ENDPOINT_KEY,
   ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_TABLE_NAME,
   ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_TYPE,
-  ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_UNITY_CATALOG_ENDPOINT
+  ObservabilityPipelineDatabricksZerobusDestination.JSON_PROPERTY_UNITY_CATALOG_ENDPOINT_KEY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -48,8 +48,8 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_INGESTION_ENDPOINT = "ingestion_endpoint";
-  private String ingestionEndpoint;
+  public static final String JSON_PROPERTY_INGESTION_ENDPOINT_KEY = "ingestion_endpoint_key";
+  private String ingestionEndpointKey;
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
   private List<String> inputs = new ArrayList<>();
@@ -61,8 +61,9 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
   private ObservabilityPipelineDatabricksZerobusDestinationType type =
       ObservabilityPipelineDatabricksZerobusDestinationType.DATABRICKS_ZEROBUS;
 
-  public static final String JSON_PROPERTY_UNITY_CATALOG_ENDPOINT = "unity_catalog_endpoint";
-  private String unityCatalogEndpoint;
+  public static final String JSON_PROPERTY_UNITY_CATALOG_ENDPOINT_KEY =
+      "unity_catalog_endpoint_key";
+  private String unityCatalogEndpointKey;
 
   public ObservabilityPipelineDatabricksZerobusDestination() {}
 
@@ -71,23 +72,17 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
       @JsonProperty(required = true, value = JSON_PROPERTY_AUTH)
           ObservabilityPipelineDatabricksZerobusDestinationAuth auth,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INGESTION_ENDPOINT)
-          String ingestionEndpoint,
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TABLE_NAME) String tableName,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineDatabricksZerobusDestinationType type,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UNITY_CATALOG_ENDPOINT)
-          String unityCatalogEndpoint) {
+          ObservabilityPipelineDatabricksZerobusDestinationType type) {
     this.auth = auth;
     this.unparsed |= auth.unparsed;
     this.id = id;
-    this.ingestionEndpoint = ingestionEndpoint;
     this.inputs = inputs;
     this.tableName = tableName;
     this.type = type;
     this.unparsed |= !type.isValid();
-    this.unityCatalogEndpoint = unityCatalogEndpoint;
   }
 
   public ObservabilityPipelineDatabricksZerobusDestination auth(
@@ -155,26 +150,28 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
     this.id = id;
   }
 
-  public ObservabilityPipelineDatabricksZerobusDestination ingestionEndpoint(
-      String ingestionEndpoint) {
-    this.ingestionEndpoint = ingestionEndpoint;
+  public ObservabilityPipelineDatabricksZerobusDestination ingestionEndpointKey(
+      String ingestionEndpointKey) {
+    this.ingestionEndpointKey = ingestionEndpointKey;
     return this;
   }
 
   /**
-   * Your Databricks Zerobus ingestion endpoint. This is the endpoint used to stream data directly
-   * into your Databricks Lakehouse.
+   * Name of the environment variable or the secret identifier that references the Databricks
+   * Zerobus ingestion endpoint, which is used to stream data directly into your Databricks
+   * Lakehouse.
    *
-   * @return ingestionEndpoint
+   * @return ingestionEndpointKey
    */
-  @JsonProperty(JSON_PROPERTY_INGESTION_ENDPOINT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getIngestionEndpoint() {
-    return ingestionEndpoint;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGESTION_ENDPOINT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIngestionEndpointKey() {
+    return ingestionEndpointKey;
   }
 
-  public void setIngestionEndpoint(String ingestionEndpoint) {
-    this.ingestionEndpoint = ingestionEndpoint;
+  public void setIngestionEndpointKey(String ingestionEndpointKey) {
+    this.ingestionEndpointKey = ingestionEndpointKey;
   }
 
   public ObservabilityPipelineDatabricksZerobusDestination inputs(List<String> inputs) {
@@ -248,25 +245,27 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
     this.type = type;
   }
 
-  public ObservabilityPipelineDatabricksZerobusDestination unityCatalogEndpoint(
-      String unityCatalogEndpoint) {
-    this.unityCatalogEndpoint = unityCatalogEndpoint;
+  public ObservabilityPipelineDatabricksZerobusDestination unityCatalogEndpointKey(
+      String unityCatalogEndpointKey) {
+    this.unityCatalogEndpointKey = unityCatalogEndpointKey;
     return this;
   }
 
   /**
-   * Your Databricks workspace URL. This is used to communicate with the Unity Catalog API.
+   * Name of the environment variable or the secret identifier that references your Databricks
+   * workspace URL, which is used to communicate with the Unity Catalog API.
    *
-   * @return unityCatalogEndpoint
+   * @return unityCatalogEndpointKey
    */
-  @JsonProperty(JSON_PROPERTY_UNITY_CATALOG_ENDPOINT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUnityCatalogEndpoint() {
-    return unityCatalogEndpoint;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UNITY_CATALOG_ENDPOINT_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUnityCatalogEndpointKey() {
+    return unityCatalogEndpointKey;
   }
 
-  public void setUnityCatalogEndpoint(String unityCatalogEndpoint) {
-    this.unityCatalogEndpoint = unityCatalogEndpoint;
+  public void setUnityCatalogEndpointKey(String unityCatalogEndpointKey) {
+    this.unityCatalogEndpointKey = unityCatalogEndpointKey;
   }
 
   /**
@@ -332,15 +331,15 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
         && Objects.equals(this.buffer, observabilityPipelineDatabricksZerobusDestination.buffer)
         && Objects.equals(this.id, observabilityPipelineDatabricksZerobusDestination.id)
         && Objects.equals(
-            this.ingestionEndpoint,
-            observabilityPipelineDatabricksZerobusDestination.ingestionEndpoint)
+            this.ingestionEndpointKey,
+            observabilityPipelineDatabricksZerobusDestination.ingestionEndpointKey)
         && Objects.equals(this.inputs, observabilityPipelineDatabricksZerobusDestination.inputs)
         && Objects.equals(
             this.tableName, observabilityPipelineDatabricksZerobusDestination.tableName)
         && Objects.equals(this.type, observabilityPipelineDatabricksZerobusDestination.type)
         && Objects.equals(
-            this.unityCatalogEndpoint,
-            observabilityPipelineDatabricksZerobusDestination.unityCatalogEndpoint)
+            this.unityCatalogEndpointKey,
+            observabilityPipelineDatabricksZerobusDestination.unityCatalogEndpointKey)
         && Objects.equals(
             this.additionalProperties,
             observabilityPipelineDatabricksZerobusDestination.additionalProperties);
@@ -352,11 +351,11 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
         auth,
         buffer,
         id,
-        ingestionEndpoint,
+        ingestionEndpointKey,
         inputs,
         tableName,
         type,
-        unityCatalogEndpoint,
+        unityCatalogEndpointKey,
         additionalProperties);
   }
 
@@ -367,12 +366,14 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    ingestionEndpoint: ").append(toIndentedString(ingestionEndpoint)).append("\n");
+    sb.append("    ingestionEndpointKey: ")
+        .append(toIndentedString(ingestionEndpointKey))
+        .append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    tableName: ").append(toIndentedString(tableName)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    unityCatalogEndpoint: ")
-        .append(toIndentedString(unityCatalogEndpoint))
+    sb.append("    unityCatalogEndpointKey: ")
+        .append(toIndentedString(unityCatalogEndpointKey))
         .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
