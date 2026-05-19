@@ -879,6 +879,8 @@ public class ApiClient {
           put("v2.deleteDashboardSecureEmbed", false);
           put("v2.getDashboardSecureEmbed", false);
           put("v2.updateDashboardSecureEmbed", false);
+          put("v2.getDashboardUsage", false);
+          put("v2.listDashboardsUsage", false);
           put("v2.createDataset", false);
           put("v2.deleteDataset", false);
           put("v2.getAllDatasets", false);
