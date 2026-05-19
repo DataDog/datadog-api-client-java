@@ -52,7 +52,7 @@ public class CaseUpdateCustomAttribute {
   }
 
   /**
-   * Custom attribute values
+   * A typed value for a custom attribute on a specific case.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class CaseUpdateCustomAttribute {
   }
 
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    *
    * @return type
    */

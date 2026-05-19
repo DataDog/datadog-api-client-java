@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Custom attribute configs response. */
+/** Response containing a list of custom attribute configurations. */
 @JsonPropertyOrder({CustomAttributeConfigsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

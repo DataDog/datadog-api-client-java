@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Custom attributes config JSON:API resource type */
+/** JSON:API resource type for custom attribute configurations. */
 @JsonSerialize(
     using = CustomAttributeConfigResourceType.CustomAttributeConfigResourceTypeSerializer.class)
 public class CustomAttributeConfigResourceType extends ModelEnum<String> {

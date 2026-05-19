@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CaseTypeCreateRequest;
 import com.datadog.api.client.v2.model.CaseTypeResponse;
+import com.datadog.api.client.v2.model.CaseTypeUpdateRequest;
 import com.datadog.api.client.v2.model.CaseTypesResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -182,7 +183,7 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #deleteCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCaseType(String caseTypeId) throws ApiException {
@@ -194,7 +195,7 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #deleteCaseTypeWithHttpInfoAsync}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteCaseTypeAsync(String caseTypeId) {
@@ -208,7 +209,7 @@ public class CaseManagementTypeApi {
   /**
    * Delete a case type
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -262,7 +263,7 @@ public class CaseManagementTypeApi {
    *
    * <p>See {@link #deleteCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCaseTypeWithHttpInfoAsync(String caseTypeId) {
@@ -419,5 +420,182 @@ public class CaseManagementTypeApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CaseTypesResponse>() {});
+  }
+
+  /**
+   * Update a case type.
+   *
+   * <p>See {@link #updateCaseTypeWithHttpInfo}.
+   *
+   * @param caseTypeId The UUID of the case type. (required)
+   * @param body Case type payload. (required)
+   * @return CaseTypeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CaseTypeResponse updateCaseType(String caseTypeId, CaseTypeUpdateRequest body)
+      throws ApiException {
+    return updateCaseTypeWithHttpInfo(caseTypeId, body).getData();
+  }
+
+  /**
+   * Update a case type.
+   *
+   * <p>See {@link #updateCaseTypeWithHttpInfoAsync}.
+   *
+   * @param caseTypeId The UUID of the case type. (required)
+   * @param body Case type payload. (required)
+   * @return CompletableFuture&lt;CaseTypeResponse&gt;
+   */
+  public CompletableFuture<CaseTypeResponse> updateCaseTypeAsync(
+      String caseTypeId, CaseTypeUpdateRequest body) {
+    return updateCaseTypeWithHttpInfoAsync(caseTypeId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates the name, emoji, or description of an existing case type.
+   *
+   * @param caseTypeId The UUID of the case type. (required)
+   * @param body Case type payload. (required)
+   * @return ApiResponse&lt;CaseTypeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CaseTypeResponse> updateCaseTypeWithHttpInfo(
+      String caseTypeId, CaseTypeUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateCaseType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseTypeId' is set
+    if (caseTypeId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseTypeId' when calling updateCaseType");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateCaseType");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/types/{case_type_id}"
+            .replaceAll(
+                "\\{" + "case_type_id" + "\\}", apiClient.escapeString(caseTypeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementTypeApi.updateCaseType",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseTypeResponse>() {});
+  }
+
+  /**
+   * Update a case type.
+   *
+   * <p>See {@link #updateCaseTypeWithHttpInfo}.
+   *
+   * @param caseTypeId The UUID of the case type. (required)
+   * @param body Case type payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CaseTypeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CaseTypeResponse>> updateCaseTypeWithHttpInfoAsync(
+      String caseTypeId, CaseTypeUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateCaseType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CaseTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseTypeId' is set
+    if (caseTypeId == null) {
+      CompletableFuture<ApiResponse<CaseTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseTypeId' when calling updateCaseType"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CaseTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateCaseType"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/types/{case_type_id}"
+            .replaceAll(
+                "\\{" + "case_type_id" + "\\}", apiClient.escapeString(caseTypeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementTypeApi.updateCaseType",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CaseTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseTypeResponse>() {});
   }
 }
