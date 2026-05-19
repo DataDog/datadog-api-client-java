@@ -70,7 +70,7 @@ public class CaseComment {
   }
 
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    *
    * @return type
    */

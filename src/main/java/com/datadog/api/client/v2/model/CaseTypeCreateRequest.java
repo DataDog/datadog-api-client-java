@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case type create request */
+/** Request payload for creating a case type. */
 @JsonPropertyOrder({CaseTypeCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class CaseTypeCreateRequest {
   }
 
   /**
-   * Case type
+   * Data object for creating a case type.
    *
    * @return data
    */

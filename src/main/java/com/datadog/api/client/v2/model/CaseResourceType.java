@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Case resource type */
+/** JSON:API resource type for cases. */
 @JsonSerialize(using = CaseResourceType.CaseResourceTypeSerializer.class)
 public class CaseResourceType extends ModelEnum<String> {
 

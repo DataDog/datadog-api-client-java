@@ -124,7 +124,7 @@ public class Case {
   }
 
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    *
    * @return type
    */

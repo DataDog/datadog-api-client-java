@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CaseType</code> object. */
+/**
+ * A case type that defines a classification category for cases. Each case type can have its own
+ * custom attributes, statuses, and automation rules.
+ */
 @JsonPropertyOrder({
   CaseTypeResource.JSON_PROPERTY_ATTRIBUTES,
   CaseTypeResource.JSON_PROPERTY_ID,
@@ -42,7 +45,9 @@ public class CaseTypeResource {
   }
 
   /**
-   * Case Type resource attributes
+   * Attributes of a case type, which define a classification category for cases. Organizations use
+   * case types to model different workflows (for example, Security Incident, Bug Report, Change
+   * Request).
    *
    * @return attributes
    */
@@ -85,7 +90,7 @@ public class CaseTypeResource {
   }
 
   /**
-   * Case type resource type
+   * JSON:API resource type for case types.
    *
    * @return type
    */

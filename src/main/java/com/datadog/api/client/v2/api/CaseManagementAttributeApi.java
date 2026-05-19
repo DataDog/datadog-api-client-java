@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CustomAttributeConfigCreateRequest;
 import com.datadog.api.client.v2.model.CustomAttributeConfigResponse;
+import com.datadog.api.client.v2.model.CustomAttributeConfigUpdateRequest;
 import com.datadog.api.client.v2.model.CustomAttributeConfigsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -50,7 +51,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #createCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @param body Custom attribute config payload (required)
    * @return CustomAttributeConfigResponse
    * @throws ApiException if fails to make API call
@@ -65,7 +66,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #createCustomAttributeConfigWithHttpInfoAsync}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @param body Custom attribute config payload (required)
    * @return CompletableFuture&lt;CustomAttributeConfigResponse&gt;
    */
@@ -81,7 +82,7 @@ public class CaseManagementAttributeApi {
   /**
    * Create custom attribute config for a case type
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @param body Custom attribute config payload (required)
    * @return ApiResponse&lt;CustomAttributeConfigResponse&gt;
    * @throws ApiException if fails to make API call
@@ -146,7 +147,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #createCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @param body Custom attribute config payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CustomAttributeConfigResponse&gt;&gt;
    */
@@ -218,7 +219,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #deleteCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @param customAttributeId Case Custom attribute's UUID (required)
    * @throws ApiException if fails to make API call
    */
@@ -232,7 +233,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #deleteCustomAttributeConfigWithHttpInfoAsync}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @param customAttributeId Case Custom attribute's UUID (required)
    * @return CompletableFuture
    */
@@ -248,7 +249,7 @@ public class CaseManagementAttributeApi {
   /**
    * Delete custom attribute config
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @param customAttributeId Case Custom attribute's UUID (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -317,7 +318,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #deleteCustomAttributeConfigWithHttpInfo}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @param customAttributeId Case Custom attribute's UUID (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -389,7 +390,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #getAllCustomAttributeConfigsByCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @return CustomAttributeConfigsResponse
    * @throws ApiException if fails to make API call
    */
@@ -403,7 +404,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #getAllCustomAttributeConfigsByCaseTypeWithHttpInfoAsync}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @return CompletableFuture&lt;CustomAttributeConfigsResponse&gt;
    */
   public CompletableFuture<CustomAttributeConfigsResponse>
@@ -418,7 +419,7 @@ public class CaseManagementAttributeApi {
   /**
    * Get all custom attribute config of case type
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @return ApiResponse&lt;CustomAttributeConfigsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -476,7 +477,7 @@ public class CaseManagementAttributeApi {
    *
    * <p>See {@link #getAllCustomAttributeConfigsByCaseTypeWithHttpInfo}.
    *
-   * @param caseTypeId Case type's UUID (required)
+   * @param caseTypeId The UUID of the case type. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CustomAttributeConfigsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CustomAttributeConfigsResponse>>
@@ -641,5 +642,224 @@ public class CaseManagementAttributeApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CustomAttributeConfigsResponse>() {});
+  }
+
+  /**
+   * Update custom attribute config.
+   *
+   * <p>See {@link #updateCustomAttributeConfigWithHttpInfo}.
+   *
+   * @param caseTypeId The UUID of the case type. (required)
+   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param body Custom attribute config payload. (required)
+   * @return CustomAttributeConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomAttributeConfigResponse updateCustomAttributeConfig(
+      String caseTypeId, String customAttributeId, CustomAttributeConfigUpdateRequest body)
+      throws ApiException {
+    return updateCustomAttributeConfigWithHttpInfo(caseTypeId, customAttributeId, body).getData();
+  }
+
+  /**
+   * Update custom attribute config.
+   *
+   * <p>See {@link #updateCustomAttributeConfigWithHttpInfoAsync}.
+   *
+   * @param caseTypeId The UUID of the case type. (required)
+   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param body Custom attribute config payload. (required)
+   * @return CompletableFuture&lt;CustomAttributeConfigResponse&gt;
+   */
+  public CompletableFuture<CustomAttributeConfigResponse> updateCustomAttributeConfigAsync(
+      String caseTypeId, String customAttributeId, CustomAttributeConfigUpdateRequest body) {
+    return updateCustomAttributeConfigWithHttpInfoAsync(caseTypeId, customAttributeId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates the display name, description, type, or options of an existing custom attribute
+   * configuration for a case type.
+   *
+   * @param caseTypeId The UUID of the case type. (required)
+   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param body Custom attribute config payload. (required)
+   * @return ApiResponse&lt;CustomAttributeConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CustomAttributeConfigResponse> updateCustomAttributeConfigWithHttpInfo(
+      String caseTypeId, String customAttributeId, CustomAttributeConfigUpdateRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateCustomAttributeConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseTypeId' is set
+    if (caseTypeId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'caseTypeId' when calling updateCustomAttributeConfig");
+    }
+
+    // verify the required parameter 'customAttributeId' is set
+    if (customAttributeId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'customAttributeId' when calling"
+              + " updateCustomAttributeConfig");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateCustomAttributeConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}"
+            .replaceAll(
+                "\\{" + "case_type_id" + "\\}", apiClient.escapeString(caseTypeId.toString()))
+            .replaceAll(
+                "\\{" + "custom_attribute_id" + "\\}",
+                apiClient.escapeString(customAttributeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementAttributeApi.updateCustomAttributeConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomAttributeConfigResponse>() {});
+  }
+
+  /**
+   * Update custom attribute config.
+   *
+   * <p>See {@link #updateCustomAttributeConfigWithHttpInfo}.
+   *
+   * @param caseTypeId The UUID of the case type. (required)
+   * @param customAttributeId Case Custom attribute's UUID (required)
+   * @param body Custom attribute config payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CustomAttributeConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CustomAttributeConfigResponse>>
+      updateCustomAttributeConfigWithHttpInfoAsync(
+          String caseTypeId, String customAttributeId, CustomAttributeConfigUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateCustomAttributeConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CustomAttributeConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseTypeId' is set
+    if (caseTypeId == null) {
+      CompletableFuture<ApiResponse<CustomAttributeConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'caseTypeId' when calling"
+                  + " updateCustomAttributeConfig"));
+      return result;
+    }
+
+    // verify the required parameter 'customAttributeId' is set
+    if (customAttributeId == null) {
+      CompletableFuture<ApiResponse<CustomAttributeConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'customAttributeId' when calling"
+                  + " updateCustomAttributeConfig"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CustomAttributeConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateCustomAttributeConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}"
+            .replaceAll(
+                "\\{" + "case_type_id" + "\\}", apiClient.escapeString(caseTypeId.toString()))
+            .replaceAll(
+                "\\{" + "custom_attribute_id" + "\\}",
+                apiClient.escapeString(customAttributeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementAttributeApi.updateCustomAttributeConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CustomAttributeConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomAttributeConfigResponse>() {});
   }
 }

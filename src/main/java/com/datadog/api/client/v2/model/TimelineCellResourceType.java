@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Timeline cell JSON:API resource type */
+/** JSON:API resource type for timeline cells. */
 @JsonSerialize(using = TimelineCellResourceType.TimelineCellResourceTypeSerializer.class)
 public class TimelineCellResourceType extends ModelEnum<String> {
 
