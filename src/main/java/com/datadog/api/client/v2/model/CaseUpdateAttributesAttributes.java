@@ -47,8 +47,7 @@ public class CaseUpdateAttributesAttributes {
   }
 
   /**
-   * Key-value pairs of case attributes. Each key maps to an array of string values, used for
-   * flexible metadata such as labels or tags.
+   * The definition of <code>CaseObjectAttributes</code> object.
    *
    * @return attributes
    */

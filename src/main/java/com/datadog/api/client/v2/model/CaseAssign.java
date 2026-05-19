@@ -70,7 +70,7 @@ public class CaseAssign {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * Case resource type
    *
    * @return type
    */

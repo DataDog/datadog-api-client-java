@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/model-lab-api/artifacts/content",
+      "queryStringParameters": {
+        "project_id": [
+          "2387"
+        ],
+        "artifact_path": [
+          "f635c73b70594ab6bb6e212cdf87d0d5/artifacts/lora_model/adapter_config.json"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "data",
+      "headers": {
+        "Content-Type": [
+          "application/octet-stream"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5b6a41ee-15aa-359f-f07c-61e1ab091c87"
+  }
+]

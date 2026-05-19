@@ -1,0 +1,44 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/model-lab-api/runs/70158/pin",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d704e412-17e3-98b4-2fa3-78444c6ceea9"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/model-lab-api/runs/70158/pin",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e9b5da5a-ee96-27b2-f8a0-482fba517ccd"
+  }
+]

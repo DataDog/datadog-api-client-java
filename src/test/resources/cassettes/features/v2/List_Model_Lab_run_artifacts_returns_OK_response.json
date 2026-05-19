@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/model-lab-api/runs/70158/artifacts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"70158\",\"type\":\"artifacts\",\"attributes\":{\"files\":[{\"path\":\"lora_model/\",\"is_dir\":true}],\"path_in_project\":\"f635c73b70594ab6bb6e212cdf87d0d5/artifacts\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3990d021-db13-32a0-37a0-829eccd20872"
+  }
+]

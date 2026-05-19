@@ -42,7 +42,7 @@ public class CaseEmpty {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * Case resource type
    *
    * @return type
    */

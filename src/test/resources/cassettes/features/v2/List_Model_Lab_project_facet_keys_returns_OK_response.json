@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/model-lab-api/project-facet-keys",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2\",\"type\":\"facet_keys\",\"attributes\":{\"metrics\":null,\"parameters\":[],\"tags\":[\"age\",\"beatings\",\"mlflow.experimentKind\",\"mlflow.experiment.ownerID\",\"morale\",\"team\",\"usecase\",\"weather\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8d9d1e23-4208-f799-2e5f-c2b9b3f4c216"
+  }
+]

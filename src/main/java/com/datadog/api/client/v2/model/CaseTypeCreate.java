@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for creating a case type. */
+/** Case type */
 @JsonPropertyOrder({CaseTypeCreate.JSON_PROPERTY_ATTRIBUTES, CaseTypeCreate.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -49,9 +49,7 @@ public class CaseTypeCreate {
   }
 
   /**
-   * Attributes of a case type, which define a classification category for cases. Organizations use
-   * case types to model different workflows (for example, Security Incident, Bug Report, Change
-   * Request).
+   * Case Type resource attributes
    *
    * @return attributes
    */
@@ -72,7 +70,7 @@ public class CaseTypeCreate {
   }
 
   /**
-   * JSON:API resource type for case types.
+   * Case type resource type
    *
    * @return type
    */

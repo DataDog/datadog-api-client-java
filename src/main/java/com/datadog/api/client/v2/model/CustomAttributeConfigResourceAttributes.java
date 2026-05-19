@@ -17,10 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Attributes of a custom attribute configuration, defining an organization-specific metadata field
- * that can be added to cases of a given type.
- */
+/** Custom attribute resource attributes */
 @JsonPropertyOrder({
   CustomAttributeConfigResourceAttributes.JSON_PROPERTY_CASE_TYPE_ID,
   CustomAttributeConfigResourceAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -74,7 +71,7 @@ public class CustomAttributeConfigResourceAttributes {
   }
 
   /**
-   * The UUID of the case type this custom attribute belongs to.
+   * Custom attribute config identifier.
    *
    * @return caseTypeId
    */
@@ -94,7 +91,7 @@ public class CustomAttributeConfigResourceAttributes {
   }
 
   /**
-   * A description explaining the purpose and expected values for this custom attribute.
+   * Custom attribute description.
    *
    * @return description
    */
@@ -115,7 +112,7 @@ public class CustomAttributeConfigResourceAttributes {
   }
 
   /**
-   * The human-readable label shown in the Case Management UI for this custom attribute.
+   * Custom attribute name.
    *
    * @return displayName
    */
@@ -135,8 +132,7 @@ public class CustomAttributeConfigResourceAttributes {
   }
 
   /**
-   * If <code>true</code>, this attribute accepts an array of values. If <code>false</code>, only a
-   * single value is allowed.
+   * Whether multiple values can be set
    *
    * @return isMulti
    */
@@ -156,7 +152,7 @@ public class CustomAttributeConfigResourceAttributes {
   }
 
   /**
-   * The programmatic key used to reference this custom attribute in search queries and API calls.
+   * Custom attribute key. This will be the value use to search on this custom attribute
    *
    * @return key
    */
@@ -177,8 +173,7 @@ public class CustomAttributeConfigResourceAttributes {
   }
 
   /**
-   * The data type of the custom attribute, which determines the allowed values and UI input
-   * control.
+   * Custom attributes type
    *
    * @return type
    */

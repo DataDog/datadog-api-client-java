@@ -18,10 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The type of content in the timeline cell. Currently only <code>COMMENT</code> is supported in
- * this endpoint.
- */
+/** Timeline cell content type */
 @JsonSerialize(using = TimelineCellType.TimelineCellTypeSerializer.class)
 public class TimelineCellType extends ModelEnum<String> {
 

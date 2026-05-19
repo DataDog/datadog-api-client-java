@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/model-lab-api/project-facet-values",
+      "queryStringParameters": {
+        "facet_type": [
+          "tag"
+        ],
+        "facet_name": [
+          "model"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"tag:model\",\"type\":\"facet_values\",\"attributes\":{\"facet_name\":\"model\",\"facet_type\":\"tag\",\"values\":[]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bd69bab8-0505-4ee5-53e2-8b3e4cf75c5b"
+  }
+]

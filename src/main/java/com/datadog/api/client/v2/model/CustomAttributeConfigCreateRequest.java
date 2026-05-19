@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request payload for creating a custom attribute configuration. */
+/** Custom attribute config create request */
 @JsonPropertyOrder({CustomAttributeConfigCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class CustomAttributeConfigCreateRequest {
   }
 
   /**
-   * Data object for creating a custom attribute configuration.
+   * Custom attribute config
    *
    * @return data
    */

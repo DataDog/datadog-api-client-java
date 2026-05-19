@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A user who authored a timeline cell. */
+/** timeline cell user author */
 @JsonPropertyOrder({
   TimelineCellAuthorUser.JSON_PROPERTY_CONTENT,
   TimelineCellAuthorUser.JSON_PROPERTY_TYPE
@@ -38,7 +38,7 @@ public class TimelineCellAuthorUser {
   }
 
   /**
-   * Profile information for the user who authored the timeline cell.
+   * user author content.
    *
    * @return content
    */
@@ -60,7 +60,7 @@ public class TimelineCellAuthorUser {
   }
 
   /**
-   * The type of timeline cell author. Currently only <code>USER</code> is supported.
+   * user author type.
    *
    * @return type
    */

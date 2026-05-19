@@ -16,11 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * A custom attribute configuration that defines an organization-specific metadata field on cases.
- * Custom attributes are scoped to a case type and can hold text, URLs, numbers, or predefined
- * select options.
- */
+/** The definition of <code>CustomAttributeConfig</code> object. */
 @JsonPropertyOrder({
   CustomAttributeConfig.JSON_PROPERTY_ATTRIBUTES,
   CustomAttributeConfig.JSON_PROPERTY_ID,
@@ -47,8 +43,7 @@ public class CustomAttributeConfig {
   }
 
   /**
-   * Attributes of a custom attribute configuration, defining an organization-specific metadata
-   * field that can be added to cases of a given type.
+   * Custom attribute resource attributes
    *
    * @return attributes
    */
@@ -91,7 +86,7 @@ public class CustomAttributeConfig {
   }
 
   /**
-   * JSON:API resource type for custom attribute configurations.
+   * Custom attributes config JSON:API resource type
    *
    * @return type
    */
