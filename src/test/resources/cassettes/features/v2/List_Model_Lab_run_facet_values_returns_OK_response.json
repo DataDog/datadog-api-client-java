@@ -1,0 +1,39 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/model-lab-api/facet-values",
+      "queryStringParameters": {
+        "filter[project_id]": [
+          "2387"
+        ],
+        "facet_type": [
+          "tag"
+        ],
+        "facet_name": [
+          "model"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"tag:model:2387\",\"type\":\"facet_values\",\"attributes\":{\"facet_name\":\"model\",\"facet_type\":\"tag\",\"values\":[]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0cbe3595-1b11-b785-1b81-1dd23dec0378"
+  }
+]

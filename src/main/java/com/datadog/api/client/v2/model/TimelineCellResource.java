@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A timeline cell resource representing a single entry in a case's activity timeline. */
+/** Timeline cell JSON:API resource */
 @JsonPropertyOrder({
   TimelineCellResource.JSON_PROPERTY_ATTRIBUTES,
   TimelineCellResource.JSON_PROPERTY_ID,
@@ -57,8 +57,7 @@ public class TimelineCellResource {
   }
 
   /**
-   * Attributes of a timeline cell, representing a single event in a case's chronological activity
-   * log (for example, a comment, status change, or assignment update).
+   * timeline cell
    *
    * @return attributes
    */
@@ -99,7 +98,7 @@ public class TimelineCellResource {
   }
 
   /**
-   * JSON:API resource type for timeline cells.
+   * Timeline cell JSON:API resource type
    *
    * @return type
    */

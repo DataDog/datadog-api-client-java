@@ -70,7 +70,7 @@ public class CaseUpdateStatus {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * Case resource type
    *
    * @return type
    */

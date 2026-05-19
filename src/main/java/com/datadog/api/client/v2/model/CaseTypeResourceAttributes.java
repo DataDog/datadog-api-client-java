@@ -19,11 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/**
- * Attributes of a case type, which define a classification category for cases. Organizations use
- * case types to model different workflows (for example, Security Incident, Bug Report, Change
- * Request).
- */
+/** Case Type resource attributes */
 @JsonPropertyOrder({
   CaseTypeResourceAttributes.JSON_PROPERTY_DELETED_AT,
   CaseTypeResourceAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -55,8 +51,7 @@ public class CaseTypeResourceAttributes {
   }
 
   /**
-   * Timestamp when the case type was marked as deleted. A null value indicates the case type is
-   * active.
+   * Timestamp of when the case type was deleted
    *
    * @return deletedAt
    */
@@ -87,7 +82,7 @@ public class CaseTypeResourceAttributes {
   }
 
   /**
-   * A detailed description explaining when this case type should be used.
+   * Case type description.
    *
    * @return description
    */
@@ -108,7 +103,7 @@ public class CaseTypeResourceAttributes {
   }
 
   /**
-   * An emoji icon representing the case type in the UI.
+   * Case type emoji.
    *
    * @return emoji
    */
@@ -129,8 +124,7 @@ public class CaseTypeResourceAttributes {
   }
 
   /**
-   * The display name of the case type, shown in the Case Management UI when creating or viewing
-   * cases.
+   * Case type name.
    *
    * @return name
    */

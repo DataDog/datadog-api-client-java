@@ -73,7 +73,7 @@ public class CaseUpdateAttributes {
   }
 
   /**
-   * JSON:API resource type for cases.
+   * Case resource type
    *
    * @return type
    */

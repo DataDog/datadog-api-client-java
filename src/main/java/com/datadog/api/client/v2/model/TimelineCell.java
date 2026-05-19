@@ -17,10 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Attributes of a timeline cell, representing a single event in a case's chronological activity log
- * (for example, a comment, status change, or assignment update).
- */
+/** timeline cell */
 @JsonPropertyOrder({
   TimelineCell.JSON_PROPERTY_AUTHOR,
   TimelineCell.JSON_PROPERTY_CELL_CONTENT,
@@ -58,7 +55,7 @@ public class TimelineCell {
   }
 
   /**
-   * The author of the timeline cell. Currently only user authors are supported.
+   * author of the timeline cell
    *
    * @return author
    */
@@ -80,7 +77,7 @@ public class TimelineCell {
   }
 
   /**
-   * The content payload of a timeline cell, varying by cell type.
+   * timeline cell content
    *
    * @return cellContent
    */
@@ -138,8 +135,7 @@ public class TimelineCell {
   }
 
   /**
-   * The type of content in the timeline cell. Currently only <code>COMMENT</code> is supported in
-   * this endpoint.
+   * Timeline cell content type
    *
    * @return type
    */

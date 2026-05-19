@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Profile information for the user who authored the timeline cell. */
+/** user author content. */
 @JsonPropertyOrder({
   TimelineCellAuthorUserContent.JSON_PROPERTY_EMAIL,
   TimelineCellAuthorUserContent.JSON_PROPERTY_HANDLE,
@@ -45,7 +45,7 @@ public class TimelineCellAuthorUserContent {
   }
 
   /**
-   * The email address of the user.
+   * user email
    *
    * @return email
    */
@@ -66,7 +66,7 @@ public class TimelineCellAuthorUserContent {
   }
 
   /**
-   * The Datadog handle of the user.
+   * user handle
    *
    * @return handle
    */
@@ -87,7 +87,7 @@ public class TimelineCellAuthorUserContent {
   }
 
   /**
-   * The UUID of the user.
+   * user UUID
    *
    * @return id
    */
@@ -108,7 +108,7 @@ public class TimelineCellAuthorUserContent {
   }
 
   /**
-   * The display name of the user.
+   * user name
    *
    * @return name
    */

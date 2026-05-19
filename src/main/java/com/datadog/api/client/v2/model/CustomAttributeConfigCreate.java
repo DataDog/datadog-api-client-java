@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for creating a custom attribute configuration. */
+/** Custom attribute config */
 @JsonPropertyOrder({
   CustomAttributeConfigCreate.JSON_PROPERTY_ATTRIBUTES,
   CustomAttributeConfigCreate.JSON_PROPERTY_TYPE
@@ -54,7 +54,7 @@ public class CustomAttributeConfigCreate {
   }
 
   /**
-   * Attributes required to create a custom attribute configuration.
+   * Custom attribute config resource attributes
    *
    * @return attributes
    */
@@ -75,7 +75,7 @@ public class CustomAttributeConfigCreate {
   }
 
   /**
-   * JSON:API resource type for custom attribute configurations.
+   * Custom attributes config JSON:API resource type
    *
    * @return type
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The content of a comment timeline cell. */
+/** comment content */
 @JsonPropertyOrder({TimelineCellContentComment.JSON_PROPERTY_MESSAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,7 +31,7 @@ public class TimelineCellContentComment {
   }
 
   /**
-   * The text content of the comment. Supports Markdown formatting.
+   * comment message
    *
    * @return message
    */
