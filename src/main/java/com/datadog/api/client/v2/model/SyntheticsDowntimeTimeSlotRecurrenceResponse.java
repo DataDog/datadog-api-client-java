@@ -24,6 +24,7 @@ import java.util.Objects;
   SyntheticsDowntimeTimeSlotRecurrenceResponse.JSON_PROPERTY_FREQUENCY,
   SyntheticsDowntimeTimeSlotRecurrenceResponse.JSON_PROPERTY_INTERVAL,
   SyntheticsDowntimeTimeSlotRecurrenceResponse.JSON_PROPERTY_UNTIL,
+  SyntheticsDowntimeTimeSlotRecurrenceResponse.JSON_PROPERTY_WEEKDAY_POSITIONS,
   SyntheticsDowntimeTimeSlotRecurrenceResponse.JSON_PROPERTY_WEEKDAYS
 })
 @jakarta.annotation.Generated(
@@ -38,6 +39,9 @@ public class SyntheticsDowntimeTimeSlotRecurrenceResponse {
 
   public static final String JSON_PROPERTY_UNTIL = "until";
   private SyntheticsDowntimeTimeSlotDate until;
+
+  public static final String JSON_PROPERTY_WEEKDAY_POSITIONS = "weekdayPositions";
+  private List<SyntheticsDowntimeWeekdayPosition> weekdayPositions = null;
 
   public static final String JSON_PROPERTY_WEEKDAYS = "weekdays";
   private List<SyntheticsDowntimeWeekday> weekdays = new ArrayList<>();
@@ -122,6 +126,40 @@ public class SyntheticsDowntimeTimeSlotRecurrenceResponse {
 
   public void setUntil(SyntheticsDowntimeTimeSlotDate until) {
     this.until = until;
+  }
+
+  public SyntheticsDowntimeTimeSlotRecurrenceResponse weekdayPositions(
+      List<SyntheticsDowntimeWeekdayPosition> weekdayPositions) {
+    this.weekdayPositions = weekdayPositions;
+    return this;
+  }
+
+  public SyntheticsDowntimeTimeSlotRecurrenceResponse addWeekdayPositionsItem(
+      SyntheticsDowntimeWeekdayPosition weekdayPositionsItem) {
+    if (this.weekdayPositions == null) {
+      this.weekdayPositions = new ArrayList<>();
+    }
+    this.weekdayPositions.add(weekdayPositionsItem);
+    this.unparsed |= !weekdayPositionsItem.isValid();
+    return this;
+  }
+
+  /**
+   * Positions of the weekdays within a month for a monthly Synthetics downtime recurrence. Used in
+   * combination with <code>weekdays</code> to schedule occurrences such as "the first Monday of the
+   * month".
+   *
+   * @return weekdayPositions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WEEKDAY_POSITIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsDowntimeWeekdayPosition> getWeekdayPositions() {
+    return weekdayPositions;
+  }
+
+  public void setWeekdayPositions(List<SyntheticsDowntimeWeekdayPosition> weekdayPositions) {
+    this.weekdayPositions = weekdayPositions;
   }
 
   public SyntheticsDowntimeTimeSlotRecurrenceResponse weekdays(
@@ -213,6 +251,8 @@ public class SyntheticsDowntimeTimeSlotRecurrenceResponse {
     return Objects.equals(this.frequency, syntheticsDowntimeTimeSlotRecurrenceResponse.frequency)
         && Objects.equals(this.interval, syntheticsDowntimeTimeSlotRecurrenceResponse.interval)
         && Objects.equals(this.until, syntheticsDowntimeTimeSlotRecurrenceResponse.until)
+        && Objects.equals(
+            this.weekdayPositions, syntheticsDowntimeTimeSlotRecurrenceResponse.weekdayPositions)
         && Objects.equals(this.weekdays, syntheticsDowntimeTimeSlotRecurrenceResponse.weekdays)
         && Objects.equals(
             this.additionalProperties,
@@ -221,7 +261,8 @@ public class SyntheticsDowntimeTimeSlotRecurrenceResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(frequency, interval, until, weekdays, additionalProperties);
+    return Objects.hash(
+        frequency, interval, until, weekdayPositions, weekdays, additionalProperties);
   }
 
   @Override
@@ -231,6 +272,7 @@ public class SyntheticsDowntimeTimeSlotRecurrenceResponse {
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    until: ").append(toIndentedString(until)).append("\n");
+    sb.append("    weekdayPositions: ").append(toIndentedString(weekdayPositions)).append("\n");
     sb.append("    weekdays: ").append(toIndentedString(weekdays)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
