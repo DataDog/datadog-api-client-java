@@ -135,7 +135,8 @@ public class CaseAttributes {
   }
 
   /**
-   * The definition of <code>CaseObjectAttributes</code> object.
+   * Key-value pairs of case attributes. Each key maps to an array of string values, used for
+   * flexible metadata such as labels or tags.
    *
    * @return attributes
    */

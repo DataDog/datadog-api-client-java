@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Custom attribute config resource attributes */
+/** Attributes required to create a custom attribute configuration. */
 @JsonPropertyOrder({
   CustomAttributeConfigAttributesCreate.JSON_PROPERTY_DESCRIPTION,
   CustomAttributeConfigAttributesCreate.JSON_PROPERTY_DISPLAY_NAME,
@@ -65,7 +65,7 @@ public class CustomAttributeConfigAttributesCreate {
   }
 
   /**
-   * Custom attribute description.
+   * A description explaining the purpose and expected values for this custom attribute.
    *
    * @return description
    */
@@ -86,7 +86,7 @@ public class CustomAttributeConfigAttributesCreate {
   }
 
   /**
-   * Custom attribute name.
+   * The human-readable label shown in the Case Management UI for this custom attribute.
    *
    * @return displayName
    */
@@ -106,7 +106,8 @@ public class CustomAttributeConfigAttributesCreate {
   }
 
   /**
-   * Whether multiple values can be set
+   * If <code>true</code>, this attribute accepts an array of values. If <code>false</code>, only a
+   * single value is allowed.
    *
    * @return isMulti
    */
@@ -126,7 +127,7 @@ public class CustomAttributeConfigAttributesCreate {
   }
 
   /**
-   * Custom attribute key. This will be the value use to search on this custom attribute
+   * The programmatic key used to reference this custom attribute in search queries and API calls.
    *
    * @return key
    */
@@ -147,7 +148,8 @@ public class CustomAttributeConfigAttributesCreate {
   }
 
   /**
-   * Custom attributes type
+   * The data type of the custom attribute, which determines the allowed values and UI input
+   * control.
    *
    * @return type
    */

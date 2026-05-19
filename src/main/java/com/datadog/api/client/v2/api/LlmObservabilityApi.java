@@ -29,9 +29,16 @@ import com.datadog.api.client.v2.model.LLMObsDeleteDatasetsRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteExperimentsRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteProjectsRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentEventsRequest;
+import com.datadog.api.client.v2.model.LLMObsExperimentEventsV2Response;
 import com.datadog.api.client.v2.model.LLMObsExperimentRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentResponse;
 import com.datadog.api.client.v2.model.LLMObsExperimentUpdateRequest;
+import com.datadog.api.client.v2.model.LLMObsExperimentationAnalyticsRequest;
+import com.datadog.api.client.v2.model.LLMObsExperimentationAnalyticsResponse;
+import com.datadog.api.client.v2.model.LLMObsExperimentationSearchRequest;
+import com.datadog.api.client.v2.model.LLMObsExperimentationSearchResponse;
+import com.datadog.api.client.v2.model.LLMObsExperimentationSimpleSearchRequest;
+import com.datadog.api.client.v2.model.LLMObsExperimentationSimpleSearchResponse;
 import com.datadog.api.client.v2.model.LLMObsExperimentsResponse;
 import com.datadog.api.client.v2.model.LLMObsProjectRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectResponse;
@@ -74,6 +81,167 @@ public class LlmObservabilityApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Aggregate LLM Observability experimentation.
+   *
+   * <p>See {@link #aggregateLLMObsExperimentationWithHttpInfo}.
+   *
+   * @param body Analytics payload. (required)
+   * @return LLMObsExperimentationAnalyticsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsExperimentationAnalyticsResponse aggregateLLMObsExperimentation(
+      LLMObsExperimentationAnalyticsRequest body) throws ApiException {
+    return aggregateLLMObsExperimentationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Aggregate LLM Observability experimentation.
+   *
+   * <p>See {@link #aggregateLLMObsExperimentationWithHttpInfoAsync}.
+   *
+   * @param body Analytics payload. (required)
+   * @return CompletableFuture&lt;LLMObsExperimentationAnalyticsResponse&gt;
+   */
+  public CompletableFuture<LLMObsExperimentationAnalyticsResponse>
+      aggregateLLMObsExperimentationAsync(LLMObsExperimentationAnalyticsRequest body) {
+    return aggregateLLMObsExperimentationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Execute an analytics aggregation over LLM Observability experimentation data. Use this endpoint
+   * to compute metrics (for example average eval scores) grouped by fields such as <code>span_id
+   * </code> or <code>experiment_id</code>.
+   *
+   * <p>At least one <code>compute</code> definition and one <code>index</code> must be provided.
+   *
+   * @param body Analytics payload. (required)
+   * @return ApiResponse&lt;LLMObsExperimentationAnalyticsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsExperimentationAnalyticsResponse>
+      aggregateLLMObsExperimentationWithHttpInfo(LLMObsExperimentationAnalyticsRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "aggregateLLMObsExperimentation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling aggregateLLMObsExperimentation");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/experimentation/analytics";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.aggregateLLMObsExperimentation",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentationAnalyticsResponse>() {});
+  }
+
+  /**
+   * Aggregate LLM Observability experimentation.
+   *
+   * <p>See {@link #aggregateLLMObsExperimentationWithHttpInfo}.
+   *
+   * @param body Analytics payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentationAnalyticsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsExperimentationAnalyticsResponse>>
+      aggregateLLMObsExperimentationWithHttpInfoAsync(LLMObsExperimentationAnalyticsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "aggregateLLMObsExperimentation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsExperimentationAnalyticsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsExperimentationAnalyticsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling aggregateLLMObsExperimentation"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/experimentation/analytics";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.aggregateLLMObsExperimentation",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsExperimentationAnalyticsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentationAnalyticsResponse>() {});
   }
 
   /**
@@ -3717,6 +3885,255 @@ public class LlmObservabilityApi {
         new GenericType<LLMObsDatasetsResponse>() {});
   }
 
+  /** Manage optional parameters to listLLMObsExperimentEvents. */
+  public static class ListLLMObsExperimentEventsOptionalParameters {
+    private Long pageLimit;
+    private String pageCursor;
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of spans to return per page. Defaults to 5000. (optional,
+     *     default to 5000)
+     * @return ListLLMObsExperimentEventsOptionalParameters
+     */
+    public ListLLMObsExperimentEventsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor Opaque cursor from a previous response to fetch the next page of results.
+     *     (optional)
+     * @return ListLLMObsExperimentEventsOptionalParameters
+     */
+    public ListLLMObsExperimentEventsOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+  }
+
+  /**
+   * List events for an LLM Observability experiment.
+   *
+   * <p>See {@link #listLLMObsExperimentEventsWithHttpInfo}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return LLMObsExperimentEventsV2Response
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsExperimentEventsV2Response listLLMObsExperimentEvents(String experimentId)
+      throws ApiException {
+    return listLLMObsExperimentEventsWithHttpInfo(
+            experimentId, new ListLLMObsExperimentEventsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List events for an LLM Observability experiment.
+   *
+   * <p>See {@link #listLLMObsExperimentEventsWithHttpInfoAsync}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return CompletableFuture&lt;LLMObsExperimentEventsV2Response&gt;
+   */
+  public CompletableFuture<LLMObsExperimentEventsV2Response> listLLMObsExperimentEventsAsync(
+      String experimentId) {
+    return listLLMObsExperimentEventsWithHttpInfoAsync(
+            experimentId, new ListLLMObsExperimentEventsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List events for an LLM Observability experiment.
+   *
+   * <p>See {@link #listLLMObsExperimentEventsWithHttpInfo}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param parameters Optional parameters for the request.
+   * @return LLMObsExperimentEventsV2Response
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsExperimentEventsV2Response listLLMObsExperimentEvents(
+      String experimentId, ListLLMObsExperimentEventsOptionalParameters parameters)
+      throws ApiException {
+    return listLLMObsExperimentEventsWithHttpInfo(experimentId, parameters).getData();
+  }
+
+  /**
+   * List events for an LLM Observability experiment.
+   *
+   * <p>See {@link #listLLMObsExperimentEventsWithHttpInfoAsync}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LLMObsExperimentEventsV2Response&gt;
+   */
+  public CompletableFuture<LLMObsExperimentEventsV2Response> listLLMObsExperimentEventsAsync(
+      String experimentId, ListLLMObsExperimentEventsOptionalParameters parameters) {
+    return listLLMObsExperimentEventsWithHttpInfoAsync(experimentId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve spans and experiment-level summary metrics for a given experiment with cursor-based
+   * pagination.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;LLMObsExperimentEventsV2Response&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsExperimentEventsV2Response> listLLMObsExperimentEventsWithHttpInfo(
+      String experimentId, ListLLMObsExperimentEventsOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsExperimentEvents";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'experimentId' is set
+    if (experimentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'experimentId' when calling listLLMObsExperimentEvents");
+    }
+    Long pageLimit = parameters.pageLimit;
+    String pageCursor = parameters.pageCursor;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v3/experiments/{experiment_id}/events"
+            .replaceAll(
+                "\\{" + "experiment_id" + "\\}", apiClient.escapeString(experimentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsExperimentEvents",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentEventsV2Response>() {});
+  }
+
+  /**
+   * List events for an LLM Observability experiment.
+   *
+   * <p>See {@link #listLLMObsExperimentEventsWithHttpInfo}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentEventsV2Response&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsExperimentEventsV2Response>>
+      listLLMObsExperimentEventsWithHttpInfoAsync(
+          String experimentId, ListLLMObsExperimentEventsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsExperimentEvents";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsExperimentEventsV2Response>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'experimentId' is set
+    if (experimentId == null) {
+      CompletableFuture<ApiResponse<LLMObsExperimentEventsV2Response>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'experimentId' when calling"
+                  + " listLLMObsExperimentEvents"));
+      return result;
+    }
+    Long pageLimit = parameters.pageLimit;
+    String pageCursor = parameters.pageCursor;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v3/experiments/{experiment_id}/events"
+            .replaceAll(
+                "\\{" + "experiment_id" + "\\}", apiClient.escapeString(experimentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsExperimentEvents",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsExperimentEventsV2Response>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentEventsV2Response>() {});
+  }
+
   /** Manage optional parameters to listLLMObsExperiments. */
   public static class ListLLMObsExperimentsOptionalParameters {
     private String filterProjectId;
@@ -4208,6 +4625,336 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsProjectsResponse>() {});
+  }
+
+  /**
+   * Search LLM Observability experimentation entities.
+   *
+   * <p>See {@link #searchLLMObsExperimentationWithHttpInfo}.
+   *
+   * @param body Experimentation search payload. (required)
+   * @return LLMObsExperimentationSearchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsExperimentationSearchResponse searchLLMObsExperimentation(
+      LLMObsExperimentationSearchRequest body) throws ApiException {
+    return searchLLMObsExperimentationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Search LLM Observability experimentation entities.
+   *
+   * <p>See {@link #searchLLMObsExperimentationWithHttpInfoAsync}.
+   *
+   * @param body Experimentation search payload. (required)
+   * @return CompletableFuture&lt;LLMObsExperimentationSearchResponse&gt;
+   */
+  public CompletableFuture<LLMObsExperimentationSearchResponse> searchLLMObsExperimentationAsync(
+      LLMObsExperimentationSearchRequest body) {
+    return searchLLMObsExperimentationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search across LLM Observability experimentation entities — projects, datasets, dataset records,
+   * experiments, and experiment runs — using cursor-based pagination.
+   *
+   * <p>The <code>filter.scope</code> field controls which entity types are returned. At least one
+   * valid scope must be provided.
+   *
+   * <p>Returns <code>200 OK</code> when all results fit in a single page. Returns <code>
+   * 206 Partial Content</code> with a cursor in <code>meta.after</code> when additional pages are
+   * available.
+   *
+   * @param body Experimentation search payload. (required)
+   * @return ApiResponse&lt;LLMObsExperimentationSearchResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK — all results returned in a single page. </td><td>  -  </td></tr>
+   *       <tr><td> 206 </td><td> Partial Content — more results are available. Use &#x60;meta.after&#x60; as the next &#x60;page.cursor&#x60;. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsExperimentationSearchResponse> searchLLMObsExperimentationWithHttpInfo(
+      LLMObsExperimentationSearchRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "searchLLMObsExperimentation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling searchLLMObsExperimentation");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/experimentation/search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.searchLLMObsExperimentation",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentationSearchResponse>() {});
+  }
+
+  /**
+   * Search LLM Observability experimentation entities.
+   *
+   * <p>See {@link #searchLLMObsExperimentationWithHttpInfo}.
+   *
+   * @param body Experimentation search payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentationSearchResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsExperimentationSearchResponse>>
+      searchLLMObsExperimentationWithHttpInfoAsync(LLMObsExperimentationSearchRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "searchLLMObsExperimentation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsExperimentationSearchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsExperimentationSearchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling searchLLMObsExperimentation"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/experimentation/search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.searchLLMObsExperimentation",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsExperimentationSearchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentationSearchResponse>() {});
+  }
+
+  /**
+   * Simple search experimentation entities.
+   *
+   * <p>See {@link #simpleSearchLLMObsExperimentationWithHttpInfo}.
+   *
+   * @param body Simple search payload. (required)
+   * @return LLMObsExperimentationSimpleSearchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsExperimentationSimpleSearchResponse simpleSearchLLMObsExperimentation(
+      LLMObsExperimentationSimpleSearchRequest body) throws ApiException {
+    return simpleSearchLLMObsExperimentationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Simple search experimentation entities.
+   *
+   * <p>See {@link #simpleSearchLLMObsExperimentationWithHttpInfoAsync}.
+   *
+   * @param body Simple search payload. (required)
+   * @return CompletableFuture&lt;LLMObsExperimentationSimpleSearchResponse&gt;
+   */
+  public CompletableFuture<LLMObsExperimentationSimpleSearchResponse>
+      simpleSearchLLMObsExperimentationAsync(LLMObsExperimentationSimpleSearchRequest body) {
+    return simpleSearchLLMObsExperimentationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search across LLM Observability experimentation entities using offset-based (page-number)
+   * pagination. Use this endpoint when you need total page count or want to navigate to a specific
+   * page number.
+   *
+   * <p>The <code>filter.scope</code> field controls which entity types are returned. At least one
+   * valid scope must be provided.
+   *
+   * @param body Simple search payload. (required)
+   * @return ApiResponse&lt;LLMObsExperimentationSimpleSearchResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsExperimentationSimpleSearchResponse>
+      simpleSearchLLMObsExperimentationWithHttpInfo(LLMObsExperimentationSimpleSearchRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "simpleSearchLLMObsExperimentation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling simpleSearchLLMObsExperimentation");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/experimentation/simple-search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.simpleSearchLLMObsExperimentation",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentationSimpleSearchResponse>() {});
+  }
+
+  /**
+   * Simple search experimentation entities.
+   *
+   * <p>See {@link #simpleSearchLLMObsExperimentationWithHttpInfo}.
+   *
+   * @param body Simple search payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentationSimpleSearchResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsExperimentationSimpleSearchResponse>>
+      simpleSearchLLMObsExperimentationWithHttpInfoAsync(
+          LLMObsExperimentationSimpleSearchRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "simpleSearchLLMObsExperimentation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsExperimentationSimpleSearchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsExperimentationSimpleSearchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " simpleSearchLLMObsExperimentation"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/experimentation/simple-search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.simpleSearchLLMObsExperimentation",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsExperimentationSimpleSearchResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentationSimpleSearchResponse>() {});
   }
 
   /**

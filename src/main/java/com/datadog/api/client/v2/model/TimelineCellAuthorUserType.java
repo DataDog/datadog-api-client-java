@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** user author type. */
+/** The type of timeline cell author. Currently only <code>USER</code> is supported. */
 @JsonSerialize(using = TimelineCellAuthorUserType.TimelineCellAuthorUserTypeSerializer.class)
 public class TimelineCellAuthorUserType extends ModelEnum<String> {
 
