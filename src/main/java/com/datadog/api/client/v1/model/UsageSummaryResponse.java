@@ -107,6 +107,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_DBM_QUERIES_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_DO_JOBS_MONITORING_SERVERLESS_JOB_HOURS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_END_DATE,
   UsageSummaryResponse.JSON_PROPERTY_EPH_INFRA_HOST_AGENT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_AGG_SUM,
@@ -591,6 +592,10 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_DBM_QUERIES_AVG_SUM = "dbm_queries_avg_sum";
   private Long dbmQueriesAvgSum;
+
+  public static final String JSON_PROPERTY_DO_JOBS_MONITORING_SERVERLESS_JOB_HOURS_AGG_SUM =
+      "do_jobs_monitoring_serverless_job_hours_agg_sum";
+  private Long doJobsMonitoringServerlessJobHoursAggSum;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
   private OffsetDateTime endDate;
@@ -3129,6 +3134,30 @@ public class UsageSummaryResponse {
 
   public void setDbmQueriesAvgSum(Long dbmQueriesAvgSum) {
     this.dbmQueriesAvgSum = dbmQueriesAvgSum;
+  }
+
+  public UsageSummaryResponse doJobsMonitoringServerlessJobHoursAggSum(
+      Long doJobsMonitoringServerlessJobHoursAggSum) {
+    this.doJobsMonitoringServerlessJobHoursAggSum = doJobsMonitoringServerlessJobHoursAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all serverless job hours over all hours in the current month for all
+   * organizations.
+   *
+   * @return doJobsMonitoringServerlessJobHoursAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DO_JOBS_MONITORING_SERVERLESS_JOB_HOURS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDoJobsMonitoringServerlessJobHoursAggSum() {
+    return doJobsMonitoringServerlessJobHoursAggSum;
+  }
+
+  public void setDoJobsMonitoringServerlessJobHoursAggSum(
+      Long doJobsMonitoringServerlessJobHoursAggSum) {
+    this.doJobsMonitoringServerlessJobHoursAggSum = doJobsMonitoringServerlessJobHoursAggSum;
   }
 
   public UsageSummaryResponse endDate(OffsetDateTime endDate) {
@@ -7328,6 +7357,9 @@ public class UsageSummaryResponse {
             usageSummaryResponse.dataJobsMonitoringHostHrAggSum)
         && Objects.equals(this.dbmHostTop99pSum, usageSummaryResponse.dbmHostTop99pSum)
         && Objects.equals(this.dbmQueriesAvgSum, usageSummaryResponse.dbmQueriesAvgSum)
+        && Objects.equals(
+            this.doJobsMonitoringServerlessJobHoursAggSum,
+            usageSummaryResponse.doJobsMonitoringServerlessJobHoursAggSum)
         && Objects.equals(this.endDate, usageSummaryResponse.endDate)
         && Objects.equals(
             this.ephInfraHostAgentAggSum, usageSummaryResponse.ephInfraHostAgentAggSum)
@@ -7811,6 +7843,7 @@ public class UsageSummaryResponse {
         dataJobsMonitoringHostHrAggSum,
         dbmHostTop99pSum,
         dbmQueriesAvgSum,
+        doJobsMonitoringServerlessJobHoursAggSum,
         endDate,
         ephInfraHostAgentAggSum,
         ephInfraHostAlibabaAggSum,
@@ -8203,6 +8236,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    dbmHostTop99pSum: ").append(toIndentedString(dbmHostTop99pSum)).append("\n");
     sb.append("    dbmQueriesAvgSum: ").append(toIndentedString(dbmQueriesAvgSum)).append("\n");
+    sb.append("    doJobsMonitoringServerlessJobHoursAggSum: ")
+        .append(toIndentedString(doJobsMonitoringServerlessJobHoursAggSum))
+        .append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    ephInfraHostAgentAggSum: ")
         .append(toIndentedString(ephInfraHostAgentAggSum))
