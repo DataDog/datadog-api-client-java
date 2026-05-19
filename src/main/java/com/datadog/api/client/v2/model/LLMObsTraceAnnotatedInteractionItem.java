@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +24,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_ANNOTATIONS,
   LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_CONTENT_ID,
+  LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_CREATED_AT,
   LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_ID,
+  LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_MODIFIED_AT,
   LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -36,8 +39,14 @@ public class LLMObsTraceAnnotatedInteractionItem {
   public static final String JSON_PROPERTY_CONTENT_ID = "content_id";
   private String contentId;
 
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  private OffsetDateTime createdAt;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+  private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LLMObsTraceInteractionType type;
@@ -49,11 +58,15 @@ public class LLMObsTraceAnnotatedInteractionItem {
       @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
           List<LLMObsAnnotationItem> annotations,
       @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) OffsetDateTime modifiedAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsTraceInteractionType type) {
     this.annotations = annotations;
     this.contentId = contentId;
+    this.createdAt = createdAt;
     this.id = id;
+    this.modifiedAt = modifiedAt;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -108,6 +121,26 @@ public class LLMObsTraceAnnotatedInteractionItem {
     this.contentId = contentId;
   }
 
+  public LLMObsTraceAnnotatedInteractionItem createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * Timestamp when the interaction was added to the queue.
+   *
+   * @return createdAt
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
   public LLMObsTraceAnnotatedInteractionItem id(String id) {
     this.id = id;
     return this;
@@ -126,6 +159,26 @@ public class LLMObsTraceAnnotatedInteractionItem {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public LLMObsTraceAnnotatedInteractionItem modifiedAt(OffsetDateTime modifiedAt) {
+    this.modifiedAt = modifiedAt;
+    return this;
+  }
+
+  /**
+   * Timestamp when the interaction was last updated.
+   *
+   * @return modifiedAt
+   */
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
+  public void setModifiedAt(OffsetDateTime modifiedAt) {
+    this.modifiedAt = modifiedAt;
   }
 
   public LLMObsTraceAnnotatedInteractionItem type(LLMObsTraceInteractionType type) {
@@ -211,7 +264,9 @@ public class LLMObsTraceAnnotatedInteractionItem {
         (LLMObsTraceAnnotatedInteractionItem) o;
     return Objects.equals(this.annotations, llmObsTraceAnnotatedInteractionItem.annotations)
         && Objects.equals(this.contentId, llmObsTraceAnnotatedInteractionItem.contentId)
+        && Objects.equals(this.createdAt, llmObsTraceAnnotatedInteractionItem.createdAt)
         && Objects.equals(this.id, llmObsTraceAnnotatedInteractionItem.id)
+        && Objects.equals(this.modifiedAt, llmObsTraceAnnotatedInteractionItem.modifiedAt)
         && Objects.equals(this.type, llmObsTraceAnnotatedInteractionItem.type)
         && Objects.equals(
             this.additionalProperties, llmObsTraceAnnotatedInteractionItem.additionalProperties);
@@ -219,7 +274,8 @@ public class LLMObsTraceAnnotatedInteractionItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, contentId, id, type, additionalProperties);
+    return Objects.hash(
+        annotations, contentId, createdAt, id, modifiedAt, type, additionalProperties);
   }
 
   @Override
@@ -228,7 +284,9 @@ public class LLMObsTraceAnnotatedInteractionItem {
     sb.append("class LLMObsTraceAnnotatedInteractionItem {\n");
     sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
     sb.append("    contentId: ").append(toIndentedString(contentId)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
