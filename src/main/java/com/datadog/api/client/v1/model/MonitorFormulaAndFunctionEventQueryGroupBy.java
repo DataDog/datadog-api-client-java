@@ -21,7 +21,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_FACET,
   MonitorFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_LIMIT,
-  MonitorFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_SORT
+  MonitorFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_SORT,
+  MonitorFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_SOURCE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,6 +36,9 @@ public class MonitorFormulaAndFunctionEventQueryGroupBy {
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private MonitorFormulaAndFunctionEventQueryGroupBySort sort;
+
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private String source;
 
   public MonitorFormulaAndFunctionEventQueryGroupBy() {}
 
@@ -108,6 +112,27 @@ public class MonitorFormulaAndFunctionEventQueryGroupBy {
     this.sort = sort;
   }
 
+  public MonitorFormulaAndFunctionEventQueryGroupBy source(String source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * Source reference for composite query payloads.
+   *
+   * @return source
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -169,6 +194,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBy {
     return Objects.equals(this.facet, monitorFormulaAndFunctionEventQueryGroupBy.facet)
         && Objects.equals(this.limit, monitorFormulaAndFunctionEventQueryGroupBy.limit)
         && Objects.equals(this.sort, monitorFormulaAndFunctionEventQueryGroupBy.sort)
+        && Objects.equals(this.source, monitorFormulaAndFunctionEventQueryGroupBy.source)
         && Objects.equals(
             this.additionalProperties,
             monitorFormulaAndFunctionEventQueryGroupBy.additionalProperties);
@@ -176,7 +202,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBy {
 
   @Override
   public int hashCode() {
-    return Objects.hash(facet, limit, sort, additionalProperties);
+    return Objects.hash(facet, limit, sort, source, additionalProperties);
   }
 
   @Override
@@ -186,6 +212,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBy {
     sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -22,7 +22,8 @@ import java.util.Objects;
   MonitorFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_AGGREGATION,
   MonitorFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_INTERVAL,
   MonitorFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_METRIC,
-  MonitorFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_NAME
+  MonitorFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_NAME,
+  MonitorFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_SOURCE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -39,6 +40,9 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private String source;
 
   public MonitorFormulaAndFunctionEventQueryDefinitionCompute() {}
 
@@ -138,6 +142,27 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
     this.name = name;
   }
 
+  public MonitorFormulaAndFunctionEventQueryDefinitionCompute source(String source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * Source reference for composite query payloads.
+   *
+   * @return source
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -205,6 +230,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
             this.interval, monitorFormulaAndFunctionEventQueryDefinitionCompute.interval)
         && Objects.equals(this.metric, monitorFormulaAndFunctionEventQueryDefinitionCompute.metric)
         && Objects.equals(this.name, monitorFormulaAndFunctionEventQueryDefinitionCompute.name)
+        && Objects.equals(this.source, monitorFormulaAndFunctionEventQueryDefinitionCompute.source)
         && Objects.equals(
             this.additionalProperties,
             monitorFormulaAndFunctionEventQueryDefinitionCompute.additionalProperties);
@@ -212,7 +238,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, interval, metric, name, additionalProperties);
+    return Objects.hash(aggregation, interval, metric, name, source, additionalProperties);
   }
 
   @Override
@@ -223,6 +249,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
