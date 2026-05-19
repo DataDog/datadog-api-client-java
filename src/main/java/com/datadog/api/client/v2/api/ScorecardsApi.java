@@ -12,11 +12,13 @@ import com.datadog.api.client.v2.model.CreateRuleResponse;
 import com.datadog.api.client.v2.model.ListCampaignsResponse;
 import com.datadog.api.client.v2.model.ListRulesResponse;
 import com.datadog.api.client.v2.model.ListRulesResponseDataItem;
+import com.datadog.api.client.v2.model.ListScorecardScoresResponse;
 import com.datadog.api.client.v2.model.ListScorecardsResponse;
 import com.datadog.api.client.v2.model.OutcomesBatchRequest;
 import com.datadog.api.client.v2.model.OutcomesBatchResponse;
 import com.datadog.api.client.v2.model.OutcomesResponse;
 import com.datadog.api.client.v2.model.OutcomesResponseDataItem;
+import com.datadog.api.client.v2.model.ScorecardScoresAggregation;
 import com.datadog.api.client.v2.model.UpdateCampaignRequest;
 import com.datadog.api.client.v2.model.UpdateOutcomesAsyncRequest;
 import com.datadog.api.client.v2.model.UpdateRuleRequest;
@@ -2215,6 +2217,353 @@ public class ScorecardsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListScorecardsResponse>() {});
+  }
+
+  /** Manage optional parameters to listScorecardScores. */
+  public static class ListScorecardScoresOptionalParameters {
+    private String filterRuleId;
+    private String filterRuleName;
+    private String filterRuleLevel;
+    private String filterRuleScorecardId;
+    private Boolean filterRuleIsCustom;
+    private Boolean filterRuleIsEnabled;
+    private String sort;
+    private Integer pageOffset;
+    private Integer pageLimit;
+
+    /**
+     * Set filterRuleId.
+     *
+     * @param filterRuleId Filter scores by rule ID(s), comma-separated. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterRuleId(String filterRuleId) {
+      this.filterRuleId = filterRuleId;
+      return this;
+    }
+
+    /**
+     * Set filterRuleName.
+     *
+     * @param filterRuleName Filter scores by rule name. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterRuleName(String filterRuleName) {
+      this.filterRuleName = filterRuleName;
+      return this;
+    }
+
+    /**
+     * Set filterRuleLevel.
+     *
+     * @param filterRuleLevel Filter scores by rule level(s), comma-separated. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterRuleLevel(String filterRuleLevel) {
+      this.filterRuleLevel = filterRuleLevel;
+      return this;
+    }
+
+    /**
+     * Set filterRuleScorecardId.
+     *
+     * @param filterRuleScorecardId Filter scores by scorecard ID(s), comma-separated. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterRuleScorecardId(
+        String filterRuleScorecardId) {
+      this.filterRuleScorecardId = filterRuleScorecardId;
+      return this;
+    }
+
+    /**
+     * Set filterRuleIsCustom.
+     *
+     * @param filterRuleIsCustom Filter scores to show only custom rules. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterRuleIsCustom(Boolean filterRuleIsCustom) {
+      this.filterRuleIsCustom = filterRuleIsCustom;
+      return this;
+    }
+
+    /**
+     * Set filterRuleIsEnabled.
+     *
+     * @param filterRuleIsEnabled Filter scores to show only enabled rules. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterRuleIsEnabled(Boolean filterRuleIsEnabled) {
+      this.filterRuleIsEnabled = filterRuleIsEnabled;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort scores by field. Use a hyphen prefix for descending order. Options: score,
+     *     numerator, denominator, total_pass, total_fail, total_skip, total_no_data. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Offset for pagination. (optional, default to 0)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters pageOffset(Integer pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Number of scores to return. Max is 1000. (optional, default to 100)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+  }
+
+  /**
+   * List all scores.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfo}.
+   *
+   * @param aggregation The type of scores being requested. (required)
+   * @return ListScorecardScoresResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListScorecardScoresResponse listScorecardScores(ScorecardScoresAggregation aggregation)
+      throws ApiException {
+    return listScorecardScoresWithHttpInfo(aggregation, new ListScorecardScoresOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List all scores.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfoAsync}.
+   *
+   * @param aggregation The type of scores being requested. (required)
+   * @return CompletableFuture&lt;ListScorecardScoresResponse&gt;
+   */
+  public CompletableFuture<ListScorecardScoresResponse> listScorecardScoresAsync(
+      ScorecardScoresAggregation aggregation) {
+    return listScorecardScoresWithHttpInfoAsync(
+            aggregation, new ListScorecardScoresOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all scores.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfo}.
+   *
+   * @param aggregation The type of scores being requested. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ListScorecardScoresResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListScorecardScoresResponse listScorecardScores(
+      ScorecardScoresAggregation aggregation, ListScorecardScoresOptionalParameters parameters)
+      throws ApiException {
+    return listScorecardScoresWithHttpInfo(aggregation, parameters).getData();
+  }
+
+  /**
+   * List all scores.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfoAsync}.
+   *
+   * @param aggregation The type of scores being requested. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListScorecardScoresResponse&gt;
+   */
+  public CompletableFuture<ListScorecardScoresResponse> listScorecardScoresAsync(
+      ScorecardScoresAggregation aggregation, ListScorecardScoresOptionalParameters parameters) {
+    return listScorecardScoresWithHttpInfoAsync(aggregation, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns a list of scorecard scores for each aggregation type, with score breakdowns.
+   *
+   * @param aggregation The type of scores being requested. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListScorecardScoresResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListScorecardScoresResponse> listScorecardScoresWithHttpInfo(
+      ScorecardScoresAggregation aggregation, ListScorecardScoresOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'aggregation' is set
+    if (aggregation == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'aggregation' when calling listScorecardScores");
+    }
+    String filterRuleId = parameters.filterRuleId;
+    String filterRuleName = parameters.filterRuleName;
+    String filterRuleLevel = parameters.filterRuleLevel;
+    String filterRuleScorecardId = parameters.filterRuleScorecardId;
+    Boolean filterRuleIsCustom = parameters.filterRuleIsCustom;
+    Boolean filterRuleIsEnabled = parameters.filterRuleIsEnabled;
+    String sort = parameters.sort;
+    Integer pageOffset = parameters.pageOffset;
+    Integer pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/scores/{aggregation}"
+            .replaceAll(
+                "\\{" + "aggregation" + "\\}", apiClient.escapeString(aggregation.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule][id]", filterRuleId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][name]", filterRuleName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][level]", filterRuleLevel));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][scorecard_id]", filterRuleScorecardId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][is_custom]", filterRuleIsCustom));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][is_enabled]", filterRuleIsEnabled));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ScorecardsApi.listScorecardScores",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListScorecardScoresResponse>() {});
+  }
+
+  /**
+   * List all scores.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfo}.
+   *
+   * @param aggregation The type of scores being requested. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListScorecardScoresResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListScorecardScoresResponse>>
+      listScorecardScoresWithHttpInfoAsync(
+          ScorecardScoresAggregation aggregation,
+          ListScorecardScoresOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'aggregation' is set
+    if (aggregation == null) {
+      CompletableFuture<ApiResponse<ListScorecardScoresResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'aggregation' when calling listScorecardScores"));
+      return result;
+    }
+    String filterRuleId = parameters.filterRuleId;
+    String filterRuleName = parameters.filterRuleName;
+    String filterRuleLevel = parameters.filterRuleLevel;
+    String filterRuleScorecardId = parameters.filterRuleScorecardId;
+    Boolean filterRuleIsCustom = parameters.filterRuleIsCustom;
+    Boolean filterRuleIsEnabled = parameters.filterRuleIsEnabled;
+    String sort = parameters.sort;
+    Integer pageOffset = parameters.pageOffset;
+    Integer pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/scores/{aggregation}"
+            .replaceAll(
+                "\\{" + "aggregation" + "\\}", apiClient.escapeString(aggregation.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule][id]", filterRuleId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][name]", filterRuleName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][level]", filterRuleLevel));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][scorecard_id]", filterRuleScorecardId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][is_custom]", filterRuleIsCustom));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][is_enabled]", filterRuleIsEnabled));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ScorecardsApi.listScorecardScores",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListScorecardScoresResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListScorecardScoresResponse>() {});
   }
 
   /**
