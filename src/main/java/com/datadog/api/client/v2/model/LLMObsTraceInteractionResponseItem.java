@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -21,7 +22,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   LLMObsTraceInteractionResponseItem.JSON_PROPERTY_ALREADY_EXISTED,
   LLMObsTraceInteractionResponseItem.JSON_PROPERTY_CONTENT_ID,
+  LLMObsTraceInteractionResponseItem.JSON_PROPERTY_CREATED_AT,
   LLMObsTraceInteractionResponseItem.JSON_PROPERTY_ID,
+  LLMObsTraceInteractionResponseItem.JSON_PROPERTY_MODIFIED_AT,
   LLMObsTraceInteractionResponseItem.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -34,8 +37,14 @@ public class LLMObsTraceInteractionResponseItem {
   public static final String JSON_PROPERTY_CONTENT_ID = "content_id";
   private String contentId;
 
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  private OffsetDateTime createdAt;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+  private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LLMObsTraceInteractionType type;
@@ -46,11 +55,15 @@ public class LLMObsTraceInteractionResponseItem {
   public LLMObsTraceInteractionResponseItem(
       @JsonProperty(required = true, value = JSON_PROPERTY_ALREADY_EXISTED) Boolean alreadyExisted,
       @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) OffsetDateTime modifiedAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsTraceInteractionType type) {
     this.alreadyExisted = alreadyExisted;
     this.contentId = contentId;
+    this.createdAt = createdAt;
     this.id = id;
+    this.modifiedAt = modifiedAt;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -95,6 +108,26 @@ public class LLMObsTraceInteractionResponseItem {
     this.contentId = contentId;
   }
 
+  public LLMObsTraceInteractionResponseItem createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * Timestamp when the interaction was added to the queue.
+   *
+   * @return createdAt
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
   public LLMObsTraceInteractionResponseItem id(String id) {
     this.id = id;
     return this;
@@ -113,6 +146,26 @@ public class LLMObsTraceInteractionResponseItem {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public LLMObsTraceInteractionResponseItem modifiedAt(OffsetDateTime modifiedAt) {
+    this.modifiedAt = modifiedAt;
+    return this;
+  }
+
+  /**
+   * Timestamp when the interaction was last updated.
+   *
+   * @return modifiedAt
+   */
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
+  public void setModifiedAt(OffsetDateTime modifiedAt) {
+    this.modifiedAt = modifiedAt;
   }
 
   public LLMObsTraceInteractionResponseItem type(LLMObsTraceInteractionType type) {
@@ -198,7 +251,9 @@ public class LLMObsTraceInteractionResponseItem {
         (LLMObsTraceInteractionResponseItem) o;
     return Objects.equals(this.alreadyExisted, llmObsTraceInteractionResponseItem.alreadyExisted)
         && Objects.equals(this.contentId, llmObsTraceInteractionResponseItem.contentId)
+        && Objects.equals(this.createdAt, llmObsTraceInteractionResponseItem.createdAt)
         && Objects.equals(this.id, llmObsTraceInteractionResponseItem.id)
+        && Objects.equals(this.modifiedAt, llmObsTraceInteractionResponseItem.modifiedAt)
         && Objects.equals(this.type, llmObsTraceInteractionResponseItem.type)
         && Objects.equals(
             this.additionalProperties, llmObsTraceInteractionResponseItem.additionalProperties);
@@ -206,7 +261,8 @@ public class LLMObsTraceInteractionResponseItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alreadyExisted, contentId, id, type, additionalProperties);
+    return Objects.hash(
+        alreadyExisted, contentId, createdAt, id, modifiedAt, type, additionalProperties);
   }
 
   @Override
@@ -215,7 +271,9 @@ public class LLMObsTraceInteractionResponseItem {
     sb.append("class LLMObsTraceInteractionResponseItem {\n");
     sb.append("    alreadyExisted: ").append(toIndentedString(alreadyExisted)).append("\n");
     sb.append("    contentId: ").append(toIndentedString(contentId)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
