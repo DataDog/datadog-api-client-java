@@ -15,6 +15,8 @@ import com.datadog.api.client.v2.model.LLMObsAnnotationQueueUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueuesResponse;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigResponse;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigUpdateRequest;
+import com.datadog.api.client.v2.model.LLMObsDataDeletionRequest;
+import com.datadog.api.client.v2.model.LLMObsDataDeletionResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsListResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsMutationResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsRequest;
@@ -44,6 +46,8 @@ import com.datadog.api.client.v2.model.LLMObsProjectRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectResponse;
 import com.datadog.api.client.v2.model.LLMObsProjectUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectsResponse;
+import com.datadog.api.client.v2.model.LLMObsSearchSpansRequest;
+import com.datadog.api.client.v2.model.LLMObsSpansResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -1963,6 +1967,158 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Delete LLM Observability data.
+   *
+   * <p>See {@link #deleteLLMObsDataWithHttpInfo}.
+   *
+   * @param body Data deletion request payload. (required)
+   * @return LLMObsDataDeletionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsDataDeletionResponse deleteLLMObsData(LLMObsDataDeletionRequest body)
+      throws ApiException {
+    return deleteLLMObsDataWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Delete LLM Observability data.
+   *
+   * <p>See {@link #deleteLLMObsDataWithHttpInfoAsync}.
+   *
+   * @param body Data deletion request payload. (required)
+   * @return CompletableFuture&lt;LLMObsDataDeletionResponse&gt;
+   */
+  public CompletableFuture<LLMObsDataDeletionResponse> deleteLLMObsDataAsync(
+      LLMObsDataDeletionRequest body) {
+    return deleteLLMObsDataWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Submit a request to delete LLM Observability span data matching a trace ID filter within a
+   * specified time range.
+   *
+   * @param body Data deletion request payload. (required)
+   * @return ApiResponse&lt;LLMObsDataDeletionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsDataDeletionResponse> deleteLLMObsDataWithHttpInfo(
+      LLMObsDataDeletionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsData";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling deleteLLMObsData");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/deletion/data/llmobs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.deleteLLMObsData",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDataDeletionResponse>() {});
+  }
+
+  /**
+   * Delete LLM Observability data.
+   *
+   * <p>See {@link #deleteLLMObsDataWithHttpInfo}.
+   *
+   * @param body Data deletion request payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDataDeletionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsDataDeletionResponse>>
+      deleteLLMObsDataWithHttpInfoAsync(LLMObsDataDeletionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsData";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsDataDeletionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsDataDeletionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling deleteLLMObsData"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/deletion/data/llmobs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.deleteLLMObsData",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsDataDeletionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDataDeletionResponse>() {});
   }
 
   /**
@@ -4627,6 +4783,378 @@ public class LlmObservabilityApi {
         new GenericType<LLMObsProjectsResponse>() {});
   }
 
+  /** Manage optional parameters to listLLMObsSpans. */
+  public static class ListLLMObsSpansOptionalParameters {
+    private String filterFrom;
+    private String filterTo;
+    private String filterQuery;
+    private String filterSpanId;
+    private String filterTraceId;
+    private String filterSpanKind;
+    private String filterSpanName;
+    private String filterMlApp;
+    private Long pageLimit;
+    private String pageCursor;
+    private String sort;
+    private Boolean includeAttachments;
+
+    /**
+     * Set filterFrom.
+     *
+     * @param filterFrom Start of the time range. Accepts ISO 8601 or relative format (e.g., <code>
+     *     now-15m</code>). Defaults to <code>now-15m</code>. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters filterFrom(String filterFrom) {
+      this.filterFrom = filterFrom;
+      return this;
+    }
+
+    /**
+     * Set filterTo.
+     *
+     * @param filterTo End of the time range. Accepts ISO 8601 or relative format. Defaults to
+     *     <code>now</code>. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters filterTo(String filterTo) {
+      this.filterTo = filterTo;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery Search query using LLM Observability query syntax. Supports attribute
+     *     filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind).
+     *     When provided, structured field filters (<code>filter[span_id]</code>, <code>
+     *     filter[trace_id]</code>, etc.) are ignored. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set filterSpanId.
+     *
+     * @param filterSpanId Filter by exact span ID. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters filterSpanId(String filterSpanId) {
+      this.filterSpanId = filterSpanId;
+      return this;
+    }
+
+    /**
+     * Set filterTraceId.
+     *
+     * @param filterTraceId Filter by exact trace ID. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters filterTraceId(String filterTraceId) {
+      this.filterTraceId = filterTraceId;
+      return this;
+    }
+
+    /**
+     * Set filterSpanKind.
+     *
+     * @param filterSpanKind Filter by span kind (e.g., llm, agent, tool, task, workflow).
+     *     (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters filterSpanKind(String filterSpanKind) {
+      this.filterSpanKind = filterSpanKind;
+      return this;
+    }
+
+    /**
+     * Set filterSpanName.
+     *
+     * @param filterSpanName Filter by span name. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters filterSpanName(String filterSpanName) {
+      this.filterSpanName = filterSpanName;
+      return this;
+    }
+
+    /**
+     * Set filterMlApp.
+     *
+     * @param filterMlApp Filter by ML application name. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters filterMlApp(String filterMlApp) {
+      this.filterMlApp = filterMlApp;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of spans to return. Defaults to <code>10</code>. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor Cursor from the previous response to retrieve the next page. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort order for the results. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set includeAttachments.
+     *
+     * @param includeAttachments Whether to include attachment data in the response. Defaults to
+     *     <code>true</code>. (optional)
+     * @return ListLLMObsSpansOptionalParameters
+     */
+    public ListLLMObsSpansOptionalParameters includeAttachments(Boolean includeAttachments) {
+      this.includeAttachments = includeAttachments;
+      return this;
+    }
+  }
+
+  /**
+   * List LLM Observability spans.
+   *
+   * <p>See {@link #listLLMObsSpansWithHttpInfo}.
+   *
+   * @return LLMObsSpansResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsSpansResponse listLLMObsSpans() throws ApiException {
+    return listLLMObsSpansWithHttpInfo(new ListLLMObsSpansOptionalParameters()).getData();
+  }
+
+  /**
+   * List LLM Observability spans.
+   *
+   * <p>See {@link #listLLMObsSpansWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LLMObsSpansResponse&gt;
+   */
+  public CompletableFuture<LLMObsSpansResponse> listLLMObsSpansAsync() {
+    return listLLMObsSpansWithHttpInfoAsync(new ListLLMObsSpansOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List LLM Observability spans.
+   *
+   * <p>See {@link #listLLMObsSpansWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return LLMObsSpansResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsSpansResponse listLLMObsSpans(ListLLMObsSpansOptionalParameters parameters)
+      throws ApiException {
+    return listLLMObsSpansWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List LLM Observability spans.
+   *
+   * <p>See {@link #listLLMObsSpansWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LLMObsSpansResponse&gt;
+   */
+  public CompletableFuture<LLMObsSpansResponse> listLLMObsSpansAsync(
+      ListLLMObsSpansOptionalParameters parameters) {
+    return listLLMObsSpansWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List LLM Observability spans matching the specified filters.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;LLMObsSpansResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsSpansResponse> listLLMObsSpansWithHttpInfo(
+      ListLLMObsSpansOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsSpans";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String filterFrom = parameters.filterFrom;
+    String filterTo = parameters.filterTo;
+    String filterQuery = parameters.filterQuery;
+    String filterSpanId = parameters.filterSpanId;
+    String filterTraceId = parameters.filterTraceId;
+    String filterSpanKind = parameters.filterSpanKind;
+    String filterSpanName = parameters.filterSpanName;
+    String filterMlApp = parameters.filterMlApp;
+    Long pageLimit = parameters.pageLimit;
+    String pageCursor = parameters.pageCursor;
+    String sort = parameters.sort;
+    Boolean includeAttachments = parameters.includeAttachments;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/spans/events";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[span_id]", filterSpanId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[trace_id]", filterTraceId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[span_kind]", filterSpanKind));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[span_name]", filterSpanName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[ml_app]", filterMlApp));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_attachments", includeAttachments));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsSpans",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsSpansResponse>() {});
+  }
+
+  /**
+   * List LLM Observability spans.
+   *
+   * <p>See {@link #listLLMObsSpansWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsSpansResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsSpansResponse>> listLLMObsSpansWithHttpInfoAsync(
+      ListLLMObsSpansOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsSpans";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsSpansResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String filterFrom = parameters.filterFrom;
+    String filterTo = parameters.filterTo;
+    String filterQuery = parameters.filterQuery;
+    String filterSpanId = parameters.filterSpanId;
+    String filterTraceId = parameters.filterTraceId;
+    String filterSpanKind = parameters.filterSpanKind;
+    String filterSpanName = parameters.filterSpanName;
+    String filterMlApp = parameters.filterMlApp;
+    Long pageLimit = parameters.pageLimit;
+    String pageCursor = parameters.pageCursor;
+    String sort = parameters.sort;
+    Boolean includeAttachments = parameters.includeAttachments;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/spans/events";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[span_id]", filterSpanId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[trace_id]", filterTraceId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[span_kind]", filterSpanKind));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[span_name]", filterSpanName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[ml_app]", filterMlApp));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_attachments", includeAttachments));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsSpans",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsSpansResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsSpansResponse>() {});
+  }
+
   /**
    * Search LLM Observability experimentation entities.
    *
@@ -4790,6 +5318,156 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsExperimentationSearchResponse>() {});
+  }
+
+  /**
+   * Search LLM Observability spans.
+   *
+   * <p>See {@link #searchLLMObsSpansWithHttpInfo}.
+   *
+   * @param body Search spans payload. (required)
+   * @return LLMObsSpansResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsSpansResponse searchLLMObsSpans(LLMObsSearchSpansRequest body) throws ApiException {
+    return searchLLMObsSpansWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Search LLM Observability spans.
+   *
+   * <p>See {@link #searchLLMObsSpansWithHttpInfoAsync}.
+   *
+   * @param body Search spans payload. (required)
+   * @return CompletableFuture&lt;LLMObsSpansResponse&gt;
+   */
+  public CompletableFuture<LLMObsSpansResponse> searchLLMObsSpansAsync(
+      LLMObsSearchSpansRequest body) {
+    return searchLLMObsSpansWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search LLM Observability spans using structured filters in the request body.
+   *
+   * @param body Search spans payload. (required)
+   * @return ApiResponse&lt;LLMObsSpansResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsSpansResponse> searchLLMObsSpansWithHttpInfo(
+      LLMObsSearchSpansRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "searchLLMObsSpans";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling searchLLMObsSpans");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/spans/events/search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.searchLLMObsSpans",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsSpansResponse>() {});
+  }
+
+  /**
+   * Search LLM Observability spans.
+   *
+   * <p>See {@link #searchLLMObsSpansWithHttpInfo}.
+   *
+   * @param body Search spans payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsSpansResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsSpansResponse>> searchLLMObsSpansWithHttpInfoAsync(
+      LLMObsSearchSpansRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "searchLLMObsSpans";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsSpansResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsSpansResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling searchLLMObsSpans"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/spans/events/search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.searchLLMObsSpans",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsSpansResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsSpansResponse>() {});
   }
 
   /**

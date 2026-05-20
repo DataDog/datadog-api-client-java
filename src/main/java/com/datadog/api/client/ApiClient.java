@@ -784,6 +784,7 @@ public class ApiClient {
           put("v2.deleteLLMObsAnnotationQueue", false);
           put("v2.deleteLLMObsAnnotationQueueInteractions", false);
           put("v2.deleteLLMObsCustomEvalConfig", false);
+          put("v2.deleteLLMObsData", false);
           put("v2.deleteLLMObsDatasetRecords", false);
           put("v2.deleteLLMObsDatasets", false);
           put("v2.deleteLLMObsExperiments", false);
@@ -797,7 +798,9 @@ public class ApiClient {
           put("v2.listLLMObsExperimentEvents", false);
           put("v2.listLLMObsExperiments", false);
           put("v2.listLLMObsProjects", false);
+          put("v2.listLLMObsSpans", false);
           put("v2.searchLLMObsExperimentation", false);
+          put("v2.searchLLMObsSpans", false);
           put("v2.simpleSearchLLMObsExperimentation", false);
           put("v2.updateLLMObsAnnotationQueue", false);
           put("v2.updateLLMObsAnnotationQueueLabelSchema", false);
