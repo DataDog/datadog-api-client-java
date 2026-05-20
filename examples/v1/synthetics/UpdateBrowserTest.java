@@ -14,6 +14,7 @@ import com.datadog.api.client.v1.model.SyntheticsBrowserVariable;
 import com.datadog.api.client.v1.model.SyntheticsBrowserVariableType;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
+import com.datadog.api.client.v1.model.SyntheticsMCPProtocolVersion;
 import com.datadog.api.client.v1.model.SyntheticsStep;
 import com.datadog.api.client.v1.model.SyntheticsStepType;
 import com.datadog.api.client.v1.model.SyntheticsTestCallType;
@@ -67,8 +68,10 @@ public class Example {
                                     .key(new SyntheticsTestRequestCertificateItem()))
                             .files(Collections.singletonList(new SyntheticsTestRequestBodyFile()))
                             .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP1)
+                            .mcpProtocolVersion(SyntheticsMCPProtocolVersion.VERSION_2025_06_18)
                             .proxy(new SyntheticsTestRequestProxy().url("https://example.com"))
                             .service("Greeter")
+                            .toolName("search")
                             .url("https://example.com"))
                     .variables(
                         Collections.singletonList(

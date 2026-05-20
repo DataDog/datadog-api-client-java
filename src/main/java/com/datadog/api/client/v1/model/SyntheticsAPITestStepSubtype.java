@@ -24,7 +24,7 @@ public class SyntheticsAPITestStepSubtype extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("http", "grpc", "ssl", "dns", "tcp", "udp", "icmp", "websocket"));
+          Arrays.asList("http", "grpc", "ssl", "dns", "tcp", "udp", "icmp", "websocket", "mcp"));
 
   public static final SyntheticsAPITestStepSubtype HTTP = new SyntheticsAPITestStepSubtype("http");
   public static final SyntheticsAPITestStepSubtype GRPC = new SyntheticsAPITestStepSubtype("grpc");
@@ -35,6 +35,7 @@ public class SyntheticsAPITestStepSubtype extends ModelEnum<String> {
   public static final SyntheticsAPITestStepSubtype ICMP = new SyntheticsAPITestStepSubtype("icmp");
   public static final SyntheticsAPITestStepSubtype WEBSOCKET =
       new SyntheticsAPITestStepSubtype("websocket");
+  public static final SyntheticsAPITestStepSubtype MCP = new SyntheticsAPITestStepSubtype("mcp");
 
   SyntheticsAPITestStepSubtype(String value) {
     super(value, allowedValues);
