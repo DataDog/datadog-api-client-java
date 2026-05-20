@@ -86,6 +86,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P,
@@ -94,6 +96,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_HWM,
   UsageSummaryDate.JSON_PROPERTY_CSPM_GCP_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CUSTOM_TS_AVG,
   UsageSummaryDate.JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_CWS_FARGATE_TASK_AVG,
@@ -501,6 +505,14 @@ public class UsageSummaryDate {
       "csm_host_enterprise_total_host_count_top99p";
   private Long csmHostEnterpriseTotalHostCountTop99p;
 
+  public static final String JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM =
+      "csm_host_pro_hosts_agentless_scanners_sum";
+  private Long csmHostProHostsAgentlessScannersSum;
+
+  public static final String JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P =
+      "csm_host_pro_hosts_agentless_scanners_top99p";
+  private Long csmHostProHostsAgentlessScannersTop99p;
+
   public static final String JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P =
       "csm_host_pro_oci_host_count_top99p";
   private Long csmHostProOciHostCountTop99p;
@@ -525,6 +537,14 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_CSPM_HOST_TOP99P = "cspm_host_top99p";
   private Long cspmHostTop99p;
+
+  public static final String JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM =
+      "cspm_hosts_agentless_scanners_sum";
+  private Long cspmHostsAgentlessScannersSum;
+
+  public static final String JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P =
+      "cspm_hosts_agentless_scanners_top99p";
+  private Long cspmHostsAgentlessScannersTop99p;
 
   public static final String JSON_PROPERTY_CUSTOM_TS_AVG = "custom_ts_avg";
   private Long customTsAvg;
@@ -2616,6 +2636,53 @@ public class UsageSummaryDate {
     this.csmHostEnterpriseTotalHostCountTop99p = csmHostEnterpriseTotalHostCountTop99p;
   }
 
+  public UsageSummaryDate csmHostProHostsAgentlessScannersSum(
+      Long csmHostProHostsAgentlessScannersSum) {
+    this.csmHostProHostsAgentlessScannersSum = csmHostProHostsAgentlessScannersSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in
+   * the current date for the given org.
+   *
+   * @return csmHostProHostsAgentlessScannersSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostProHostsAgentlessScannersSum() {
+    return csmHostProHostsAgentlessScannersSum;
+  }
+
+  public void setCsmHostProHostsAgentlessScannersSum(Long csmHostProHostsAgentlessScannersSum) {
+    this.csmHostProHostsAgentlessScannersSum = csmHostProHostsAgentlessScannersSum;
+  }
+
+  public UsageSummaryDate csmHostProHostsAgentlessScannersTop99p(
+      Long csmHostProHostsAgentlessScannersTop99p) {
+    this.csmHostProHostsAgentlessScannersTop99p = csmHostProHostsAgentlessScannersTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all
+   * hours in the current date for the given org.
+   *
+   * @return csmHostProHostsAgentlessScannersTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostProHostsAgentlessScannersTop99p() {
+    return csmHostProHostsAgentlessScannersTop99p;
+  }
+
+  public void setCsmHostProHostsAgentlessScannersTop99p(
+      Long csmHostProHostsAgentlessScannersTop99p) {
+    this.csmHostProHostsAgentlessScannersTop99p = csmHostProHostsAgentlessScannersTop99p;
+  }
+
   public UsageSummaryDate csmHostProOciHostCountTop99p(Long csmHostProOciHostCountTop99p) {
     this.csmHostProOciHostCountTop99p = csmHostProOciHostCountTop99p;
     return this;
@@ -2790,6 +2857,50 @@ public class UsageSummaryDate {
 
   public void setCspmHostTop99p(Long cspmHostTop99p) {
     this.cspmHostTop99p = cspmHostTop99p;
+  }
+
+  public UsageSummaryDate cspmHostsAgentlessScannersSum(Long cspmHostsAgentlessScannersSum) {
+    this.cspmHostsAgentlessScannersSum = cspmHostsAgentlessScannersSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in
+   * the current date for all organizations.
+   *
+   * @return cspmHostsAgentlessScannersSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmHostsAgentlessScannersSum() {
+    return cspmHostsAgentlessScannersSum;
+  }
+
+  public void setCspmHostsAgentlessScannersSum(Long cspmHostsAgentlessScannersSum) {
+    this.cspmHostsAgentlessScannersSum = cspmHostsAgentlessScannersSum;
+  }
+
+  public UsageSummaryDate cspmHostsAgentlessScannersTop99p(Long cspmHostsAgentlessScannersTop99p) {
+    this.cspmHostsAgentlessScannersTop99p = cspmHostsAgentlessScannersTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all
+   * hours in the current date for all organizations.
+   *
+   * @return cspmHostsAgentlessScannersTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmHostsAgentlessScannersTop99p() {
+    return cspmHostsAgentlessScannersTop99p;
+  }
+
+  public void setCspmHostsAgentlessScannersTop99p(Long cspmHostsAgentlessScannersTop99p) {
+    this.cspmHostsAgentlessScannersTop99p = cspmHostsAgentlessScannersTop99p;
   }
 
   public UsageSummaryDate customTsAvg(Long customTsAvg) {
@@ -6846,6 +6957,12 @@ public class UsageSummaryDate {
             this.csmHostEnterpriseTotalHostCountTop99p,
             usageSummaryDate.csmHostEnterpriseTotalHostCountTop99p)
         && Objects.equals(
+            this.csmHostProHostsAgentlessScannersSum,
+            usageSummaryDate.csmHostProHostsAgentlessScannersSum)
+        && Objects.equals(
+            this.csmHostProHostsAgentlessScannersTop99p,
+            usageSummaryDate.csmHostProHostsAgentlessScannersTop99p)
+        && Objects.equals(
             this.csmHostProOciHostCountTop99p, usageSummaryDate.csmHostProOciHostCountTop99p)
         && Objects.equals(this.cspmAasHostTop99p, usageSummaryDate.cspmAasHostTop99p)
         && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDate.cspmAwsHostTop99p)
@@ -6854,6 +6971,11 @@ public class UsageSummaryDate {
         && Objects.equals(this.cspmContainerHwm, usageSummaryDate.cspmContainerHwm)
         && Objects.equals(this.cspmGcpHostTop99p, usageSummaryDate.cspmGcpHostTop99p)
         && Objects.equals(this.cspmHostTop99p, usageSummaryDate.cspmHostTop99p)
+        && Objects.equals(
+            this.cspmHostsAgentlessScannersSum, usageSummaryDate.cspmHostsAgentlessScannersSum)
+        && Objects.equals(
+            this.cspmHostsAgentlessScannersTop99p,
+            usageSummaryDate.cspmHostsAgentlessScannersTop99p)
         && Objects.equals(this.customTsAvg, usageSummaryDate.customTsAvg)
         && Objects.equals(this.cwsContainerCountAvg, usageSummaryDate.cwsContainerCountAvg)
         && Objects.equals(this.cwsFargateTaskAvg, usageSummaryDate.cwsFargateTaskAvg)
@@ -7246,6 +7368,8 @@ public class UsageSummaryDate {
         csmHostEnterpriseGcpHostCountTop99p,
         csmHostEnterpriseOciHostCountTop99p,
         csmHostEnterpriseTotalHostCountTop99p,
+        csmHostProHostsAgentlessScannersSum,
+        csmHostProHostsAgentlessScannersTop99p,
         csmHostProOciHostCountTop99p,
         cspmAasHostTop99p,
         cspmAwsHostTop99p,
@@ -7254,6 +7378,8 @@ public class UsageSummaryDate {
         cspmContainerHwm,
         cspmGcpHostTop99p,
         cspmHostTop99p,
+        cspmHostsAgentlessScannersSum,
+        cspmHostsAgentlessScannersTop99p,
         customTsAvg,
         cwsContainerCountAvg,
         cwsFargateTaskAvg,
@@ -7589,6 +7715,12 @@ public class UsageSummaryDate {
     sb.append("    csmHostEnterpriseTotalHostCountTop99p: ")
         .append(toIndentedString(csmHostEnterpriseTotalHostCountTop99p))
         .append("\n");
+    sb.append("    csmHostProHostsAgentlessScannersSum: ")
+        .append(toIndentedString(csmHostProHostsAgentlessScannersSum))
+        .append("\n");
+    sb.append("    csmHostProHostsAgentlessScannersTop99p: ")
+        .append(toIndentedString(csmHostProHostsAgentlessScannersTop99p))
+        .append("\n");
     sb.append("    csmHostProOciHostCountTop99p: ")
         .append(toIndentedString(csmHostProOciHostCountTop99p))
         .append("\n");
@@ -7601,6 +7733,12 @@ public class UsageSummaryDate {
     sb.append("    cspmContainerHwm: ").append(toIndentedString(cspmContainerHwm)).append("\n");
     sb.append("    cspmGcpHostTop99p: ").append(toIndentedString(cspmGcpHostTop99p)).append("\n");
     sb.append("    cspmHostTop99p: ").append(toIndentedString(cspmHostTop99p)).append("\n");
+    sb.append("    cspmHostsAgentlessScannersSum: ")
+        .append(toIndentedString(cspmHostsAgentlessScannersSum))
+        .append("\n");
+    sb.append("    cspmHostsAgentlessScannersTop99p: ")
+        .append(toIndentedString(cspmHostsAgentlessScannersTop99p))
+        .append("\n");
     sb.append("    customTsAvg: ").append(toIndentedString(customTsAvg)).append("\n");
     sb.append("    cwsContainerCountAvg: ")
         .append(toIndentedString(cwsContainerCountAvg))

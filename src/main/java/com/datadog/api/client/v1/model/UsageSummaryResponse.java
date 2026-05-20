@@ -90,6 +90,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P_SUM,
@@ -98,6 +100,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_GCP_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_HISTORICAL_TS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_LIVE_TS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_TS_SUM,
@@ -538,6 +542,14 @@ public class UsageSummaryResponse {
       "csm_host_enterprise_total_host_count_top99p_sum";
   private Long csmHostEnterpriseTotalHostCountTop99pSum;
 
+  public static final String JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_AGG_SUM =
+      "csm_host_pro_hosts_agentless_scanners_agg_sum";
+  private Long csmHostProHostsAgentlessScannersAggSum;
+
+  public static final String JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P_SUM =
+      "csm_host_pro_hosts_agentless_scanners_top99p_sum";
+  private Long csmHostProHostsAgentlessScannersTop99pSum;
+
   public static final String JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P_SUM =
       "csm_host_pro_oci_host_count_top99p_sum";
   private Long csmHostProOciHostCountTop99pSum;
@@ -563,6 +575,14 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_CSPM_HOST_TOP99P_SUM = "cspm_host_top99p_sum";
   private Long cspmHostTop99pSum;
+
+  public static final String JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_AGG_SUM =
+      "cspm_hosts_agentless_scanners_agg_sum";
+  private Long cspmHostsAgentlessScannersAggSum;
+
+  public static final String JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P_SUM =
+      "cspm_hosts_agentless_scanners_top99p_sum";
+  private Long cspmHostsAgentlessScannersTop99pSum;
 
   public static final String JSON_PROPERTY_CUSTOM_HISTORICAL_TS_SUM = "custom_historical_ts_sum";
   private Long customHistoricalTsSum;
@@ -2756,6 +2776,54 @@ public class UsageSummaryResponse {
     this.csmHostEnterpriseTotalHostCountTop99pSum = csmHostEnterpriseTotalHostCountTop99pSum;
   }
 
+  public UsageSummaryResponse csmHostProHostsAgentlessScannersAggSum(
+      Long csmHostProHostsAgentlessScannersAggSum) {
+    this.csmHostProHostsAgentlessScannersAggSum = csmHostProHostsAgentlessScannersAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in
+   * the current month for all organizations.
+   *
+   * @return csmHostProHostsAgentlessScannersAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostProHostsAgentlessScannersAggSum() {
+    return csmHostProHostsAgentlessScannersAggSum;
+  }
+
+  public void setCsmHostProHostsAgentlessScannersAggSum(
+      Long csmHostProHostsAgentlessScannersAggSum) {
+    this.csmHostProHostsAgentlessScannersAggSum = csmHostProHostsAgentlessScannersAggSum;
+  }
+
+  public UsageSummaryResponse csmHostProHostsAgentlessScannersTop99pSum(
+      Long csmHostProHostsAgentlessScannersTop99pSum) {
+    this.csmHostProHostsAgentlessScannersTop99pSum = csmHostProHostsAgentlessScannersTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all
+   * hours in the current month for all organizations.
+   *
+   * @return csmHostProHostsAgentlessScannersTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostProHostsAgentlessScannersTop99pSum() {
+    return csmHostProHostsAgentlessScannersTop99pSum;
+  }
+
+  public void setCsmHostProHostsAgentlessScannersTop99pSum(
+      Long csmHostProHostsAgentlessScannersTop99pSum) {
+    this.csmHostProHostsAgentlessScannersTop99pSum = csmHostProHostsAgentlessScannersTop99pSum;
+  }
+
   public UsageSummaryResponse csmHostProOciHostCountTop99pSum(
       Long csmHostProOciHostCountTop99pSum) {
     this.csmHostProOciHostCountTop99pSum = csmHostProOciHostCountTop99pSum;
@@ -2931,6 +2999,52 @@ public class UsageSummaryResponse {
 
   public void setCspmHostTop99pSum(Long cspmHostTop99pSum) {
     this.cspmHostTop99pSum = cspmHostTop99pSum;
+  }
+
+  public UsageSummaryResponse cspmHostsAgentlessScannersAggSum(
+      Long cspmHostsAgentlessScannersAggSum) {
+    this.cspmHostsAgentlessScannersAggSum = cspmHostsAgentlessScannersAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in
+   * the current month for all organizations.
+   *
+   * @return cspmHostsAgentlessScannersAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmHostsAgentlessScannersAggSum() {
+    return cspmHostsAgentlessScannersAggSum;
+  }
+
+  public void setCspmHostsAgentlessScannersAggSum(Long cspmHostsAgentlessScannersAggSum) {
+    this.cspmHostsAgentlessScannersAggSum = cspmHostsAgentlessScannersAggSum;
+  }
+
+  public UsageSummaryResponse cspmHostsAgentlessScannersTop99pSum(
+      Long cspmHostsAgentlessScannersTop99pSum) {
+    this.cspmHostsAgentlessScannersTop99pSum = cspmHostsAgentlessScannersTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all
+   * hours in the current month for all organizations.
+   *
+   * @return cspmHostsAgentlessScannersTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmHostsAgentlessScannersTop99pSum() {
+    return cspmHostsAgentlessScannersTop99pSum;
+  }
+
+  public void setCspmHostsAgentlessScannersTop99pSum(Long cspmHostsAgentlessScannersTop99pSum) {
+    this.cspmHostsAgentlessScannersTop99pSum = cspmHostsAgentlessScannersTop99pSum;
   }
 
   public UsageSummaryResponse customHistoricalTsSum(Long customHistoricalTsSum) {
@@ -7308,6 +7422,12 @@ public class UsageSummaryResponse {
             this.csmHostEnterpriseTotalHostCountTop99pSum,
             usageSummaryResponse.csmHostEnterpriseTotalHostCountTop99pSum)
         && Objects.equals(
+            this.csmHostProHostsAgentlessScannersAggSum,
+            usageSummaryResponse.csmHostProHostsAgentlessScannersAggSum)
+        && Objects.equals(
+            this.csmHostProHostsAgentlessScannersTop99pSum,
+            usageSummaryResponse.csmHostProHostsAgentlessScannersTop99pSum)
+        && Objects.equals(
             this.csmHostProOciHostCountTop99pSum,
             usageSummaryResponse.csmHostProOciHostCountTop99pSum)
         && Objects.equals(this.cspmAasHostTop99pSum, usageSummaryResponse.cspmAasHostTop99pSum)
@@ -7317,6 +7437,12 @@ public class UsageSummaryResponse {
         && Objects.equals(this.cspmContainerHwmSum, usageSummaryResponse.cspmContainerHwmSum)
         && Objects.equals(this.cspmGcpHostTop99pSum, usageSummaryResponse.cspmGcpHostTop99pSum)
         && Objects.equals(this.cspmHostTop99pSum, usageSummaryResponse.cspmHostTop99pSum)
+        && Objects.equals(
+            this.cspmHostsAgentlessScannersAggSum,
+            usageSummaryResponse.cspmHostsAgentlessScannersAggSum)
+        && Objects.equals(
+            this.cspmHostsAgentlessScannersTop99pSum,
+            usageSummaryResponse.cspmHostsAgentlessScannersTop99pSum)
         && Objects.equals(this.customHistoricalTsSum, usageSummaryResponse.customHistoricalTsSum)
         && Objects.equals(this.customLiveTsSum, usageSummaryResponse.customLiveTsSum)
         && Objects.equals(this.customTsSum, usageSummaryResponse.customTsSum)
@@ -7794,6 +7920,8 @@ public class UsageSummaryResponse {
         csmHostEnterpriseGcpHostCountTop99pSum,
         csmHostEnterpriseOciHostCountTop99pSum,
         csmHostEnterpriseTotalHostCountTop99pSum,
+        csmHostProHostsAgentlessScannersAggSum,
+        csmHostProHostsAgentlessScannersTop99pSum,
         csmHostProOciHostCountTop99pSum,
         cspmAasHostTop99pSum,
         cspmAwsHostTop99pSum,
@@ -7802,6 +7930,8 @@ public class UsageSummaryResponse {
         cspmContainerHwmSum,
         cspmGcpHostTop99pSum,
         cspmHostTop99pSum,
+        cspmHostsAgentlessScannersAggSum,
+        cspmHostsAgentlessScannersTop99pSum,
         customHistoricalTsSum,
         customLiveTsSum,
         customTsSum,
@@ -8166,6 +8296,12 @@ public class UsageSummaryResponse {
     sb.append("    csmHostEnterpriseTotalHostCountTop99pSum: ")
         .append(toIndentedString(csmHostEnterpriseTotalHostCountTop99pSum))
         .append("\n");
+    sb.append("    csmHostProHostsAgentlessScannersAggSum: ")
+        .append(toIndentedString(csmHostProHostsAgentlessScannersAggSum))
+        .append("\n");
+    sb.append("    csmHostProHostsAgentlessScannersTop99pSum: ")
+        .append(toIndentedString(csmHostProHostsAgentlessScannersTop99pSum))
+        .append("\n");
     sb.append("    csmHostProOciHostCountTop99pSum: ")
         .append(toIndentedString(csmHostProOciHostCountTop99pSum))
         .append("\n");
@@ -8188,6 +8324,12 @@ public class UsageSummaryResponse {
         .append(toIndentedString(cspmGcpHostTop99pSum))
         .append("\n");
     sb.append("    cspmHostTop99pSum: ").append(toIndentedString(cspmHostTop99pSum)).append("\n");
+    sb.append("    cspmHostsAgentlessScannersAggSum: ")
+        .append(toIndentedString(cspmHostsAgentlessScannersAggSum))
+        .append("\n");
+    sb.append("    cspmHostsAgentlessScannersTop99pSum: ")
+        .append(toIndentedString(cspmHostsAgentlessScannersTop99pSum))
+        .append("\n");
     sb.append("    customHistoricalTsSum: ")
         .append(toIndentedString(customHistoricalTsSum))
         .append("\n");
