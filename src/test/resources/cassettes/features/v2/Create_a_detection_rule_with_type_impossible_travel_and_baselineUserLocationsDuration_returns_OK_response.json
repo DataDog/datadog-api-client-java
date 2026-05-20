@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"hasExtendedTitle\":true,\"isEnabled\":true,\"message\":\"test\",\"name\":\"Test-Create_a_detection_rule_with_type_impossible_travel_and_baselineUserLocationsDuration_returns_OK_res-1779289947\",\"options\":{\"detectionMethod\":\"impossible_travel\",\"evaluationWindow\":900,\"impossibleTravelOptions\":{\"baselineUserLocations\":true,\"baselineUserLocationsDuration\":7},\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"geo_data\",\"distinctFields\":[],\"groupByFields\":[\"@usr.id\"],\"metric\":\"@network.client.geoip\",\"query\":\"*\"}],\"tags\":[],\"type\":\"log_detection\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"name\":\"Test-Create_a_detection_rule_with_type_impossible_travel_and_baselineUserLocationsDuration_returns_OK_res-1779289947\",\"createdAt\":1779289949181,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isBeta\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"*\",\"groupByFields\":[\"@usr.id\"],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"metric\":\"@network.client.geoip\",\"metrics\":[\"@network.client.geoip\"],\"aggregation\":\"geo_data\",\"name\":\"\",\"dataSource\":\"logs\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"impossible_travel\",\"maxSignalDuration\":86400,\"keepAlive\":3600,\"impossibleTravelOptions\":{\"baselineUserLocations\":true,\"baselineUserLocationsDuration\":7,\"detectIpTransition\":false}},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[]}],\"message\":\"test\",\"tags\":[],\"hasExtendedTitle\":true,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"v2k-viu-svz\",\"blocking\":false,\"metadata\":{\"entities\":null,\"sources\":null},\"creationAuthorId\":2320499,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"updater\":{\"handle\":\"\",\"name\":\"\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "da934758-4baf-fca8-2600-4d9183d89974"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/rules/v2k-viu-svz",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4e836004-731a-1940-03a9-6f0169bd0eed"
+  }
+]
