@@ -18,7 +18,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Custom attributes type */
+/**
+ * The data type of the custom attribute, which determines the allowed values and UI input control.
+ */
 @JsonSerialize(using = CustomAttributeType.CustomAttributeTypeSerializer.class)
 public class CustomAttributeType extends ModelEnum<String> {
 

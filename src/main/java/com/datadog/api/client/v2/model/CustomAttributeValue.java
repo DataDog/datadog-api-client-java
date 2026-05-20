@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Custom attribute values */
+/** A typed value for a custom attribute on a specific case. */
 @JsonPropertyOrder({
   CustomAttributeValue.JSON_PROPERTY_IS_MULTI,
   CustomAttributeValue.JSON_PROPERTY_TYPE,
@@ -78,7 +78,8 @@ public class CustomAttributeValue {
   }
 
   /**
-   * Custom attributes type
+   * The data type of the custom attribute, which determines the allowed values and UI input
+   * control.
    *
    * @return type
    */
@@ -102,7 +103,8 @@ public class CustomAttributeValue {
   }
 
   /**
-   * Union of supported value for a custom attribute
+   * The value of a custom attribute. The accepted format depends on the attribute's type and
+   * whether it accepts multiple values.
    *
    * @return value
    */

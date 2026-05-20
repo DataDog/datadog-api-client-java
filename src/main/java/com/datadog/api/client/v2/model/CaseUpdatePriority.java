@@ -73,7 +73,7 @@ public class CaseUpdatePriority {
   }
 
   /**
-   * Case resource type
+   * JSON:API resource type for cases.
    *
    * @return type
    */

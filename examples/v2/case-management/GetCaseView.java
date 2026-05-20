@@ -1,0 +1,25 @@
+// Get a case view returns "OK" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.CaseManagementApi;
+import com.datadog.api.client.v2.model.CaseViewResponse;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.getCaseView", true);
+    CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
+
+    try {
+      CaseViewResponse result = apiInstance.getCaseView("a1b2c3d4-e5f6-7890-abcd-ef1234567890");
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CaseManagementApi#getCaseView");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}

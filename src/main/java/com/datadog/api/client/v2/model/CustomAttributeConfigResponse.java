@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Custom attribute config response. */
+/** Response containing a single custom attribute configuration. */
 @JsonPropertyOrder({CustomAttributeConfigResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,9 @@ public class CustomAttributeConfigResponse {
   }
 
   /**
-   * The definition of <code>CustomAttributeConfig</code> object.
+   * A custom attribute configuration that defines an organization-specific metadata field on cases.
+   * Custom attributes are scoped to a case type and can hold text, URLs, numbers, or predefined
+   * select options.
    *
    * @return data
    */

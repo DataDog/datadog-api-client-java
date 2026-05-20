@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Case type response */
+/** Response containing a single case type. */
 @JsonPropertyOrder({CaseTypeResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,8 @@ public class CaseTypeResponse {
   }
 
   /**
-   * The definition of <code>CaseType</code> object.
+   * A case type that defines a classification category for cases. Each case type can have its own
+   * custom attributes, statuses, and automation rules.
    *
    * @return data
    */
