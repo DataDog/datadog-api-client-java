@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Adds new dashboard widgets and a few bug fixes.\",\"title\":\"Release v1.2 to production\"},\"type\":\"publishRequest\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/app-builder/apps/7addb29b-f935-472c-ae79-d1963979a23e/publish-request",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"id\":\"c9247d40-2291-4860-90ac-9c2441ff23db\",\"title\":\"app not found\",\"detail\":\"app with id 7addb29b-f935-472c-ae79-d1963979a23e not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "508a80cf-3313-3708-bdc3-428c09046235"
+  }
+]
