@@ -16,6 +16,14 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AppBuilderApi apiInstance = new AppBuilderApi(defaultClient);
 
+    // there is a valid "app" in the system
+    UUID APP_DATA_ID = null;
+    try {
+      APP_DATA_ID = UUID.fromString(System.getenv("APP_DATA_ID"));
+    } catch (IllegalArgumentException e) {
+      System.err.println("Error parsing UUID: " + e.getMessage());
+    }
+
     UpdateAppProtectionLevelRequest body =
         new UpdateAppProtectionLevelRequest()
             .data(
@@ -26,9 +34,7 @@ public class Example {
                     .type(AppProtectionLevelType.PROTECTIONLEVEL));
 
     try {
-      UpdateAppResponse result =
-          apiInstance.updateProtectionLevel(
-              UUID.fromString("65bb1f25-52e1-4510-9f8d-22d1516ed693"), body);
+      UpdateAppResponse result = apiInstance.updateProtectionLevel(APP_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AppBuilderApi#updateProtectionLevel");

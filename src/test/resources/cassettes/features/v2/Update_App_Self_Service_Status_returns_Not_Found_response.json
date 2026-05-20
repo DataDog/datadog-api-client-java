@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"selfService\":true},\"type\":\"selfService\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/app-builder/apps/7addb29b-f935-472c-ae79-d1963979a23e/self-service",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"id\":\"623c417b-ba6a-4952-8d3c-1d90edaf3166\",\"title\":\"app not found\",\"detail\":\"app with id 7addb29b-f935-472c-ae79-d1963979a23e not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "94ed722b-570c-f21e-59c1-8843c646b8b7"
+  }
+]
