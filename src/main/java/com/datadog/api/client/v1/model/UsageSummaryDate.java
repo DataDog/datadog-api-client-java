@@ -106,6 +106,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_DATE,
   UsageSummaryDate.JSON_PROPERTY_DBM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_DBM_QUERIES_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM,
   UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM,
   UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM,
   UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM,
@@ -570,6 +571,10 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_DBM_QUERIES_COUNT_AVG = "dbm_queries_count_avg";
   private Long dbmQueriesCountAvg;
+
+  public static final String JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM =
+      "do_jobs_monitoring_orchestrators_job_hours_sum";
+  private Long doJobsMonitoringOrchestratorsJobHoursSum;
 
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM = "eph_infra_host_agent_sum";
   private Long ephInfraHostAgentSum;
@@ -3076,6 +3081,30 @@ public class UsageSummaryDate {
 
   public void setDbmQueriesCountAvg(Long dbmQueriesCountAvg) {
     this.dbmQueriesCountAvg = dbmQueriesCountAvg;
+  }
+
+  public UsageSummaryDate doJobsMonitoringOrchestratorsJobHoursSum(
+      Long doJobsMonitoringOrchestratorsJobHoursSum) {
+    this.doJobsMonitoringOrchestratorsJobHoursSum = doJobsMonitoringOrchestratorsJobHoursSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all orchestrator job hours over all hours in the current date for all
+   * organizations.
+   *
+   * @return doJobsMonitoringOrchestratorsJobHoursSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDoJobsMonitoringOrchestratorsJobHoursSum() {
+    return doJobsMonitoringOrchestratorsJobHoursSum;
+  }
+
+  public void setDoJobsMonitoringOrchestratorsJobHoursSum(
+      Long doJobsMonitoringOrchestratorsJobHoursSum) {
+    this.doJobsMonitoringOrchestratorsJobHoursSum = doJobsMonitoringOrchestratorsJobHoursSum;
   }
 
   public UsageSummaryDate ephInfraHostAgentSum(Long ephInfraHostAgentSum) {
@@ -6985,6 +7014,9 @@ public class UsageSummaryDate {
         && Objects.equals(this.date, usageSummaryDate.date)
         && Objects.equals(this.dbmHostTop99p, usageSummaryDate.dbmHostTop99p)
         && Objects.equals(this.dbmQueriesCountAvg, usageSummaryDate.dbmQueriesCountAvg)
+        && Objects.equals(
+            this.doJobsMonitoringOrchestratorsJobHoursSum,
+            usageSummaryDate.doJobsMonitoringOrchestratorsJobHoursSum)
         && Objects.equals(this.ephInfraHostAgentSum, usageSummaryDate.ephInfraHostAgentSum)
         && Objects.equals(this.ephInfraHostAlibabaSum, usageSummaryDate.ephInfraHostAlibabaSum)
         && Objects.equals(this.ephInfraHostAwsSum, usageSummaryDate.ephInfraHostAwsSum)
@@ -7388,6 +7420,7 @@ public class UsageSummaryDate {
         date,
         dbmHostTop99p,
         dbmQueriesCountAvg,
+        doJobsMonitoringOrchestratorsJobHoursSum,
         ephInfraHostAgentSum,
         ephInfraHostAlibabaSum,
         ephInfraHostAwsSum,
@@ -7751,6 +7784,9 @@ public class UsageSummaryDate {
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dbmHostTop99p: ").append(toIndentedString(dbmHostTop99p)).append("\n");
     sb.append("    dbmQueriesCountAvg: ").append(toIndentedString(dbmQueriesCountAvg)).append("\n");
+    sb.append("    doJobsMonitoringOrchestratorsJobHoursSum: ")
+        .append(toIndentedString(doJobsMonitoringOrchestratorsJobHoursSum))
+        .append("\n");
     sb.append("    ephInfraHostAgentSum: ")
         .append(toIndentedString(ephInfraHostAgentSum))
         .append("\n");
