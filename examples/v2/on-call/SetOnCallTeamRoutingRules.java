@@ -5,8 +5,9 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
 import com.datadog.api.client.v2.api.OnCallApi.SetOnCallTeamRoutingRulesOptionalParameters;
 import com.datadog.api.client.v2.model.RoutingRuleAction;
-import com.datadog.api.client.v2.model.SendSlackMessageAction;
-import com.datadog.api.client.v2.model.SendSlackMessageActionType;
+import com.datadog.api.client.v2.model.RoutingRuleEscalationPolicyAction;
+import com.datadog.api.client.v2.model.RoutingRuleEscalationPolicyActionSupportHours;
+import com.datadog.api.client.v2.model.RoutingRuleEscalationPolicyActionType;
 import com.datadog.api.client.v2.model.TeamRoutingRules;
 import com.datadog.api.client.v2.model.TeamRoutingRulesRequest;
 import com.datadog.api.client.v2.model.TeamRoutingRulesRequestData;
@@ -43,13 +44,13 @@ public class Example {
                                         .actions(
                                             Collections.singletonList(
                                                 new RoutingRuleAction(
-                                                    new SendSlackMessageAction()
-                                                        .channel("channel")
+                                                    new RoutingRuleEscalationPolicyAction()
                                                         .type(
-                                                            SendSlackMessageActionType
-                                                                .SEND_SLACK_MESSAGE)
-                                                        .workspace("workspace"))))
-                                        .query("tags.service:test")
+                                                            RoutingRuleEscalationPolicyActionType
+                                                                .ESCALATION_POLICY)
+                                                        .policyId(ESCALATION_POLICY_DATA_ID)
+                                                        .urgency(Urgency.LOW))))
+                                        .query("tags.service:time_restrictions")
                                         .timeRestriction(
                                             new TimeRestrictions()
                                                 .timeZone("Europe/Paris")
@@ -66,9 +67,53 @@ public class Example {
                                                             .startDay(Weekday.TUESDAY)
                                                             .startTime("09:00:00")))),
                                     new TeamRoutingRulesRequestRule()
+                                        .actions(
+                                            Collections.singletonList(
+                                                new RoutingRuleAction(
+                                                    new RoutingRuleEscalationPolicyAction()
+                                                        .type(
+                                                            RoutingRuleEscalationPolicyActionType
+                                                                .ESCALATION_POLICY)
+                                                        .policyId(ESCALATION_POLICY_DATA_ID)
+                                                        .urgency(Urgency.LOW)
+                                                        .ackTimeoutMinutes(30L)
+                                                        .supportHours(
+                                                            new RoutingRuleEscalationPolicyActionSupportHours()
+                                                                .timeZone("Europe/Paris")
+                                                                .restrictions(
+                                                                    Arrays.asList(
+                                                                        new TimeRestriction()
+                                                                            .endDay(
+                                                                                Weekday.WEDNESDAY)
+                                                                            .endTime("17:00:00")
+                                                                            .startDay(
+                                                                                Weekday.WEDNESDAY)
+                                                                            .startTime("09:00:00"),
+                                                                        new TimeRestriction()
+                                                                            .endDay(
+                                                                                Weekday.THURSDAY)
+                                                                            .endTime("17:00:00")
+                                                                            .startDay(
+                                                                                Weekday.THURSDAY)
+                                                                            .startTime(
+                                                                                "09:00:00")))))))
+                                        .query(
+                                            "tags.service:support_hours_and_acknowledgment_timeout"),
+                                    new TeamRoutingRulesRequestRule()
                                         .policyId(ESCALATION_POLICY_DATA_ID)
-                                        .query("")
-                                        .urgency(Urgency.LOW))))
+                                        .query("tags.service:legacy_policy_definition")
+                                        .urgency(Urgency.LOW),
+                                    new TeamRoutingRulesRequestRule()
+                                        .actions(
+                                            Collections.singletonList(
+                                                new RoutingRuleAction(
+                                                    new RoutingRuleEscalationPolicyAction()
+                                                        .type(
+                                                            RoutingRuleEscalationPolicyActionType
+                                                                .ESCALATION_POLICY)
+                                                        .policyId(ESCALATION_POLICY_DATA_ID)
+                                                        .urgency(Urgency.LOW))))
+                                        .query(""))))
                     .id(DD_TEAM_DATA_ID)
                     .type(TeamRoutingRulesRequestDataType.TEAM_ROUTING_RULES));
 
