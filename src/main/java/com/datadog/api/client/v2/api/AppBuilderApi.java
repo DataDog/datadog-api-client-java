@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AppBuilderListTagsResponse;
 import com.datadog.api.client.v2.model.AppsSortField;
 import com.datadog.api.client.v2.model.CreateAppRequest;
 import com.datadog.api.client.v2.model.CreateAppResponse;
@@ -12,8 +13,11 @@ import com.datadog.api.client.v2.model.DeleteAppResponse;
 import com.datadog.api.client.v2.model.DeleteAppsRequest;
 import com.datadog.api.client.v2.model.DeleteAppsResponse;
 import com.datadog.api.client.v2.model.GetAppResponse;
+import com.datadog.api.client.v2.model.GetBlueprintResponse;
+import com.datadog.api.client.v2.model.GetBlueprintsResponse;
 import com.datadog.api.client.v2.model.ListAppVersionsResponse;
 import com.datadog.api.client.v2.model.ListAppsResponse;
+import com.datadog.api.client.v2.model.ListBlueprintsResponse;
 import com.datadog.api.client.v2.model.PublishAppResponse;
 import com.datadog.api.client.v2.model.UnpublishAppResponse;
 import com.datadog.api.client.v2.model.UpdateAppFavoriteRequest;
@@ -827,6 +831,419 @@ public class AppBuilderApi {
         new GenericType<GetAppResponse>() {});
   }
 
+  /**
+   * Get Blueprint.
+   *
+   * <p>See {@link #getBlueprintWithHttpInfo}.
+   *
+   * @param blueprintId The ID of the blueprint to retrieve. (required)
+   * @return GetBlueprintResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetBlueprintResponse getBlueprint(UUID blueprintId) throws ApiException {
+    return getBlueprintWithHttpInfo(blueprintId).getData();
+  }
+
+  /**
+   * Get Blueprint.
+   *
+   * <p>See {@link #getBlueprintWithHttpInfoAsync}.
+   *
+   * @param blueprintId The ID of the blueprint to retrieve. (required)
+   * @return CompletableFuture&lt;GetBlueprintResponse&gt;
+   */
+  public CompletableFuture<GetBlueprintResponse> getBlueprintAsync(UUID blueprintId) {
+    return getBlueprintWithHttpInfoAsync(blueprintId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve an app blueprint by its ID.
+   *
+   * @param blueprintId The ID of the blueprint to retrieve. (required)
+   * @return ApiResponse&lt;GetBlueprintResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetBlueprintResponse> getBlueprintWithHttpInfo(UUID blueprintId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'blueprintId' is set
+    if (blueprintId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'blueprintId' when calling getBlueprint");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/blueprint/{blueprint_id}"
+            .replaceAll(
+                "\\{" + "blueprint_id" + "\\}", apiClient.escapeString(blueprintId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.getBlueprint",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetBlueprintResponse>() {});
+  }
+
+  /**
+   * Get Blueprint.
+   *
+   * <p>See {@link #getBlueprintWithHttpInfo}.
+   *
+   * @param blueprintId The ID of the blueprint to retrieve. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetBlueprintResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetBlueprintResponse>> getBlueprintWithHttpInfoAsync(
+      UUID blueprintId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'blueprintId' is set
+    if (blueprintId == null) {
+      CompletableFuture<ApiResponse<GetBlueprintResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'blueprintId' when calling getBlueprint"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/blueprint/{blueprint_id}"
+            .replaceAll(
+                "\\{" + "blueprint_id" + "\\}", apiClient.escapeString(blueprintId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.getBlueprint",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetBlueprintResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetBlueprintResponse>() {});
+  }
+
+  /**
+   * Get Blueprints by Integration ID.
+   *
+   * <p>See {@link #getBlueprintsByIntegrationIdWithHttpInfo}.
+   *
+   * @param integrationId The integration ID to filter blueprints by. (required)
+   * @return GetBlueprintsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetBlueprintsResponse getBlueprintsByIntegrationId(String integrationId)
+      throws ApiException {
+    return getBlueprintsByIntegrationIdWithHttpInfo(integrationId).getData();
+  }
+
+  /**
+   * Get Blueprints by Integration ID.
+   *
+   * <p>See {@link #getBlueprintsByIntegrationIdWithHttpInfoAsync}.
+   *
+   * @param integrationId The integration ID to filter blueprints by. (required)
+   * @return CompletableFuture&lt;GetBlueprintsResponse&gt;
+   */
+  public CompletableFuture<GetBlueprintsResponse> getBlueprintsByIntegrationIdAsync(
+      String integrationId) {
+    return getBlueprintsByIntegrationIdWithHttpInfoAsync(integrationId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List app blueprints associated with a specific integration ID.
+   *
+   * @param integrationId The integration ID to filter blueprints by. (required)
+   * @return ApiResponse&lt;GetBlueprintsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetBlueprintsResponse> getBlueprintsByIntegrationIdWithHttpInfo(
+      String integrationId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationId' is set
+    if (integrationId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'integrationId' when calling"
+              + " getBlueprintsByIntegrationId");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/blueprints/integration-id/{integration_id}"
+            .replaceAll(
+                "\\{" + "integration_id" + "\\}", apiClient.escapeString(integrationId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.getBlueprintsByIntegrationId",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetBlueprintsResponse>() {});
+  }
+
+  /**
+   * Get Blueprints by Integration ID.
+   *
+   * <p>See {@link #getBlueprintsByIntegrationIdWithHttpInfo}.
+   *
+   * @param integrationId The integration ID to filter blueprints by. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetBlueprintsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetBlueprintsResponse>>
+      getBlueprintsByIntegrationIdWithHttpInfoAsync(String integrationId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationId' is set
+    if (integrationId == null) {
+      CompletableFuture<ApiResponse<GetBlueprintsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integrationId' when calling"
+                  + " getBlueprintsByIntegrationId"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/blueprints/integration-id/{integration_id}"
+            .replaceAll(
+                "\\{" + "integration_id" + "\\}", apiClient.escapeString(integrationId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.getBlueprintsByIntegrationId",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetBlueprintsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetBlueprintsResponse>() {});
+  }
+
+  /**
+   * Get Blueprints by Slugs.
+   *
+   * <p>See {@link #getBlueprintsBySlugsWithHttpInfo}.
+   *
+   * @param slugs A comma-separated list of blueprint slugs. (required)
+   * @return GetBlueprintsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetBlueprintsResponse getBlueprintsBySlugs(String slugs) throws ApiException {
+    return getBlueprintsBySlugsWithHttpInfo(slugs).getData();
+  }
+
+  /**
+   * Get Blueprints by Slugs.
+   *
+   * <p>See {@link #getBlueprintsBySlugsWithHttpInfoAsync}.
+   *
+   * @param slugs A comma-separated list of blueprint slugs. (required)
+   * @return CompletableFuture&lt;GetBlueprintsResponse&gt;
+   */
+  public CompletableFuture<GetBlueprintsResponse> getBlueprintsBySlugsAsync(String slugs) {
+    return getBlueprintsBySlugsWithHttpInfoAsync(slugs)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve app blueprints by their slugs.
+   *
+   * @param slugs A comma-separated list of blueprint slugs. (required)
+   * @return ApiResponse&lt;GetBlueprintsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetBlueprintsResponse> getBlueprintsBySlugsWithHttpInfo(String slugs)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'slugs' is set
+    if (slugs == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'slugs' when calling getBlueprintsBySlugs");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/blueprints/slugs/{slugs}"
+            .replaceAll("\\{" + "slugs" + "\\}", apiClient.escapeString(slugs.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.getBlueprintsBySlugs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetBlueprintsResponse>() {});
+  }
+
+  /**
+   * Get Blueprints by Slugs.
+   *
+   * <p>See {@link #getBlueprintsBySlugsWithHttpInfo}.
+   *
+   * @param slugs A comma-separated list of blueprint slugs. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetBlueprintsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetBlueprintsResponse>>
+      getBlueprintsBySlugsWithHttpInfoAsync(String slugs) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'slugs' is set
+    if (slugs == null) {
+      CompletableFuture<ApiResponse<GetBlueprintsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'slugs' when calling getBlueprintsBySlugs"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/app-builder/blueprints/slugs/{slugs}"
+            .replaceAll("\\{" + "slugs" + "\\}", apiClient.escapeString(slugs.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.getBlueprintsBySlugs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetBlueprintsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetBlueprintsResponse>() {});
+  }
+
   /** Manage optional parameters to listApps. */
   public static class ListAppsOptionalParameters {
     private Long limit;
@@ -1372,6 +1789,300 @@ public class AppBuilderApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListAppVersionsResponse>() {});
+  }
+
+  /** Manage optional parameters to listBlueprints. */
+  public static class ListBlueprintsOptionalParameters {
+    private Long limit;
+    private Long page;
+
+    /**
+     * Set limit.
+     *
+     * @param limit The number of blueprints to return per page. Defaults to 10. Maximum is 100.
+     *     (optional)
+     * @return ListBlueprintsOptionalParameters
+     */
+    public ListBlueprintsOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set page.
+     *
+     * @param page The page of results to return. Starts at 0. (optional)
+     * @return ListBlueprintsOptionalParameters
+     */
+    public ListBlueprintsOptionalParameters page(Long page) {
+      this.page = page;
+      return this;
+    }
+  }
+
+  /**
+   * List Blueprints.
+   *
+   * <p>See {@link #listBlueprintsWithHttpInfo}.
+   *
+   * @return ListBlueprintsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListBlueprintsResponse listBlueprints() throws ApiException {
+    return listBlueprintsWithHttpInfo(new ListBlueprintsOptionalParameters()).getData();
+  }
+
+  /**
+   * List Blueprints.
+   *
+   * <p>See {@link #listBlueprintsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListBlueprintsResponse&gt;
+   */
+  public CompletableFuture<ListBlueprintsResponse> listBlueprintsAsync() {
+    return listBlueprintsWithHttpInfoAsync(new ListBlueprintsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Blueprints.
+   *
+   * <p>See {@link #listBlueprintsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListBlueprintsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListBlueprintsResponse listBlueprints(ListBlueprintsOptionalParameters parameters)
+      throws ApiException {
+    return listBlueprintsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Blueprints.
+   *
+   * <p>See {@link #listBlueprintsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListBlueprintsResponse&gt;
+   */
+  public CompletableFuture<ListBlueprintsResponse> listBlueprintsAsync(
+      ListBlueprintsOptionalParameters parameters) {
+    return listBlueprintsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List available app blueprints.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListBlueprintsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListBlueprintsResponse> listBlueprintsWithHttpInfo(
+      ListBlueprintsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long limit = parameters.limit;
+    Long page = parameters.page;
+    // create path and map variables
+    String localVarPath = "/api/v2/app-builder/blueprints";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.listBlueprints",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListBlueprintsResponse>() {});
+  }
+
+  /**
+   * List Blueprints.
+   *
+   * <p>See {@link #listBlueprintsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListBlueprintsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListBlueprintsResponse>> listBlueprintsWithHttpInfoAsync(
+      ListBlueprintsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long limit = parameters.limit;
+    Long page = parameters.page;
+    // create path and map variables
+    String localVarPath = "/api/v2/app-builder/blueprints";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.listBlueprints",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListBlueprintsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListBlueprintsResponse>() {});
+  }
+
+  /**
+   * List Tags.
+   *
+   * <p>See {@link #listTagsWithHttpInfo}.
+   *
+   * @return AppBuilderListTagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AppBuilderListTagsResponse listTags() throws ApiException {
+    return listTagsWithHttpInfo().getData();
+  }
+
+  /**
+   * List Tags.
+   *
+   * <p>See {@link #listTagsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AppBuilderListTagsResponse&gt;
+   */
+  public CompletableFuture<AppBuilderListTagsResponse> listTagsAsync() {
+    return listTagsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all tags associated with the authenticated user's apps.
+   *
+   * @return ApiResponse&lt;AppBuilderListTagsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AppBuilderListTagsResponse> listTagsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/app-builder/tags";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AppBuilderApi.listTags",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AppBuilderListTagsResponse>() {});
+  }
+
+  /**
+   * List Tags.
+   *
+   * <p>See {@link #listTagsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;AppBuilderListTagsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AppBuilderListTagsResponse>> listTagsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/app-builder/tags";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AppBuilderApi.listTags",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AppBuilderListTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AppBuilderListTagsResponse>() {});
   }
 
   /**
