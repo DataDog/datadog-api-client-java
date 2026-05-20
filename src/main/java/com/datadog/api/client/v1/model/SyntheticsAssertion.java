@@ -354,6 +354,111 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SyntheticsAssertionJavascript'", e);
       }
 
+      // deserialize SyntheticsAssertionMCPServerCapabilitiesTarget
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(Integer.class)
+            || SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(Long.class)
+            || SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(Float.class)
+            || SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(Double.class)
+            || SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(Boolean.class)
+            || SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(Integer.class)
+                        || SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(Float.class)
+                        || SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SyntheticsAssertionMCPServerCapabilitiesTarget.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(SyntheticsAssertionMCPServerCapabilitiesTarget.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SyntheticsAssertionMCPServerCapabilitiesTarget) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'SyntheticsAssertionMCPServerCapabilitiesTarget'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'SyntheticsAssertionMCPServerCapabilitiesTarget'",
+            e);
+      }
+
+      // deserialize SyntheticsAssertionMCPRespectsSpecification
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SyntheticsAssertionMCPRespectsSpecification.class.equals(Integer.class)
+            || SyntheticsAssertionMCPRespectsSpecification.class.equals(Long.class)
+            || SyntheticsAssertionMCPRespectsSpecification.class.equals(Float.class)
+            || SyntheticsAssertionMCPRespectsSpecification.class.equals(Double.class)
+            || SyntheticsAssertionMCPRespectsSpecification.class.equals(Boolean.class)
+            || SyntheticsAssertionMCPRespectsSpecification.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SyntheticsAssertionMCPRespectsSpecification.class.equals(Integer.class)
+                        || SyntheticsAssertionMCPRespectsSpecification.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SyntheticsAssertionMCPRespectsSpecification.class.equals(Float.class)
+                        || SyntheticsAssertionMCPRespectsSpecification.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SyntheticsAssertionMCPRespectsSpecification.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SyntheticsAssertionMCPRespectsSpecification.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(SyntheticsAssertionMCPRespectsSpecification.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SyntheticsAssertionMCPRespectsSpecification) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'SyntheticsAssertionMCPRespectsSpecification'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'SyntheticsAssertionMCPRespectsSpecification'",
+            e);
+      }
+
       SyntheticsAssertion ret = new SyntheticsAssertion();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -413,6 +518,16 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public SyntheticsAssertion(SyntheticsAssertionMCPServerCapabilitiesTarget o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public SyntheticsAssertion(SyntheticsAssertionMCPRespectsSpecification o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SyntheticsAssertionTarget", new GenericType<SyntheticsAssertionTarget>() {});
     schemas.put(
@@ -428,6 +543,12 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
         "SyntheticsAssertionXPathTarget", new GenericType<SyntheticsAssertionXPathTarget>() {});
     schemas.put(
         "SyntheticsAssertionJavascript", new GenericType<SyntheticsAssertionJavascript>() {});
+    schemas.put(
+        "SyntheticsAssertionMCPServerCapabilitiesTarget",
+        new GenericType<SyntheticsAssertionMCPServerCapabilitiesTarget>() {});
+    schemas.put(
+        "SyntheticsAssertionMCPRespectsSpecification",
+        new GenericType<SyntheticsAssertionMCPRespectsSpecification>() {});
     JSON.registerDescendants(SyntheticsAssertion.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -440,7 +561,8 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: SyntheticsAssertionTarget, SyntheticsAssertionBodyHashTarget,
    * SyntheticsAssertionJSONPathTarget, SyntheticsAssertionJSONSchemaTarget,
-   * SyntheticsAssertionXPathTarget, SyntheticsAssertionJavascript
+   * SyntheticsAssertionXPathTarget, SyntheticsAssertionJavascript,
+   * SyntheticsAssertionMCPServerCapabilitiesTarget, SyntheticsAssertionMCPRespectsSpecification
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -475,6 +597,16 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        SyntheticsAssertionMCPServerCapabilitiesTarget.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        SyntheticsAssertionMCPRespectsSpecification.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -484,18 +616,22 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
         "Invalid instance type. Must be SyntheticsAssertionTarget,"
             + " SyntheticsAssertionBodyHashTarget, SyntheticsAssertionJSONPathTarget,"
             + " SyntheticsAssertionJSONSchemaTarget, SyntheticsAssertionXPathTarget,"
-            + " SyntheticsAssertionJavascript");
+            + " SyntheticsAssertionJavascript, SyntheticsAssertionMCPServerCapabilitiesTarget,"
+            + " SyntheticsAssertionMCPRespectsSpecification");
   }
 
   /**
    * Get the actual instance, which can be the following: SyntheticsAssertionTarget,
    * SyntheticsAssertionBodyHashTarget, SyntheticsAssertionJSONPathTarget,
    * SyntheticsAssertionJSONSchemaTarget, SyntheticsAssertionXPathTarget,
-   * SyntheticsAssertionJavascript
+   * SyntheticsAssertionJavascript, SyntheticsAssertionMCPServerCapabilitiesTarget,
+   * SyntheticsAssertionMCPRespectsSpecification
    *
    * @return The actual instance (SyntheticsAssertionTarget, SyntheticsAssertionBodyHashTarget,
    *     SyntheticsAssertionJSONPathTarget, SyntheticsAssertionJSONSchemaTarget,
-   *     SyntheticsAssertionXPathTarget, SyntheticsAssertionJavascript)
+   *     SyntheticsAssertionXPathTarget, SyntheticsAssertionJavascript,
+   *     SyntheticsAssertionMCPServerCapabilitiesTarget,
+   *     SyntheticsAssertionMCPRespectsSpecification)
    */
   @Override
   public Object getActualInstance() {
@@ -571,5 +707,32 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
   public SyntheticsAssertionJavascript getSyntheticsAssertionJavascript()
       throws ClassCastException {
     return (SyntheticsAssertionJavascript) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SyntheticsAssertionMCPServerCapabilitiesTarget`. If the actual
+   * instance is not `SyntheticsAssertionMCPServerCapabilitiesTarget`, the ClassCastException will
+   * be thrown.
+   *
+   * @return The actual instance of `SyntheticsAssertionMCPServerCapabilitiesTarget`
+   * @throws ClassCastException if the instance is not
+   *     `SyntheticsAssertionMCPServerCapabilitiesTarget`
+   */
+  public SyntheticsAssertionMCPServerCapabilitiesTarget
+      getSyntheticsAssertionMCPServerCapabilitiesTarget() throws ClassCastException {
+    return (SyntheticsAssertionMCPServerCapabilitiesTarget) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SyntheticsAssertionMCPRespectsSpecification`. If the actual
+   * instance is not `SyntheticsAssertionMCPRespectsSpecification`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `SyntheticsAssertionMCPRespectsSpecification`
+   * @throws ClassCastException if the instance is not `SyntheticsAssertionMCPRespectsSpecification`
+   */
+  public SyntheticsAssertionMCPRespectsSpecification
+      getSyntheticsAssertionMCPRespectsSpecification() throws ClassCastException {
+    return (SyntheticsAssertionMCPRespectsSpecification) super.getActualInstance();
   }
 }

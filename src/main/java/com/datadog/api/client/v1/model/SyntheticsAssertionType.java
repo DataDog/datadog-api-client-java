@@ -45,7 +45,9 @@ public class SyntheticsAssertionType extends ModelEnum<String> {
               "grpcProto",
               "connection",
               "multiNetworkHop",
-              "jitter"));
+              "jitter",
+              "mcpToolNameLength",
+              "mcpToolCount"));
 
   public static final SyntheticsAssertionType BODY = new SyntheticsAssertionType("body");
   public static final SyntheticsAssertionType HEADER = new SyntheticsAssertionType("header");
@@ -83,6 +85,10 @@ public class SyntheticsAssertionType extends ModelEnum<String> {
   public static final SyntheticsAssertionType MULTI_NETWORK_HOP =
       new SyntheticsAssertionType("multiNetworkHop");
   public static final SyntheticsAssertionType JITTER = new SyntheticsAssertionType("jitter");
+  public static final SyntheticsAssertionType MCP_TOOL_NAME_LENGTH =
+      new SyntheticsAssertionType("mcpToolNameLength");
+  public static final SyntheticsAssertionType MCP_TOOL_COUNT =
+      new SyntheticsAssertionType("mcpToolCount");
 
   SyntheticsAssertionType(String value) {
     super(value, allowedValues);

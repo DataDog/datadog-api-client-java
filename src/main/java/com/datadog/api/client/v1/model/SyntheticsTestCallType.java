@@ -18,16 +18,23 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of gRPC call to perform. */
+/**
+ * The type of call to perform. Used by gRPC steps (<code>healthcheck</code>, <code>unary</code>)
+ * and MCP steps (<code>init</code>, <code>tool_list</code>, <code>tool_call</code>). Valid values
+ * depend on the parent step's <code>subtype</code>.
+ */
 @JsonSerialize(using = SyntheticsTestCallType.SyntheticsTestCallTypeSerializer.class)
 public class SyntheticsTestCallType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("healthcheck", "unary"));
+      new HashSet<String>(Arrays.asList("healthcheck", "unary", "init", "tool_list", "tool_call"));
 
   public static final SyntheticsTestCallType HEALTHCHECK =
       new SyntheticsTestCallType("healthcheck");
   public static final SyntheticsTestCallType UNARY = new SyntheticsTestCallType("unary");
+  public static final SyntheticsTestCallType INIT = new SyntheticsTestCallType("init");
+  public static final SyntheticsTestCallType TOOL_LIST = new SyntheticsTestCallType("tool_list");
+  public static final SyntheticsTestCallType TOOL_CALL = new SyntheticsTestCallType("tool_call");
 
   SyntheticsTestCallType(String value) {
     super(value, allowedValues);

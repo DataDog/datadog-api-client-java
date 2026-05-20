@@ -40,6 +40,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_HTTP_VERSION,
   SyntheticsTestRequest.JSON_PROPERTY_IS_MESSAGE_BASE64_ENCODED,
+  SyntheticsTestRequest.JSON_PROPERTY_MCP_PROTOCOL_VERSION,
   SyntheticsTestRequest.JSON_PROPERTY_MESSAGE,
   SyntheticsTestRequest.JSON_PROPERTY_METADATA,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
@@ -53,6 +54,8 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_SERVICE,
   SyntheticsTestRequest.JSON_PROPERTY_SHOULD_TRACK_HOPS,
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
+  SyntheticsTestRequest.JSON_PROPERTY_TOOL_ARGS,
+  SyntheticsTestRequest.JSON_PROPERTY_TOOL_NAME,
   SyntheticsTestRequest.JSON_PROPERTY_URL
 })
 @jakarta.annotation.Generated(
@@ -121,6 +124,9 @@ public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_IS_MESSAGE_BASE64_ENCODED = "isMessageBase64Encoded";
   private Boolean isMessageBase64Encoded;
 
+  public static final String JSON_PROPERTY_MCP_PROTOCOL_VERSION = "mcpProtocolVersion";
+  private SyntheticsMCPProtocolVersion mcpProtocolVersion;
+
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
@@ -159,6 +165,12 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_TIMEOUT = "timeout";
   private Double timeout;
+
+  public static final String JSON_PROPERTY_TOOL_ARGS = "toolArgs";
+  private Map<String, Object> toolArgs = null;
+
+  public static final String JSON_PROPERTY_TOOL_NAME = "toolName";
+  private String toolName;
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
@@ -259,7 +271,9 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * The type of gRPC call to perform.
+   * The type of call to perform. Used by gRPC steps (<code>healthcheck</code>, <code>unary</code>)
+   * and MCP steps (<code>init</code>, <code>tool_list</code>, <code>tool_call</code>). Valid values
+   * depend on the parent step's <code>subtype</code>.
    *
    * @return callType
    */
@@ -639,6 +653,31 @@ public class SyntheticsTestRequest {
     this.isMessageBase64Encoded = isMessageBase64Encoded;
   }
 
+  public SyntheticsTestRequest mcpProtocolVersion(SyntheticsMCPProtocolVersion mcpProtocolVersion) {
+    this.mcpProtocolVersion = mcpProtocolVersion;
+    this.unparsed |= !mcpProtocolVersion.isValid();
+    return this;
+  }
+
+  /**
+   * The MCP protocol version used by the step. See https://modelcontextprotocol.io/specification.
+   *
+   * @return mcpProtocolVersion
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MCP_PROTOCOL_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsMCPProtocolVersion getMcpProtocolVersion() {
+    return mcpProtocolVersion;
+  }
+
+  public void setMcpProtocolVersion(SyntheticsMCPProtocolVersion mcpProtocolVersion) {
+    if (!mcpProtocolVersion.isValid()) {
+      this.unparsed = true;
+    }
+    this.mcpProtocolVersion = mcpProtocolVersion;
+  }
+
   public SyntheticsTestRequest message(String message) {
     this.message = message;
     return this;
@@ -926,6 +965,58 @@ public class SyntheticsTestRequest {
     this.timeout = timeout;
   }
 
+  public SyntheticsTestRequest toolArgs(Map<String, Object> toolArgs) {
+    this.toolArgs = toolArgs;
+    return this;
+  }
+
+  public SyntheticsTestRequest putToolArgsItem(String key, Object toolArgsItem) {
+    if (this.toolArgs == null) {
+      this.toolArgs = new HashMap<>();
+    }
+    this.toolArgs.put(key, toolArgsItem);
+    return this;
+  }
+
+  /**
+   * Arguments to pass to the MCP tool. Free-form object whose shape depends on the tool. Used when
+   * <code>callType</code> is <code>tool_call</code>.
+   *
+   * @return toolArgs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOOL_ARGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getToolArgs() {
+    return toolArgs;
+  }
+
+  public void setToolArgs(Map<String, Object> toolArgs) {
+    this.toolArgs = toolArgs;
+  }
+
+  public SyntheticsTestRequest toolName(String toolName) {
+    this.toolName = toolName;
+    return this;
+  }
+
+  /**
+   * The name of the MCP tool to call. Required when <code>callType</code> is <code>tool_call</code>
+   * .
+   *
+   * @return toolName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOOL_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getToolName() {
+    return toolName;
+  }
+
+  public void setToolName(String toolName) {
+    this.toolName = toolName;
+  }
+
   public SyntheticsTestRequest url(String url) {
     this.url = url;
     return this;
@@ -1027,6 +1118,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.host, syntheticsTestRequest.host)
         && Objects.equals(this.httpVersion, syntheticsTestRequest.httpVersion)
         && Objects.equals(this.isMessageBase64Encoded, syntheticsTestRequest.isMessageBase64Encoded)
+        && Objects.equals(this.mcpProtocolVersion, syntheticsTestRequest.mcpProtocolVersion)
         && Objects.equals(this.message, syntheticsTestRequest.message)
         && Objects.equals(this.metadata, syntheticsTestRequest.metadata)
         && Objects.equals(this.method, syntheticsTestRequest.method)
@@ -1040,6 +1132,8 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.service, syntheticsTestRequest.service)
         && Objects.equals(this.shouldTrackHops, syntheticsTestRequest.shouldTrackHops)
         && Objects.equals(this.timeout, syntheticsTestRequest.timeout)
+        && Objects.equals(this.toolArgs, syntheticsTestRequest.toolArgs)
+        && Objects.equals(this.toolName, syntheticsTestRequest.toolName)
         && Objects.equals(this.url, syntheticsTestRequest.url)
         && Objects.equals(this.additionalProperties, syntheticsTestRequest.additionalProperties);
   }
@@ -1067,6 +1161,7 @@ public class SyntheticsTestRequest {
         host,
         httpVersion,
         isMessageBase64Encoded,
+        mcpProtocolVersion,
         message,
         metadata,
         method,
@@ -1080,6 +1175,8 @@ public class SyntheticsTestRequest {
         service,
         shouldTrackHops,
         timeout,
+        toolArgs,
+        toolName,
         url,
         additionalProperties);
   }
@@ -1118,6 +1215,7 @@ public class SyntheticsTestRequest {
     sb.append("    isMessageBase64Encoded: ")
         .append(toIndentedString(isMessageBase64Encoded))
         .append("\n");
+    sb.append("    mcpProtocolVersion: ").append(toIndentedString(mcpProtocolVersion)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
@@ -1133,6 +1231,8 @@ public class SyntheticsTestRequest {
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    shouldTrackHops: ").append(toIndentedString(shouldTrackHops)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    toolArgs: ").append(toIndentedString(toolArgs)).append("\n");
+    sb.append("    toolName: ").append(toIndentedString(toolName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
