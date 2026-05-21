@@ -15,10 +15,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Options on impossible travel detection method. */
 @JsonPropertyOrder({
-  SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS
+  SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS,
+  SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS_DURATION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -26,6 +28,10 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BASELINE_USER_LOCATIONS = "baselineUserLocations";
   private Boolean baselineUserLocations;
+
+  public static final String JSON_PROPERTY_BASELINE_USER_LOCATIONS_DURATION =
+      "baselineUserLocationsDuration";
+  private JsonNullable<Integer> baselineUserLocationsDuration = JsonNullable.<Integer>undefined();
 
   public SecurityMonitoringRuleImpossibleTravelOptions baselineUserLocations(
       Boolean baselineUserLocations) {
@@ -49,6 +55,40 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
 
   public void setBaselineUserLocations(Boolean baselineUserLocations) {
     this.baselineUserLocations = baselineUserLocations;
+  }
+
+  public SecurityMonitoringRuleImpossibleTravelOptions baselineUserLocationsDuration(
+      Integer baselineUserLocationsDuration) {
+    this.baselineUserLocationsDuration = JsonNullable.<Integer>of(baselineUserLocationsDuration);
+    return this;
+  }
+
+  /**
+   * The duration in days during which Datadog learns the user's regular access locations. After
+   * this period, signals are generated for accesses from unknown locations. minimum: 1 maximum: 30
+   *
+   * @return baselineUserLocationsDuration
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Integer getBaselineUserLocationsDuration() {
+    return baselineUserLocationsDuration.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_BASELINE_USER_LOCATIONS_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Integer> getBaselineUserLocationsDuration_JsonNullable() {
+    return baselineUserLocationsDuration;
+  }
+
+  @JsonProperty(JSON_PROPERTY_BASELINE_USER_LOCATIONS_DURATION)
+  public void setBaselineUserLocationsDuration_JsonNullable(
+      JsonNullable<Integer> baselineUserLocationsDuration) {
+    this.baselineUserLocationsDuration = baselineUserLocationsDuration;
+  }
+
+  public void setBaselineUserLocationsDuration(Integer baselineUserLocationsDuration) {
+    this.baselineUserLocationsDuration = JsonNullable.<Integer>of(baselineUserLocationsDuration);
   }
 
   /**
@@ -113,13 +153,16 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
             this.baselineUserLocations,
             securityMonitoringRuleImpossibleTravelOptions.baselineUserLocations)
         && Objects.equals(
+            this.baselineUserLocationsDuration,
+            securityMonitoringRuleImpossibleTravelOptions.baselineUserLocationsDuration)
+        && Objects.equals(
             this.additionalProperties,
             securityMonitoringRuleImpossibleTravelOptions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baselineUserLocations, additionalProperties);
+    return Objects.hash(baselineUserLocations, baselineUserLocationsDuration, additionalProperties);
   }
 
   @Override
@@ -128,6 +171,9 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
     sb.append("class SecurityMonitoringRuleImpossibleTravelOptions {\n");
     sb.append("    baselineUserLocations: ")
         .append(toIndentedString(baselineUserLocations))
+        .append("\n");
+    sb.append("    baselineUserLocationsDuration: ")
+        .append(toIndentedString(baselineUserLocationsDuration))
         .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
