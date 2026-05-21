@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/app-builder/blueprint/00000000-0000-0000-0000-000000000001",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"id\":\"75010b80-a44e-47bd-b903-e38f79efce20\",\"title\":\"blueprint not found\",\"detail\":\"blueprint with id 00000000-0000-0000-0000-000000000001 not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "79b82b76-e0bb-b6c3-c16f-fc7ead4f10b4"
+  }
+]
