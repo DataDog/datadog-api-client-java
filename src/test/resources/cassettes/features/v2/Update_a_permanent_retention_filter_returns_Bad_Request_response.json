@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"cross_product_sampling\":{\"trace_sample_rate\":25}},\"id\":\"Test-Update_a_permanent_retention_filter_returns_Bad_Request_response-1777482272\",\"type\":\"invalid_type\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/rum/applications/a33671aa-24fd-4dcd-ba4b-5bbdbafe7690/permanent_retention_filters/Test-Update_a_permanent_retention_filter_returns_Bad_Request_response-1777482272",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"got type \\\"invalid_type\\\" expected one of \\\"permanent_retention_filters\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "37e84948-262a-f252-9db6-76cdb8a57322"
+  }
+]

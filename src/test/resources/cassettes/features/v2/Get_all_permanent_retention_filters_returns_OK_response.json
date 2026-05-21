@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/rum/applications/1d4b9c34-7ac4-423a-91cf-9902d926e9b3/permanent_retention_filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"default_synthetics\",\"type\":\"permanent_retention_filters\",\"attributes\":{\"name\":\"Default Synthetics\",\"event_type\":\"session\",\"query\":\"@type:browser\",\"sample_rate\":100,\"enabled\":true,\"cross_product_sampling\":{\"trace_sample_rate\":100},\"cross_product_sampling_editability\":{\"trace_sample_rate\":true}}},{\"id\":\"default_replays\",\"type\":\"permanent_retention_filters\",\"attributes\":{\"name\":\"Default Replays\",\"event_type\":\"session\",\"query\":\"@has_replay:true\",\"sample_rate\":100,\"enabled\":true,\"cross_product_sampling\":{\"trace_sample_rate\":100},\"cross_product_sampling_editability\":{\"trace_sample_rate\":true}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b76a680d-a5df-0694-374c-3c9ae73fac1e"
+  }
+]
