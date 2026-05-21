@@ -26,10 +26,16 @@ import java.util.Objects;
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_PACKETS_SENT_BY_SERVER,
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_RTT_MICRO_SECONDS,
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_CLOSED_CONNECTIONS,
+  SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_DELIVERED_CE,
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_ESTABLISHED_CONNECTIONS,
+  SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_PROBE0_COUNT,
+  SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_RCV_OOO_PACK,
+  SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_RECOVERY_COUNT,
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_REFUSALS,
+  SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_REORD_SEEN,
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_RESETS,
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_RETRANSMITS,
+  SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_RTO_COUNT,
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_TCP_TIMEOUTS
 })
 @jakarta.annotation.Generated(
@@ -57,18 +63,36 @@ public class SingleAggregatedConnectionResponseDataAttributes {
   public static final String JSON_PROPERTY_TCP_CLOSED_CONNECTIONS = "tcp_closed_connections";
   private Long tcpClosedConnections;
 
+  public static final String JSON_PROPERTY_TCP_DELIVERED_CE = "tcp_delivered_ce";
+  private Long tcpDeliveredCe;
+
   public static final String JSON_PROPERTY_TCP_ESTABLISHED_CONNECTIONS =
       "tcp_established_connections";
   private Long tcpEstablishedConnections;
 
+  public static final String JSON_PROPERTY_TCP_PROBE0_COUNT = "tcp_probe0_count";
+  private Long tcpProbe0Count;
+
+  public static final String JSON_PROPERTY_TCP_RCV_OOO_PACK = "tcp_rcv_ooo_pack";
+  private Long tcpRcvOooPack;
+
+  public static final String JSON_PROPERTY_TCP_RECOVERY_COUNT = "tcp_recovery_count";
+  private Long tcpRecoveryCount;
+
   public static final String JSON_PROPERTY_TCP_REFUSALS = "tcp_refusals";
   private Long tcpRefusals;
+
+  public static final String JSON_PROPERTY_TCP_REORD_SEEN = "tcp_reord_seen";
+  private Long tcpReordSeen;
 
   public static final String JSON_PROPERTY_TCP_RESETS = "tcp_resets";
   private Long tcpResets;
 
   public static final String JSON_PROPERTY_TCP_RETRANSMITS = "tcp_retransmits";
   private Long tcpRetransmits;
+
+  public static final String JSON_PROPERTY_TCP_RTO_COUNT = "tcp_rto_count";
+  private Long tcpRtoCount;
 
   public static final String JSON_PROPERTY_TCP_TIMEOUTS = "tcp_timeouts";
   private Long tcpTimeouts;
@@ -237,6 +261,28 @@ public class SingleAggregatedConnectionResponseDataAttributes {
     this.tcpClosedConnections = tcpClosedConnections;
   }
 
+  public SingleAggregatedConnectionResponseDataAttributes tcpDeliveredCe(Long tcpDeliveredCe) {
+    this.tcpDeliveredCe = tcpDeliveredCe;
+    return this;
+  }
+
+  /**
+   * The number of TCP segments acknowledged with the ECN Congestion Experienced (CE) mark,
+   * indicating that an upstream router marked packets as experiencing congestion.
+   *
+   * @return tcpDeliveredCe
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TCP_DELIVERED_CE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTcpDeliveredCe() {
+    return tcpDeliveredCe;
+  }
+
+  public void setTcpDeliveredCe(Long tcpDeliveredCe) {
+    this.tcpDeliveredCe = tcpDeliveredCe;
+  }
+
   public SingleAggregatedConnectionResponseDataAttributes tcpEstablishedConnections(
       Long tcpEstablishedConnections) {
     this.tcpEstablishedConnections = tcpEstablishedConnections;
@@ -260,6 +306,74 @@ public class SingleAggregatedConnectionResponseDataAttributes {
     this.tcpEstablishedConnections = tcpEstablishedConnections;
   }
 
+  public SingleAggregatedConnectionResponseDataAttributes tcpProbe0Count(Long tcpProbe0Count) {
+    this.tcpProbe0Count = tcpProbe0Count;
+    return this;
+  }
+
+  /**
+   * The number of TCP zero-window probes sent. These probes are sent when the receiver advertises a
+   * zero receive window, indicating it cannot accept more data.
+   *
+   * @return tcpProbe0Count
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TCP_PROBE0_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTcpProbe0Count() {
+    return tcpProbe0Count;
+  }
+
+  public void setTcpProbe0Count(Long tcpProbe0Count) {
+    this.tcpProbe0Count = tcpProbe0Count;
+  }
+
+  public SingleAggregatedConnectionResponseDataAttributes tcpRcvOooPack(Long tcpRcvOooPack) {
+    this.tcpRcvOooPack = tcpRcvOooPack;
+    return this;
+  }
+
+  /**
+   * The number of TCP packets received out of order. This indicates network-level packet
+   * reordering, which can degrade TCP performance by triggering spurious retransmissions and
+   * reducing throughput.
+   *
+   * @return tcpRcvOooPack
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TCP_RCV_OOO_PACK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTcpRcvOooPack() {
+    return tcpRcvOooPack;
+  }
+
+  public void setTcpRcvOooPack(Long tcpRcvOooPack) {
+    this.tcpRcvOooPack = tcpRcvOooPack;
+  }
+
+  public SingleAggregatedConnectionResponseDataAttributes tcpRecoveryCount(Long tcpRecoveryCount) {
+    this.tcpRecoveryCount = tcpRecoveryCount;
+    return this;
+  }
+
+  /**
+   * The number of TCP fast recovery events. Fast recovery retransmits lost segments detected
+   * through duplicate ACKs or selective acknowledgment (SACK) without waiting for a retransmission
+   * timeout.
+   *
+   * @return tcpRecoveryCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TCP_RECOVERY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTcpRecoveryCount() {
+    return tcpRecoveryCount;
+  }
+
+  public void setTcpRecoveryCount(Long tcpRecoveryCount) {
+    this.tcpRecoveryCount = tcpRecoveryCount;
+  }
+
   public SingleAggregatedConnectionResponseDataAttributes tcpRefusals(Long tcpRefusals) {
     this.tcpRefusals = tcpRefusals;
     return this;
@@ -281,6 +395,28 @@ public class SingleAggregatedConnectionResponseDataAttributes {
 
   public void setTcpRefusals(Long tcpRefusals) {
     this.tcpRefusals = tcpRefusals;
+  }
+
+  public SingleAggregatedConnectionResponseDataAttributes tcpReordSeen(Long tcpReordSeen) {
+    this.tcpReordSeen = tcpReordSeen;
+    return this;
+  }
+
+  /**
+   * The number of times reordering of sent packets was detected. Reordering detection adjusts the
+   * duplicate ACK threshold, preventing spurious retransmissions caused by out-of-order delivery.
+   *
+   * @return tcpReordSeen
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TCP_REORD_SEEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTcpReordSeen() {
+    return tcpReordSeen;
+  }
+
+  public void setTcpReordSeen(Long tcpReordSeen) {
+    this.tcpReordSeen = tcpReordSeen;
   }
 
   public SingleAggregatedConnectionResponseDataAttributes tcpResets(Long tcpResets) {
@@ -324,6 +460,29 @@ public class SingleAggregatedConnectionResponseDataAttributes {
 
   public void setTcpRetransmits(Long tcpRetransmits) {
     this.tcpRetransmits = tcpRetransmits;
+  }
+
+  public SingleAggregatedConnectionResponseDataAttributes tcpRtoCount(Long tcpRtoCount) {
+    this.tcpRtoCount = tcpRtoCount;
+    return this;
+  }
+
+  /**
+   * The number of TCP retransmission timeouts (RTOs). An RTO occurs when an ACK is not received
+   * within the estimated round-trip time, forcing the sender to retransmit and halve its congestion
+   * window.
+   *
+   * @return tcpRtoCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TCP_RTO_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTcpRtoCount() {
+    return tcpRtoCount;
+  }
+
+  public void setTcpRtoCount(Long tcpRtoCount) {
+    this.tcpRtoCount = tcpRtoCount;
   }
 
   public SingleAggregatedConnectionResponseDataAttributes tcpTimeouts(Long tcpTimeouts) {
@@ -426,14 +585,27 @@ public class SingleAggregatedConnectionResponseDataAttributes {
             this.tcpClosedConnections,
             singleAggregatedConnectionResponseDataAttributes.tcpClosedConnections)
         && Objects.equals(
+            this.tcpDeliveredCe, singleAggregatedConnectionResponseDataAttributes.tcpDeliveredCe)
+        && Objects.equals(
             this.tcpEstablishedConnections,
             singleAggregatedConnectionResponseDataAttributes.tcpEstablishedConnections)
         && Objects.equals(
+            this.tcpProbe0Count, singleAggregatedConnectionResponseDataAttributes.tcpProbe0Count)
+        && Objects.equals(
+            this.tcpRcvOooPack, singleAggregatedConnectionResponseDataAttributes.tcpRcvOooPack)
+        && Objects.equals(
+            this.tcpRecoveryCount,
+            singleAggregatedConnectionResponseDataAttributes.tcpRecoveryCount)
+        && Objects.equals(
             this.tcpRefusals, singleAggregatedConnectionResponseDataAttributes.tcpRefusals)
+        && Objects.equals(
+            this.tcpReordSeen, singleAggregatedConnectionResponseDataAttributes.tcpReordSeen)
         && Objects.equals(
             this.tcpResets, singleAggregatedConnectionResponseDataAttributes.tcpResets)
         && Objects.equals(
             this.tcpRetransmits, singleAggregatedConnectionResponseDataAttributes.tcpRetransmits)
+        && Objects.equals(
+            this.tcpRtoCount, singleAggregatedConnectionResponseDataAttributes.tcpRtoCount)
         && Objects.equals(
             this.tcpTimeouts, singleAggregatedConnectionResponseDataAttributes.tcpTimeouts)
         && Objects.equals(
@@ -451,10 +623,16 @@ public class SingleAggregatedConnectionResponseDataAttributes {
         packetsSentByServer,
         rttMicroSeconds,
         tcpClosedConnections,
+        tcpDeliveredCe,
         tcpEstablishedConnections,
+        tcpProbe0Count,
+        tcpRcvOooPack,
+        tcpRecoveryCount,
         tcpRefusals,
+        tcpReordSeen,
         tcpResets,
         tcpRetransmits,
+        tcpRtoCount,
         tcpTimeouts,
         additionalProperties);
   }
@@ -476,12 +654,18 @@ public class SingleAggregatedConnectionResponseDataAttributes {
     sb.append("    tcpClosedConnections: ")
         .append(toIndentedString(tcpClosedConnections))
         .append("\n");
+    sb.append("    tcpDeliveredCe: ").append(toIndentedString(tcpDeliveredCe)).append("\n");
     sb.append("    tcpEstablishedConnections: ")
         .append(toIndentedString(tcpEstablishedConnections))
         .append("\n");
+    sb.append("    tcpProbe0Count: ").append(toIndentedString(tcpProbe0Count)).append("\n");
+    sb.append("    tcpRcvOooPack: ").append(toIndentedString(tcpRcvOooPack)).append("\n");
+    sb.append("    tcpRecoveryCount: ").append(toIndentedString(tcpRecoveryCount)).append("\n");
     sb.append("    tcpRefusals: ").append(toIndentedString(tcpRefusals)).append("\n");
+    sb.append("    tcpReordSeen: ").append(toIndentedString(tcpReordSeen)).append("\n");
     sb.append("    tcpResets: ").append(toIndentedString(tcpResets)).append("\n");
     sb.append("    tcpRetransmits: ").append(toIndentedString(tcpRetransmits)).append("\n");
+    sb.append("    tcpRtoCount: ").append(toIndentedString(tcpRtoCount)).append("\n");
     sb.append("    tcpTimeouts: ").append(toIndentedString(tcpTimeouts)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
