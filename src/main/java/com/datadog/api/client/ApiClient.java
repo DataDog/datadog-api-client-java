@@ -780,6 +780,7 @@ public class ApiClient {
           put("v2.createLLMObsDatasetRecords", false);
           put("v2.createLLMObsExperiment", false);
           put("v2.createLLMObsExperimentEvents", false);
+          put("v2.createLLMObsIntegrationInference", false);
           put("v2.createLLMObsProject", false);
           put("v2.deleteLLMObsAnnotationQueue", false);
           put("v2.deleteLLMObsAnnotationQueueInteractions", false);
@@ -797,6 +798,8 @@ public class ApiClient {
           put("v2.listLLMObsDatasets", false);
           put("v2.listLLMObsExperimentEvents", false);
           put("v2.listLLMObsExperiments", false);
+          put("v2.listLLMObsIntegrationAccounts", false);
+          put("v2.listLLMObsIntegrationModels", false);
           put("v2.listLLMObsProjects", false);
           put("v2.listLLMObsSpans", false);
           put("v2.searchLLMObsExperimentation", false);

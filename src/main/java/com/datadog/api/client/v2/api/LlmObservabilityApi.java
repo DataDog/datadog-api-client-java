@@ -42,6 +42,11 @@ import com.datadog.api.client.v2.model.LLMObsExperimentationSearchResponse;
 import com.datadog.api.client.v2.model.LLMObsExperimentationSimpleSearchRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentationSimpleSearchResponse;
 import com.datadog.api.client.v2.model.LLMObsExperimentsResponse;
+import com.datadog.api.client.v2.model.LLMObsIntegrationAccount;
+import com.datadog.api.client.v2.model.LLMObsIntegrationInferenceRequest;
+import com.datadog.api.client.v2.model.LLMObsIntegrationInferenceResponse;
+import com.datadog.api.client.v2.model.LLMObsIntegrationModel;
+import com.datadog.api.client.v2.model.LLMObsIntegrationName;
 import com.datadog.api.client.v2.model.LLMObsProjectRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectResponse;
 import com.datadog.api.client.v2.model.LLMObsProjectUpdateRequest;
@@ -1324,6 +1329,232 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Run an LLM inference.
+   *
+   * <p>See {@link #createLLMObsIntegrationInferenceWithHttpInfo}.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @param accountId The ID of the integration account. (required)
+   * @param body Inference request parameters. (required)
+   * @return LLMObsIntegrationInferenceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsIntegrationInferenceResponse createLLMObsIntegrationInference(
+      LLMObsIntegrationName integration, String accountId, LLMObsIntegrationInferenceRequest body)
+      throws ApiException {
+    return createLLMObsIntegrationInferenceWithHttpInfo(integration, accountId, body).getData();
+  }
+
+  /**
+   * Run an LLM inference.
+   *
+   * <p>See {@link #createLLMObsIntegrationInferenceWithHttpInfoAsync}.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @param accountId The ID of the integration account. (required)
+   * @param body Inference request parameters. (required)
+   * @return CompletableFuture&lt;LLMObsIntegrationInferenceResponse&gt;
+   */
+  public CompletableFuture<LLMObsIntegrationInferenceResponse>
+      createLLMObsIntegrationInferenceAsync(
+          LLMObsIntegrationName integration,
+          String accountId,
+          LLMObsIntegrationInferenceRequest body) {
+    return createLLMObsIntegrationInferenceWithHttpInfoAsync(integration, accountId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Run an LLM inference request through the specified integration and account, returning the model
+   * response and token usage.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @param accountId The ID of the integration account. (required)
+   * @param body Inference request parameters. (required)
+   * @return ApiResponse&lt;LLMObsIntegrationInferenceResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsIntegrationInferenceResponse>
+      createLLMObsIntegrationInferenceWithHttpInfo(
+          LLMObsIntegrationName integration,
+          String accountId,
+          LLMObsIntegrationInferenceRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsIntegrationInference";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'integration' is set
+    if (integration == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'integration' when calling"
+              + " createLLMObsIntegrationInference");
+    }
+
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'accountId' when calling"
+              + " createLLMObsIntegrationInference");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createLLMObsIntegrationInference");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/inference"
+            .replaceAll(
+                "\\{" + "integration" + "\\}", apiClient.escapeString(integration.toString()))
+            .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.createLLMObsIntegrationInference",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsIntegrationInferenceResponse>() {});
+  }
+
+  /**
+   * Run an LLM inference.
+   *
+   * <p>See {@link #createLLMObsIntegrationInferenceWithHttpInfo}.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @param accountId The ID of the integration account. (required)
+   * @param body Inference request parameters. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsIntegrationInferenceResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsIntegrationInferenceResponse>>
+      createLLMObsIntegrationInferenceWithHttpInfoAsync(
+          LLMObsIntegrationName integration,
+          String accountId,
+          LLMObsIntegrationInferenceRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsIntegrationInference";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsIntegrationInferenceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'integration' is set
+    if (integration == null) {
+      CompletableFuture<ApiResponse<LLMObsIntegrationInferenceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integration' when calling"
+                  + " createLLMObsIntegrationInference"));
+      return result;
+    }
+
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      CompletableFuture<ApiResponse<LLMObsIntegrationInferenceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accountId' when calling"
+                  + " createLLMObsIntegrationInference"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsIntegrationInferenceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createLLMObsIntegrationInference"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/inference"
+            .replaceAll(
+                "\\{" + "integration" + "\\}", apiClient.escapeString(integration.toString()))
+            .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.createLLMObsIntegrationInference",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsIntegrationInferenceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsIntegrationInferenceResponse>() {});
   }
 
   /**
@@ -4546,6 +4777,359 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsExperimentsResponse>() {});
+  }
+
+  /**
+   * List LLM integration accounts.
+   *
+   * <p>See {@link #listLLMObsIntegrationAccountsWithHttpInfo}.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @return List&lt;LLMObsIntegrationAccount&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<LLMObsIntegrationAccount> listLLMObsIntegrationAccounts(
+      LLMObsIntegrationName integration) throws ApiException {
+    return listLLMObsIntegrationAccountsWithHttpInfo(integration).getData();
+  }
+
+  /**
+   * List LLM integration accounts.
+   *
+   * <p>See {@link #listLLMObsIntegrationAccountsWithHttpInfoAsync}.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @return CompletableFuture&lt;List&lt;LLMObsIntegrationAccount&gt;&gt;
+   */
+  public CompletableFuture<List<LLMObsIntegrationAccount>> listLLMObsIntegrationAccountsAsync(
+      LLMObsIntegrationName integration) {
+    return listLLMObsIntegrationAccountsWithHttpInfoAsync(integration)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve the list of configured accounts for the specified LLM provider integration.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @return ApiResponse&lt;List&lt;LLMObsIntegrationAccount&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<List<LLMObsIntegrationAccount>> listLLMObsIntegrationAccountsWithHttpInfo(
+      LLMObsIntegrationName integration) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsIntegrationAccounts";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integration' is set
+    if (integration == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'integration' when calling"
+              + " listLLMObsIntegrationAccounts");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/integrations/{integration}/accounts"
+            .replaceAll(
+                "\\{" + "integration" + "\\}", apiClient.escapeString(integration.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsIntegrationAccounts",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<LLMObsIntegrationAccount>>() {});
+  }
+
+  /**
+   * List LLM integration accounts.
+   *
+   * <p>See {@link #listLLMObsIntegrationAccountsWithHttpInfo}.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;LLMObsIntegrationAccount&gt;&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<List<LLMObsIntegrationAccount>>>
+      listLLMObsIntegrationAccountsWithHttpInfoAsync(LLMObsIntegrationName integration) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsIntegrationAccounts";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<List<LLMObsIntegrationAccount>>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integration' is set
+    if (integration == null) {
+      CompletableFuture<ApiResponse<List<LLMObsIntegrationAccount>>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integration' when calling"
+                  + " listLLMObsIntegrationAccounts"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/integrations/{integration}/accounts"
+            .replaceAll(
+                "\\{" + "integration" + "\\}", apiClient.escapeString(integration.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsIntegrationAccounts",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<List<LLMObsIntegrationAccount>>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<LLMObsIntegrationAccount>>() {});
+  }
+
+  /**
+   * List LLM integration models.
+   *
+   * <p>See {@link #listLLMObsIntegrationModelsWithHttpInfo}.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @param accountId The ID of the integration account. (required)
+   * @return List&lt;LLMObsIntegrationModel&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<LLMObsIntegrationModel> listLLMObsIntegrationModels(
+      LLMObsIntegrationName integration, String accountId) throws ApiException {
+    return listLLMObsIntegrationModelsWithHttpInfo(integration, accountId).getData();
+  }
+
+  /**
+   * List LLM integration models.
+   *
+   * <p>See {@link #listLLMObsIntegrationModelsWithHttpInfoAsync}.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @param accountId The ID of the integration account. (required)
+   * @return CompletableFuture&lt;List&lt;LLMObsIntegrationModel&gt;&gt;
+   */
+  public CompletableFuture<List<LLMObsIntegrationModel>> listLLMObsIntegrationModelsAsync(
+      LLMObsIntegrationName integration, String accountId) {
+    return listLLMObsIntegrationModelsWithHttpInfoAsync(integration, accountId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve the list of models available for the specified LLM provider integration and account.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @param accountId The ID of the integration account. (required)
+   * @return ApiResponse&lt;List&lt;LLMObsIntegrationModel&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<List<LLMObsIntegrationModel>> listLLMObsIntegrationModelsWithHttpInfo(
+      LLMObsIntegrationName integration, String accountId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsIntegrationModels";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integration' is set
+    if (integration == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'integration' when calling listLLMObsIntegrationModels");
+    }
+
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'accountId' when calling listLLMObsIntegrationModels");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/models"
+            .replaceAll(
+                "\\{" + "integration" + "\\}", apiClient.escapeString(integration.toString()))
+            .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsIntegrationModels",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<LLMObsIntegrationModel>>() {});
+  }
+
+  /**
+   * List LLM integration models.
+   *
+   * <p>See {@link #listLLMObsIntegrationModelsWithHttpInfo}.
+   *
+   * @param integration The name of the LLM integration. (required)
+   * @param accountId The ID of the integration account. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;LLMObsIntegrationModel&gt;&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<List<LLMObsIntegrationModel>>>
+      listLLMObsIntegrationModelsWithHttpInfoAsync(
+          LLMObsIntegrationName integration, String accountId) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsIntegrationModels";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<List<LLMObsIntegrationModel>>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integration' is set
+    if (integration == null) {
+      CompletableFuture<ApiResponse<List<LLMObsIntegrationModel>>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integration' when calling"
+                  + " listLLMObsIntegrationModels"));
+      return result;
+    }
+
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      CompletableFuture<ApiResponse<List<LLMObsIntegrationModel>>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accountId' when calling"
+                  + " listLLMObsIntegrationModels"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/models"
+            .replaceAll(
+                "\\{" + "integration" + "\\}", apiClient.escapeString(integration.toString()))
+            .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsIntegrationModels",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<List<LLMObsIntegrationModel>>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<LLMObsIntegrationModel>>() {});
   }
 
   /** Manage optional parameters to listLLMObsProjects. */
