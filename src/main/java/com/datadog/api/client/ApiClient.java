@@ -1077,6 +1077,10 @@ public class ApiClient {
           put("v2.queryEventFilteredUsers", false);
           put("v2.queryUsers", false);
           put("v2.updateConnection", false);
+          put("v2.getReplayAnalysisIssue", false);
+          put("v2.listReplayAnalysisIssues", false);
+          put("v2.listReplayAnalysisIssueSessions", false);
+          put("v2.generateReplaySummary", false);
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.listEntityRiskScores", false);
           put("v2.createIncidentService", false);
