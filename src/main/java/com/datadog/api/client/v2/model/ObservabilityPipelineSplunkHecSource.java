@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -27,7 +29,8 @@ import java.util.Objects;
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_ID,
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_STORE_HEC_TOKEN,
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_TLS,
-  ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_TYPE
+  ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_TYPE,
+  ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_VALID_TOKENS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -48,6 +51,9 @@ public class ObservabilityPipelineSplunkHecSource {
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineSplunkHecSourceType type =
       ObservabilityPipelineSplunkHecSourceType.SPLUNK_HEC;
+
+  public static final String JSON_PROPERTY_VALID_TOKENS = "valid_tokens";
+  private List<ObservabilityPipelineSplunkHecSourceValidToken> validTokens = null;
 
   public ObservabilityPipelineSplunkHecSource() {}
 
@@ -172,6 +178,42 @@ public class ObservabilityPipelineSplunkHecSource {
     this.type = type;
   }
 
+  public ObservabilityPipelineSplunkHecSource validTokens(
+      List<ObservabilityPipelineSplunkHecSourceValidToken> validTokens) {
+    this.validTokens = validTokens;
+    for (ObservabilityPipelineSplunkHecSourceValidToken item : validTokens) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ObservabilityPipelineSplunkHecSource addValidTokensItem(
+      ObservabilityPipelineSplunkHecSourceValidToken validTokensItem) {
+    if (this.validTokens == null) {
+      this.validTokens = new ArrayList<>();
+    }
+    this.validTokens.add(validTokensItem);
+    this.unparsed |= validTokensItem.unparsed;
+    return this;
+  }
+
+  /**
+   * A list of tokens that are accepted for authenticating incoming HEC requests. When set, the
+   * source rejects any request whose HEC token does not match an enabled entry in this list.
+   *
+   * @return validTokens
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALID_TOKENS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ObservabilityPipelineSplunkHecSourceValidToken> getValidTokens() {
+    return validTokens;
+  }
+
+  public void setValidTokens(List<ObservabilityPipelineSplunkHecSourceValidToken> validTokens) {
+    this.validTokens = validTokens;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -234,13 +276,15 @@ public class ObservabilityPipelineSplunkHecSource {
         && Objects.equals(this.storeHecToken, observabilityPipelineSplunkHecSource.storeHecToken)
         && Objects.equals(this.tls, observabilityPipelineSplunkHecSource.tls)
         && Objects.equals(this.type, observabilityPipelineSplunkHecSource.type)
+        && Objects.equals(this.validTokens, observabilityPipelineSplunkHecSource.validTokens)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineSplunkHecSource.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressKey, id, storeHecToken, tls, type, additionalProperties);
+    return Objects.hash(
+        addressKey, id, storeHecToken, tls, type, validTokens, additionalProperties);
   }
 
   @Override
@@ -252,6 +296,7 @@ public class ObservabilityPipelineSplunkHecSource {
     sb.append("    storeHecToken: ").append(toIndentedString(storeHecToken)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    validTokens: ").append(toIndentedString(validTokens)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
