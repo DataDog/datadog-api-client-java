@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -31,7 +33,8 @@ import java.util.Objects;
   ObservabilityPipelineHttpServerSource.JSON_PROPERTY_PASSWORD_KEY,
   ObservabilityPipelineHttpServerSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineHttpServerSource.JSON_PROPERTY_TYPE,
-  ObservabilityPipelineHttpServerSource.JSON_PROPERTY_USERNAME_KEY
+  ObservabilityPipelineHttpServerSource.JSON_PROPERTY_USERNAME_KEY,
+  ObservabilityPipelineHttpServerSource.JSON_PROPERTY_VALID_TOKENS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -64,6 +67,9 @@ public class ObservabilityPipelineHttpServerSource {
 
   public static final String JSON_PROPERTY_USERNAME_KEY = "username_key";
   private String usernameKey;
+
+  public static final String JSON_PROPERTY_VALID_TOKENS = "valid_tokens";
+  private List<ObservabilityPipelineHttpServerSourceValidToken> validTokens = null;
 
   public ObservabilityPipelineHttpServerSource() {}
 
@@ -288,6 +294,43 @@ public class ObservabilityPipelineHttpServerSource {
     this.usernameKey = usernameKey;
   }
 
+  public ObservabilityPipelineHttpServerSource validTokens(
+      List<ObservabilityPipelineHttpServerSourceValidToken> validTokens) {
+    this.validTokens = validTokens;
+    for (ObservabilityPipelineHttpServerSourceValidToken item : validTokens) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ObservabilityPipelineHttpServerSource addValidTokensItem(
+      ObservabilityPipelineHttpServerSourceValidToken validTokensItem) {
+    if (this.validTokens == null) {
+      this.validTokens = new ArrayList<>();
+    }
+    this.validTokens.add(validTokensItem);
+    this.unparsed |= validTokensItem.unparsed;
+    return this;
+  }
+
+  /**
+   * A list of tokens that are accepted for authenticating incoming HTTP requests. When set, the
+   * source rejects any request whose token does not match an enabled entry in this list. Cannot be
+   * combined with the <code>plain</code> auth strategy.
+   *
+   * @return validTokens
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALID_TOKENS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ObservabilityPipelineHttpServerSourceValidToken> getValidTokens() {
+    return validTokens;
+  }
+
+  public void setValidTokens(List<ObservabilityPipelineHttpServerSourceValidToken> validTokens) {
+    this.validTokens = validTokens;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -354,6 +397,7 @@ public class ObservabilityPipelineHttpServerSource {
         && Objects.equals(this.tls, observabilityPipelineHttpServerSource.tls)
         && Objects.equals(this.type, observabilityPipelineHttpServerSource.type)
         && Objects.equals(this.usernameKey, observabilityPipelineHttpServerSource.usernameKey)
+        && Objects.equals(this.validTokens, observabilityPipelineHttpServerSource.validTokens)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineHttpServerSource.additionalProperties);
   }
@@ -370,6 +414,7 @@ public class ObservabilityPipelineHttpServerSource {
         tls,
         type,
         usernameKey,
+        validTokens,
         additionalProperties);
   }
 
@@ -386,6 +431,7 @@ public class ObservabilityPipelineHttpServerSource {
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    usernameKey: ").append(toIndentedString(usernameKey)).append("\n");
+    sb.append("    validTokens: ").append(toIndentedString(validTokens)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
