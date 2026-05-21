@@ -918,6 +918,7 @@ public class ApiClient {
           put("v2.listCostTagMetadata", false);
           put("v2.listCostTagMetadataMetrics", false);
           put("v2.listCostTagMetadataOrchestrators", false);
+          put("v2.searchCostRecommendations", false);
           put("v2.createDashboardSecureEmbed", false);
           put("v2.deleteDashboardSecureEmbed", false);
           put("v2.getDashboardSecureEmbed", false);

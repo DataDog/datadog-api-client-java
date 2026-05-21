@@ -35,6 +35,7 @@ import com.datadog.api.client.v2.model.CostAnomalyResponse;
 import com.datadog.api.client.v2.model.CostCurrencyResponse;
 import com.datadog.api.client.v2.model.CostMetricsResponse;
 import com.datadog.api.client.v2.model.CostOrchestratorsResponse;
+import com.datadog.api.client.v2.model.CostRecommendationArray;
 import com.datadog.api.client.v2.model.CostTagDescriptionsResponse;
 import com.datadog.api.client.v2.model.CostTagKeyMetadataResponse;
 import com.datadog.api.client.v2.model.CostTagKeyResponse;
@@ -53,6 +54,7 @@ import com.datadog.api.client.v2.model.GCPUsageCostConfigResponse;
 import com.datadog.api.client.v2.model.GCPUsageCostConfigsResponse;
 import com.datadog.api.client.v2.model.GcpUcConfigResponse;
 import com.datadog.api.client.v2.model.OCIConfigsResponse;
+import com.datadog.api.client.v2.model.RecommendationsFilterRequest;
 import com.datadog.api.client.v2.model.ReorderRuleResourceArray;
 import com.datadog.api.client.v2.model.ReorderRulesetResourceArray;
 import com.datadog.api.client.v2.model.RulesValidateQueryRequest;
@@ -9350,6 +9352,236 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /** Manage optional parameters to searchCostRecommendations. */
+  public static class SearchCostRecommendationsOptionalParameters {
+    private String pageSize;
+    private String pageToken;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of results per page (1–10000). (optional)
+     * @return SearchCostRecommendationsOptionalParameters
+     */
+    public SearchCostRecommendationsOptionalParameters pageSize(String pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageToken.
+     *
+     * @param pageToken Pagination token from a previous response. (optional)
+     * @return SearchCostRecommendationsOptionalParameters
+     */
+    public SearchCostRecommendationsOptionalParameters pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+  }
+
+  /**
+   * Search cost recommendations.
+   *
+   * <p>See {@link #searchCostRecommendationsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CostRecommendationArray
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationArray searchCostRecommendations(RecommendationsFilterRequest body)
+      throws ApiException {
+    return searchCostRecommendationsWithHttpInfo(
+            body, new SearchCostRecommendationsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Search cost recommendations.
+   *
+   * <p>See {@link #searchCostRecommendationsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;CostRecommendationArray&gt;
+   */
+  public CompletableFuture<CostRecommendationArray> searchCostRecommendationsAsync(
+      RecommendationsFilterRequest body) {
+    return searchCostRecommendationsWithHttpInfoAsync(
+            body, new SearchCostRecommendationsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search cost recommendations.
+   *
+   * <p>See {@link #searchCostRecommendationsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostRecommendationArray
+   * @throws ApiException if fails to make API call
+   */
+  public CostRecommendationArray searchCostRecommendations(
+      RecommendationsFilterRequest body, SearchCostRecommendationsOptionalParameters parameters)
+      throws ApiException {
+    return searchCostRecommendationsWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Search cost recommendations.
+   *
+   * <p>See {@link #searchCostRecommendationsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostRecommendationArray&gt;
+   */
+  public CompletableFuture<CostRecommendationArray> searchCostRecommendationsAsync(
+      RecommendationsFilterRequest body, SearchCostRecommendationsOptionalParameters parameters) {
+    return searchCostRecommendationsWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List cost recommendations matching a filter, with pagination and sorting.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostRecommendationArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostRecommendationArray> searchCostRecommendationsWithHttpInfo(
+      RecommendationsFilterRequest body, SearchCostRecommendationsOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "searchCostRecommendations";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling searchCostRecommendations");
+    }
+    String pageSize = parameters.pageSize;
+    String pageToken = parameters.pageToken;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[token]", pageToken));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.searchCostRecommendations",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationArray>() {});
+  }
+
+  /**
+   * Search cost recommendations.
+   *
+   * <p>See {@link #searchCostRecommendationsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostRecommendationArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostRecommendationArray>>
+      searchCostRecommendationsWithHttpInfoAsync(
+          RecommendationsFilterRequest body,
+          SearchCostRecommendationsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "searchCostRecommendations";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostRecommendationArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CostRecommendationArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling searchCostRecommendations"));
+      return result;
+    }
+    String pageSize = parameters.pageSize;
+    String pageToken = parameters.pageToken;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/recommendations";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[token]", pageToken));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.searchCostRecommendations",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostRecommendationArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostRecommendationArray>() {});
   }
 
   /**
