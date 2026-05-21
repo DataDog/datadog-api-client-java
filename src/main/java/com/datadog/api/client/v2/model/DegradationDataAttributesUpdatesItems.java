@@ -26,6 +26,7 @@ import java.util.UUID;
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_CREATED_AT,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_DESCRIPTION,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_ID,
+  DegradationDataAttributesUpdatesItems.JSON_PROPERTY_LAST_MODIFIED_BY_USER_UUID,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_MODIFIED_AT,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_STARTED_AT,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_STATUS
@@ -46,6 +47,10 @@ public class DegradationDataAttributesUpdatesItems {
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
+
+  public static final String JSON_PROPERTY_LAST_MODIFIED_BY_USER_UUID =
+      "last_modified_by_user_uuid";
+  private String lastModifiedByUserUuid;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -136,6 +141,28 @@ public class DegradationDataAttributesUpdatesItems {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UUID getId() {
     return id;
+  }
+
+  public DegradationDataAttributesUpdatesItems lastModifiedByUserUuid(
+      String lastModifiedByUserUuid) {
+    this.lastModifiedByUserUuid = lastModifiedByUserUuid;
+    return this;
+  }
+
+  /**
+   * UUID of the user who last modified the resource.
+   *
+   * @return lastModifiedByUserUuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLastModifiedByUserUuid() {
+    return lastModifiedByUserUuid;
+  }
+
+  public void setLastModifiedByUserUuid(String lastModifiedByUserUuid) {
+    this.lastModifiedByUserUuid = lastModifiedByUserUuid;
   }
 
   /**
@@ -259,6 +286,9 @@ public class DegradationDataAttributesUpdatesItems {
         && Objects.equals(this.createdAt, degradationDataAttributesUpdatesItems.createdAt)
         && Objects.equals(this.description, degradationDataAttributesUpdatesItems.description)
         && Objects.equals(this.id, degradationDataAttributesUpdatesItems.id)
+        && Objects.equals(
+            this.lastModifiedByUserUuid,
+            degradationDataAttributesUpdatesItems.lastModifiedByUserUuid)
         && Objects.equals(this.modifiedAt, degradationDataAttributesUpdatesItems.modifiedAt)
         && Objects.equals(this.startedAt, degradationDataAttributesUpdatesItems.startedAt)
         && Objects.equals(this.status, degradationDataAttributesUpdatesItems.status)
@@ -273,6 +303,7 @@ public class DegradationDataAttributesUpdatesItems {
         createdAt,
         description,
         id,
+        lastModifiedByUserUuid,
         modifiedAt,
         startedAt,
         status,
@@ -287,6 +318,9 @@ public class DegradationDataAttributesUpdatesItems {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lastModifiedByUserUuid: ")
+        .append(toIndentedString(lastModifiedByUserUuid))
+        .append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
