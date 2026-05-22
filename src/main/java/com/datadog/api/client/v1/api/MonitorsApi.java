@@ -279,6 +279,11 @@ public class MonitorsApi {
    *   <li><code>#</code>: an integer or decimal number used to set the threshold
    * </ul>
    *
+   * <p>To use a dynamic threshold on a metric monitor with a formula query, replace <code>#</code>
+   * with the <code>threshold</code> keyword (for example, <code>... &gt; threshold</code>) and
+   * provide the threshold as a query via <code>critical_query</code> on <code>options.thresholds
+   * </code>. This feature is in preview.
+   *
    * <p>If you are using the <code>_change_</code> or <code>_pct_change_</code> time aggregator,
    * instead use <code>change_aggr(time_aggr(time_window),
    * timeshift):space_aggr:metric{tags} [by {key}] operator #</code> with:

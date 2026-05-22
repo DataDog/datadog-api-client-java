@@ -20,7 +20,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** List of the different monitor threshold available. */
 @JsonPropertyOrder({
   MonitorThresholds.JSON_PROPERTY_CRITICAL,
+  MonitorThresholds.JSON_PROPERTY_CRITICAL_QUERY,
   MonitorThresholds.JSON_PROPERTY_CRITICAL_RECOVERY,
+  MonitorThresholds.JSON_PROPERTY_CRITICAL_RECOVERY_QUERY,
   MonitorThresholds.JSON_PROPERTY_OK,
   MonitorThresholds.JSON_PROPERTY_UNKNOWN,
   MonitorThresholds.JSON_PROPERTY_WARNING,
@@ -33,8 +35,14 @@ public class MonitorThresholds {
   public static final String JSON_PROPERTY_CRITICAL = "critical";
   private Double critical;
 
+  public static final String JSON_PROPERTY_CRITICAL_QUERY = "critical_query";
+  private String criticalQuery;
+
   public static final String JSON_PROPERTY_CRITICAL_RECOVERY = "critical_recovery";
   private JsonNullable<Double> criticalRecovery = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_CRITICAL_RECOVERY_QUERY = "critical_recovery_query";
+  private String criticalRecoveryQuery;
 
   public static final String JSON_PROPERTY_OK = "ok";
   private JsonNullable<Double> ok = JsonNullable.<Double>undefined();
@@ -69,6 +77,29 @@ public class MonitorThresholds {
     this.critical = critical;
   }
 
+  public MonitorThresholds criticalQuery(String criticalQuery) {
+    this.criticalQuery = criticalQuery;
+    return this;
+  }
+
+  /**
+   * Query evaluated as a dynamic <code>CRITICAL</code> threshold. Only supported on metric monitors
+   * with a formula query and options['variables']. Cannot be combined with static thresholds. This
+   * field is in preview.
+   *
+   * @return criticalQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CRITICAL_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCriticalQuery() {
+    return criticalQuery;
+  }
+
+  public void setCriticalQuery(String criticalQuery) {
+    this.criticalQuery = criticalQuery;
+  }
+
   public MonitorThresholds criticalRecovery(Double criticalRecovery) {
     this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
     return this;
@@ -98,6 +129,29 @@ public class MonitorThresholds {
 
   public void setCriticalRecovery(Double criticalRecovery) {
     this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
+  }
+
+  public MonitorThresholds criticalRecoveryQuery(String criticalRecoveryQuery) {
+    this.criticalRecoveryQuery = criticalRecoveryQuery;
+    return this;
+  }
+
+  /**
+   * Query evaluated as a dynamic <code>CRITICAL</code> recovery threshold. Only supported on metric
+   * monitors with a formula query and options['variables']. Cannot be combined with static
+   * thresholds. This field is in preview.
+   *
+   * @return criticalRecoveryQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCriticalRecoveryQuery() {
+    return criticalRecoveryQuery;
+  }
+
+  public void setCriticalRecoveryQuery(String criticalRecoveryQuery) {
+    this.criticalRecoveryQuery = criticalRecoveryQuery;
   }
 
   public MonitorThresholds ok(Double ok) {
@@ -281,7 +335,9 @@ public class MonitorThresholds {
     }
     MonitorThresholds monitorThresholds = (MonitorThresholds) o;
     return Objects.equals(this.critical, monitorThresholds.critical)
+        && Objects.equals(this.criticalQuery, monitorThresholds.criticalQuery)
         && Objects.equals(this.criticalRecovery, monitorThresholds.criticalRecovery)
+        && Objects.equals(this.criticalRecoveryQuery, monitorThresholds.criticalRecoveryQuery)
         && Objects.equals(this.ok, monitorThresholds.ok)
         && Objects.equals(this.unknown, monitorThresholds.unknown)
         && Objects.equals(this.warning, monitorThresholds.warning)
@@ -292,7 +348,15 @@ public class MonitorThresholds {
   @Override
   public int hashCode() {
     return Objects.hash(
-        critical, criticalRecovery, ok, unknown, warning, warningRecovery, additionalProperties);
+        critical,
+        criticalQuery,
+        criticalRecovery,
+        criticalRecoveryQuery,
+        ok,
+        unknown,
+        warning,
+        warningRecovery,
+        additionalProperties);
   }
 
   @Override
@@ -300,7 +364,11 @@ public class MonitorThresholds {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorThresholds {\n");
     sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
+    sb.append("    criticalQuery: ").append(toIndentedString(criticalQuery)).append("\n");
     sb.append("    criticalRecovery: ").append(toIndentedString(criticalRecovery)).append("\n");
+    sb.append("    criticalRecoveryQuery: ")
+        .append(toIndentedString(criticalRecoveryQuery))
+        .append("\n");
     sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
     sb.append("    unknown: ").append(toIndentedString(unknown)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
