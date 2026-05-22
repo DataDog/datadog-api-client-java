@@ -161,6 +161,10 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM,
@@ -783,6 +787,22 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM = "iot_device_top99p_sum";
   private Long iotDeviceTop99pSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM =
+      "llm_observability_15day_retention_spans_sum";
+  private Long llmObservability15dayRetentionSpansSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM =
+      "llm_observability_30day_retention_spans_sum";
+  private Long llmObservability30dayRetentionSpansSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM =
+      "llm_observability_60day_retention_spans_sum";
+  private Long llmObservability60dayRetentionSpansSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM =
+      "llm_observability_90day_retention_spans_sum";
+  private Long llmObservability90dayRetentionSpansSum;
 
   public static final String JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM =
       "llm_observability_min_spend_sum";
@@ -4403,6 +4423,102 @@ public class UsageSummaryDateOrg {
     this.iotDeviceTop99pSum = iotDeviceTop99pSum;
   }
 
+  public UsageSummaryDateOrg llmObservability15dayRetentionSpansSum(
+      Long llmObservability15dayRetentionSpansSum) {
+    this.llmObservability15dayRetentionSpansSum = llmObservability15dayRetentionSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all LLM Observability spans with 15-day retention over all hours in the
+   * current date for the given org.
+   *
+   * @return llmObservability15dayRetentionSpansSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability15dayRetentionSpansSum() {
+    return llmObservability15dayRetentionSpansSum;
+  }
+
+  public void setLlmObservability15dayRetentionSpansSum(
+      Long llmObservability15dayRetentionSpansSum) {
+    this.llmObservability15dayRetentionSpansSum = llmObservability15dayRetentionSpansSum;
+  }
+
+  public UsageSummaryDateOrg llmObservability30dayRetentionSpansSum(
+      Long llmObservability30dayRetentionSpansSum) {
+    this.llmObservability30dayRetentionSpansSum = llmObservability30dayRetentionSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all LLM Observability spans with 30-day retention over all hours in the
+   * current date for the given org.
+   *
+   * @return llmObservability30dayRetentionSpansSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability30dayRetentionSpansSum() {
+    return llmObservability30dayRetentionSpansSum;
+  }
+
+  public void setLlmObservability30dayRetentionSpansSum(
+      Long llmObservability30dayRetentionSpansSum) {
+    this.llmObservability30dayRetentionSpansSum = llmObservability30dayRetentionSpansSum;
+  }
+
+  public UsageSummaryDateOrg llmObservability60dayRetentionSpansSum(
+      Long llmObservability60dayRetentionSpansSum) {
+    this.llmObservability60dayRetentionSpansSum = llmObservability60dayRetentionSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all LLM Observability spans with 60-day retention over all hours in the
+   * current date for the given org.
+   *
+   * @return llmObservability60dayRetentionSpansSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability60dayRetentionSpansSum() {
+    return llmObservability60dayRetentionSpansSum;
+  }
+
+  public void setLlmObservability60dayRetentionSpansSum(
+      Long llmObservability60dayRetentionSpansSum) {
+    this.llmObservability60dayRetentionSpansSum = llmObservability60dayRetentionSpansSum;
+  }
+
+  public UsageSummaryDateOrg llmObservability90dayRetentionSpansSum(
+      Long llmObservability90dayRetentionSpansSum) {
+    this.llmObservability90dayRetentionSpansSum = llmObservability90dayRetentionSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all LLM Observability spans with 90-day retention over all hours in the
+   * current date for the given org.
+   *
+   * @return llmObservability90dayRetentionSpansSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability90dayRetentionSpansSum() {
+    return llmObservability90dayRetentionSpansSum;
+  }
+
+  public void setLlmObservability90dayRetentionSpansSum(
+      Long llmObservability90dayRetentionSpansSum) {
+    this.llmObservability90dayRetentionSpansSum = llmObservability90dayRetentionSpansSum;
+  }
+
   public UsageSummaryDateOrg llmObservabilityMinSpendSum(Long llmObservabilityMinSpendSum) {
     this.llmObservabilityMinSpendSum = llmObservabilityMinSpendSum;
     return this;
@@ -7260,6 +7376,18 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.iotDeviceAggSum, usageSummaryDateOrg.iotDeviceAggSum)
         && Objects.equals(this.iotDeviceTop99pSum, usageSummaryDateOrg.iotDeviceTop99pSum)
         && Objects.equals(
+            this.llmObservability15dayRetentionSpansSum,
+            usageSummaryDateOrg.llmObservability15dayRetentionSpansSum)
+        && Objects.equals(
+            this.llmObservability30dayRetentionSpansSum,
+            usageSummaryDateOrg.llmObservability30dayRetentionSpansSum)
+        && Objects.equals(
+            this.llmObservability60dayRetentionSpansSum,
+            usageSummaryDateOrg.llmObservability60dayRetentionSpansSum)
+        && Objects.equals(
+            this.llmObservability90dayRetentionSpansSum,
+            usageSummaryDateOrg.llmObservability90dayRetentionSpansSum)
+        && Objects.equals(
             this.llmObservabilityMinSpendSum, usageSummaryDateOrg.llmObservabilityMinSpendSum)
         && Objects.equals(this.llmObservabilitySum, usageSummaryDateOrg.llmObservabilitySum)
         && Objects.equals(
@@ -7647,6 +7775,10 @@ public class UsageSummaryDateOrg {
         ingestedEventsBytesSum,
         iotDeviceAggSum,
         iotDeviceTop99pSum,
+        llmObservability15dayRetentionSpansSum,
+        llmObservability30dayRetentionSpansSum,
+        llmObservability60dayRetentionSpansSum,
+        llmObservability90dayRetentionSpansSum,
         llmObservabilityMinSpendSum,
         llmObservabilitySum,
         mobileRumLiteSessionCountSum,
@@ -8105,6 +8237,18 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    iotDeviceAggSum: ").append(toIndentedString(iotDeviceAggSum)).append("\n");
     sb.append("    iotDeviceTop99pSum: ").append(toIndentedString(iotDeviceTop99pSum)).append("\n");
+    sb.append("    llmObservability15dayRetentionSpansSum: ")
+        .append(toIndentedString(llmObservability15dayRetentionSpansSum))
+        .append("\n");
+    sb.append("    llmObservability30dayRetentionSpansSum: ")
+        .append(toIndentedString(llmObservability30dayRetentionSpansSum))
+        .append("\n");
+    sb.append("    llmObservability60dayRetentionSpansSum: ")
+        .append(toIndentedString(llmObservability60dayRetentionSpansSum))
+        .append("\n");
+    sb.append("    llmObservability90dayRetentionSpansSum: ")
+        .append(toIndentedString(llmObservability90dayRetentionSpansSum))
+        .append("\n");
     sb.append("    llmObservabilityMinSpendSum: ")
         .append(toIndentedString(llmObservabilityMinSpendSum))
         .append("\n");
