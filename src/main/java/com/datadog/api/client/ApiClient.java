@@ -963,6 +963,9 @@ public class ApiClient {
           put("v2.updateDeploymentRule", false);
           put("v2.createHamrOrgConnection", false);
           put("v2.getHamrOrgConnection", false);
+          put("v2.deleteEntityIntegrationConfig", false);
+          put("v2.getEntityIntegrationConfig", false);
+          put("v2.updateEntityIntegrationConfig", false);
           put("v2.createGlobalIncidentHandle", false);
           put("v2.createIncident", false);
           put("v2.createIncidentAttachment", false);
