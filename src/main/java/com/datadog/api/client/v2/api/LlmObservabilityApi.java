@@ -18,6 +18,7 @@ import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigResponse;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsDataDeletionRequest;
 import com.datadog.api.client.v2.model.LLMObsDataDeletionResponse;
+import com.datadog.api.client.v2.model.LLMObsDatasetDraftStateResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsListResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsMutationResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsRequest;
@@ -25,6 +26,7 @@ import com.datadog.api.client.v2.model.LLMObsDatasetRecordsUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsDatasetRequest;
 import com.datadog.api.client.v2.model.LLMObsDatasetResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetUpdateRequest;
+import com.datadog.api.client.v2.model.LLMObsDatasetVersionsResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetsResponse;
 import com.datadog.api.client.v2.model.LLMObsDeleteAnnotationQueueInteractionsRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteDatasetRecordsRequest;
@@ -3769,6 +3771,195 @@ public class LlmObservabilityApi {
         new GenericType<LLMObsCustomEvalConfigResponse>() {});
   }
 
+  /**
+   * Get LLM Observability dataset draft state.
+   *
+   * <p>See {@link #getLLMObsDatasetDraftStateWithHttpInfo}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return LLMObsDatasetDraftStateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsDatasetDraftStateResponse getLLMObsDatasetDraftState(
+      String projectId, String datasetId) throws ApiException {
+    return getLLMObsDatasetDraftStateWithHttpInfo(projectId, datasetId).getData();
+  }
+
+  /**
+   * Get LLM Observability dataset draft state.
+   *
+   * <p>See {@link #getLLMObsDatasetDraftStateWithHttpInfoAsync}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return CompletableFuture&lt;LLMObsDatasetDraftStateResponse&gt;
+   */
+  public CompletableFuture<LLMObsDatasetDraftStateResponse> getLLMObsDatasetDraftStateAsync(
+      String projectId, String datasetId) {
+    return getLLMObsDatasetDraftStateWithHttpInfoAsync(projectId, datasetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve the draft state of a dataset, including whether it is currently locked for editing and
+   * which user holds the lock.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return ApiResponse&lt;LLMObsDatasetDraftStateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsDatasetDraftStateResponse> getLLMObsDatasetDraftStateWithHttpInfo(
+      String projectId, String datasetId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsDatasetDraftState";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'projectId' when calling getLLMObsDatasetDraftState");
+    }
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datasetId' when calling getLLMObsDatasetDraftState");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.getLLMObsDatasetDraftState",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDatasetDraftStateResponse>() {});
+  }
+
+  /**
+   * Get LLM Observability dataset draft state.
+   *
+   * <p>See {@link #getLLMObsDatasetDraftStateWithHttpInfo}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetDraftStateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>>
+      getLLMObsDatasetDraftStateWithHttpInfoAsync(String projectId, String datasetId) {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsDatasetDraftState";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling"
+                  + " getLLMObsDatasetDraftState"));
+      return result;
+    }
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling"
+                  + " getLLMObsDatasetDraftState"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.getLLMObsDatasetDraftState",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDatasetDraftStateResponse>() {});
+  }
+
   /** Manage optional parameters to listLLMObsAnnotationQueues. */
   public static class ListLLMObsAnnotationQueuesOptionalParameters {
     private String projectId;
@@ -4527,6 +4718,191 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsDatasetsResponse>() {});
+  }
+
+  /**
+   * List LLM Observability dataset versions.
+   *
+   * <p>See {@link #listLLMObsDatasetVersionsWithHttpInfo}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return LLMObsDatasetVersionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsDatasetVersionsResponse listLLMObsDatasetVersions(String projectId, String datasetId)
+      throws ApiException {
+    return listLLMObsDatasetVersionsWithHttpInfo(projectId, datasetId).getData();
+  }
+
+  /**
+   * List LLM Observability dataset versions.
+   *
+   * <p>See {@link #listLLMObsDatasetVersionsWithHttpInfoAsync}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return CompletableFuture&lt;LLMObsDatasetVersionsResponse&gt;
+   */
+  public CompletableFuture<LLMObsDatasetVersionsResponse> listLLMObsDatasetVersionsAsync(
+      String projectId, String datasetId) {
+    return listLLMObsDatasetVersionsWithHttpInfoAsync(projectId, datasetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the active versions of a dataset. A version is created each time a dataset is referenced
+   * by an experiment run.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return ApiResponse&lt;LLMObsDatasetVersionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsDatasetVersionsResponse> listLLMObsDatasetVersionsWithHttpInfo(
+      String projectId, String datasetId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsDatasetVersions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'projectId' when calling listLLMObsDatasetVersions");
+    }
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'datasetId' when calling listLLMObsDatasetVersions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/versions"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsDatasetVersions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDatasetVersionsResponse>() {});
+  }
+
+  /**
+   * List LLM Observability dataset versions.
+   *
+   * <p>See {@link #listLLMObsDatasetVersionsWithHttpInfo}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetVersionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsDatasetVersionsResponse>>
+      listLLMObsDatasetVersionsWithHttpInfoAsync(String projectId, String datasetId) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsDatasetVersions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsDatasetVersionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<LLMObsDatasetVersionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling listLLMObsDatasetVersions"));
+      return result;
+    }
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<LLMObsDatasetVersionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling listLLMObsDatasetVersions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/versions"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsDatasetVersions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsDatasetVersionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDatasetVersionsResponse>() {});
   }
 
   /** Manage optional parameters to listLLMObsExperimentEvents. */
@@ -5997,6 +6373,195 @@ public class LlmObservabilityApi {
   }
 
   /**
+   * Lock LLM Observability dataset draft state.
+   *
+   * <p>See {@link #lockLLMObsDatasetDraftStateWithHttpInfo}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return LLMObsDatasetDraftStateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsDatasetDraftStateResponse lockLLMObsDatasetDraftState(
+      String projectId, String datasetId) throws ApiException {
+    return lockLLMObsDatasetDraftStateWithHttpInfo(projectId, datasetId).getData();
+  }
+
+  /**
+   * Lock LLM Observability dataset draft state.
+   *
+   * <p>See {@link #lockLLMObsDatasetDraftStateWithHttpInfoAsync}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return CompletableFuture&lt;LLMObsDatasetDraftStateResponse&gt;
+   */
+  public CompletableFuture<LLMObsDatasetDraftStateResponse> lockLLMObsDatasetDraftStateAsync(
+      String projectId, String datasetId) {
+    return lockLLMObsDatasetDraftStateWithHttpInfoAsync(projectId, datasetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Acquire the draft lock on a dataset for the calling user. The lock prevents other users from
+   * concurrently editing the dataset draft.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return ApiResponse&lt;LLMObsDatasetDraftStateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsDatasetDraftStateResponse> lockLLMObsDatasetDraftStateWithHttpInfo(
+      String projectId, String datasetId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "lockLLMObsDatasetDraftState";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'projectId' when calling lockLLMObsDatasetDraftState");
+    }
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datasetId' when calling lockLLMObsDatasetDraftState");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/lock"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.lockLLMObsDatasetDraftState",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDatasetDraftStateResponse>() {});
+  }
+
+  /**
+   * Lock LLM Observability dataset draft state.
+   *
+   * <p>See {@link #lockLLMObsDatasetDraftStateWithHttpInfo}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetDraftStateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>>
+      lockLLMObsDatasetDraftStateWithHttpInfoAsync(String projectId, String datasetId) {
+    // Check if unstable operation is enabled
+    String operationId = "lockLLMObsDatasetDraftState";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling"
+                  + " lockLLMObsDatasetDraftState"));
+      return result;
+    }
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling"
+                  + " lockLLMObsDatasetDraftState"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/lock"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.lockLLMObsDatasetDraftState",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDatasetDraftStateResponse>() {});
+  }
+
+  /**
    * Search LLM Observability experimentation entities.
    *
    * <p>See {@link #searchLLMObsExperimentationWithHttpInfo}.
@@ -6474,6 +7039,190 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsExperimentationSimpleSearchResponse>() {});
+  }
+
+  /**
+   * Unlock LLM Observability dataset draft state.
+   *
+   * <p>See {@link #unlockLLMObsDatasetDraftStateWithHttpInfo}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void unlockLLMObsDatasetDraftState(String projectId, String datasetId)
+      throws ApiException {
+    unlockLLMObsDatasetDraftStateWithHttpInfo(projectId, datasetId);
+  }
+
+  /**
+   * Unlock LLM Observability dataset draft state.
+   *
+   * <p>See {@link #unlockLLMObsDatasetDraftStateWithHttpInfoAsync}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> unlockLLMObsDatasetDraftStateAsync(
+      String projectId, String datasetId) {
+    return unlockLLMObsDatasetDraftStateWithHttpInfoAsync(projectId, datasetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Release the draft lock on a dataset held by the calling user, allowing other users to edit the
+   * dataset draft.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> unlockLLMObsDatasetDraftStateWithHttpInfo(
+      String projectId, String datasetId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "unlockLLMObsDatasetDraftState";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'projectId' when calling unlockLLMObsDatasetDraftState");
+    }
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datasetId' when calling unlockLLMObsDatasetDraftState");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/unlock"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.unlockLLMObsDatasetDraftState",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Unlock LLM Observability dataset draft state.
+   *
+   * <p>See {@link #unlockLLMObsDatasetDraftStateWithHttpInfo}.
+   *
+   * @param projectId The ID of the LLM Observability project. (required)
+   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> unlockLLMObsDatasetDraftStateWithHttpInfoAsync(
+      String projectId, String datasetId) {
+    // Check if unstable operation is enabled
+    String operationId = "unlockLLMObsDatasetDraftState";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling"
+                  + " unlockLLMObsDatasetDraftState"));
+      return result;
+    }
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling"
+                  + " unlockLLMObsDatasetDraftState"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/unlock"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.unlockLLMObsDatasetDraftState",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
