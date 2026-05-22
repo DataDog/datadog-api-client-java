@@ -25,7 +25,7 @@ public class Example {
                     .attributes(
                         new OrgGroupPolicyUpdateAttributes()
                             .content(Map.ofEntries(Map.entry("value", "UTC")))
-                            .enforcementTier(OrgGroupPolicyEnforcementTier.DEFAULT))
+                            .enforcementTier(OrgGroupPolicyEnforcementTier.OVERRIDE_ALLOWED))
                     .id(UUID.fromString("1a2b3c4d-5e6f-7890-abcd-ef0123456789"))
                     .type(OrgGroupPolicyType.ORG_GROUP_POLICIES));
 

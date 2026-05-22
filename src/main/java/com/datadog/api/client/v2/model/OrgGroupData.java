@@ -22,7 +22,6 @@ import java.util.UUID;
 @JsonPropertyOrder({
   OrgGroupData.JSON_PROPERTY_ATTRIBUTES,
   OrgGroupData.JSON_PROPERTY_ID,
-  OrgGroupData.JSON_PROPERTY_RELATIONSHIPS,
   OrgGroupData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -34,9 +33,6 @@ public class OrgGroupData {
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
-
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private OrgGroupRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private OrgGroupType type;
@@ -95,28 +91,6 @@ public class OrgGroupData {
 
   public void setId(UUID id) {
     this.id = id;
-  }
-
-  public OrgGroupData relationships(OrgGroupRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * Relationships of an org group.
-   *
-   * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OrgGroupRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(OrgGroupRelationships relationships) {
-    this.relationships = relationships;
   }
 
   public OrgGroupData type(OrgGroupType type) {
@@ -201,14 +175,13 @@ public class OrgGroupData {
     OrgGroupData orgGroupData = (OrgGroupData) o;
     return Objects.equals(this.attributes, orgGroupData.attributes)
         && Objects.equals(this.id, orgGroupData.id)
-        && Objects.equals(this.relationships, orgGroupData.relationships)
         && Objects.equals(this.type, orgGroupData.type)
         && Objects.equals(this.additionalProperties, orgGroupData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -217,7 +190,6 @@ public class OrgGroupData {
     sb.append("class OrgGroupData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

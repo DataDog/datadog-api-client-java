@@ -22,7 +22,6 @@ import java.util.Objects;
 /** Response containing a list of org groups. */
 @JsonPropertyOrder({
   OrgGroupListResponse.JSON_PROPERTY_DATA,
-  OrgGroupListResponse.JSON_PROPERTY_INCLUDED,
   OrgGroupListResponse.JSON_PROPERTY_LINKS,
   OrgGroupListResponse.JSON_PROPERTY_META
 })
@@ -32,9 +31,6 @@ public class OrgGroupListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<OrgGroupData> data = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<OrgGroupMembershipData> included = null;
 
   public static final String JSON_PROPERTY_LINKS = "links";
   private OrgGroupPaginationLinks links;
@@ -77,40 +73,6 @@ public class OrgGroupListResponse {
 
   public void setData(List<OrgGroupData> data) {
     this.data = data;
-  }
-
-  public OrgGroupListResponse included(List<OrgGroupMembershipData> included) {
-    this.included = included;
-    for (OrgGroupMembershipData item : included) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public OrgGroupListResponse addIncludedItem(OrgGroupMembershipData includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    this.unparsed |= includedItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Related resources included in the response when requested with the <code>include</code>
-   * parameter.
-   *
-   * @return included
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<OrgGroupMembershipData> getIncluded() {
-    return included;
-  }
-
-  public void setIncluded(List<OrgGroupMembershipData> included) {
-    this.included = included;
   }
 
   public OrgGroupListResponse links(OrgGroupPaginationLinks links) {
@@ -214,7 +176,6 @@ public class OrgGroupListResponse {
     }
     OrgGroupListResponse orgGroupListResponse = (OrgGroupListResponse) o;
     return Objects.equals(this.data, orgGroupListResponse.data)
-        && Objects.equals(this.included, orgGroupListResponse.included)
         && Objects.equals(this.links, orgGroupListResponse.links)
         && Objects.equals(this.meta, orgGroupListResponse.meta)
         && Objects.equals(this.additionalProperties, orgGroupListResponse.additionalProperties);
@@ -222,7 +183,7 @@ public class OrgGroupListResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, links, meta, additionalProperties);
+    return Objects.hash(data, links, meta, additionalProperties);
   }
 
   @Override
@@ -230,7 +191,6 @@ public class OrgGroupListResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrgGroupListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")

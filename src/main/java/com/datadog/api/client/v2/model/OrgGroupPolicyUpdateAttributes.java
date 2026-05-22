@@ -29,7 +29,8 @@ public class OrgGroupPolicyUpdateAttributes {
   private Map<String, Object> content = null;
 
   public static final String JSON_PROPERTY_ENFORCEMENT_TIER = "enforcement_tier";
-  private OrgGroupPolicyEnforcementTier enforcementTier = OrgGroupPolicyEnforcementTier.DEFAULT;
+  private OrgGroupPolicyEnforcementTier enforcementTier =
+      OrgGroupPolicyEnforcementTier.OVERRIDE_ALLOWED;
 
   public OrgGroupPolicyUpdateAttributes content(Map<String, Object> content) {
     this.content = content;
@@ -68,10 +69,10 @@ public class OrgGroupPolicyUpdateAttributes {
   }
 
   /**
-   * The enforcement tier of the policy. <code>DEFAULT</code> means the policy is set but member
-   * orgs may mutate it. <code>ENFORCE</code> means the policy is strictly controlled and mutations
-   * are blocked for affected orgs. <code>DELEGATE</code> means each member org controls its own
-   * value.
+   * The enforcement tier of the policy. <code>OVERRIDE_ALLOWED</code> means the policy is set but
+   * member orgs may mutate it. <code>GROUP_MANAGED</code> means the policy is strictly controlled
+   * and mutations are blocked for affected orgs. <code>DELEGATE</code> means each member org
+   * controls its own value.
    *
    * @return enforcementTier
    */
