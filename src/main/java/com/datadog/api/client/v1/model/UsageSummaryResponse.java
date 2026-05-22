@@ -169,6 +169,10 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_LAST_UPDATED,
   UsageSummaryResponse.JSON_PROPERTY_LIVE_INDEXED_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_LIVE_INGESTED_BYTES_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_LLM_OBSERVABILITY_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_LOGS_BY_RETENTION,
@@ -837,6 +841,22 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_LIVE_INGESTED_BYTES_AGG_SUM =
       "live_ingested_bytes_agg_sum";
   private Long liveIngestedBytesAggSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_AGG_SUM =
+      "llm_observability_15day_retention_spans_agg_sum";
+  private Long llmObservability15dayRetentionSpansAggSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_AGG_SUM =
+      "llm_observability_30day_retention_spans_agg_sum";
+  private Long llmObservability30dayRetentionSpansAggSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_AGG_SUM =
+      "llm_observability_60day_retention_spans_agg_sum";
+  private Long llmObservability60dayRetentionSpansAggSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_AGG_SUM =
+      "llm_observability_90day_retention_spans_agg_sum";
+  private Long llmObservability90dayRetentionSpansAggSum;
 
   public static final String JSON_PROPERTY_LLM_OBSERVABILITY_AGG_SUM = "llm_observability_agg_sum";
   private Long llmObservabilityAggSum;
@@ -4571,6 +4591,102 @@ public class UsageSummaryResponse {
     this.liveIngestedBytesAggSum = liveIngestedBytesAggSum;
   }
 
+  public UsageSummaryResponse llmObservability15dayRetentionSpansAggSum(
+      Long llmObservability15dayRetentionSpansAggSum) {
+    this.llmObservability15dayRetentionSpansAggSum = llmObservability15dayRetentionSpansAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all LLM Observability spans with 15-day retention for all hours in the current month for
+   * all organizations.
+   *
+   * @return llmObservability15dayRetentionSpansAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability15dayRetentionSpansAggSum() {
+    return llmObservability15dayRetentionSpansAggSum;
+  }
+
+  public void setLlmObservability15dayRetentionSpansAggSum(
+      Long llmObservability15dayRetentionSpansAggSum) {
+    this.llmObservability15dayRetentionSpansAggSum = llmObservability15dayRetentionSpansAggSum;
+  }
+
+  public UsageSummaryResponse llmObservability30dayRetentionSpansAggSum(
+      Long llmObservability30dayRetentionSpansAggSum) {
+    this.llmObservability30dayRetentionSpansAggSum = llmObservability30dayRetentionSpansAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all LLM Observability spans with 30-day retention for all hours in the current month for
+   * all organizations.
+   *
+   * @return llmObservability30dayRetentionSpansAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability30dayRetentionSpansAggSum() {
+    return llmObservability30dayRetentionSpansAggSum;
+  }
+
+  public void setLlmObservability30dayRetentionSpansAggSum(
+      Long llmObservability30dayRetentionSpansAggSum) {
+    this.llmObservability30dayRetentionSpansAggSum = llmObservability30dayRetentionSpansAggSum;
+  }
+
+  public UsageSummaryResponse llmObservability60dayRetentionSpansAggSum(
+      Long llmObservability60dayRetentionSpansAggSum) {
+    this.llmObservability60dayRetentionSpansAggSum = llmObservability60dayRetentionSpansAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all LLM Observability spans with 60-day retention for all hours in the current month for
+   * all organizations.
+   *
+   * @return llmObservability60dayRetentionSpansAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability60dayRetentionSpansAggSum() {
+    return llmObservability60dayRetentionSpansAggSum;
+  }
+
+  public void setLlmObservability60dayRetentionSpansAggSum(
+      Long llmObservability60dayRetentionSpansAggSum) {
+    this.llmObservability60dayRetentionSpansAggSum = llmObservability60dayRetentionSpansAggSum;
+  }
+
+  public UsageSummaryResponse llmObservability90dayRetentionSpansAggSum(
+      Long llmObservability90dayRetentionSpansAggSum) {
+    this.llmObservability90dayRetentionSpansAggSum = llmObservability90dayRetentionSpansAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all LLM Observability spans with 90-day retention for all hours in the current month for
+   * all organizations.
+   *
+   * @return llmObservability90dayRetentionSpansAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability90dayRetentionSpansAggSum() {
+    return llmObservability90dayRetentionSpansAggSum;
+  }
+
+  public void setLlmObservability90dayRetentionSpansAggSum(
+      Long llmObservability90dayRetentionSpansAggSum) {
+    this.llmObservability90dayRetentionSpansAggSum = llmObservability90dayRetentionSpansAggSum;
+  }
+
   public UsageSummaryResponse llmObservabilityAggSum(Long llmObservabilityAggSum) {
     this.llmObservabilityAggSum = llmObservabilityAggSum;
     return this;
@@ -7607,6 +7723,18 @@ public class UsageSummaryResponse {
             this.liveIndexedEventsAggSum, usageSummaryResponse.liveIndexedEventsAggSum)
         && Objects.equals(
             this.liveIngestedBytesAggSum, usageSummaryResponse.liveIngestedBytesAggSum)
+        && Objects.equals(
+            this.llmObservability15dayRetentionSpansAggSum,
+            usageSummaryResponse.llmObservability15dayRetentionSpansAggSum)
+        && Objects.equals(
+            this.llmObservability30dayRetentionSpansAggSum,
+            usageSummaryResponse.llmObservability30dayRetentionSpansAggSum)
+        && Objects.equals(
+            this.llmObservability60dayRetentionSpansAggSum,
+            usageSummaryResponse.llmObservability60dayRetentionSpansAggSum)
+        && Objects.equals(
+            this.llmObservability90dayRetentionSpansAggSum,
+            usageSummaryResponse.llmObservability90dayRetentionSpansAggSum)
         && Objects.equals(this.llmObservabilityAggSum, usageSummaryResponse.llmObservabilityAggSum)
         && Objects.equals(
             this.llmObservabilityMinSpendAggSum,
@@ -8031,6 +8159,10 @@ public class UsageSummaryResponse {
         lastUpdated,
         liveIndexedEventsAggSum,
         liveIngestedBytesAggSum,
+        llmObservability15dayRetentionSpansAggSum,
+        llmObservability30dayRetentionSpansAggSum,
+        llmObservability60dayRetentionSpansAggSum,
+        llmObservability90dayRetentionSpansAggSum,
         llmObservabilityAggSum,
         llmObservabilityMinSpendAggSum,
         logsByRetention,
@@ -8539,6 +8671,18 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    liveIngestedBytesAggSum: ")
         .append(toIndentedString(liveIngestedBytesAggSum))
+        .append("\n");
+    sb.append("    llmObservability15dayRetentionSpansAggSum: ")
+        .append(toIndentedString(llmObservability15dayRetentionSpansAggSum))
+        .append("\n");
+    sb.append("    llmObservability30dayRetentionSpansAggSum: ")
+        .append(toIndentedString(llmObservability30dayRetentionSpansAggSum))
+        .append("\n");
+    sb.append("    llmObservability60dayRetentionSpansAggSum: ")
+        .append(toIndentedString(llmObservability60dayRetentionSpansAggSum))
+        .append("\n");
+    sb.append("    llmObservability90dayRetentionSpansAggSum: ")
+        .append(toIndentedString(llmObservability90dayRetentionSpansAggSum))
         .append("\n");
     sb.append("    llmObservabilityAggSum: ")
         .append(toIndentedString(llmObservabilityAggSum))
