@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.LLMObsAnnotatedInteractionsByTraceResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotatedInteractionsResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsResponse;
@@ -3187,6 +3188,262 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsAnnotatedInteractionsResponse>() {});
+  }
+
+  /** Manage optional parameters to getLLMObsAnnotatedInteractionsByTraceIDs. */
+  public static class GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters {
+    private Integer offset;
+    private Integer limit;
+
+    /**
+     * Set offset.
+     *
+     * @param offset Pagination offset. Must be &gt;= 0. Defaults to 0. (optional, default to 0)
+     * @return GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters
+     */
+    public GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters offset(Integer offset) {
+      this.offset = offset;
+      return this;
+    }
+
+    /**
+     * Set limit.
+     *
+     * @param limit Maximum number of results to return. Must be &gt; 0. Defaults to 100. (optional,
+     *     default to 100)
+     * @return GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters
+     */
+    public GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters limit(Integer limit) {
+      this.limit = limit;
+      return this;
+    }
+  }
+
+  /**
+   * Get annotated interactions by content IDs.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfo}.
+   *
+   * @param contentIds One or more content IDs to retrieve annotated interactions for. At least one
+   *     is required. (required)
+   * @return LLMObsAnnotatedInteractionsByTraceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotatedInteractionsByTraceResponse getLLMObsAnnotatedInteractionsByTraceIDs(
+      List<String> contentIds) throws ApiException {
+    return getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfo(
+            contentIds, new GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get annotated interactions by content IDs.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfoAsync}.
+   *
+   * @param contentIds One or more content IDs to retrieve annotated interactions for. At least one
+   *     is required. (required)
+   * @return CompletableFuture&lt;LLMObsAnnotatedInteractionsByTraceResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotatedInteractionsByTraceResponse>
+      getLLMObsAnnotatedInteractionsByTraceIDsAsync(List<String> contentIds) {
+    return getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfoAsync(
+            contentIds, new GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get annotated interactions by content IDs.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfo}.
+   *
+   * @param contentIds One or more content IDs to retrieve annotated interactions for. At least one
+   *     is required. (required)
+   * @param parameters Optional parameters for the request.
+   * @return LLMObsAnnotatedInteractionsByTraceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotatedInteractionsByTraceResponse getLLMObsAnnotatedInteractionsByTraceIDs(
+      List<String> contentIds,
+      GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters parameters)
+      throws ApiException {
+    return getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfo(contentIds, parameters).getData();
+  }
+
+  /**
+   * Get annotated interactions by content IDs.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfoAsync}.
+   *
+   * @param contentIds One or more content IDs to retrieve annotated interactions for. At least one
+   *     is required. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LLMObsAnnotatedInteractionsByTraceResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotatedInteractionsByTraceResponse>
+      getLLMObsAnnotatedInteractionsByTraceIDsAsync(
+          List<String> contentIds,
+          GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters parameters) {
+    return getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfoAsync(contentIds, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns annotated interactions across all annotation queues for the given content IDs. Results
+   * include queue metadata (ID and name) for each interaction.
+   *
+   * @param contentIds One or more content IDs to retrieve annotated interactions for. At least one
+   *     is required. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;LLMObsAnnotatedInteractionsByTraceResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsAnnotatedInteractionsByTraceResponse>
+      getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfo(
+          List<String> contentIds,
+          GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsAnnotatedInteractionsByTraceIDs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'contentIds' is set
+    if (contentIds == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'contentIds' when calling"
+              + " getLLMObsAnnotatedInteractionsByTraceIDs");
+    }
+    Integer offset = parameters.offset;
+    Integer limit = parameters.limit;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/annotated-interactions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "contentIds", contentIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.getLLMObsAnnotatedInteractionsByTraceIDs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotatedInteractionsByTraceResponse>() {});
+  }
+
+  /**
+   * Get annotated interactions by content IDs.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfo}.
+   *
+   * @param contentIds One or more content IDs to retrieve annotated interactions for. At least one
+   *     is required. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotatedInteractionsByTraceResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionsByTraceResponse>>
+      getLLMObsAnnotatedInteractionsByTraceIDsWithHttpInfoAsync(
+          List<String> contentIds,
+          GetLLMObsAnnotatedInteractionsByTraceIDsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsAnnotatedInteractionsByTraceIDs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionsByTraceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'contentIds' is set
+    if (contentIds == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionsByTraceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'contentIds' when calling"
+                  + " getLLMObsAnnotatedInteractionsByTraceIDs"));
+      return result;
+    }
+    Integer offset = parameters.offset;
+    Integer limit = parameters.limit;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/annotated-interactions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "contentIds", contentIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.getLLMObsAnnotatedInteractionsByTraceIDs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionsByTraceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotatedInteractionsByTraceResponse>() {});
   }
 
   /**
