@@ -19,6 +19,7 @@ import com.datadog.api.client.v2.model.CreateJiraIssueRequestArray;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
 import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
+import com.datadog.api.client.v2.model.EntityContextResponse;
 import com.datadog.api.client.v2.model.Finding;
 import com.datadog.api.client.v2.model.FindingCaseResponse;
 import com.datadog.api.client.v2.model.FindingCaseResponseArray;
@@ -50,11 +51,18 @@ import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
 import com.datadog.api.client.v2.model.SBOMComponentLicenseType;
 import com.datadog.api.client.v2.model.SBOMFormat;
+import com.datadog.api.client.v2.model.SampleLogGenerationBulkSubscriptionRequest;
+import com.datadog.api.client.v2.model.SampleLogGenerationBulkSubscriptionResponse;
+import com.datadog.api.client.v2.model.SampleLogGenerationSubscriptionCreateRequest;
+import com.datadog.api.client.v2.model.SampleLogGenerationSubscriptionResponse;
+import com.datadog.api.client.v2.model.SampleLogGenerationSubscriptionsResponse;
+import com.datadog.api.client.v2.model.SampleLogGenerationSubscriptionsStatusFilter;
 import com.datadog.api.client.v2.model.ScannedAssetsMetadata;
 import com.datadog.api.client.v2.model.SecretRuleArray;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityFilterVersionsResponse;
 import com.datadog.api.client.v2.model.SecurityFiltersResponse;
 import com.datadog.api.client.v2.model.SecurityFindingsData;
 import com.datadog.api.client.v2.model.SecurityFindingsSearchRequest;
@@ -67,6 +75,12 @@ import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetCreateRequ
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetsResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigCreateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigsResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationCredentialsValidateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationType;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringPaginatedSuppressionsResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleBulkDeletePayload;
@@ -106,6 +120,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringTerraformBulkExportRequ
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformConvertRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformExportResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformResourceType;
+import com.datadog.api.client.v2.model.SignalEntitiesResponse;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.UpdateResourceEvaluationFiltersRequest;
@@ -607,6 +622,177 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Bulk subscribe to sample log generation.
+   *
+   * <p>See {@link #bulkCreateSampleLogGenerationSubscriptionsWithHttpInfo}.
+   *
+   * @param body The content packs to subscribe to and the desired duration of the subscriptions.
+   *     (required)
+   * @return SampleLogGenerationBulkSubscriptionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SampleLogGenerationBulkSubscriptionResponse bulkCreateSampleLogGenerationSubscriptions(
+      SampleLogGenerationBulkSubscriptionRequest body) throws ApiException {
+    return bulkCreateSampleLogGenerationSubscriptionsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Bulk subscribe to sample log generation.
+   *
+   * <p>See {@link #bulkCreateSampleLogGenerationSubscriptionsWithHttpInfoAsync}.
+   *
+   * @param body The content packs to subscribe to and the desired duration of the subscriptions.
+   *     (required)
+   * @return CompletableFuture&lt;SampleLogGenerationBulkSubscriptionResponse&gt;
+   */
+  public CompletableFuture<SampleLogGenerationBulkSubscriptionResponse>
+      bulkCreateSampleLogGenerationSubscriptionsAsync(
+          SampleLogGenerationBulkSubscriptionRequest body) {
+    return bulkCreateSampleLogGenerationSubscriptionsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Subscribe to sample log generation for multiple Cloud SIEM content packs in a single call. Each
+   * requested content pack is processed independently; the response includes a per-item status so
+   * partial successes can be inspected.
+   *
+   * <p><strong>Availability</strong>: this endpoint is restricted to Cloud SIEM trial organizations
+   * on an eligible pricing model. Non-trial orgs receive <code>403 Forbidden</code>, the feature
+   * flag may also reject requests with <code>400 Bad Request</code>, and legacy pricing tiers
+   * receive per-item responses with <code>status: not_available</code>.
+   *
+   * @param body The content packs to subscribe to and the desired duration of the subscriptions.
+   *     (required)
+   * @return ApiResponse&lt;SampleLogGenerationBulkSubscriptionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SampleLogGenerationBulkSubscriptionResponse>
+      bulkCreateSampleLogGenerationSubscriptionsWithHttpInfo(
+          SampleLogGenerationBulkSubscriptionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "bulkCreateSampleLogGenerationSubscriptions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " bulkCreateSampleLogGenerationSubscriptions");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/sample_log_generation/subscriptions/bulk";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.bulkCreateSampleLogGenerationSubscriptions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SampleLogGenerationBulkSubscriptionResponse>() {});
+  }
+
+  /**
+   * Bulk subscribe to sample log generation.
+   *
+   * <p>See {@link #bulkCreateSampleLogGenerationSubscriptionsWithHttpInfo}.
+   *
+   * @param body The content packs to subscribe to and the desired duration of the subscriptions.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SampleLogGenerationBulkSubscriptionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SampleLogGenerationBulkSubscriptionResponse>>
+      bulkCreateSampleLogGenerationSubscriptionsWithHttpInfoAsync(
+          SampleLogGenerationBulkSubscriptionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "bulkCreateSampleLogGenerationSubscriptions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SampleLogGenerationBulkSubscriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SampleLogGenerationBulkSubscriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " bulkCreateSampleLogGenerationSubscriptions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/sample_log_generation/subscriptions/bulk";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.bulkCreateSampleLogGenerationSubscriptions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SampleLogGenerationBulkSubscriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SampleLogGenerationBulkSubscriptionResponse>() {});
   }
 
   /**
@@ -2723,6 +2909,177 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Subscribe to sample log generation.
+   *
+   * <p>See {@link #createSampleLogGenerationSubscriptionWithHttpInfo}.
+   *
+   * @param body The content pack to subscribe to and the desired duration of the subscription.
+   *     (required)
+   * @return SampleLogGenerationSubscriptionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SampleLogGenerationSubscriptionResponse createSampleLogGenerationSubscription(
+      SampleLogGenerationSubscriptionCreateRequest body) throws ApiException {
+    return createSampleLogGenerationSubscriptionWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Subscribe to sample log generation.
+   *
+   * <p>See {@link #createSampleLogGenerationSubscriptionWithHttpInfoAsync}.
+   *
+   * @param body The content pack to subscribe to and the desired duration of the subscription.
+   *     (required)
+   * @return CompletableFuture&lt;SampleLogGenerationSubscriptionResponse&gt;
+   */
+  public CompletableFuture<SampleLogGenerationSubscriptionResponse>
+      createSampleLogGenerationSubscriptionAsync(
+          SampleLogGenerationSubscriptionCreateRequest body) {
+    return createSampleLogGenerationSubscriptionWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Subscribe to sample log generation for a Cloud SIEM content pack. Sample logs for the requested
+   * content pack are injected into the Logs platform for the duration of the subscription, so
+   * detection rules can be exercised without onboarding the underlying integration first.
+   *
+   * <p><strong>Availability</strong>: this endpoint is restricted to Cloud SIEM trial organizations
+   * on an eligible pricing model. Non-trial orgs receive <code>403 Forbidden</code>, the feature
+   * flag may also reject requests with <code>400 Bad Request</code>, and legacy pricing tiers
+   * receive a response with <code>status: not_available</code>.
+   *
+   * @param body The content pack to subscribe to and the desired duration of the subscription.
+   *     (required)
+   * @return ApiResponse&lt;SampleLogGenerationSubscriptionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SampleLogGenerationSubscriptionResponse>
+      createSampleLogGenerationSubscriptionWithHttpInfo(
+          SampleLogGenerationSubscriptionCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSampleLogGenerationSubscription";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSampleLogGenerationSubscription");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/sample_log_generation/subscriptions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSampleLogGenerationSubscription",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SampleLogGenerationSubscriptionResponse>() {});
+  }
+
+  /**
+   * Subscribe to sample log generation.
+   *
+   * <p>See {@link #createSampleLogGenerationSubscriptionWithHttpInfo}.
+   *
+   * @param body The content pack to subscribe to and the desired duration of the subscription.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SampleLogGenerationSubscriptionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionResponse>>
+      createSampleLogGenerationSubscriptionWithHttpInfoAsync(
+          SampleLogGenerationSubscriptionCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSampleLogGenerationSubscription";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSampleLogGenerationSubscription"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/sample_log_generation/subscriptions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSampleLogGenerationSubscription",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SampleLogGenerationSubscriptionResponse>() {});
+  }
+
+  /**
    * Create a security filter.
    *
    * <p>See {@link #createSecurityFilterWithHttpInfo}.
@@ -3001,6 +3358,168 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringCriticalAssetResponse>() {});
+  }
+
+  /**
+   * Create an entity context sync configuration.
+   *
+   * <p>See {@link #createSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param body The definition of the new integration configuration. (required)
+   * @return SecurityMonitoringIntegrationConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringIntegrationConfigResponse createSecurityMonitoringIntegrationConfig(
+      SecurityMonitoringIntegrationConfigCreateRequest body) throws ApiException {
+    return createSecurityMonitoringIntegrationConfigWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an entity context sync configuration.
+   *
+   * <p>See {@link #createSecurityMonitoringIntegrationConfigWithHttpInfoAsync}.
+   *
+   * @param body The definition of the new integration configuration. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringIntegrationConfigResponse>
+      createSecurityMonitoringIntegrationConfigAsync(
+          SecurityMonitoringIntegrationConfigCreateRequest body) {
+    return createSecurityMonitoringIntegrationConfigWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new entity context sync configuration so Cloud SIEM can ingest entities from an
+   * external source. The credentials provided in <code>secrets</code> are validated against the
+   * source before the configuration is stored and never returned in subsequent responses.
+   *
+   * @param body The definition of the new integration configuration. (required)
+   * @return ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringIntegrationConfigResponse>
+      createSecurityMonitoringIntegrationConfigWithHttpInfo(
+          SecurityMonitoringIntegrationConfigCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityMonitoringIntegrationConfig");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/integration_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityMonitoringIntegrationConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
+  }
+
+  /**
+   * Create an entity context sync configuration.
+   *
+   * <p>See {@link #createSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param body The definition of the new integration configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>>
+      createSecurityMonitoringIntegrationConfigWithHttpInfoAsync(
+          SecurityMonitoringIntegrationConfigCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityMonitoringIntegrationConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/integration_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityMonitoringIntegrationConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
   }
 
   /**
@@ -4041,6 +4560,181 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Unsubscribe from sample log generation.
+   *
+   * <p>See {@link #deleteSampleLogGenerationSubscriptionWithHttpInfo}.
+   *
+   * @param contentPackId The identifier of the Cloud SIEM content pack to operate on (for example,
+   *     <code>aws-cloudtrail</code>). (required)
+   * @return SampleLogGenerationSubscriptionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SampleLogGenerationSubscriptionResponse deleteSampleLogGenerationSubscription(
+      String contentPackId) throws ApiException {
+    return deleteSampleLogGenerationSubscriptionWithHttpInfo(contentPackId).getData();
+  }
+
+  /**
+   * Unsubscribe from sample log generation.
+   *
+   * <p>See {@link #deleteSampleLogGenerationSubscriptionWithHttpInfoAsync}.
+   *
+   * @param contentPackId The identifier of the Cloud SIEM content pack to operate on (for example,
+   *     <code>aws-cloudtrail</code>). (required)
+   * @return CompletableFuture&lt;SampleLogGenerationSubscriptionResponse&gt;
+   */
+  public CompletableFuture<SampleLogGenerationSubscriptionResponse>
+      deleteSampleLogGenerationSubscriptionAsync(String contentPackId) {
+    return deleteSampleLogGenerationSubscriptionWithHttpInfoAsync(contentPackId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Unsubscribe from sample log generation for a Cloud SIEM content pack. After unsubscribing, no
+   * more sample logs are generated for the requested content pack.
+   *
+   * <p><strong>Availability</strong>: this endpoint is restricted to Cloud SIEM trial organizations
+   * on an eligible pricing model. Non-trial orgs receive <code>403 Forbidden</code>, the feature
+   * flag may also reject requests with <code>400 Bad Request</code>, and legacy pricing tiers
+   * receive a response with <code>status: not_available</code>.
+   *
+   * @param contentPackId The identifier of the Cloud SIEM content pack to operate on (for example,
+   *     <code>aws-cloudtrail</code>). (required)
+   * @return ApiResponse&lt;SampleLogGenerationSubscriptionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SampleLogGenerationSubscriptionResponse>
+      deleteSampleLogGenerationSubscriptionWithHttpInfo(String contentPackId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSampleLogGenerationSubscription";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'contentPackId' is set
+    if (contentPackId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'contentPackId' when calling"
+              + " deleteSampleLogGenerationSubscription");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/sample_log_generation/subscriptions/{content_pack_id}"
+            .replaceAll(
+                "\\{" + "content_pack_id" + "\\}",
+                apiClient.escapeString(contentPackId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSampleLogGenerationSubscription",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SampleLogGenerationSubscriptionResponse>() {});
+  }
+
+  /**
+   * Unsubscribe from sample log generation.
+   *
+   * <p>See {@link #deleteSampleLogGenerationSubscriptionWithHttpInfo}.
+   *
+   * @param contentPackId The identifier of the Cloud SIEM content pack to operate on (for example,
+   *     <code>aws-cloudtrail</code>). (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SampleLogGenerationSubscriptionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionResponse>>
+      deleteSampleLogGenerationSubscriptionWithHttpInfoAsync(String contentPackId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSampleLogGenerationSubscription";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'contentPackId' is set
+    if (contentPackId == null) {
+      CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'contentPackId' when calling"
+                  + " deleteSampleLogGenerationSubscription"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/sample_log_generation/subscriptions/{content_pack_id}"
+            .replaceAll(
+                "\\{" + "content_pack_id" + "\\}",
+                apiClient.escapeString(contentPackId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSampleLogGenerationSubscription",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SampleLogGenerationSubscriptionResponse>() {});
+  }
+
+  /**
    * Delete a security filter.
    *
    * <p>See {@link #deleteSecurityFilterWithHttpInfo}.
@@ -4302,6 +4996,168 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.deleteSecurityMonitoringCriticalAsset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an entity context sync configuration.
+   *
+   * <p>See {@link #deleteSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityMonitoringIntegrationConfig(String integrationConfigId)
+      throws ApiException {
+    deleteSecurityMonitoringIntegrationConfigWithHttpInfo(integrationConfigId);
+  }
+
+  /**
+   * Delete an entity context sync configuration.
+   *
+   * <p>See {@link #deleteSecurityMonitoringIntegrationConfigWithHttpInfoAsync}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityMonitoringIntegrationConfigAsync(
+      String integrationConfigId) {
+    return deleteSecurityMonitoringIntegrationConfigWithHttpInfoAsync(integrationConfigId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an entity context sync configuration. Cloud SIEM stops ingesting entities from this
+   * source, and the credentials stored for the configuration are removed from the secrets store.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityMonitoringIntegrationConfigWithHttpInfo(
+      String integrationConfigId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationConfigId' is set
+    if (integrationConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'integrationConfigId' when calling"
+              + " deleteSecurityMonitoringIntegrationConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}"
+            .replaceAll(
+                "\\{" + "integration_config_id" + "\\}",
+                apiClient.escapeString(integrationConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityMonitoringIntegrationConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an entity context sync configuration.
+   *
+   * <p>See {@link #deleteSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityMonitoringIntegrationConfigWithHttpInfoAsync(String integrationConfigId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationConfigId' is set
+    if (integrationConfigId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integrationConfigId' when calling"
+                  + " deleteSecurityMonitoringIntegrationConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}"
+            .replaceAll(
+                "\\{" + "integration_config_id" + "\\}",
+                apiClient.escapeString(integrationConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityMonitoringIntegrationConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -6312,6 +7168,284 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GetCustomFrameworkResponse>() {});
+  }
+
+  /** Manage optional parameters to getEntityContext. */
+  public static class GetEntityContextOptionalParameters {
+    private String query;
+    private String from;
+    private String to;
+    private String asOf;
+    private Long limit;
+    private String pageToken;
+
+    /**
+     * Set query.
+     *
+     * @param query A free-text query (for example, an email address or principal ID) used to filter
+     *     the entities returned. (optional)
+     * @return GetEntityContextOptionalParameters
+     */
+    public GetEntityContextOptionalParameters query(String query) {
+      this.query = query;
+      return this;
+    }
+
+    /**
+     * Set from.
+     *
+     * @param from The start of the time range to query, as an RFC3339 timestamp or a relative time
+     *     (for example, <code>now-7d</code>). Defaults to <code>now-7d</code>. Ignored when <code>
+     *     as_of</code> is set. (optional, default to "now-7d")
+     * @return GetEntityContextOptionalParameters
+     */
+    public GetEntityContextOptionalParameters from(String from) {
+      this.from = from;
+      return this;
+    }
+
+    /**
+     * Set to.
+     *
+     * @param to The end of the time range to query, as an RFC3339 timestamp or a relative time (for
+     *     example, <code>now</code>). Defaults to <code>now</code>. Ignored when <code>as_of</code>
+     *     is set. (optional, default to "now")
+     * @return GetEntityContextOptionalParameters
+     */
+    public GetEntityContextOptionalParameters to(String to) {
+      this.to = to;
+      return this;
+    }
+
+    /**
+     * Set asOf.
+     *
+     * @param asOf A point in time at which to query the entity revisions, as an RFC3339 timestamp,
+     *     a Unix timestamp (in seconds), or a relative time (for example, <code>now-1d</code>).
+     *     When set, <code>from</code> and <code>to</code> are ignored. Cannot be combined with
+     *     custom <code>from</code> / <code>to</code> values. (optional)
+     * @return GetEntityContextOptionalParameters
+     */
+    public GetEntityContextOptionalParameters asOf(String asOf) {
+      this.asOf = asOf;
+      return this;
+    }
+
+    /**
+     * Set limit.
+     *
+     * @param limit The maximum number of entities to return. (optional, default to 250)
+     * @return GetEntityContextOptionalParameters
+     */
+    public GetEntityContextOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set pageToken.
+     *
+     * @param pageToken An opaque token used to fetch the next page of results, as returned in
+     *     <code>meta.page.next_token</code> of a previous response. (optional)
+     * @return GetEntityContextOptionalParameters
+     */
+    public GetEntityContextOptionalParameters pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+  }
+
+  /**
+   * Get entity context.
+   *
+   * <p>See {@link #getEntityContextWithHttpInfo}.
+   *
+   * @return EntityContextResponse
+   * @throws ApiException if fails to make API call
+   */
+  public EntityContextResponse getEntityContext() throws ApiException {
+    return getEntityContextWithHttpInfo(new GetEntityContextOptionalParameters()).getData();
+  }
+
+  /**
+   * Get entity context.
+   *
+   * <p>See {@link #getEntityContextWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;EntityContextResponse&gt;
+   */
+  public CompletableFuture<EntityContextResponse> getEntityContextAsync() {
+    return getEntityContextWithHttpInfoAsync(new GetEntityContextOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get entity context.
+   *
+   * <p>See {@link #getEntityContextWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return EntityContextResponse
+   * @throws ApiException if fails to make API call
+   */
+  public EntityContextResponse getEntityContext(GetEntityContextOptionalParameters parameters)
+      throws ApiException {
+    return getEntityContextWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get entity context.
+   *
+   * <p>See {@link #getEntityContextWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;EntityContextResponse&gt;
+   */
+  public CompletableFuture<EntityContextResponse> getEntityContextAsync(
+      GetEntityContextOptionalParameters parameters) {
+    return getEntityContextWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search the Cloud SIEM entity context store for entities that match a query, and return the
+   * historical revisions of each entity in the requested time range. The endpoint can either return
+   * revisions across an interval (<code>from</code> / <code>to</code>) or the snapshot of each
+   * entity at a single point in time (<code>as_of</code>); the two modes are mutually exclusive.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;EntityContextResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EntityContextResponse> getEntityContextWithHttpInfo(
+      GetEntityContextOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getEntityContext";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    String from = parameters.from;
+    String to = parameters.to;
+    String asOf = parameters.asOf;
+    Long limit = parameters.limit;
+    String pageToken = parameters.pageToken;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/entity_context";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_token", pageToken));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getEntityContext",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EntityContextResponse>() {});
+  }
+
+  /**
+   * Get entity context.
+   *
+   * <p>See {@link #getEntityContextWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;EntityContextResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EntityContextResponse>> getEntityContextWithHttpInfoAsync(
+      GetEntityContextOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getEntityContext";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<EntityContextResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    String from = parameters.from;
+    String to = parameters.to;
+    String asOf = parameters.asOf;
+    Long limit = parameters.limit;
+    String pageToken = parameters.pageToken;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/entity_context";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_token", pageToken));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getEntityContext",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EntityContextResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EntityContextResponse>() {});
   }
 
   /** Manage optional parameters to getFinding. */
@@ -8570,6 +9704,172 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get an entity context sync configuration.
+   *
+   * <p>See {@link #getSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return SecurityMonitoringIntegrationConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringIntegrationConfigResponse getSecurityMonitoringIntegrationConfig(
+      String integrationConfigId) throws ApiException {
+    return getSecurityMonitoringIntegrationConfigWithHttpInfo(integrationConfigId).getData();
+  }
+
+  /**
+   * Get an entity context sync configuration.
+   *
+   * <p>See {@link #getSecurityMonitoringIntegrationConfigWithHttpInfoAsync}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringIntegrationConfigResponse>
+      getSecurityMonitoringIntegrationConfigAsync(String integrationConfigId) {
+    return getSecurityMonitoringIntegrationConfigWithHttpInfoAsync(integrationConfigId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a specific entity context sync configuration.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringIntegrationConfigResponse>
+      getSecurityMonitoringIntegrationConfigWithHttpInfo(String integrationConfigId)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationConfigId' is set
+    if (integrationConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'integrationConfigId' when calling"
+              + " getSecurityMonitoringIntegrationConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}"
+            .replaceAll(
+                "\\{" + "integration_config_id" + "\\}",
+                apiClient.escapeString(integrationConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringIntegrationConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
+  }
+
+  /**
+   * Get an entity context sync configuration.
+   *
+   * <p>See {@link #getSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>>
+      getSecurityMonitoringIntegrationConfigWithHttpInfoAsync(String integrationConfigId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationConfigId' is set
+    if (integrationConfigId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integrationConfigId' when calling"
+                  + " getSecurityMonitoringIntegrationConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}"
+            .replaceAll(
+                "\\{" + "integration_config_id" + "\\}",
+                apiClient.escapeString(integrationConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringIntegrationConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
+  }
+
+  /**
    * Get a rule&#39;s details.
    *
    * <p>See {@link #getSecurityMonitoringRuleWithHttpInfo}.
@@ -8993,6 +10293,219 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /** Manage optional parameters to getSignalEntities. */
+  public static class GetSignalEntitiesOptionalParameters {
+    private Integer limit;
+
+    /**
+     * Set limit.
+     *
+     * @param limit The maximum number of entities to return. (optional, default to 10)
+     * @return GetSignalEntitiesOptionalParameters
+     */
+    public GetSignalEntitiesOptionalParameters limit(Integer limit) {
+      this.limit = limit;
+      return this;
+    }
+  }
+
+  /**
+   * Get entities related to a signal.
+   *
+   * <p>See {@link #getSignalEntitiesWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return SignalEntitiesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SignalEntitiesResponse getSignalEntities(String signalId) throws ApiException {
+    return getSignalEntitiesWithHttpInfo(signalId, new GetSignalEntitiesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get entities related to a signal.
+   *
+   * <p>See {@link #getSignalEntitiesWithHttpInfoAsync}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return CompletableFuture&lt;SignalEntitiesResponse&gt;
+   */
+  public CompletableFuture<SignalEntitiesResponse> getSignalEntitiesAsync(String signalId) {
+    return getSignalEntitiesWithHttpInfoAsync(signalId, new GetSignalEntitiesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get entities related to a signal.
+   *
+   * <p>See {@link #getSignalEntitiesWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SignalEntitiesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SignalEntitiesResponse getSignalEntities(
+      String signalId, GetSignalEntitiesOptionalParameters parameters) throws ApiException {
+    return getSignalEntitiesWithHttpInfo(signalId, parameters).getData();
+  }
+
+  /**
+   * Get entities related to a signal.
+   *
+   * <p>See {@link #getSignalEntitiesWithHttpInfoAsync}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SignalEntitiesResponse&gt;
+   */
+  public CompletableFuture<SignalEntitiesResponse> getSignalEntitiesAsync(
+      String signalId, GetSignalEntitiesOptionalParameters parameters) {
+    return getSignalEntitiesWithHttpInfoAsync(signalId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of entities related to a security signal, captured at the signal's timestamp.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SignalEntitiesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SignalEntitiesResponse> getSignalEntitiesWithHttpInfo(
+      String signalId, GetSignalEntitiesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSignalEntities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'signalId' when calling getSignalEntities");
+    }
+    Integer limit = parameters.limit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}/entities"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSignalEntities",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SignalEntitiesResponse>() {});
+  }
+
+  /**
+   * Get entities related to a signal.
+   *
+   * <p>See {@link #getSignalEntitiesWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SignalEntitiesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SignalEntitiesResponse>> getSignalEntitiesWithHttpInfoAsync(
+      String signalId, GetSignalEntitiesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getSignalEntities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SignalEntitiesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      CompletableFuture<ApiResponse<SignalEntitiesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'signalId' when calling getSignalEntities"));
+      return result;
+    }
+    Integer limit = parameters.limit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}/entities"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSignalEntities",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SignalEntitiesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SignalEntitiesResponse>() {});
   }
 
   /**
@@ -11652,6 +13165,252 @@ public class SecurityMonitoringApi {
         new GenericType<GetMultipleRulesetsResponse>() {});
   }
 
+  /** Manage optional parameters to listSampleLogGenerationSubscriptions. */
+  public static class ListSampleLogGenerationSubscriptionsOptionalParameters {
+    private SampleLogGenerationSubscriptionsStatusFilter status;
+    private OffsetDateTime startTimestamp;
+    private OffsetDateTime endTimestamp;
+
+    /**
+     * Set status.
+     *
+     * @param status Filter the subscriptions by status. Use <code>active</code> to return only
+     *     currently active subscriptions, or <code>all</code> to return every subscription
+     *     including expired ones. Ignored when <code>start_timestamp</code> is provided. Defaults
+     *     to <code>active</code>. (optional, default to "active")
+     * @return ListSampleLogGenerationSubscriptionsOptionalParameters
+     */
+    public ListSampleLogGenerationSubscriptionsOptionalParameters status(
+        SampleLogGenerationSubscriptionsStatusFilter status) {
+      this.status = status;
+      return this;
+    }
+
+    /**
+     * Set startTimestamp.
+     *
+     * @param startTimestamp The start of the time range, as an RFC3339 timestamp. When provided,
+     *     the response includes every subscription that was active at any point in <code>
+     *     [start_timestamp, end_timestamp]</code>, and the <code>status</code> filter is ignored.
+     *     (optional)
+     * @return ListSampleLogGenerationSubscriptionsOptionalParameters
+     */
+    public ListSampleLogGenerationSubscriptionsOptionalParameters startTimestamp(
+        OffsetDateTime startTimestamp) {
+      this.startTimestamp = startTimestamp;
+      return this;
+    }
+
+    /**
+     * Set endTimestamp.
+     *
+     * @param endTimestamp The end of the time range, as an RFC3339 timestamp. Ignored unless <code>
+     *     start_timestamp</code> is set. Defaults to the current time when <code>start_timestamp
+     *     </code> is provided. (optional)
+     * @return ListSampleLogGenerationSubscriptionsOptionalParameters
+     */
+    public ListSampleLogGenerationSubscriptionsOptionalParameters endTimestamp(
+        OffsetDateTime endTimestamp) {
+      this.endTimestamp = endTimestamp;
+      return this;
+    }
+  }
+
+  /**
+   * Get sample log generation subscriptions.
+   *
+   * <p>See {@link #listSampleLogGenerationSubscriptionsWithHttpInfo}.
+   *
+   * @return SampleLogGenerationSubscriptionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SampleLogGenerationSubscriptionsResponse listSampleLogGenerationSubscriptions()
+      throws ApiException {
+    return listSampleLogGenerationSubscriptionsWithHttpInfo(
+            new ListSampleLogGenerationSubscriptionsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get sample log generation subscriptions.
+   *
+   * <p>See {@link #listSampleLogGenerationSubscriptionsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SampleLogGenerationSubscriptionsResponse&gt;
+   */
+  public CompletableFuture<SampleLogGenerationSubscriptionsResponse>
+      listSampleLogGenerationSubscriptionsAsync() {
+    return listSampleLogGenerationSubscriptionsWithHttpInfoAsync(
+            new ListSampleLogGenerationSubscriptionsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get sample log generation subscriptions.
+   *
+   * <p>See {@link #listSampleLogGenerationSubscriptionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SampleLogGenerationSubscriptionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SampleLogGenerationSubscriptionsResponse listSampleLogGenerationSubscriptions(
+      ListSampleLogGenerationSubscriptionsOptionalParameters parameters) throws ApiException {
+    return listSampleLogGenerationSubscriptionsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get sample log generation subscriptions.
+   *
+   * <p>See {@link #listSampleLogGenerationSubscriptionsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SampleLogGenerationSubscriptionsResponse&gt;
+   */
+  public CompletableFuture<SampleLogGenerationSubscriptionsResponse>
+      listSampleLogGenerationSubscriptionsAsync(
+          ListSampleLogGenerationSubscriptionsOptionalParameters parameters) {
+    return listSampleLogGenerationSubscriptionsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the sample log generation subscriptions for the organization. Sample log generation injects
+   * representative example logs for a given Cloud SIEM content pack into the Logs platform, which
+   * can be used to test detection rules without onboarding the underlying integration first.
+   *
+   * <p><strong>Availability</strong>: this endpoint is restricted to Cloud SIEM trial organizations
+   * on an eligible pricing model. Other organizations receive a <code>403 Forbidden</code>
+   * (non-trial orgs) or a <code>400 Bad Request</code> (feature disabled), and legacy pricing tiers
+   * receive a response with <code>status: not_available</code>.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SampleLogGenerationSubscriptionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SampleLogGenerationSubscriptionsResponse>
+      listSampleLogGenerationSubscriptionsWithHttpInfo(
+          ListSampleLogGenerationSubscriptionsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSampleLogGenerationSubscriptions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    SampleLogGenerationSubscriptionsStatusFilter status = parameters.status;
+    OffsetDateTime startTimestamp = parameters.startTimestamp;
+    OffsetDateTime endTimestamp = parameters.endTimestamp;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/sample_log_generation/subscriptions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "status", status));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_timestamp", startTimestamp));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_timestamp", endTimestamp));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSampleLogGenerationSubscriptions",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SampleLogGenerationSubscriptionsResponse>() {});
+  }
+
+  /**
+   * Get sample log generation subscriptions.
+   *
+   * <p>See {@link #listSampleLogGenerationSubscriptionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SampleLogGenerationSubscriptionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionsResponse>>
+      listSampleLogGenerationSubscriptionsWithHttpInfoAsync(
+          ListSampleLogGenerationSubscriptionsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSampleLogGenerationSubscriptions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    SampleLogGenerationSubscriptionsStatusFilter status = parameters.status;
+    OffsetDateTime startTimestamp = parameters.startTimestamp;
+    OffsetDateTime endTimestamp = parameters.endTimestamp;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/sample_log_generation/subscriptions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "status", status));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_timestamp", startTimestamp));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_timestamp", endTimestamp));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSampleLogGenerationSubscriptions",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SampleLogGenerationSubscriptionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SampleLogGenerationSubscriptionsResponse>() {});
+  }
+
   /** Manage optional parameters to listScannedAssetsMetadata. */
   public static class ListScannedAssetsMetadataOptionalParameters {
     private String pageToken;
@@ -12095,6 +13854,120 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFiltersResponse>() {});
+  }
+
+  /**
+   * Get the version history of security filters.
+   *
+   * <p>See {@link #listSecurityFilterVersionsWithHttpInfo}.
+   *
+   * @return SecurityFilterVersionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityFilterVersionsResponse listSecurityFilterVersions() throws ApiException {
+    return listSecurityFilterVersionsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the version history of security filters.
+   *
+   * <p>See {@link #listSecurityFilterVersionsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityFilterVersionsResponse&gt;
+   */
+  public CompletableFuture<SecurityFilterVersionsResponse> listSecurityFilterVersionsAsync() {
+    return listSecurityFilterVersionsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the configured security filters at each historical version of the configuration. Each entry
+   * in the response represents the set of all security filters at a given version, ordered from the
+   * most recent version to the oldest.
+   *
+   * @return ApiResponse&lt;SecurityFilterVersionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityFilterVersionsResponse> listSecurityFilterVersionsWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/security_filters/versions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityFilterVersions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityFilterVersionsResponse>() {});
+  }
+
+  /**
+   * Get the version history of security filters.
+   *
+   * <p>See {@link #listSecurityFilterVersionsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityFilterVersionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityFilterVersionsResponse>>
+      listSecurityFilterVersionsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/security_filters/versions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityFilterVersions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityFilterVersionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityFilterVersionsResponse>() {});
   }
 
   /** Manage optional parameters to listSecurityFindings. */
@@ -12774,6 +14647,209 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSignalsListResponse>() {});
+  }
+
+  /** Manage optional parameters to listSecurityMonitoringIntegrationConfigs. */
+  public static class ListSecurityMonitoringIntegrationConfigsOptionalParameters {
+    private SecurityMonitoringIntegrationType filterIntegrationType;
+
+    /**
+     * Set filterIntegrationType.
+     *
+     * @param filterIntegrationType Filter the entity context sync configurations by source type.
+     *     (optional)
+     * @return ListSecurityMonitoringIntegrationConfigsOptionalParameters
+     */
+    public ListSecurityMonitoringIntegrationConfigsOptionalParameters filterIntegrationType(
+        SecurityMonitoringIntegrationType filterIntegrationType) {
+      this.filterIntegrationType = filterIntegrationType;
+      return this;
+    }
+  }
+
+  /**
+   * List entity context sync configurations.
+   *
+   * <p>See {@link #listSecurityMonitoringIntegrationConfigsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringIntegrationConfigsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringIntegrationConfigsResponse listSecurityMonitoringIntegrationConfigs()
+      throws ApiException {
+    return listSecurityMonitoringIntegrationConfigsWithHttpInfo(
+            new ListSecurityMonitoringIntegrationConfigsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List entity context sync configurations.
+   *
+   * <p>See {@link #listSecurityMonitoringIntegrationConfigsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringIntegrationConfigsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringIntegrationConfigsResponse>
+      listSecurityMonitoringIntegrationConfigsAsync() {
+    return listSecurityMonitoringIntegrationConfigsWithHttpInfoAsync(
+            new ListSecurityMonitoringIntegrationConfigsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List entity context sync configurations.
+   *
+   * <p>See {@link #listSecurityMonitoringIntegrationConfigsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringIntegrationConfigsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringIntegrationConfigsResponse listSecurityMonitoringIntegrationConfigs(
+      ListSecurityMonitoringIntegrationConfigsOptionalParameters parameters) throws ApiException {
+    return listSecurityMonitoringIntegrationConfigsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List entity context sync configurations.
+   *
+   * <p>See {@link #listSecurityMonitoringIntegrationConfigsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringIntegrationConfigsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringIntegrationConfigsResponse>
+      listSecurityMonitoringIntegrationConfigsAsync(
+          ListSecurityMonitoringIntegrationConfigsOptionalParameters parameters) {
+    return listSecurityMonitoringIntegrationConfigsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the entity context sync configurations for Cloud SIEM. Each configuration connects Cloud
+   * SIEM to an external source that provides entities (for example, users from an identity
+   * provider) for use in signals and the entity explorer.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringIntegrationConfigsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringIntegrationConfigsResponse>
+      listSecurityMonitoringIntegrationConfigsWithHttpInfo(
+          ListSecurityMonitoringIntegrationConfigsOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringIntegrationConfigs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    SecurityMonitoringIntegrationType filterIntegrationType = parameters.filterIntegrationType;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/integration_config";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[integration_type]", filterIntegrationType));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityMonitoringIntegrationConfigs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigsResponse>() {});
+  }
+
+  /**
+   * List entity context sync configurations.
+   *
+   * <p>See {@link #listSecurityMonitoringIntegrationConfigsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringIntegrationConfigsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigsResponse>>
+      listSecurityMonitoringIntegrationConfigsWithHttpInfoAsync(
+          ListSecurityMonitoringIntegrationConfigsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringIntegrationConfigs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    SecurityMonitoringIntegrationType filterIntegrationType = parameters.filterIntegrationType;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/integration_config";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[integration_type]", filterIntegrationType));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityMonitoringIntegrationConfigs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigsResponse>() {});
   }
 
   /** Manage optional parameters to listSecurityMonitoringRules. */
@@ -17607,6 +19683,203 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Update an entity context sync configuration.
+   *
+   * <p>See {@link #updateSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @param body The fields to update on the integration configuration. (required)
+   * @return SecurityMonitoringIntegrationConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringIntegrationConfigResponse updateSecurityMonitoringIntegrationConfig(
+      String integrationConfigId, SecurityMonitoringIntegrationConfigUpdateRequest body)
+      throws ApiException {
+    return updateSecurityMonitoringIntegrationConfigWithHttpInfo(integrationConfigId, body)
+        .getData();
+  }
+
+  /**
+   * Update an entity context sync configuration.
+   *
+   * <p>See {@link #updateSecurityMonitoringIntegrationConfigWithHttpInfoAsync}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @param body The fields to update on the integration configuration. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringIntegrationConfigResponse>
+      updateSecurityMonitoringIntegrationConfigAsync(
+          String integrationConfigId, SecurityMonitoringIntegrationConfigUpdateRequest body) {
+    return updateSecurityMonitoringIntegrationConfigWithHttpInfoAsync(integrationConfigId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing entity context sync configuration. Supports partial updates; only the fields
+   * provided in the request body are modified.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @param body The fields to update on the integration configuration. (required)
+   * @return ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringIntegrationConfigResponse>
+      updateSecurityMonitoringIntegrationConfigWithHttpInfo(
+          String integrationConfigId, SecurityMonitoringIntegrationConfigUpdateRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'integrationConfigId' is set
+    if (integrationConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'integrationConfigId' when calling"
+              + " updateSecurityMonitoringIntegrationConfig");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateSecurityMonitoringIntegrationConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}"
+            .replaceAll(
+                "\\{" + "integration_config_id" + "\\}",
+                apiClient.escapeString(integrationConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityMonitoringIntegrationConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
+  }
+
+  /**
+   * Update an entity context sync configuration.
+   *
+   * <p>See {@link #updateSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @param body The fields to update on the integration configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>>
+      updateSecurityMonitoringIntegrationConfigWithHttpInfoAsync(
+          String integrationConfigId, SecurityMonitoringIntegrationConfigUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'integrationConfigId' is set
+    if (integrationConfigId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integrationConfigId' when calling"
+                  + " updateSecurityMonitoringIntegrationConfig"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityMonitoringIntegrationConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}"
+            .replaceAll(
+                "\\{" + "integration_config_id" + "\\}",
+                apiClient.escapeString(integrationConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityMonitoringIntegrationConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
+  }
+
+  /**
    * Update an existing rule.
    *
    * <p>See {@link #updateSecurityMonitoringRuleWithHttpInfo}.
@@ -17945,6 +20218,325 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
+   * Validate an entity context sync configuration.
+   *
+   * <p>See {@link #validateSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void validateSecurityMonitoringIntegrationConfig(String integrationConfigId)
+      throws ApiException {
+    validateSecurityMonitoringIntegrationConfigWithHttpInfo(integrationConfigId);
+  }
+
+  /**
+   * Validate an entity context sync configuration.
+   *
+   * <p>See {@link #validateSecurityMonitoringIntegrationConfigWithHttpInfoAsync}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> validateSecurityMonitoringIntegrationConfigAsync(
+      String integrationConfigId) {
+    return validateSecurityMonitoringIntegrationConfigWithHttpInfoAsync(integrationConfigId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Validate the credentials currently stored on an existing entity context sync configuration.
+   * Returns a 200 status code if the credentials are still valid against the external entity
+   * source.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> validateSecurityMonitoringIntegrationConfigWithHttpInfo(
+      String integrationConfigId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "validateSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationConfigId' is set
+    if (integrationConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'integrationConfigId' when calling"
+              + " validateSecurityMonitoringIntegrationConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}/validate"
+            .replaceAll(
+                "\\{" + "integration_config_id" + "\\}",
+                apiClient.escapeString(integrationConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.validateSecurityMonitoringIntegrationConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Validate an entity context sync configuration.
+   *
+   * <p>See {@link #validateSecurityMonitoringIntegrationConfigWithHttpInfo}.
+   *
+   * @param integrationConfigId The ID of the entity context sync configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      validateSecurityMonitoringIntegrationConfigWithHttpInfoAsync(String integrationConfigId) {
+    // Check if unstable operation is enabled
+    String operationId = "validateSecurityMonitoringIntegrationConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationConfigId' is set
+    if (integrationConfigId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integrationConfigId' when calling"
+                  + " validateSecurityMonitoringIntegrationConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_config_id}/validate"
+            .replaceAll(
+                "\\{" + "integration_config_id" + "\\}",
+                apiClient.escapeString(integrationConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.validateSecurityMonitoringIntegrationConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Validate entity context sync credentials.
+   *
+   * <p>See {@link #validateSecurityMonitoringIntegrationCredentialsWithHttpInfo}.
+   *
+   * @param body The credentials to validate. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void validateSecurityMonitoringIntegrationCredentials(
+      SecurityMonitoringIntegrationCredentialsValidateRequest body) throws ApiException {
+    validateSecurityMonitoringIntegrationCredentialsWithHttpInfo(body);
+  }
+
+  /**
+   * Validate entity context sync credentials.
+   *
+   * <p>See {@link #validateSecurityMonitoringIntegrationCredentialsWithHttpInfoAsync}.
+   *
+   * @param body The credentials to validate. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> validateSecurityMonitoringIntegrationCredentialsAsync(
+      SecurityMonitoringIntegrationCredentialsValidateRequest body) {
+    return validateSecurityMonitoringIntegrationCredentialsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Validate a set of credentials against the external entity source before creating a sync
+   * configuration. Returns a 200 status code if the credentials are valid.
+   *
+   * @param body The credentials to validate. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> validateSecurityMonitoringIntegrationCredentialsWithHttpInfo(
+      SecurityMonitoringIntegrationCredentialsValidateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "validateSecurityMonitoringIntegrationCredentials";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " validateSecurityMonitoringIntegrationCredentials");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/integration_config/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.validateSecurityMonitoringIntegrationCredentials",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Validate entity context sync credentials.
+   *
+   * <p>See {@link #validateSecurityMonitoringIntegrationCredentialsWithHttpInfo}.
+   *
+   * @param body The credentials to validate. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      validateSecurityMonitoringIntegrationCredentialsWithHttpInfoAsync(
+          SecurityMonitoringIntegrationCredentialsValidateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "validateSecurityMonitoringIntegrationCredentials";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " validateSecurityMonitoringIntegrationCredentials"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/integration_config/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.validateSecurityMonitoringIntegrationCredentials",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
