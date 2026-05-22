@@ -19,20 +19,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The enforcement tier of the policy. <code>DEFAULT</code> means the policy is set but member orgs
- * may mutate it. <code>ENFORCE</code> means the policy is strictly controlled and mutations are
- * blocked for affected orgs. <code>DELEGATE</code> means each member org controls its own value.
+ * The enforcement tier of the policy. <code>OVERRIDE_ALLOWED</code> means the policy is set but
+ * member orgs may mutate it. <code>GROUP_MANAGED</code> means the policy is strictly controlled and
+ * mutations are blocked for affected orgs. <code>DELEGATE</code> means each member org controls its
+ * own value.
  */
 @JsonSerialize(using = OrgGroupPolicyEnforcementTier.OrgGroupPolicyEnforcementTierSerializer.class)
 public class OrgGroupPolicyEnforcementTier extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("DEFAULT", "ENFORCE", "DELEGATE"));
+      new HashSet<String>(Arrays.asList("OVERRIDE_ALLOWED", "GROUP_MANAGED", "DELEGATE"));
 
-  public static final OrgGroupPolicyEnforcementTier DEFAULT =
-      new OrgGroupPolicyEnforcementTier("DEFAULT");
-  public static final OrgGroupPolicyEnforcementTier ENFORCE =
-      new OrgGroupPolicyEnforcementTier("ENFORCE");
+  public static final OrgGroupPolicyEnforcementTier OVERRIDE_ALLOWED =
+      new OrgGroupPolicyEnforcementTier("OVERRIDE_ALLOWED");
+  public static final OrgGroupPolicyEnforcementTier GROUP_MANAGED =
+      new OrgGroupPolicyEnforcementTier("GROUP_MANAGED");
   public static final OrgGroupPolicyEnforcementTier DELEGATE =
       new OrgGroupPolicyEnforcementTier("DELEGATE");
 

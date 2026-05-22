@@ -5,7 +5,6 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.OrgGroupCreateRequest;
-import com.datadog.api.client.v2.model.OrgGroupIncludeOption;
 import com.datadog.api.client.v2.model.OrgGroupListResponse;
 import com.datadog.api.client.v2.model.OrgGroupMembershipBulkUpdateRequest;
 import com.datadog.api.client.v2.model.OrgGroupMembershipListResponse;
@@ -2753,7 +2752,6 @@ public class OrgGroupsApi {
     private Long pageNumber;
     private Long pageSize;
     private OrgGroupSortOption sort;
-    private List<OrgGroupIncludeOption> include;
 
     /**
      * Set pageNumber.
@@ -2787,17 +2785,6 @@ public class OrgGroupsApi {
      */
     public ListOrgGroupsOptionalParameters sort(OrgGroupSortOption sort) {
       this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set include.
-     *
-     * @param include List of related resources to include. (optional)
-     * @return ListOrgGroupsOptionalParameters
-     */
-    public ListOrgGroupsOptionalParameters include(List<OrgGroupIncludeOption> include) {
-      this.include = include;
       return this;
     }
   }
@@ -2890,7 +2877,6 @@ public class OrgGroupsApi {
     Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
     OrgGroupSortOption sort = parameters.sort;
-    List<OrgGroupIncludeOption> include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/org_groups";
 
@@ -2900,7 +2886,6 @@ public class OrgGroupsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2946,7 +2931,6 @@ public class OrgGroupsApi {
     Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
     OrgGroupSortOption sort = parameters.sort;
-    List<OrgGroupIncludeOption> include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/org_groups";
 
@@ -2956,7 +2940,6 @@ public class OrgGroupsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
 
     Invocation.Builder builder;
     try {

@@ -30,7 +30,7 @@ public class Example {
                     .attributes(
                         new OrgGroupPolicyCreateAttributes()
                             .content(Map.ofEntries(Map.entry("value", "UTC")))
-                            .enforcementTier(OrgGroupPolicyEnforcementTier.DEFAULT)
+                            .enforcementTier(OrgGroupPolicyEnforcementTier.OVERRIDE_ALLOWED)
                             .policyName("monitor_timezone")
                             .policyType(OrgGroupPolicyPolicyType.ORG_CONFIG))
                     .relationships(
