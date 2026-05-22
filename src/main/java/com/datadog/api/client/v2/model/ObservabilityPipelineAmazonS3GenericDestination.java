@@ -28,6 +28,7 @@ import java.util.Objects;
   ObservabilityPipelineAmazonS3GenericDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineAmazonS3GenericDestination.JSON_PROPERTY_BATCH_SETTINGS,
   ObservabilityPipelineAmazonS3GenericDestination.JSON_PROPERTY_BUCKET,
+  ObservabilityPipelineAmazonS3GenericDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineAmazonS3GenericDestination.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineAmazonS3GenericDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineAmazonS3GenericDestination.JSON_PROPERTY_ID,
@@ -49,6 +50,9 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
 
   public static final String JSON_PROPERTY_BUCKET = "bucket";
   private String bucket;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_COMPRESSION = "compression";
   private ObservabilityPipelineAmazonS3GenericCompression compression;
@@ -169,6 +173,29 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
 
   public void setBucket(String bucket) {
     this.bucket = bucket;
+  }
+
+  public ObservabilityPipelineAmazonS3GenericDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineAmazonS3GenericDestination compression(
@@ -414,6 +441,7 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
         && Objects.equals(
             this.batchSettings, observabilityPipelineAmazonS3GenericDestination.batchSettings)
         && Objects.equals(this.bucket, observabilityPipelineAmazonS3GenericDestination.bucket)
+        && Objects.equals(this.buffer, observabilityPipelineAmazonS3GenericDestination.buffer)
         && Objects.equals(
             this.compression, observabilityPipelineAmazonS3GenericDestination.compression)
         && Objects.equals(this.encoding, observabilityPipelineAmazonS3GenericDestination.encoding)
@@ -435,6 +463,7 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
         auth,
         batchSettings,
         bucket,
+        buffer,
         compression,
         encoding,
         id,
@@ -453,6 +482,7 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    batchSettings: ").append(toIndentedString(batchSettings)).append("\n");
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

@@ -25,6 +25,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_INPUTS,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineCloudPremDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
+
   public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
   private String endpointUrlKey;
 
@@ -59,6 +63,29 @@ public class ObservabilityPipelineCloudPremDestination {
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineCloudPremDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineCloudPremDestination endpointUrlKey(String endpointUrlKey) {
@@ -209,7 +236,8 @@ public class ObservabilityPipelineCloudPremDestination {
     }
     ObservabilityPipelineCloudPremDestination observabilityPipelineCloudPremDestination =
         (ObservabilityPipelineCloudPremDestination) o;
-    return Objects.equals(
+    return Objects.equals(this.buffer, observabilityPipelineCloudPremDestination.buffer)
+        && Objects.equals(
             this.endpointUrlKey, observabilityPipelineCloudPremDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineCloudPremDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineCloudPremDestination.inputs)
@@ -221,13 +249,14 @@ public class ObservabilityPipelineCloudPremDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointUrlKey, id, inputs, type, additionalProperties);
+    return Objects.hash(buffer, endpointUrlKey, id, inputs, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineCloudPremDestination {\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

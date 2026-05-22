@@ -26,6 +26,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineKafkaDestination.JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY,
+  ObservabilityPipelineKafkaDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineKafkaDestination.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineKafkaDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineKafkaDestination.JSON_PROPERTY_HEADERS_KEY,
@@ -48,6 +49,9 @@ public class ObservabilityPipelineKafkaDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY = "bootstrap_servers_key";
   private String bootstrapServersKey;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_COMPRESSION = "compression";
   private ObservabilityPipelineKafkaDestinationCompression compression;
@@ -134,6 +138,28 @@ public class ObservabilityPipelineKafkaDestination {
 
   public void setBootstrapServersKey(String bootstrapServersKey) {
     this.bootstrapServersKey = bootstrapServersKey;
+  }
+
+  public ObservabilityPipelineKafkaDestination buffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineKafkaDestination compression(
@@ -542,6 +568,7 @@ public class ObservabilityPipelineKafkaDestination {
         (ObservabilityPipelineKafkaDestination) o;
     return Objects.equals(
             this.bootstrapServersKey, observabilityPipelineKafkaDestination.bootstrapServersKey)
+        && Objects.equals(this.buffer, observabilityPipelineKafkaDestination.buffer)
         && Objects.equals(this.compression, observabilityPipelineKafkaDestination.compression)
         && Objects.equals(this.encoding, observabilityPipelineKafkaDestination.encoding)
         && Objects.equals(this.headersKey, observabilityPipelineKafkaDestination.headersKey)
@@ -569,6 +596,7 @@ public class ObservabilityPipelineKafkaDestination {
   public int hashCode() {
     return Objects.hash(
         bootstrapServersKey,
+        buffer,
         compression,
         encoding,
         headersKey,
@@ -594,6 +622,7 @@ public class ObservabilityPipelineKafkaDestination {
     sb.append("    bootstrapServersKey: ")
         .append(toIndentedString(bootstrapServersKey))
         .append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    headersKey: ").append(toIndentedString(headersKey)).append("\n");

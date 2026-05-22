@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"config\":{\"destinations\":[{\"buffer\":{\"max_size\":1073741824,\"type\":\"disk\",\"when_full\":\"block\"},\"id\":\"cloud-prem-destination\",\"inputs\":[\"my-processor-group\"],\"type\":\"cloud_prem\"}],\"processor_groups\":[{\"enabled\":true,\"id\":\"my-processor-group\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]},\"name\":\"Pipeline with CloudPrem Buffer\"},\"type\":\"pipelines\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/obs-pipelines/pipelines/validate",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a8aaebaf-d72e-cdfc-887a-408c7c6e0f8f"
+  }
+]

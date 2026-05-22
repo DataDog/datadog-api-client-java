@@ -26,6 +26,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_AUTH_STRATEGY,
+  ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_CUSTOM_KEY,
   ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_ENCODING,
@@ -44,6 +45,9 @@ public class ObservabilityPipelineHttpClientDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH_STRATEGY = "auth_strategy";
   private ObservabilityPipelineHttpClientDestinationAuthStrategy authStrategy;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_COMPRESSION = "compression";
   private ObservabilityPipelineHttpClientDestinationCompression compression;
@@ -121,6 +125,29 @@ public class ObservabilityPipelineHttpClientDestination {
       this.unparsed = true;
     }
     this.authStrategy = authStrategy;
+  }
+
+  public ObservabilityPipelineHttpClientDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineHttpClientDestination compression(
@@ -432,6 +459,7 @@ public class ObservabilityPipelineHttpClientDestination {
         (ObservabilityPipelineHttpClientDestination) o;
     return Objects.equals(
             this.authStrategy, observabilityPipelineHttpClientDestination.authStrategy)
+        && Objects.equals(this.buffer, observabilityPipelineHttpClientDestination.buffer)
         && Objects.equals(this.compression, observabilityPipelineHttpClientDestination.compression)
         && Objects.equals(this.customKey, observabilityPipelineHttpClientDestination.customKey)
         && Objects.equals(this.encoding, observabilityPipelineHttpClientDestination.encoding)
@@ -452,6 +480,7 @@ public class ObservabilityPipelineHttpClientDestination {
   public int hashCode() {
     return Objects.hash(
         authStrategy,
+        buffer,
         compression,
         customKey,
         encoding,
@@ -471,6 +500,7 @@ public class ObservabilityPipelineHttpClientDestination {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineHttpClientDestination {\n");
     sb.append("    authStrategy: ").append(toIndentedString(authStrategy)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    customKey: ").append(toIndentedString(customKey)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
