@@ -39,7 +39,7 @@ public class ObservabilityPipelineFluentdSource {
   private String id;
 
   public static final String JSON_PROPERTY_TLS = "tls";
-  private ObservabilityPipelineTls tls;
+  private ObservabilityPipelineMtlsServerTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineFluentdSourceType type =
@@ -100,25 +100,26 @@ public class ObservabilityPipelineFluentdSource {
     this.id = id;
   }
 
-  public ObservabilityPipelineFluentdSource tls(ObservabilityPipelineTls tls) {
+  public ObservabilityPipelineFluentdSource tls(ObservabilityPipelineMtlsServerTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
     return this;
   }
 
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * Configuration for enabling TLS encryption between the pipeline component and external
+   * connecting clients.
    *
    * @return tls
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineTls getTls() {
+  public ObservabilityPipelineMtlsServerTls getTls() {
     return tls;
   }
 
-  public void setTls(ObservabilityPipelineTls tls) {
+  public void setTls(ObservabilityPipelineMtlsServerTls tls) {
     this.tls = tls;
   }
 
