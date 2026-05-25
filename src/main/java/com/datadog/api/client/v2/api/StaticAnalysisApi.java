@@ -5,12 +5,26 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AiCustomRuleRequest;
+import com.datadog.api.client.v2.model.AiCustomRuleResponse;
+import com.datadog.api.client.v2.model.AiCustomRuleRevisionRequest;
+import com.datadog.api.client.v2.model.AiCustomRuleRevisionResponse;
+import com.datadog.api.client.v2.model.AiCustomRuleRevisionResponseData;
+import com.datadog.api.client.v2.model.AiCustomRuleRevisionsResponse;
+import com.datadog.api.client.v2.model.AiCustomRulesetRequest;
+import com.datadog.api.client.v2.model.AiCustomRulesetResponse;
+import com.datadog.api.client.v2.model.AiCustomRulesetUpdateRequest;
+import com.datadog.api.client.v2.model.AiCustomRulesetsResponse;
+import com.datadog.api.client.v2.model.AiMemoryViolationResultRequest;
+import com.datadog.api.client.v2.model.AiMemoryViolationResultsResponse;
+import com.datadog.api.client.v2.model.AiPromptsResponse;
 import com.datadog.api.client.v2.model.CustomRuleRequest;
 import com.datadog.api.client.v2.model.CustomRuleResponse;
 import com.datadog.api.client.v2.model.CustomRuleRevision;
 import com.datadog.api.client.v2.model.CustomRuleRevisionRequest;
 import com.datadog.api.client.v2.model.CustomRuleRevisionResponse;
 import com.datadog.api.client.v2.model.CustomRuleRevisionsResponse;
+import com.datadog.api.client.v2.model.CustomRulesetListResponse;
 import com.datadog.api.client.v2.model.CustomRulesetRequest;
 import com.datadog.api.client.v2.model.CustomRulesetResponse;
 import com.datadog.api.client.v2.model.ResolveVulnerableSymbolsRequest;
@@ -55,6 +69,691 @@ public class StaticAnalysisApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Create an AI custom rule.
+   *
+   * <p>See {@link #createAiCustomRuleWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param body (required)
+   * @return AiCustomRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiCustomRuleResponse createAiCustomRule(String rulesetName, AiCustomRuleRequest body)
+      throws ApiException {
+    return createAiCustomRuleWithHttpInfo(rulesetName, body).getData();
+  }
+
+  /**
+   * Create an AI custom rule.
+   *
+   * <p>See {@link #createAiCustomRuleWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;AiCustomRuleResponse&gt;
+   */
+  public CompletableFuture<AiCustomRuleResponse> createAiCustomRuleAsync(
+      String rulesetName, AiCustomRuleRequest body) {
+    return createAiCustomRuleWithHttpInfoAsync(rulesetName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new AI custom rule within a ruleset.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;AiCustomRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - rule already exists </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Precondition Failed - validation error or ruleset not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiCustomRuleResponse> createAiCustomRuleWithHttpInfo(
+      String rulesetName, AiCustomRuleRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createAiCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetName' when calling createAiCustomRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createAiCustomRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.createAiCustomRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRuleResponse>() {});
+  }
+
+  /**
+   * Create an AI custom rule.
+   *
+   * <p>See {@link #createAiCustomRuleWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AiCustomRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiCustomRuleResponse>> createAiCustomRuleWithHttpInfoAsync(
+      String rulesetName, AiCustomRuleRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createAiCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiCustomRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<AiCustomRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rulesetName' when calling createAiCustomRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AiCustomRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createAiCustomRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.createAiCustomRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiCustomRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRuleResponse>() {});
+  }
+
+  /**
+   * Create an AI custom rule revision.
+   *
+   * <p>See {@link #createAiCustomRuleRevisionWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createAiCustomRuleRevision(
+      String rulesetName, String ruleName, AiCustomRuleRevisionRequest body) throws ApiException {
+    createAiCustomRuleRevisionWithHttpInfo(rulesetName, ruleName, body);
+  }
+
+  /**
+   * Create an AI custom rule revision.
+   *
+   * <p>See {@link #createAiCustomRuleRevisionWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> createAiCustomRuleRevisionAsync(
+      String rulesetName, String ruleName, AiCustomRuleRevisionRequest body) {
+    return createAiCustomRuleRevisionWithHttpInfoAsync(rulesetName, ruleName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new revision for an AI custom rule.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Rule not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> createAiCustomRuleRevisionWithHttpInfo(
+      String rulesetName, String ruleName, AiCustomRuleRevisionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createAiCustomRuleRevision";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'rulesetName' when calling createAiCustomRuleRevision");
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleName' when calling createAiCustomRuleRevision");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createAiCustomRuleRevision");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.createAiCustomRuleRevision",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create an AI custom rule revision.
+   *
+   * <p>See {@link #createAiCustomRuleRevisionWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> createAiCustomRuleRevisionWithHttpInfoAsync(
+      String rulesetName, String ruleName, AiCustomRuleRevisionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createAiCustomRuleRevision";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'rulesetName' when calling"
+                  + " createAiCustomRuleRevision"));
+      return result;
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleName' when calling createAiCustomRuleRevision"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createAiCustomRuleRevision"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.createAiCustomRuleRevision",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create an AI custom ruleset.
+   *
+   * <p>See {@link #createAiCustomRulesetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return AiCustomRulesetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiCustomRulesetResponse createAiCustomRuleset(AiCustomRulesetRequest body)
+      throws ApiException {
+    return createAiCustomRulesetWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an AI custom ruleset.
+   *
+   * <p>See {@link #createAiCustomRulesetWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;AiCustomRulesetResponse&gt;
+   */
+  public CompletableFuture<AiCustomRulesetResponse> createAiCustomRulesetAsync(
+      AiCustomRulesetRequest body) {
+    return createAiCustomRulesetWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new AI custom ruleset for the authenticated organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;AiCustomRulesetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - ruleset already exists </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Precondition Failed - validation error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiCustomRulesetResponse> createAiCustomRulesetWithHttpInfo(
+      AiCustomRulesetRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createAiCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createAiCustomRuleset");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.createAiCustomRuleset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRulesetResponse>() {});
+  }
+
+  /**
+   * Create an AI custom ruleset.
+   *
+   * <p>See {@link #createAiCustomRulesetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AiCustomRulesetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiCustomRulesetResponse>>
+      createAiCustomRulesetWithHttpInfoAsync(AiCustomRulesetRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createAiCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiCustomRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AiCustomRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createAiCustomRuleset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.createAiCustomRuleset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiCustomRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRulesetResponse>() {});
+  }
+
+  /**
+   * Create an AI memory violation result.
+   *
+   * <p>See {@link #createAiMemoryViolationResultWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createAiMemoryViolationResult(AiMemoryViolationResultRequest body)
+      throws ApiException {
+    createAiMemoryViolationResultWithHttpInfo(body);
+  }
+
+  /**
+   * Create an AI memory violation result.
+   *
+   * <p>See {@link #createAiMemoryViolationResultWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> createAiMemoryViolationResultAsync(
+      AiMemoryViolationResultRequest body) {
+    return createAiMemoryViolationResultWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add a new AI memory violation result for the authenticated organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> createAiMemoryViolationResultWithHttpInfo(
+      AiMemoryViolationResultRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createAiMemoryViolationResult";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createAiMemoryViolationResult");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/memory";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.createAiMemoryViolationResult",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create an AI memory violation result.
+   *
+   * <p>See {@link #createAiMemoryViolationResultWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> createAiMemoryViolationResultWithHttpInfoAsync(
+      AiMemoryViolationResultRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createAiMemoryViolationResult";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createAiMemoryViolationResult"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/memory";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.createAiMemoryViolationResult",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -435,6 +1134,157 @@ public class StaticAnalysisApi {
   }
 
   /**
+   * Create Custom Ruleset.
+   *
+   * <p>See {@link #createCustomRulesetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CustomRulesetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomRulesetResponse createCustomRuleset(CustomRulesetRequest body) throws ApiException {
+    return createCustomRulesetWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create Custom Ruleset.
+   *
+   * <p>See {@link #createCustomRulesetWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;CustomRulesetResponse&gt;
+   */
+  public CompletableFuture<CustomRulesetResponse> createCustomRulesetAsync(
+      CustomRulesetRequest body) {
+    return createCustomRulesetWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new custom ruleset for the authenticated organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;CustomRulesetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Precondition Failed </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CustomRulesetResponse> createCustomRulesetWithHttpInfo(
+      CustomRulesetRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createCustomRuleset");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/custom/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.createCustomRuleset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomRulesetResponse>() {});
+  }
+
+  /**
+   * Create Custom Ruleset.
+   *
+   * <p>See {@link #createCustomRulesetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CustomRulesetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CustomRulesetResponse>> createCustomRulesetWithHttpInfoAsync(
+      CustomRulesetRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CustomRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CustomRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createCustomRuleset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/custom/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.createCustomRuleset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CustomRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomRulesetResponse>() {});
+  }
+
+  /**
    * POST request to resolve vulnerable symbols.
    *
    * <p>See {@link #createSCAResolveVulnerableSymbolsWithHttpInfo}.
@@ -722,6 +1572,492 @@ public class StaticAnalysisApi {
         builder,
         localVarHeaderParams,
         new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an AI custom rule.
+   *
+   * <p>See {@link #deleteAiCustomRuleWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteAiCustomRule(String rulesetName, String ruleName) throws ApiException {
+    deleteAiCustomRuleWithHttpInfo(rulesetName, ruleName);
+  }
+
+  /**
+   * Delete an AI custom rule.
+   *
+   * <p>See {@link #deleteAiCustomRuleWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteAiCustomRuleAsync(String rulesetName, String ruleName) {
+    return deleteAiCustomRuleWithHttpInfoAsync(rulesetName, ruleName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an AI custom rule by name within a ruleset.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully deleted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Rule not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteAiCustomRuleWithHttpInfo(String rulesetName, String ruleName)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAiCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetName' when calling deleteAiCustomRule");
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleName' when calling deleteAiCustomRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.deleteAiCustomRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an AI custom rule.
+   *
+   * <p>See {@link #deleteAiCustomRuleWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteAiCustomRuleWithHttpInfoAsync(
+      String rulesetName, String ruleName) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAiCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rulesetName' when calling deleteAiCustomRule"));
+      return result;
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleName' when calling deleteAiCustomRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.deleteAiCustomRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an AI custom ruleset.
+   *
+   * <p>See {@link #deleteAiCustomRulesetWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteAiCustomRuleset(String rulesetName) throws ApiException {
+    deleteAiCustomRulesetWithHttpInfo(rulesetName);
+  }
+
+  /**
+   * Delete an AI custom ruleset.
+   *
+   * <p>See {@link #deleteAiCustomRulesetWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteAiCustomRulesetAsync(String rulesetName) {
+    return deleteAiCustomRulesetWithHttpInfoAsync(rulesetName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an AI custom ruleset by name.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully deleted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Ruleset not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteAiCustomRulesetWithHttpInfo(String rulesetName)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAiCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetName' when calling deleteAiCustomRuleset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.deleteAiCustomRuleset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an AI custom ruleset.
+   *
+   * <p>See {@link #deleteAiCustomRulesetWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteAiCustomRulesetWithHttpInfoAsync(
+      String rulesetName) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAiCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'rulesetName' when calling deleteAiCustomRuleset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.deleteAiCustomRuleset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an AI memory violation result.
+   *
+   * <p>See {@link #deleteAiMemoryViolationResultWithHttpInfo}.
+   *
+   * @param id The numeric identifier of the memory violation result. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteAiMemoryViolationResult(String id) throws ApiException {
+    deleteAiMemoryViolationResultWithHttpInfo(id);
+  }
+
+  /**
+   * Delete an AI memory violation result.
+   *
+   * <p>See {@link #deleteAiMemoryViolationResultWithHttpInfoAsync}.
+   *
+   * @param id The numeric identifier of the memory violation result. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteAiMemoryViolationResultAsync(String id) {
+    return deleteAiMemoryViolationResultWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an AI memory violation result by its numeric identifier.
+   *
+   * @param id The numeric identifier of the memory violation result. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully deleted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Memory violation result not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteAiMemoryViolationResultWithHttpInfo(String id)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAiMemoryViolationResult";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling deleteAiMemoryViolationResult");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/memory/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.deleteAiMemoryViolationResult",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an AI memory violation result.
+   *
+   * <p>See {@link #deleteAiMemoryViolationResultWithHttpInfo}.
+   *
+   * @param id The numeric identifier of the memory violation result. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteAiMemoryViolationResultWithHttpInfoAsync(
+      String id) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAiMemoryViolationResult";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling deleteAiMemoryViolationResult"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/memory/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.deleteAiMemoryViolationResult",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
@@ -1055,6 +2391,548 @@ public class StaticAnalysisApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Get an AI custom rule.
+   *
+   * <p>See {@link #getAiCustomRuleWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return AiCustomRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiCustomRuleResponse getAiCustomRule(String rulesetName, String ruleName)
+      throws ApiException {
+    return getAiCustomRuleWithHttpInfo(rulesetName, ruleName).getData();
+  }
+
+  /**
+   * Get an AI custom rule.
+   *
+   * <p>See {@link #getAiCustomRuleWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return CompletableFuture&lt;AiCustomRuleResponse&gt;
+   */
+  public CompletableFuture<AiCustomRuleResponse> getAiCustomRuleAsync(
+      String rulesetName, String ruleName) {
+    return getAiCustomRuleWithHttpInfoAsync(rulesetName, ruleName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an AI custom rule by name within a ruleset.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return ApiResponse&lt;AiCustomRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Rule not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiCustomRuleResponse> getAiCustomRuleWithHttpInfo(
+      String rulesetName, String ruleName) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getAiCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetName' when calling getAiCustomRule");
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleName' when calling getAiCustomRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.getAiCustomRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRuleResponse>() {});
+  }
+
+  /**
+   * Get an AI custom rule.
+   *
+   * <p>See {@link #getAiCustomRuleWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AiCustomRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiCustomRuleResponse>> getAiCustomRuleWithHttpInfoAsync(
+      String rulesetName, String ruleName) {
+    // Check if unstable operation is enabled
+    String operationId = "getAiCustomRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiCustomRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<AiCustomRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rulesetName' when calling getAiCustomRule"));
+      return result;
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      CompletableFuture<ApiResponse<AiCustomRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleName' when calling getAiCustomRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.getAiCustomRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiCustomRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRuleResponse>() {});
+  }
+
+  /**
+   * Get an AI custom rule revision.
+   *
+   * <p>See {@link #getAiCustomRuleRevisionWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param id The revision identifier. (required)
+   * @return AiCustomRuleRevisionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiCustomRuleRevisionResponse getAiCustomRuleRevision(
+      String rulesetName, String ruleName, String id) throws ApiException {
+    return getAiCustomRuleRevisionWithHttpInfo(rulesetName, ruleName, id).getData();
+  }
+
+  /**
+   * Get an AI custom rule revision.
+   *
+   * <p>See {@link #getAiCustomRuleRevisionWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param id The revision identifier. (required)
+   * @return CompletableFuture&lt;AiCustomRuleRevisionResponse&gt;
+   */
+  public CompletableFuture<AiCustomRuleRevisionResponse> getAiCustomRuleRevisionAsync(
+      String rulesetName, String ruleName, String id) {
+    return getAiCustomRuleRevisionWithHttpInfoAsync(rulesetName, ruleName, id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific revision of an AI custom rule.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param id The revision identifier. (required)
+   * @return ApiResponse&lt;AiCustomRuleRevisionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Revision not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiCustomRuleRevisionResponse> getAiCustomRuleRevisionWithHttpInfo(
+      String rulesetName, String ruleName, String id) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getAiCustomRuleRevision";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetName' when calling getAiCustomRuleRevision");
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleName' when calling getAiCustomRuleRevision");
+    }
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getAiCustomRuleRevision");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions/{id}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()))
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.getAiCustomRuleRevision",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRuleRevisionResponse>() {});
+  }
+
+  /**
+   * Get an AI custom rule revision.
+   *
+   * <p>See {@link #getAiCustomRuleRevisionWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param id The revision identifier. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AiCustomRuleRevisionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiCustomRuleRevisionResponse>>
+      getAiCustomRuleRevisionWithHttpInfoAsync(String rulesetName, String ruleName, String id) {
+    // Check if unstable operation is enabled
+    String operationId = "getAiCustomRuleRevision";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiCustomRuleRevisionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<AiCustomRuleRevisionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'rulesetName' when calling getAiCustomRuleRevision"));
+      return result;
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      CompletableFuture<ApiResponse<AiCustomRuleRevisionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleName' when calling getAiCustomRuleRevision"));
+      return result;
+    }
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<AiCustomRuleRevisionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling getAiCustomRuleRevision"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions/{id}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()))
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.getAiCustomRuleRevision",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiCustomRuleRevisionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRuleRevisionResponse>() {});
+  }
+
+  /**
+   * Get an AI custom ruleset.
+   *
+   * <p>See {@link #getAiCustomRulesetWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @return AiCustomRulesetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiCustomRulesetResponse getAiCustomRuleset(String rulesetName) throws ApiException {
+    return getAiCustomRulesetWithHttpInfo(rulesetName).getData();
+  }
+
+  /**
+   * Get an AI custom ruleset.
+   *
+   * <p>See {@link #getAiCustomRulesetWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @return CompletableFuture&lt;AiCustomRulesetResponse&gt;
+   */
+  public CompletableFuture<AiCustomRulesetResponse> getAiCustomRulesetAsync(String rulesetName) {
+    return getAiCustomRulesetWithHttpInfoAsync(rulesetName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an AI custom ruleset by name.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @return ApiResponse&lt;AiCustomRulesetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Ruleset not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiCustomRulesetResponse> getAiCustomRulesetWithHttpInfo(String rulesetName)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getAiCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetName' when calling getAiCustomRuleset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.getAiCustomRuleset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRulesetResponse>() {});
+  }
+
+  /**
+   * Get an AI custom ruleset.
+   *
+   * <p>See {@link #getAiCustomRulesetWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AiCustomRulesetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiCustomRulesetResponse>>
+      getAiCustomRulesetWithHttpInfoAsync(String rulesetName) {
+    // Check if unstable operation is enabled
+    String operationId = "getAiCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiCustomRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<AiCustomRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rulesetName' when calling getAiCustomRuleset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.getAiCustomRuleset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiCustomRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRulesetResponse>() {});
   }
 
   /**
@@ -1589,6 +3467,808 @@ public class StaticAnalysisApi {
         new GenericType<CustomRulesetResponse>() {});
   }
 
+  /** Manage optional parameters to listAiCustomRuleRevisions. */
+  public static class ListAiCustomRuleRevisionsOptionalParameters {
+    private Long pageOffset;
+    private Long pageLimit;
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset The offset for pagination. (optional, default to 0)
+     * @return ListAiCustomRuleRevisionsOptionalParameters
+     */
+    public ListAiCustomRuleRevisionsOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit The maximum number of revisions to return. (optional, default to 100)
+     * @return ListAiCustomRuleRevisionsOptionalParameters
+     */
+    public ListAiCustomRuleRevisionsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+  }
+
+  /**
+   * List AI custom rule revisions.
+   *
+   * <p>See {@link #listAiCustomRuleRevisionsWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return AiCustomRuleRevisionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiCustomRuleRevisionsResponse listAiCustomRuleRevisions(
+      String rulesetName, String ruleName) throws ApiException {
+    return listAiCustomRuleRevisionsWithHttpInfo(
+            rulesetName, ruleName, new ListAiCustomRuleRevisionsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List AI custom rule revisions.
+   *
+   * <p>See {@link #listAiCustomRuleRevisionsWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return CompletableFuture&lt;AiCustomRuleRevisionsResponse&gt;
+   */
+  public CompletableFuture<AiCustomRuleRevisionsResponse> listAiCustomRuleRevisionsAsync(
+      String rulesetName, String ruleName) {
+    return listAiCustomRuleRevisionsWithHttpInfoAsync(
+            rulesetName, ruleName, new ListAiCustomRuleRevisionsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List AI custom rule revisions.
+   *
+   * <p>See {@link #listAiCustomRuleRevisionsWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param parameters Optional parameters for the request.
+   * @return AiCustomRuleRevisionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiCustomRuleRevisionsResponse listAiCustomRuleRevisions(
+      String rulesetName, String ruleName, ListAiCustomRuleRevisionsOptionalParameters parameters)
+      throws ApiException {
+    return listAiCustomRuleRevisionsWithHttpInfo(rulesetName, ruleName, parameters).getData();
+  }
+
+  /**
+   * List AI custom rule revisions.
+   *
+   * <p>See {@link #listAiCustomRuleRevisionsWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;AiCustomRuleRevisionsResponse&gt;
+   */
+  public CompletableFuture<AiCustomRuleRevisionsResponse> listAiCustomRuleRevisionsAsync(
+      String rulesetName, String ruleName, ListAiCustomRuleRevisionsOptionalParameters parameters) {
+    return listAiCustomRuleRevisionsWithHttpInfoAsync(rulesetName, ruleName, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List AI custom rule revisions.
+   *
+   * <p>See {@link #listAiCustomRuleRevisionsWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return PaginationIterable&lt;AiCustomRuleRevisionResponseData&gt;
+   */
+  public PaginationIterable<AiCustomRuleRevisionResponseData>
+      listAiCustomRuleRevisionsWithPagination(String rulesetName, String ruleName) {
+    ListAiCustomRuleRevisionsOptionalParameters parameters =
+        new ListAiCustomRuleRevisionsOptionalParameters();
+    return listAiCustomRuleRevisionsWithPagination(rulesetName, ruleName, parameters);
+  }
+
+  /**
+   * List AI custom rule revisions.
+   *
+   * <p>See {@link #listAiCustomRuleRevisionsWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @return AiCustomRuleRevisionsResponse
+   */
+  public PaginationIterable<AiCustomRuleRevisionResponseData>
+      listAiCustomRuleRevisionsWithPagination(
+          String rulesetName,
+          String ruleName,
+          ListAiCustomRuleRevisionsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 100l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("rulesetName", rulesetName);
+    args.put("ruleName", ruleName);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listAiCustomRuleRevisions",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * Get all revisions for an AI custom rule.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;AiCustomRuleRevisionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Rule not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiCustomRuleRevisionsResponse> listAiCustomRuleRevisionsWithHttpInfo(
+      String rulesetName, String ruleName, ListAiCustomRuleRevisionsOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listAiCustomRuleRevisions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'rulesetName' when calling listAiCustomRuleRevisions");
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleName' when calling listAiCustomRuleRevisions");
+    }
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.listAiCustomRuleRevisions",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRuleRevisionsResponse>() {});
+  }
+
+  /**
+   * List AI custom rule revisions.
+   *
+   * <p>See {@link #listAiCustomRuleRevisionsWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param ruleName The rule name. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;AiCustomRuleRevisionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiCustomRuleRevisionsResponse>>
+      listAiCustomRuleRevisionsWithHttpInfoAsync(
+          String rulesetName,
+          String ruleName,
+          ListAiCustomRuleRevisionsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listAiCustomRuleRevisions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiCustomRuleRevisionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<AiCustomRuleRevisionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'rulesetName' when calling"
+                  + " listAiCustomRuleRevisions"));
+      return result;
+    }
+
+    // verify the required parameter 'ruleName' is set
+    if (ruleName == null) {
+      CompletableFuture<ApiResponse<AiCustomRuleRevisionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleName' when calling listAiCustomRuleRevisions"));
+      return result;
+    }
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()))
+            .replaceAll("\\{" + "rule_name" + "\\}", apiClient.escapeString(ruleName.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.listAiCustomRuleRevisions",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiCustomRuleRevisionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRuleRevisionsResponse>() {});
+  }
+
+  /** Manage optional parameters to listAiCustomRulesets. */
+  public static class ListAiCustomRulesetsOptionalParameters {
+    private Long pageOffset;
+    private Long pageLimit;
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset The offset for pagination. (optional, default to 0)
+     * @return ListAiCustomRulesetsOptionalParameters
+     */
+    public ListAiCustomRulesetsOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit The maximum number of rulesets to return. (optional, default to 100)
+     * @return ListAiCustomRulesetsOptionalParameters
+     */
+    public ListAiCustomRulesetsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+  }
+
+  /**
+   * List AI custom rulesets.
+   *
+   * <p>See {@link #listAiCustomRulesetsWithHttpInfo}.
+   *
+   * @return AiCustomRulesetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiCustomRulesetsResponse listAiCustomRulesets() throws ApiException {
+    return listAiCustomRulesetsWithHttpInfo(new ListAiCustomRulesetsOptionalParameters()).getData();
+  }
+
+  /**
+   * List AI custom rulesets.
+   *
+   * <p>See {@link #listAiCustomRulesetsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AiCustomRulesetsResponse&gt;
+   */
+  public CompletableFuture<AiCustomRulesetsResponse> listAiCustomRulesetsAsync() {
+    return listAiCustomRulesetsWithHttpInfoAsync(new ListAiCustomRulesetsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List AI custom rulesets.
+   *
+   * <p>See {@link #listAiCustomRulesetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return AiCustomRulesetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiCustomRulesetsResponse listAiCustomRulesets(
+      ListAiCustomRulesetsOptionalParameters parameters) throws ApiException {
+    return listAiCustomRulesetsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List AI custom rulesets.
+   *
+   * <p>See {@link #listAiCustomRulesetsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;AiCustomRulesetsResponse&gt;
+   */
+  public CompletableFuture<AiCustomRulesetsResponse> listAiCustomRulesetsAsync(
+      ListAiCustomRulesetsOptionalParameters parameters) {
+    return listAiCustomRulesetsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all AI custom rulesets for the authenticated organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;AiCustomRulesetsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiCustomRulesetsResponse> listAiCustomRulesetsWithHttpInfo(
+      ListAiCustomRulesetsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listAiCustomRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/rulesets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.listAiCustomRulesets",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRulesetsResponse>() {});
+  }
+
+  /**
+   * List AI custom rulesets.
+   *
+   * <p>See {@link #listAiCustomRulesetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;AiCustomRulesetsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiCustomRulesetsResponse>>
+      listAiCustomRulesetsWithHttpInfoAsync(ListAiCustomRulesetsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listAiCustomRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiCustomRulesetsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/rulesets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.listAiCustomRulesets",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiCustomRulesetsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiCustomRulesetsResponse>() {});
+  }
+
+  /**
+   * List AI memory violation results.
+   *
+   * <p>See {@link #listAiMemoryViolationResultsWithHttpInfo}.
+   *
+   * @return AiMemoryViolationResultsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiMemoryViolationResultsResponse listAiMemoryViolationResults() throws ApiException {
+    return listAiMemoryViolationResultsWithHttpInfo().getData();
+  }
+
+  /**
+   * List AI memory violation results.
+   *
+   * <p>See {@link #listAiMemoryViolationResultsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AiMemoryViolationResultsResponse&gt;
+   */
+  public CompletableFuture<AiMemoryViolationResultsResponse> listAiMemoryViolationResultsAsync() {
+    return listAiMemoryViolationResultsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all AI memory violation results for the authenticated organization.
+   *
+   * @return ApiResponse&lt;AiMemoryViolationResultsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiMemoryViolationResultsResponse> listAiMemoryViolationResultsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listAiMemoryViolationResults";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/memory";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.listAiMemoryViolationResults",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiMemoryViolationResultsResponse>() {});
+  }
+
+  /**
+   * List AI memory violation results.
+   *
+   * <p>See {@link #listAiMemoryViolationResultsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;AiMemoryViolationResultsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiMemoryViolationResultsResponse>>
+      listAiMemoryViolationResultsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listAiMemoryViolationResults";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiMemoryViolationResultsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/memory";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.listAiMemoryViolationResults",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiMemoryViolationResultsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiMemoryViolationResultsResponse>() {});
+  }
+
+  /**
+   * List AI prompts.
+   *
+   * <p>See {@link #listAiPromptsWithHttpInfo}.
+   *
+   * @return AiPromptsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AiPromptsResponse listAiPrompts() throws ApiException {
+    return listAiPromptsWithHttpInfo().getData();
+  }
+
+  /**
+   * List AI prompts.
+   *
+   * <p>See {@link #listAiPromptsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AiPromptsResponse&gt;
+   */
+  public CompletableFuture<AiPromptsResponse> listAiPromptsAsync() {
+    return listAiPromptsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all AI prompts, including default prompts and custom AI rule prompts for the authenticated
+   * organization.
+   *
+   * @return ApiResponse&lt;AiPromptsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AiPromptsResponse> listAiPromptsWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listAiPrompts";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/prompts";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.listAiPrompts",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiPromptsResponse>() {});
+  }
+
+  /**
+   * List AI prompts.
+   *
+   * <p>See {@link #listAiPromptsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;AiPromptsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AiPromptsResponse>> listAiPromptsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listAiPrompts";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AiPromptsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/ai/prompts";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.listAiPrompts",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AiPromptsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AiPromptsResponse>() {});
+  }
+
   /** Manage optional parameters to listCustomRuleRevisions. */
   public static class ListCustomRuleRevisionsOptionalParameters {
     private Integer pageOffset;
@@ -1921,6 +4601,134 @@ public class StaticAnalysisApi {
   }
 
   /**
+   * List Custom Rulesets.
+   *
+   * <p>See {@link #listCustomRulesetsWithHttpInfo}.
+   *
+   * @return CustomRulesetListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomRulesetListResponse listCustomRulesets() throws ApiException {
+    return listCustomRulesetsWithHttpInfo().getData();
+  }
+
+  /**
+   * List Custom Rulesets.
+   *
+   * <p>See {@link #listCustomRulesetsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CustomRulesetListResponse&gt;
+   */
+  public CompletableFuture<CustomRulesetListResponse> listCustomRulesetsAsync() {
+    return listCustomRulesetsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all custom rulesets for the authenticated organization.
+   *
+   * @return ApiResponse&lt;CustomRulesetListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CustomRulesetListResponse> listCustomRulesetsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCustomRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/custom/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.listCustomRulesets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomRulesetListResponse>() {});
+  }
+
+  /**
+   * List Custom Rulesets.
+   *
+   * <p>See {@link #listCustomRulesetsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;CustomRulesetListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CustomRulesetListResponse>>
+      listCustomRulesetsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listCustomRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CustomRulesetListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/custom/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.listCustomRulesets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CustomRulesetListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomRulesetListResponse>() {});
+  }
+
+  /**
    * Revert Custom Rule Revision.
    *
    * <p>See {@link #revertCustomRuleRevisionWithHttpInfo}.
@@ -2112,6 +4920,183 @@ public class StaticAnalysisApi {
     }
     return apiClient.invokeAPIAsync(
         "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update an AI custom ruleset.
+   *
+   * <p>See {@link #updateAiCustomRulesetWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateAiCustomRuleset(String rulesetName, AiCustomRulesetUpdateRequest body)
+      throws ApiException {
+    updateAiCustomRulesetWithHttpInfo(rulesetName, body);
+  }
+
+  /**
+   * Update an AI custom ruleset.
+   *
+   * <p>See {@link #updateAiCustomRulesetWithHttpInfoAsync}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateAiCustomRulesetAsync(
+      String rulesetName, AiCustomRulesetUpdateRequest body) {
+    return updateAiCustomRulesetWithHttpInfoAsync(rulesetName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the description of an existing AI custom ruleset.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully updated </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Precondition Failed - validation error or ruleset not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateAiCustomRulesetWithHttpInfo(
+      String rulesetName, AiCustomRulesetUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateAiCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetName' when calling updateAiCustomRuleset");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateAiCustomRuleset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.updateAiCustomRuleset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update an AI custom ruleset.
+   *
+   * <p>See {@link #updateAiCustomRulesetWithHttpInfo}.
+   *
+   * @param rulesetName The ruleset name. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateAiCustomRulesetWithHttpInfoAsync(
+      String rulesetName, AiCustomRulesetUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateAiCustomRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'rulesetName' when calling updateAiCustomRuleset"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateAiCustomRuleset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/ai/rulesets/{ruleset_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.updateAiCustomRuleset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
         builder,
         localVarHeaderParams,
         new String[] {"application/json"},
