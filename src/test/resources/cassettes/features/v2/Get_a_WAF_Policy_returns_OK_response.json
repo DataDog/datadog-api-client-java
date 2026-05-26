@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"basedOn\":\"recommended\",\"description\":\"This is a test policy.\",\"name\":\"Test policy\"},\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/asm/waf/policies",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"cc3e574d-9b5a-4310-b7f4-5560483f84b1\",\"type\":\"policy\",\"attributes\":{\"description\":\"This is a test policy.\",\"isDefault\":false,\"name\":\"Test policy\",\"rules\":[],\"rulesets\":[],\"scope\":[],\"version\":-1},\"meta\":{\"added_at\":\"2026-04-16T10:25:20Z\",\"added_by\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"added_by_name\":\"CI Account\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f832c839-85b4-3825-c16c-3d424e930abc"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/remote_config/products/asm/waf/policies/cc3e574d-9b5a-4310-b7f4-5560483f84b1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"cc3e574d-9b5a-4310-b7f4-5560483f84b1\",\"type\":\"policy\",\"attributes\":{\"description\":\"This is a test policy.\",\"isDefault\":false,\"name\":\"Test policy\",\"rules\":[],\"rulesets\":[],\"scope\":[],\"version\":-1},\"meta\":{\"added_at\":\"2026-04-16T10:25:20Z\",\"added_by\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"added_by_name\":\"CI Account\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d9ae1327-c695-7dac-a8da-eaacc7f5a928"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/asm/waf/policies/cc3e574d-9b5a-4310-b7f4-5560483f84b1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "339ff2bb-1d9e-936d-f7aa-3426de287fb3"
+  }
+]

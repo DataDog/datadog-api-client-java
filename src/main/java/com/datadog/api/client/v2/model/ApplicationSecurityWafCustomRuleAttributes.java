@@ -194,7 +194,7 @@ public class ApplicationSecurityWafCustomRuleAttributes {
   }
 
   /**
-   * The Name of the WAF custom rule.
+   * The name of the WAF custom rule.
    *
    * @return name
    */
