@@ -5,6 +5,8 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AnalysisRequest;
+import com.datadog.api.client.v2.model.AnalysisResponse;
 import com.datadog.api.client.v2.model.AssetType;
 import com.datadog.api.client.v2.model.AttachCaseRequest;
 import com.datadog.api.client.v2.model.AttachJiraIssueRequest;
@@ -17,6 +19,7 @@ import com.datadog.api.client.v2.model.CreateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestArray;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
+import com.datadog.api.client.v2.model.DefaultRulesetsPerLanguageResponse;
 import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
 import com.datadog.api.client.v2.model.EntityContextResponse;
@@ -26,6 +29,8 @@ import com.datadog.api.client.v2.model.FindingCaseResponseArray;
 import com.datadog.api.client.v2.model.FindingEvaluation;
 import com.datadog.api.client.v2.model.FindingStatus;
 import com.datadog.api.client.v2.model.FindingVulnerabilityType;
+import com.datadog.api.client.v2.model.GetAstRequest;
+import com.datadog.api.client.v2.model.GetAstResponse;
 import com.datadog.api.client.v2.model.GetCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.GetFindingResponse;
 import com.datadog.api.client.v2.model.GetIoCIndicatorResponse;
@@ -46,6 +51,7 @@ import com.datadog.api.client.v2.model.ListVulnerabilitiesResponse;
 import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
 import com.datadog.api.client.v2.model.MuteFindingsRequest;
 import com.datadog.api.client.v2.model.MuteFindingsResponse;
+import com.datadog.api.client.v2.model.NodeTypesResponse;
 import com.datadog.api.client.v2.model.NotificationRuleResponse;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
@@ -57,6 +63,8 @@ import com.datadog.api.client.v2.model.SampleLogGenerationSubscriptionCreateRequ
 import com.datadog.api.client.v2.model.SampleLogGenerationSubscriptionResponse;
 import com.datadog.api.client.v2.model.SampleLogGenerationSubscriptionsResponse;
 import com.datadog.api.client.v2.model.SampleLogGenerationSubscriptionsStatusFilter;
+import com.datadog.api.client.v2.model.SastRulesetResponse;
+import com.datadog.api.client.v2.model.SastRulesetsResponse;
 import com.datadog.api.client.v2.model.ScannedAssetsMetadata;
 import com.datadog.api.client.v2.model.SecretRuleArray;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
@@ -3939,6 +3947,307 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Get AST for source code.
+   *
+   * <p>See {@link #createStaticAnalysisAstWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return GetAstResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetAstResponse createStaticAnalysisAst(GetAstRequest body) throws ApiException {
+    return createStaticAnalysisAstWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Get AST for source code.
+   *
+   * <p>See {@link #createStaticAnalysisAstWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;GetAstResponse&gt;
+   */
+  public CompletableFuture<GetAstResponse> createStaticAnalysisAstAsync(GetAstRequest body) {
+    return createStaticAnalysisAstWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Parse source code into an abstract syntax tree (AST) for the specified language.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;GetAstResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetAstResponse> createStaticAnalysisAstWithHttpInfo(GetAstRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createStaticAnalysisAst";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createStaticAnalysisAst");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/static-analysis-server/get-ast";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createStaticAnalysisAst",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetAstResponse>() {});
+  }
+
+  /**
+   * Get AST for source code.
+   *
+   * <p>See {@link #createStaticAnalysisAstWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetAstResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetAstResponse>> createStaticAnalysisAstWithHttpInfoAsync(
+      GetAstRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createStaticAnalysisAst";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<GetAstResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<GetAstResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createStaticAnalysisAst"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/static-analysis-server/get-ast";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createStaticAnalysisAst",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetAstResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetAstResponse>() {});
+  }
+
+  /**
+   * Analyze code.
+   *
+   * <p>See {@link #createStaticAnalysisServerAnalysisWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return AnalysisResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AnalysisResponse createStaticAnalysisServerAnalysis(AnalysisRequest body)
+      throws ApiException {
+    return createStaticAnalysisServerAnalysisWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Analyze code.
+   *
+   * <p>See {@link #createStaticAnalysisServerAnalysisWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;AnalysisResponse&gt;
+   */
+  public CompletableFuture<AnalysisResponse> createStaticAnalysisServerAnalysisAsync(
+      AnalysisRequest body) {
+    return createStaticAnalysisServerAnalysisWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Run static analysis rules against a source code file and return violations found.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;AnalysisResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AnalysisResponse> createStaticAnalysisServerAnalysisWithHttpInfo(
+      AnalysisRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createStaticAnalysisServerAnalysis";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createStaticAnalysisServerAnalysis");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/static-analysis-server/analyze";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createStaticAnalysisServerAnalysis",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AnalysisResponse>() {});
+  }
+
+  /**
+   * Analyze code.
+   *
+   * <p>See {@link #createStaticAnalysisServerAnalysisWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AnalysisResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AnalysisResponse>>
+      createStaticAnalysisServerAnalysisWithHttpInfoAsync(AnalysisRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createStaticAnalysisServerAnalysis";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AnalysisResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AnalysisResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createStaticAnalysisServerAnalysis"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/static-analysis-server/analyze";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createStaticAnalysisServerAnalysis",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AnalysisResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AnalysisResponse>() {});
   }
 
   /**
@@ -10754,6 +11063,721 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get default rulesets for a language.
+   *
+   * <p>See {@link #getStaticAnalysisDefaultRulesetsWithHttpInfo}.
+   *
+   * @param language The programming language for which to retrieve the default rulesets. (required)
+   * @return DefaultRulesetsPerLanguageResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DefaultRulesetsPerLanguageResponse getStaticAnalysisDefaultRulesets(String language)
+      throws ApiException {
+    return getStaticAnalysisDefaultRulesetsWithHttpInfo(language).getData();
+  }
+
+  /**
+   * Get default rulesets for a language.
+   *
+   * <p>See {@link #getStaticAnalysisDefaultRulesetsWithHttpInfoAsync}.
+   *
+   * @param language The programming language for which to retrieve the default rulesets. (required)
+   * @return CompletableFuture&lt;DefaultRulesetsPerLanguageResponse&gt;
+   */
+  public CompletableFuture<DefaultRulesetsPerLanguageResponse>
+      getStaticAnalysisDefaultRulesetsAsync(String language) {
+    return getStaticAnalysisDefaultRulesetsWithHttpInfoAsync(language)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the default SAST ruleset names for a given programming language.
+   *
+   * @param language The programming language for which to retrieve the default rulesets. (required)
+   * @return ApiResponse&lt;DefaultRulesetsPerLanguageResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DefaultRulesetsPerLanguageResponse>
+      getStaticAnalysisDefaultRulesetsWithHttpInfo(String language) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getStaticAnalysisDefaultRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'language' is set
+    if (language == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'language' when calling"
+              + " getStaticAnalysisDefaultRulesets");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/default-rulesets/{language}"
+            .replaceAll("\\{" + "language" + "\\}", apiClient.escapeString(language.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getStaticAnalysisDefaultRulesets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultRulesetsPerLanguageResponse>() {});
+  }
+
+  /**
+   * Get default rulesets for a language.
+   *
+   * <p>See {@link #getStaticAnalysisDefaultRulesetsWithHttpInfo}.
+   *
+   * @param language The programming language for which to retrieve the default rulesets. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DefaultRulesetsPerLanguageResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DefaultRulesetsPerLanguageResponse>>
+      getStaticAnalysisDefaultRulesetsWithHttpInfoAsync(String language) {
+    // Check if unstable operation is enabled
+    String operationId = "getStaticAnalysisDefaultRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DefaultRulesetsPerLanguageResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'language' is set
+    if (language == null) {
+      CompletableFuture<ApiResponse<DefaultRulesetsPerLanguageResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'language' when calling"
+                  + " getStaticAnalysisDefaultRulesets"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/default-rulesets/{language}"
+            .replaceAll("\\{" + "language" + "\\}", apiClient.escapeString(language.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getStaticAnalysisDefaultRulesets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DefaultRulesetsPerLanguageResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DefaultRulesetsPerLanguageResponse>() {});
+  }
+
+  /**
+   * Get node types for a language.
+   *
+   * <p>See {@link #getStaticAnalysisNodeTypesWithHttpInfo}.
+   *
+   * @param language The programming language for which to retrieve node type definitions.
+   *     (required)
+   * @return NodeTypesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NodeTypesResponse getStaticAnalysisNodeTypes(String language) throws ApiException {
+    return getStaticAnalysisNodeTypesWithHttpInfo(language).getData();
+  }
+
+  /**
+   * Get node types for a language.
+   *
+   * <p>See {@link #getStaticAnalysisNodeTypesWithHttpInfoAsync}.
+   *
+   * @param language The programming language for which to retrieve node type definitions.
+   *     (required)
+   * @return CompletableFuture&lt;NodeTypesResponse&gt;
+   */
+  public CompletableFuture<NodeTypesResponse> getStaticAnalysisNodeTypesAsync(String language) {
+    return getStaticAnalysisNodeTypesWithHttpInfoAsync(language)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve tree-sitter node type definitions for a given programming language.
+   *
+   * @param language The programming language for which to retrieve node type definitions.
+   *     (required)
+   * @return ApiResponse&lt;NodeTypesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NodeTypesResponse> getStaticAnalysisNodeTypesWithHttpInfo(String language)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getStaticAnalysisNodeTypes";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'language' is set
+    if (language == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'language' when calling getStaticAnalysisNodeTypes");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/static-analysis-server/node-types/{language}"
+            .replaceAll("\\{" + "language" + "\\}", apiClient.escapeString(language.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getStaticAnalysisNodeTypes",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NodeTypesResponse>() {});
+  }
+
+  /**
+   * Get node types for a language.
+   *
+   * <p>See {@link #getStaticAnalysisNodeTypesWithHttpInfo}.
+   *
+   * @param language The programming language for which to retrieve node type definitions.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NodeTypesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NodeTypesResponse>>
+      getStaticAnalysisNodeTypesWithHttpInfoAsync(String language) {
+    // Check if unstable operation is enabled
+    String operationId = "getStaticAnalysisNodeTypes";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<NodeTypesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'language' is set
+    if (language == null) {
+      CompletableFuture<ApiResponse<NodeTypesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'language' when calling getStaticAnalysisNodeTypes"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/static-analysis-server/node-types/{language}"
+            .replaceAll("\\{" + "language" + "\\}", apiClient.escapeString(language.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getStaticAnalysisNodeTypes",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NodeTypesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NodeTypesResponse>() {});
+  }
+
+  /** Manage optional parameters to getStaticAnalysisRuleset. */
+  public static class GetStaticAnalysisRulesetOptionalParameters {
+    private Boolean includeTests;
+    private Boolean includeTestingRules;
+
+    /**
+     * Set includeTests.
+     *
+     * @param includeTests When true, test cases for each rule are included in the response.
+     *     (optional)
+     * @return GetStaticAnalysisRulesetOptionalParameters
+     */
+    public GetStaticAnalysisRulesetOptionalParameters includeTests(Boolean includeTests) {
+      this.includeTests = includeTests;
+      return this;
+    }
+
+    /**
+     * Set includeTestingRules.
+     *
+     * @param includeTestingRules When true, rules that are in testing mode are included in the
+     *     response. (optional)
+     * @return GetStaticAnalysisRulesetOptionalParameters
+     */
+    public GetStaticAnalysisRulesetOptionalParameters includeTestingRules(
+        Boolean includeTestingRules) {
+      this.includeTestingRules = includeTestingRules;
+      return this;
+    }
+  }
+
+  /**
+   * Get a SAST ruleset.
+   *
+   * <p>See {@link #getStaticAnalysisRulesetWithHttpInfo}.
+   *
+   * @param rulesetName The name of the ruleset to retrieve. (required)
+   * @return SastRulesetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SastRulesetResponse getStaticAnalysisRuleset(String rulesetName) throws ApiException {
+    return getStaticAnalysisRulesetWithHttpInfo(
+            rulesetName, new GetStaticAnalysisRulesetOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a SAST ruleset.
+   *
+   * <p>See {@link #getStaticAnalysisRulesetWithHttpInfoAsync}.
+   *
+   * @param rulesetName The name of the ruleset to retrieve. (required)
+   * @return CompletableFuture&lt;SastRulesetResponse&gt;
+   */
+  public CompletableFuture<SastRulesetResponse> getStaticAnalysisRulesetAsync(String rulesetName) {
+    return getStaticAnalysisRulesetWithHttpInfoAsync(
+            rulesetName, new GetStaticAnalysisRulesetOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a SAST ruleset.
+   *
+   * <p>See {@link #getStaticAnalysisRulesetWithHttpInfo}.
+   *
+   * @param rulesetName The name of the ruleset to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SastRulesetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SastRulesetResponse getStaticAnalysisRuleset(
+      String rulesetName, GetStaticAnalysisRulesetOptionalParameters parameters)
+      throws ApiException {
+    return getStaticAnalysisRulesetWithHttpInfo(rulesetName, parameters).getData();
+  }
+
+  /**
+   * Get a SAST ruleset.
+   *
+   * <p>See {@link #getStaticAnalysisRulesetWithHttpInfoAsync}.
+   *
+   * @param rulesetName The name of the ruleset to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SastRulesetResponse&gt;
+   */
+  public CompletableFuture<SastRulesetResponse> getStaticAnalysisRulesetAsync(
+      String rulesetName, GetStaticAnalysisRulesetOptionalParameters parameters) {
+    return getStaticAnalysisRulesetWithHttpInfoAsync(rulesetName, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a SAST ruleset by name, including all its rules.
+   *
+   * @param rulesetName The name of the ruleset to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SastRulesetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SastRulesetResponse> getStaticAnalysisRulesetWithHttpInfo(
+      String rulesetName, GetStaticAnalysisRulesetOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getStaticAnalysisRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'rulesetName' when calling getStaticAnalysisRuleset");
+    }
+    Boolean includeTests = parameters.includeTests;
+    Boolean includeTestingRules = parameters.includeTestingRules;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/rulesets/{ruleset_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_tests", includeTests));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_testing_rules", includeTestingRules));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getStaticAnalysisRuleset",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SastRulesetResponse>() {});
+  }
+
+  /**
+   * Get a SAST ruleset.
+   *
+   * <p>See {@link #getStaticAnalysisRulesetWithHttpInfo}.
+   *
+   * @param rulesetName The name of the ruleset to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SastRulesetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SastRulesetResponse>>
+      getStaticAnalysisRulesetWithHttpInfoAsync(
+          String rulesetName, GetStaticAnalysisRulesetOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getStaticAnalysisRuleset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SastRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetName' is set
+    if (rulesetName == null) {
+      CompletableFuture<ApiResponse<SastRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'rulesetName' when calling"
+                  + " getStaticAnalysisRuleset"));
+      return result;
+    }
+    Boolean includeTests = parameters.includeTests;
+    Boolean includeTestingRules = parameters.includeTestingRules;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/rulesets/{ruleset_name}"
+            .replaceAll(
+                "\\{" + "ruleset_name" + "\\}", apiClient.escapeString(rulesetName.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_tests", includeTests));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_testing_rules", includeTestingRules));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getStaticAnalysisRuleset",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SastRulesetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SastRulesetResponse>() {});
+  }
+
+  /**
+   * Get tree-sitter WASM file.
+   *
+   * <p>See {@link #getStaticAnalysisTreeSitterWasmWithHttpInfo}.
+   *
+   * @param file The name of the WASM file to download. (required)
+   * @return File
+   * @throws ApiException if fails to make API call
+   */
+  public File getStaticAnalysisTreeSitterWasm(String file) throws ApiException {
+    return getStaticAnalysisTreeSitterWasmWithHttpInfo(file).getData();
+  }
+
+  /**
+   * Get tree-sitter WASM file.
+   *
+   * <p>See {@link #getStaticAnalysisTreeSitterWasmWithHttpInfoAsync}.
+   *
+   * @param file The name of the WASM file to download. (required)
+   * @return CompletableFuture&lt;File&gt;
+   */
+  public CompletableFuture<File> getStaticAnalysisTreeSitterWasmAsync(String file) {
+    return getStaticAnalysisTreeSitterWasmWithHttpInfoAsync(file)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Download the WebAssembly binary for a tree-sitter grammar by file name.
+   *
+   * @param file The name of the WASM file to download. (required)
+   * @return ApiResponse&lt;File&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> BLOB with the content of the WASM file </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<File> getStaticAnalysisTreeSitterWasmWithHttpInfo(String file)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getStaticAnalysisTreeSitterWasm";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'file' is set
+    if (file == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'file' when calling getStaticAnalysisTreeSitterWasm");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/static-analysis-server/tree-sitter-wasm/{file}"
+            .replaceAll("\\{" + "file" + "\\}", apiClient.escapeString(file.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getStaticAnalysisTreeSitterWasm",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/octet-stream", "application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<File>() {});
+  }
+
+  /**
+   * Get tree-sitter WASM file.
+   *
+   * <p>See {@link #getStaticAnalysisTreeSitterWasmWithHttpInfo}.
+   *
+   * @param file The name of the WASM file to download. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;File&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<File>> getStaticAnalysisTreeSitterWasmWithHttpInfoAsync(
+      String file) {
+    // Check if unstable operation is enabled
+    String operationId = "getStaticAnalysisTreeSitterWasm";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'file' is set
+    if (file == null) {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'file' when calling"
+                  + " getStaticAnalysisTreeSitterWasm"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis/static-analysis-server/tree-sitter-wasm/{file}"
+            .replaceAll("\\{" + "file" + "\\}", apiClient.escapeString(file.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getStaticAnalysisTreeSitterWasm",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/octet-stream", "application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<File>() {});
+  }
+
+  /**
    * Get suggested actions for a signal.
    *
    * <p>See {@link #getSuggestedActionsMatchingSignalWithHttpInfo}.
@@ -15620,6 +16644,135 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringPaginatedSuppressionsResponse>() {});
+  }
+
+  /**
+   * List codegen rulesets.
+   *
+   * <p>See {@link #listStaticAnalysisCodegenRulesetsWithHttpInfo}.
+   *
+   * @return SastRulesetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SastRulesetsResponse listStaticAnalysisCodegenRulesets() throws ApiException {
+    return listStaticAnalysisCodegenRulesetsWithHttpInfo().getData();
+  }
+
+  /**
+   * List codegen rulesets.
+   *
+   * <p>See {@link #listStaticAnalysisCodegenRulesetsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SastRulesetsResponse&gt;
+   */
+  public CompletableFuture<SastRulesetsResponse> listStaticAnalysisCodegenRulesetsAsync() {
+    return listStaticAnalysisCodegenRulesetsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the rulesets relevant for code generation for the authenticated user.
+   *
+   * @return ApiResponse&lt;SastRulesetsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SastRulesetsResponse> listStaticAnalysisCodegenRulesetsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listStaticAnalysisCodegenRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/codegen/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listStaticAnalysisCodegenRulesets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SastRulesetsResponse>() {});
+  }
+
+  /**
+   * List codegen rulesets.
+   *
+   * <p>See {@link #listStaticAnalysisCodegenRulesetsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;SastRulesetsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SastRulesetsResponse>>
+      listStaticAnalysisCodegenRulesetsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listStaticAnalysisCodegenRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SastRulesetsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/codegen/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listStaticAnalysisCodegenRulesets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SastRulesetsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SastRulesetsResponse>() {});
   }
 
   /** Manage optional parameters to listVulnerabilities. */
