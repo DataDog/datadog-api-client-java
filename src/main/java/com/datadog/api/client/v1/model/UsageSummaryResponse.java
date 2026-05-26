@@ -262,6 +262,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_AZURE_FUNCTION_APP_INSTANCES_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_ECS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_EKS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AVG_SUM,
@@ -1182,6 +1183,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG_SUM =
       "serverless_apps_azure_web_app_instances_avg_sum";
   private Long serverlessAppsAzureWebAppInstancesAvgSum;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG_SUM =
+      "serverless_apps_dsm_fargate_tasks_avg_sum";
+  private Long serverlessAppsDsmFargateTasksAvgSum;
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_ECS_AVG_SUM =
       "serverless_apps_ecs_avg_sum";
@@ -6645,6 +6650,29 @@ public class UsageSummaryResponse {
     this.serverlessAppsAzureWebAppInstancesAvgSum = serverlessAppsAzureWebAppInstancesAvgSum;
   }
 
+  public UsageSummaryResponse serverlessAppsDsmFargateTasksAvgSum(
+      Long serverlessAppsDsmFargateTasksAvgSum) {
+    this.serverlessAppsDsmFargateTasksAvgSum = serverlessAppsDsmFargateTasksAvgSum;
+    return this;
+  }
+
+  /**
+   * Sum of the average number of DSM Fargate ECS tasks monitored under Serverless Apps DSM in the
+   * current month for all organizations.
+   *
+   * @return serverlessAppsDsmFargateTasksAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getServerlessAppsDsmFargateTasksAvgSum() {
+    return serverlessAppsDsmFargateTasksAvgSum;
+  }
+
+  public void setServerlessAppsDsmFargateTasksAvgSum(Long serverlessAppsDsmFargateTasksAvgSum) {
+    this.serverlessAppsDsmFargateTasksAvgSum = serverlessAppsDsmFargateTasksAvgSum;
+  }
+
   public UsageSummaryResponse serverlessAppsEcsAvgSum(Long serverlessAppsEcsAvgSum) {
     this.serverlessAppsEcsAvgSum = serverlessAppsEcsAvgSum;
     return this;
@@ -7893,6 +7921,9 @@ public class UsageSummaryResponse {
             this.serverlessAppsAzureWebAppInstancesAvgSum,
             usageSummaryResponse.serverlessAppsAzureWebAppInstancesAvgSum)
         && Objects.equals(
+            this.serverlessAppsDsmFargateTasksAvgSum,
+            usageSummaryResponse.serverlessAppsDsmFargateTasksAvgSum)
+        && Objects.equals(
             this.serverlessAppsEcsAvgSum, usageSummaryResponse.serverlessAppsEcsAvgSum)
         && Objects.equals(
             this.serverlessAppsEksAvgSum, usageSummaryResponse.serverlessAppsEksAvgSum)
@@ -8204,6 +8235,7 @@ public class UsageSummaryResponse {
         serverlessAppsAzureCountAvgSum,
         serverlessAppsAzureFunctionAppInstancesAvgSum,
         serverlessAppsAzureWebAppInstancesAvgSum,
+        serverlessAppsDsmFargateTasksAvgSum,
         serverlessAppsEcsAvgSum,
         serverlessAppsEksAvgSum,
         serverlessAppsExclFargateAvgSum,
@@ -8871,6 +8903,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    serverlessAppsAzureWebAppInstancesAvgSum: ")
         .append(toIndentedString(serverlessAppsAzureWebAppInstancesAvgSum))
+        .append("\n");
+    sb.append("    serverlessAppsDsmFargateTasksAvgSum: ")
+        .append(toIndentedString(serverlessAppsDsmFargateTasksAvgSum))
         .append("\n");
     sb.append("    serverlessAppsEcsAvgSum: ")
         .append(toIndentedString(serverlessAppsEcsAvgSum))
