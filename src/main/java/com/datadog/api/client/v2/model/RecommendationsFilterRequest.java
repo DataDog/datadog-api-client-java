@@ -21,7 +21,6 @@ import java.util.Objects;
 /** Request body for filtering cost recommendations. */
 @JsonPropertyOrder({
   RecommendationsFilterRequest.JSON_PROPERTY_FILTER,
-  RecommendationsFilterRequest.JSON_PROPERTY_SCOPE,
   RecommendationsFilterRequest.JSON_PROPERTY_SORT,
   RecommendationsFilterRequest.JSON_PROPERTY_VIEW
 })
@@ -31,9 +30,6 @@ public class RecommendationsFilterRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private String filter;
-
-  public static final String JSON_PROPERTY_SCOPE = "scope";
-  private String scope;
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private List<RecommendationsFilterRequestSortItems> sort = null;
@@ -60,28 +56,6 @@ public class RecommendationsFilterRequest {
 
   public void setFilter(String filter) {
     this.filter = filter;
-  }
-
-  public RecommendationsFilterRequest scope(String scope) {
-    this.scope = scope;
-    return this;
-  }
-
-  /**
-   * Recommendations scope. Defaults to <code>ccm</code>; use <code>experiment</code> for
-   * experimental recommendations or <code>*</code> for both.
-   *
-   * @return scope
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getScope() {
-    return scope;
-  }
-
-  public void setScope(String scope) {
-    this.scope = scope;
   }
 
   public RecommendationsFilterRequest sort(List<RecommendationsFilterRequestSortItems> sort) {
@@ -196,7 +170,6 @@ public class RecommendationsFilterRequest {
     }
     RecommendationsFilterRequest recommendationsFilterRequest = (RecommendationsFilterRequest) o;
     return Objects.equals(this.filter, recommendationsFilterRequest.filter)
-        && Objects.equals(this.scope, recommendationsFilterRequest.scope)
         && Objects.equals(this.sort, recommendationsFilterRequest.sort)
         && Objects.equals(this.view, recommendationsFilterRequest.view)
         && Objects.equals(
@@ -205,7 +178,7 @@ public class RecommendationsFilterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, scope, sort, view, additionalProperties);
+    return Objects.hash(filter, sort, view, additionalProperties);
   }
 
   @Override
@@ -213,7 +186,6 @@ public class RecommendationsFilterRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecommendationsFilterRequest {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    view: ").append(toIndentedString(view)).append("\n");
     sb.append("    additionalProperties: ")
