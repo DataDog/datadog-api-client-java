@@ -248,6 +248,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_AZURE_FUNCTION_APP_INSTANCES_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG,
+  UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_ECS_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_EKS_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AVG,
@@ -1090,6 +1091,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG =
       "serverless_apps_azure_web_app_instances_avg";
   private Long serverlessAppsAzureWebAppInstancesAvg;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG =
+      "serverless_apps_dsm_fargate_tasks_avg";
+  private Long serverlessAppsDsmFargateTasksAvg;
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_ECS_AVG = "serverless_apps_ecs_avg";
   private Long serverlessAppsEcsAvg;
@@ -6272,6 +6277,28 @@ public class UsageSummaryDate {
     this.serverlessAppsAzureWebAppInstancesAvg = serverlessAppsAzureWebAppInstancesAvg;
   }
 
+  public UsageSummaryDate serverlessAppsDsmFargateTasksAvg(Long serverlessAppsDsmFargateTasksAvg) {
+    this.serverlessAppsDsmFargateTasksAvg = serverlessAppsDsmFargateTasksAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average number of DSM Fargate ECS tasks monitored under Serverless Apps DSM for the
+   * current date for all organizations.
+   *
+   * @return serverlessAppsDsmFargateTasksAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getServerlessAppsDsmFargateTasksAvg() {
+    return serverlessAppsDsmFargateTasksAvg;
+  }
+
+  public void setServerlessAppsDsmFargateTasksAvg(Long serverlessAppsDsmFargateTasksAvg) {
+    this.serverlessAppsDsmFargateTasksAvg = serverlessAppsDsmFargateTasksAvg;
+  }
+
   public UsageSummaryDate serverlessAppsEcsAvg(Long serverlessAppsEcsAvg) {
     this.serverlessAppsEcsAvg = serverlessAppsEcsAvg;
     return this;
@@ -7349,6 +7376,9 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.serverlessAppsAzureWebAppInstancesAvg,
             usageSummaryDate.serverlessAppsAzureWebAppInstancesAvg)
+        && Objects.equals(
+            this.serverlessAppsDsmFargateTasksAvg,
+            usageSummaryDate.serverlessAppsDsmFargateTasksAvg)
         && Objects.equals(this.serverlessAppsEcsAvg, usageSummaryDate.serverlessAppsEcsAvg)
         && Objects.equals(this.serverlessAppsEksAvg, usageSummaryDate.serverlessAppsEksAvg)
         && Objects.equals(
@@ -7640,6 +7670,7 @@ public class UsageSummaryDate {
         serverlessAppsAzureCountAvg,
         serverlessAppsAzureFunctionAppInstancesAvg,
         serverlessAppsAzureWebAppInstancesAvg,
+        serverlessAppsDsmFargateTasksAvg,
         serverlessAppsEcsAvg,
         serverlessAppsEksAvg,
         serverlessAppsExclFargateAvg,
@@ -8232,6 +8263,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    serverlessAppsAzureWebAppInstancesAvg: ")
         .append(toIndentedString(serverlessAppsAzureWebAppInstancesAvg))
+        .append("\n");
+    sb.append("    serverlessAppsDsmFargateTasksAvg: ")
+        .append(toIndentedString(serverlessAppsDsmFargateTasksAvg))
         .append("\n");
     sb.append("    serverlessAppsEcsAvg: ")
         .append(toIndentedString(serverlessAppsEcsAvg))
