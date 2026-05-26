@@ -68,6 +68,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_SIEM_INDEXED_LOGS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P,
@@ -265,6 +266,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_SIEM_12MO_RETENTION_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_SIEM_6MO_RETENTION_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
@@ -451,6 +454,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM = "cloud_siem_events_sum";
   private Long cloudSiemEventsSum;
+
+  public static final String JSON_PROPERTY_CLOUD_SIEM_INDEXED_LOGS_SUM =
+      "cloud_siem_indexed_logs_sum";
+  private Long cloudSiemIndexedLogsSum;
 
   public static final String JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM =
       "code_analysis_sa_committers_hwm";
@@ -1165,6 +1172,12 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG =
       "serverless_apps_total_count_avg";
   private Long serverlessAppsTotalCountAvg;
+
+  public static final String JSON_PROPERTY_SIEM_12MO_RETENTION_SUM = "siem_12mo_retention_sum";
+  private Long siem12moRetentionSum;
+
+  public static final String JSON_PROPERTY_SIEM_6MO_RETENTION_SUM = "siem_6mo_retention_sum";
+  private Long siem6moRetentionSum;
 
   public static final String JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM =
       "siem_analyzed_logs_add_on_count_sum";
@@ -2314,6 +2327,28 @@ public class UsageSummaryDateOrg {
 
   public void setCloudSiemEventsSum(Long cloudSiemEventsSum) {
     this.cloudSiemEventsSum = cloudSiemEventsSum;
+  }
+
+  public UsageSummaryDateOrg cloudSiemIndexedLogsSum(Long cloudSiemIndexedLogsSum) {
+    this.cloudSiemIndexedLogsSum = cloudSiemIndexedLogsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud SIEM Indexed Logs over all hours in the current date for the given
+   * org.
+   *
+   * @return cloudSiemIndexedLogsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_INDEXED_LOGS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCloudSiemIndexedLogsSum() {
+    return cloudSiemIndexedLogsSum;
+  }
+
+  public void setCloudSiemIndexedLogsSum(Long cloudSiemIndexedLogsSum) {
+    this.cloudSiemIndexedLogsSum = cloudSiemIndexedLogsSum;
   }
 
   public UsageSummaryDateOrg codeAnalysisSaCommittersHwm(Long codeAnalysisSaCommittersHwm) {
@@ -6716,6 +6751,50 @@ public class UsageSummaryDateOrg {
     this.serverlessAppsTotalCountAvg = serverlessAppsTotalCountAvg;
   }
 
+  public UsageSummaryDateOrg siem12moRetentionSum(Long siem12moRetentionSum) {
+    this.siem12moRetentionSum = siem12moRetentionSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of Cloud SIEM Indexed Logs (12-month retention) over all hours in the current
+   * date for the given org.
+   *
+   * @return siem12moRetentionSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_12MO_RETENTION_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSiem12moRetentionSum() {
+    return siem12moRetentionSum;
+  }
+
+  public void setSiem12moRetentionSum(Long siem12moRetentionSum) {
+    this.siem12moRetentionSum = siem12moRetentionSum;
+  }
+
+  public UsageSummaryDateOrg siem6moRetentionSum(Long siem6moRetentionSum) {
+    this.siem6moRetentionSum = siem6moRetentionSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of Cloud SIEM Indexed Logs (6-month retention) over all hours in the current date
+   * for the given org.
+   *
+   * @return siem6moRetentionSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_6MO_RETENTION_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSiem6moRetentionSum() {
+    return siem6moRetentionSum;
+  }
+
+  public void setSiem6moRetentionSum(Long siem6moRetentionSum) {
+    this.siem6moRetentionSum = siem6moRetentionSum;
+  }
+
   public UsageSummaryDateOrg siemAnalyzedLogsAddOnCountSum(Long siemAnalyzedLogsAddOnCountSum) {
     this.siemAnalyzedLogsAddOnCountSum = siemAnalyzedLogsAddOnCountSum;
     return this;
@@ -7092,6 +7171,7 @@ public class UsageSummaryDateOrg {
             this.cloudCostManagementOciHostCountAvg,
             usageSummaryDateOrg.cloudCostManagementOciHostCountAvg)
         && Objects.equals(this.cloudSiemEventsSum, usageSummaryDateOrg.cloudSiemEventsSum)
+        && Objects.equals(this.cloudSiemIndexedLogsSum, usageSummaryDateOrg.cloudSiemIndexedLogsSum)
         && Objects.equals(
             this.codeAnalysisSaCommittersHwm, usageSummaryDateOrg.codeAnalysisSaCommittersHwm)
         && Objects.equals(
@@ -7473,6 +7553,8 @@ public class UsageSummaryDateOrg {
             usageSummaryDateOrg.serverlessAppsInfraGcpGkeAutopilotPodsAvg)
         && Objects.equals(
             this.serverlessAppsTotalCountAvg, usageSummaryDateOrg.serverlessAppsTotalCountAvg)
+        && Objects.equals(this.siem12moRetentionSum, usageSummaryDateOrg.siem12moRetentionSum)
+        && Objects.equals(this.siem6moRetentionSum, usageSummaryDateOrg.siem6moRetentionSum)
         && Objects.equals(
             this.siemAnalyzedLogsAddOnCountSum, usageSummaryDateOrg.siemAnalyzedLogsAddOnCountSum)
         && Objects.equals(
@@ -7554,6 +7636,7 @@ public class UsageSummaryDateOrg {
         cloudCostManagementHostCountAvg,
         cloudCostManagementOciHostCountAvg,
         cloudSiemEventsSum,
+        cloudSiemIndexedLogsSum,
         codeAnalysisSaCommittersHwm,
         codeAnalysisScaCommittersHwm,
         codeSecurityHostTop99p,
@@ -7746,6 +7829,8 @@ public class UsageSummaryDateOrg {
         serverlessAppsGoogleCountAvg,
         serverlessAppsInfraGcpGkeAutopilotPodsAvg,
         serverlessAppsTotalCountAvg,
+        siem12moRetentionSum,
+        siem6moRetentionSum,
         siemAnalyzedLogsAddOnCountSum,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
@@ -7878,6 +7963,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(cloudCostManagementOciHostCountAvg))
         .append("\n");
     sb.append("    cloudSiemEventsSum: ").append(toIndentedString(cloudSiemEventsSum)).append("\n");
+    sb.append("    cloudSiemIndexedLogsSum: ")
+        .append(toIndentedString(cloudSiemIndexedLogsSum))
+        .append("\n");
     sb.append("    codeAnalysisSaCommittersHwm: ")
         .append(toIndentedString(codeAnalysisSaCommittersHwm))
         .append("\n");
@@ -8369,6 +8457,12 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    serverlessAppsTotalCountAvg: ")
         .append(toIndentedString(serverlessAppsTotalCountAvg))
+        .append("\n");
+    sb.append("    siem12moRetentionSum: ")
+        .append(toIndentedString(siem12moRetentionSum))
+        .append("\n");
+    sb.append("    siem6moRetentionSum: ")
+        .append(toIndentedString(siem6moRetentionSum))
         .append("\n");
     sb.append("    siemAnalyzedLogsAddOnCountSum: ")
         .append(toIndentedString(siemAnalyzedLogsAddOnCountSum))

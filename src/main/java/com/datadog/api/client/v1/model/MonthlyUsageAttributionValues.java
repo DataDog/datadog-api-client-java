@@ -172,6 +172,10 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_APM_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_12MO_RETENTION_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_12MO_RETENTION_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_6MO_RETENTION_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_6MO_RETENTION_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_INGESTED_BYTES_PERCENTAGE,
@@ -716,6 +720,20 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_USAGE = "serverless_apps_usage";
   private Double serverlessAppsUsage;
+
+  public static final String JSON_PROPERTY_SIEM_12MO_RETENTION_PERCENTAGE =
+      "siem_12mo_retention_percentage";
+  private Double siem12moRetentionPercentage;
+
+  public static final String JSON_PROPERTY_SIEM_12MO_RETENTION_USAGE = "siem_12mo_retention_usage";
+  private Double siem12moRetentionUsage;
+
+  public static final String JSON_PROPERTY_SIEM_6MO_RETENTION_PERCENTAGE =
+      "siem_6mo_retention_percentage";
+  private Double siem6moRetentionPercentage;
+
+  public static final String JSON_PROPERTY_SIEM_6MO_RETENTION_USAGE = "siem_6mo_retention_usage";
+  private Double siem6moRetentionUsage;
 
   public static final String JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE =
       "siem_analyzed_logs_add_on_percentage";
@@ -4048,6 +4066,92 @@ public class MonthlyUsageAttributionValues {
     this.serverlessAppsUsage = serverlessAppsUsage;
   }
 
+  public MonthlyUsageAttributionValues siem12moRetentionPercentage(
+      Double siem12moRetentionPercentage) {
+    this.siem12moRetentionPercentage = siem12moRetentionPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud SIEM Indexed Logs (12-month retention) usage by tag(s).
+   *
+   * @return siem12moRetentionPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_12MO_RETENTION_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSiem12moRetentionPercentage() {
+    return siem12moRetentionPercentage;
+  }
+
+  public void setSiem12moRetentionPercentage(Double siem12moRetentionPercentage) {
+    this.siem12moRetentionPercentage = siem12moRetentionPercentage;
+  }
+
+  public MonthlyUsageAttributionValues siem12moRetentionUsage(Double siem12moRetentionUsage) {
+    this.siem12moRetentionUsage = siem12moRetentionUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud SIEM Indexed Logs (12-month retention) usage by tag(s).
+   *
+   * @return siem12moRetentionUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_12MO_RETENTION_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSiem12moRetentionUsage() {
+    return siem12moRetentionUsage;
+  }
+
+  public void setSiem12moRetentionUsage(Double siem12moRetentionUsage) {
+    this.siem12moRetentionUsage = siem12moRetentionUsage;
+  }
+
+  public MonthlyUsageAttributionValues siem6moRetentionPercentage(
+      Double siem6moRetentionPercentage) {
+    this.siem6moRetentionPercentage = siem6moRetentionPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud SIEM Indexed Logs (6-month retention) usage by tag(s).
+   *
+   * @return siem6moRetentionPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_6MO_RETENTION_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSiem6moRetentionPercentage() {
+    return siem6moRetentionPercentage;
+  }
+
+  public void setSiem6moRetentionPercentage(Double siem6moRetentionPercentage) {
+    this.siem6moRetentionPercentage = siem6moRetentionPercentage;
+  }
+
+  public MonthlyUsageAttributionValues siem6moRetentionUsage(Double siem6moRetentionUsage) {
+    this.siem6moRetentionUsage = siem6moRetentionUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud SIEM Indexed Logs (6-month retention) usage by tag(s).
+   *
+   * @return siem6moRetentionUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_6MO_RETENTION_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSiem6moRetentionUsage() {
+    return siem6moRetentionUsage;
+  }
+
+  public void setSiem6moRetentionUsage(Double siem6moRetentionUsage) {
+    this.siem6moRetentionUsage = siem6moRetentionUsage;
+  }
+
   public MonthlyUsageAttributionValues siemAnalyzedLogsAddOnPercentage(
       Double siemAnalyzedLogsAddOnPercentage) {
     this.siemAnalyzedLogsAddOnPercentage = siemAnalyzedLogsAddOnPercentage;
@@ -4680,6 +4784,16 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.serverlessAppsUsage, monthlyUsageAttributionValues.serverlessAppsUsage)
         && Objects.equals(
+            this.siem12moRetentionPercentage,
+            monthlyUsageAttributionValues.siem12moRetentionPercentage)
+        && Objects.equals(
+            this.siem12moRetentionUsage, monthlyUsageAttributionValues.siem12moRetentionUsage)
+        && Objects.equals(
+            this.siem6moRetentionPercentage,
+            monthlyUsageAttributionValues.siem6moRetentionPercentage)
+        && Objects.equals(
+            this.siem6moRetentionUsage, monthlyUsageAttributionValues.siem6moRetentionUsage)
+        && Objects.equals(
             this.siemAnalyzedLogsAddOnPercentage,
             monthlyUsageAttributionValues.siemAnalyzedLogsAddOnPercentage)
         && Objects.equals(
@@ -4869,6 +4983,10 @@ public class MonthlyUsageAttributionValues {
         serverlessAppsApmUsage,
         serverlessAppsPercentage,
         serverlessAppsUsage,
+        siem12moRetentionPercentage,
+        siem12moRetentionUsage,
+        siem6moRetentionPercentage,
+        siem6moRetentionUsage,
         siemAnalyzedLogsAddOnPercentage,
         siemAnalyzedLogsAddOnUsage,
         siemIngestedBytesPercentage,
@@ -5271,6 +5389,18 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    serverlessAppsUsage: ")
         .append(toIndentedString(serverlessAppsUsage))
+        .append("\n");
+    sb.append("    siem12moRetentionPercentage: ")
+        .append(toIndentedString(siem12moRetentionPercentage))
+        .append("\n");
+    sb.append("    siem12moRetentionUsage: ")
+        .append(toIndentedString(siem12moRetentionUsage))
+        .append("\n");
+    sb.append("    siem6moRetentionPercentage: ")
+        .append(toIndentedString(siem6moRetentionPercentage))
+        .append("\n");
+    sb.append("    siem6moRetentionUsage: ")
+        .append(toIndentedString(siem6moRetentionUsage))
         .append("\n");
     sb.append("    siemAnalyzedLogsAddOnPercentage: ")
         .append(toIndentedString(siemAnalyzedLogsAddOnPercentage))
