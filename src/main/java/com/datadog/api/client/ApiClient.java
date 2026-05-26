@@ -881,18 +881,21 @@ public class ApiClient {
           put("v2.getAWSCloudAuthPersonaMapping", false);
           put("v2.listAWSCloudAuthPersonaMappings", false);
           put("v2.activateContentPack", false);
+          put("v2.batchGetSecurityMonitoringDatasetDependencies", false);
           put("v2.bulkCreateSampleLogGenerationSubscriptions", false);
           put("v2.bulkExportSecurityMonitoringTerraformResources", false);
           put("v2.cancelHistoricalJob", false);
           put("v2.convertJobResultToSignal", false);
           put("v2.convertSecurityMonitoringTerraformResource", false);
           put("v2.createSampleLogGenerationSubscription", false);
+          put("v2.createSecurityMonitoringDataset", false);
           put("v2.createSecurityMonitoringIntegrationConfig", false);
           put("v2.createStaticAnalysisAst", false);
           put("v2.createStaticAnalysisServerAnalysis", false);
           put("v2.deactivateContentPack", false);
           put("v2.deleteHistoricalJob", false);
           put("v2.deleteSampleLogGenerationSubscription", false);
+          put("v2.deleteSecurityMonitoringDataset", false);
           put("v2.deleteSecurityMonitoringIntegrationConfig", false);
           put("v2.exportSecurityMonitoringTerraformResource", false);
           put("v2.getContentPacksStates", false);
@@ -902,6 +905,9 @@ public class ApiClient {
           put("v2.getIndicatorOfCompromise", false);
           put("v2.getRuleVersionHistory", false);
           put("v2.getSecretsRules", false);
+          put("v2.getSecurityMonitoringDataset", false);
+          put("v2.getSecurityMonitoringDatasetByVersion", false);
+          put("v2.getSecurityMonitoringDatasetVersionHistory", false);
           put("v2.getSecurityMonitoringHistsignal", false);
           put("v2.getSecurityMonitoringHistsignalsByJobId", false);
           put("v2.getSecurityMonitoringIntegrationConfig", false);
@@ -916,6 +922,7 @@ public class ApiClient {
           put("v2.listMultipleRulesets", false);
           put("v2.listSampleLogGenerationSubscriptions", false);
           put("v2.listScannedAssetsMetadata", false);
+          put("v2.listSecurityMonitoringDatasets", false);
           put("v2.listSecurityMonitoringHistsignals", false);
           put("v2.listSecurityMonitoringIntegrationConfigs", false);
           put("v2.listStaticAnalysisCodegenRulesets", false);
@@ -925,6 +932,7 @@ public class ApiClient {
           put("v2.muteSecurityFindings", false);
           put("v2.runHistoricalJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
+          put("v2.updateSecurityMonitoringDataset", false);
           put("v2.updateSecurityMonitoringIntegrationConfig", false);
           put("v2.validateSecurityMonitoringIntegrationConfig", false);
           put("v2.validateSecurityMonitoringIntegrationCredentials", false);
