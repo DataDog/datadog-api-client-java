@@ -23,6 +23,7 @@ import java.util.Objects;
   QueryValueWidgetRequest.JSON_PROPERTY_AGGREGATOR,
   QueryValueWidgetRequest.JSON_PROPERTY_APM_QUERY,
   QueryValueWidgetRequest.JSON_PROPERTY_AUDIT_QUERY,
+  QueryValueWidgetRequest.JSON_PROPERTY_COMPARISON,
   QueryValueWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
   QueryValueWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
   QueryValueWidgetRequest.JSON_PROPERTY_FORMULAS,
@@ -48,6 +49,9 @@ public class QueryValueWidgetRequest {
 
   public static final String JSON_PROPERTY_AUDIT_QUERY = "audit_query";
   private LogQueryDefinition auditQuery;
+
+  public static final String JSON_PROPERTY_COMPARISON = "comparison";
+  private QueryValueWidgetComparison comparison;
 
   public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
   private List<WidgetConditionalFormat> conditionalFormats = null;
@@ -152,6 +156,28 @@ public class QueryValueWidgetRequest {
 
   public void setAuditQuery(LogQueryDefinition auditQuery) {
     this.auditQuery = auditQuery;
+  }
+
+  public QueryValueWidgetRequest comparison(QueryValueWidgetComparison comparison) {
+    this.comparison = comparison;
+    this.unparsed |= comparison.unparsed;
+    return this;
+  }
+
+  /**
+   * A change indicator that compares the current value to a historical period.
+   *
+   * @return comparison
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPARISON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public QueryValueWidgetComparison getComparison() {
+    return comparison;
+  }
+
+  public void setComparison(QueryValueWidgetComparison comparison) {
+    this.comparison = comparison;
   }
 
   public QueryValueWidgetRequest conditionalFormats(
@@ -518,6 +544,7 @@ public class QueryValueWidgetRequest {
     return Objects.equals(this.aggregator, queryValueWidgetRequest.aggregator)
         && Objects.equals(this.apmQuery, queryValueWidgetRequest.apmQuery)
         && Objects.equals(this.auditQuery, queryValueWidgetRequest.auditQuery)
+        && Objects.equals(this.comparison, queryValueWidgetRequest.comparison)
         && Objects.equals(this.conditionalFormats, queryValueWidgetRequest.conditionalFormats)
         && Objects.equals(this.eventQuery, queryValueWidgetRequest.eventQuery)
         && Objects.equals(this.formulas, queryValueWidgetRequest.formulas)
@@ -539,6 +566,7 @@ public class QueryValueWidgetRequest {
         aggregator,
         apmQuery,
         auditQuery,
+        comparison,
         conditionalFormats,
         eventQuery,
         formulas,
@@ -561,6 +589,7 @@ public class QueryValueWidgetRequest {
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
     sb.append("    auditQuery: ").append(toIndentedString(auditQuery)).append("\n");
+    sb.append("    comparison: ").append(toIndentedString(comparison)).append("\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
     sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
