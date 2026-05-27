@@ -42,6 +42,7 @@ import com.datadog.api.client.v2.model.CostTagKeyResponse;
 import com.datadog.api.client.v2.model.CostTagKeySourcesResponse;
 import com.datadog.api.client.v2.model.CostTagKeysResponse;
 import com.datadog.api.client.v2.model.CostTagMetadataDailyFilter;
+import com.datadog.api.client.v2.model.CostTagMetadataMonthsResponse;
 import com.datadog.api.client.v2.model.CostTagsResponse;
 import com.datadog.api.client.v2.model.CreateRulesetRequest;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
@@ -7917,6 +7918,185 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CostMetricsResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management tag metadata months.
+   *
+   * <p>See {@link #listCostTagMetadataMonthsWithHttpInfo}.
+   *
+   * @param filterProvider Provider to scope the query to. Use the value of the <code>providername
+   *     </code> tag in CCM (for example, <code>aws</code>, <code>azure</code>, <code>gcp</code>,
+   *     <code>Oracle</code>, <code>Confluent Cloud</code>, <code>Snowflake</code>). For costs
+   *     uploaded through the Custom Costs API, use <code>custom</code>. Values are case-sensitive.
+   *     (required)
+   * @return CostTagMetadataMonthsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagMetadataMonthsResponse listCostTagMetadataMonths(String filterProvider)
+      throws ApiException {
+    return listCostTagMetadataMonthsWithHttpInfo(filterProvider).getData();
+  }
+
+  /**
+   * List Cloud Cost Management tag metadata months.
+   *
+   * <p>See {@link #listCostTagMetadataMonthsWithHttpInfoAsync}.
+   *
+   * @param filterProvider Provider to scope the query to. Use the value of the <code>providername
+   *     </code> tag in CCM (for example, <code>aws</code>, <code>azure</code>, <code>gcp</code>,
+   *     <code>Oracle</code>, <code>Confluent Cloud</code>, <code>Snowflake</code>). For costs
+   *     uploaded through the Custom Costs API, use <code>custom</code>. Values are case-sensitive.
+   *     (required)
+   * @return CompletableFuture&lt;CostTagMetadataMonthsResponse&gt;
+   */
+  public CompletableFuture<CostTagMetadataMonthsResponse> listCostTagMetadataMonthsAsync(
+      String filterProvider) {
+    return listCostTagMetadataMonthsWithHttpInfoAsync(filterProvider)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List months that have Cloud Cost Management tag metadata for a given provider, ordered
+   * most-recent first. The response is capped at 36 months.
+   *
+   * @param filterProvider Provider to scope the query to. Use the value of the <code>providername
+   *     </code> tag in CCM (for example, <code>aws</code>, <code>azure</code>, <code>gcp</code>,
+   *     <code>Oracle</code>, <code>Confluent Cloud</code>, <code>Snowflake</code>). For costs
+   *     uploaded through the Custom Costs API, use <code>custom</code>. Values are case-sensitive.
+   *     (required)
+   * @return ApiResponse&lt;CostTagMetadataMonthsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostTagMetadataMonthsResponse> listCostTagMetadataMonthsWithHttpInfo(
+      String filterProvider) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagMetadataMonths";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterProvider' is set
+    if (filterProvider == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterProvider' when calling listCostTagMetadataMonths");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/months";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostTagMetadataMonths",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagMetadataMonthsResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management tag metadata months.
+   *
+   * <p>See {@link #listCostTagMetadataMonthsWithHttpInfo}.
+   *
+   * @param filterProvider Provider to scope the query to. Use the value of the <code>providername
+   *     </code> tag in CCM (for example, <code>aws</code>, <code>azure</code>, <code>gcp</code>,
+   *     <code>Oracle</code>, <code>Confluent Cloud</code>, <code>Snowflake</code>). For costs
+   *     uploaded through the Custom Costs API, use <code>custom</code>. Values are case-sensitive.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CostTagMetadataMonthsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostTagMetadataMonthsResponse>>
+      listCostTagMetadataMonthsWithHttpInfoAsync(String filterProvider) {
+    // Check if unstable operation is enabled
+    String operationId = "listCostTagMetadataMonths";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostTagMetadataMonthsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterProvider' is set
+    if (filterProvider == null) {
+      CompletableFuture<ApiResponse<CostTagMetadataMonthsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterProvider' when calling"
+                  + " listCostTagMetadataMonths"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/tag_metadata/months";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostTagMetadataMonths",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostTagMetadataMonthsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagMetadataMonthsResponse>() {});
   }
 
   /** Manage optional parameters to listCostTagMetadataOrchestrators. */
