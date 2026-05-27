@@ -23,7 +23,8 @@ import java.util.Objects;
   TeamsResponse.JSON_PROPERTY_DATA,
   TeamsResponse.JSON_PROPERTY_INCLUDED,
   TeamsResponse.JSON_PROPERTY_LINKS,
-  TeamsResponse.JSON_PROPERTY_META
+  TeamsResponse.JSON_PROPERTY_META,
+  TeamsResponse.JSON_PROPERTY_TEST
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,6 +41,9 @@ public class TeamsResponse {
 
   public static final String JSON_PROPERTY_META = "meta";
   private TeamsResponseMeta meta;
+
+  public static final String JSON_PROPERTY_TEST = "test";
+  private Boolean test;
 
   public TeamsResponse data(List<Team> data) {
     this.data = data;
@@ -151,6 +155,27 @@ public class TeamsResponse {
     this.meta = meta;
   }
 
+  public TeamsResponse test(Boolean test) {
+    this.test = test;
+    return this;
+  }
+
+  /**
+   * Indicates whether the response is from a test environment.
+   *
+   * @return test
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getTest() {
+    return test;
+  }
+
+  public void setTest(Boolean test) {
+    this.test = test;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -211,12 +236,13 @@ public class TeamsResponse {
         && Objects.equals(this.included, teamsResponse.included)
         && Objects.equals(this.links, teamsResponse.links)
         && Objects.equals(this.meta, teamsResponse.meta)
+        && Objects.equals(this.test, teamsResponse.test)
         && Objects.equals(this.additionalProperties, teamsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, links, meta, additionalProperties);
+    return Objects.hash(data, included, links, meta, test, additionalProperties);
   }
 
   @Override
@@ -227,6 +253,7 @@ public class TeamsResponse {
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    test: ").append(toIndentedString(test)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
