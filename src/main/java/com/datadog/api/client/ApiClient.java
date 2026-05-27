@@ -953,7 +953,6 @@ public class ApiClient {
           put("v2.listCostTagKeySources", false);
           put("v2.listCostTagMetadata", false);
           put("v2.listCostTagMetadataMetrics", false);
-          put("v2.listCostTagMetadataMonths", false);
           put("v2.listCostTagMetadataOrchestrators", false);
           put("v2.searchCostRecommendations", false);
           put("v2.createDashboardSecureEmbed", false);
@@ -1087,6 +1086,10 @@ public class ApiClient {
           put("v2.updateMonitorUserTemplate", false);
           put("v2.validateExistingMonitorUserTemplate", false);
           put("v2.validateMonitorUserTemplate", false);
+          put("v2.deleteScopesRestriction", false);
+          put("v2.getScopesRestriction", false);
+          put("v2.registerOAuthClient", false);
+          put("v2.upsertScopesRestriction", false);
           put("v2.bulkUpdateOrgGroupMemberships", false);
           put("v2.createOrgGroup", false);
           put("v2.createOrgGroupPolicy", false);
