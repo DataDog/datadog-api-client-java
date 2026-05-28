@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object used to create a personal access token. */
+/** Object used to create an access token. */
 @JsonPropertyOrder({
   PersonalAccessTokenCreateData.JSON_PROPERTY_ATTRIBUTES,
   PersonalAccessTokenCreateData.JSON_PROPERTY_TYPE
@@ -52,7 +52,7 @@ public class PersonalAccessTokenCreateData {
   }
 
   /**
-   * Attributes used to create a personal access token.
+   * Attributes used to create an access token.
    *
    * @return attributes
    */

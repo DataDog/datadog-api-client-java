@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for a list of personal access tokens. */
+/** Response for a list of access tokens. Includes both personal and service access tokens. */
 @JsonPropertyOrder({
   ListPersonalAccessTokensResponse.JSON_PROPERTY_DATA,
   ListPersonalAccessTokensResponse.JSON_PROPERTY_META
@@ -28,20 +28,20 @@ import java.util.Objects;
 public class ListPersonalAccessTokensResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<PersonalAccessToken> data = null;
+  private List<AccessTokenListItem> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private PersonalAccessTokenResponseMeta meta;
 
-  public ListPersonalAccessTokensResponse data(List<PersonalAccessToken> data) {
+  public ListPersonalAccessTokensResponse data(List<AccessTokenListItem> data) {
     this.data = data;
-    for (PersonalAccessToken item : data) {
+    for (AccessTokenListItem item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public ListPersonalAccessTokensResponse addDataItem(PersonalAccessToken dataItem) {
+  public ListPersonalAccessTokensResponse addDataItem(AccessTokenListItem dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -51,18 +51,18 @@ public class ListPersonalAccessTokensResponse {
   }
 
   /**
-   * Array of personal access tokens.
+   * Array of access tokens. Includes both personal and service access tokens.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<PersonalAccessToken> getData() {
+  public List<AccessTokenListItem> getData() {
     return data;
   }
 
-  public void setData(List<PersonalAccessToken> data) {
+  public void setData(List<AccessTokenListItem> data) {
     this.data = data;
   }
 
@@ -73,7 +73,7 @@ public class ListPersonalAccessTokensResponse {
   }
 
   /**
-   * Additional information related to the personal access token response.
+   * Additional information related to the access token response.
    *
    * @return meta
    */

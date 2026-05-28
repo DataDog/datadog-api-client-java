@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes used to update a personal access token. */
+/** Attributes used to update an access token. */
 @JsonPropertyOrder({
   PersonalAccessTokenUpdateAttributes.JSON_PROPERTY_NAME,
   PersonalAccessTokenUpdateAttributes.JSON_PROPERTY_SCOPES
@@ -39,7 +39,7 @@ public class PersonalAccessTokenUpdateAttributes {
   }
 
   /**
-   * Name of the personal access token.
+   * Name of the access token.
    *
    * @return name
    */
@@ -68,7 +68,7 @@ public class PersonalAccessTokenUpdateAttributes {
   }
 
   /**
-   * Array of scopes to grant the personal access token.
+   * Array of scopes to grant the access token.
    *
    * @return scopes
    */

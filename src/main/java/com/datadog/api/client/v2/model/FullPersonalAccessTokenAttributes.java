@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a full personal access token, including the token key. */
+/** Attributes of a full access token, including the token key. */
 @JsonPropertyOrder({
   FullPersonalAccessTokenAttributes.JSON_PROPERTY_CREATED_AT,
   FullPersonalAccessTokenAttributes.JSON_PROPERTY_EXPIRES_AT,
@@ -52,7 +52,7 @@ public class FullPersonalAccessTokenAttributes {
   private List<String> scopes = null;
 
   /**
-   * Creation date of the personal access token.
+   * Creation date of the access token.
    *
    * @return createdAt
    */
@@ -64,7 +64,7 @@ public class FullPersonalAccessTokenAttributes {
   }
 
   /**
-   * Expiration date of the personal access token.
+   * Expiration date of the access token.
    *
    * @return expiresAt
    */
@@ -90,7 +90,7 @@ public class FullPersonalAccessTokenAttributes {
   }
 
   /**
-   * The personal access token key. Only returned upon creation.
+   * The access token key. Only returned upon creation.
    *
    * @return key
    */
@@ -107,7 +107,7 @@ public class FullPersonalAccessTokenAttributes {
   }
 
   /**
-   * Name of the personal access token.
+   * Name of the access token.
    *
    * @return name
    */
@@ -123,7 +123,7 @@ public class FullPersonalAccessTokenAttributes {
   }
 
   /**
-   * The public portion of the personal access token.
+   * The public portion of the access token.
    *
    * @return publicPortion
    */
@@ -148,7 +148,7 @@ public class FullPersonalAccessTokenAttributes {
   }
 
   /**
-   * Array of scopes granted to the personal access token.
+   * Array of scopes granted to the access token.
    *
    * @return scopes
    */

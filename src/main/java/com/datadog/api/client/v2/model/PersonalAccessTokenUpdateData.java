@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object used to update a personal access token. */
+/** Object used to update an access token. */
 @JsonPropertyOrder({
   PersonalAccessTokenUpdateData.JSON_PROPERTY_ATTRIBUTES,
   PersonalAccessTokenUpdateData.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class PersonalAccessTokenUpdateData {
   }
 
   /**
-   * Attributes used to update a personal access token.
+   * Attributes used to update an access token.
    *
    * @return attributes
    */
@@ -78,7 +78,7 @@ public class PersonalAccessTokenUpdateData {
   }
 
   /**
-   * ID of the personal access token.
+   * ID of the access token.
    *
    * @return id
    */

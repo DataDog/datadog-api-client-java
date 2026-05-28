@@ -31,7 +31,7 @@ public class PersonalAccessTokenResponseMetaPage {
   }
 
   /**
-   * Total filtered personal access token count.
+   * Total filtered access token count.
    *
    * @return totalFilteredCount
    */

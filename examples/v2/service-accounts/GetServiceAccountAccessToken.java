@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ServiceAccountsApi;
-import com.datadog.api.client.v2.model.PersonalAccessTokenResponse;
+import com.datadog.api.client.v2.model.ServiceAccessTokenResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class Example {
         System.getenv("SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID");
 
     try {
-      PersonalAccessTokenResponse result =
+      ServiceAccessTokenResponse result =
           apiInstance.getServiceAccountAccessToken(
               SERVICE_ACCOUNT_USER_DATA_ID, SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID);
       System.out.println(result);

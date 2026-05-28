@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes used to create a personal access token. */
+/** Attributes used to create an access token. */
 @JsonPropertyOrder({
   PersonalAccessTokenCreateAttributes.JSON_PROPERTY_EXPIRES_AT,
   PersonalAccessTokenCreateAttributes.JSON_PROPERTY_NAME,
@@ -57,7 +57,7 @@ public class PersonalAccessTokenCreateAttributes {
   }
 
   /**
-   * Expiration date of the personal access token. Must be at least 24 hours in the future.
+   * Expiration date of the access token. Must be at least 24 hours in the future.
    *
    * @return expiresAt
    */
@@ -77,7 +77,7 @@ public class PersonalAccessTokenCreateAttributes {
   }
 
   /**
-   * Name of the personal access token.
+   * Name of the access token.
    *
    * @return name
    */
@@ -102,7 +102,7 @@ public class PersonalAccessTokenCreateAttributes {
   }
 
   /**
-   * Array of scopes to grant the personal access token.
+   * Array of scopes to grant the access token.
    *
    * @return scopes
    */
