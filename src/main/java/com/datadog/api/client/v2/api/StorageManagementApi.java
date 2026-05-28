@@ -45,6 +45,139 @@ public class StorageManagementApi {
   }
 
   /**
+   * Delete a Storage Management configuration.
+   *
+   * <p>See {@link #deleteSyncConfigWithHttpInfo}.
+   *
+   * @param id Unique identifier of the Storage Management configuration. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSyncConfig(String id) throws ApiException {
+    deleteSyncConfigWithHttpInfo(id);
+  }
+
+  /**
+   * Delete a Storage Management configuration.
+   *
+   * <p>See {@link #deleteSyncConfigWithHttpInfoAsync}.
+   *
+   * @param id Unique identifier of the Storage Management configuration. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSyncConfigAsync(String id) {
+    return deleteSyncConfigWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Storage Management configuration by its unique identifier. Deleting a configuration
+   * stops inventory file synchronization for the associated cloud account.
+   *
+   * @param id Unique identifier of the Storage Management configuration. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSyncConfigWithHttpInfo(String id) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling deleteSyncConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cloudinventoryservice/syncconfigs/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StorageManagementApi.deleteSyncConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Storage Management configuration.
+   *
+   * <p>See {@link #deleteSyncConfigWithHttpInfo}.
+   *
+   * @param id Unique identifier of the Storage Management configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteSyncConfigWithHttpInfoAsync(String id) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling deleteSyncConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cloudinventoryservice/syncconfigs/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StorageManagementApi.deleteSyncConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Enable Storage Management for a bucket.
    *
    * <p>See {@link #upsertSyncConfigWithHttpInfo}.
