@@ -20893,7 +20893,7 @@ public class SecurityMonitoringApi {
             new String[] {"application/json"},
             new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
-        "GET",
+        "POST",
         builder,
         localVarHeaderParams,
         new String[] {"application/json"},
@@ -20949,7 +20949,7 @@ public class SecurityMonitoringApi {
       return result;
     }
     return apiClient.invokeAPIAsync(
-        "GET",
+        "POST",
         builder,
         localVarHeaderParams,
         new String[] {"application/json"},
