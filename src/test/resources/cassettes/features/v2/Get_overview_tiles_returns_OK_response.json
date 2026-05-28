@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/eudm/overview",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"total\",\"type\":\"overview_items\",\"attributes\":{\"name\":\"total\",\"value\":0}},{\"id\":\"healthy\",\"type\":\"overview_items\",\"attributes\":{\"name\":\"healthy\",\"value\":0}},{\"id\":\"degraded\",\"type\":\"overview_items\",\"attributes\":{\"name\":\"degraded\",\"value\":0}},{\"id\":\"critical\",\"type\":\"overview_items\",\"attributes\":{\"name\":\"critical\",\"value\":0}},{\"id\":\"inactive\",\"type\":\"overview_items\",\"attributes\":{\"name\":\"inactive\",\"value\":0}},{\"id\":\"high-cpu\",\"type\":\"overview_items\",\"attributes\":{\"name\":\"high-cpu\",\"value\":0}},{\"id\":\"weak-wifi\",\"type\":\"overview_items\",\"attributes\":{\"name\":\"weak-wifi\",\"value\":0}},{\"id\":\"recent-restart\",\"type\":\"overview_items\",\"attributes\":{\"name\":\"recent-restart\",\"value\":0}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f6539e1f-ddc9-d726-dec9-a5892eca1322"
+  }
+]
