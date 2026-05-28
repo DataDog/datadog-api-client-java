@@ -25,6 +25,7 @@ import java.util.Objects;
   MaintenanceDataAttributes.JSON_PROPERTY_COMPLETED_DESCRIPTION,
   MaintenanceDataAttributes.JSON_PROPERTY_COMPONENTS_AFFECTED,
   MaintenanceDataAttributes.JSON_PROPERTY_IN_PROGRESS_DESCRIPTION,
+  MaintenanceDataAttributes.JSON_PROPERTY_IS_BACKFILLED,
   MaintenanceDataAttributes.JSON_PROPERTY_MODIFIED_AT,
   MaintenanceDataAttributes.JSON_PROPERTY_PUBLISHED_DATE,
   MaintenanceDataAttributes.JSON_PROPERTY_SCHEDULED_DESCRIPTION,
@@ -48,6 +49,9 @@ public class MaintenanceDataAttributes {
 
   public static final String JSON_PROPERTY_IN_PROGRESS_DESCRIPTION = "in_progress_description";
   private String inProgressDescription;
+
+  public static final String JSON_PROPERTY_IS_BACKFILLED = "is_backfilled";
+  private Boolean isBackfilled;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -167,6 +171,27 @@ public class MaintenanceDataAttributes {
 
   public void setInProgressDescription(String inProgressDescription) {
     this.inProgressDescription = inProgressDescription;
+  }
+
+  public MaintenanceDataAttributes isBackfilled(Boolean isBackfilled) {
+    this.isBackfilled = isBackfilled;
+    return this;
+  }
+
+  /**
+   * Whether the maintenance was backfilled.
+   *
+   * @return isBackfilled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_BACKFILLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsBackfilled() {
+    return isBackfilled;
+  }
+
+  public void setIsBackfilled(Boolean isBackfilled) {
+    this.isBackfilled = isBackfilled;
   }
 
   public MaintenanceDataAttributes modifiedAt(OffsetDateTime modifiedAt) {
@@ -394,6 +419,7 @@ public class MaintenanceDataAttributes {
         && Objects.equals(this.componentsAffected, maintenanceDataAttributes.componentsAffected)
         && Objects.equals(
             this.inProgressDescription, maintenanceDataAttributes.inProgressDescription)
+        && Objects.equals(this.isBackfilled, maintenanceDataAttributes.isBackfilled)
         && Objects.equals(this.modifiedAt, maintenanceDataAttributes.modifiedAt)
         && Objects.equals(this.publishedDate, maintenanceDataAttributes.publishedDate)
         && Objects.equals(this.scheduledDescription, maintenanceDataAttributes.scheduledDescription)
@@ -412,6 +438,7 @@ public class MaintenanceDataAttributes {
         completedDescription,
         componentsAffected,
         inProgressDescription,
+        isBackfilled,
         modifiedAt,
         publishedDate,
         scheduledDescription,
@@ -434,6 +461,7 @@ public class MaintenanceDataAttributes {
     sb.append("    inProgressDescription: ")
         .append(toIndentedString(inProgressDescription))
         .append("\n");
+    sb.append("    isBackfilled: ").append(toIndentedString(isBackfilled)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    publishedDate: ").append(toIndentedString(publishedDate)).append("\n");
     sb.append("    scheduledDescription: ")
