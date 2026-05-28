@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"color\":\"blue\",\"description\":\"Deployed v2.3.1 to production.\",\"page_id\":\"dashboard:abc-def-xyz\",\"start_time\":1704067200000,\"type\":\"pointInTime\"},\"type\":\"annotation\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/annotation",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"31d6c3c7-0519-49e3-bcdf-9b1c00530aea\",\"type\":\"annotation\",\"attributes\":{\"author_id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"color\":\"blue\",\"created_at\":1779913698075,\"description\":\"Deployed v2.3.1 to production.\",\"end_time\":null,\"modified_at\":1779913698075,\"page_id\":\"dashboard:abc-def-xyz\",\"start_time\":1704067200000,\"type\":\"pointInTime\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "78d2d116-1962-0348-cab7-4b6ac6482f5d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/annotation/page/dashboard%3Aabc-def-xyz",
+      "queryStringParameters": {
+        "start_time": [
+          "1704067200000"
+        ],
+        "end_time": [
+          "1704153600000"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"dashboard:abc-def-xyz\",\"type\":\"page_annotations\",\"attributes\":{\"annotations\":{\"31d6c3c7-0519-49e3-bcdf-9b1c00530aea\":{\"id\":\"31d6c3c7-0519-49e3-bcdf-9b1c00530aea\",\"page_id\":\"dashboard:abc-def-xyz\",\"description\":\"Deployed v2.3.1 to production.\",\"author_id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"type\":\"pointInTime\",\"color\":\"blue\",\"start_time\":1704067200000,\"end_time\":null,\"created_at\":1779913698075,\"modified_at\":1779913698075}},\"global_annotations\":[\"31d6c3c7-0519-49e3-bcdf-9b1c00530aea\"],\"widget_mapping\":{}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9c2adcfc-42a5-4620-5828-b96a64d32afe"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/annotation/31d6c3c7-0519-49e3-bcdf-9b1c00530aea",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9bc14556-316a-4681-6ec9-76ccd8b37c2b"
+  }
+]

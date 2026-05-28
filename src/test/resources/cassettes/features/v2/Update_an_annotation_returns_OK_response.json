@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"color\":\"blue\",\"description\":\"Deployed v2.3.1 to production.\",\"page_id\":\"dashboard:abc-def-xyz\",\"start_time\":1704067200000,\"type\":\"pointInTime\"},\"type\":\"annotation\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/annotation",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9f257ed0-87fb-42f8-9aaf-89397e766d15\",\"type\":\"annotation\",\"attributes\":{\"author_id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"color\":\"blue\",\"created_at\":1779913698596,\"description\":\"Deployed v2.3.1 to production.\",\"end_time\":null,\"modified_at\":1779913698596,\"page_id\":\"dashboard:abc-def-xyz\",\"start_time\":1704067200000,\"type\":\"pointInTime\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "78d2d116-1962-0348-cab7-4b6ac6482f5e"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"color\":\"green\",\"description\":\"Updated annotation.\",\"page_id\":\"dashboard:abc-def-xyz\",\"start_time\":1704067200000,\"type\":\"pointInTime\"},\"type\":\"annotation\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/annotation/9f257ed0-87fb-42f8-9aaf-89397e766d15",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9f257ed0-87fb-42f8-9aaf-89397e766d15\",\"type\":\"annotation\",\"attributes\":{\"author_id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"color\":\"green\",\"created_at\":1779913698596,\"description\":\"Updated annotation.\",\"end_time\":null,\"modified_at\":1779913698699,\"page_id\":\"dashboard:abc-def-xyz\",\"start_time\":1704067200000,\"type\":\"pointInTime\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8f22a55d-38d1-00f2-4cef-8270538b043d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/annotation/9f257ed0-87fb-42f8-9aaf-89397e766d15",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5c474a6d-dc03-a3f1-16d4-a9408d40ef9b"
+  }
+]

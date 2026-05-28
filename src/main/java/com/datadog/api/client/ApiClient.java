@@ -817,6 +817,11 @@ public class ApiClient {
           put("v2.updateLLMObsDatasetRecords", false);
           put("v2.updateLLMObsExperiment", false);
           put("v2.updateLLMObsProject", false);
+          put("v2.createAnnotation", false);
+          put("v2.deleteAnnotation", false);
+          put("v2.getPageAnnotations", false);
+          put("v2.listAnnotations", false);
+          put("v2.updateAnnotation", false);
           put("v2.anonymizeUsers", false);
           put("v2.validate", false);
           put("v2.createOpenAPI", false);
