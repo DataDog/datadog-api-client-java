@@ -774,6 +774,8 @@ public class ApiClient {
           put("v2.triggerFleetSchedule", false);
           put("v2.updateFleetSchedule", false);
           put("v2.aggregateLLMObsExperimentation", false);
+          put("v2.batchUpdateLLMObsDataset", false);
+          put("v2.cloneLLMObsDataset", false);
           put("v2.createLLMObsAnnotationQueue", false);
           put("v2.createLLMObsAnnotationQueueInteractions", false);
           put("v2.createLLMObsDataset", false);
@@ -790,6 +792,7 @@ public class ApiClient {
           put("v2.deleteLLMObsDatasets", false);
           put("v2.deleteLLMObsExperiments", false);
           put("v2.deleteLLMObsProjects", false);
+          put("v2.exportLLMObsDataset", false);
           put("v2.getLLMObsAnnotatedInteractions", false);
           put("v2.getLLMObsAnnotatedInteractionsByTraceIDs", false);
           put("v2.getLLMObsAnnotationQueueLabelSchema", false);
@@ -806,6 +809,7 @@ public class ApiClient {
           put("v2.listLLMObsProjects", false);
           put("v2.listLLMObsSpans", false);
           put("v2.lockLLMObsDatasetDraftState", false);
+          put("v2.restoreLLMObsDatasetVersion", false);
           put("v2.searchLLMObsExperimentation", false);
           put("v2.searchLLMObsSpans", false);
           put("v2.simpleSearchLLMObsExperimentation", false);
@@ -817,6 +821,7 @@ public class ApiClient {
           put("v2.updateLLMObsDatasetRecords", false);
           put("v2.updateLLMObsExperiment", false);
           put("v2.updateLLMObsProject", false);
+          put("v2.uploadLLMObsDatasetRecordsFile", false);
           put("v2.createAnnotation", false);
           put("v2.deleteAnnotation", false);
           put("v2.getPageAnnotations", false);
