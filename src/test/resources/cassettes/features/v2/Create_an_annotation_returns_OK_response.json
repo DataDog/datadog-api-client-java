@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"color\":\"blue\",\"description\":\"Deployed v2.3.1 to production.\",\"page_id\":\"dashboard:abc-def-xyz\",\"start_time\":1704067200000,\"type\":\"pointInTime\",\"widget_ids\":[\"1234567890\"]},\"type\":\"annotation\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/annotation",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2035c4df-a060-4466-93ec-9304a039bbed\",\"type\":\"annotation\",\"attributes\":{\"author_id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"color\":\"blue\",\"created_at\":1779913697490,\"description\":\"Deployed v2.3.1 to production.\",\"end_time\":null,\"modified_at\":1779913697490,\"page_id\":\"dashboard:abc-def-xyz\",\"start_time\":1704067200000,\"type\":\"pointInTime\",\"widget_ids\":[\"1234567890\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "28c73be2-3aca-8e5d-f4af-fa692930669b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/annotation/2035c4df-a060-4466-93ec-9304a039bbed",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c2485b12-f56f-d2be-7d10-6893dd25a809"
+  }
+]
