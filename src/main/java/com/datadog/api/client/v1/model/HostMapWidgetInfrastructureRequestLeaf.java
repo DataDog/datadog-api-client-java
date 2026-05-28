@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,41 +19,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Query definition for the host map widget. Supports two mutually exclusive formats distinguished
- * by the presence of <code>request_type</code>: the legacy metric-based format (<code>fill</code>/
- * <code>size</code>) and the infrastructure-backed format (<code>request_type</code>, <code>
- * node_type</code>, <code>enrichments</code>).
- */
+/** Infrastructure-backed host map child request (leaf node, no further nesting supported). */
 @JsonPropertyOrder({
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_CHILD,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_CONDITIONAL_FORMATS,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_ENRICHMENTS,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILL,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILTER,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_GROUP_BY,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_NO_GROUP_HOSTS,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_NO_METRIC_HOSTS,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_NODE_TYPE,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_REQUEST_TYPE,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_SIZE,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_STYLE
+  HostMapWidgetInfrastructureRequestLeaf.JSON_PROPERTY_CONDITIONAL_FORMATS,
+  HostMapWidgetInfrastructureRequestLeaf.JSON_PROPERTY_ENRICHMENTS,
+  HostMapWidgetInfrastructureRequestLeaf.JSON_PROPERTY_FILTER,
+  HostMapWidgetInfrastructureRequestLeaf.JSON_PROPERTY_GROUP_BY,
+  HostMapWidgetInfrastructureRequestLeaf.JSON_PROPERTY_NO_GROUP_HOSTS,
+  HostMapWidgetInfrastructureRequestLeaf.JSON_PROPERTY_NO_METRIC_HOSTS,
+  HostMapWidgetInfrastructureRequestLeaf.JSON_PROPERTY_NODE_TYPE,
+  HostMapWidgetInfrastructureRequestLeaf.JSON_PROPERTY_REQUEST_TYPE,
+  HostMapWidgetInfrastructureRequestLeaf.JSON_PROPERTY_STYLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HostMapWidgetDefinitionRequests {
+public class HostMapWidgetInfrastructureRequestLeaf {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CHILD = "child";
-  private HostMapWidgetInfrastructureRequest child;
-
   public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
   private List<WidgetConditionalFormat> conditionalFormats = null;
 
   public static final String JSON_PROPERTY_ENRICHMENTS = "enrichments";
-  private List<HostMapWidgetScalarRequest> enrichments = null;
-
-  public static final String JSON_PROPERTY_FILL = "fill";
-  private HostMapRequest fill;
+  private List<HostMapWidgetScalarRequest> enrichments = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FILTER = "filter";
   private String filter;
@@ -72,36 +59,27 @@ public class HostMapWidgetDefinitionRequests {
   public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
   private HostMapWidgetInfrastructureRequestRequestType requestType;
 
-  public static final String JSON_PROPERTY_SIZE = "size";
-  private HostMapRequest size;
-
   public static final String JSON_PROPERTY_STYLE = "style";
   private HostMapWidgetInfrastructureStyle style;
 
-  public HostMapWidgetDefinitionRequests child(HostMapWidgetInfrastructureRequest child) {
-    this.child = child;
-    this.unparsed |= child.unparsed;
-    return this;
+  public HostMapWidgetInfrastructureRequestLeaf() {}
+
+  @JsonCreator
+  public HostMapWidgetInfrastructureRequestLeaf(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENRICHMENTS)
+          List<HostMapWidgetScalarRequest> enrichments,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NODE_TYPE)
+          HostMapWidgetNodeType nodeType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST_TYPE)
+          HostMapWidgetInfrastructureRequestRequestType requestType) {
+    this.enrichments = enrichments;
+    this.nodeType = nodeType;
+    this.unparsed |= !nodeType.isValid();
+    this.requestType = requestType;
+    this.unparsed |= !requestType.isValid();
   }
 
-  /**
-   * Infrastructure-backed request for the host map widget. Supports entity-based visualization with
-   * metric query enrichments, tag-based filtering, flexible grouping, and hierarchical views.
-   *
-   * @return child
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHILD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HostMapWidgetInfrastructureRequest getChild() {
-    return child;
-  }
-
-  public void setChild(HostMapWidgetInfrastructureRequest child) {
-    this.child = child;
-  }
-
-  public HostMapWidgetDefinitionRequests conditionalFormats(
+  public HostMapWidgetInfrastructureRequestLeaf conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
     for (WidgetConditionalFormat item : conditionalFormats) {
@@ -110,7 +88,7 @@ public class HostMapWidgetDefinitionRequests {
     return this;
   }
 
-  public HostMapWidgetDefinitionRequests addConditionalFormatsItem(
+  public HostMapWidgetInfrastructureRequestLeaf addConditionalFormatsItem(
       WidgetConditionalFormat conditionalFormatsItem) {
     if (this.conditionalFormats == null) {
       this.conditionalFormats = new ArrayList<>();
@@ -136,7 +114,8 @@ public class HostMapWidgetDefinitionRequests {
     this.conditionalFormats = conditionalFormats;
   }
 
-  public HostMapWidgetDefinitionRequests enrichments(List<HostMapWidgetScalarRequest> enrichments) {
+  public HostMapWidgetInfrastructureRequestLeaf enrichments(
+      List<HostMapWidgetScalarRequest> enrichments) {
     this.enrichments = enrichments;
     for (HostMapWidgetScalarRequest item : enrichments) {
       this.unparsed |= item.unparsed;
@@ -144,11 +123,8 @@ public class HostMapWidgetDefinitionRequests {
     return this;
   }
 
-  public HostMapWidgetDefinitionRequests addEnrichmentsItem(
+  public HostMapWidgetInfrastructureRequestLeaf addEnrichmentsItem(
       HostMapWidgetScalarRequest enrichmentsItem) {
-    if (this.enrichments == null) {
-      this.enrichments = new ArrayList<>();
-    }
     this.enrichments.add(enrichmentsItem);
     this.unparsed |= enrichmentsItem.unparsed;
     return this;
@@ -159,9 +135,8 @@ public class HostMapWidgetDefinitionRequests {
    *
    * @return enrichments
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENRICHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<HostMapWidgetScalarRequest> getEnrichments() {
     return enrichments;
   }
@@ -170,29 +145,7 @@ public class HostMapWidgetDefinitionRequests {
     this.enrichments = enrichments;
   }
 
-  public HostMapWidgetDefinitionRequests fill(HostMapRequest fill) {
-    this.fill = fill;
-    this.unparsed |= fill.unparsed;
-    return this;
-  }
-
-  /**
-   * Updated host map.
-   *
-   * @return fill
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HostMapRequest getFill() {
-    return fill;
-  }
-
-  public void setFill(HostMapRequest fill) {
-    this.fill = fill;
-  }
-
-  public HostMapWidgetDefinitionRequests filter(String filter) {
+  public HostMapWidgetInfrastructureRequestLeaf filter(String filter) {
     this.filter = filter;
     return this;
   }
@@ -213,7 +166,7 @@ public class HostMapWidgetDefinitionRequests {
     this.filter = filter;
   }
 
-  public HostMapWidgetDefinitionRequests groupBy(List<HostMapWidgetGroupBy> groupBy) {
+  public HostMapWidgetInfrastructureRequestLeaf groupBy(List<HostMapWidgetGroupBy> groupBy) {
     this.groupBy = groupBy;
     for (HostMapWidgetGroupBy item : groupBy) {
       this.unparsed |= item.unparsed;
@@ -221,7 +174,7 @@ public class HostMapWidgetDefinitionRequests {
     return this;
   }
 
-  public HostMapWidgetDefinitionRequests addGroupByItem(HostMapWidgetGroupBy groupByItem) {
+  public HostMapWidgetInfrastructureRequestLeaf addGroupByItem(HostMapWidgetGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
     }
@@ -247,7 +200,7 @@ public class HostMapWidgetDefinitionRequests {
     this.groupBy = groupBy;
   }
 
-  public HostMapWidgetDefinitionRequests noGroupHosts(Boolean noGroupHosts) {
+  public HostMapWidgetInfrastructureRequestLeaf noGroupHosts(Boolean noGroupHosts) {
     this.noGroupHosts = noGroupHosts;
     return this;
   }
@@ -268,7 +221,7 @@ public class HostMapWidgetDefinitionRequests {
     this.noGroupHosts = noGroupHosts;
   }
 
-  public HostMapWidgetDefinitionRequests noMetricHosts(Boolean noMetricHosts) {
+  public HostMapWidgetInfrastructureRequestLeaf noMetricHosts(Boolean noMetricHosts) {
     this.noMetricHosts = noMetricHosts;
     return this;
   }
@@ -289,7 +242,7 @@ public class HostMapWidgetDefinitionRequests {
     this.noMetricHosts = noMetricHosts;
   }
 
-  public HostMapWidgetDefinitionRequests nodeType(HostMapWidgetNodeType nodeType) {
+  public HostMapWidgetInfrastructureRequestLeaf nodeType(HostMapWidgetNodeType nodeType) {
     this.nodeType = nodeType;
     this.unparsed |= !nodeType.isValid();
     return this;
@@ -300,9 +253,8 @@ public class HostMapWidgetDefinitionRequests {
    *
    * @return nodeType
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NODE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public HostMapWidgetNodeType getNodeType() {
     return nodeType;
   }
@@ -314,7 +266,7 @@ public class HostMapWidgetDefinitionRequests {
     this.nodeType = nodeType;
   }
 
-  public HostMapWidgetDefinitionRequests requestType(
+  public HostMapWidgetInfrastructureRequestLeaf requestType(
       HostMapWidgetInfrastructureRequestRequestType requestType) {
     this.requestType = requestType;
     this.unparsed |= !requestType.isValid();
@@ -326,9 +278,8 @@ public class HostMapWidgetDefinitionRequests {
    *
    * @return requestType
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public HostMapWidgetInfrastructureRequestRequestType getRequestType() {
     return requestType;
   }
@@ -340,29 +291,7 @@ public class HostMapWidgetDefinitionRequests {
     this.requestType = requestType;
   }
 
-  public HostMapWidgetDefinitionRequests size(HostMapRequest size) {
-    this.size = size;
-    this.unparsed |= size.unparsed;
-    return this;
-  }
-
-  /**
-   * Updated host map.
-   *
-   * @return size
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HostMapRequest getSize() {
-    return size;
-  }
-
-  public void setSize(HostMapRequest size) {
-    this.size = size;
-  }
-
-  public HostMapWidgetDefinitionRequests style(HostMapWidgetInfrastructureStyle style) {
+  public HostMapWidgetInfrastructureRequestLeaf style(HostMapWidgetInfrastructureStyle style) {
     this.style = style;
     this.unparsed |= style.unparsed;
     return this;
@@ -396,10 +325,10 @@ public class HostMapWidgetDefinitionRequests {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HostMapWidgetDefinitionRequests
+   * @return HostMapWidgetInfrastructureRequestLeaf
    */
   @JsonAnySetter
-  public HostMapWidgetDefinitionRequests putAdditionalProperty(String key, Object value) {
+  public HostMapWidgetInfrastructureRequestLeaf putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -430,7 +359,7 @@ public class HostMapWidgetDefinitionRequests {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HostMapWidgetDefinitionRequests object is equal to o. */
+  /** Return true if this HostMapWidgetInfrastructureRequestLeaf object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -439,39 +368,33 @@ public class HostMapWidgetDefinitionRequests {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HostMapWidgetDefinitionRequests hostMapWidgetDefinitionRequests =
-        (HostMapWidgetDefinitionRequests) o;
-    return Objects.equals(this.child, hostMapWidgetDefinitionRequests.child)
+    HostMapWidgetInfrastructureRequestLeaf hostMapWidgetInfrastructureRequestLeaf =
+        (HostMapWidgetInfrastructureRequestLeaf) o;
+    return Objects.equals(
+            this.conditionalFormats, hostMapWidgetInfrastructureRequestLeaf.conditionalFormats)
+        && Objects.equals(this.enrichments, hostMapWidgetInfrastructureRequestLeaf.enrichments)
+        && Objects.equals(this.filter, hostMapWidgetInfrastructureRequestLeaf.filter)
+        && Objects.equals(this.groupBy, hostMapWidgetInfrastructureRequestLeaf.groupBy)
+        && Objects.equals(this.noGroupHosts, hostMapWidgetInfrastructureRequestLeaf.noGroupHosts)
+        && Objects.equals(this.noMetricHosts, hostMapWidgetInfrastructureRequestLeaf.noMetricHosts)
+        && Objects.equals(this.nodeType, hostMapWidgetInfrastructureRequestLeaf.nodeType)
+        && Objects.equals(this.requestType, hostMapWidgetInfrastructureRequestLeaf.requestType)
+        && Objects.equals(this.style, hostMapWidgetInfrastructureRequestLeaf.style)
         && Objects.equals(
-            this.conditionalFormats, hostMapWidgetDefinitionRequests.conditionalFormats)
-        && Objects.equals(this.enrichments, hostMapWidgetDefinitionRequests.enrichments)
-        && Objects.equals(this.fill, hostMapWidgetDefinitionRequests.fill)
-        && Objects.equals(this.filter, hostMapWidgetDefinitionRequests.filter)
-        && Objects.equals(this.groupBy, hostMapWidgetDefinitionRequests.groupBy)
-        && Objects.equals(this.noGroupHosts, hostMapWidgetDefinitionRequests.noGroupHosts)
-        && Objects.equals(this.noMetricHosts, hostMapWidgetDefinitionRequests.noMetricHosts)
-        && Objects.equals(this.nodeType, hostMapWidgetDefinitionRequests.nodeType)
-        && Objects.equals(this.requestType, hostMapWidgetDefinitionRequests.requestType)
-        && Objects.equals(this.size, hostMapWidgetDefinitionRequests.size)
-        && Objects.equals(this.style, hostMapWidgetDefinitionRequests.style)
-        && Objects.equals(
-            this.additionalProperties, hostMapWidgetDefinitionRequests.additionalProperties);
+            this.additionalProperties, hostMapWidgetInfrastructureRequestLeaf.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        child,
         conditionalFormats,
         enrichments,
-        fill,
         filter,
         groupBy,
         noGroupHosts,
         noMetricHosts,
         nodeType,
         requestType,
-        size,
         style,
         additionalProperties);
   }
@@ -479,18 +402,15 @@ public class HostMapWidgetDefinitionRequests {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HostMapWidgetDefinitionRequests {\n");
-    sb.append("    child: ").append(toIndentedString(child)).append("\n");
+    sb.append("class HostMapWidgetInfrastructureRequestLeaf {\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    enrichments: ").append(toIndentedString(enrichments)).append("\n");
-    sb.append("    fill: ").append(toIndentedString(fill)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    noGroupHosts: ").append(toIndentedString(noGroupHosts)).append("\n");
     sb.append("    noMetricHosts: ").append(toIndentedString(noMetricHosts)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
