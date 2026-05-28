@@ -24,6 +24,7 @@ import java.util.Objects;
   DegradationDataAttributes.JSON_PROPERTY_COMPONENTS_AFFECTED,
   DegradationDataAttributes.JSON_PROPERTY_CREATED_AT,
   DegradationDataAttributes.JSON_PROPERTY_DESCRIPTION,
+  DegradationDataAttributes.JSON_PROPERTY_IS_BACKFILLED,
   DegradationDataAttributes.JSON_PROPERTY_MODIFIED_AT,
   DegradationDataAttributes.JSON_PROPERTY_SOURCE,
   DegradationDataAttributes.JSON_PROPERTY_STATUS,
@@ -42,6 +43,9 @@ public class DegradationDataAttributes {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_IS_BACKFILLED = "is_backfilled";
+  private Boolean isBackfilled;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -134,6 +138,27 @@ public class DegradationDataAttributes {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public DegradationDataAttributes isBackfilled(Boolean isBackfilled) {
+    this.isBackfilled = isBackfilled;
+    return this;
+  }
+
+  /**
+   * Whether the degradation was backfilled.
+   *
+   * @return isBackfilled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_BACKFILLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsBackfilled() {
+    return isBackfilled;
+  }
+
+  public void setIsBackfilled(Boolean isBackfilled) {
+    this.isBackfilled = isBackfilled;
   }
 
   public DegradationDataAttributes modifiedAt(OffsetDateTime modifiedAt) {
@@ -318,6 +343,7 @@ public class DegradationDataAttributes {
     return Objects.equals(this.componentsAffected, degradationDataAttributes.componentsAffected)
         && Objects.equals(this.createdAt, degradationDataAttributes.createdAt)
         && Objects.equals(this.description, degradationDataAttributes.description)
+        && Objects.equals(this.isBackfilled, degradationDataAttributes.isBackfilled)
         && Objects.equals(this.modifiedAt, degradationDataAttributes.modifiedAt)
         && Objects.equals(this.source, degradationDataAttributes.source)
         && Objects.equals(this.status, degradationDataAttributes.status)
@@ -333,6 +359,7 @@ public class DegradationDataAttributes {
         componentsAffected,
         createdAt,
         description,
+        isBackfilled,
         modifiedAt,
         source,
         status,
@@ -348,6 +375,7 @@ public class DegradationDataAttributes {
     sb.append("    componentsAffected: ").append(toIndentedString(componentsAffected)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    isBackfilled: ").append(toIndentedString(isBackfilled)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
