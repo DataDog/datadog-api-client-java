@@ -1126,6 +1126,8 @@ public class ApiClient {
           put("v2.queryEventFilteredUsers", false);
           put("v2.queryUsers", false);
           put("v2.updateConnection", false);
+          put("v2.getPrunedTraceByID", false);
+          put("v2.getTraceByID", false);
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.listEntityRiskScores", false);
           put("v2.createIncidentService", false);
