@@ -36,6 +36,8 @@ import com.datadog.api.client.v2.model.CostCurrencyResponse;
 import com.datadog.api.client.v2.model.CostMetricsResponse;
 import com.datadog.api.client.v2.model.CostOrchestratorsResponse;
 import com.datadog.api.client.v2.model.CostRecommendationArray;
+import com.datadog.api.client.v2.model.CostTagDescriptionResponse;
+import com.datadog.api.client.v2.model.CostTagDescriptionUpsertRequest;
 import com.datadog.api.client.v2.model.CostTagDescriptionsResponse;
 import com.datadog.api.client.v2.model.CostTagKeyMetadataResponse;
 import com.datadog.api.client.v2.model.CostTagKeyResponse;
@@ -54,6 +56,7 @@ import com.datadog.api.client.v2.model.GCPUsageCostConfigPostRequest;
 import com.datadog.api.client.v2.model.GCPUsageCostConfigResponse;
 import com.datadog.api.client.v2.model.GCPUsageCostConfigsResponse;
 import com.datadog.api.client.v2.model.GcpUcConfigResponse;
+import com.datadog.api.client.v2.model.GenerateCostTagDescriptionResponse;
 import com.datadog.api.client.v2.model.OCIConfigsResponse;
 import com.datadog.api.client.v2.model.RecommendationsFilterRequest;
 import com.datadog.api.client.v2.model.ReorderRuleResourceArray;
@@ -1336,6 +1339,209 @@ public class CloudCostManagementApi {
         null);
   }
 
+  /** Manage optional parameters to deleteCostTagDescriptionByKey. */
+  public static class DeleteCostTagDescriptionByKeyOptionalParameters {
+    private String cloud;
+
+    /**
+     * Set cloud.
+     *
+     * @param cloud Cloud provider to scope the deletion to (for example, <code>aws</code>). Omit to
+     *     delete every description for the tag key. (optional)
+     * @return DeleteCostTagDescriptionByKeyOptionalParameters
+     */
+    public DeleteCostTagDescriptionByKeyOptionalParameters cloud(String cloud) {
+      this.cloud = cloud;
+      return this;
+    }
+  }
+
+  /**
+   * Delete a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #deleteCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key whose description is being deleted. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteCostTagDescriptionByKey(String tagKey) throws ApiException {
+    deleteCostTagDescriptionByKeyWithHttpInfo(
+        tagKey, new DeleteCostTagDescriptionByKeyOptionalParameters());
+  }
+
+  /**
+   * Delete a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #deleteCostTagDescriptionByKeyWithHttpInfoAsync}.
+   *
+   * @param tagKey The tag key whose description is being deleted. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteCostTagDescriptionByKeyAsync(String tagKey) {
+    return deleteCostTagDescriptionByKeyWithHttpInfoAsync(
+            tagKey, new DeleteCostTagDescriptionByKeyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #deleteCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key whose description is being deleted. (required)
+   * @param parameters Optional parameters for the request.
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteCostTagDescriptionByKey(
+      String tagKey, DeleteCostTagDescriptionByKeyOptionalParameters parameters)
+      throws ApiException {
+    deleteCostTagDescriptionByKeyWithHttpInfo(tagKey, parameters);
+  }
+
+  /**
+   * Delete a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #deleteCostTagDescriptionByKeyWithHttpInfoAsync}.
+   *
+   * @param tagKey The tag key whose description is being deleted. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteCostTagDescriptionByKeyAsync(
+      String tagKey, DeleteCostTagDescriptionByKeyOptionalParameters parameters) {
+    return deleteCostTagDescriptionByKeyWithHttpInfoAsync(tagKey, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Cloud Cost Management tag key description. When <code>cloud</code> is omitted, deletes
+   * every description for the tag key, falling back to Datadog's global default when available.
+   * When <code>cloud</code> is provided, deletes only the description scoped to that cloud
+   * provider.
+   *
+   * @param tagKey The tag key whose description is being deleted. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteCostTagDescriptionByKeyWithHttpInfo(
+      String tagKey, DeleteCostTagDescriptionByKeyOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'tagKey' when calling deleteCostTagDescriptionByKey");
+    }
+    String cloud = parameters.cloud;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_descriptions/{tag_key}"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cloud", cloud));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.deleteCostTagDescriptionByKey",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #deleteCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key whose description is being deleted. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteCostTagDescriptionByKeyWithHttpInfoAsync(
+      String tagKey, DeleteCostTagDescriptionByKeyOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'tagKey' when calling"
+                  + " deleteCostTagDescriptionByKey"));
+      return result;
+    }
+    String cloud = parameters.cloud;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_descriptions/{tag_key}"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cloud", cloud));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.deleteCostTagDescriptionByKey",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
   /**
    * Delete custom allocation rule.
    *
@@ -1732,6 +1938,150 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Generate a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #generateCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key to generate an AI description for. (required)
+   * @return GenerateCostTagDescriptionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GenerateCostTagDescriptionResponse generateCostTagDescriptionByKey(String tagKey)
+      throws ApiException {
+    return generateCostTagDescriptionByKeyWithHttpInfo(tagKey).getData();
+  }
+
+  /**
+   * Generate a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #generateCostTagDescriptionByKeyWithHttpInfoAsync}.
+   *
+   * @param tagKey The tag key to generate an AI description for. (required)
+   * @return CompletableFuture&lt;GenerateCostTagDescriptionResponse&gt;
+   */
+  public CompletableFuture<GenerateCostTagDescriptionResponse> generateCostTagDescriptionByKeyAsync(
+      String tagKey) {
+    return generateCostTagDescriptionByKeyWithHttpInfoAsync(tagKey)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Use AI to draft a Cloud Cost Management tag key description based on associated cost data. The
+   * generated description is returned in the response and is not persisted by this endpoint; follow
+   * up with <code>UpsertCostTagDescriptionByKey</code> to save it.
+   *
+   * @param tagKey The tag key to generate an AI description for. (required)
+   * @return ApiResponse&lt;GenerateCostTagDescriptionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GenerateCostTagDescriptionResponse>
+      generateCostTagDescriptionByKeyWithHttpInfo(String tagKey) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'tagKey' when calling generateCostTagDescriptionByKey");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_descriptions/{tag_key}/generate"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.generateCostTagDescriptionByKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GenerateCostTagDescriptionResponse>() {});
+  }
+
+  /**
+   * Generate a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #generateCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key to generate an AI description for. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GenerateCostTagDescriptionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GenerateCostTagDescriptionResponse>>
+      generateCostTagDescriptionByKeyWithHttpInfoAsync(String tagKey) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      CompletableFuture<ApiResponse<GenerateCostTagDescriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'tagKey' when calling"
+                  + " generateCostTagDescriptionByKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_descriptions/{tag_key}/generate"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.generateCostTagDescriptionByKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GenerateCostTagDescriptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GenerateCostTagDescriptionResponse>() {});
   }
 
   /**
@@ -5078,6 +5428,211 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GcpUcConfigResponse>() {});
+  }
+
+  /** Manage optional parameters to getCostTagDescriptionByKey. */
+  public static class GetCostTagDescriptionByKeyOptionalParameters {
+    private String filterCloud;
+
+    /**
+     * Set filterCloud.
+     *
+     * @param filterCloud Cloud provider to scope the lookup to (for example, <code>aws</code>).
+     *     Omit to use the resolved fallback. (optional)
+     * @return GetCostTagDescriptionByKeyOptionalParameters
+     */
+    public GetCostTagDescriptionByKeyOptionalParameters filterCloud(String filterCloud) {
+      this.filterCloud = filterCloud;
+      return this;
+    }
+  }
+
+  /**
+   * Get a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #getCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key whose description is being fetched. (required)
+   * @return CostTagDescriptionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagDescriptionResponse getCostTagDescriptionByKey(String tagKey) throws ApiException {
+    return getCostTagDescriptionByKeyWithHttpInfo(
+            tagKey, new GetCostTagDescriptionByKeyOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #getCostTagDescriptionByKeyWithHttpInfoAsync}.
+   *
+   * @param tagKey The tag key whose description is being fetched. (required)
+   * @return CompletableFuture&lt;CostTagDescriptionResponse&gt;
+   */
+  public CompletableFuture<CostTagDescriptionResponse> getCostTagDescriptionByKeyAsync(
+      String tagKey) {
+    return getCostTagDescriptionByKeyWithHttpInfoAsync(
+            tagKey, new GetCostTagDescriptionByKeyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #getCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key whose description is being fetched. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostTagDescriptionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostTagDescriptionResponse getCostTagDescriptionByKey(
+      String tagKey, GetCostTagDescriptionByKeyOptionalParameters parameters) throws ApiException {
+    return getCostTagDescriptionByKeyWithHttpInfo(tagKey, parameters).getData();
+  }
+
+  /**
+   * Get a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #getCostTagDescriptionByKeyWithHttpInfoAsync}.
+   *
+   * @param tagKey The tag key whose description is being fetched. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostTagDescriptionResponse&gt;
+   */
+  public CompletableFuture<CostTagDescriptionResponse> getCostTagDescriptionByKeyAsync(
+      String tagKey, GetCostTagDescriptionByKeyOptionalParameters parameters) {
+    return getCostTagDescriptionByKeyWithHttpInfoAsync(tagKey, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the Cloud Cost Management description for a single tag key. Use <code>filter[cloud]</code>
+   * to scope the lookup to a specific cloud provider; when omitted, the response resolves the
+   * description in fallback order (cloud-specific organization override, then cloudless
+   * organization default, then Datadog's global default).
+   *
+   * @param tagKey The tag key whose description is being fetched. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostTagDescriptionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostTagDescriptionResponse> getCostTagDescriptionByKeyWithHttpInfo(
+      String tagKey, GetCostTagDescriptionByKeyOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'tagKey' when calling getCostTagDescriptionByKey");
+    }
+    String filterCloud = parameters.filterCloud;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_descriptions/{tag_key}"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[cloud]", filterCloud));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostTagDescriptionByKey",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagDescriptionResponse>() {});
+  }
+
+  /**
+   * Get a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #getCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key whose description is being fetched. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostTagDescriptionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostTagDescriptionResponse>>
+      getCostTagDescriptionByKeyWithHttpInfoAsync(
+          String tagKey, GetCostTagDescriptionByKeyOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      CompletableFuture<ApiResponse<CostTagDescriptionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'tagKey' when calling getCostTagDescriptionByKey"));
+      return result;
+    }
+    String filterCloud = parameters.filterCloud;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_descriptions/{tag_key}"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[cloud]", filterCloud));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostTagDescriptionByKey",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostTagDescriptionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostTagDescriptionResponse>() {});
   }
 
   /** Manage optional parameters to getCostTagKey. */
@@ -10852,6 +11407,167 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<BudgetWithEntries>() {});
+  }
+
+  /**
+   * Upsert a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #upsertCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key whose description is being upserted. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void upsertCostTagDescriptionByKey(String tagKey, CostTagDescriptionUpsertRequest body)
+      throws ApiException {
+    upsertCostTagDescriptionByKeyWithHttpInfo(tagKey, body);
+  }
+
+  /**
+   * Upsert a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #upsertCostTagDescriptionByKeyWithHttpInfoAsync}.
+   *
+   * @param tagKey The tag key whose description is being upserted. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> upsertCostTagDescriptionByKeyAsync(
+      String tagKey, CostTagDescriptionUpsertRequest body) {
+    return upsertCostTagDescriptionByKeyWithHttpInfoAsync(tagKey, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create or update a Cloud Cost Management tag key description. The new description and optional
+   * cloud scoping are supplied in the request body. Omit <code>cloud</code> to set a cross-cloud
+   * default for the tag key.
+   *
+   * @param tagKey The tag key whose description is being upserted. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> upsertCostTagDescriptionByKeyWithHttpInfo(
+      String tagKey, CostTagDescriptionUpsertRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'tagKey' when calling upsertCostTagDescriptionByKey");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling upsertCostTagDescriptionByKey");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_descriptions/{tag_key}"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.upsertCostTagDescriptionByKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Upsert a Cloud Cost Management tag description.
+   *
+   * <p>See {@link #upsertCostTagDescriptionByKeyWithHttpInfo}.
+   *
+   * @param tagKey The tag key whose description is being upserted. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> upsertCostTagDescriptionByKeyWithHttpInfoAsync(
+      String tagKey, CostTagDescriptionUpsertRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'tagKey' is set
+    if (tagKey == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'tagKey' when calling"
+                  + " upsertCostTagDescriptionByKey"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling upsertCostTagDescriptionByKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/tag_descriptions/{tag_key}"
+            .replaceAll("\\{" + "tag_key" + "\\}", apiClient.escapeString(tagKey.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.upsertCostTagDescriptionByKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
