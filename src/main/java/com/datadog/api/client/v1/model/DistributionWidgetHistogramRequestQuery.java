@@ -246,6 +246,58 @@ public class DistributionWidgetHistogramRequestQuery extends AbstractOpenApiSche
             e);
       }
 
+      // deserialize FormulaAndFunctionApmMetricsQueryDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Integer.class)
+            || FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Long.class)
+            || FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Float.class)
+            || FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Double.class)
+            || FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Boolean.class)
+            || FormulaAndFunctionApmMetricsQueryDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Integer.class)
+                        || FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Float.class)
+                        || FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (FormulaAndFunctionApmMetricsQueryDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (FormulaAndFunctionApmMetricsQueryDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(FormulaAndFunctionApmMetricsQueryDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((FormulaAndFunctionApmMetricsQueryDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'FormulaAndFunctionApmMetricsQueryDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'FormulaAndFunctionApmMetricsQueryDefinition'",
+            e);
+      }
+
       DistributionWidgetHistogramRequestQuery ret = new DistributionWidgetHistogramRequestQuery();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -292,6 +344,11 @@ public class DistributionWidgetHistogramRequestQuery extends AbstractOpenApiSche
     setActualInstance(o);
   }
 
+  public DistributionWidgetHistogramRequestQuery(FormulaAndFunctionApmMetricsQueryDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "FormulaAndFunctionMetricQueryDefinition",
@@ -302,6 +359,9 @@ public class DistributionWidgetHistogramRequestQuery extends AbstractOpenApiSche
     schemas.put(
         "FormulaAndFunctionApmResourceStatsQueryDefinition",
         new GenericType<FormulaAndFunctionApmResourceStatsQueryDefinition>() {});
+    schemas.put(
+        "FormulaAndFunctionApmMetricsQueryDefinition",
+        new GenericType<FormulaAndFunctionApmMetricsQueryDefinition>() {});
     JSON.registerDescendants(
         DistributionWidgetHistogramRequestQuery.class, Collections.unmodifiableMap(schemas));
   }
@@ -314,7 +374,8 @@ public class DistributionWidgetHistogramRequestQuery extends AbstractOpenApiSche
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: FormulaAndFunctionMetricQueryDefinition,
-   * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionApmResourceStatsQueryDefinition
+   * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionApmResourceStatsQueryDefinition,
+   * FormulaAndFunctionApmMetricsQueryDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -338,6 +399,11 @@ public class DistributionWidgetHistogramRequestQuery extends AbstractOpenApiSche
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        FormulaAndFunctionApmMetricsQueryDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -346,15 +412,18 @@ public class DistributionWidgetHistogramRequestQuery extends AbstractOpenApiSche
     throw new RuntimeException(
         "Invalid instance type. Must be FormulaAndFunctionMetricQueryDefinition,"
             + " FormulaAndFunctionEventQueryDefinition,"
-            + " FormulaAndFunctionApmResourceStatsQueryDefinition");
+            + " FormulaAndFunctionApmResourceStatsQueryDefinition,"
+            + " FormulaAndFunctionApmMetricsQueryDefinition");
   }
 
   /**
    * Get the actual instance, which can be the following: FormulaAndFunctionMetricQueryDefinition,
-   * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionApmResourceStatsQueryDefinition
+   * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionApmResourceStatsQueryDefinition,
+   * FormulaAndFunctionApmMetricsQueryDefinition
    *
    * @return The actual instance (FormulaAndFunctionMetricQueryDefinition,
-   *     FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionApmResourceStatsQueryDefinition)
+   *     FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionApmResourceStatsQueryDefinition,
+   *     FormulaAndFunctionApmMetricsQueryDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -397,5 +466,18 @@ public class DistributionWidgetHistogramRequestQuery extends AbstractOpenApiSche
   public FormulaAndFunctionApmResourceStatsQueryDefinition
       getFormulaAndFunctionApmResourceStatsQueryDefinition() throws ClassCastException {
     return (FormulaAndFunctionApmResourceStatsQueryDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FormulaAndFunctionApmMetricsQueryDefinition`. If the actual
+   * instance is not `FormulaAndFunctionApmMetricsQueryDefinition`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `FormulaAndFunctionApmMetricsQueryDefinition`
+   * @throws ClassCastException if the instance is not `FormulaAndFunctionApmMetricsQueryDefinition`
+   */
+  public FormulaAndFunctionApmMetricsQueryDefinition
+      getFormulaAndFunctionApmMetricsQueryDefinition() throws ClassCastException {
+    return (FormulaAndFunctionApmMetricsQueryDefinition) super.getActualInstance();
   }
 }
