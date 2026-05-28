@@ -20,25 +20,48 @@ import java.util.Objects;
 
 /** Query for selecting logs analyzed by the historical job. */
 @JsonPropertyOrder({
+  HistoricalJobQuery.JSON_PROPERTY_ADDITIONAL_FILTERS,
   HistoricalJobQuery.JSON_PROPERTY_AGGREGATION,
+  HistoricalJobQuery.JSON_PROPERTY_CORRELATED_BY_FIELDS,
+  HistoricalJobQuery.JSON_PROPERTY_CORRELATED_QUERY_INDEX,
+  HistoricalJobQuery.JSON_PROPERTY_CUSTOM_QUERY_EXTENSION,
   HistoricalJobQuery.JSON_PROPERTY_DATA_SOURCE,
+  HistoricalJobQuery.JSON_PROPERTY_DATASET_IDS,
   HistoricalJobQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   HistoricalJobQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
   HistoricalJobQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
+  HistoricalJobQuery.JSON_PROPERTY_INDEX,
+  HistoricalJobQuery.JSON_PROPERTY_INDEXES,
   HistoricalJobQuery.JSON_PROPERTY_METRICS,
   HistoricalJobQuery.JSON_PROPERTY_NAME,
-  HistoricalJobQuery.JSON_PROPERTY_QUERY
+  HistoricalJobQuery.JSON_PROPERTY_QUERY,
+  HistoricalJobQuery.JSON_PROPERTY_QUERY_LANGUAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HistoricalJobQuery {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDITIONAL_FILTERS = "additionalFilters";
+  private String additionalFilters;
+
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private SecurityMonitoringRuleQueryAggregation aggregation;
+
+  public static final String JSON_PROPERTY_CORRELATED_BY_FIELDS = "correlatedByFields";
+  private List<String> correlatedByFields = null;
+
+  public static final String JSON_PROPERTY_CORRELATED_QUERY_INDEX = "correlatedQueryIndex";
+  private Long correlatedQueryIndex;
+
+  public static final String JSON_PROPERTY_CUSTOM_QUERY_EXTENSION = "customQueryExtension";
+  private String customQueryExtension;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "dataSource";
   private SecurityMonitoringStandardDataSource dataSource =
       SecurityMonitoringStandardDataSource.LOGS;
+
+  public static final String JSON_PROPERTY_DATASET_IDS = "datasetIds";
+  private List<String> datasetIds = null;
 
   public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
   private List<String> distinctFields = null;
@@ -50,6 +73,12 @@ public class HistoricalJobQuery {
       "hasOptionalGroupByFields";
   private Boolean hasOptionalGroupByFields = false;
 
+  public static final String JSON_PROPERTY_INDEX = "index";
+  private String index;
+
+  public static final String JSON_PROPERTY_INDEXES = "indexes";
+  private List<String> indexes = null;
+
   public static final String JSON_PROPERTY_METRICS = "metrics";
   private List<String> metrics = null;
 
@@ -58,6 +87,30 @@ public class HistoricalJobQuery {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_QUERY_LANGUAGE = "queryLanguage";
+  private String queryLanguage;
+
+  public HistoricalJobQuery additionalFilters(String additionalFilters) {
+    this.additionalFilters = additionalFilters;
+    return this;
+  }
+
+  /**
+   * Additional filters appended to the query at evaluation time.
+   *
+   * @return additionalFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAdditionalFilters() {
+    return additionalFilters;
+  }
+
+  public void setAdditionalFilters(String additionalFilters) {
+    this.additionalFilters = additionalFilters;
+  }
 
   public HistoricalJobQuery aggregation(SecurityMonitoringRuleQueryAggregation aggregation) {
     this.aggregation = aggregation;
@@ -84,6 +137,78 @@ public class HistoricalJobQuery {
     this.aggregation = aggregation;
   }
 
+  public HistoricalJobQuery correlatedByFields(List<String> correlatedByFields) {
+    this.correlatedByFields = correlatedByFields;
+    return this;
+  }
+
+  public HistoricalJobQuery addCorrelatedByFieldsItem(String correlatedByFieldsItem) {
+    if (this.correlatedByFields == null) {
+      this.correlatedByFields = new ArrayList<>();
+    }
+    this.correlatedByFields.add(correlatedByFieldsItem);
+    return this;
+  }
+
+  /**
+   * Fields used to correlate results across queries in sequence detection rules.
+   *
+   * @return correlatedByFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CORRELATED_BY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCorrelatedByFields() {
+    return correlatedByFields;
+  }
+
+  public void setCorrelatedByFields(List<String> correlatedByFields) {
+    this.correlatedByFields = correlatedByFields;
+  }
+
+  public HistoricalJobQuery correlatedQueryIndex(Long correlatedQueryIndex) {
+    this.correlatedQueryIndex = correlatedQueryIndex;
+    return this;
+  }
+
+  /**
+   * Zero-based index of the query to correlate with in sequence detection rules. Up to 10 queries
+   * are supported, so valid values are 0 to 9. minimum: 0 maximum: 9
+   *
+   * @return correlatedQueryIndex
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CORRELATED_QUERY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCorrelatedQueryIndex() {
+    return correlatedQueryIndex;
+  }
+
+  public void setCorrelatedQueryIndex(Long correlatedQueryIndex) {
+    this.correlatedQueryIndex = correlatedQueryIndex;
+  }
+
+  public HistoricalJobQuery customQueryExtension(String customQueryExtension) {
+    this.customQueryExtension = customQueryExtension;
+    return this;
+  }
+
+  /**
+   * Custom query extension used to refine the base query.
+   *
+   * @return customQueryExtension
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_QUERY_EXTENSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomQueryExtension() {
+    return customQueryExtension;
+  }
+
+  public void setCustomQueryExtension(String customQueryExtension) {
+    this.customQueryExtension = customQueryExtension;
+  }
+
   public HistoricalJobQuery dataSource(SecurityMonitoringStandardDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -108,6 +233,35 @@ public class HistoricalJobQuery {
       this.unparsed = true;
     }
     this.dataSource = dataSource;
+  }
+
+  public HistoricalJobQuery datasetIds(List<String> datasetIds) {
+    this.datasetIds = datasetIds;
+    return this;
+  }
+
+  public HistoricalJobQuery addDatasetIdsItem(String datasetIdsItem) {
+    if (this.datasetIds == null) {
+      this.datasetIds = new ArrayList<>();
+    }
+    this.datasetIds.add(datasetIdsItem);
+    return this;
+  }
+
+  /**
+   * IDs of reference datasets used by this query.
+   *
+   * @return datasetIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATASET_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDatasetIds() {
+    return datasetIds;
+  }
+
+  public void setDatasetIds(List<String> datasetIds) {
+    this.datasetIds = datasetIds;
   }
 
   public HistoricalJobQuery distinctFields(List<String> distinctFields) {
@@ -190,6 +344,56 @@ public class HistoricalJobQuery {
     this.hasOptionalGroupByFields = hasOptionalGroupByFields;
   }
 
+  public HistoricalJobQuery index(String index) {
+    this.index = index;
+    return this;
+  }
+
+  /**
+   * Index used to load the data for this query.
+   *
+   * @return index
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIndex() {
+    return index;
+  }
+
+  public void setIndex(String index) {
+    this.index = index;
+  }
+
+  public HistoricalJobQuery indexes(List<String> indexes) {
+    this.indexes = indexes;
+    return this;
+  }
+
+  public HistoricalJobQuery addIndexesItem(String indexesItem) {
+    if (this.indexes == null) {
+      this.indexes = new ArrayList<>();
+    }
+    this.indexes.add(indexesItem);
+    return this;
+  }
+
+  /**
+   * Indexes used to load the data for this query. Mutually exclusive with <code>index</code>.
+   *
+   * @return indexes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIndexes() {
+    return indexes;
+  }
+
+  public void setIndexes(List<String> indexes) {
+    this.indexes = indexes;
+  }
+
   public HistoricalJobQuery metrics(List<String> metrics) {
     this.metrics = metrics;
     return this;
@@ -263,6 +467,27 @@ public class HistoricalJobQuery {
     this.query = query;
   }
 
+  public HistoricalJobQuery queryLanguage(String queryLanguage) {
+    this.queryLanguage = queryLanguage;
+    return this;
+  }
+
+  /**
+   * Language used to parse the query string.
+   *
+   * @return queryLanguage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQueryLanguage() {
+    return queryLanguage;
+  }
+
+  public void setQueryLanguage(String queryLanguage) {
+    this.queryLanguage = queryLanguage;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -319,29 +544,45 @@ public class HistoricalJobQuery {
       return false;
     }
     HistoricalJobQuery historicalJobQuery = (HistoricalJobQuery) o;
-    return Objects.equals(this.aggregation, historicalJobQuery.aggregation)
+    return Objects.equals(this.additionalFilters, historicalJobQuery.additionalFilters)
+        && Objects.equals(this.aggregation, historicalJobQuery.aggregation)
+        && Objects.equals(this.correlatedByFields, historicalJobQuery.correlatedByFields)
+        && Objects.equals(this.correlatedQueryIndex, historicalJobQuery.correlatedQueryIndex)
+        && Objects.equals(this.customQueryExtension, historicalJobQuery.customQueryExtension)
         && Objects.equals(this.dataSource, historicalJobQuery.dataSource)
+        && Objects.equals(this.datasetIds, historicalJobQuery.datasetIds)
         && Objects.equals(this.distinctFields, historicalJobQuery.distinctFields)
         && Objects.equals(this.groupByFields, historicalJobQuery.groupByFields)
         && Objects.equals(
             this.hasOptionalGroupByFields, historicalJobQuery.hasOptionalGroupByFields)
+        && Objects.equals(this.index, historicalJobQuery.index)
+        && Objects.equals(this.indexes, historicalJobQuery.indexes)
         && Objects.equals(this.metrics, historicalJobQuery.metrics)
         && Objects.equals(this.name, historicalJobQuery.name)
         && Objects.equals(this.query, historicalJobQuery.query)
+        && Objects.equals(this.queryLanguage, historicalJobQuery.queryLanguage)
         && Objects.equals(this.additionalProperties, historicalJobQuery.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
+        additionalFilters,
         aggregation,
+        correlatedByFields,
+        correlatedQueryIndex,
+        customQueryExtension,
         dataSource,
+        datasetIds,
         distinctFields,
         groupByFields,
         hasOptionalGroupByFields,
+        index,
+        indexes,
         metrics,
         name,
         query,
+        queryLanguage,
         additionalProperties);
   }
 
@@ -349,16 +590,28 @@ public class HistoricalJobQuery {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricalJobQuery {\n");
+    sb.append("    additionalFilters: ").append(toIndentedString(additionalFilters)).append("\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    correlatedByFields: ").append(toIndentedString(correlatedByFields)).append("\n");
+    sb.append("    correlatedQueryIndex: ")
+        .append(toIndentedString(correlatedQueryIndex))
+        .append("\n");
+    sb.append("    customQueryExtension: ")
+        .append(toIndentedString(customQueryExtension))
+        .append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
+    sb.append("    datasetIds: ").append(toIndentedString(datasetIds)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    hasOptionalGroupByFields: ")
         .append(toIndentedString(hasOptionalGroupByFields))
         .append("\n");
+    sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    queryLanguage: ").append(toIndentedString(queryLanguage)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

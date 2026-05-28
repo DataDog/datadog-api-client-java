@@ -21,7 +21,6 @@ import java.util.Objects;
 
 /** Attributes for converting historical job results to signals. */
 @JsonPropertyOrder({
-  ConvertJobResultsToSignalsAttributes.JSON_PROPERTY_ID,
   ConvertJobResultsToSignalsAttributes.JSON_PROPERTY_JOB_RESULT_IDS,
   ConvertJobResultsToSignalsAttributes.JSON_PROPERTY_NOTIFICATIONS,
   ConvertJobResultsToSignalsAttributes.JSON_PROPERTY_SIGNAL_MESSAGE,
@@ -31,9 +30,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ConvertJobResultsToSignalsAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
   public static final String JSON_PROPERTY_JOB_RESULT_IDS = "jobResultIds";
   private List<String> jobResultIds = new ArrayList<>();
 
@@ -62,27 +58,6 @@ public class ConvertJobResultsToSignalsAttributes {
     this.signalMessage = signalMessage;
     this.signalSeverity = signalSeverity;
     this.unparsed |= !signalSeverity.isValid();
-  }
-
-  public ConvertJobResultsToSignalsAttributes id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Request ID.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public ConvertJobResultsToSignalsAttributes jobResultIds(List<String> jobResultIds) {
@@ -237,8 +212,7 @@ public class ConvertJobResultsToSignalsAttributes {
     }
     ConvertJobResultsToSignalsAttributes convertJobResultsToSignalsAttributes =
         (ConvertJobResultsToSignalsAttributes) o;
-    return Objects.equals(this.id, convertJobResultsToSignalsAttributes.id)
-        && Objects.equals(this.jobResultIds, convertJobResultsToSignalsAttributes.jobResultIds)
+    return Objects.equals(this.jobResultIds, convertJobResultsToSignalsAttributes.jobResultIds)
         && Objects.equals(this.notifications, convertJobResultsToSignalsAttributes.notifications)
         && Objects.equals(this.signalMessage, convertJobResultsToSignalsAttributes.signalMessage)
         && Objects.equals(this.signalSeverity, convertJobResultsToSignalsAttributes.signalSeverity)
@@ -249,14 +223,13 @@ public class ConvertJobResultsToSignalsAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        id, jobResultIds, notifications, signalMessage, signalSeverity, additionalProperties);
+        jobResultIds, notifications, signalMessage, signalSeverity, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertJobResultsToSignalsAttributes {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    jobResultIds: ").append(toIndentedString(jobResultIds)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
     sb.append("    signalMessage: ").append(toIndentedString(signalMessage)).append("\n");

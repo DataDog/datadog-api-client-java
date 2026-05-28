@@ -152,7 +152,7 @@ public class JobDefinition {
   }
 
   /**
-   * Cases used for generating job results.
+   * Cases used for generating job results. Up to 10 cases are allowed.
    *
    * @return cases
    */
@@ -313,7 +313,7 @@ public class JobDefinition {
   }
 
   /**
-   * Queries for selecting logs analyzed by the job.
+   * Queries for selecting logs analyzed by the job. Up to 10 queries are allowed.
    *
    * @return queries
    */
@@ -411,7 +411,7 @@ public class JobDefinition {
 
   /**
    * Cases for generating results from third-party detection method. Only available for third-party
-   * detection method.
+   * detection method. Up to 10 cases are allowed.
    *
    * @return thirdPartyCases
    */

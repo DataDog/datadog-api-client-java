@@ -26,6 +26,7 @@ import java.util.Objects;
   HistoricalJobResponseAttributes.JSON_PROPERTY_JOB_NAME,
   HistoricalJobResponseAttributes.JSON_PROPERTY_JOB_STATUS,
   HistoricalJobResponseAttributes.JSON_PROPERTY_MODIFIED_AT,
+  HistoricalJobResponseAttributes.JSON_PROPERTY_PROGRESS_RATE,
   HistoricalJobResponseAttributes.JSON_PROPERTY_SIGNAL_OUTPUT
 })
 @jakarta.annotation.Generated(
@@ -55,6 +56,9 @@ public class HistoricalJobResponseAttributes {
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modifiedAt";
   private String modifiedAt;
+
+  public static final String JSON_PROPERTY_PROGRESS_RATE = "progressRate";
+  private Double progressRate;
 
   public static final String JSON_PROPERTY_SIGNAL_OUTPUT = "signalOutput";
   private Boolean signalOutput;
@@ -228,6 +232,27 @@ public class HistoricalJobResponseAttributes {
     this.modifiedAt = modifiedAt;
   }
 
+  public HistoricalJobResponseAttributes progressRate(Double progressRate) {
+    this.progressRate = progressRate;
+    return this;
+  }
+
+  /**
+   * Job execution progress as a value between 0 and 1. Available for ongoing jobs.
+   *
+   * @return progressRate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROGRESS_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getProgressRate() {
+    return progressRate;
+  }
+
+  public void setProgressRate(Double progressRate) {
+    this.progressRate = progressRate;
+  }
+
   public HistoricalJobResponseAttributes signalOutput(Boolean signalOutput) {
     this.signalOutput = signalOutput;
     return this;
@@ -314,6 +339,7 @@ public class HistoricalJobResponseAttributes {
         && Objects.equals(this.jobName, historicalJobResponseAttributes.jobName)
         && Objects.equals(this.jobStatus, historicalJobResponseAttributes.jobStatus)
         && Objects.equals(this.modifiedAt, historicalJobResponseAttributes.modifiedAt)
+        && Objects.equals(this.progressRate, historicalJobResponseAttributes.progressRate)
         && Objects.equals(this.signalOutput, historicalJobResponseAttributes.signalOutput)
         && Objects.equals(
             this.additionalProperties, historicalJobResponseAttributes.additionalProperties);
@@ -330,6 +356,7 @@ public class HistoricalJobResponseAttributes {
         jobName,
         jobStatus,
         modifiedAt,
+        progressRate,
         signalOutput,
         additionalProperties);
   }
@@ -346,6 +373,7 @@ public class HistoricalJobResponseAttributes {
     sb.append("    jobName: ").append(toIndentedString(jobName)).append("\n");
     sb.append("    jobStatus: ").append(toIndentedString(jobStatus)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    progressRate: ").append(toIndentedString(progressRate)).append("\n");
     sb.append("    signalOutput: ").append(toIndentedString(signalOutput)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
