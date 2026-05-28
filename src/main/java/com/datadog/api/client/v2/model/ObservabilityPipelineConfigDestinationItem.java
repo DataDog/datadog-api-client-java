@@ -1379,60 +1379,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             e);
       }
 
-      // deserialize ObservabilityPipelineSplunkHecMetricsDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineSplunkHecMetricsDestination.class.equals(Integer.class)
-            || ObservabilityPipelineSplunkHecMetricsDestination.class.equals(Long.class)
-            || ObservabilityPipelineSplunkHecMetricsDestination.class.equals(Float.class)
-            || ObservabilityPipelineSplunkHecMetricsDestination.class.equals(Double.class)
-            || ObservabilityPipelineSplunkHecMetricsDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineSplunkHecMetricsDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineSplunkHecMetricsDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineSplunkHecMetricsDestination.class.equals(
-                            Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineSplunkHecMetricsDestination.class.equals(Float.class)
-                        || ObservabilityPipelineSplunkHecMetricsDestination.class.equals(
-                            Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineSplunkHecMetricsDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineSplunkHecMetricsDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineSplunkHecMetricsDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineSplunkHecMetricsDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineSplunkHecMetricsDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineSplunkHecMetricsDestination'",
-            e);
-      }
-
       ObservabilityPipelineConfigDestinationItem ret =
           new ObservabilityPipelineConfigDestinationItem();
       if (match == 1) {
@@ -1599,12 +1545,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     setActualInstance(o);
   }
 
-  public ObservabilityPipelineConfigDestinationItem(
-      ObservabilityPipelineSplunkHecMetricsDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   static {
     schemas.put(
         "ObservabilityPipelineElasticsearchDestination",
@@ -1677,9 +1617,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     schemas.put(
         "ObservabilityPipelineDatadogMetricsDestination",
         new GenericType<ObservabilityPipelineDatadogMetricsDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineSplunkHecMetricsDestination",
-        new GenericType<ObservabilityPipelineSplunkHecMetricsDestination>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigDestinationItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -1705,8 +1642,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineSocketDestination,
    * ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
    * ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatabricksZerobusDestination,
-   * ObservabilityPipelineDatadogMetricsDestination,
-   * ObservabilityPipelineSplunkHecMetricsDestination
+   * ObservabilityPipelineDatadogMetricsDestination
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1846,13 +1782,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineSplunkHecMetricsDestination.class,
-        instance,
-        new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -1880,8 +1809,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             + " ObservabilityPipelineSumoLogicDestination,"
             + " ObservabilityPipelineSyslogNgDestination,"
             + " ObservabilityPipelineDatabricksZerobusDestination,"
-            + " ObservabilityPipelineDatadogMetricsDestination,"
-            + " ObservabilityPipelineSplunkHecMetricsDestination");
+            + " ObservabilityPipelineDatadogMetricsDestination");
   }
 
   /**
@@ -1900,8 +1828,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineSocketDestination,
    * ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
    * ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatabricksZerobusDestination,
-   * ObservabilityPipelineDatadogMetricsDestination,
-   * ObservabilityPipelineSplunkHecMetricsDestination
+   * ObservabilityPipelineDatadogMetricsDestination
    *
    * @return The actual instance (ObservabilityPipelineElasticsearchDestination,
    *     ObservabilityPipelineHttpClientDestination,
@@ -1920,8 +1847,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    *     ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
    *     ObservabilityPipelineSyslogNgDestination,
    *     ObservabilityPipelineDatabricksZerobusDestination,
-   *     ObservabilityPipelineDatadogMetricsDestination,
-   *     ObservabilityPipelineSplunkHecMetricsDestination)
+   *     ObservabilityPipelineDatadogMetricsDestination)
    */
   @Override
   public Object getActualInstance() {
@@ -2246,19 +2172,5 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   public ObservabilityPipelineDatadogMetricsDestination
       getObservabilityPipelineDatadogMetricsDestination() throws ClassCastException {
     return (ObservabilityPipelineDatadogMetricsDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineSplunkHecMetricsDestination`. If the actual
-   * instance is not `ObservabilityPipelineSplunkHecMetricsDestination`, the ClassCastException will
-   * be thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineSplunkHecMetricsDestination`
-   * @throws ClassCastException if the instance is not
-   *     `ObservabilityPipelineSplunkHecMetricsDestination`
-   */
-  public ObservabilityPipelineSplunkHecMetricsDestination
-      getObservabilityPipelineSplunkHecMetricsDestination() throws ClassCastException {
-    return (ObservabilityPipelineSplunkHecMetricsDestination) super.getActualInstance();
   }
 }
