@@ -19991,13 +19991,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<MuteFindingsResponse> muteSecurityFindingsWithHttpInfo(
       MuteFindingsRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "muteSecurityFindings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -20040,16 +20033,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<MuteFindingsResponse>> muteSecurityFindingsWithHttpInfoAsync(
       MuteFindingsRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "muteSecurityFindings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MuteFindingsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
