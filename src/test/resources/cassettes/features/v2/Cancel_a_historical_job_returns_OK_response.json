@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"67278df4-84b8-4413-884b-88d9facdb68a\",\"type\":\"historicalDetectionsJob\"}}",
+      "body": "{\"data\":{\"id\":\"21011d0e-e7e3-49e1-91d4-74d6791382c8\",\"type\":\"historicalDetectionsJob\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,7 +33,7 @@
     "httpRequest": {
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/siem-historical-detections/jobs/67278df4-84b8-4413-884b-88d9facdb68a/cancel",
+      "path": "/api/v2/siem-historical-detections/jobs/21011d0e-e7e3-49e1-91d4-74d6791382c8/cancel",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f7ee4604-982a-dbca-72d6-b8ad43fcc8d7"
+    "id": "d5626b8e-a248-3b30-220e-4d10f9d98c20"
   }
 ]

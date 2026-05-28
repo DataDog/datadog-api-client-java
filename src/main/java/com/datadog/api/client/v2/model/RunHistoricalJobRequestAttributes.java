@@ -19,8 +19,8 @@ import java.util.Objects;
 /** Run a historical job request. */
 @JsonPropertyOrder({
   RunHistoricalJobRequestAttributes.JSON_PROPERTY_FROM_RULE,
-  RunHistoricalJobRequestAttributes.JSON_PROPERTY_ID,
-  RunHistoricalJobRequestAttributes.JSON_PROPERTY_JOB_DEFINITION
+  RunHistoricalJobRequestAttributes.JSON_PROPERTY_JOB_DEFINITION,
+  RunHistoricalJobRequestAttributes.JSON_PROPERTY_SIGNAL_OUTPUT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -29,11 +29,11 @@ public class RunHistoricalJobRequestAttributes {
   public static final String JSON_PROPERTY_FROM_RULE = "fromRule";
   private JobDefinitionFromRule fromRule;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
   public static final String JSON_PROPERTY_JOB_DEFINITION = "jobDefinition";
   private JobDefinition jobDefinition;
+
+  public static final String JSON_PROPERTY_SIGNAL_OUTPUT = "signalOutput";
+  private Boolean signalOutput;
 
   public RunHistoricalJobRequestAttributes fromRule(JobDefinitionFromRule fromRule) {
     this.fromRule = fromRule;
@@ -57,27 +57,6 @@ public class RunHistoricalJobRequestAttributes {
     this.fromRule = fromRule;
   }
 
-  public RunHistoricalJobRequestAttributes id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Request ID.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
   public RunHistoricalJobRequestAttributes jobDefinition(JobDefinition jobDefinition) {
     this.jobDefinition = jobDefinition;
     this.unparsed |= jobDefinition.unparsed;
@@ -98,6 +77,27 @@ public class RunHistoricalJobRequestAttributes {
 
   public void setJobDefinition(JobDefinition jobDefinition) {
     this.jobDefinition = jobDefinition;
+  }
+
+  public RunHistoricalJobRequestAttributes signalOutput(Boolean signalOutput) {
+    this.signalOutput = signalOutput;
+    return this;
+  }
+
+  /**
+   * Whether the job outputs signals when results are converted.
+   *
+   * @return signalOutput
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNAL_OUTPUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSignalOutput() {
+    return signalOutput;
+  }
+
+  public void setSignalOutput(Boolean signalOutput) {
+    this.signalOutput = signalOutput;
   }
 
   /**
@@ -158,15 +158,15 @@ public class RunHistoricalJobRequestAttributes {
     RunHistoricalJobRequestAttributes runHistoricalJobRequestAttributes =
         (RunHistoricalJobRequestAttributes) o;
     return Objects.equals(this.fromRule, runHistoricalJobRequestAttributes.fromRule)
-        && Objects.equals(this.id, runHistoricalJobRequestAttributes.id)
         && Objects.equals(this.jobDefinition, runHistoricalJobRequestAttributes.jobDefinition)
+        && Objects.equals(this.signalOutput, runHistoricalJobRequestAttributes.signalOutput)
         && Objects.equals(
             this.additionalProperties, runHistoricalJobRequestAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fromRule, id, jobDefinition, additionalProperties);
+    return Objects.hash(fromRule, jobDefinition, signalOutput, additionalProperties);
   }
 
   @Override
@@ -174,8 +174,8 @@ public class RunHistoricalJobRequestAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunHistoricalJobRequestAttributes {\n");
     sb.append("    fromRule: ").append(toIndentedString(fromRule)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    jobDefinition: ").append(toIndentedString(jobDefinition)).append("\n");
+    sb.append("    signalOutput: ").append(toIndentedString(signalOutput)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

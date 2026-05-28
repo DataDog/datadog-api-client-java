@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Definition of a historical job based on a security monitoring rule. */
 @JsonPropertyOrder({
+  JobDefinitionFromRule.JSON_PROPERTY_CASE_INDEX,
   JobDefinitionFromRule.JSON_PROPERTY_FROM,
   JobDefinitionFromRule.JSON_PROPERTY_ID,
   JobDefinitionFromRule.JSON_PROPERTY_INDEX,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class JobDefinitionFromRule {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CASE_INDEX = "caseIndex";
+  private Integer caseIndex;
+
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
 
@@ -58,6 +62,28 @@ public class JobDefinitionFromRule {
     this.id = id;
     this.index = index;
     this.to = to;
+  }
+
+  public JobDefinitionFromRule caseIndex(Integer caseIndex) {
+    this.caseIndex = caseIndex;
+    return this;
+  }
+
+  /**
+   * Zero-based index of the rule case to use as the job's signal condition. When omitted, all cases
+   * are evaluated. Up to 10 cases are supported, so valid values are 0 to 9. minimum: 0 maximum: 9
+   *
+   * @return caseIndex
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CASE_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getCaseIndex() {
+    return caseIndex;
+  }
+
+  public void setCaseIndex(Integer caseIndex) {
+    this.caseIndex = caseIndex;
   }
 
   public JobDefinitionFromRule from(Long from) {
@@ -225,7 +251,8 @@ public class JobDefinitionFromRule {
       return false;
     }
     JobDefinitionFromRule jobDefinitionFromRule = (JobDefinitionFromRule) o;
-    return Objects.equals(this.from, jobDefinitionFromRule.from)
+    return Objects.equals(this.caseIndex, jobDefinitionFromRule.caseIndex)
+        && Objects.equals(this.from, jobDefinitionFromRule.from)
         && Objects.equals(this.id, jobDefinitionFromRule.id)
         && Objects.equals(this.index, jobDefinitionFromRule.index)
         && Objects.equals(this.notifications, jobDefinitionFromRule.notifications)
@@ -235,13 +262,14 @@ public class JobDefinitionFromRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, id, index, notifications, to, additionalProperties);
+    return Objects.hash(caseIndex, from, id, index, notifications, to, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobDefinitionFromRule {\n");
+    sb.append("    caseIndex: ").append(toIndentedString(caseIndex)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
