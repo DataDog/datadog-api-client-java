@@ -276,7 +276,10 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * List of definitions.
+   * Query definition for the host map widget. Supports two mutually exclusive formats distinguished
+   * by the presence of <code>request_type</code>: the legacy metric-based format (<code>fill</code>
+   * /<code>size</code>) and the infrastructure-backed format (<code>request_type</code>, <code>
+   * node_type</code>, <code>enrichments</code>).
    *
    * @return requests
    */
