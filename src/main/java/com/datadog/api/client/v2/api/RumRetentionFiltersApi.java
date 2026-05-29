@@ -4,6 +4,10 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.RumPermanentRetentionFilterID;
+import com.datadog.api.client.v2.model.RumPermanentRetentionFilterResponse;
+import com.datadog.api.client.v2.model.RumPermanentRetentionFilterUpdateRequest;
+import com.datadog.api.client.v2.model.RumPermanentRetentionFiltersResponse;
 import com.datadog.api.client.v2.model.RumRetentionFilterCreateRequest;
 import com.datadog.api.client.v2.model.RumRetentionFilterResponse;
 import com.datadog.api.client.v2.model.RumRetentionFilterUpdateRequest;
@@ -361,6 +365,177 @@ public class RumRetentionFiltersApi {
   }
 
   /**
+   * Get a permanent RUM retention filter.
+   *
+   * <p>See {@link #getPermanentRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @return RumPermanentRetentionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumPermanentRetentionFilterResponse getPermanentRetentionFilter(
+      String appId, RumPermanentRetentionFilterID permanentRfId) throws ApiException {
+    return getPermanentRetentionFilterWithHttpInfo(appId, permanentRfId).getData();
+  }
+
+  /**
+   * Get a permanent RUM retention filter.
+   *
+   * <p>See {@link #getPermanentRetentionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @return CompletableFuture&lt;RumPermanentRetentionFilterResponse&gt;
+   */
+  public CompletableFuture<RumPermanentRetentionFilterResponse> getPermanentRetentionFilterAsync(
+      String appId, RumPermanentRetentionFilterID permanentRfId) {
+    return getPermanentRetentionFilterWithHttpInfoAsync(appId, permanentRfId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a permanent RUM retention filter for a RUM application by its identifier.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @return ApiResponse&lt;RumPermanentRetentionFilterResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RumPermanentRetentionFilterResponse> getPermanentRetentionFilterWithHttpInfo(
+      String appId, RumPermanentRetentionFilterID permanentRfId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling getPermanentRetentionFilter");
+    }
+
+    // verify the required parameter 'permanentRfId' is set
+    if (permanentRfId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'permanentRfId' when calling"
+              + " getPermanentRetentionFilter");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll(
+                "\\{" + "permanent_rf_id" + "\\}",
+                apiClient.escapeString(permanentRfId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.getPermanentRetentionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFilterResponse>() {});
+  }
+
+  /**
+   * Get a permanent RUM retention filter.
+   *
+   * <p>See {@link #getPermanentRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RumPermanentRetentionFilterResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>>
+      getPermanentRetentionFilterWithHttpInfoAsync(
+          String appId, RumPermanentRetentionFilterID permanentRfId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'appId' when calling getPermanentRetentionFilter"));
+      return result;
+    }
+
+    // verify the required parameter 'permanentRfId' is set
+    if (permanentRfId == null) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'permanentRfId' when calling"
+                  + " getPermanentRetentionFilter"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll(
+                "\\{" + "permanent_rf_id" + "\\}",
+                apiClient.escapeString(permanentRfId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.getPermanentRetentionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFilterResponse>() {});
+  }
+
+  /**
    * Get a RUM retention filter.
    *
    * <p>See {@link #getRetentionFilterWithHttpInfo}.
@@ -516,6 +691,147 @@ public class RumRetentionFiltersApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<RumRetentionFilterResponse>() {});
+  }
+
+  /**
+   * Get all permanent RUM retention filters.
+   *
+   * <p>See {@link #listPermanentRetentionFiltersWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @return RumPermanentRetentionFiltersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumPermanentRetentionFiltersResponse listPermanentRetentionFilters(String appId)
+      throws ApiException {
+    return listPermanentRetentionFiltersWithHttpInfo(appId).getData();
+  }
+
+  /**
+   * Get all permanent RUM retention filters.
+   *
+   * <p>See {@link #listPermanentRetentionFiltersWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @return CompletableFuture&lt;RumPermanentRetentionFiltersResponse&gt;
+   */
+  public CompletableFuture<RumPermanentRetentionFiltersResponse> listPermanentRetentionFiltersAsync(
+      String appId) {
+    return listPermanentRetentionFiltersWithHttpInfoAsync(appId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of permanent RUM retention filters for a RUM application. Permanent retention
+   * filters are predefined filters that cannot be created or deleted. For each filter, the <code>
+   * editability</code> block indicates which cross-product fields can be updated.
+   *
+   * @param appId RUM application ID. (required)
+   * @return ApiResponse&lt;RumPermanentRetentionFiltersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RumPermanentRetentionFiltersResponse>
+      listPermanentRetentionFiltersWithHttpInfo(String appId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appId' when calling listPermanentRetentionFilters");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.listPermanentRetentionFilters",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFiltersResponse>() {});
+  }
+
+  /**
+   * Get all permanent RUM retention filters.
+   *
+   * <p>See {@link #listPermanentRetentionFiltersWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RumPermanentRetentionFiltersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RumPermanentRetentionFiltersResponse>>
+      listPermanentRetentionFiltersWithHttpInfoAsync(String appId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'appId' when calling listPermanentRetentionFilters"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.listPermanentRetentionFilters",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFiltersResponse>() {});
   }
 
   /**
@@ -812,6 +1128,214 @@ public class RumRetentionFiltersApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<RumRetentionFiltersOrderResponse>() {});
+  }
+
+  /**
+   * Update a permanent RUM retention filter.
+   *
+   * <p>See {@link #updatePermanentRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @param body New configuration of the permanent RUM retention filter. (required)
+   * @return RumPermanentRetentionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RumPermanentRetentionFilterResponse updatePermanentRetentionFilter(
+      String appId,
+      RumPermanentRetentionFilterID permanentRfId,
+      RumPermanentRetentionFilterUpdateRequest body)
+      throws ApiException {
+    return updatePermanentRetentionFilterWithHttpInfo(appId, permanentRfId, body).getData();
+  }
+
+  /**
+   * Update a permanent RUM retention filter.
+   *
+   * <p>See {@link #updatePermanentRetentionFilterWithHttpInfoAsync}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @param body New configuration of the permanent RUM retention filter. (required)
+   * @return CompletableFuture&lt;RumPermanentRetentionFilterResponse&gt;
+   */
+  public CompletableFuture<RumPermanentRetentionFilterResponse> updatePermanentRetentionFilterAsync(
+      String appId,
+      RumPermanentRetentionFilterID permanentRfId,
+      RumPermanentRetentionFilterUpdateRequest body) {
+    return updatePermanentRetentionFilterWithHttpInfoAsync(appId, permanentRfId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the cross-product sampling configuration of a permanent RUM retention filter for a RUM
+   * application. Only fields marked as editable in the <code>editability</code> block of the filter
+   * can be updated. Updating a non-editable field returns a <code>400</code> response.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @param body New configuration of the permanent RUM retention filter. (required)
+   * @return ApiResponse&lt;RumPermanentRetentionFilterResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RumPermanentRetentionFilterResponse>
+      updatePermanentRetentionFilterWithHttpInfo(
+          String appId,
+          RumPermanentRetentionFilterID permanentRfId,
+          RumPermanentRetentionFilterUpdateRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'appId' when calling updatePermanentRetentionFilter");
+    }
+
+    // verify the required parameter 'permanentRfId' is set
+    if (permanentRfId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'permanentRfId' when calling"
+              + " updatePermanentRetentionFilter");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updatePermanentRetentionFilter");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll(
+                "\\{" + "permanent_rf_id" + "\\}",
+                apiClient.escapeString(permanentRfId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RumRetentionFiltersApi.updatePermanentRetentionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFilterResponse>() {});
+  }
+
+  /**
+   * Update a permanent RUM retention filter.
+   *
+   * <p>See {@link #updatePermanentRetentionFilterWithHttpInfo}.
+   *
+   * @param appId RUM application ID. (required)
+   * @param permanentRfId The identifier of the permanent RUM retention filter. (required)
+   * @param body New configuration of the permanent RUM retention filter. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RumPermanentRetentionFilterResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>>
+      updatePermanentRetentionFilterWithHttpInfoAsync(
+          String appId,
+          RumPermanentRetentionFilterID permanentRfId,
+          RumPermanentRetentionFilterUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'appId' when calling"
+                  + " updatePermanentRetentionFilter"));
+      return result;
+    }
+
+    // verify the required parameter 'permanentRfId' is set
+    if (permanentRfId == null) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'permanentRfId' when calling"
+                  + " updatePermanentRetentionFilter"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updatePermanentRetentionFilter"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()))
+            .replaceAll(
+                "\\{" + "permanent_rf_id" + "\\}",
+                apiClient.escapeString(permanentRfId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RumRetentionFiltersApi.updatePermanentRetentionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RumPermanentRetentionFilterResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RumPermanentRetentionFilterResponse>() {});
   }
 
   /**
