@@ -30,7 +30,7 @@ public class ServiceAccountAccessTokenCreateData {
   private ServiceAccountAccessTokenCreateAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private PersonalAccessTokensType type = PersonalAccessTokensType.PERSONAL_ACCESS_TOKENS;
+  private ServiceAccessTokensType type = ServiceAccessTokensType.SERVICE_ACCESS_TOKENS;
 
   public ServiceAccountAccessTokenCreateData() {}
 
@@ -38,7 +38,7 @@ public class ServiceAccountAccessTokenCreateData {
   public ServiceAccountAccessTokenCreateData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           ServiceAccountAccessTokenCreateAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) PersonalAccessTokensType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ServiceAccessTokensType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.type = type;
@@ -67,24 +67,24 @@ public class ServiceAccountAccessTokenCreateData {
     this.attributes = attributes;
   }
 
-  public ServiceAccountAccessTokenCreateData type(PersonalAccessTokensType type) {
+  public ServiceAccountAccessTokenCreateData type(ServiceAccessTokensType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Personal access tokens resource type.
+   * Service access tokens resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public PersonalAccessTokensType getType() {
+  public ServiceAccessTokensType getType() {
     return type;
   }
 
-  public void setType(PersonalAccessTokensType type) {
+  public void setType(ServiceAccessTokensType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

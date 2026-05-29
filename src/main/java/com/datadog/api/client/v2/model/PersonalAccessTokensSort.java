@@ -24,7 +24,15 @@ public class PersonalAccessTokensSort extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("name", "-name", "created_at", "-created_at", "expires_at", "-expires_at"));
+          Arrays.asList(
+              "name",
+              "-name",
+              "created_at",
+              "-created_at",
+              "expires_at",
+              "-expires_at",
+              "last_used_at",
+              "-last_used_at"));
 
   public static final PersonalAccessTokensSort NAME_ASCENDING =
       new PersonalAccessTokensSort("name");
@@ -38,6 +46,10 @@ public class PersonalAccessTokensSort extends ModelEnum<String> {
       new PersonalAccessTokensSort("expires_at");
   public static final PersonalAccessTokensSort EXPIRES_AT_DESCENDING =
       new PersonalAccessTokensSort("-expires_at");
+  public static final PersonalAccessTokensSort LAST_USED_AT_ASCENDING =
+      new PersonalAccessTokensSort("last_used_at");
+  public static final PersonalAccessTokensSort LAST_USED_AT_DESCENDING =
+      new PersonalAccessTokensSort("-last_used_at");
 
   PersonalAccessTokensSort(String value) {
     super(value, allowedValues);

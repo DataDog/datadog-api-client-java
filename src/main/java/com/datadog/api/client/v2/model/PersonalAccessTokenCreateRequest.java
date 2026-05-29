@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request used to create a personal access token. */
+/** Request used to create an access token. */
 @JsonPropertyOrder({PersonalAccessTokenCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class PersonalAccessTokenCreateRequest {
   }
 
   /**
-   * Object used to create a personal access token.
+   * Object used to create an access token.
    *
    * @return data
    */

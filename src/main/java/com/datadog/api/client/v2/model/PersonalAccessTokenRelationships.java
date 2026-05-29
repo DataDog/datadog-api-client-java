@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Resources related to the personal access token. */
+/** Resources related to the access token. */
 @JsonPropertyOrder({PersonalAccessTokenRelationships.JSON_PROPERTY_OWNED_BY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

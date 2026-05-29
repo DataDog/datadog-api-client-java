@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Datadog personal access token, including the token key. */
+/** Datadog access token, including the token key. */
 @JsonPropertyOrder({
   FullPersonalAccessToken.JSON_PROPERTY_ATTRIBUTES,
   FullPersonalAccessToken.JSON_PROPERTY_ID,
@@ -46,7 +46,7 @@ public class FullPersonalAccessToken {
   }
 
   /**
-   * Attributes of a full personal access token, including the token key.
+   * Attributes of a full access token, including the token key.
    *
    * @return attributes
    */
@@ -67,7 +67,7 @@ public class FullPersonalAccessToken {
   }
 
   /**
-   * ID of the personal access token.
+   * ID of the access token.
    *
    * @return id
    */
@@ -89,7 +89,7 @@ public class FullPersonalAccessToken {
   }
 
   /**
-   * Resources related to the personal access token.
+   * Resources related to the access token.
    *
    * @return relationships
    */

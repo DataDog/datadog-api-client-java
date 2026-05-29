@@ -3,8 +3,8 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ServiceAccountsApi;
-import com.datadog.api.client.v2.model.PersonalAccessTokenCreateResponse;
-import com.datadog.api.client.v2.model.PersonalAccessTokensType;
+import com.datadog.api.client.v2.model.ServiceAccessTokenCreateResponse;
+import com.datadog.api.client.v2.model.ServiceAccessTokensType;
 import com.datadog.api.client.v2.model.ServiceAccountAccessTokenCreateAttributes;
 import com.datadog.api.client.v2.model.ServiceAccountAccessTokenCreateData;
 import com.datadog.api.client.v2.model.ServiceAccountAccessTokenCreateRequest;
@@ -22,14 +22,14 @@ public class Example {
         new ServiceAccountAccessTokenCreateRequest()
             .data(
                 new ServiceAccountAccessTokenCreateData()
-                    .type(PersonalAccessTokensType.PERSONAL_ACCESS_TOKENS)
+                    .type(ServiceAccessTokensType.SERVICE_ACCESS_TOKENS)
                     .attributes(
                         new ServiceAccountAccessTokenCreateAttributes()
                             .name("Example-Service-Account")
                             .scopes(Collections.singletonList("dashboards_read"))));
 
     try {
-      PersonalAccessTokenCreateResponse result =
+      ServiceAccessTokenCreateResponse result =
           apiInstance.createServiceAccountAccessToken(SERVICE_ACCOUNT_USER_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {

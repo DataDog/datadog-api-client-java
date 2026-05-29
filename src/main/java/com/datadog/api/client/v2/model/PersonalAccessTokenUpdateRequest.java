@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request used to update a personal access token. */
+/** Request used to update an access token. */
 @JsonPropertyOrder({PersonalAccessTokenUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class PersonalAccessTokenUpdateRequest {
   }
 
   /**
-   * Object used to update a personal access token.
+   * Object used to update an access token.
    *
    * @return data
    */

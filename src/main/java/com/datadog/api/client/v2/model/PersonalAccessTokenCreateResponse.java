@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for creating a personal access token. Includes the token key. */
+/** Response for creating an access token. Includes the token key. */
 @JsonPropertyOrder({PersonalAccessTokenCreateResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class PersonalAccessTokenCreateResponse {
   }
 
   /**
-   * Datadog personal access token, including the token key.
+   * Datadog access token, including the token key.
    *
    * @return data
    */

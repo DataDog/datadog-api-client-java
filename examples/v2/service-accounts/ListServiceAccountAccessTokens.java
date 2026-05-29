@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ServiceAccountsApi;
-import com.datadog.api.client.v2.model.ListPersonalAccessTokensResponse;
+import com.datadog.api.client.v2.model.ListServiceAccessTokensResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class Example {
     String SERVICE_ACCOUNT_USER_DATA_ID = System.getenv("SERVICE_ACCOUNT_USER_DATA_ID");
 
     try {
-      ListPersonalAccessTokensResponse result =
+      ListServiceAccessTokensResponse result =
           apiInstance.listServiceAccountAccessTokens(SERVICE_ACCOUNT_USER_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
