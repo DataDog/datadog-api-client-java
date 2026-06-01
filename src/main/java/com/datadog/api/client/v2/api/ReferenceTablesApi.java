@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.BatchUpsertRowsRequestArray;
 import com.datadog.api.client.v2.model.CreateTableRequest;
 import com.datadog.api.client.v2.model.CreateUploadRequest;
 import com.datadog.api.client.v2.model.CreateUploadResponse;
+import com.datadog.api.client.v2.model.ListRowsResponse;
 import com.datadog.api.client.v2.model.PatchTableRequest;
 import com.datadog.api.client.v2.model.ReferenceTableSortType;
 import com.datadog.api.client.v2.model.TableResultV2;
@@ -1029,6 +1030,226 @@ public class ReferenceTablesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TableResultV2>() {});
+  }
+
+  /** Manage optional parameters to listReferenceTableRows. */
+  public static class ListReferenceTableRowsOptionalParameters {
+    private Long pageLimit;
+    private String pageContinuationToken;
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Number of rows to return per page. Defaults to 100, maximum is 1000.
+     *     (optional, default to 100)
+     * @return ListReferenceTableRowsOptionalParameters
+     */
+    public ListReferenceTableRowsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageContinuationToken.
+     *
+     * @param pageContinuationToken Opaque cursor from the previous response's next link. Pass this
+     *     to retrieve the next page on the same consistent snapshot. (optional)
+     * @return ListReferenceTableRowsOptionalParameters
+     */
+    public ListReferenceTableRowsOptionalParameters pageContinuationToken(
+        String pageContinuationToken) {
+      this.pageContinuationToken = pageContinuationToken;
+      return this;
+    }
+  }
+
+  /**
+   * List rows.
+   *
+   * <p>See {@link #listReferenceTableRowsWithHttpInfo}.
+   *
+   * @param id Unique identifier of the reference table to list rows from. (required)
+   * @return ListRowsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListRowsResponse listReferenceTableRows(String id) throws ApiException {
+    return listReferenceTableRowsWithHttpInfo(id, new ListReferenceTableRowsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List rows.
+   *
+   * <p>See {@link #listReferenceTableRowsWithHttpInfoAsync}.
+   *
+   * @param id Unique identifier of the reference table to list rows from. (required)
+   * @return CompletableFuture&lt;ListRowsResponse&gt;
+   */
+  public CompletableFuture<ListRowsResponse> listReferenceTableRowsAsync(String id) {
+    return listReferenceTableRowsWithHttpInfoAsync(
+            id, new ListReferenceTableRowsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List rows.
+   *
+   * <p>See {@link #listReferenceTableRowsWithHttpInfo}.
+   *
+   * @param id Unique identifier of the reference table to list rows from. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ListRowsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListRowsResponse listReferenceTableRows(
+      String id, ListReferenceTableRowsOptionalParameters parameters) throws ApiException {
+    return listReferenceTableRowsWithHttpInfo(id, parameters).getData();
+  }
+
+  /**
+   * List rows.
+   *
+   * <p>See {@link #listReferenceTableRowsWithHttpInfoAsync}.
+   *
+   * @param id Unique identifier of the reference table to list rows from. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListRowsResponse&gt;
+   */
+  public CompletableFuture<ListRowsResponse> listReferenceTableRowsAsync(
+      String id, ListReferenceTableRowsOptionalParameters parameters) {
+    return listReferenceTableRowsWithHttpInfoAsync(id, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all rows in a reference table using cursor-based pagination. Pass the <code>
+   * page[continuation_token]</code> from the previous response to fetch the next page on the same
+   * consistent snapshot. Returns 400 for tables with more than 10,000,000 rows.
+   *
+   * @param id Unique identifier of the reference table to list rows from. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListRowsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListRowsResponse> listReferenceTableRowsWithHttpInfo(
+      String id, ListReferenceTableRowsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling listReferenceTableRows");
+    }
+    Long pageLimit = parameters.pageLimit;
+    String pageContinuationToken = parameters.pageContinuationToken;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/reference-tables/tables/{id}/rows/list"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "page[continuation_token]", pageContinuationToken));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ReferenceTablesApi.listReferenceTableRows",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListRowsResponse>() {});
+  }
+
+  /**
+   * List rows.
+   *
+   * <p>See {@link #listReferenceTableRowsWithHttpInfo}.
+   *
+   * @param id Unique identifier of the reference table to list rows from. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListRowsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListRowsResponse>> listReferenceTableRowsWithHttpInfoAsync(
+      String id, ListReferenceTableRowsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<ListRowsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling listReferenceTableRows"));
+      return result;
+    }
+    Long pageLimit = parameters.pageLimit;
+    String pageContinuationToken = parameters.pageContinuationToken;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/reference-tables/tables/{id}/rows/list"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "page[continuation_token]", pageContinuationToken));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ReferenceTablesApi.listReferenceTableRows",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListRowsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListRowsResponse>() {});
   }
 
   /** Manage optional parameters to listTables. */
