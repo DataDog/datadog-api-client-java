@@ -18,15 +18,15 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type */
+/** Resource type. */
 @JsonSerialize(using = SecurityEntityRiskScoreType.SecurityEntityRiskScoreTypeSerializer.class)
 public class SecurityEntityRiskScoreType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("security_entity_risk_score"));
+      new HashSet<String>(Arrays.asList("SecurityEntityRiskScore"));
 
   public static final SecurityEntityRiskScoreType SECURITY_ENTITY_RISK_SCORE =
-      new SecurityEntityRiskScoreType("security_entity_risk_score");
+      new SecurityEntityRiskScoreType("SecurityEntityRiskScore");
 
   SecurityEntityRiskScoreType(String value) {
     super(value, allowedValues);

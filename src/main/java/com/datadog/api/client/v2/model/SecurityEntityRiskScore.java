@@ -58,7 +58,7 @@ public class SecurityEntityRiskScore {
   }
 
   /**
-   * Attributes of an entity risk score
+   * Attributes of an entity risk score.
    *
    * @return attributes
    */
@@ -99,7 +99,7 @@ public class SecurityEntityRiskScore {
   }
 
   /**
-   * Resource type
+   * Resource type.
    *
    * @return type
    */
