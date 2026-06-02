@@ -21,7 +21,11 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Usage statistics for a dashboard. */
+/**
+ * Usage statistics for a dashboard. The <code>viewer</code> field and all view-count fields (<code>
+ * total_views</code>, <code>viewed_at</code>, <code>total_views_by_type</code>) are populated only
+ * when Real User Monitoring (RUM) is active for the org.
+ */
 @JsonPropertyOrder({
   DashboardUsageAttributes.JSON_PROPERTY_AUTHOR,
   DashboardUsageAttributes.JSON_PROPERTY_CREATED_AT,
@@ -304,7 +308,8 @@ public class DashboardUsageAttributes {
   }
 
   /**
-   * The total number of times the dashboard has been viewed.
+   * Total view count for the dashboard. Counts only views captured by Real User Monitoring (RUM);
+   * <code>0</code> in orgs without RUM.
    *
    * @return totalViews
    */
@@ -337,8 +342,9 @@ public class DashboardUsageAttributes {
   }
 
   /**
-   * View counts keyed by view type. Possible keys are <code>in_app</code>, <code>embed</code>,
-   * <code>public</code>, <code>shared</code>, <code>api</code>, and <code>unknown</code>.
+   * View counts keyed by view type (<code>in_app</code>, <code>embed</code>, <code>public</code>,
+   * <code>shared</code>, <code>api</code>, <code>unknown</code>). Counts only views captured by
+   * Real User Monitoring (RUM); empty in orgs without RUM.
    *
    * @return totalViewsByType
    */
@@ -369,7 +375,8 @@ public class DashboardUsageAttributes {
   }
 
   /**
-   * When the dashboard was most recently viewed.
+   * When the dashboard was most recently viewed. Populated only when Real User Monitoring (RUM) is
+   * active for the org; <code>null</code> in orgs without RUM.
    *
    * @return viewedAt
    */

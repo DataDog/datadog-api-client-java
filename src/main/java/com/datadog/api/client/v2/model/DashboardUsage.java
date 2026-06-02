@@ -58,7 +58,9 @@ public class DashboardUsage {
   }
 
   /**
-   * Usage statistics for a dashboard.
+   * Usage statistics for a dashboard. The <code>viewer</code> field and all view-count fields (
+   * <code>total_views</code>, <code>viewed_at</code>, <code>total_views_by_type</code>) are
+   * populated only when Real User Monitoring (RUM) is active for the org.
    *
    * @return attributes
    */

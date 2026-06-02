@@ -79,7 +79,8 @@ public class DashboardsApi {
 
   /**
    * Get usage statistics for a single dashboard. The response includes view counts, the most recent
-   * view and edit times, widget counts, and the dashboard quality score.
+   * view and edit times, widget counts, and the dashboard quality score. View-count fields depend
+   * on Real User Monitoring (RUM) and are <code>null</code> or <code>0</code> in orgs without RUM.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;DashboardUsageResponse&gt;
@@ -208,6 +209,8 @@ public class DashboardsApi {
   public static class ListDashboardsUsageOptionalParameters {
     private Long pageLimit;
     private Long pageOffset;
+    private String filterEditedBefore;
+    private String filterViewedBefore;
 
     /**
      * Set pageLimit.
@@ -229,6 +232,35 @@ public class DashboardsApi {
      */
     public ListDashboardsUsageOptionalParameters pageOffset(Long pageOffset) {
       this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set filterEditedBefore.
+     *
+     * @param filterEditedBefore Return only dashboards whose last edit (<code>edited_at</code>) is
+     *     strictly before this ISO 8601 timestamp (<code>edited_at &lt; value</code>; boundary
+     *     matches are excluded). Must include a timezone offset (for example, <code>Z</code> or
+     *     <code>+00:00</code>); naive timestamps return HTTP 400. (optional)
+     * @return ListDashboardsUsageOptionalParameters
+     */
+    public ListDashboardsUsageOptionalParameters filterEditedBefore(String filterEditedBefore) {
+      this.filterEditedBefore = filterEditedBefore;
+      return this;
+    }
+
+    /**
+     * Set filterViewedBefore.
+     *
+     * @param filterViewedBefore Return only dashboards whose most recent view (<code>viewed_at
+     *     </code>) is strictly before this ISO 8601 timestamp, including dashboards that have never
+     *     been viewed. Must include a timezone offset; naive timestamps return HTTP 400. Orgs
+     *     without Real User Monitoring (RUM) will see all dashboards returned by this filter.
+     *     (optional)
+     * @return ListDashboardsUsageOptionalParameters
+     */
+    public ListDashboardsUsageOptionalParameters filterViewedBefore(String filterViewedBefore) {
+      this.filterViewedBefore = filterViewedBefore;
       return this;
     }
   }
@@ -347,7 +379,10 @@ public class DashboardsApi {
 
   /**
    * Get paginated usage statistics for every dashboard in the caller's organization. Use <code>
-   * page[limit]</code> and <code>page[offset]</code> to walk the result set.
+   * page[limit]</code> and <code>page[offset]</code> to walk the result set. Use <code>
+   * filter[edited_before]</code> or <code>filter[viewed_before]</code> to narrow results by
+   * recency. View-count fields depend on Real User Monitoring (RUM) and are <code>null</code> or
+   * <code>0</code> in orgs without RUM.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListDashboardsUsageResponse&gt;
@@ -374,6 +409,8 @@ public class DashboardsApi {
     Object localVarPostBody = null;
     Long pageLimit = parameters.pageLimit;
     Long pageOffset = parameters.pageOffset;
+    String filterEditedBefore = parameters.filterEditedBefore;
+    String filterViewedBefore = parameters.filterViewedBefore;
     // create path and map variables
     String localVarPath = "/api/v2/dashboards/usage";
 
@@ -382,6 +419,10 @@ public class DashboardsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[edited_before]", filterEditedBefore));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[viewed_before]", filterViewedBefore));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -427,6 +468,8 @@ public class DashboardsApi {
     Object localVarPostBody = null;
     Long pageLimit = parameters.pageLimit;
     Long pageOffset = parameters.pageOffset;
+    String filterEditedBefore = parameters.filterEditedBefore;
+    String filterViewedBefore = parameters.filterViewedBefore;
     // create path and map variables
     String localVarPath = "/api/v2/dashboards/usage";
 
@@ -435,6 +478,10 @@ public class DashboardsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[edited_before]", filterEditedBefore));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[viewed_before]", filterViewedBefore));
 
     Invocation.Builder builder;
     try {
