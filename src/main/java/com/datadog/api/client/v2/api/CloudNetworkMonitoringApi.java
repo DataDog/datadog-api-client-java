@@ -51,6 +51,7 @@ public class CloudNetworkMonitoringApi {
     private Long to;
     private String groupBy;
     private String tags;
+    private String query;
     private Integer limit;
 
     /**
@@ -101,6 +102,18 @@ public class CloudNetworkMonitoringApi {
      */
     public GetAggregatedConnectionsOptionalParameters tags(String tags) {
       this.tags = tags;
+      return this;
+    }
+
+    /**
+     * Set query.
+     *
+     * @param query Free-form search query using AND/OR/NOT operators, wildcards, and parentheses.
+     *     When provided, takes precedence over the <code>tags</code> parameter. (optional)
+     * @return GetAggregatedConnectionsOptionalParameters
+     */
+    public GetAggregatedConnectionsOptionalParameters query(String query) {
+      this.query = query;
       return this;
     }
 
@@ -200,6 +213,7 @@ public class CloudNetworkMonitoringApi {
     Long to = parameters.to;
     String groupBy = parameters.groupBy;
     String tags = parameters.tags;
+    String query = parameters.query;
     Integer limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v2/network/connections/aggregate";
@@ -211,6 +225,7 @@ public class CloudNetworkMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_by", groupBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
     Invocation.Builder builder =
@@ -249,6 +264,7 @@ public class CloudNetworkMonitoringApi {
     Long to = parameters.to;
     String groupBy = parameters.groupBy;
     String tags = parameters.tags;
+    String query = parameters.query;
     Integer limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v2/network/connections/aggregate";
@@ -260,6 +276,7 @@ public class CloudNetworkMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_by", groupBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
     Invocation.Builder builder;
@@ -296,6 +313,7 @@ public class CloudNetworkMonitoringApi {
     private Long to;
     private String groupBy;
     private String tags;
+    private String query;
     private Integer limit;
 
     /**
@@ -348,6 +366,18 @@ public class CloudNetworkMonitoringApi {
      */
     public GetAggregatedDnsOptionalParameters tags(String tags) {
       this.tags = tags;
+      return this;
+    }
+
+    /**
+     * Set query.
+     *
+     * @param query Free-form search query using AND/OR/NOT operators, wildcards, and parentheses.
+     *     When provided, takes precedence over the <code>tags</code> parameter. (optional)
+     * @return GetAggregatedDnsOptionalParameters
+     */
+    public GetAggregatedDnsOptionalParameters query(String query) {
+      this.query = query;
       return this;
     }
 
@@ -444,6 +474,7 @@ public class CloudNetworkMonitoringApi {
     Long to = parameters.to;
     String groupBy = parameters.groupBy;
     String tags = parameters.tags;
+    String query = parameters.query;
     Integer limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v2/network/dns/aggregate";
@@ -455,6 +486,7 @@ public class CloudNetworkMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_by", groupBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
     Invocation.Builder builder =
@@ -492,6 +524,7 @@ public class CloudNetworkMonitoringApi {
     Long to = parameters.to;
     String groupBy = parameters.groupBy;
     String tags = parameters.tags;
+    String query = parameters.query;
     Integer limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v2/network/dns/aggregate";
@@ -503,6 +536,7 @@ public class CloudNetworkMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_by", groupBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
     Invocation.Builder builder;
