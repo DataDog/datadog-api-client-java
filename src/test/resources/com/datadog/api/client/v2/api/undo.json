@@ -2443,6 +2443,36 @@
       "type": "idempotent"
     }
   },
+  "GetEUDMDevices": {
+    "tag": "End User Device Monitoring",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetEUDMDevice": {
+    "tag": "End User Device Monitoring",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetEUDMGraph": {
+    "tag": "End User Device Monitoring",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetEUDMIssues": {
+    "tag": "End User Device Monitoring",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetEUDMOverview": {
+    "tag": "End User Device Monitoring",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "ListEvents": {
     "tag": "Events",
     "undo": {

@@ -1,0 +1,33 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/eudm/graph",
+      "queryStringParameters": {
+        "by": [
+          "os"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"macOS\",\"type\":\"graph_items\",\"attributes\":{\"type\":\"macOS\",\"counts\":[{\"columnName\":\"total\",\"count\":18},{\"columnName\":\"healthy\",\"count\":9},{\"columnName\":\"degraded\",\"count\":4},{\"columnName\":\"critical\",\"count\":1},{\"columnName\":\"inactive\",\"count\":4}]}},{\"id\":\"Windows\",\"type\":\"graph_items\",\"attributes\":{\"type\":\"Windows\",\"counts\":[{\"columnName\":\"total\",\"count\":112},{\"columnName\":\"healthy\",\"count\":48},{\"columnName\":\"degraded\",\"count\":17},{\"columnName\":\"critical\",\"count\":5},{\"columnName\":\"inactive\",\"count\":42}]}},{\"id\":\"linux\",\"type\":\"graph_items\",\"attributes\":{\"type\":\"linux\",\"counts\":[{\"columnName\":\"total\",\"count\":7},{\"columnName\":\"healthy\",\"count\":6},{\"columnName\":\"degraded\",\"count\":0},{\"columnName\":\"critical\",\"count\":0},{\"columnName\":\"inactive\",\"count\":1}]}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d8169dcd-e737-7609-0e00-40763385627b"
+  }
+]
