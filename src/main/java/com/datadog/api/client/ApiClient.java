@@ -1182,6 +1182,7 @@ public class ApiClient {
           put("v2.revertCustomRuleRevision", false);
           put("v2.updateAiCustomRuleset", false);
           put("v2.updateCustomRuleset", false);
+          put("v2.getWidgetsFromImage", false);
           put("v2.addMemberTeam", false);
           put("v2.listMemberTeams", false);
           put("v2.removeMemberTeam", false);
