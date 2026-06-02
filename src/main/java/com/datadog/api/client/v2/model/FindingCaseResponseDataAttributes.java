@@ -34,6 +34,7 @@ import java.util.Objects;
   FindingCaseResponseDataAttributes.JSON_PROPERTY_KEY,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_MODIFIED_AT,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_PRIORITY,
+  FindingCaseResponseDataAttributes.JSON_PROPERTY_SERVICENOW_TICKET,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_STATUS,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_STATUS_GROUP,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_STATUS_NAME,
@@ -82,6 +83,9 @@ public class FindingCaseResponseDataAttributes {
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private String priority;
+
+  public static final String JSON_PROPERTY_SERVICENOW_TICKET = "servicenow_ticket";
+  private FindingServiceNowTicket servicenowTicket;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -394,6 +398,29 @@ public class FindingCaseResponseDataAttributes {
     this.priority = priority;
   }
 
+  public FindingCaseResponseDataAttributes servicenowTicket(
+      FindingServiceNowTicket servicenowTicket) {
+    this.servicenowTicket = servicenowTicket;
+    this.unparsed |= servicenowTicket.unparsed;
+    return this;
+  }
+
+  /**
+   * ServiceNow ticket associated with the case.
+   *
+   * @return servicenowTicket
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICENOW_TICKET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FindingServiceNowTicket getServicenowTicket() {
+    return servicenowTicket;
+  }
+
+  public void setServicenowTicket(FindingServiceNowTicket servicenowTicket) {
+    this.servicenowTicket = servicenowTicket;
+  }
+
   public FindingCaseResponseDataAttributes status(String status) {
     this.status = status;
     return this;
@@ -569,6 +596,7 @@ public class FindingCaseResponseDataAttributes {
         && Objects.equals(this.key, findingCaseResponseDataAttributes.key)
         && Objects.equals(this.modifiedAt, findingCaseResponseDataAttributes.modifiedAt)
         && Objects.equals(this.priority, findingCaseResponseDataAttributes.priority)
+        && Objects.equals(this.servicenowTicket, findingCaseResponseDataAttributes.servicenowTicket)
         && Objects.equals(this.status, findingCaseResponseDataAttributes.status)
         && Objects.equals(this.statusGroup, findingCaseResponseDataAttributes.statusGroup)
         && Objects.equals(this.statusName, findingCaseResponseDataAttributes.statusName)
@@ -594,6 +622,7 @@ public class FindingCaseResponseDataAttributes {
         key,
         modifiedAt,
         priority,
+        servicenowTicket,
         status,
         statusGroup,
         statusName,
@@ -619,6 +648,7 @@ public class FindingCaseResponseDataAttributes {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    servicenowTicket: ").append(toIndentedString(servicenowTicket)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusGroup: ").append(toIndentedString(statusGroup)).append("\n");
     sb.append("    statusName: ").append(toIndentedString(statusName)).append("\n");
