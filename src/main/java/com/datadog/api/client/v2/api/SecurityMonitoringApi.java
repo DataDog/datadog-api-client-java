@@ -8,8 +8,11 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AnalysisRequest;
 import com.datadog.api.client.v2.model.AnalysisResponse;
 import com.datadog.api.client.v2.model.AssetType;
+import com.datadog.api.client.v2.model.AssigneeRequest;
+import com.datadog.api.client.v2.model.AssigneeResponse;
 import com.datadog.api.client.v2.model.AttachCaseRequest;
 import com.datadog.api.client.v2.model.AttachJiraIssueRequest;
+import com.datadog.api.client.v2.model.AttachServiceNowTicketRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
 import com.datadog.api.client.v2.model.CloudAssetType;
@@ -19,6 +22,7 @@ import com.datadog.api.client.v2.model.CreateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestArray;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
+import com.datadog.api.client.v2.model.CreateServiceNowTicketRequestArray;
 import com.datadog.api.client.v2.model.DefaultRulesetsPerLanguageResponse;
 import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
@@ -619,6 +623,161 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.attachJiraIssue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Attach security findings to a ServiceNow ticket.
+   *
+   * <p>See {@link #attachServiceNowTicketWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FindingCaseResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponse attachServiceNowTicket(AttachServiceNowTicketRequest body)
+      throws ApiException {
+    return attachServiceNowTicketWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Attach security findings to a ServiceNow ticket.
+   *
+   * <p>See {@link #attachServiceNowTicketWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponse&gt;
+   */
+  public CompletableFuture<FindingCaseResponse> attachServiceNowTicketAsync(
+      AttachServiceNowTicketRequest body) {
+    return attachServiceNowTicketWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Attach security findings to a ServiceNow ticket by providing the ServiceNow ticket URL. You can
+   * attach up to 50 security findings per ServiceNow ticket. If the ServiceNow ticket is not linked
+   * to any case, this operation will create a case for the security findings and link the
+   * ServiceNow ticket to the newly created case. Security findings that are already attached to
+   * another ServiceNow ticket will be detached from their previous ServiceNow ticket and attached
+   * to the specified ServiceNow ticket.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponse> attachServiceNowTicketWithHttpInfo(
+      AttachServiceNowTicketRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "attachServiceNowTicket";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling attachServiceNowTicket");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.attachServiceNowTicket",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Attach security findings to a ServiceNow ticket.
+   *
+   * <p>See {@link #attachServiceNowTicketWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponse>>
+      attachServiceNowTicketWithHttpInfoAsync(AttachServiceNowTicketRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "attachServiceNowTicket";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling attachServiceNowTicket"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.attachServiceNowTicket",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -4279,6 +4438,161 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
+   * Create ServiceNow tickets for security findings.
+   *
+   * <p>See {@link #createServiceNowTicketsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FindingCaseResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponseArray createServiceNowTickets(CreateServiceNowTicketRequestArray body)
+      throws ApiException {
+    return createServiceNowTicketsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create ServiceNow tickets for security findings.
+   *
+   * <p>See {@link #createServiceNowTicketsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponseArray&gt;
+   */
+  public CompletableFuture<FindingCaseResponseArray> createServiceNowTicketsAsync(
+      CreateServiceNowTicketRequestArray body) {
+    return createServiceNowTicketsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create ServiceNow tickets for security findings. This operation creates a case in Datadog and a
+   * ServiceNow ticket linked to that case for bidirectional sync between Datadog and ServiceNow.
+   * You can create up to 50 ServiceNow tickets per request and associate up to 50 security findings
+   * per ServiceNow ticket. Security findings that are already attached to another ServiceNow ticket
+   * will be detached from their previous ServiceNow ticket and attached to the newly created
+   * ServiceNow ticket.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponseArray> createServiceNowTicketsWithHttpInfo(
+      CreateServiceNowTicketRequestArray body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createServiceNowTickets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createServiceNowTickets");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createServiceNowTickets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
+  }
+
+  /**
+   * Create ServiceNow tickets for security findings.
+   *
+   * <p>See {@link #createServiceNowTicketsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponseArray>>
+      createServiceNowTicketsWithHttpInfoAsync(CreateServiceNowTicketRequestArray body) {
+    // Check if unstable operation is enabled
+    String operationId = "createServiceNowTickets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createServiceNowTickets"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createServiceNowTickets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
   }
 
   /**
@@ -21810,6 +22124,158 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UpdateCustomFrameworkResponse>() {});
+  }
+
+  /**
+   * Assign or unassign security findings.
+   *
+   * <p>See {@link #updateFindingsAssigneeWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return AssigneeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AssigneeResponse updateFindingsAssignee(AssigneeRequest body) throws ApiException {
+    return updateFindingsAssigneeWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Assign or unassign security findings.
+   *
+   * <p>See {@link #updateFindingsAssigneeWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;AssigneeResponse&gt;
+   */
+  public CompletableFuture<AssigneeResponse> updateFindingsAssigneeAsync(AssigneeRequest body) {
+    return updateFindingsAssigneeWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Assign or unassign security findings. You can assign up to 100 security findings per request.
+   * Set <code>assignee_id</code> to the unique identifier of the Datadog user you want to assign
+   * the findings to. Omit <code>assignee_id</code> (or set it to <code>null</code>) to unassign the
+   * findings. Per-finding warnings and failures are returned in the response <code>meta</code>
+   * object.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;AssigneeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AssigneeResponse> updateFindingsAssigneeWithHttpInfo(AssigneeRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateFindingsAssignee";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateFindingsAssignee");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/assignee";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateFindingsAssignee",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AssigneeResponse>() {});
+  }
+
+  /**
+   * Assign or unassign security findings.
+   *
+   * <p>See {@link #updateFindingsAssigneeWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AssigneeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AssigneeResponse>> updateFindingsAssigneeWithHttpInfoAsync(
+      AssigneeRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateFindingsAssignee";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AssigneeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AssigneeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateFindingsAssignee"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/assignee";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateFindingsAssignee",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AssigneeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AssigneeResponse>() {});
   }
 
   /**
