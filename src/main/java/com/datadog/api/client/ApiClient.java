@@ -1137,6 +1137,7 @@ public class ApiClient {
           put("v2.queryAggregatedSignalsProblems", false);
           put("v2.queryAggregatedWaterfall", false);
           put("v2.createScorecardOutcomesBatch", false);
+          put("v2.getEntityRiskScore", false);
           put("v2.listEntityRiskScores", false);
           put("v2.createIncidentService", false);
           put("v2.deleteIncidentService", false);

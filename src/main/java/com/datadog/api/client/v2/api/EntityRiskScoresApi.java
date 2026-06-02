@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.SecurityEntityRiskScoreResponse;
 import com.datadog.api.client.v2.model.SecurityEntityRiskScoresResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -42,6 +43,165 @@ public class EntityRiskScoresApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Get Entity Risk Score.
+   *
+   * <p>See {@link #getEntityRiskScoreWithHttpInfo}.
+   *
+   * @param entityId The URL-encoded unique identifier for the entity. (required)
+   * @return SecurityEntityRiskScoreResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityEntityRiskScoreResponse getEntityRiskScore(String entityId) throws ApiException {
+    return getEntityRiskScoreWithHttpInfo(entityId).getData();
+  }
+
+  /**
+   * Get Entity Risk Score.
+   *
+   * <p>See {@link #getEntityRiskScoreWithHttpInfoAsync}.
+   *
+   * @param entityId The URL-encoded unique identifier for the entity. (required)
+   * @return CompletableFuture&lt;SecurityEntityRiskScoreResponse&gt;
+   */
+  public CompletableFuture<SecurityEntityRiskScoreResponse> getEntityRiskScoreAsync(
+      String entityId) {
+    return getEntityRiskScoreWithHttpInfoAsync(entityId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the risk score for a specific entity by its ID. Returns security risk assessment including
+   * risk score, severity, detected signals, misconfigurations, and identity risks.
+   *
+   * @param entityId The URL-encoded unique identifier for the entity. (required)
+   * @return ApiResponse&lt;SecurityEntityRiskScoreResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityEntityRiskScoreResponse> getEntityRiskScoreWithHttpInfo(
+      String entityId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getEntityRiskScore";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'entityId' is set
+    if (entityId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'entityId' when calling getEntityRiskScore");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security-entities/risk-scores/{entity_id}"
+            .replaceAll("\\{" + "entity_id" + "\\}", apiClient.escapeString(entityId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.EntityRiskScoresApi.getEntityRiskScore",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityEntityRiskScoreResponse>() {});
+  }
+
+  /**
+   * Get Entity Risk Score.
+   *
+   * <p>See {@link #getEntityRiskScoreWithHttpInfo}.
+   *
+   * @param entityId The URL-encoded unique identifier for the entity. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityEntityRiskScoreResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityEntityRiskScoreResponse>>
+      getEntityRiskScoreWithHttpInfoAsync(String entityId) {
+    // Check if unstable operation is enabled
+    String operationId = "getEntityRiskScore";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityEntityRiskScoreResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'entityId' is set
+    if (entityId == null) {
+      CompletableFuture<ApiResponse<SecurityEntityRiskScoreResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'entityId' when calling getEntityRiskScore"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security-entities/risk-scores/{entity_id}"
+            .replaceAll("\\{" + "entity_id" + "\\}", apiClient.escapeString(entityId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.EntityRiskScoresApi.getEntityRiskScore",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityEntityRiskScoreResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityEntityRiskScoreResponse>() {});
   }
 
   /** Manage optional parameters to listEntityRiskScores. */
