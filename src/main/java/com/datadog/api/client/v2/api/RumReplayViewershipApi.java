@@ -47,7 +47,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * Create rum replay session watch.
+   * Create RUM replay session watch.
    *
    * <p>See {@link #createRumReplaySessionWatchWithHttpInfo}.
    *
@@ -61,7 +61,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * Create rum replay session watch.
+   * Create RUM replay session watch.
    *
    * <p>See {@link #createRumReplaySessionWatchWithHttpInfoAsync}.
    *
@@ -136,7 +136,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * Create rum replay session watch.
+   * Create RUM replay session watch.
    *
    * <p>See {@link #createRumReplaySessionWatchWithHttpInfo}.
    *
@@ -203,7 +203,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * Delete rum replay session watch.
+   * Delete RUM replay session watch.
    *
    * <p>See {@link #deleteRumReplaySessionWatchWithHttpInfo}.
    *
@@ -215,7 +215,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * Delete rum replay session watch.
+   * Delete RUM replay session watch.
    *
    * <p>See {@link #deleteRumReplaySessionWatchWithHttpInfoAsync}.
    *
@@ -282,7 +282,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * Delete rum replay session watch.
+   * Delete RUM replay session watch.
    *
    * <p>See {@link #deleteRumReplaySessionWatchWithHttpInfo}.
    *
@@ -366,7 +366,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay session watchers.
+   * List RUM replay session watchers.
    *
    * <p>See {@link #listRumReplaySessionWatchersWithHttpInfo}.
    *
@@ -381,7 +381,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay session watchers.
+   * List RUM replay session watchers.
    *
    * <p>See {@link #listRumReplaySessionWatchersWithHttpInfoAsync}.
    *
@@ -398,7 +398,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay session watchers.
+   * List RUM replay session watchers.
    *
    * <p>See {@link #listRumReplaySessionWatchersWithHttpInfo}.
    *
@@ -414,7 +414,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay session watchers.
+   * List RUM replay session watchers.
    *
    * <p>See {@link #listRumReplaySessionWatchersWithHttpInfoAsync}.
    *
@@ -491,7 +491,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay session watchers.
+   * List RUM replay session watchers.
    *
    * <p>See {@link #listRumReplaySessionWatchersWithHttpInfo}.
    *
@@ -648,7 +648,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay viewership history sessions.
+   * List RUM replay viewership history sessions.
    *
    * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfo}.
    *
@@ -663,7 +663,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay viewership history sessions.
+   * List RUM replay viewership history sessions.
    *
    * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfoAsync}.
    *
@@ -680,7 +680,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay viewership history sessions.
+   * List RUM replay viewership history sessions.
    *
    * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfo}.
    *
@@ -694,7 +694,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay viewership history sessions.
+   * List RUM replay viewership history sessions.
    *
    * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfoAsync}.
    *
@@ -776,7 +776,7 @@ public class RumReplayViewershipApi {
   }
 
   /**
-   * List rum replay viewership history sessions.
+   * List RUM replay viewership history sessions.
    *
    * <p>See {@link #listRumReplayViewershipHistorySessionsWithHttpInfo}.
    *

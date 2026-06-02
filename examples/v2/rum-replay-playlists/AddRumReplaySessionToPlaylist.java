@@ -1,4 +1,4 @@
-// Add rum replay session to playlist returns "OK" response
+// Add RUM replay session to playlist returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

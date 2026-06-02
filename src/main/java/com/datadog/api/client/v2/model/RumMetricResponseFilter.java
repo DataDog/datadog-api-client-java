@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The rum-based metric filter. RUM events matching this filter will be aggregated in this metric.
+ * The RUM-based metric filter. RUM events matching this filter will be aggregated in this metric.
  */
 @JsonPropertyOrder({RumMetricResponseFilter.JSON_PROPERTY_QUERY})
 @jakarta.annotation.Generated(

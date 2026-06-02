@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The compute rule to compute the rum-based metric. */
+/** The compute rule to compute the RUM-based metric. */
 @JsonPropertyOrder({
   RumMetricCompute.JSON_PROPERTY_AGGREGATION_TYPE,
   RumMetricCompute.JSON_PROPERTY_INCLUDE_PERCENTILES,
@@ -98,7 +98,7 @@ public class RumMetricCompute {
   }
 
   /**
-   * The path to the value the rum-based metric will aggregate on. Only present when <code>
+   * The path to the value the RUM-based metric will aggregate on. Only present when <code>
    * aggregation_type</code> is <code>distribution</code>.
    *
    * @return path

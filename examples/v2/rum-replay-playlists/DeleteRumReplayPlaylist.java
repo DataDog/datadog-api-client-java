@@ -1,4 +1,4 @@
-// Delete rum replay playlist returns "No Content" response
+// Delete RUM replay playlist returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

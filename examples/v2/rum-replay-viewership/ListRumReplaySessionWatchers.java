@@ -1,4 +1,4 @@
-// List rum replay session watchers returns "OK" response
+// List RUM replay session watchers returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

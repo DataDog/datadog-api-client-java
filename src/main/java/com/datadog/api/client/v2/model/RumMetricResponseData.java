@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The rum-based metric properties. */
+/** The RUM-based metric properties. */
 @JsonPropertyOrder({
   RumMetricResponseData.JSON_PROPERTY_ATTRIBUTES,
   RumMetricResponseData.JSON_PROPERTY_ID,
@@ -42,7 +42,7 @@ public class RumMetricResponseData {
   }
 
   /**
-   * The object describing a Datadog rum-based metric.
+   * The object describing a Datadog RUM-based metric.
    *
    * @return attributes
    */
@@ -63,7 +63,7 @@ public class RumMetricResponseData {
   }
 
   /**
-   * The name of the rum-based metric.
+   * The name of the RUM-based metric.
    *
    * @return id
    */
