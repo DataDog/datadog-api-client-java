@@ -2115,6 +2115,9 @@ public class MonitorsApi {
   /**
    * Validate the monitor provided in the request.
    *
+   * <p><strong>Note</strong>: Log monitors require an unscoped App Key and <code>logs_read_data
+   * </code> permission.
+   *
    * @param monitorId The ID of the monitor (required)
    * @param body Monitor request object (required)
    * @return ApiResponse&lt;Object&gt;
@@ -2268,7 +2271,8 @@ public class MonitorsApi {
   /**
    * Validate the monitor provided in the request.
    *
-   * <p><strong>Note</strong>: Log monitors require an unscoped App Key.
+   * <p><strong>Note</strong>: Log monitors require an unscoped App Key and <code>logs_read_data
+   * </code> permission.
    *
    * @param body Monitor request object (required)
    * @return ApiResponse&lt;Object&gt;
