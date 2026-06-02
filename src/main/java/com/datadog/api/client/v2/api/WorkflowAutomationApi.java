@@ -3,21 +3,25 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CreateWorkflowRequest;
 import com.datadog.api.client.v2.model.CreateWorkflowResponse;
 import com.datadog.api.client.v2.model.GetWorkflowResponse;
+import com.datadog.api.client.v2.model.ListWorkflowsResponse;
 import com.datadog.api.client.v2.model.UpdateWorkflowRequest;
 import com.datadog.api.client.v2.model.UpdateWorkflowResponse;
 import com.datadog.api.client.v2.model.WorkflowInstanceCreateRequest;
 import com.datadog.api.client.v2.model.WorkflowInstanceCreateResponse;
 import com.datadog.api.client.v2.model.WorkflowListInstancesResponse;
+import com.datadog.api.client.v2.model.WorkflowListItem;
 import com.datadog.api.client.v2.model.WorklflowCancelInstanceResponse;
 import com.datadog.api.client.v2.model.WorklflowGetInstanceResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -1201,6 +1205,348 @@ public class WorkflowAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<WorkflowListInstancesResponse>() {});
+  }
+
+  /** Manage optional parameters to listWorkflows. */
+  public static class ListWorkflowsOptionalParameters {
+    private Long limit;
+    private Long page;
+    private String sort;
+    private String filterQuery;
+    private List<String> filterTriggerType;
+    private Boolean filterIncludeUnpublished;
+    private Boolean filterIncludeSpecs;
+
+    /**
+     * Set limit.
+     *
+     * @param limit The maximum number of workflows to return per page. (optional, default to 50)
+     * @return ListWorkflowsOptionalParameters
+     */
+    public ListWorkflowsOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set page.
+     *
+     * @param page The page number to return, starting from 0. (optional, default to 0)
+     * @return ListWorkflowsOptionalParameters
+     */
+    public ListWorkflowsOptionalParameters page(Long page) {
+      this.page = page;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort The sort order for the returned workflows. Provide a comma-separated list of
+     *     fields, each optionally prefixed with <code>-</code> for descending order. Supported
+     *     fields are <code>name</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>
+     *     creatorName</code>, <code>ownerName</code>, and <code>lastExecutedAt</code>. (optional)
+     * @return ListWorkflowsOptionalParameters
+     */
+    public ListWorkflowsOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery A search query used to filter the returned workflows. The query performs a
+     *     case-insensitive substring match against each workflow's name, creator name, and handle.
+     *     If the query contains a colon (for example, <code>team:infra</code>), it is instead
+     *     treated as a <code>key:value</code> tag filter. (optional)
+     * @return ListWorkflowsOptionalParameters
+     */
+    public ListWorkflowsOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set filterTriggerType.
+     *
+     * @param filterTriggerType Filter the returned workflows by one or more trigger types, such as
+     *     <code>monitor</code>, <code>schedule</code>, or <code>githubWebhook</code>. Repeat the
+     *     parameter to filter by multiple trigger types. (optional)
+     * @return ListWorkflowsOptionalParameters
+     */
+    public ListWorkflowsOptionalParameters filterTriggerType(List<String> filterTriggerType) {
+      this.filterTriggerType = filterTriggerType;
+      return this;
+    }
+
+    /**
+     * Set filterIncludeUnpublished.
+     *
+     * @param filterIncludeUnpublished Whether to include unpublished workflows in the response.
+     *     (optional, default to false)
+     * @return ListWorkflowsOptionalParameters
+     */
+    public ListWorkflowsOptionalParameters filterIncludeUnpublished(
+        Boolean filterIncludeUnpublished) {
+      this.filterIncludeUnpublished = filterIncludeUnpublished;
+      return this;
+    }
+
+    /**
+     * Set filterIncludeSpecs.
+     *
+     * @param filterIncludeSpecs Whether to include the full spec of each workflow in the response.
+     *     When <code>false</code> (the default), each workflow's <code>spec</code> is returned as
+     *     <code>null</code>. (optional, default to false)
+     * @return ListWorkflowsOptionalParameters
+     */
+    public ListWorkflowsOptionalParameters filterIncludeSpecs(Boolean filterIncludeSpecs) {
+      this.filterIncludeSpecs = filterIncludeSpecs;
+      return this;
+    }
+  }
+
+  /**
+   * List workflows.
+   *
+   * <p>See {@link #listWorkflowsWithHttpInfo}.
+   *
+   * @return ListWorkflowsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListWorkflowsResponse listWorkflows() throws ApiException {
+    return listWorkflowsWithHttpInfo(new ListWorkflowsOptionalParameters()).getData();
+  }
+
+  /**
+   * List workflows.
+   *
+   * <p>See {@link #listWorkflowsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListWorkflowsResponse&gt;
+   */
+  public CompletableFuture<ListWorkflowsResponse> listWorkflowsAsync() {
+    return listWorkflowsWithHttpInfoAsync(new ListWorkflowsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List workflows.
+   *
+   * <p>See {@link #listWorkflowsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListWorkflowsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListWorkflowsResponse listWorkflows(ListWorkflowsOptionalParameters parameters)
+      throws ApiException {
+    return listWorkflowsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List workflows.
+   *
+   * <p>See {@link #listWorkflowsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListWorkflowsResponse&gt;
+   */
+  public CompletableFuture<ListWorkflowsResponse> listWorkflowsAsync(
+      ListWorkflowsOptionalParameters parameters) {
+    return listWorkflowsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List workflows.
+   *
+   * <p>See {@link #listWorkflowsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;WorkflowListItem&gt;
+   */
+  public PaginationIterable<WorkflowListItem> listWorkflowsWithPagination() {
+    ListWorkflowsOptionalParameters parameters = new ListWorkflowsOptionalParameters();
+    return listWorkflowsWithPagination(parameters);
+  }
+
+  /**
+   * List workflows.
+   *
+   * <p>See {@link #listWorkflowsWithHttpInfo}.
+   *
+   * @return ListWorkflowsResponse
+   */
+  public PaginationIterable<WorkflowListItem> listWorkflowsWithPagination(
+      ListWorkflowsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "page";
+    Boolean valueSetterParamOptional = true;
+    parameters.page(0l);
+    Long limit;
+
+    if (parameters.limit == null) {
+      limit = 50l;
+      parameters.limit(limit);
+    } else {
+      limit = parameters.limit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listWorkflows",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            false,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * List all workflows in your organization. This API requires a <a
+   * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListWorkflowsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListWorkflowsResponse> listWorkflowsWithHttpInfo(
+      ListWorkflowsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long limit = parameters.limit;
+    Long page = parameters.page;
+    String sort = parameters.sort;
+    String filterQuery = parameters.filterQuery;
+    List<String> filterTriggerType = parameters.filterTriggerType;
+    Boolean filterIncludeUnpublished = parameters.filterIncludeUnpublished;
+    Boolean filterIncludeSpecs = parameters.filterIncludeSpecs;
+    // create path and map variables
+    String localVarPath = "/api/v2/workflows";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[triggerType]", filterTriggerType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[includeUnpublished]", filterIncludeUnpublished));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[includeSpecs]", filterIncludeSpecs));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.WorkflowAutomationApi.listWorkflows",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListWorkflowsResponse>() {});
+  }
+
+  /**
+   * List workflows.
+   *
+   * <p>See {@link #listWorkflowsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListWorkflowsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListWorkflowsResponse>> listWorkflowsWithHttpInfoAsync(
+      ListWorkflowsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long limit = parameters.limit;
+    Long page = parameters.page;
+    String sort = parameters.sort;
+    String filterQuery = parameters.filterQuery;
+    List<String> filterTriggerType = parameters.filterTriggerType;
+    Boolean filterIncludeUnpublished = parameters.filterIncludeUnpublished;
+    Boolean filterIncludeSpecs = parameters.filterIncludeSpecs;
+    // create path and map variables
+    String localVarPath = "/api/v2/workflows";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[triggerType]", filterTriggerType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[includeUnpublished]", filterIncludeUnpublished));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[includeSpecs]", filterIncludeSpecs));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.WorkflowAutomationApi.listWorkflows",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListWorkflowsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListWorkflowsResponse>() {});
   }
 
   /**
