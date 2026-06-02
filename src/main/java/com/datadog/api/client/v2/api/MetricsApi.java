@@ -2402,10 +2402,9 @@ public class MetricsApi {
   }
 
   /**
-   * View hourly average metric volumes for the given metric name over the look back period.
-   *
-   * <p>Custom metrics generated in-app from other products will return <code>null</code> for
-   * ingested volumes.
+   * View hourly average cardinality for the given metric name over the look back period. For Metric
+   * Name Pricing customers, view total point volume for the given metric name over the look back
+   * period.
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
