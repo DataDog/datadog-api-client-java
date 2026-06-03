@@ -1,4 +1,4 @@
-// Delete a rum-based metric returns "No Content" response
+// Delete a RUM-based metric returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The rum-based metric filter. Events matching this filter will be aggregated in this metric. */
+/** The RUM-based metric filter. Events matching this filter will be aggregated in this metric. */
 @JsonPropertyOrder({RumMetricFilter.JSON_PROPERTY_QUERY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

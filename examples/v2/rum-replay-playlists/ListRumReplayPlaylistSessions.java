@@ -1,4 +1,4 @@
-// List rum replay playlist sessions returns "OK" response
+// List RUM replay playlist sessions returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

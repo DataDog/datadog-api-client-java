@@ -1,4 +1,4 @@
-// Bulk remove rum replay playlist sessions returns "No Content" response
+// Bulk remove RUM replay playlist sessions returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

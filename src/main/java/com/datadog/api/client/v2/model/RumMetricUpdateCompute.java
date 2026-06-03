@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The compute rule to compute the rum-based metric. */
+/** The compute rule to compute the RUM-based metric. */
 @JsonPropertyOrder({RumMetricUpdateCompute.JSON_PROPERTY_INCLUDE_PERCENTILES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

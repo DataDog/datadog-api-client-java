@@ -1,4 +1,4 @@
-// Get a rum-based metric returns "OK" response
+// Get a RUM-based metric returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
