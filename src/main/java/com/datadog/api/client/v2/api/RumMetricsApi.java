@@ -47,11 +47,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Create a RUM-based metric.
+   * Create a rum-based metric.
    *
    * <p>See {@link #createRumMetricWithHttpInfo}.
    *
-   * @param body The definition of the new RUM-based metric. (required)
+   * @param body The definition of the new rum-based metric. (required)
    * @return RumMetricResponse
    * @throws ApiException if fails to make API call
    */
@@ -60,11 +60,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Create a RUM-based metric.
+   * Create a rum-based metric.
    *
    * <p>See {@link #createRumMetricWithHttpInfoAsync}.
    *
-   * @param body The definition of the new RUM-based metric. (required)
+   * @param body The definition of the new rum-based metric. (required)
    * @return CompletableFuture&lt;RumMetricResponse&gt;
    */
   public CompletableFuture<RumMetricResponse> createRumMetricAsync(RumMetricCreateRequest body) {
@@ -76,10 +76,10 @@ public class RumMetricsApi {
   }
 
   /**
-   * Create a metric based on your organization's RUM data. Returns the RUM-based metric object from
+   * Create a metric based on your organization's RUM data. Returns the rum-based metric object from
    * the request body when the request is successful.
    *
-   * @param body The definition of the new RUM-based metric. (required)
+   * @param body The definition of the new rum-based metric. (required)
    * @return ApiResponse&lt;RumMetricResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -128,11 +128,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Create a RUM-based metric.
+   * Create a rum-based metric.
    *
    * <p>See {@link #createRumMetricWithHttpInfo}.
    *
-   * @param body The definition of the new RUM-based metric. (required)
+   * @param body The definition of the new rum-based metric. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumMetricResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RumMetricResponse>> createRumMetricWithHttpInfoAsync(
@@ -180,11 +180,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Delete a RUM-based metric.
+   * Delete a rum-based metric.
    *
    * <p>See {@link #deleteRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRumMetric(String metricId) throws ApiException {
@@ -192,11 +192,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Delete a RUM-based metric.
+   * Delete a rum-based metric.
    *
    * <p>See {@link #deleteRumMetricWithHttpInfoAsync}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteRumMetricAsync(String metricId) {
@@ -208,9 +208,9 @@ public class RumMetricsApi {
   }
 
   /**
-   * Delete a specific RUM-based metric from your organization.
+   * Delete a specific rum-based metric from your organization.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -259,11 +259,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Delete a RUM-based metric.
+   * Delete a rum-based metric.
    *
    * <p>See {@link #deleteRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteRumMetricWithHttpInfoAsync(String metricId) {
@@ -312,11 +312,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get a RUM-based metric.
+   * Get a rum-based metric.
    *
    * <p>See {@link #getRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
    * @return RumMetricResponse
    * @throws ApiException if fails to make API call
    */
@@ -325,11 +325,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get a RUM-based metric.
+   * Get a rum-based metric.
    *
    * <p>See {@link #getRumMetricWithHttpInfoAsync}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
    * @return CompletableFuture&lt;RumMetricResponse&gt;
    */
   public CompletableFuture<RumMetricResponse> getRumMetricAsync(String metricId) {
@@ -341,9 +341,9 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get a specific RUM-based metric from your organization.
+   * Get a specific rum-based metric from your organization.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
    * @return ApiResponse&lt;RumMetricResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -393,11 +393,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get a RUM-based metric.
+   * Get a rum-based metric.
    *
    * <p>See {@link #getRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumMetricResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RumMetricResponse>> getRumMetricWithHttpInfoAsync(
@@ -447,7 +447,7 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get all RUM-based metrics.
+   * Get all rum-based metrics.
    *
    * <p>See {@link #listRumMetricsWithHttpInfo}.
    *
@@ -459,7 +459,7 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get all RUM-based metrics.
+   * Get all rum-based metrics.
    *
    * <p>See {@link #listRumMetricsWithHttpInfoAsync}.
    *
@@ -474,7 +474,7 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get the list of configured RUM-based metrics with their definitions.
+   * Get the list of configured rum-based metrics with their definitions.
    *
    * @return ApiResponse&lt;RumMetricsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -515,7 +515,7 @@ public class RumMetricsApi {
   }
 
   /**
-   * Get all RUM-based metrics.
+   * Get all rum-based metrics.
    *
    * <p>See {@link #listRumMetricsWithHttpInfo}.
    *
@@ -556,12 +556,12 @@ public class RumMetricsApi {
   }
 
   /**
-   * Update a RUM-based metric.
+   * Update a rum-based metric.
    *
    * <p>See {@link #updateRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
-   * @param body New definition of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
+   * @param body New definition of the rum-based metric. (required)
    * @return RumMetricResponse
    * @throws ApiException if fails to make API call
    */
@@ -571,12 +571,12 @@ public class RumMetricsApi {
   }
 
   /**
-   * Update a RUM-based metric.
+   * Update a rum-based metric.
    *
    * <p>See {@link #updateRumMetricWithHttpInfoAsync}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
-   * @param body New definition of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
+   * @param body New definition of the rum-based metric. (required)
    * @return CompletableFuture&lt;RumMetricResponse&gt;
    */
   public CompletableFuture<RumMetricResponse> updateRumMetricAsync(
@@ -589,11 +589,11 @@ public class RumMetricsApi {
   }
 
   /**
-   * Update a specific RUM-based metric from your organization. Returns the RUM-based metric object
+   * Update a specific rum-based metric from your organization. Returns the rum-based metric object
    * from the request body when the request is successful.
    *
-   * @param metricId The name of the RUM-based metric. (required)
-   * @param body New definition of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
+   * @param body New definition of the rum-based metric. (required)
    * @return ApiResponse&lt;RumMetricResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -651,12 +651,12 @@ public class RumMetricsApi {
   }
 
   /**
-   * Update a RUM-based metric.
+   * Update a rum-based metric.
    *
    * <p>See {@link #updateRumMetricWithHttpInfo}.
    *
-   * @param metricId The name of the RUM-based metric. (required)
-   * @param body New definition of the RUM-based metric. (required)
+   * @param metricId The name of the rum-based metric. (required)
+   * @param body New definition of the rum-based metric. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumMetricResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RumMetricResponse>> updateRumMetricWithHttpInfoAsync(

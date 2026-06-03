@@ -1,4 +1,4 @@
-// Create RUM replay playlist returns "Created" response
+// Create rum replay playlist returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

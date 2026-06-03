@@ -1,4 +1,4 @@
-// Create RUM replay session watch returns "Created" response
+// Create rum replay session watch returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

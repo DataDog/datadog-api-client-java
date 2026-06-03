@@ -37,7 +37,7 @@ public class RumMetricResponseGroupBy {
   }
 
   /**
-   * The path to the value the RUM-based metric will be aggregated over.
+   * The path to the value the rum-based metric will be aggregated over.
    *
    * @return path
    */

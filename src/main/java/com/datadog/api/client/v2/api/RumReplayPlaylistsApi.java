@@ -66,7 +66,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Add RUM replay session to playlist.
+   * Add rum replay session to playlist.
    *
    * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfo}.
    *
@@ -84,7 +84,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Add RUM replay session to playlist.
+   * Add rum replay session to playlist.
    *
    * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfoAsync}.
    *
@@ -104,7 +104,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Add RUM replay session to playlist.
+   * Add rum replay session to playlist.
    *
    * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfo}.
    *
@@ -126,7 +126,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Add RUM replay session to playlist.
+   * Add rum replay session to playlist.
    *
    * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfoAsync}.
    *
@@ -228,7 +228,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Add RUM replay session to playlist.
+   * Add rum replay session to playlist.
    *
    * <p>See {@link #addRumReplaySessionToPlaylistWithHttpInfo}.
    *
@@ -319,7 +319,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Bulk remove RUM replay playlist sessions.
+   * Bulk remove rum replay playlist sessions.
    *
    * <p>See {@link #bulkRemoveRumReplayPlaylistSessionsWithHttpInfo}.
    *
@@ -333,7 +333,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Bulk remove RUM replay playlist sessions.
+   * Bulk remove rum replay playlist sessions.
    *
    * <p>See {@link #bulkRemoveRumReplayPlaylistSessionsWithHttpInfoAsync}.
    *
@@ -412,7 +412,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Bulk remove RUM replay playlist sessions.
+   * Bulk remove rum replay playlist sessions.
    *
    * <p>See {@link #bulkRemoveRumReplayPlaylistSessionsWithHttpInfo}.
    *
@@ -481,7 +481,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Create RUM replay playlist.
+   * Create rum replay playlist.
    *
    * <p>See {@link #createRumReplayPlaylistWithHttpInfo}.
    *
@@ -494,7 +494,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Create RUM replay playlist.
+   * Create rum replay playlist.
    *
    * <p>See {@link #createRumReplayPlaylistWithHttpInfoAsync}.
    *
@@ -558,7 +558,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Create RUM replay playlist.
+   * Create rum replay playlist.
    *
    * <p>See {@link #createRumReplayPlaylistWithHttpInfo}.
    *
@@ -610,7 +610,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Delete RUM replay playlist.
+   * Delete rum replay playlist.
    *
    * <p>See {@link #deleteRumReplayPlaylistWithHttpInfo}.
    *
@@ -622,7 +622,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Delete RUM replay playlist.
+   * Delete rum replay playlist.
    *
    * <p>See {@link #deleteRumReplayPlaylistWithHttpInfoAsync}.
    *
@@ -689,7 +689,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Delete RUM replay playlist.
+   * Delete rum replay playlist.
    *
    * <p>See {@link #deleteRumReplayPlaylistWithHttpInfo}.
    *
@@ -745,7 +745,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Get RUM replay playlist.
+   * Get rum replay playlist.
    *
    * <p>See {@link #getRumReplayPlaylistWithHttpInfo}.
    *
@@ -758,7 +758,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Get RUM replay playlist.
+   * Get rum replay playlist.
    *
    * <p>See {@link #getRumReplayPlaylistWithHttpInfoAsync}.
    *
@@ -825,7 +825,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Get RUM replay playlist.
+   * Get rum replay playlist.
    *
    * <p>See {@link #getRumReplayPlaylistWithHttpInfo}.
    *
@@ -935,7 +935,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlists.
+   * List rum replay playlists.
    *
    * <p>See {@link #listRumReplayPlaylistsWithHttpInfo}.
    *
@@ -948,7 +948,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlists.
+   * List rum replay playlists.
    *
    * <p>See {@link #listRumReplayPlaylistsWithHttpInfoAsync}.
    *
@@ -963,7 +963,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlists.
+   * List rum replay playlists.
    *
    * <p>See {@link #listRumReplayPlaylistsWithHttpInfo}.
    *
@@ -977,7 +977,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlists.
+   * List rum replay playlists.
    *
    * <p>See {@link #listRumReplayPlaylistsWithHttpInfoAsync}.
    *
@@ -1047,7 +1047,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlists.
+   * List rum replay playlists.
    *
    * <p>See {@link #listRumReplayPlaylistsWithHttpInfo}.
    *
@@ -1129,7 +1129,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlist sessions.
+   * List rum replay playlist sessions.
    *
    * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfo}.
    *
@@ -1145,7 +1145,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlist sessions.
+   * List rum replay playlist sessions.
    *
    * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfoAsync}.
    *
@@ -1163,7 +1163,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlist sessions.
+   * List rum replay playlist sessions.
    *
    * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfo}.
    *
@@ -1179,7 +1179,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlist sessions.
+   * List rum replay playlist sessions.
    *
    * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfoAsync}.
    *
@@ -1257,7 +1257,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * List RUM replay playlist sessions.
+   * List rum replay playlist sessions.
    *
    * <p>See {@link #listRumReplayPlaylistSessionsWithHttpInfo}.
    *
@@ -1322,7 +1322,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Remove RUM replay session from playlist.
+   * Remove rum replay session from playlist.
    *
    * <p>See {@link #removeRumReplaySessionFromPlaylistWithHttpInfo}.
    *
@@ -1336,7 +1336,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Remove RUM replay session from playlist.
+   * Remove rum replay session from playlist.
    *
    * <p>See {@link #removeRumReplaySessionFromPlaylistWithHttpInfoAsync}.
    *
@@ -1417,7 +1417,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Remove RUM replay session from playlist.
+   * Remove rum replay session from playlist.
    *
    * <p>See {@link #removeRumReplaySessionFromPlaylistWithHttpInfo}.
    *
@@ -1487,7 +1487,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Update RUM replay playlist.
+   * Update rum replay playlist.
    *
    * <p>See {@link #updateRumReplayPlaylistWithHttpInfo}.
    *
@@ -1501,7 +1501,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Update RUM replay playlist.
+   * Update rum replay playlist.
    *
    * <p>See {@link #updateRumReplayPlaylistWithHttpInfoAsync}.
    *
@@ -1577,7 +1577,7 @@ public class RumReplayPlaylistsApi {
   }
 
   /**
-   * Update RUM replay playlist.
+   * Update rum replay playlist.
    *
    * <p>See {@link #updateRumReplayPlaylistWithHttpInfo}.
    *

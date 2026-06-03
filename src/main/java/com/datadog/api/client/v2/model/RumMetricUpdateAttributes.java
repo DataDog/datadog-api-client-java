@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The RUM-based metric properties that will be updated. */
+/** The rum-based metric properties that will be updated. */
 @JsonPropertyOrder({
   RumMetricUpdateAttributes.JSON_PROPERTY_COMPUTE,
   RumMetricUpdateAttributes.JSON_PROPERTY_FILTER,
@@ -44,7 +44,7 @@ public class RumMetricUpdateAttributes {
   }
 
   /**
-   * The compute rule to compute the RUM-based metric.
+   * The compute rule to compute the rum-based metric.
    *
    * @return compute
    */
@@ -66,7 +66,7 @@ public class RumMetricUpdateAttributes {
   }
 
   /**
-   * The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
+   * The rum-based metric filter. Events matching this filter will be aggregated in this metric.
    *
    * @return filter
    */
