@@ -25,7 +25,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_COMPRESSION_METHOD,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_DESTINATION,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_INCLUDE_TAGS,
+  LogsArchiveCreateRequestAttributes.JSON_PROPERTY_LOOKUP_ATTRIBUTES,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_NAME,
+  LogsArchiveCreateRequestAttributes.JSON_PROPERTY_PARTITIONING_ATTRIBUTES,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_QUERY,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_REHYDRATION_MAX_SCAN_SIZE_IN_GB,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_REHYDRATION_TAGS
@@ -44,8 +46,14 @@ public class LogsArchiveCreateRequestAttributes {
   public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
   private Boolean includeTags = false;
 
+  public static final String JSON_PROPERTY_LOOKUP_ATTRIBUTES = "lookup_attributes";
+  private List<String> lookupAttributes = null;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_PARTITIONING_ATTRIBUTES = "partitioning_attributes";
+  private List<String> partitioningAttributes = null;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
@@ -141,6 +149,35 @@ public class LogsArchiveCreateRequestAttributes {
     this.includeTags = includeTags;
   }
 
+  public LogsArchiveCreateRequestAttributes lookupAttributes(List<String> lookupAttributes) {
+    this.lookupAttributes = lookupAttributes;
+    return this;
+  }
+
+  public LogsArchiveCreateRequestAttributes addLookupAttributesItem(String lookupAttributesItem) {
+    if (this.lookupAttributes == null) {
+      this.lookupAttributes = new ArrayList<>();
+    }
+    this.lookupAttributes.add(lookupAttributesItem);
+    return this;
+  }
+
+  /**
+   * An array of attributes to use as lookup keys for the archive.
+   *
+   * @return lookupAttributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOOKUP_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getLookupAttributes() {
+    return lookupAttributes;
+  }
+
+  public void setLookupAttributes(List<String> lookupAttributes) {
+    this.lookupAttributes = lookupAttributes;
+  }
+
   public LogsArchiveCreateRequestAttributes name(String name) {
     this.name = name;
     return this;
@@ -159,6 +196,38 @@ public class LogsArchiveCreateRequestAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public LogsArchiveCreateRequestAttributes partitioningAttributes(
+      List<String> partitioningAttributes) {
+    this.partitioningAttributes = partitioningAttributes;
+    return this;
+  }
+
+  public LogsArchiveCreateRequestAttributes addPartitioningAttributesItem(
+      String partitioningAttributesItem) {
+    if (this.partitioningAttributes == null) {
+      this.partitioningAttributes = new ArrayList<>();
+    }
+    this.partitioningAttributes.add(partitioningAttributesItem);
+    return this;
+  }
+
+  /**
+   * An array of attributes to use as partition keys for the archive. The attribute used most
+   * frequently for querying should be first.
+   *
+   * @return partitioningAttributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PARTITIONING_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getPartitioningAttributes() {
+    return partitioningAttributes;
+  }
+
+  public void setPartitioningAttributes(List<String> partitioningAttributes) {
+    this.partitioningAttributes = partitioningAttributes;
   }
 
   public LogsArchiveCreateRequestAttributes query(String query) {
@@ -304,7 +373,11 @@ public class LogsArchiveCreateRequestAttributes {
             this.compressionMethod, logsArchiveCreateRequestAttributes.compressionMethod)
         && Objects.equals(this.destination, logsArchiveCreateRequestAttributes.destination)
         && Objects.equals(this.includeTags, logsArchiveCreateRequestAttributes.includeTags)
+        && Objects.equals(
+            this.lookupAttributes, logsArchiveCreateRequestAttributes.lookupAttributes)
         && Objects.equals(this.name, logsArchiveCreateRequestAttributes.name)
+        && Objects.equals(
+            this.partitioningAttributes, logsArchiveCreateRequestAttributes.partitioningAttributes)
         && Objects.equals(this.query, logsArchiveCreateRequestAttributes.query)
         && Objects.equals(
             this.rehydrationMaxScanSizeInGb,
@@ -320,7 +393,9 @@ public class LogsArchiveCreateRequestAttributes {
         compressionMethod,
         destination,
         includeTags,
+        lookupAttributes,
         name,
+        partitioningAttributes,
         query,
         rehydrationMaxScanSizeInGb,
         rehydrationTags,
@@ -334,7 +409,11 @@ public class LogsArchiveCreateRequestAttributes {
     sb.append("    compressionMethod: ").append(toIndentedString(compressionMethod)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    includeTags: ").append(toIndentedString(includeTags)).append("\n");
+    sb.append("    lookupAttributes: ").append(toIndentedString(lookupAttributes)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    partitioningAttributes: ")
+        .append(toIndentedString(partitioningAttributes))
+        .append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    rehydrationMaxScanSizeInGb: ")
         .append(toIndentedString(rehydrationMaxScanSizeInGb))

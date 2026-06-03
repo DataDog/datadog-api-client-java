@@ -44,24 +44,19 @@ import com.datadog.api.client.v2.model.LogsArchiveOrderAttributes;
 import com.datadog.api.client.v2.model.LogsArchiveOrderDefinition;
 import com.datadog.api.client.v2.model.LogsArchives;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openapitools.jackson.nullable.JsonNullableModule;
 
 /** API tests for LogsArchivesApi */
 public class LogsArchivesApiTest extends V2APITest {
 
   public static final String ARCHIVE_ID = "FOObar";
   private static LogsArchivesApi api;
-
-  // ObjectMapper instance configure to not fail when encountering unknown properties
-  private static ObjectMapper objectMapper =
-      new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+  private static ObjectMapper objectMapper;
 
   private final String fixturePrefix = "client/v2/api/logs_archives_fixtures";
   private final String apiUriForArchives = "/api/v2/logs/config/archives";
@@ -75,7 +70,7 @@ public class LogsArchivesApiTest extends V2APITest {
   @BeforeClass
   public static void initApi() {
     api = new LogsArchivesApi(generalApiUnitTestClient);
-    objectMapper.registerModule(new JsonNullableModule());
+    objectMapper = generalApiUnitTestClient.getJSON().getMapper();
   }
 
   /**
