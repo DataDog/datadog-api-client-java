@@ -17,22 +17,40 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of an LLM Observability experiment. */
 @JsonPropertyOrder({
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_AGGREGATE_DATA,
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_AUTHOR,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_CONFIG,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_CREATED_AT,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_DATASET_ID,
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_DATASET_NAME,
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_DATASET_VERSION,
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_DELETED_AT,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_DESCRIPTION,
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_ERROR,
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_EXPERIMENT,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_METADATA,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_NAME,
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_PARENT_EXPERIMENT_ID,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_PROJECT_ID,
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_RUN_COUNT,
+  LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_STATUS,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_UPDATED_AT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentDataAttributesResponse {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGGREGATE_DATA = "aggregate_data";
+  private JsonNullable<Map<String, Object>> aggregateData =
+      JsonNullable.<Map<String, Object>>undefined();
+
+  public static final String JSON_PROPERTY_AUTHOR = "author";
+  private LLMObsExperimentUser author;
+
   public static final String JSON_PROPERTY_CONFIG = "config";
   private Map<String, Object> config = new HashMap<String, Object>();
 
@@ -42,8 +60,23 @@ public class LLMObsExperimentDataAttributesResponse {
   public static final String JSON_PROPERTY_DATASET_ID = "dataset_id";
   private String datasetId;
 
+  public static final String JSON_PROPERTY_DATASET_NAME = "dataset_name";
+  private JsonNullable<String> datasetName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_DATASET_VERSION = "dataset_version";
+  private Long datasetVersion;
+
+  public static final String JSON_PROPERTY_DELETED_AT = "deleted_at";
+  private JsonNullable<OffsetDateTime> deletedAt = JsonNullable.<OffsetDateTime>undefined();
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_ERROR = "error";
+  private JsonNullable<String> error = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_EXPERIMENT = "experiment";
+  private String experiment;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, Object> metadata = new HashMap<String, Object>();
@@ -51,8 +84,17 @@ public class LLMObsExperimentDataAttributesResponse {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_PARENT_EXPERIMENT_ID = "parent_experiment_id";
+  private JsonNullable<String> parentExperimentId = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_PROJECT_ID = "project_id";
   private String projectId;
+
+  public static final String JSON_PROPERTY_RUN_COUNT = "run_count";
+  private Integer runCount;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private LLMObsExperimentStatus status;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
@@ -80,6 +122,74 @@ public class LLMObsExperimentDataAttributesResponse {
     this.name = name;
     this.projectId = projectId;
     this.updatedAt = updatedAt;
+  }
+
+  public LLMObsExperimentDataAttributesResponse aggregateData(Map<String, Object> aggregateData) {
+    this.aggregateData = JsonNullable.<Map<String, Object>>of(aggregateData);
+    return this;
+  }
+
+  public LLMObsExperimentDataAttributesResponse putAggregateDataItem(
+      String key, Object aggregateDataItem) {
+    if (this.aggregateData == null || !this.aggregateData.isPresent()) {
+      this.aggregateData = JsonNullable.<Map<String, Object>>of(new HashMap<>());
+    }
+    try {
+      this.aggregateData.get().put(key, aggregateDataItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Pre-computed aggregate metrics for this experiment run, including eval score distributions,
+   * token costs, and error rates.
+   *
+   * @return aggregateData
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Map<String, Object> getAggregateData() {
+    return aggregateData.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AGGREGATE_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Map<String, Object>> getAggregateData_JsonNullable() {
+    return aggregateData;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AGGREGATE_DATA)
+  public void setAggregateData_JsonNullable(JsonNullable<Map<String, Object>> aggregateData) {
+    this.aggregateData = aggregateData;
+  }
+
+  public void setAggregateData(Map<String, Object> aggregateData) {
+    this.aggregateData = JsonNullable.<Map<String, Object>>of(aggregateData);
+  }
+
+  public LLMObsExperimentDataAttributesResponse author(LLMObsExperimentUser author) {
+    this.author = author;
+    this.unparsed |= author.unparsed;
+    return this;
+  }
+
+  /**
+   * User data for the author of an experiment. Only present when <code>include[user_data]</code> is
+   * <code>true</code>.
+   *
+   * @return author
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTHOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsExperimentUser getAuthor() {
+    return author;
+  }
+
+  public void setAuthor(LLMObsExperimentUser author) {
+    this.author = author;
   }
 
   public LLMObsExperimentDataAttributesResponse config(Map<String, Object> config) {
@@ -149,6 +259,90 @@ public class LLMObsExperimentDataAttributesResponse {
     this.datasetId = datasetId;
   }
 
+  public LLMObsExperimentDataAttributesResponse datasetName(String datasetName) {
+    this.datasetName = JsonNullable.<String>of(datasetName);
+    return this;
+  }
+
+  /**
+   * Name of the dataset used in this experiment. Only present when <code>include[dataset_names]
+   * </code> is <code>true</code>.
+   *
+   * @return datasetName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDatasetName() {
+    return datasetName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATASET_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDatasetName_JsonNullable() {
+    return datasetName;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATASET_NAME)
+  public void setDatasetName_JsonNullable(JsonNullable<String> datasetName) {
+    this.datasetName = datasetName;
+  }
+
+  public void setDatasetName(String datasetName) {
+    this.datasetName = JsonNullable.<String>of(datasetName);
+  }
+
+  public LLMObsExperimentDataAttributesResponse datasetVersion(Long datasetVersion) {
+    this.datasetVersion = datasetVersion;
+    return this;
+  }
+
+  /**
+   * Version of the dataset used in this experiment.
+   *
+   * @return datasetVersion
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATASET_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDatasetVersion() {
+    return datasetVersion;
+  }
+
+  public void setDatasetVersion(Long datasetVersion) {
+    this.datasetVersion = datasetVersion;
+  }
+
+  public LLMObsExperimentDataAttributesResponse deletedAt(OffsetDateTime deletedAt) {
+    this.deletedAt = JsonNullable.<OffsetDateTime>of(deletedAt);
+    return this;
+  }
+
+  /**
+   * Timestamp when the experiment was soft-deleted, if applicable.
+   *
+   * @return deletedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getDeletedAt() {
+    return deletedAt.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DELETED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getDeletedAt_JsonNullable() {
+    return deletedAt;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DELETED_AT)
+  public void setDeletedAt_JsonNullable(JsonNullable<OffsetDateTime> deletedAt) {
+    this.deletedAt = deletedAt;
+  }
+
+  public void setDeletedAt(OffsetDateTime deletedAt) {
+    this.deletedAt = JsonNullable.<OffsetDateTime>of(deletedAt);
+  }
+
   public LLMObsExperimentDataAttributesResponse description(String description) {
     this.description = description;
     if (description != null) {}
@@ -169,6 +363,58 @@ public class LLMObsExperimentDataAttributesResponse {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public LLMObsExperimentDataAttributesResponse error(String error) {
+    this.error = JsonNullable.<String>of(error);
+    return this;
+  }
+
+  /**
+   * Error message describing why the experiment failed, if applicable.
+   *
+   * @return error
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getError() {
+    return error.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getError_JsonNullable() {
+    return error;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  public void setError_JsonNullable(JsonNullable<String> error) {
+    this.error = error;
+  }
+
+  public void setError(String error) {
+    this.error = JsonNullable.<String>of(error);
+  }
+
+  public LLMObsExperimentDataAttributesResponse experiment(String experiment) {
+    this.experiment = experiment;
+    return this;
+  }
+
+  /**
+   * Logical name of the experiment, shared across all runs of the same pipeline.
+   *
+   * @return experiment
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPERIMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getExperiment() {
+    return experiment;
+  }
+
+  public void setExperiment(String experiment) {
+    this.experiment = experiment;
   }
 
   public LLMObsExperimentDataAttributesResponse metadata(Map<String, Object> metadata) {
@@ -218,6 +464,37 @@ public class LLMObsExperimentDataAttributesResponse {
     this.name = name;
   }
 
+  public LLMObsExperimentDataAttributesResponse parentExperimentId(String parentExperimentId) {
+    this.parentExperimentId = JsonNullable.<String>of(parentExperimentId);
+    return this;
+  }
+
+  /**
+   * Identifier of the parent (baseline) experiment this experiment was run against, if any.
+   *
+   * @return parentExperimentId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getParentExperimentId() {
+    return parentExperimentId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PARENT_EXPERIMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getParentExperimentId_JsonNullable() {
+    return parentExperimentId;
+  }
+
+  @JsonProperty(JSON_PROPERTY_PARENT_EXPERIMENT_ID)
+  public void setParentExperimentId_JsonNullable(JsonNullable<String> parentExperimentId) {
+    this.parentExperimentId = parentExperimentId;
+  }
+
+  public void setParentExperimentId(String parentExperimentId) {
+    this.parentExperimentId = JsonNullable.<String>of(parentExperimentId);
+  }
+
   public LLMObsExperimentDataAttributesResponse projectId(String projectId) {
     this.projectId = projectId;
     return this;
@@ -236,6 +513,52 @@ public class LLMObsExperimentDataAttributesResponse {
 
   public void setProjectId(String projectId) {
     this.projectId = projectId;
+  }
+
+  public LLMObsExperimentDataAttributesResponse runCount(Integer runCount) {
+    this.runCount = runCount;
+    return this;
+  }
+
+  /**
+   * Expected number of runs for this experiment. maximum: 2147483647
+   *
+   * @return runCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getRunCount() {
+    return runCount;
+  }
+
+  public void setRunCount(Integer runCount) {
+    this.runCount = runCount;
+  }
+
+  public LLMObsExperimentDataAttributesResponse status(LLMObsExperimentStatus status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
+    return this;
+  }
+
+  /**
+   * Execution status of an LLM Observability experiment.
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsExperimentStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(LLMObsExperimentStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
+    this.status = status;
   }
 
   public LLMObsExperimentDataAttributesResponse updatedAt(OffsetDateTime updatedAt) {
@@ -315,13 +638,25 @@ public class LLMObsExperimentDataAttributesResponse {
     }
     LLMObsExperimentDataAttributesResponse llmObsExperimentDataAttributesResponse =
         (LLMObsExperimentDataAttributesResponse) o;
-    return Objects.equals(this.config, llmObsExperimentDataAttributesResponse.config)
+    return Objects.equals(this.aggregateData, llmObsExperimentDataAttributesResponse.aggregateData)
+        && Objects.equals(this.author, llmObsExperimentDataAttributesResponse.author)
+        && Objects.equals(this.config, llmObsExperimentDataAttributesResponse.config)
         && Objects.equals(this.createdAt, llmObsExperimentDataAttributesResponse.createdAt)
         && Objects.equals(this.datasetId, llmObsExperimentDataAttributesResponse.datasetId)
+        && Objects.equals(this.datasetName, llmObsExperimentDataAttributesResponse.datasetName)
+        && Objects.equals(
+            this.datasetVersion, llmObsExperimentDataAttributesResponse.datasetVersion)
+        && Objects.equals(this.deletedAt, llmObsExperimentDataAttributesResponse.deletedAt)
         && Objects.equals(this.description, llmObsExperimentDataAttributesResponse.description)
+        && Objects.equals(this.error, llmObsExperimentDataAttributesResponse.error)
+        && Objects.equals(this.experiment, llmObsExperimentDataAttributesResponse.experiment)
         && Objects.equals(this.metadata, llmObsExperimentDataAttributesResponse.metadata)
         && Objects.equals(this.name, llmObsExperimentDataAttributesResponse.name)
+        && Objects.equals(
+            this.parentExperimentId, llmObsExperimentDataAttributesResponse.parentExperimentId)
         && Objects.equals(this.projectId, llmObsExperimentDataAttributesResponse.projectId)
+        && Objects.equals(this.runCount, llmObsExperimentDataAttributesResponse.runCount)
+        && Objects.equals(this.status, llmObsExperimentDataAttributesResponse.status)
         && Objects.equals(this.updatedAt, llmObsExperimentDataAttributesResponse.updatedAt)
         && Objects.equals(
             this.additionalProperties, llmObsExperimentDataAttributesResponse.additionalProperties);
@@ -330,13 +665,23 @@ public class LLMObsExperimentDataAttributesResponse {
   @Override
   public int hashCode() {
     return Objects.hash(
+        aggregateData,
+        author,
         config,
         createdAt,
         datasetId,
+        datasetName,
+        datasetVersion,
+        deletedAt,
         description,
+        error,
+        experiment,
         metadata,
         name,
+        parentExperimentId,
         projectId,
+        runCount,
+        status,
         updatedAt,
         additionalProperties);
   }
@@ -345,13 +690,23 @@ public class LLMObsExperimentDataAttributesResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsExperimentDataAttributesResponse {\n");
+    sb.append("    aggregateData: ").append(toIndentedString(aggregateData)).append("\n");
+    sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    datasetId: ").append(toIndentedString(datasetId)).append("\n");
+    sb.append("    datasetName: ").append(toIndentedString(datasetName)).append("\n");
+    sb.append("    datasetVersion: ").append(toIndentedString(datasetVersion)).append("\n");
+    sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    experiment: ").append(toIndentedString(experiment)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    parentExperimentId: ").append(toIndentedString(parentExperimentId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    runCount: ").append(toIndentedString(runCount)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
