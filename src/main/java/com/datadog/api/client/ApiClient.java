@@ -1162,6 +1162,7 @@ public class ApiClient {
           put("v2.createCustomRuleset", false);
           put("v2.createSCAResolveVulnerableSymbols", false);
           put("v2.createSCAResult", false);
+          put("v2.createSCAScan", false);
           put("v2.deleteAiCustomRule", false);
           put("v2.deleteAiCustomRuleset", false);
           put("v2.deleteAiMemoryViolationResult", false);
@@ -1173,12 +1174,14 @@ public class ApiClient {
           put("v2.getCustomRule", false);
           put("v2.getCustomRuleRevision", false);
           put("v2.getCustomRuleset", false);
+          put("v2.getSCAScan", false);
           put("v2.listAiCustomRuleRevisions", false);
           put("v2.listAiCustomRulesets", false);
           put("v2.listAiMemoryViolationResults", false);
           put("v2.listAiPrompts", false);
           put("v2.listCustomRuleRevisions", false);
           put("v2.listCustomRulesets", false);
+          put("v2.listSCALicenses", false);
           put("v2.revertCustomRuleRevision", false);
           put("v2.updateAiCustomRuleset", false);
           put("v2.updateCustomRuleset", false);

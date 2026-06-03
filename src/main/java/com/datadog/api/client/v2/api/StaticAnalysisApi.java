@@ -27,10 +27,14 @@ import com.datadog.api.client.v2.model.CustomRuleRevisionsResponse;
 import com.datadog.api.client.v2.model.CustomRulesetListResponse;
 import com.datadog.api.client.v2.model.CustomRulesetRequest;
 import com.datadog.api.client.v2.model.CustomRulesetResponse;
+import com.datadog.api.client.v2.model.LicensesListResponse;
+import com.datadog.api.client.v2.model.McpScanRequest;
+import com.datadog.api.client.v2.model.McpScanRequestResponse;
 import com.datadog.api.client.v2.model.ResolveVulnerableSymbolsRequest;
 import com.datadog.api.client.v2.model.ResolveVulnerableSymbolsResponse;
 import com.datadog.api.client.v2.model.RevertCustomRuleRevisionRequest;
 import com.datadog.api.client.v2.model.ScaRequest;
+import com.datadog.api.client.v2.model.ScanResultResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -1576,6 +1580,151 @@ public class StaticAnalysisApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Submit libraries for vulnerability scanning.
+   *
+   * <p>See {@link #createSCAScanWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return McpScanRequestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public McpScanRequestResponse createSCAScan(McpScanRequest body) throws ApiException {
+    return createSCAScanWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Submit libraries for vulnerability scanning.
+   *
+   * <p>See {@link #createSCAScanWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;McpScanRequestResponse&gt;
+   */
+  public CompletableFuture<McpScanRequestResponse> createSCAScanAsync(McpScanRequest body) {
+    return createSCAScanWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param body (required)
+   * @return ApiResponse&lt;McpScanRequestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<McpScanRequestResponse> createSCAScanWithHttpInfo(McpScanRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSCAScan";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createSCAScan");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis-sca/dependencies/scan";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.createSCAScan",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<McpScanRequestResponse>() {});
+  }
+
+  /**
+   * Submit libraries for vulnerability scanning.
+   *
+   * <p>See {@link #createSCAScanWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;McpScanRequestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<McpScanRequestResponse>> createSCAScanWithHttpInfoAsync(
+      McpScanRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSCAScan";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<McpScanRequestResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<McpScanRequestResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createSCAScan"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis-sca/dependencies/scan";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.createSCAScan",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<McpScanRequestResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<McpScanRequestResponse>() {});
   }
 
   /**
@@ -3467,6 +3616,152 @@ public class StaticAnalysisApi {
         new GenericType<CustomRulesetResponse>() {});
   }
 
+  /**
+   * Retrieve a dependency scan result.
+   *
+   * <p>See {@link #getSCAScanWithHttpInfo}.
+   *
+   * @param jobId The job identifier returned when the scan was submitted. (required)
+   * @return ScanResultResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ScanResultResponse getSCAScan(String jobId) throws ApiException {
+    return getSCAScanWithHttpInfo(jobId).getData();
+  }
+
+  /**
+   * Retrieve a dependency scan result.
+   *
+   * <p>See {@link #getSCAScanWithHttpInfoAsync}.
+   *
+   * @param jobId The job identifier returned when the scan was submitted. (required)
+   * @return CompletableFuture&lt;ScanResultResponse&gt;
+   */
+  public CompletableFuture<ScanResultResponse> getSCAScanAsync(String jobId) {
+    return getSCAScanWithHttpInfoAsync(jobId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param jobId The job identifier returned when the scan was submitted. (required)
+   * @return ApiResponse&lt;ScanResultResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ScanResultResponse> getSCAScanWithHttpInfo(String jobId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSCAScan";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'jobId' is set
+    if (jobId == null) {
+      throw new ApiException(400, "Missing the required parameter 'jobId' when calling getSCAScan");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis-sca/dependencies/scan/{job_id}"
+            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.getSCAScan",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ScanResultResponse>() {});
+  }
+
+  /**
+   * Retrieve a dependency scan result.
+   *
+   * <p>See {@link #getSCAScanWithHttpInfo}.
+   *
+   * @param jobId The job identifier returned when the scan was submitted. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ScanResultResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ScanResultResponse>> getSCAScanWithHttpInfoAsync(
+      String jobId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSCAScan";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ScanResultResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'jobId' is set
+    if (jobId == null) {
+      CompletableFuture<ApiResponse<ScanResultResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'jobId' when calling getSCAScan"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/static-analysis-sca/dependencies/scan/{job_id}"
+            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.getSCAScan",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ScanResultResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ScanResultResponse>() {});
+  }
+
   /** Manage optional parameters to listAiCustomRuleRevisions. */
   public static class ListAiCustomRuleRevisionsOptionalParameters {
     private Long pageOffset;
@@ -4726,6 +5021,129 @@ public class StaticAnalysisApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CustomRulesetListResponse>() {});
+  }
+
+  /**
+   * Get the list of SPDX licenses.
+   *
+   * <p>See {@link #listSCALicensesWithHttpInfo}.
+   *
+   * @return LicensesListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LicensesListResponse listSCALicenses() throws ApiException {
+    return listSCALicensesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the list of SPDX licenses.
+   *
+   * <p>See {@link #listSCALicensesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LicensesListResponse&gt;
+   */
+  public CompletableFuture<LicensesListResponse> listSCALicensesAsync() {
+    return listSCALicensesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @return ApiResponse&lt;LicensesListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LicensesListResponse> listSCALicensesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSCALicenses";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis-sca/licenses/list";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.listSCALicenses",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LicensesListResponse>() {});
+  }
+
+  /**
+   * Get the list of SPDX licenses.
+   *
+   * <p>See {@link #listSCALicensesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LicensesListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LicensesListResponse>> listSCALicensesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listSCALicenses";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LicensesListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis-sca/licenses/list";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.listSCALicenses",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LicensesListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LicensesListResponse>() {});
   }
 
   /**
