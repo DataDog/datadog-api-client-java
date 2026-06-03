@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Jira issue of the case. */
 @JsonPropertyOrder({
+  IssueCaseJiraIssue.JSON_PROPERTY_ERROR_MESSAGE,
   IssueCaseJiraIssue.JSON_PROPERTY_RESULT,
   IssueCaseJiraIssue.JSON_PROPERTY_STATUS
 })
@@ -25,11 +26,35 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IssueCaseJiraIssue {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ERROR_MESSAGE = "error_message";
+  private String errorMessage;
+
   public static final String JSON_PROPERTY_RESULT = "result";
   private IssueCaseJiraIssueResult result;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
+
+  public IssueCaseJiraIssue errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+  /**
+   * Error message set when the Jira issue creation fails.
+   *
+   * @return errorMessage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
 
   public IssueCaseJiraIssue result(IssueCaseJiraIssueResult result) {
     this.result = result;
@@ -130,20 +155,22 @@ public class IssueCaseJiraIssue {
       return false;
     }
     IssueCaseJiraIssue issueCaseJiraIssue = (IssueCaseJiraIssue) o;
-    return Objects.equals(this.result, issueCaseJiraIssue.result)
+    return Objects.equals(this.errorMessage, issueCaseJiraIssue.errorMessage)
+        && Objects.equals(this.result, issueCaseJiraIssue.result)
         && Objects.equals(this.status, issueCaseJiraIssue.status)
         && Objects.equals(this.additionalProperties, issueCaseJiraIssue.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(result, status, additionalProperties);
+    return Objects.hash(errorMessage, result, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssueCaseJiraIssue {\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")

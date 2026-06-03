@@ -18,15 +18,20 @@ import java.util.Objects;
 
 /** Contains the identifiers and URL for a successfully created Jira issue. */
 @JsonPropertyOrder({
+  IssueCaseJiraIssueResult.JSON_PROPERTY_ACCOUNT_ID,
   IssueCaseJiraIssueResult.JSON_PROPERTY_ISSUE_ID,
   IssueCaseJiraIssueResult.JSON_PROPERTY_ISSUE_KEY,
   IssueCaseJiraIssueResult.JSON_PROPERTY_ISSUE_URL,
+  IssueCaseJiraIssueResult.JSON_PROPERTY_PROJECT_ID,
   IssueCaseJiraIssueResult.JSON_PROPERTY_PROJECT_KEY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IssueCaseJiraIssueResult {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  private String accountId;
+
   public static final String JSON_PROPERTY_ISSUE_ID = "issue_id";
   private String issueId;
 
@@ -36,8 +41,32 @@ public class IssueCaseJiraIssueResult {
   public static final String JSON_PROPERTY_ISSUE_URL = "issue_url";
   private String issueUrl;
 
+  public static final String JSON_PROPERTY_PROJECT_ID = "project_id";
+  private String projectId;
+
   public static final String JSON_PROPERTY_PROJECT_KEY = "project_key";
   private String projectKey;
+
+  public IssueCaseJiraIssueResult accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+  /**
+   * Jira account identifier.
+   *
+   * @return accountId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
   public IssueCaseJiraIssueResult issueId(String issueId) {
     this.issueId = issueId;
@@ -100,6 +129,27 @@ public class IssueCaseJiraIssueResult {
 
   public void setIssueUrl(String issueUrl) {
     this.issueUrl = issueUrl;
+  }
+
+  public IssueCaseJiraIssueResult projectId(String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+  /**
+   * Jira project identifier.
+   *
+   * @return projectId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
   public IssueCaseJiraIssueResult projectKey(String projectKey) {
@@ -179,25 +229,30 @@ public class IssueCaseJiraIssueResult {
       return false;
     }
     IssueCaseJiraIssueResult issueCaseJiraIssueResult = (IssueCaseJiraIssueResult) o;
-    return Objects.equals(this.issueId, issueCaseJiraIssueResult.issueId)
+    return Objects.equals(this.accountId, issueCaseJiraIssueResult.accountId)
+        && Objects.equals(this.issueId, issueCaseJiraIssueResult.issueId)
         && Objects.equals(this.issueKey, issueCaseJiraIssueResult.issueKey)
         && Objects.equals(this.issueUrl, issueCaseJiraIssueResult.issueUrl)
+        && Objects.equals(this.projectId, issueCaseJiraIssueResult.projectId)
         && Objects.equals(this.projectKey, issueCaseJiraIssueResult.projectKey)
         && Objects.equals(this.additionalProperties, issueCaseJiraIssueResult.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(issueId, issueKey, issueUrl, projectKey, additionalProperties);
+    return Objects.hash(
+        accountId, issueId, issueKey, issueUrl, projectId, projectKey, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssueCaseJiraIssueResult {\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    issueId: ").append(toIndentedString(issueId)).append("\n");
     sb.append("    issueKey: ").append(toIndentedString(issueKey)).append("\n");
     sb.append("    issueUrl: ").append(toIndentedString(issueUrl)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    projectKey: ").append(toIndentedString(projectKey)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
