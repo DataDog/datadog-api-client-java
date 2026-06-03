@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/usage/summary/available_fields",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"id\":null,\"links\":null,\"status\":\"400\",\"code\":null,\"title\":\"Bad Request\",\"detail\":\"API called with non-parent org keys. Data is only available at the root level org\",\"source\":null,\"meta\":null}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d877ef2f-4ae0-ae60-4678-48aa4f88a764"
+  }
+]

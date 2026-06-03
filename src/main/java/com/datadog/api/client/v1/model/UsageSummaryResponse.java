@@ -22,6 +22,11 @@ import java.util.Objects;
 /**
  * Response summarizing all usage aggregated across the months in the request for all organizations,
  * and broken down by month and by organization.
+ *
+ * <p>Newly added billing dimensions and usage types appear as untyped keys on the <code>
+ * additionalProperties</code> map instead of as typed fields. Call <code>
+ * GET /api/v2/usage/summary/available_fields</code> to enumerate every key returned at this
+ * response level—both typed fields and <code>additionalProperties</code> keys.
  */
 @JsonPropertyOrder({
   UsageSummaryResponse.JSON_PROPERTY_AGENT_HOST_TOP99P_SUM,
