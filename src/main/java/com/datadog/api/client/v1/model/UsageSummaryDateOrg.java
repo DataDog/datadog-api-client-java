@@ -28,6 +28,11 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_ACCOUNT_NAME,
   UsageSummaryDateOrg.JSON_PROPERTY_ACCOUNT_PUBLIC_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_AI_CREDITS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P,
@@ -38,6 +43,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_ASM_SERVERLESS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT,
@@ -112,6 +118,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CWS_FARGATE_TASK_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CWS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_DBM_QUERIES_AVG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM,
@@ -160,17 +168,57 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INDEXED_POINTS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_CPU_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_INGEST_POINTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_IOT_APM_HOST_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_IOT_APM_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_LLM_OBSERVABILITY_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_METRIC_NAMES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM,
@@ -277,6 +325,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_SIEM_12MO_RETENTION_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SIEM_6MO_RETENTION_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_SNMP_DEVICE_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_SNMP_DEVICE_COUNT_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM,
@@ -300,6 +350,25 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P = "agent_host_top99p";
   private Long agentHostTop99p;
+
+  public static final String JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM =
+      "ai_credits_agent_builder_ai_credits_sum";
+  private Long aiCreditsAgentBuilderAiCreditsSum;
+
+  public static final String JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM =
+      "ai_credits_bits_assistant_ai_credits_sum";
+  private Long aiCreditsBitsAssistantAiCreditsSum;
+
+  public static final String JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM =
+      "ai_credits_bits_dev_ai_credits_sum";
+  private Long aiCreditsBitsDevAiCreditsSum;
+
+  public static final String JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM =
+      "ai_credits_bits_sre_ai_credits_sum";
+  private Long aiCreditsBitsSreAiCreditsSum;
+
+  public static final String JSON_PROPERTY_AI_CREDITS_SUM = "ai_credits_sum";
+  private Long aiCreditsSum;
 
   public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P =
       "apm_azure_app_service_host_top99p";
@@ -334,6 +403,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM = "audit_trail_enabled_hwm";
   private Long auditTrailEnabledHwm;
+
+  public static final String JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM =
+      "audit_trail_event_forwarding_events_sum";
+  private Long auditTrailEventForwardingEventsSum;
 
   public static final String JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS =
       "avg_profiled_fargate_tasks";
@@ -594,6 +667,14 @@ public class UsageSummaryDateOrg {
       "data_jobs_monitoring_host_hr_sum";
   private Long dataJobsMonitoringHostHrSum;
 
+  public static final String JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM =
+      "data_stream_monitoring_host_count_sum";
+  private Long dataStreamMonitoringHostCountSum;
+
+  public static final String JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P =
+      "data_stream_monitoring_host_count_top99p";
+  private Long dataStreamMonitoringHostCountTop99p;
+
   public static final String JSON_PROPERTY_DBM_HOST_TOP99P_SUM = "dbm_host_top99p_sum";
   private Long dbmHostTop99pSum;
 
@@ -768,6 +849,127 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM = "indexed_events_count_sum";
   private Long indexedEventsCountSum;
 
+  public static final String JSON_PROPERTY_INDEXED_POINTS_SUM = "indexed_points_sum";
+  private Long indexedPointsSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_AVG = "infra_cpu_avg";
+  private Long infraCpuAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG =
+      "infra_cpu_default_infra_host_vcpu_agent_avg";
+  private Long infraCpuDefaultInfraHostVcpuAgentAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG =
+      "infra_cpu_default_infra_host_vcpu_agent_basic_avg";
+  private Long infraCpuDefaultInfraHostVcpuAgentBasicAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM =
+      "infra_cpu_default_infra_host_vcpu_agent_basic_sum";
+  private Long infraCpuDefaultInfraHostVcpuAgentBasicSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM =
+      "infra_cpu_default_infra_host_vcpu_agent_sum";
+  private Long infraCpuDefaultInfraHostVcpuAgentSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG =
+      "infra_cpu_default_infra_host_vcpu_aws_avg";
+  private Long infraCpuDefaultInfraHostVcpuAwsAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM =
+      "infra_cpu_default_infra_host_vcpu_aws_sum";
+  private Long infraCpuDefaultInfraHostVcpuAwsSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG =
+      "infra_cpu_default_infra_host_vcpu_azure_avg";
+  private Long infraCpuDefaultInfraHostVcpuAzureAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM =
+      "infra_cpu_default_infra_host_vcpu_azure_sum";
+  private Long infraCpuDefaultInfraHostVcpuAzureSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG =
+      "infra_cpu_default_infra_host_vcpu_gcp_avg";
+  private Long infraCpuDefaultInfraHostVcpuGcpAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM =
+      "infra_cpu_default_infra_host_vcpu_gcp_sum";
+  private Long infraCpuDefaultInfraHostVcpuGcpSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG =
+      "infra_cpu_default_infra_host_vcpu_nutanix_avg";
+  private Long infraCpuDefaultInfraHostVcpuNutanixAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG =
+      "infra_cpu_default_infra_host_vcpu_nutanix_basic_avg";
+  private Long infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM =
+      "infra_cpu_default_infra_host_vcpu_nutanix_basic_sum";
+  private Long infraCpuDefaultInfraHostVcpuNutanixBasicSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM =
+      "infra_cpu_default_infra_host_vcpu_nutanix_sum";
+  private Long infraCpuDefaultInfraHostVcpuNutanixSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG =
+      "infra_cpu_default_infra_host_vcpu_opentelemetry_avg";
+  private Long infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM =
+      "infra_cpu_default_infra_host_vcpu_opentelemetry_sum";
+  private Long infraCpuDefaultInfraHostVcpuOpentelemetrySum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG =
+      "infra_cpu_observed_infra_host_vcpu_agent_avg";
+  private Long infraCpuObservedInfraHostVcpuAgentAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM =
+      "infra_cpu_observed_infra_host_vcpu_agent_sum";
+  private Long infraCpuObservedInfraHostVcpuAgentSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG =
+      "infra_cpu_observed_infra_host_vcpu_aws_avg";
+  private Long infraCpuObservedInfraHostVcpuAwsAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM =
+      "infra_cpu_observed_infra_host_vcpu_aws_sum";
+  private Long infraCpuObservedInfraHostVcpuAwsSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG =
+      "infra_cpu_observed_infra_host_vcpu_azure_avg";
+  private Long infraCpuObservedInfraHostVcpuAzureAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM =
+      "infra_cpu_observed_infra_host_vcpu_azure_sum";
+  private Long infraCpuObservedInfraHostVcpuAzureSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG =
+      "infra_cpu_observed_infra_host_vcpu_gcp_avg";
+  private Long infraCpuObservedInfraHostVcpuGcpAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM =
+      "infra_cpu_observed_infra_host_vcpu_gcp_sum";
+  private Long infraCpuObservedInfraHostVcpuGcpSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG =
+      "infra_cpu_observed_infra_host_vcpu_nutanix_avg";
+  private Long infraCpuObservedInfraHostVcpuNutanixAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM =
+      "infra_cpu_observed_infra_host_vcpu_nutanix_sum";
+  private Long infraCpuObservedInfraHostVcpuNutanixSum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG =
+      "infra_cpu_observed_infra_host_vcpu_opentelemetry_avg";
+  private Long infraCpuObservedInfraHostVcpuOpentelemetryAvg;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM =
+      "infra_cpu_observed_infra_host_vcpu_opentelemetry_sum";
+  private Long infraCpuObservedInfraHostVcpuOpentelemetrySum;
+
+  public static final String JSON_PROPERTY_INFRA_CPU_SUM = "infra_cpu_sum";
+  private Long infraCpuSum;
+
   public static final String JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P =
       "infra_edge_monitoring_devices_top99p";
   private Long infraEdgeMonitoringDevicesTop99p;
@@ -790,8 +992,17 @@ public class UsageSummaryDateOrg {
       "infra_storage_mgmt_objects_count_avg";
   private Long infraStorageMgmtObjectsCountAvg;
 
+  public static final String JSON_PROPERTY_INGEST_POINTS_SUM = "ingest_points_sum";
+  private Long ingestPointsSum;
+
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM = "ingested_events_bytes_sum";
   private Long ingestedEventsBytesSum;
+
+  public static final String JSON_PROPERTY_IOT_APM_HOST_SUM = "iot_apm_host_sum";
+  private Long iotApmHostSum;
+
+  public static final String JSON_PROPERTY_IOT_APM_HOST_TOP99P = "iot_apm_host_top99p";
+  private Long iotApmHostTop99p;
 
   public static final String JSON_PROPERTY_IOT_DEVICE_AGG_SUM = "iot_device_agg_sum";
   private Long iotDeviceAggSum;
@@ -799,12 +1010,35 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM = "iot_device_top99p_sum";
   private Long iotDeviceTop99pSum;
 
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM =
+      "llm_observability_15day_retention_spans_sum";
+  private Long llmObservability15dayRetentionSpansSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM =
+      "llm_observability_30day_retention_spans_sum";
+  private Long llmObservability30dayRetentionSpansSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM =
+      "llm_observability_60day_retention_spans_sum";
+  private Long llmObservability60dayRetentionSpansSum;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM =
+      "llm_observability_90day_retention_spans_sum";
+  private Long llmObservability90dayRetentionSpansSum;
+
   public static final String JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM =
       "llm_observability_min_spend_sum";
   private Long llmObservabilityMinSpendSum;
 
   public static final String JSON_PROPERTY_LLM_OBSERVABILITY_SUM = "llm_observability_sum";
   private Long llmObservabilitySum;
+
+  public static final String JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM =
+      "logs_archive_search_gb_scanned_sum";
+  private Long logsArchiveSearchGbScannedSum;
+
+  public static final String JSON_PROPERTY_METRIC_NAMES_SUM = "metric_names_sum";
+  private Long metricNamesSum;
 
   public static final String JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM =
       "mobile_rum_lite_session_count_sum";
@@ -1195,6 +1429,12 @@ public class UsageSummaryDateOrg {
       "siem_analyzed_logs_add_on_count_sum";
   private Long siemAnalyzedLogsAddOnCountSum;
 
+  public static final String JSON_PROPERTY_SNMP_DEVICE_COUNT_SUM = "snmp_device_count_sum";
+  private Long snmpDeviceCountSum;
+
+  public static final String JSON_PROPERTY_SNMP_DEVICE_COUNT_TOP99P = "snmp_device_count_top99p";
+  private Long snmpDeviceCountTop99p;
+
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM =
       "synthetics_browser_check_calls_count_sum";
   private Long syntheticsBrowserCheckCallsCountSum;
@@ -1296,6 +1536,117 @@ public class UsageSummaryDateOrg {
 
   public void setAgentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
+  }
+
+  public UsageSummaryDateOrg aiCreditsAgentBuilderAiCreditsSum(
+      Long aiCreditsAgentBuilderAiCreditsSum) {
+    this.aiCreditsAgentBuilderAiCreditsSum = aiCreditsAgentBuilderAiCreditsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all AI credits used by Agent Builder over all hours in the current date for
+   * the given org.
+   *
+   * @return aiCreditsAgentBuilderAiCreditsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAiCreditsAgentBuilderAiCreditsSum() {
+    return aiCreditsAgentBuilderAiCreditsSum;
+  }
+
+  public void setAiCreditsAgentBuilderAiCreditsSum(Long aiCreditsAgentBuilderAiCreditsSum) {
+    this.aiCreditsAgentBuilderAiCreditsSum = aiCreditsAgentBuilderAiCreditsSum;
+  }
+
+  public UsageSummaryDateOrg aiCreditsBitsAssistantAiCreditsSum(
+      Long aiCreditsBitsAssistantAiCreditsSum) {
+    this.aiCreditsBitsAssistantAiCreditsSum = aiCreditsBitsAssistantAiCreditsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all AI credits used by Bits AI Assistant over all hours in the current date
+   * for the given org.
+   *
+   * @return aiCreditsBitsAssistantAiCreditsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAiCreditsBitsAssistantAiCreditsSum() {
+    return aiCreditsBitsAssistantAiCreditsSum;
+  }
+
+  public void setAiCreditsBitsAssistantAiCreditsSum(Long aiCreditsBitsAssistantAiCreditsSum) {
+    this.aiCreditsBitsAssistantAiCreditsSum = aiCreditsBitsAssistantAiCreditsSum;
+  }
+
+  public UsageSummaryDateOrg aiCreditsBitsDevAiCreditsSum(Long aiCreditsBitsDevAiCreditsSum) {
+    this.aiCreditsBitsDevAiCreditsSum = aiCreditsBitsDevAiCreditsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all AI credits used by Bits AI Dev over all hours in the current date for the
+   * given org.
+   *
+   * @return aiCreditsBitsDevAiCreditsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAiCreditsBitsDevAiCreditsSum() {
+    return aiCreditsBitsDevAiCreditsSum;
+  }
+
+  public void setAiCreditsBitsDevAiCreditsSum(Long aiCreditsBitsDevAiCreditsSum) {
+    this.aiCreditsBitsDevAiCreditsSum = aiCreditsBitsDevAiCreditsSum;
+  }
+
+  public UsageSummaryDateOrg aiCreditsBitsSreAiCreditsSum(Long aiCreditsBitsSreAiCreditsSum) {
+    this.aiCreditsBitsSreAiCreditsSum = aiCreditsBitsSreAiCreditsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all AI credits used by Bits AI SRE over all hours in the current date for the
+   * given org.
+   *
+   * @return aiCreditsBitsSreAiCreditsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAiCreditsBitsSreAiCreditsSum() {
+    return aiCreditsBitsSreAiCreditsSum;
+  }
+
+  public void setAiCreditsBitsSreAiCreditsSum(Long aiCreditsBitsSreAiCreditsSum) {
+    this.aiCreditsBitsSreAiCreditsSum = aiCreditsBitsSreAiCreditsSum;
+  }
+
+  public UsageSummaryDateOrg aiCreditsSum(Long aiCreditsSum) {
+    this.aiCreditsSum = aiCreditsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all AI credits over all hours in the current date for the given org.
+   *
+   * @return aiCreditsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AI_CREDITS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAiCreditsSum() {
+    return aiCreditsSum;
+  }
+
+  public void setAiCreditsSum(Long aiCreditsSum) {
+    this.aiCreditsSum = aiCreditsSum;
   }
 
   public UsageSummaryDateOrg apmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
@@ -1519,6 +1870,29 @@ public class UsageSummaryDateOrg {
 
   public void setAuditTrailEnabledHwm(Long auditTrailEnabledHwm) {
     this.auditTrailEnabledHwm = auditTrailEnabledHwm;
+  }
+
+  public UsageSummaryDateOrg auditTrailEventForwardingEventsSum(
+      Long auditTrailEventForwardingEventsSum) {
+    this.auditTrailEventForwardingEventsSum = auditTrailEventForwardingEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Audit Trail event forwarding events over all hours in the current date for
+   * the given org.
+   *
+   * @return auditTrailEventForwardingEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAuditTrailEventForwardingEventsSum() {
+    return auditTrailEventForwardingEventsSum;
+  }
+
+  public void setAuditTrailEventForwardingEventsSum(Long auditTrailEventForwardingEventsSum) {
+    this.auditTrailEventForwardingEventsSum = auditTrailEventForwardingEventsSum;
   }
 
   public UsageSummaryDateOrg avgProfiledFargateTasks(Long avgProfiledFargateTasks) {
@@ -3172,6 +3546,52 @@ public class UsageSummaryDateOrg {
     this.dataJobsMonitoringHostHrSum = dataJobsMonitoringHostHrSum;
   }
 
+  public UsageSummaryDateOrg dataStreamMonitoringHostCountSum(
+      Long dataStreamMonitoringHostCountSum) {
+    this.dataStreamMonitoringHostCountSum = dataStreamMonitoringHostCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Data Streams Monitoring hosts over all hours in the current date for the
+   * given org.
+   *
+   * @return dataStreamMonitoringHostCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDataStreamMonitoringHostCountSum() {
+    return dataStreamMonitoringHostCountSum;
+  }
+
+  public void setDataStreamMonitoringHostCountSum(Long dataStreamMonitoringHostCountSum) {
+    this.dataStreamMonitoringHostCountSum = dataStreamMonitoringHostCountSum;
+  }
+
+  public UsageSummaryDateOrg dataStreamMonitoringHostCountTop99p(
+      Long dataStreamMonitoringHostCountTop99p) {
+    this.dataStreamMonitoringHostCountTop99p = dataStreamMonitoringHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Data Streams Monitoring hosts over all hours in the current
+   * date for the given org.
+   *
+   * @return dataStreamMonitoringHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDataStreamMonitoringHostCountTop99p() {
+    return dataStreamMonitoringHostCountTop99p;
+  }
+
+  public void setDataStreamMonitoringHostCountTop99p(Long dataStreamMonitoringHostCountTop99p) {
+    this.dataStreamMonitoringHostCountTop99p = dataStreamMonitoringHostCountTop99p;
+  }
+
   public UsageSummaryDateOrg dbmHostTop99pSum(Long dbmHostTop99pSum) {
     this.dbmHostTop99pSum = dbmHostTop99pSum;
     return this;
@@ -4251,6 +4671,736 @@ public class UsageSummaryDateOrg {
     this.indexedEventsCountSum = indexedEventsCountSum;
   }
 
+  public UsageSummaryDateOrg indexedPointsSum(Long indexedPointsSum) {
+    this.indexedPointsSum = indexedPointsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all indexed custom metrics points over all hours in the current date for the
+   * given org.
+   *
+   * @return indexedPointsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXED_POINTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIndexedPointsSum() {
+    return indexedPointsSum;
+  }
+
+  public void setIndexedPointsSum(Long indexedPointsSum) {
+    this.indexedPointsSum = indexedPointsSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuAvg(Long infraCpuAvg) {
+    this.infraCpuAvg = infraCpuAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all Infrastructure vCPU cores over all hours in the current date for the
+   * given org.
+   *
+   * @return infraCpuAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuAvg() {
+    return infraCpuAvg;
+  }
+
+  public void setInfraCpuAvg(Long infraCpuAvg) {
+    this.infraCpuAvg = infraCpuAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuAgentAvg(
+      Long infraCpuDefaultInfraHostVcpuAgentAvg) {
+    this.infraCpuDefaultInfraHostVcpuAgentAvg = infraCpuDefaultInfraHostVcpuAgentAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores reported by the Datadog Agent
+   * over all hours in the current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuAgentAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuAgentAvg() {
+    return infraCpuDefaultInfraHostVcpuAgentAvg;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuAgentAvg(Long infraCpuDefaultInfraHostVcpuAgentAvg) {
+    this.infraCpuDefaultInfraHostVcpuAgentAvg = infraCpuDefaultInfraHostVcpuAgentAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuAgentBasicAvg(
+      Long infraCpuDefaultInfraHostVcpuAgentBasicAvg) {
+    this.infraCpuDefaultInfraHostVcpuAgentBasicAvg = infraCpuDefaultInfraHostVcpuAgentBasicAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all default basic Infrastructure host vCPU cores reported by the Datadog
+   * Agent over all hours in the current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuAgentBasicAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuAgentBasicAvg() {
+    return infraCpuDefaultInfraHostVcpuAgentBasicAvg;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuAgentBasicAvg(
+      Long infraCpuDefaultInfraHostVcpuAgentBasicAvg) {
+    this.infraCpuDefaultInfraHostVcpuAgentBasicAvg = infraCpuDefaultInfraHostVcpuAgentBasicAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuAgentBasicSum(
+      Long infraCpuDefaultInfraHostVcpuAgentBasicSum) {
+    this.infraCpuDefaultInfraHostVcpuAgentBasicSum = infraCpuDefaultInfraHostVcpuAgentBasicSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all default basic Infrastructure host vCPU cores reported by the Datadog Agent
+   * over all hours in the current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuAgentBasicSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuAgentBasicSum() {
+    return infraCpuDefaultInfraHostVcpuAgentBasicSum;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuAgentBasicSum(
+      Long infraCpuDefaultInfraHostVcpuAgentBasicSum) {
+    this.infraCpuDefaultInfraHostVcpuAgentBasicSum = infraCpuDefaultInfraHostVcpuAgentBasicSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuAgentSum(
+      Long infraCpuDefaultInfraHostVcpuAgentSum) {
+    this.infraCpuDefaultInfraHostVcpuAgentSum = infraCpuDefaultInfraHostVcpuAgentSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores reported by the Datadog Agent over
+   * all hours in the current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuAgentSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuAgentSum() {
+    return infraCpuDefaultInfraHostVcpuAgentSum;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuAgentSum(Long infraCpuDefaultInfraHostVcpuAgentSum) {
+    this.infraCpuDefaultInfraHostVcpuAgentSum = infraCpuDefaultInfraHostVcpuAgentSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuAwsAvg(
+      Long infraCpuDefaultInfraHostVcpuAwsAvg) {
+    this.infraCpuDefaultInfraHostVcpuAwsAvg = infraCpuDefaultInfraHostVcpuAwsAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores on AWS over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuAwsAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuAwsAvg() {
+    return infraCpuDefaultInfraHostVcpuAwsAvg;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuAwsAvg(Long infraCpuDefaultInfraHostVcpuAwsAvg) {
+    this.infraCpuDefaultInfraHostVcpuAwsAvg = infraCpuDefaultInfraHostVcpuAwsAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuAwsSum(
+      Long infraCpuDefaultInfraHostVcpuAwsSum) {
+    this.infraCpuDefaultInfraHostVcpuAwsSum = infraCpuDefaultInfraHostVcpuAwsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores on AWS over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuAwsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuAwsSum() {
+    return infraCpuDefaultInfraHostVcpuAwsSum;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuAwsSum(Long infraCpuDefaultInfraHostVcpuAwsSum) {
+    this.infraCpuDefaultInfraHostVcpuAwsSum = infraCpuDefaultInfraHostVcpuAwsSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuAzureAvg(
+      Long infraCpuDefaultInfraHostVcpuAzureAvg) {
+    this.infraCpuDefaultInfraHostVcpuAzureAvg = infraCpuDefaultInfraHostVcpuAzureAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores on Azure over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuAzureAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuAzureAvg() {
+    return infraCpuDefaultInfraHostVcpuAzureAvg;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuAzureAvg(Long infraCpuDefaultInfraHostVcpuAzureAvg) {
+    this.infraCpuDefaultInfraHostVcpuAzureAvg = infraCpuDefaultInfraHostVcpuAzureAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuAzureSum(
+      Long infraCpuDefaultInfraHostVcpuAzureSum) {
+    this.infraCpuDefaultInfraHostVcpuAzureSum = infraCpuDefaultInfraHostVcpuAzureSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores on Azure over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuAzureSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuAzureSum() {
+    return infraCpuDefaultInfraHostVcpuAzureSum;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuAzureSum(Long infraCpuDefaultInfraHostVcpuAzureSum) {
+    this.infraCpuDefaultInfraHostVcpuAzureSum = infraCpuDefaultInfraHostVcpuAzureSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuGcpAvg(
+      Long infraCpuDefaultInfraHostVcpuGcpAvg) {
+    this.infraCpuDefaultInfraHostVcpuGcpAvg = infraCpuDefaultInfraHostVcpuGcpAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores on GCP over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuGcpAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuGcpAvg() {
+    return infraCpuDefaultInfraHostVcpuGcpAvg;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuGcpAvg(Long infraCpuDefaultInfraHostVcpuGcpAvg) {
+    this.infraCpuDefaultInfraHostVcpuGcpAvg = infraCpuDefaultInfraHostVcpuGcpAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuGcpSum(
+      Long infraCpuDefaultInfraHostVcpuGcpSum) {
+    this.infraCpuDefaultInfraHostVcpuGcpSum = infraCpuDefaultInfraHostVcpuGcpSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores on GCP over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuGcpSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuGcpSum() {
+    return infraCpuDefaultInfraHostVcpuGcpSum;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuGcpSum(Long infraCpuDefaultInfraHostVcpuGcpSum) {
+    this.infraCpuDefaultInfraHostVcpuGcpSum = infraCpuDefaultInfraHostVcpuGcpSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuNutanixAvg(
+      Long infraCpuDefaultInfraHostVcpuNutanixAvg) {
+    this.infraCpuDefaultInfraHostVcpuNutanixAvg = infraCpuDefaultInfraHostVcpuNutanixAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores on Nutanix over all hours in
+   * the current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuNutanixAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuNutanixAvg() {
+    return infraCpuDefaultInfraHostVcpuNutanixAvg;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuNutanixAvg(
+      Long infraCpuDefaultInfraHostVcpuNutanixAvg) {
+    this.infraCpuDefaultInfraHostVcpuNutanixAvg = infraCpuDefaultInfraHostVcpuNutanixAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuNutanixBasicAvg(
+      Long infraCpuDefaultInfraHostVcpuNutanixBasicAvg) {
+    this.infraCpuDefaultInfraHostVcpuNutanixBasicAvg = infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all default basic Infrastructure host vCPU cores on Nutanix over all hours
+   * in the current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuNutanixBasicAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuNutanixBasicAvg() {
+    return infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuNutanixBasicAvg(
+      Long infraCpuDefaultInfraHostVcpuNutanixBasicAvg) {
+    this.infraCpuDefaultInfraHostVcpuNutanixBasicAvg = infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuNutanixBasicSum(
+      Long infraCpuDefaultInfraHostVcpuNutanixBasicSum) {
+    this.infraCpuDefaultInfraHostVcpuNutanixBasicSum = infraCpuDefaultInfraHostVcpuNutanixBasicSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all default basic Infrastructure host vCPU cores on Nutanix over all hours in
+   * the current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuNutanixBasicSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuNutanixBasicSum() {
+    return infraCpuDefaultInfraHostVcpuNutanixBasicSum;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuNutanixBasicSum(
+      Long infraCpuDefaultInfraHostVcpuNutanixBasicSum) {
+    this.infraCpuDefaultInfraHostVcpuNutanixBasicSum = infraCpuDefaultInfraHostVcpuNutanixBasicSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuNutanixSum(
+      Long infraCpuDefaultInfraHostVcpuNutanixSum) {
+    this.infraCpuDefaultInfraHostVcpuNutanixSum = infraCpuDefaultInfraHostVcpuNutanixSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores on Nutanix over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuNutanixSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuNutanixSum() {
+    return infraCpuDefaultInfraHostVcpuNutanixSum;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuNutanixSum(
+      Long infraCpuDefaultInfraHostVcpuNutanixSum) {
+    this.infraCpuDefaultInfraHostVcpuNutanixSum = infraCpuDefaultInfraHostVcpuNutanixSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuOpentelemetryAvg(
+      Long infraCpuDefaultInfraHostVcpuOpentelemetryAvg) {
+    this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg =
+        infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores reported by OpenTelemetry over
+   * all hours in the current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuOpentelemetryAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuOpentelemetryAvg() {
+    return infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuOpentelemetryAvg(
+      Long infraCpuDefaultInfraHostVcpuOpentelemetryAvg) {
+    this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg =
+        infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuDefaultInfraHostVcpuOpentelemetrySum(
+      Long infraCpuDefaultInfraHostVcpuOpentelemetrySum) {
+    this.infraCpuDefaultInfraHostVcpuOpentelemetrySum =
+        infraCpuDefaultInfraHostVcpuOpentelemetrySum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores reported by OpenTelemetry over all
+   * hours in the current date for the given org.
+   *
+   * @return infraCpuDefaultInfraHostVcpuOpentelemetrySum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuDefaultInfraHostVcpuOpentelemetrySum() {
+    return infraCpuDefaultInfraHostVcpuOpentelemetrySum;
+  }
+
+  public void setInfraCpuDefaultInfraHostVcpuOpentelemetrySum(
+      Long infraCpuDefaultInfraHostVcpuOpentelemetrySum) {
+    this.infraCpuDefaultInfraHostVcpuOpentelemetrySum =
+        infraCpuDefaultInfraHostVcpuOpentelemetrySum;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuAgentAvg(
+      Long infraCpuObservedInfraHostVcpuAgentAvg) {
+    this.infraCpuObservedInfraHostVcpuAgentAvg = infraCpuObservedInfraHostVcpuAgentAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores reported by the Datadog Agent
+   * over all hours in the current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuAgentAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuAgentAvg() {
+    return infraCpuObservedInfraHostVcpuAgentAvg;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuAgentAvg(Long infraCpuObservedInfraHostVcpuAgentAvg) {
+    this.infraCpuObservedInfraHostVcpuAgentAvg = infraCpuObservedInfraHostVcpuAgentAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuAgentSum(
+      Long infraCpuObservedInfraHostVcpuAgentSum) {
+    this.infraCpuObservedInfraHostVcpuAgentSum = infraCpuObservedInfraHostVcpuAgentSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores reported by the Datadog Agent over
+   * all hours in the current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuAgentSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuAgentSum() {
+    return infraCpuObservedInfraHostVcpuAgentSum;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuAgentSum(Long infraCpuObservedInfraHostVcpuAgentSum) {
+    this.infraCpuObservedInfraHostVcpuAgentSum = infraCpuObservedInfraHostVcpuAgentSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuAwsAvg(
+      Long infraCpuObservedInfraHostVcpuAwsAvg) {
+    this.infraCpuObservedInfraHostVcpuAwsAvg = infraCpuObservedInfraHostVcpuAwsAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores on AWS over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuAwsAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuAwsAvg() {
+    return infraCpuObservedInfraHostVcpuAwsAvg;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuAwsAvg(Long infraCpuObservedInfraHostVcpuAwsAvg) {
+    this.infraCpuObservedInfraHostVcpuAwsAvg = infraCpuObservedInfraHostVcpuAwsAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuAwsSum(
+      Long infraCpuObservedInfraHostVcpuAwsSum) {
+    this.infraCpuObservedInfraHostVcpuAwsSum = infraCpuObservedInfraHostVcpuAwsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores on AWS over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuAwsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuAwsSum() {
+    return infraCpuObservedInfraHostVcpuAwsSum;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuAwsSum(Long infraCpuObservedInfraHostVcpuAwsSum) {
+    this.infraCpuObservedInfraHostVcpuAwsSum = infraCpuObservedInfraHostVcpuAwsSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuAzureAvg(
+      Long infraCpuObservedInfraHostVcpuAzureAvg) {
+    this.infraCpuObservedInfraHostVcpuAzureAvg = infraCpuObservedInfraHostVcpuAzureAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores on Azure over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuAzureAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuAzureAvg() {
+    return infraCpuObservedInfraHostVcpuAzureAvg;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuAzureAvg(Long infraCpuObservedInfraHostVcpuAzureAvg) {
+    this.infraCpuObservedInfraHostVcpuAzureAvg = infraCpuObservedInfraHostVcpuAzureAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuAzureSum(
+      Long infraCpuObservedInfraHostVcpuAzureSum) {
+    this.infraCpuObservedInfraHostVcpuAzureSum = infraCpuObservedInfraHostVcpuAzureSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores on Azure over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuAzureSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuAzureSum() {
+    return infraCpuObservedInfraHostVcpuAzureSum;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuAzureSum(Long infraCpuObservedInfraHostVcpuAzureSum) {
+    this.infraCpuObservedInfraHostVcpuAzureSum = infraCpuObservedInfraHostVcpuAzureSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuGcpAvg(
+      Long infraCpuObservedInfraHostVcpuGcpAvg) {
+    this.infraCpuObservedInfraHostVcpuGcpAvg = infraCpuObservedInfraHostVcpuGcpAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores on GCP over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuGcpAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuGcpAvg() {
+    return infraCpuObservedInfraHostVcpuGcpAvg;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuGcpAvg(Long infraCpuObservedInfraHostVcpuGcpAvg) {
+    this.infraCpuObservedInfraHostVcpuGcpAvg = infraCpuObservedInfraHostVcpuGcpAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuGcpSum(
+      Long infraCpuObservedInfraHostVcpuGcpSum) {
+    this.infraCpuObservedInfraHostVcpuGcpSum = infraCpuObservedInfraHostVcpuGcpSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores on GCP over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuGcpSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuGcpSum() {
+    return infraCpuObservedInfraHostVcpuGcpSum;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuGcpSum(Long infraCpuObservedInfraHostVcpuGcpSum) {
+    this.infraCpuObservedInfraHostVcpuGcpSum = infraCpuObservedInfraHostVcpuGcpSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuNutanixAvg(
+      Long infraCpuObservedInfraHostVcpuNutanixAvg) {
+    this.infraCpuObservedInfraHostVcpuNutanixAvg = infraCpuObservedInfraHostVcpuNutanixAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores on Nutanix over all hours in
+   * the current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuNutanixAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuNutanixAvg() {
+    return infraCpuObservedInfraHostVcpuNutanixAvg;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuNutanixAvg(
+      Long infraCpuObservedInfraHostVcpuNutanixAvg) {
+    this.infraCpuObservedInfraHostVcpuNutanixAvg = infraCpuObservedInfraHostVcpuNutanixAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuNutanixSum(
+      Long infraCpuObservedInfraHostVcpuNutanixSum) {
+    this.infraCpuObservedInfraHostVcpuNutanixSum = infraCpuObservedInfraHostVcpuNutanixSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores on Nutanix over all hours in the
+   * current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuNutanixSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuNutanixSum() {
+    return infraCpuObservedInfraHostVcpuNutanixSum;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuNutanixSum(
+      Long infraCpuObservedInfraHostVcpuNutanixSum) {
+    this.infraCpuObservedInfraHostVcpuNutanixSum = infraCpuObservedInfraHostVcpuNutanixSum;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuOpentelemetryAvg(
+      Long infraCpuObservedInfraHostVcpuOpentelemetryAvg) {
+    this.infraCpuObservedInfraHostVcpuOpentelemetryAvg =
+        infraCpuObservedInfraHostVcpuOpentelemetryAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores reported by OpenTelemetry over
+   * all hours in the current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuOpentelemetryAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuOpentelemetryAvg() {
+    return infraCpuObservedInfraHostVcpuOpentelemetryAvg;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuOpentelemetryAvg(
+      Long infraCpuObservedInfraHostVcpuOpentelemetryAvg) {
+    this.infraCpuObservedInfraHostVcpuOpentelemetryAvg =
+        infraCpuObservedInfraHostVcpuOpentelemetryAvg;
+  }
+
+  public UsageSummaryDateOrg infraCpuObservedInfraHostVcpuOpentelemetrySum(
+      Long infraCpuObservedInfraHostVcpuOpentelemetrySum) {
+    this.infraCpuObservedInfraHostVcpuOpentelemetrySum =
+        infraCpuObservedInfraHostVcpuOpentelemetrySum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all
+   * hours in the current date for the given org.
+   *
+   * @return infraCpuObservedInfraHostVcpuOpentelemetrySum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuObservedInfraHostVcpuOpentelemetrySum() {
+    return infraCpuObservedInfraHostVcpuOpentelemetrySum;
+  }
+
+  public void setInfraCpuObservedInfraHostVcpuOpentelemetrySum(
+      Long infraCpuObservedInfraHostVcpuOpentelemetrySum) {
+    this.infraCpuObservedInfraHostVcpuOpentelemetrySum =
+        infraCpuObservedInfraHostVcpuOpentelemetrySum;
+  }
+
+  public UsageSummaryDateOrg infraCpuSum(Long infraCpuSum) {
+    this.infraCpuSum = infraCpuSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Infrastructure vCPU cores over all hours in the current date for the given
+   * org.
+   *
+   * @return infraCpuSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_CPU_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraCpuSum() {
+    return infraCpuSum;
+  }
+
+  public void setInfraCpuSum(Long infraCpuSum) {
+    this.infraCpuSum = infraCpuSum;
+  }
+
   public UsageSummaryDateOrg infraEdgeMonitoringDevicesTop99p(
       Long infraEdgeMonitoringDevicesTop99p) {
     this.infraEdgeMonitoringDevicesTop99p = infraEdgeMonitoringDevicesTop99p;
@@ -4386,6 +5536,28 @@ public class UsageSummaryDateOrg {
     this.infraStorageMgmtObjectsCountAvg = infraStorageMgmtObjectsCountAvg;
   }
 
+  public UsageSummaryDateOrg ingestPointsSum(Long ingestPointsSum) {
+    this.ingestPointsSum = ingestPointsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ingested custom metrics points over all hours in the current date for the
+   * given org.
+   *
+   * @return ingestPointsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGEST_POINTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIngestPointsSum() {
+    return ingestPointsSum;
+  }
+
+  public void setIngestPointsSum(Long ingestPointsSum) {
+    this.ingestPointsSum = ingestPointsSum;
+  }
+
   public UsageSummaryDateOrg ingestedEventsBytesSum(Long ingestedEventsBytesSum) {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
     return this;
@@ -4405,6 +5577,50 @@ public class UsageSummaryDateOrg {
 
   public void setIngestedEventsBytesSum(Long ingestedEventsBytesSum) {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
+  }
+
+  public UsageSummaryDateOrg iotApmHostSum(Long iotApmHostSum) {
+    this.iotApmHostSum = iotApmHostSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Application Performance Monitoring IoT hosts over all hours in the current
+   * date for the given org.
+   *
+   * @return iotApmHostSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IOT_APM_HOST_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIotApmHostSum() {
+    return iotApmHostSum;
+  }
+
+  public void setIotApmHostSum(Long iotApmHostSum) {
+    this.iotApmHostSum = iotApmHostSum;
+  }
+
+  public UsageSummaryDateOrg iotApmHostTop99p(Long iotApmHostTop99p) {
+    this.iotApmHostTop99p = iotApmHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Application Performance Monitoring IoT hosts over all hours in
+   * the current date for the given org.
+   *
+   * @return iotApmHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IOT_APM_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIotApmHostTop99p() {
+    return iotApmHostTop99p;
+  }
+
+  public void setIotApmHostTop99p(Long iotApmHostTop99p) {
+    this.iotApmHostTop99p = iotApmHostTop99p;
   }
 
   public UsageSummaryDateOrg iotDeviceAggSum(Long iotDeviceAggSum) {
@@ -4450,6 +5666,102 @@ public class UsageSummaryDateOrg {
     this.iotDeviceTop99pSum = iotDeviceTop99pSum;
   }
 
+  public UsageSummaryDateOrg llmObservability15dayRetentionSpansSum(
+      Long llmObservability15dayRetentionSpansSum) {
+    this.llmObservability15dayRetentionSpansSum = llmObservability15dayRetentionSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all LLM Observability 15-day retention spans over all hours in the current
+   * date for the given org.
+   *
+   * @return llmObservability15dayRetentionSpansSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability15dayRetentionSpansSum() {
+    return llmObservability15dayRetentionSpansSum;
+  }
+
+  public void setLlmObservability15dayRetentionSpansSum(
+      Long llmObservability15dayRetentionSpansSum) {
+    this.llmObservability15dayRetentionSpansSum = llmObservability15dayRetentionSpansSum;
+  }
+
+  public UsageSummaryDateOrg llmObservability30dayRetentionSpansSum(
+      Long llmObservability30dayRetentionSpansSum) {
+    this.llmObservability30dayRetentionSpansSum = llmObservability30dayRetentionSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all LLM Observability 30-day retention spans over all hours in the current
+   * date for the given org.
+   *
+   * @return llmObservability30dayRetentionSpansSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability30dayRetentionSpansSum() {
+    return llmObservability30dayRetentionSpansSum;
+  }
+
+  public void setLlmObservability30dayRetentionSpansSum(
+      Long llmObservability30dayRetentionSpansSum) {
+    this.llmObservability30dayRetentionSpansSum = llmObservability30dayRetentionSpansSum;
+  }
+
+  public UsageSummaryDateOrg llmObservability60dayRetentionSpansSum(
+      Long llmObservability60dayRetentionSpansSum) {
+    this.llmObservability60dayRetentionSpansSum = llmObservability60dayRetentionSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all LLM Observability 60-day retention spans over all hours in the current
+   * date for the given org.
+   *
+   * @return llmObservability60dayRetentionSpansSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability60dayRetentionSpansSum() {
+    return llmObservability60dayRetentionSpansSum;
+  }
+
+  public void setLlmObservability60dayRetentionSpansSum(
+      Long llmObservability60dayRetentionSpansSum) {
+    this.llmObservability60dayRetentionSpansSum = llmObservability60dayRetentionSpansSum;
+  }
+
+  public UsageSummaryDateOrg llmObservability90dayRetentionSpansSum(
+      Long llmObservability90dayRetentionSpansSum) {
+    this.llmObservability90dayRetentionSpansSum = llmObservability90dayRetentionSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all LLM Observability 90-day retention spans over all hours in the current
+   * date for the given org.
+   *
+   * @return llmObservability90dayRetentionSpansSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLlmObservability90dayRetentionSpansSum() {
+    return llmObservability90dayRetentionSpansSum;
+  }
+
+  public void setLlmObservability90dayRetentionSpansSum(
+      Long llmObservability90dayRetentionSpansSum) {
+    this.llmObservability90dayRetentionSpansSum = llmObservability90dayRetentionSpansSum;
+  }
+
   public UsageSummaryDateOrg llmObservabilityMinSpendSum(Long llmObservabilityMinSpendSum) {
     this.llmObservabilityMinSpendSum = llmObservabilityMinSpendSum;
     return this;
@@ -4492,6 +5804,49 @@ public class UsageSummaryDateOrg {
 
   public void setLlmObservabilitySum(Long llmObservabilitySum) {
     this.llmObservabilitySum = llmObservabilitySum;
+  }
+
+  public UsageSummaryDateOrg logsArchiveSearchGbScannedSum(Long logsArchiveSearchGbScannedSum) {
+    this.logsArchiveSearchGbScannedSum = logsArchiveSearchGbScannedSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Logs Archive Search scanned data over all hours in the current date for
+   * the given org.
+   *
+   * @return logsArchiveSearchGbScannedSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLogsArchiveSearchGbScannedSum() {
+    return logsArchiveSearchGbScannedSum;
+  }
+
+  public void setLogsArchiveSearchGbScannedSum(Long logsArchiveSearchGbScannedSum) {
+    this.logsArchiveSearchGbScannedSum = logsArchiveSearchGbScannedSum;
+  }
+
+  public UsageSummaryDateOrg metricNamesSum(Long metricNamesSum) {
+    this.metricNamesSum = metricNamesSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all custom metric names over all hours in the current date for the given org.
+   *
+   * @return metricNamesSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRIC_NAMES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMetricNamesSum() {
+    return metricNamesSum;
+  }
+
+  public void setMetricNamesSum(Long metricNamesSum) {
+    this.metricNamesSum = metricNamesSum;
   }
 
   public UsageSummaryDateOrg mobileRumLiteSessionCountSum(Long mobileRumLiteSessionCountSum) {
@@ -6852,6 +8207,50 @@ public class UsageSummaryDateOrg {
     this.siemAnalyzedLogsAddOnCountSum = siemAnalyzedLogsAddOnCountSum;
   }
 
+  public UsageSummaryDateOrg snmpDeviceCountSum(Long snmpDeviceCountSum) {
+    this.snmpDeviceCountSum = snmpDeviceCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Network Device Monitoring devices over all hours in the current date for
+   * the given org.
+   *
+   * @return snmpDeviceCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSnmpDeviceCountSum() {
+    return snmpDeviceCountSum;
+  }
+
+  public void setSnmpDeviceCountSum(Long snmpDeviceCountSum) {
+    this.snmpDeviceCountSum = snmpDeviceCountSum;
+  }
+
+  public UsageSummaryDateOrg snmpDeviceCountTop99p(Long snmpDeviceCountTop99p) {
+    this.snmpDeviceCountTop99p = snmpDeviceCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Network Device Monitoring devices over all hours in the
+   * current date for the given org.
+   *
+   * @return snmpDeviceCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSnmpDeviceCountTop99p() {
+    return snmpDeviceCountTop99p;
+  }
+
+  public void setSnmpDeviceCountTop99p(Long snmpDeviceCountTop99p) {
+    this.snmpDeviceCountTop99p = snmpDeviceCountTop99p;
+  }
+
   public UsageSummaryDateOrg syntheticsBrowserCheckCallsCountSum(
       Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
@@ -7134,6 +8533,17 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.accountPublicId, usageSummaryDateOrg.accountPublicId)
         && Objects.equals(this.agentHostTop99p, usageSummaryDateOrg.agentHostTop99p)
         && Objects.equals(
+            this.aiCreditsAgentBuilderAiCreditsSum,
+            usageSummaryDateOrg.aiCreditsAgentBuilderAiCreditsSum)
+        && Objects.equals(
+            this.aiCreditsBitsAssistantAiCreditsSum,
+            usageSummaryDateOrg.aiCreditsBitsAssistantAiCreditsSum)
+        && Objects.equals(
+            this.aiCreditsBitsDevAiCreditsSum, usageSummaryDateOrg.aiCreditsBitsDevAiCreditsSum)
+        && Objects.equals(
+            this.aiCreditsBitsSreAiCreditsSum, usageSummaryDateOrg.aiCreditsBitsSreAiCreditsSum)
+        && Objects.equals(this.aiCreditsSum, usageSummaryDateOrg.aiCreditsSum)
+        && Objects.equals(
             this.apmAzureAppServiceHostTop99p, usageSummaryDateOrg.apmAzureAppServiceHostTop99p)
         && Objects.equals(this.apmDevsecopsHostTop99p, usageSummaryDateOrg.apmDevsecopsHostTop99p)
         && Objects.equals(
@@ -7148,6 +8558,9 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.auditLogsLinesIndexedSum, usageSummaryDateOrg.auditLogsLinesIndexedSum)
         && Objects.equals(this.auditTrailEnabledHwm, usageSummaryDateOrg.auditTrailEnabledHwm)
+        && Objects.equals(
+            this.auditTrailEventForwardingEventsSum,
+            usageSummaryDateOrg.auditTrailEventForwardingEventsSum)
         && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDateOrg.avgProfiledFargateTasks)
         && Objects.equals(this.awsHostTop99p, usageSummaryDateOrg.awsHostTop99p)
         && Objects.equals(this.awsLambdaFuncCount, usageSummaryDateOrg.awsLambdaFuncCount)
@@ -7276,6 +8689,12 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.cwsHostTop99p, usageSummaryDateOrg.cwsHostTop99p)
         && Objects.equals(
             this.dataJobsMonitoringHostHrSum, usageSummaryDateOrg.dataJobsMonitoringHostHrSum)
+        && Objects.equals(
+            this.dataStreamMonitoringHostCountSum,
+            usageSummaryDateOrg.dataStreamMonitoringHostCountSum)
+        && Objects.equals(
+            this.dataStreamMonitoringHostCountTop99p,
+            usageSummaryDateOrg.dataStreamMonitoringHostCountTop99p)
         && Objects.equals(this.dbmHostTop99pSum, usageSummaryDateOrg.dbmHostTop99pSum)
         && Objects.equals(this.dbmQueriesAvgSum, usageSummaryDateOrg.dbmQueriesAvgSum)
         && Objects.equals(
@@ -7357,6 +8776,93 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.incidentManagementSeatsHwm, usageSummaryDateOrg.incidentManagementSeatsHwm)
         && Objects.equals(this.indexedEventsCountSum, usageSummaryDateOrg.indexedEventsCountSum)
+        && Objects.equals(this.indexedPointsSum, usageSummaryDateOrg.indexedPointsSum)
+        && Objects.equals(this.infraCpuAvg, usageSummaryDateOrg.infraCpuAvg)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuAgentAvg,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuAgentAvg)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuAgentBasicAvg,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuAgentBasicAvg)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuAgentBasicSum,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuAgentBasicSum)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuAgentSum,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuAgentSum)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuAwsAvg,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuAwsAvg)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuAwsSum,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuAwsSum)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuAzureAvg,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuAzureAvg)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuAzureSum,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuAzureSum)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuGcpAvg,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuGcpAvg)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuGcpSum,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuGcpSum)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuNutanixAvg,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuNutanixAvg)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuNutanixBasicAvg,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuNutanixBasicAvg)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuNutanixBasicSum,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuNutanixBasicSum)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuNutanixSum,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuNutanixSum)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuOpentelemetryAvg)
+        && Objects.equals(
+            this.infraCpuDefaultInfraHostVcpuOpentelemetrySum,
+            usageSummaryDateOrg.infraCpuDefaultInfraHostVcpuOpentelemetrySum)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuAgentAvg,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuAgentAvg)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuAgentSum,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuAgentSum)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuAwsAvg,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuAwsAvg)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuAwsSum,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuAwsSum)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuAzureAvg,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuAzureAvg)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuAzureSum,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuAzureSum)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuGcpAvg,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuGcpAvg)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuGcpSum,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuGcpSum)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuNutanixAvg,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuNutanixAvg)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuNutanixSum,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuNutanixSum)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuOpentelemetryAvg,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuOpentelemetryAvg)
+        && Objects.equals(
+            this.infraCpuObservedInfraHostVcpuOpentelemetrySum,
+            usageSummaryDateOrg.infraCpuObservedInfraHostVcpuOpentelemetrySum)
+        && Objects.equals(this.infraCpuSum, usageSummaryDateOrg.infraCpuSum)
         && Objects.equals(
             this.infraEdgeMonitoringDevicesTop99p,
             usageSummaryDateOrg.infraEdgeMonitoringDevicesTop99p)
@@ -7371,12 +8877,30 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.infraStorageMgmtObjectsCountAvg,
             usageSummaryDateOrg.infraStorageMgmtObjectsCountAvg)
+        && Objects.equals(this.ingestPointsSum, usageSummaryDateOrg.ingestPointsSum)
         && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDateOrg.ingestedEventsBytesSum)
+        && Objects.equals(this.iotApmHostSum, usageSummaryDateOrg.iotApmHostSum)
+        && Objects.equals(this.iotApmHostTop99p, usageSummaryDateOrg.iotApmHostTop99p)
         && Objects.equals(this.iotDeviceAggSum, usageSummaryDateOrg.iotDeviceAggSum)
         && Objects.equals(this.iotDeviceTop99pSum, usageSummaryDateOrg.iotDeviceTop99pSum)
         && Objects.equals(
+            this.llmObservability15dayRetentionSpansSum,
+            usageSummaryDateOrg.llmObservability15dayRetentionSpansSum)
+        && Objects.equals(
+            this.llmObservability30dayRetentionSpansSum,
+            usageSummaryDateOrg.llmObservability30dayRetentionSpansSum)
+        && Objects.equals(
+            this.llmObservability60dayRetentionSpansSum,
+            usageSummaryDateOrg.llmObservability60dayRetentionSpansSum)
+        && Objects.equals(
+            this.llmObservability90dayRetentionSpansSum,
+            usageSummaryDateOrg.llmObservability90dayRetentionSpansSum)
+        && Objects.equals(
             this.llmObservabilityMinSpendSum, usageSummaryDateOrg.llmObservabilityMinSpendSum)
         && Objects.equals(this.llmObservabilitySum, usageSummaryDateOrg.llmObservabilitySum)
+        && Objects.equals(
+            this.logsArchiveSearchGbScannedSum, usageSummaryDateOrg.logsArchiveSearchGbScannedSum)
+        && Objects.equals(this.metricNamesSum, usageSummaryDateOrg.metricNamesSum)
         && Objects.equals(
             this.mobileRumLiteSessionCountSum, usageSummaryDateOrg.mobileRumLiteSessionCountSum)
         && Objects.equals(
@@ -7595,6 +9119,8 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.siem6moRetentionSum, usageSummaryDateOrg.siem6moRetentionSum)
         && Objects.equals(
             this.siemAnalyzedLogsAddOnCountSum, usageSummaryDateOrg.siemAnalyzedLogsAddOnCountSum)
+        && Objects.equals(this.snmpDeviceCountSum, usageSummaryDateOrg.snmpDeviceCountSum)
+        && Objects.equals(this.snmpDeviceCountTop99p, usageSummaryDateOrg.snmpDeviceCountTop99p)
         && Objects.equals(
             this.syntheticsBrowserCheckCallsCountSum,
             usageSummaryDateOrg.syntheticsBrowserCheckCallsCountSum)
@@ -7627,6 +9153,11 @@ public class UsageSummaryDateOrg {
         accountName,
         accountPublicId,
         agentHostTop99p,
+        aiCreditsAgentBuilderAiCreditsSum,
+        aiCreditsBitsAssistantAiCreditsSum,
+        aiCreditsBitsDevAiCreditsSum,
+        aiCreditsBitsSreAiCreditsSum,
+        aiCreditsSum,
         apmAzureAppServiceHostTop99p,
         apmDevsecopsHostTop99p,
         apmEnterpriseStandaloneHostsTop99p,
@@ -7637,6 +9168,7 @@ public class UsageSummaryDateOrg {
         asmServerlessSum,
         auditLogsLinesIndexedSum,
         auditTrailEnabledHwm,
+        auditTrailEventForwardingEventsSum,
         avgProfiledFargateTasks,
         awsHostTop99p,
         awsLambdaFuncCount,
@@ -7711,6 +9243,8 @@ public class UsageSummaryDateOrg {
         cwsFargateTaskAvg,
         cwsHostTop99p,
         dataJobsMonitoringHostHrSum,
+        dataStreamMonitoringHostCountSum,
+        dataStreamMonitoringHostCountTop99p,
         dbmHostTop99pSum,
         dbmQueriesAvgSum,
         doJobsMonitoringOrchestratorsJobHoursSum,
@@ -7759,17 +9293,57 @@ public class UsageSummaryDateOrg {
         incidentManagementMonthlyActiveUsersHwm,
         incidentManagementSeatsHwm,
         indexedEventsCountSum,
+        indexedPointsSum,
+        infraCpuAvg,
+        infraCpuDefaultInfraHostVcpuAgentAvg,
+        infraCpuDefaultInfraHostVcpuAgentBasicAvg,
+        infraCpuDefaultInfraHostVcpuAgentBasicSum,
+        infraCpuDefaultInfraHostVcpuAgentSum,
+        infraCpuDefaultInfraHostVcpuAwsAvg,
+        infraCpuDefaultInfraHostVcpuAwsSum,
+        infraCpuDefaultInfraHostVcpuAzureAvg,
+        infraCpuDefaultInfraHostVcpuAzureSum,
+        infraCpuDefaultInfraHostVcpuGcpAvg,
+        infraCpuDefaultInfraHostVcpuGcpSum,
+        infraCpuDefaultInfraHostVcpuNutanixAvg,
+        infraCpuDefaultInfraHostVcpuNutanixBasicAvg,
+        infraCpuDefaultInfraHostVcpuNutanixBasicSum,
+        infraCpuDefaultInfraHostVcpuNutanixSum,
+        infraCpuDefaultInfraHostVcpuOpentelemetryAvg,
+        infraCpuDefaultInfraHostVcpuOpentelemetrySum,
+        infraCpuObservedInfraHostVcpuAgentAvg,
+        infraCpuObservedInfraHostVcpuAgentSum,
+        infraCpuObservedInfraHostVcpuAwsAvg,
+        infraCpuObservedInfraHostVcpuAwsSum,
+        infraCpuObservedInfraHostVcpuAzureAvg,
+        infraCpuObservedInfraHostVcpuAzureSum,
+        infraCpuObservedInfraHostVcpuGcpAvg,
+        infraCpuObservedInfraHostVcpuGcpSum,
+        infraCpuObservedInfraHostVcpuNutanixAvg,
+        infraCpuObservedInfraHostVcpuNutanixSum,
+        infraCpuObservedInfraHostVcpuOpentelemetryAvg,
+        infraCpuObservedInfraHostVcpuOpentelemetrySum,
+        infraCpuSum,
         infraEdgeMonitoringDevicesTop99p,
         infraHostBasicInfraBasicAgentTop99p,
         infraHostBasicInfraBasicVsphereTop99p,
         infraHostBasicTop99p,
         infraHostTop99p,
         infraStorageMgmtObjectsCountAvg,
+        ingestPointsSum,
         ingestedEventsBytesSum,
+        iotApmHostSum,
+        iotApmHostTop99p,
         iotDeviceAggSum,
         iotDeviceTop99pSum,
+        llmObservability15dayRetentionSpansSum,
+        llmObservability30dayRetentionSpansSum,
+        llmObservability60dayRetentionSpansSum,
+        llmObservability90dayRetentionSpansSum,
         llmObservabilityMinSpendSum,
         llmObservabilitySum,
+        logsArchiveSearchGbScannedSum,
+        metricNamesSum,
         mobileRumLiteSessionCountSum,
         mobileRumSessionCountAndroidSum,
         mobileRumSessionCountFlutterSum,
@@ -7871,6 +9445,8 @@ public class UsageSummaryDateOrg {
         siem12moRetentionSum,
         siem6moRetentionSum,
         siemAnalyzedLogsAddOnCountSum,
+        snmpDeviceCountSum,
+        snmpDeviceCountTop99p,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
         syntheticsMobileTestRunsSum,
@@ -7891,6 +9467,19 @@ public class UsageSummaryDateOrg {
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPublicId: ").append(toIndentedString(accountPublicId)).append("\n");
     sb.append("    agentHostTop99p: ").append(toIndentedString(agentHostTop99p)).append("\n");
+    sb.append("    aiCreditsAgentBuilderAiCreditsSum: ")
+        .append(toIndentedString(aiCreditsAgentBuilderAiCreditsSum))
+        .append("\n");
+    sb.append("    aiCreditsBitsAssistantAiCreditsSum: ")
+        .append(toIndentedString(aiCreditsBitsAssistantAiCreditsSum))
+        .append("\n");
+    sb.append("    aiCreditsBitsDevAiCreditsSum: ")
+        .append(toIndentedString(aiCreditsBitsDevAiCreditsSum))
+        .append("\n");
+    sb.append("    aiCreditsBitsSreAiCreditsSum: ")
+        .append(toIndentedString(aiCreditsBitsSreAiCreditsSum))
+        .append("\n");
+    sb.append("    aiCreditsSum: ").append(toIndentedString(aiCreditsSum)).append("\n");
     sb.append("    apmAzureAppServiceHostTop99p: ")
         .append(toIndentedString(apmAzureAppServiceHostTop99p))
         .append("\n");
@@ -7914,6 +9503,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    auditTrailEnabledHwm: ")
         .append(toIndentedString(auditTrailEnabledHwm))
+        .append("\n");
+    sb.append("    auditTrailEventForwardingEventsSum: ")
+        .append(toIndentedString(auditTrailEventForwardingEventsSum))
         .append("\n");
     sb.append("    avgProfiledFargateTasks: ")
         .append(toIndentedString(avgProfiledFargateTasks))
@@ -8089,6 +9681,12 @@ public class UsageSummaryDateOrg {
     sb.append("    dataJobsMonitoringHostHrSum: ")
         .append(toIndentedString(dataJobsMonitoringHostHrSum))
         .append("\n");
+    sb.append("    dataStreamMonitoringHostCountSum: ")
+        .append(toIndentedString(dataStreamMonitoringHostCountSum))
+        .append("\n");
+    sb.append("    dataStreamMonitoringHostCountTop99p: ")
+        .append(toIndentedString(dataStreamMonitoringHostCountTop99p))
+        .append("\n");
     sb.append("    dbmHostTop99pSum: ").append(toIndentedString(dbmHostTop99pSum)).append("\n");
     sb.append("    dbmQueriesAvgSum: ").append(toIndentedString(dbmQueriesAvgSum)).append("\n");
     sb.append("    doJobsMonitoringOrchestratorsJobHoursSum: ")
@@ -8211,6 +9809,93 @@ public class UsageSummaryDateOrg {
     sb.append("    indexedEventsCountSum: ")
         .append(toIndentedString(indexedEventsCountSum))
         .append("\n");
+    sb.append("    indexedPointsSum: ").append(toIndentedString(indexedPointsSum)).append("\n");
+    sb.append("    infraCpuAvg: ").append(toIndentedString(infraCpuAvg)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAgentAvg: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentAvg))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAgentBasicAvg: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentBasicAvg))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAgentBasicSum: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentBasicSum))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAgentSum: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentSum))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAwsAvg: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAwsAvg))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAwsSum: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAwsSum))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAzureAvg: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAzureAvg))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAzureSum: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAzureSum))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuGcpAvg: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuGcpAvg))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuGcpSum: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuGcpSum))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuNutanixAvg: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixAvg))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuNutanixBasicAvg: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixBasicAvg))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuNutanixBasicSum: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixBasicSum))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuNutanixSum: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixSum))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuOpentelemetryAvg: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuOpentelemetryAvg))
+        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuOpentelemetrySum: ")
+        .append(toIndentedString(infraCpuDefaultInfraHostVcpuOpentelemetrySum))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAgentAvg: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuAgentAvg))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAgentSum: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuAgentSum))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAwsAvg: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuAwsAvg))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAwsSum: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuAwsSum))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAzureAvg: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuAzureAvg))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAzureSum: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuAzureSum))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuGcpAvg: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuGcpAvg))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuGcpSum: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuGcpSum))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuNutanixAvg: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuNutanixAvg))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuNutanixSum: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuNutanixSum))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuOpentelemetryAvg: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuOpentelemetryAvg))
+        .append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuOpentelemetrySum: ")
+        .append(toIndentedString(infraCpuObservedInfraHostVcpuOpentelemetrySum))
+        .append("\n");
+    sb.append("    infraCpuSum: ").append(toIndentedString(infraCpuSum)).append("\n");
     sb.append("    infraEdgeMonitoringDevicesTop99p: ")
         .append(toIndentedString(infraEdgeMonitoringDevicesTop99p))
         .append("\n");
@@ -8227,17 +9912,36 @@ public class UsageSummaryDateOrg {
     sb.append("    infraStorageMgmtObjectsCountAvg: ")
         .append(toIndentedString(infraStorageMgmtObjectsCountAvg))
         .append("\n");
+    sb.append("    ingestPointsSum: ").append(toIndentedString(ingestPointsSum)).append("\n");
     sb.append("    ingestedEventsBytesSum: ")
         .append(toIndentedString(ingestedEventsBytesSum))
         .append("\n");
+    sb.append("    iotApmHostSum: ").append(toIndentedString(iotApmHostSum)).append("\n");
+    sb.append("    iotApmHostTop99p: ").append(toIndentedString(iotApmHostTop99p)).append("\n");
     sb.append("    iotDeviceAggSum: ").append(toIndentedString(iotDeviceAggSum)).append("\n");
     sb.append("    iotDeviceTop99pSum: ").append(toIndentedString(iotDeviceTop99pSum)).append("\n");
+    sb.append("    llmObservability15dayRetentionSpansSum: ")
+        .append(toIndentedString(llmObservability15dayRetentionSpansSum))
+        .append("\n");
+    sb.append("    llmObservability30dayRetentionSpansSum: ")
+        .append(toIndentedString(llmObservability30dayRetentionSpansSum))
+        .append("\n");
+    sb.append("    llmObservability60dayRetentionSpansSum: ")
+        .append(toIndentedString(llmObservability60dayRetentionSpansSum))
+        .append("\n");
+    sb.append("    llmObservability90dayRetentionSpansSum: ")
+        .append(toIndentedString(llmObservability90dayRetentionSpansSum))
+        .append("\n");
     sb.append("    llmObservabilityMinSpendSum: ")
         .append(toIndentedString(llmObservabilityMinSpendSum))
         .append("\n");
     sb.append("    llmObservabilitySum: ")
         .append(toIndentedString(llmObservabilitySum))
         .append("\n");
+    sb.append("    logsArchiveSearchGbScannedSum: ")
+        .append(toIndentedString(logsArchiveSearchGbScannedSum))
+        .append("\n");
+    sb.append("    metricNamesSum: ").append(toIndentedString(metricNamesSum)).append("\n");
     sb.append("    mobileRumLiteSessionCountSum: ")
         .append(toIndentedString(mobileRumLiteSessionCountSum))
         .append("\n");
@@ -8508,6 +10212,10 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    siemAnalyzedLogsAddOnCountSum: ")
         .append(toIndentedString(siemAnalyzedLogsAddOnCountSum))
+        .append("\n");
+    sb.append("    snmpDeviceCountSum: ").append(toIndentedString(snmpDeviceCountSum)).append("\n");
+    sb.append("    snmpDeviceCountTop99p: ")
+        .append(toIndentedString(snmpDeviceCountTop99p))
         .append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ")
         .append(toIndentedString(syntheticsBrowserCheckCallsCountSum))
