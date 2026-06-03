@@ -16,6 +16,7 @@ import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringRespons
 import com.datadog.api.client.v2.model.UsageAttributionTypesResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
+import com.datadog.api.client.v2.model.UsageSummaryAvailableFieldsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
@@ -3001,5 +3002,125 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageObservabilityPipelinesResponse>() {});
+  }
+
+  /**
+   * Get available fields for usage summary.
+   *
+   * <p>See {@link #getUsageSummaryAvailableFieldsWithHttpInfo}.
+   *
+   * @return UsageSummaryAvailableFieldsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageSummaryAvailableFieldsResponse getUsageSummaryAvailableFields() throws ApiException {
+    return getUsageSummaryAvailableFieldsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get available fields for usage summary.
+   *
+   * <p>See {@link #getUsageSummaryAvailableFieldsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;UsageSummaryAvailableFieldsResponse&gt;
+   */
+  public CompletableFuture<UsageSummaryAvailableFieldsResponse>
+      getUsageSummaryAvailableFieldsAsync() {
+    return getUsageSummaryAvailableFieldsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the field names returned by <code>GET /api/v1/usage/summary</code> at each of its three
+   * response levels. Each list contains every key the data endpoint emits—both typed fields
+   * declared in the OpenAPI spec and untyped keys exposed through <code>additionalProperties</code>
+   * (the latter used for billing dimensions and usage types added after the v1 schema freeze).
+   *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
+   *
+   * @return ApiResponse&lt;UsageSummaryAvailableFieldsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests. </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageSummaryAvailableFieldsResponse>
+      getUsageSummaryAvailableFieldsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/summary/available_fields";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getUsageSummaryAvailableFields",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSummaryAvailableFieldsResponse>() {});
+  }
+
+  /**
+   * Get available fields for usage summary.
+   *
+   * <p>See {@link #getUsageSummaryAvailableFieldsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSummaryAvailableFieldsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageSummaryAvailableFieldsResponse>>
+      getUsageSummaryAvailableFieldsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/summary/available_fields";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.getUsageSummaryAvailableFields",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSummaryAvailableFieldsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSummaryAvailableFieldsResponse>() {});
   }
 }
