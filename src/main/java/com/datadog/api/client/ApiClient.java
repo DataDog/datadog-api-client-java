@@ -1136,6 +1136,9 @@ public class ApiClient {
           put("v2.updateConnection", false);
           put("v2.getPrunedTraceByID", false);
           put("v2.getTraceByID", false);
+          put("v2.createRumConfig", false);
+          put("v2.getRumConfig", false);
+          put("v2.updateRumConfig", false);
           put("v2.queryAggregatedLongTasks", false);
           put("v2.queryAggregatedSignalsProblems", false);
           put("v2.queryAggregatedWaterfall", false);
