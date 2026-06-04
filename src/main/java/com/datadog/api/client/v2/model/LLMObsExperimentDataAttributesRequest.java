@@ -26,7 +26,9 @@ import java.util.Objects;
   LLMObsExperimentDataAttributesRequest.JSON_PROPERTY_ENSURE_UNIQUE,
   LLMObsExperimentDataAttributesRequest.JSON_PROPERTY_METADATA,
   LLMObsExperimentDataAttributesRequest.JSON_PROPERTY_NAME,
-  LLMObsExperimentDataAttributesRequest.JSON_PROPERTY_PROJECT_ID
+  LLMObsExperimentDataAttributesRequest.JSON_PROPERTY_PARENT_EXPERIMENT_ID,
+  LLMObsExperimentDataAttributesRequest.JSON_PROPERTY_PROJECT_ID,
+  LLMObsExperimentDataAttributesRequest.JSON_PROPERTY_RUN_COUNT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -53,17 +55,21 @@ public class LLMObsExperimentDataAttributesRequest {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_PARENT_EXPERIMENT_ID = "parent_experiment_id";
+  private String parentExperimentId;
+
   public static final String JSON_PROPERTY_PROJECT_ID = "project_id";
   private String projectId;
+
+  public static final String JSON_PROPERTY_RUN_COUNT = "run_count";
+  private Integer runCount;
 
   public LLMObsExperimentDataAttributesRequest() {}
 
   @JsonCreator
   public LLMObsExperimentDataAttributesRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATASET_ID) String datasetId,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId) {
-    this.datasetId = datasetId;
     this.name = name;
     this.projectId = projectId;
   }
@@ -107,8 +113,9 @@ public class LLMObsExperimentDataAttributesRequest {
    *
    * @return datasetId
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATASET_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDatasetId() {
     return datasetId;
   }
@@ -229,6 +236,27 @@ public class LLMObsExperimentDataAttributesRequest {
     this.name = name;
   }
 
+  public LLMObsExperimentDataAttributesRequest parentExperimentId(String parentExperimentId) {
+    this.parentExperimentId = parentExperimentId;
+    return this;
+  }
+
+  /**
+   * Identifier of the parent (baseline) experiment this experiment is run against.
+   *
+   * @return parentExperimentId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PARENT_EXPERIMENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getParentExperimentId() {
+    return parentExperimentId;
+  }
+
+  public void setParentExperimentId(String parentExperimentId) {
+    this.parentExperimentId = parentExperimentId;
+  }
+
   public LLMObsExperimentDataAttributesRequest projectId(String projectId) {
     this.projectId = projectId;
     return this;
@@ -247,6 +275,27 @@ public class LLMObsExperimentDataAttributesRequest {
 
   public void setProjectId(String projectId) {
     this.projectId = projectId;
+  }
+
+  public LLMObsExperimentDataAttributesRequest runCount(Integer runCount) {
+    this.runCount = runCount;
+    return this;
+  }
+
+  /**
+   * Number of runs configured for this experiment. maximum: 2147483647
+   *
+   * @return runCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getRunCount() {
+    return runCount;
+  }
+
+  public void setRunCount(Integer runCount) {
+    this.runCount = runCount;
   }
 
   /**
@@ -313,7 +362,10 @@ public class LLMObsExperimentDataAttributesRequest {
         && Objects.equals(this.ensureUnique, llmObsExperimentDataAttributesRequest.ensureUnique)
         && Objects.equals(this.metadata, llmObsExperimentDataAttributesRequest.metadata)
         && Objects.equals(this.name, llmObsExperimentDataAttributesRequest.name)
+        && Objects.equals(
+            this.parentExperimentId, llmObsExperimentDataAttributesRequest.parentExperimentId)
         && Objects.equals(this.projectId, llmObsExperimentDataAttributesRequest.projectId)
+        && Objects.equals(this.runCount, llmObsExperimentDataAttributesRequest.runCount)
         && Objects.equals(
             this.additionalProperties, llmObsExperimentDataAttributesRequest.additionalProperties);
   }
@@ -328,7 +380,9 @@ public class LLMObsExperimentDataAttributesRequest {
         ensureUnique,
         metadata,
         name,
+        parentExperimentId,
         projectId,
+        runCount,
         additionalProperties);
   }
 
@@ -343,7 +397,9 @@ public class LLMObsExperimentDataAttributesRequest {
     sb.append("    ensureUnique: ").append(toIndentedString(ensureUnique)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    parentExperimentId: ").append(toIndentedString(parentExperimentId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    runCount: ").append(toIndentedString(runCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

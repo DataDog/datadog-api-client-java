@@ -41,6 +41,7 @@ import com.datadog.api.client.v2.model.LLMObsExperimentEventsRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentEventsV2Response;
 import com.datadog.api.client.v2.model.LLMObsExperimentRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentResponse;
+import com.datadog.api.client.v2.model.LLMObsExperimentSpansResponse;
 import com.datadog.api.client.v2.model.LLMObsExperimentUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentationAnalyticsRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentationAnalyticsResponse;
@@ -5826,11 +5827,372 @@ public class LlmObservabilityApi {
         new GenericType<LLMObsExperimentEventsV2Response>() {});
   }
 
+  /**
+   * List LLM Observability experiment spans (v1).
+   *
+   * <p>See {@link #listLLMObsExperimentEventsV1WithHttpInfo}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return LLMObsExperimentSpansResponse
+   * @throws ApiException if fails to make API call
+   * @deprecated
+   */
+  @Deprecated
+  public LLMObsExperimentSpansResponse listLLMObsExperimentEventsV1(String experimentId)
+      throws ApiException {
+    return listLLMObsExperimentEventsV1WithHttpInfo(experimentId).getData();
+  }
+
+  /**
+   * List LLM Observability experiment spans (v1).
+   *
+   * <p>See {@link #listLLMObsExperimentEventsV1WithHttpInfoAsync}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return CompletableFuture&lt;LLMObsExperimentSpansResponse&gt;
+   * @deprecated
+   */
+  @Deprecated
+  public CompletableFuture<LLMObsExperimentSpansResponse> listLLMObsExperimentEventsV1Async(
+      String experimentId) {
+    return listLLMObsExperimentEventsV1WithHttpInfoAsync(experimentId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve spans with their evaluation metrics for a given experiment. Returns spans only, with
+   * no summary metrics and no pagination. Deprecated in favor of <code>ListLLMObsExperimentEventsV3
+   * </code>.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return ApiResponse&lt;LLMObsExperimentSpansResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public ApiResponse<LLMObsExperimentSpansResponse> listLLMObsExperimentEventsV1WithHttpInfo(
+      String experimentId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsExperimentEventsV1";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'experimentId' is set
+    if (experimentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'experimentId' when calling"
+              + " listLLMObsExperimentEventsV1");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/experiments/{experiment_id}/events"
+            .replaceAll(
+                "\\{" + "experiment_id" + "\\}", apiClient.escapeString(experimentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsExperimentEventsV1",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentSpansResponse>() {});
+  }
+
+  /**
+   * List LLM Observability experiment spans (v1).
+   *
+   * <p>See {@link #listLLMObsExperimentEventsV1WithHttpInfo}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentSpansResponse&gt;&gt;
+   * @deprecated
+   */
+  @Deprecated
+  public CompletableFuture<ApiResponse<LLMObsExperimentSpansResponse>>
+      listLLMObsExperimentEventsV1WithHttpInfoAsync(String experimentId) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsExperimentEventsV1";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsExperimentSpansResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'experimentId' is set
+    if (experimentId == null) {
+      CompletableFuture<ApiResponse<LLMObsExperimentSpansResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'experimentId' when calling"
+                  + " listLLMObsExperimentEventsV1"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/experiments/{experiment_id}/events"
+            .replaceAll(
+                "\\{" + "experiment_id" + "\\}", apiClient.escapeString(experimentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsExperimentEventsV1",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsExperimentSpansResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentSpansResponse>() {});
+  }
+
+  /**
+   * List LLM Observability experiment events (v2).
+   *
+   * <p>See {@link #listLLMObsExperimentEventsV2WithHttpInfo}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return LLMObsExperimentEventsV2Response
+   * @throws ApiException if fails to make API call
+   * @deprecated
+   */
+  @Deprecated
+  public LLMObsExperimentEventsV2Response listLLMObsExperimentEventsV2(String experimentId)
+      throws ApiException {
+    return listLLMObsExperimentEventsV2WithHttpInfo(experimentId).getData();
+  }
+
+  /**
+   * List LLM Observability experiment events (v2).
+   *
+   * <p>See {@link #listLLMObsExperimentEventsV2WithHttpInfoAsync}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return CompletableFuture&lt;LLMObsExperimentEventsV2Response&gt;
+   * @deprecated
+   */
+  @Deprecated
+  public CompletableFuture<LLMObsExperimentEventsV2Response> listLLMObsExperimentEventsV2Async(
+      String experimentId) {
+    return listLLMObsExperimentEventsV2WithHttpInfoAsync(experimentId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve spans and experiment-level summary metrics for a given experiment. Returns the full
+   * events payload without pagination. Deprecated: use <code>ListLLMObsExperimentEventsV3</code>
+   * instead.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return ApiResponse&lt;LLMObsExperimentEventsV2Response&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public ApiResponse<LLMObsExperimentEventsV2Response> listLLMObsExperimentEventsV2WithHttpInfo(
+      String experimentId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsExperimentEventsV2";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'experimentId' is set
+    if (experimentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'experimentId' when calling"
+              + " listLLMObsExperimentEventsV2");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v2/experiments/{experiment_id}/events"
+            .replaceAll(
+                "\\{" + "experiment_id" + "\\}", apiClient.escapeString(experimentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsExperimentEventsV2",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentEventsV2Response>() {});
+  }
+
+  /**
+   * List LLM Observability experiment events (v2).
+   *
+   * <p>See {@link #listLLMObsExperimentEventsV2WithHttpInfo}.
+   *
+   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentEventsV2Response&gt;&gt;
+   * @deprecated
+   */
+  @Deprecated
+  public CompletableFuture<ApiResponse<LLMObsExperimentEventsV2Response>>
+      listLLMObsExperimentEventsV2WithHttpInfoAsync(String experimentId) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsExperimentEventsV2";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsExperimentEventsV2Response>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'experimentId' is set
+    if (experimentId == null) {
+      CompletableFuture<ApiResponse<LLMObsExperimentEventsV2Response>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'experimentId' when calling"
+                  + " listLLMObsExperimentEventsV2"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v2/experiments/{experiment_id}/events"
+            .replaceAll(
+                "\\{" + "experiment_id" + "\\}", apiClient.escapeString(experimentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsExperimentEventsV2",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsExperimentEventsV2Response>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsExperimentEventsV2Response>() {});
+  }
+
   /** Manage optional parameters to listLLMObsExperiments. */
   public static class ListLLMObsExperimentsOptionalParameters {
     private String filterProjectId;
     private String filterDatasetId;
     private String filterId;
+    private String filterName;
+    private String filterExperiment;
+    private String filterMetadata;
+    private String filterParentExperimentId;
+    private Boolean filterIsDeleted;
+    private Boolean includeUserData;
+    private Boolean includeDatasetNames;
     private String pageCursor;
     private Long pageLimit;
 
@@ -5870,9 +6232,99 @@ public class LlmObservabilityApi {
     }
 
     /**
+     * Set filterName.
+     *
+     * @param filterName Filter experiments by their exact run name. (optional)
+     * @return ListLLMObsExperimentsOptionalParameters
+     */
+    public ListLLMObsExperimentsOptionalParameters filterName(String filterName) {
+      this.filterName = filterName;
+      return this;
+    }
+
+    /**
+     * Set filterExperiment.
+     *
+     * @param filterExperiment Filter by logical experiment name. This is the <code>name</code>
+     *     field set when creating an experiment through <code>POST /experiments</code>. Returns all
+     *     experiment runs that share the same name, enabling cross-commit and cross-branch
+     *     comparisons. (optional)
+     * @return ListLLMObsExperimentsOptionalParameters
+     */
+    public ListLLMObsExperimentsOptionalParameters filterExperiment(String filterExperiment) {
+      this.filterExperiment = filterExperiment;
+      return this;
+    }
+
+    /**
+     * Set filterMetadata.
+     *
+     * @param filterMetadata Filter by JSONB metadata containment. Provide a JSON object string
+     *     where experiments whose metadata contains all specified key-value pairs are returned. For
+     *     example: <code>{"commit":"abc123","branch":"main"}</code>. (optional)
+     * @return ListLLMObsExperimentsOptionalParameters
+     */
+    public ListLLMObsExperimentsOptionalParameters filterMetadata(String filterMetadata) {
+      this.filterMetadata = filterMetadata;
+      return this;
+    }
+
+    /**
+     * Set filterParentExperimentId.
+     *
+     * @param filterParentExperimentId Filter experiments by the ID of their parent (baseline)
+     *     experiment. Returns all experiments that were run against the given baseline. Can be
+     *     specified multiple times. (optional)
+     * @return ListLLMObsExperimentsOptionalParameters
+     */
+    public ListLLMObsExperimentsOptionalParameters filterParentExperimentId(
+        String filterParentExperimentId) {
+      this.filterParentExperimentId = filterParentExperimentId;
+      return this;
+    }
+
+    /**
+     * Set filterIsDeleted.
+     *
+     * @param filterIsDeleted When <code>true</code>, return only soft-deleted experiments. Defaults
+     *     to <code>false</code>. (optional)
+     * @return ListLLMObsExperimentsOptionalParameters
+     */
+    public ListLLMObsExperimentsOptionalParameters filterIsDeleted(Boolean filterIsDeleted) {
+      this.filterIsDeleted = filterIsDeleted;
+      return this;
+    }
+
+    /**
+     * Set includeUserData.
+     *
+     * @param includeUserData When <code>true</code>, enrich each experiment with its author's user
+     *     data in the <code>author</code> field. (optional)
+     * @return ListLLMObsExperimentsOptionalParameters
+     */
+    public ListLLMObsExperimentsOptionalParameters includeUserData(Boolean includeUserData) {
+      this.includeUserData = includeUserData;
+      return this;
+    }
+
+    /**
+     * Set includeDatasetNames.
+     *
+     * @param includeDatasetNames When <code>true</code>, enrich each experiment with its dataset
+     *     name in the <code>dataset_name</code> field. (optional)
+     * @return ListLLMObsExperimentsOptionalParameters
+     */
+    public ListLLMObsExperimentsOptionalParameters includeDatasetNames(
+        Boolean includeDatasetNames) {
+      this.includeDatasetNames = includeDatasetNames;
+      return this;
+    }
+
+    /**
      * Set pageCursor.
      *
-     * @param pageCursor Use the Pagination cursor to retrieve the next page of results. (optional)
+     * @param pageCursor Use the pagination cursor returned in <code>meta.after</code> to retrieve
+     *     the next page of results. (optional)
      * @return ListLLMObsExperimentsOptionalParameters
      */
     public ListLLMObsExperimentsOptionalParameters pageCursor(String pageCursor) {
@@ -5883,7 +6335,8 @@ public class LlmObservabilityApi {
     /**
      * Set pageLimit.
      *
-     * @param pageLimit Maximum number of results to return per page. (optional)
+     * @param pageLimit Maximum number of results to return per page. Values above 5000 are clamped
+     *     to 5000. Defaults to 5000. (optional)
      * @return ListLLMObsExperimentsOptionalParameters
      */
     public ListLLMObsExperimentsOptionalParameters pageLimit(Long pageLimit) {
@@ -5981,6 +6434,13 @@ public class LlmObservabilityApi {
     String filterProjectId = parameters.filterProjectId;
     String filterDatasetId = parameters.filterDatasetId;
     String filterId = parameters.filterId;
+    String filterName = parameters.filterName;
+    String filterExperiment = parameters.filterExperiment;
+    String filterMetadata = parameters.filterMetadata;
+    String filterParentExperimentId = parameters.filterParentExperimentId;
+    Boolean filterIsDeleted = parameters.filterIsDeleted;
+    Boolean includeUserData = parameters.includeUserData;
+    Boolean includeDatasetNames = parameters.includeDatasetNames;
     String pageCursor = parameters.pageCursor;
     Long pageLimit = parameters.pageLimit;
     // create path and map variables
@@ -5994,6 +6454,18 @@ public class LlmObservabilityApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[dataset_id]", filterDatasetId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[id]", filterId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[experiment]", filterExperiment));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metadata]", filterMetadata));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[parent_experiment_id]", filterParentExperimentId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[is_deleted]", filterIsDeleted));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include[user_data]", includeUserData));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include[dataset_names]", includeDatasetNames));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
@@ -6041,6 +6513,13 @@ public class LlmObservabilityApi {
     String filterProjectId = parameters.filterProjectId;
     String filterDatasetId = parameters.filterDatasetId;
     String filterId = parameters.filterId;
+    String filterName = parameters.filterName;
+    String filterExperiment = parameters.filterExperiment;
+    String filterMetadata = parameters.filterMetadata;
+    String filterParentExperimentId = parameters.filterParentExperimentId;
+    Boolean filterIsDeleted = parameters.filterIsDeleted;
+    Boolean includeUserData = parameters.includeUserData;
+    Boolean includeDatasetNames = parameters.includeDatasetNames;
     String pageCursor = parameters.pageCursor;
     Long pageLimit = parameters.pageLimit;
     // create path and map variables
@@ -6054,6 +6533,18 @@ public class LlmObservabilityApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[dataset_id]", filterDatasetId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[id]", filterId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[experiment]", filterExperiment));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metadata]", filterMetadata));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[parent_experiment_id]", filterParentExperimentId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[is_deleted]", filterIsDeleted));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include[user_data]", includeUserData));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include[dataset_names]", includeDatasetNames));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 

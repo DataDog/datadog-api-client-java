@@ -803,6 +803,8 @@ public class ApiClient {
           put("v2.listLLMObsDatasets", false);
           put("v2.listLLMObsDatasetVersions", false);
           put("v2.listLLMObsExperimentEvents", false);
+          put("v2.listLLMObsExperimentEventsV1", false);
+          put("v2.listLLMObsExperimentEventsV2", false);
           put("v2.listLLMObsExperiments", false);
           put("v2.listLLMObsIntegrationAccounts", false);
           put("v2.listLLMObsIntegrationModels", false);

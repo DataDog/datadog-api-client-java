@@ -18,18 +18,55 @@ import java.util.Objects;
 
 /** Attributes for updating an LLM Observability experiment. */
 @JsonPropertyOrder({
+  LLMObsExperimentUpdateDataAttributesRequest.JSON_PROPERTY_DATASET_ID,
   LLMObsExperimentUpdateDataAttributesRequest.JSON_PROPERTY_DESCRIPTION,
-  LLMObsExperimentUpdateDataAttributesRequest.JSON_PROPERTY_NAME
+  LLMObsExperimentUpdateDataAttributesRequest.JSON_PROPERTY_ERROR,
+  LLMObsExperimentUpdateDataAttributesRequest.JSON_PROPERTY_METADATA,
+  LLMObsExperimentUpdateDataAttributesRequest.JSON_PROPERTY_NAME,
+  LLMObsExperimentUpdateDataAttributesRequest.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentUpdateDataAttributesRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATASET_ID = "dataset_id";
+  private String datasetId;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public static final String JSON_PROPERTY_ERROR = "error";
+  private String error;
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private Map<String, Object> metadata = null;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private LLMObsExperimentStatus status;
+
+  public LLMObsExperimentUpdateDataAttributesRequest datasetId(String datasetId) {
+    this.datasetId = datasetId;
+    return this;
+  }
+
+  /**
+   * Updated identifier of the dataset used in this experiment.
+   *
+   * @return datasetId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATASET_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDatasetId() {
+    return datasetId;
+  }
+
+  public void setDatasetId(String datasetId) {
+    this.datasetId = datasetId;
+  }
 
   public LLMObsExperimentUpdateDataAttributesRequest description(String description) {
     this.description = description;
@@ -52,6 +89,57 @@ public class LLMObsExperimentUpdateDataAttributesRequest {
     this.description = description;
   }
 
+  public LLMObsExperimentUpdateDataAttributesRequest error(String error) {
+    this.error = error;
+    return this;
+  }
+
+  /**
+   * Error message describing why the experiment failed, if applicable.
+   *
+   * @return error
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getError() {
+    return error;
+  }
+
+  public void setError(String error) {
+    this.error = error;
+  }
+
+  public LLMObsExperimentUpdateDataAttributesRequest metadata(Map<String, Object> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public LLMObsExperimentUpdateDataAttributesRequest putMetadataItem(
+      String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
+    return this;
+  }
+
+  /**
+   * Updated arbitrary metadata associated with the experiment.
+   *
+   * @return metadata
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(Map<String, Object> metadata) {
+    this.metadata = metadata;
+  }
+
   public LLMObsExperimentUpdateDataAttributesRequest name(String name) {
     this.name = name;
     return this;
@@ -71,6 +159,31 @@ public class LLMObsExperimentUpdateDataAttributesRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public LLMObsExperimentUpdateDataAttributesRequest status(LLMObsExperimentStatus status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
+    return this;
+  }
+
+  /**
+   * Execution status of an LLM Observability experiment.
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsExperimentStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(LLMObsExperimentStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
+    this.status = status;
   }
 
   /**
@@ -131,8 +244,12 @@ public class LLMObsExperimentUpdateDataAttributesRequest {
     }
     LLMObsExperimentUpdateDataAttributesRequest llmObsExperimentUpdateDataAttributesRequest =
         (LLMObsExperimentUpdateDataAttributesRequest) o;
-    return Objects.equals(this.description, llmObsExperimentUpdateDataAttributesRequest.description)
+    return Objects.equals(this.datasetId, llmObsExperimentUpdateDataAttributesRequest.datasetId)
+        && Objects.equals(this.description, llmObsExperimentUpdateDataAttributesRequest.description)
+        && Objects.equals(this.error, llmObsExperimentUpdateDataAttributesRequest.error)
+        && Objects.equals(this.metadata, llmObsExperimentUpdateDataAttributesRequest.metadata)
         && Objects.equals(this.name, llmObsExperimentUpdateDataAttributesRequest.name)
+        && Objects.equals(this.status, llmObsExperimentUpdateDataAttributesRequest.status)
         && Objects.equals(
             this.additionalProperties,
             llmObsExperimentUpdateDataAttributesRequest.additionalProperties);
@@ -140,15 +257,20 @@ public class LLMObsExperimentUpdateDataAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, additionalProperties);
+    return Objects.hash(
+        datasetId, description, error, metadata, name, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsExperimentUpdateDataAttributesRequest {\n");
+    sb.append("    datasetId: ").append(toIndentedString(datasetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
