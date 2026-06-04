@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/oauth2/.well-known/sites",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"prod\",\"type\":\"env\",\"attributes\":{\"sites\":[\"app.datadoghq.com\",\"app.datadoghq.eu\",\"us5.datadoghq.com\",\"us3.datadoghq.com\",\"ap1.datadoghq.com\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f113ff82-c070-57bf-83d0-e1a4fa8d6d0a"
+  }
+]

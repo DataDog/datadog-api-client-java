@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.OAuth2WellKnownSitesResponse;
 import com.datadog.api.client.v2.model.OAuthClientRegistrationRequest;
 import com.datadog.api.client.v2.model.OAuthClientRegistrationResponse;
 import com.datadog.api.client.v2.model.OAuthScopesRestrictionResponse;
@@ -199,6 +200,136 @@ public class OAuth2ClientPublicApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Get OAuth2 well-known sites.
+   *
+   * <p>See {@link #getOAuth2WellKnownSitesWithHttpInfo}.
+   *
+   * @return OAuth2WellKnownSitesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OAuth2WellKnownSitesResponse getOAuth2WellKnownSites() throws ApiException {
+    return getOAuth2WellKnownSitesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get OAuth2 well-known sites.
+   *
+   * <p>See {@link #getOAuth2WellKnownSitesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OAuth2WellKnownSitesResponse&gt;
+   */
+  public CompletableFuture<OAuth2WellKnownSitesResponse> getOAuth2WellKnownSitesAsync() {
+    return getOAuth2WellKnownSitesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve the list of public OAuth2 sites available for the current environment. This endpoint
+   * is used for OAuth2 discovery and returns sites where users can authenticate.
+   *
+   * @return ApiResponse&lt;OAuth2WellKnownSitesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OAuth2WellKnownSitesResponse> getOAuth2WellKnownSitesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getOAuth2WellKnownSites";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/oauth2/.well-known/sites";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OAuth2ClientPublicApi.getOAuth2WellKnownSites",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OAuth2WellKnownSitesResponse>() {});
+  }
+
+  /**
+   * Get OAuth2 well-known sites.
+   *
+   * <p>See {@link #getOAuth2WellKnownSitesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;OAuth2WellKnownSitesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OAuth2WellKnownSitesResponse>>
+      getOAuth2WellKnownSitesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getOAuth2WellKnownSites";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OAuth2WellKnownSitesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/oauth2/.well-known/sites";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OAuth2ClientPublicApi.getOAuth2WellKnownSites",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OAuth2WellKnownSitesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OAuth2WellKnownSitesResponse>() {});
   }
 
   /**
