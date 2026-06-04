@@ -1106,6 +1106,7 @@ public class ApiClient {
           put("v2.getScopesRestriction", false);
           put("v2.registerOAuthClient", false);
           put("v2.upsertScopesRestriction", false);
+          put("v2.updateOrgSamlConfigurations", false);
           put("v2.disableCustomerOrg", false);
           put("v2.bulkUpdateOrgGroupMemberships", false);
           put("v2.createOrgGroup", false);

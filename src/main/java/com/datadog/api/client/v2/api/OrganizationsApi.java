@@ -8,6 +8,10 @@ import com.datadog.api.client.v2.model.ManagedOrgsResponse;
 import com.datadog.api.client.v2.model.OrgConfigGetResponse;
 import com.datadog.api.client.v2.model.OrgConfigListResponse;
 import com.datadog.api.client.v2.model.OrgConfigWriteRequest;
+import com.datadog.api.client.v2.model.OrgSAMLPreferencesUpdateRequest;
+import com.datadog.api.client.v2.model.SAMLConfigurationResponse;
+import com.datadog.api.client.v2.model.SAMLConfigurationUpdateRequest;
+import com.datadog.api.client.v2.model.SAMLConfigurationsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.io.File;
@@ -187,6 +191,147 @@ public class OrganizationsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OrgConfigGetResponse>() {});
+  }
+
+  /**
+   * Get a SAML configuration.
+   *
+   * <p>See {@link #getSAMLConfigurationWithHttpInfo}.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @return SAMLConfigurationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SAMLConfigurationResponse getSAMLConfiguration(String samlConfigUuid) throws ApiException {
+    return getSAMLConfigurationWithHttpInfo(samlConfigUuid).getData();
+  }
+
+  /**
+   * Get a SAML configuration.
+   *
+   * <p>See {@link #getSAMLConfigurationWithHttpInfoAsync}.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @return CompletableFuture&lt;SAMLConfigurationResponse&gt;
+   */
+  public CompletableFuture<SAMLConfigurationResponse> getSAMLConfigurationAsync(
+      String samlConfigUuid) {
+    return getSAMLConfigurationWithHttpInfoAsync(samlConfigUuid)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a single SAML configuration for the current organization by its UUID.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @return ApiResponse&lt;SAMLConfigurationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SAMLConfigurationResponse> getSAMLConfigurationWithHttpInfo(
+      String samlConfigUuid) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'samlConfigUuid' is set
+    if (samlConfigUuid == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'samlConfigUuid' when calling getSAMLConfiguration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/saml_configurations/{saml_config_uuid}"
+            .replaceAll(
+                "\\{" + "saml_config_uuid" + "\\}",
+                apiClient.escapeString(samlConfigUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.getSAMLConfiguration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationResponse>() {});
+  }
+
+  /**
+   * Get a SAML configuration.
+   *
+   * <p>See {@link #getSAMLConfigurationWithHttpInfo}.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SAMLConfigurationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SAMLConfigurationResponse>>
+      getSAMLConfigurationWithHttpInfoAsync(String samlConfigUuid) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'samlConfigUuid' is set
+    if (samlConfigUuid == null) {
+      CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'samlConfigUuid' when calling getSAMLConfiguration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/saml_configurations/{saml_config_uuid}"
+            .replaceAll(
+                "\\{" + "saml_config_uuid" + "\\}",
+                apiClient.escapeString(samlConfigUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.getSAMLConfiguration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationResponse>() {});
   }
 
   /**
@@ -469,6 +614,118 @@ public class OrganizationsApi {
   }
 
   /**
+   * List SAML configurations.
+   *
+   * <p>See {@link #listSAMLConfigurationsWithHttpInfo}.
+   *
+   * @return SAMLConfigurationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SAMLConfigurationsResponse listSAMLConfigurations() throws ApiException {
+    return listSAMLConfigurationsWithHttpInfo().getData();
+  }
+
+  /**
+   * List SAML configurations.
+   *
+   * <p>See {@link #listSAMLConfigurationsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SAMLConfigurationsResponse&gt;
+   */
+  public CompletableFuture<SAMLConfigurationsResponse> listSAMLConfigurationsAsync() {
+    return listSAMLConfigurationsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of SAML configurations for the current organization. An organization has at most
+   * one SAML configuration.
+   *
+   * @return ApiResponse&lt;SAMLConfigurationsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SAMLConfigurationsResponse> listSAMLConfigurationsWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/saml_configurations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.listSAMLConfigurations",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationsResponse>() {});
+  }
+
+  /**
+   * List SAML configurations.
+   *
+   * <p>See {@link #listSAMLConfigurationsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;SAMLConfigurationsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SAMLConfigurationsResponse>>
+      listSAMLConfigurationsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/saml_configurations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.listSAMLConfigurations",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SAMLConfigurationsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationsResponse>() {});
+  }
+
+  /**
    * Update a specific Org Config.
    *
    * <p>See {@link #updateOrgConfigWithHttpInfo}.
@@ -628,6 +885,330 @@ public class OrganizationsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OrgConfigGetResponse>() {});
+  }
+
+  /**
+   * Update organization SAML preferences.
+   *
+   * <p>See {@link #updateOrgSamlConfigurationsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateOrgSamlConfigurations(OrgSAMLPreferencesUpdateRequest body)
+      throws ApiException {
+    updateOrgSamlConfigurationsWithHttpInfo(body);
+  }
+
+  /**
+   * Update organization SAML preferences.
+   *
+   * <p>See {@link #updateOrgSamlConfigurationsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateOrgSamlConfigurationsAsync(
+      OrgSAMLPreferencesUpdateRequest body) {
+    return updateOrgSamlConfigurationsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the SAML preferences for the current organization.
+   *
+   * <p>Use this endpoint to set the just-in-time (JIT) provisioning domains and the default role
+   * assigned to just-in-time provisioned users.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateOrgSamlConfigurationsWithHttpInfo(
+      OrgSAMLPreferencesUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateOrgSamlConfigurations";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateOrgSamlConfigurations");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/org/saml_configurations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.updateOrgSamlConfigurations",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update organization SAML preferences.
+   *
+   * <p>See {@link #updateOrgSamlConfigurationsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateOrgSamlConfigurationsWithHttpInfoAsync(
+      OrgSAMLPreferencesUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateOrgSamlConfigurations";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateOrgSamlConfigurations"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/org/saml_configurations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.updateOrgSamlConfigurations",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update a SAML configuration.
+   *
+   * <p>See {@link #updateSAMLConfigurationWithHttpInfo}.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @param body (required)
+   * @return SAMLConfigurationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SAMLConfigurationResponse updateSAMLConfiguration(
+      String samlConfigUuid, SAMLConfigurationUpdateRequest body) throws ApiException {
+    return updateSAMLConfigurationWithHttpInfo(samlConfigUuid, body).getData();
+  }
+
+  /**
+   * Update a SAML configuration.
+   *
+   * <p>See {@link #updateSAMLConfigurationWithHttpInfoAsync}.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SAMLConfigurationResponse&gt;
+   */
+  public CompletableFuture<SAMLConfigurationResponse> updateSAMLConfigurationAsync(
+      String samlConfigUuid, SAMLConfigurationUpdateRequest body) {
+    return updateSAMLConfigurationWithHttpInfoAsync(samlConfigUuid, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a single SAML configuration for the current organization.
+   *
+   * <p>Use this endpoint to enable or disable identity-provider-initiated login, set the
+   * just-in-time provisioning domains, and set the default role assigned to just-in-time
+   * provisioned users. A default role is required to enable just-in-time provisioning.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SAMLConfigurationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SAMLConfigurationResponse> updateSAMLConfigurationWithHttpInfo(
+      String samlConfigUuid, SAMLConfigurationUpdateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'samlConfigUuid' is set
+    if (samlConfigUuid == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'samlConfigUuid' when calling updateSAMLConfiguration");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateSAMLConfiguration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/saml_configurations/{saml_config_uuid}"
+            .replaceAll(
+                "\\{" + "saml_config_uuid" + "\\}",
+                apiClient.escapeString(samlConfigUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.updateSAMLConfiguration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationResponse>() {});
+  }
+
+  /**
+   * Update a SAML configuration.
+   *
+   * <p>See {@link #updateSAMLConfigurationWithHttpInfo}.
+   *
+   * @param samlConfigUuid The UUID of the SAML configuration. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SAMLConfigurationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SAMLConfigurationResponse>>
+      updateSAMLConfigurationWithHttpInfoAsync(
+          String samlConfigUuid, SAMLConfigurationUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'samlConfigUuid' is set
+    if (samlConfigUuid == null) {
+      CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'samlConfigUuid' when calling"
+                  + " updateSAMLConfiguration"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateSAMLConfiguration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/saml_configurations/{saml_config_uuid}"
+            .replaceAll(
+                "\\{" + "saml_config_uuid" + "\\}",
+                apiClient.escapeString(samlConfigUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.updateSAMLConfiguration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SAMLConfigurationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SAMLConfigurationResponse>() {});
   }
 
   /** Manage optional parameters to uploadIdPMetadata. */
