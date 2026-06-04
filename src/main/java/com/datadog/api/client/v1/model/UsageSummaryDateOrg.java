@@ -19,10 +19,12 @@ import java.util.Objects;
 /**
  * Global hourly report of all data billed by Datadog for a given organization.
  *
- * <p>Newly added billing dimensions and usage types appear as untyped keys on the <code>
- * additionalProperties</code> map instead of as typed fields. Call <code>
- * GET /api/v2/usage/summary/available_fields</code> to enumerate every key returned at this
- * response level—both typed fields and <code>additionalProperties</code> keys.
+ * <p>SDK users only: Newly added billing dimensions and usage types appear as untyped keys on the
+ * <code>additionalProperties</code> map instead of as typed fields. To enumerate every key at this
+ * response level—both typed fields and <code>additionalProperties</code> keys—make a request to the
+ * <a
+ * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-summary-available-fields">Get
+ * available fields for usage summary API</a>.
  */
 @JsonPropertyOrder({
   UsageSummaryDateOrg.JSON_PROPERTY_ACCOUNT_NAME,
