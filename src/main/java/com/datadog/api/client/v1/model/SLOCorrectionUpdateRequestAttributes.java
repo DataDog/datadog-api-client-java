@@ -23,6 +23,7 @@ import java.util.Objects;
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_DURATION,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_END,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_RRULE,
+  SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_SLO_QUERY,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_START,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_TIMEZONE
 })
@@ -44,6 +45,9 @@ public class SLOCorrectionUpdateRequestAttributes {
 
   public static final String JSON_PROPERTY_RRULE = "rrule";
   private String rrule;
+
+  public static final String JSON_PROPERTY_SLO_QUERY = "slo_query";
+  private String sloQuery;
 
   public static final String JSON_PROPERTY_START = "start";
   private Long start;
@@ -162,6 +166,29 @@ public class SLOCorrectionUpdateRequestAttributes {
     this.rrule = rrule;
   }
 
+  public SLOCorrectionUpdateRequestAttributes sloQuery(String sloQuery) {
+    this.sloQuery = sloQuery;
+    return this;
+  }
+
+  /**
+   * Query that matches the SLOs this correction applies to. The query uses the <a
+   * href="https://docs.datadoghq.com/events/explorer/searching/">Events search syntax</a> and can
+   * filter SLOs by SLO tags.
+   *
+   * @return sloQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLO_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSloQuery() {
+    return sloQuery;
+  }
+
+  public void setSloQuery(String sloQuery) {
+    this.sloQuery = sloQuery;
+  }
+
   public SLOCorrectionUpdateRequestAttributes start(Long start) {
     this.start = start;
     return this;
@@ -266,6 +293,7 @@ public class SLOCorrectionUpdateRequestAttributes {
         && Objects.equals(this.duration, sloCorrectionUpdateRequestAttributes.duration)
         && Objects.equals(this.end, sloCorrectionUpdateRequestAttributes.end)
         && Objects.equals(this.rrule, sloCorrectionUpdateRequestAttributes.rrule)
+        && Objects.equals(this.sloQuery, sloCorrectionUpdateRequestAttributes.sloQuery)
         && Objects.equals(this.start, sloCorrectionUpdateRequestAttributes.start)
         && Objects.equals(this.timezone, sloCorrectionUpdateRequestAttributes.timezone)
         && Objects.equals(
@@ -275,7 +303,15 @@ public class SLOCorrectionUpdateRequestAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        category, description, duration, end, rrule, start, timezone, additionalProperties);
+        category,
+        description,
+        duration,
+        end,
+        rrule,
+        sloQuery,
+        start,
+        timezone,
+        additionalProperties);
   }
 
   @Override
@@ -287,6 +323,7 @@ public class SLOCorrectionUpdateRequestAttributes {
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
+    sb.append("    sloQuery: ").append(toIndentedString(sloQuery)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    additionalProperties: ")

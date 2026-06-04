@@ -50,6 +50,8 @@ public class SLOCorrectionCreateData {
   /**
    * The attribute object associated with the SLO correction to be created.
    *
+   * <p>Exactly one of <code>slo_id</code> or <code>slo_query</code> must be provided.
+   *
    * @return attributes
    */
   @jakarta.annotation.Nullable

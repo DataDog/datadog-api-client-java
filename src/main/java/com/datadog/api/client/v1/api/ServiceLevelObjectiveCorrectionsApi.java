@@ -82,7 +82,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO Correction.
+   * Create an SLO correction. Use <code>slo_id</code> to apply the correction to a single SLO, or
+   * <code>slo_query</code> to apply the correction to SLOs that match a query. Exactly one of
+   * <code>slo_id</code> or <code>slo_query</code> is required.
    *
    * @param body Create an SLO Correction (required)
    * @return ApiResponse&lt;SLOCorrectionResponse&gt;

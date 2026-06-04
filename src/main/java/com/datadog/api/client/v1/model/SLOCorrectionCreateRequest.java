@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An object that defines a correction to be applied to an SLO. */
+/** An object that defines a correction to be applied to one or more SLOs. */
 @JsonPropertyOrder({SLOCorrectionCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
