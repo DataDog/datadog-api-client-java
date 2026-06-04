@@ -1138,6 +1138,11 @@ public class ApiClient {
           put("v2.updateConnection", false);
           put("v2.getPrunedTraceByID", false);
           put("v2.getTraceByID", false);
+          put("v2.deleteSourcemaps", false);
+          put("v2.getServiceRepositoryInfo", false);
+          put("v2.getSourcemaps", false);
+          put("v2.listSourcemaps", false);
+          put("v2.restoreSourcemaps", false);
           put("v2.queryAggregatedLongTasks", false);
           put("v2.queryAggregatedSignalsProblems", false);
           put("v2.queryAggregatedWaterfall", false);
