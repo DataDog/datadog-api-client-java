@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOCorrectionResponseAttributes.JSON_PROPERTY_MODIFIER,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_RRULE,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_SLO_ID,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_SLO_QUERY,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_START,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_TIMEZONE
 })
@@ -65,7 +66,10 @@ public class SLOCorrectionResponseAttributes {
   private JsonNullable<String> rrule = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SLO_ID = "slo_id";
-  private String sloId;
+  private JsonNullable<String> sloId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SLO_QUERY = "slo_query";
+  private JsonNullable<String> sloQuery = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_START = "start";
   private Long start;
@@ -322,24 +326,65 @@ public class SLOCorrectionResponseAttributes {
   }
 
   public SLOCorrectionResponseAttributes sloId(String sloId) {
-    this.sloId = sloId;
+    this.sloId = JsonNullable.<String>of(sloId);
     return this;
   }
 
   /**
-   * ID of the SLO that this correction applies to.
+   * ID of the single SLO that this correction applies to.
    *
    * @return sloId
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getSloId() {
+    return sloId.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SLO_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSloId() {
+  public JsonNullable<String> getSloId_JsonNullable() {
     return sloId;
   }
 
-  public void setSloId(String sloId) {
+  @JsonProperty(JSON_PROPERTY_SLO_ID)
+  public void setSloId_JsonNullable(JsonNullable<String> sloId) {
     this.sloId = sloId;
+  }
+
+  public void setSloId(String sloId) {
+    this.sloId = JsonNullable.<String>of(sloId);
+  }
+
+  public SLOCorrectionResponseAttributes sloQuery(String sloQuery) {
+    this.sloQuery = JsonNullable.<String>of(sloQuery);
+    return this;
+  }
+
+  /**
+   * Query that matches the SLOs this correction applies to.
+   *
+   * @return sloQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getSloQuery() {
+    return sloQuery.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SLO_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getSloQuery_JsonNullable() {
+    return sloQuery;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SLO_QUERY)
+  public void setSloQuery_JsonNullable(JsonNullable<String> sloQuery) {
+    this.sloQuery = sloQuery;
+  }
+
+  public void setSloQuery(String sloQuery) {
+    this.sloQuery = JsonNullable.<String>of(sloQuery);
   }
 
   public SLOCorrectionResponseAttributes start(Long start) {
@@ -451,6 +496,7 @@ public class SLOCorrectionResponseAttributes {
         && Objects.equals(this.modifier, sloCorrectionResponseAttributes.modifier)
         && Objects.equals(this.rrule, sloCorrectionResponseAttributes.rrule)
         && Objects.equals(this.sloId, sloCorrectionResponseAttributes.sloId)
+        && Objects.equals(this.sloQuery, sloCorrectionResponseAttributes.sloQuery)
         && Objects.equals(this.start, sloCorrectionResponseAttributes.start)
         && Objects.equals(this.timezone, sloCorrectionResponseAttributes.timezone)
         && Objects.equals(
@@ -470,6 +516,7 @@ public class SLOCorrectionResponseAttributes {
         modifier,
         rrule,
         sloId,
+        sloQuery,
         start,
         timezone,
         additionalProperties);
@@ -489,6 +536,7 @@ public class SLOCorrectionResponseAttributes {
     sb.append("    modifier: ").append(toIndentedString(modifier)).append("\n");
     sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
     sb.append("    sloId: ").append(toIndentedString(sloId)).append("\n");
+    sb.append("    sloQuery: ").append(toIndentedString(sloQuery)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    additionalProperties: ")
