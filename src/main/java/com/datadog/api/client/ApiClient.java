@@ -786,6 +786,7 @@ public class ApiClient {
           put("v2.createLLMObsProject", false);
           put("v2.deleteLLMObsAnnotationQueue", false);
           put("v2.deleteLLMObsAnnotationQueueInteractions", false);
+          put("v2.deleteLLMObsAnnotations", false);
           put("v2.deleteLLMObsCustomEvalConfig", false);
           put("v2.deleteLLMObsData", false);
           put("v2.deleteLLMObsDatasetRecords", false);
@@ -824,6 +825,7 @@ public class ApiClient {
           put("v2.updateLLMObsExperiment", false);
           put("v2.updateLLMObsProject", false);
           put("v2.uploadLLMObsDatasetRecordsFile", false);
+          put("v2.upsertLLMObsAnnotations", false);
           put("v2.createAnnotation", false);
           put("v2.deleteAnnotation", false);
           put("v2.getPageAnnotations", false);

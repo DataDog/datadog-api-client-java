@@ -165,7 +165,7 @@ public class LLMObsAnnotationItem {
   }
 
   /**
-   * The label values for this annotation.
+   * Label values for this annotation.
    *
    * @return labelValues
    */
