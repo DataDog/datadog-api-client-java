@@ -349,6 +349,51 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SyntheticsBasicAuthOauthROP'", e);
       }
 
+      // deserialize SyntheticsBasicAuthJWT
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SyntheticsBasicAuthJWT.class.equals(Integer.class)
+            || SyntheticsBasicAuthJWT.class.equals(Long.class)
+            || SyntheticsBasicAuthJWT.class.equals(Float.class)
+            || SyntheticsBasicAuthJWT.class.equals(Double.class)
+            || SyntheticsBasicAuthJWT.class.equals(Boolean.class)
+            || SyntheticsBasicAuthJWT.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SyntheticsBasicAuthJWT.class.equals(Integer.class)
+                        || SyntheticsBasicAuthJWT.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SyntheticsBasicAuthJWT.class.equals(Float.class)
+                        || SyntheticsBasicAuthJWT.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SyntheticsBasicAuthJWT.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SyntheticsBasicAuthJWT.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SyntheticsBasicAuthJWT.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SyntheticsBasicAuthJWT) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SyntheticsBasicAuthJWT'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SyntheticsBasicAuthJWT'", e);
+      }
+
       SyntheticsBasicAuth ret = new SyntheticsBasicAuth();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -408,6 +453,11 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public SyntheticsBasicAuth(SyntheticsBasicAuthJWT o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SyntheticsBasicAuthWeb", new GenericType<SyntheticsBasicAuthWeb>() {});
     schemas.put("SyntheticsBasicAuthSigv4", new GenericType<SyntheticsBasicAuthSigv4>() {});
@@ -416,6 +466,7 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
     schemas.put(
         "SyntheticsBasicAuthOauthClient", new GenericType<SyntheticsBasicAuthOauthClient>() {});
     schemas.put("SyntheticsBasicAuthOauthROP", new GenericType<SyntheticsBasicAuthOauthROP>() {});
+    schemas.put("SyntheticsBasicAuthJWT", new GenericType<SyntheticsBasicAuthJWT>() {});
     JSON.registerDescendants(SyntheticsBasicAuth.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -428,7 +479,7 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: SyntheticsBasicAuthWeb, SyntheticsBasicAuthSigv4,
    * SyntheticsBasicAuthNTLM, SyntheticsBasicAuthDigest, SyntheticsBasicAuthOauthClient,
-   * SyntheticsBasicAuthOauthROP
+   * SyntheticsBasicAuthOauthROP, SyntheticsBasicAuthJWT
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -460,6 +511,10 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(SyntheticsBasicAuthJWT.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -468,17 +523,17 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
     throw new RuntimeException(
         "Invalid instance type. Must be SyntheticsBasicAuthWeb, SyntheticsBasicAuthSigv4,"
             + " SyntheticsBasicAuthNTLM, SyntheticsBasicAuthDigest, SyntheticsBasicAuthOauthClient,"
-            + " SyntheticsBasicAuthOauthROP");
+            + " SyntheticsBasicAuthOauthROP, SyntheticsBasicAuthJWT");
   }
 
   /**
    * Get the actual instance, which can be the following: SyntheticsBasicAuthWeb,
    * SyntheticsBasicAuthSigv4, SyntheticsBasicAuthNTLM, SyntheticsBasicAuthDigest,
-   * SyntheticsBasicAuthOauthClient, SyntheticsBasicAuthOauthROP
+   * SyntheticsBasicAuthOauthClient, SyntheticsBasicAuthOauthROP, SyntheticsBasicAuthJWT
    *
    * @return The actual instance (SyntheticsBasicAuthWeb, SyntheticsBasicAuthSigv4,
    *     SyntheticsBasicAuthNTLM, SyntheticsBasicAuthDigest, SyntheticsBasicAuthOauthClient,
-   *     SyntheticsBasicAuthOauthROP)
+   *     SyntheticsBasicAuthOauthROP, SyntheticsBasicAuthJWT)
    */
   @Override
   public Object getActualInstance() {
@@ -550,5 +605,16 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
    */
   public SyntheticsBasicAuthOauthROP getSyntheticsBasicAuthOauthROP() throws ClassCastException {
     return (SyntheticsBasicAuthOauthROP) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SyntheticsBasicAuthJWT`. If the actual instance is not
+   * `SyntheticsBasicAuthJWT`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SyntheticsBasicAuthJWT`
+   * @throws ClassCastException if the instance is not `SyntheticsBasicAuthJWT`
+   */
+  public SyntheticsBasicAuthJWT getSyntheticsBasicAuthJWT() throws ClassCastException {
+    return (SyntheticsBasicAuthJWT) super.getActualInstance();
   }
 }
