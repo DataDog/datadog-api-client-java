@@ -4,9 +4,12 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudCostManagementApi;
 import com.datadog.api.client.v2.model.BudgetAttributes;
+import com.datadog.api.client.v2.model.BudgetAttributesCosts;
+import com.datadog.api.client.v2.model.BudgetAttributesCostsUnit;
 import com.datadog.api.client.v2.model.BudgetWithEntries;
 import com.datadog.api.client.v2.model.BudgetWithEntriesData;
 import com.datadog.api.client.v2.model.BudgetWithEntriesDataAttributesEntriesItems;
+import com.datadog.api.client.v2.model.BudgetWithEntriesDataAttributesEntriesItemsCosts;
 import com.datadog.api.client.v2.model.BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems;
 import java.util.Collections;
 
@@ -21,12 +24,26 @@ public class Example {
                 new BudgetWithEntriesData()
                     .attributes(
                         new BudgetAttributes()
+                            .costs(
+                                new BudgetAttributesCosts()
+                                    .actual(null)
+                                    .amount(null)
+                                    .forecast(null)
+                                    .ootbForecast(null))
+                            .costsUnit(new BudgetAttributesCostsUnit())
                             .createdAt(1738258683590L)
                             .createdBy("00000000-0a0a-0a0a-aaa0-00000000000a")
                             .endMonth(202502L)
                             .entries(
                                 Collections.singletonList(
                                     new BudgetWithEntriesDataAttributesEntriesItems()
+                                        .costs(
+                                            new BudgetWithEntriesDataAttributesEntriesItemsCosts()
+                                                .actual(null)
+                                                .amount(null)
+                                                .customForecast(null)
+                                                .forecast(null)
+                                                .ootbForecast(null))
                                         .tagFilters(
                                             Collections.singletonList(
                                                 new BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems()))))

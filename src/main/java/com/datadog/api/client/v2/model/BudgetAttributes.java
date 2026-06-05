@@ -20,6 +20,10 @@ import java.util.Objects;
 
 /** The attributes of a budget. */
 @JsonPropertyOrder({
+  BudgetAttributes.JSON_PROPERTY_COSTS,
+  BudgetAttributes.JSON_PROPERTY_COSTS_PERIOD_END,
+  BudgetAttributes.JSON_PROPERTY_COSTS_PERIOD_START,
+  BudgetAttributes.JSON_PROPERTY_COSTS_UNIT,
   BudgetAttributes.JSON_PROPERTY_CREATED_AT,
   BudgetAttributes.JSON_PROPERTY_CREATED_BY,
   BudgetAttributes.JSON_PROPERTY_END_MONTH,
@@ -36,6 +40,18 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class BudgetAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COSTS = "costs";
+  private BudgetAttributesCosts costs;
+
+  public static final String JSON_PROPERTY_COSTS_PERIOD_END = "costs_period_end";
+  private Long costsPeriodEnd;
+
+  public static final String JSON_PROPERTY_COSTS_PERIOD_START = "costs_period_start";
+  private Long costsPeriodStart;
+
+  public static final String JSON_PROPERTY_COSTS_UNIT = "costs_unit";
+  private BudgetAttributesCostsUnit costsUnit;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private Long createdAt;
 
@@ -68,6 +84,92 @@ public class BudgetAttributes {
 
   public static final String JSON_PROPERTY_UPDATED_BY = "updated_by";
   private String updatedBy;
+
+  public BudgetAttributes costs(BudgetAttributesCosts costs) {
+    this.costs = costs;
+    this.unparsed |= costs.unparsed;
+    return this;
+  }
+
+  /**
+   * Aggregated cost data for the budget over the requested period.
+   *
+   * @return costs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COSTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BudgetAttributesCosts getCosts() {
+    return costs;
+  }
+
+  public void setCosts(BudgetAttributesCosts costs) {
+    this.costs = costs;
+  }
+
+  public BudgetAttributes costsPeriodEnd(Long costsPeriodEnd) {
+    this.costsPeriodEnd = costsPeriodEnd;
+    return this;
+  }
+
+  /**
+   * The end of the period used to compute cost data, in milliseconds since epoch.
+   *
+   * @return costsPeriodEnd
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COSTS_PERIOD_END)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCostsPeriodEnd() {
+    return costsPeriodEnd;
+  }
+
+  public void setCostsPeriodEnd(Long costsPeriodEnd) {
+    this.costsPeriodEnd = costsPeriodEnd;
+  }
+
+  public BudgetAttributes costsPeriodStart(Long costsPeriodStart) {
+    this.costsPeriodStart = costsPeriodStart;
+    return this;
+  }
+
+  /**
+   * The start of the period used to compute cost data, in milliseconds since epoch.
+   *
+   * @return costsPeriodStart
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COSTS_PERIOD_START)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCostsPeriodStart() {
+    return costsPeriodStart;
+  }
+
+  public void setCostsPeriodStart(Long costsPeriodStart) {
+    this.costsPeriodStart = costsPeriodStart;
+  }
+
+  public BudgetAttributes costsUnit(BudgetAttributesCostsUnit costsUnit) {
+    this.costsUnit = costsUnit;
+    this.unparsed |= costsUnit.unparsed;
+    return this;
+  }
+
+  /**
+   * The unit used for all cost values in the response.
+   *
+   * @return costsUnit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COSTS_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BudgetAttributesCostsUnit getCostsUnit() {
+    return costsUnit;
+  }
+
+  public void setCostsUnit(BudgetAttributesCostsUnit costsUnit) {
+    this.costsUnit = costsUnit;
+  }
 
   public BudgetAttributes createdAt(Long createdAt) {
     this.createdAt = createdAt;
@@ -368,7 +470,11 @@ public class BudgetAttributes {
       return false;
     }
     BudgetAttributes budgetAttributes = (BudgetAttributes) o;
-    return Objects.equals(this.createdAt, budgetAttributes.createdAt)
+    return Objects.equals(this.costs, budgetAttributes.costs)
+        && Objects.equals(this.costsPeriodEnd, budgetAttributes.costsPeriodEnd)
+        && Objects.equals(this.costsPeriodStart, budgetAttributes.costsPeriodStart)
+        && Objects.equals(this.costsUnit, budgetAttributes.costsUnit)
+        && Objects.equals(this.createdAt, budgetAttributes.createdAt)
         && Objects.equals(this.createdBy, budgetAttributes.createdBy)
         && Objects.equals(this.endMonth, budgetAttributes.endMonth)
         && Objects.equals(this.entries, budgetAttributes.entries)
@@ -385,6 +491,10 @@ public class BudgetAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        costs,
+        costsPeriodEnd,
+        costsPeriodStart,
+        costsUnit,
         createdAt,
         createdBy,
         endMonth,
@@ -403,6 +513,10 @@ public class BudgetAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BudgetAttributes {\n");
+    sb.append("    costs: ").append(toIndentedString(costs)).append("\n");
+    sb.append("    costsPeriodEnd: ").append(toIndentedString(costsPeriodEnd)).append("\n");
+    sb.append("    costsPeriodStart: ").append(toIndentedString(costsPeriodStart)).append("\n");
+    sb.append("    costsUnit: ").append(toIndentedString(costsUnit)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    endMonth: ").append(toIndentedString(endMonth)).append("\n");

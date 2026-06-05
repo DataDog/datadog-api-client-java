@@ -24,6 +24,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   BudgetWithEntriesDataAttributesEntriesItems.JSON_PROPERTY_AMOUNT,
+  BudgetWithEntriesDataAttributesEntriesItems.JSON_PROPERTY_COSTS,
   BudgetWithEntriesDataAttributesEntriesItems.JSON_PROPERTY_MONTH,
   BudgetWithEntriesDataAttributesEntriesItems.JSON_PROPERTY_TAG_FILTERS
 })
@@ -33,6 +34,9 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Double amount;
+
+  public static final String JSON_PROPERTY_COSTS = "costs";
+  private BudgetWithEntriesDataAttributesEntriesItemsCosts costs;
 
   public static final String JSON_PROPERTY_MONTH = "month";
   private Long month;
@@ -59,6 +63,29 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
 
   public void setAmount(Double amount) {
     this.amount = amount;
+  }
+
+  public BudgetWithEntriesDataAttributesEntriesItems costs(
+      BudgetWithEntriesDataAttributesEntriesItemsCosts costs) {
+    this.costs = costs;
+    this.unparsed |= costs.unparsed;
+    return this;
+  }
+
+  /**
+   * Cost data for a single budget entry.
+   *
+   * @return costs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COSTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BudgetWithEntriesDataAttributesEntriesItemsCosts getCosts() {
+    return costs;
+  }
+
+  public void setCosts(BudgetWithEntriesDataAttributesEntriesItemsCosts costs) {
+    this.costs = costs;
   }
 
   public BudgetWithEntriesDataAttributesEntriesItems month(Long month) {
@@ -177,6 +204,7 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
     BudgetWithEntriesDataAttributesEntriesItems budgetWithEntriesDataAttributesEntriesItems =
         (BudgetWithEntriesDataAttributesEntriesItems) o;
     return Objects.equals(this.amount, budgetWithEntriesDataAttributesEntriesItems.amount)
+        && Objects.equals(this.costs, budgetWithEntriesDataAttributesEntriesItems.costs)
         && Objects.equals(this.month, budgetWithEntriesDataAttributesEntriesItems.month)
         && Objects.equals(this.tagFilters, budgetWithEntriesDataAttributesEntriesItems.tagFilters)
         && Objects.equals(
@@ -186,7 +214,7 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, month, tagFilters, additionalProperties);
+    return Objects.hash(amount, costs, month, tagFilters, additionalProperties);
   }
 
   @Override
@@ -194,6 +222,7 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
     StringBuilder sb = new StringBuilder();
     sb.append("class BudgetWithEntriesDataAttributesEntriesItems {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    costs: ").append(toIndentedString(costs)).append("\n");
     sb.append("    month: ").append(toIndentedString(month)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    additionalProperties: ")
