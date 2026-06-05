@@ -1060,6 +1060,7 @@ public class ApiClient {
           put("v2.deleteAWSAccountCCMConfig", false);
           put("v2.getAWSAccountCCMConfig", false);
           put("v2.updateAWSAccountCCMConfig", false);
+          put("v2.validateAWSCCMConfig", false);
           put("v2.createJiraIssueTemplate", false);
           put("v2.deleteJiraAccount", false);
           put("v2.deleteJiraIssueTemplate", false);
