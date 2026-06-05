@@ -1,0 +1,190 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v2.model;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+/**
+ * A single annotation to create or update. The annotation is matched by <code>interaction_id</code>
+ * and the requesting user's identity.
+ */
+@JsonPropertyOrder({
+  LLMObsUpsertAnnotationItem.JSON_PROPERTY_INTERACTION_ID,
+  LLMObsUpsertAnnotationItem.JSON_PROPERTY_LABEL_VALUES
+})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class LLMObsUpsertAnnotationItem {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_INTERACTION_ID = "interaction_id";
+  private String interactionId;
+
+  public static final String JSON_PROPERTY_LABEL_VALUES = "label_values";
+  private List<LLMObsAnnotationLabelValue> labelValues = new ArrayList<>();
+
+  public LLMObsUpsertAnnotationItem() {}
+
+  @JsonCreator
+  public LLMObsUpsertAnnotationItem(
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTERACTION_ID) String interactionId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LABEL_VALUES)
+          List<LLMObsAnnotationLabelValue> labelValues) {
+    this.interactionId = interactionId;
+    this.labelValues = labelValues;
+  }
+
+  public LLMObsUpsertAnnotationItem interactionId(String interactionId) {
+    this.interactionId = interactionId;
+    return this;
+  }
+
+  /**
+   * ID of the interaction to annotate.
+   *
+   * @return interactionId
+   */
+  @JsonProperty(JSON_PROPERTY_INTERACTION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getInteractionId() {
+    return interactionId;
+  }
+
+  public void setInteractionId(String interactionId) {
+    this.interactionId = interactionId;
+  }
+
+  public LLMObsUpsertAnnotationItem labelValues(List<LLMObsAnnotationLabelValue> labelValues) {
+    this.labelValues = labelValues;
+    for (LLMObsAnnotationLabelValue item : labelValues) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public LLMObsUpsertAnnotationItem addLabelValuesItem(LLMObsAnnotationLabelValue labelValuesItem) {
+    this.labelValues.add(labelValuesItem);
+    this.unparsed |= labelValuesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Label values for this annotation. Each entry references a label schema by ID and provides the
+   * corresponding value validated against the schema type constraints.
+   *
+   * @return labelValues
+   */
+  @JsonProperty(JSON_PROPERTY_LABEL_VALUES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsAnnotationLabelValue> getLabelValues() {
+    return labelValues;
+  }
+
+  public void setLabelValues(List<LLMObsAnnotationLabelValue> labelValues) {
+    this.labelValues = labelValues;
+  }
+
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return LLMObsUpsertAnnotationItem
+   */
+  @JsonAnySetter
+  public LLMObsUpsertAnnotationItem putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
+  /** Return true if this LLMObsUpsertAnnotationItem object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LLMObsUpsertAnnotationItem llmObsUpsertAnnotationItem = (LLMObsUpsertAnnotationItem) o;
+    return Objects.equals(this.interactionId, llmObsUpsertAnnotationItem.interactionId)
+        && Objects.equals(this.labelValues, llmObsUpsertAnnotationItem.labelValues)
+        && Objects.equals(
+            this.additionalProperties, llmObsUpsertAnnotationItem.additionalProperties);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(interactionId, labelValues, additionalProperties);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LLMObsUpsertAnnotationItem {\n");
+    sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
+    sb.append("    labelValues: ").append(toIndentedString(labelValues)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
+    sb.append('}');
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
