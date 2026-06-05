@@ -1896,6 +1896,7 @@ public class KeyManagementApi {
     private String filter;
     private String filterCreatedAtStart;
     private String filterCreatedAtEnd;
+    private String filterOwnedBy;
     private String include;
 
     /**
@@ -1966,6 +1967,17 @@ public class KeyManagementApi {
      */
     public ListApplicationKeysOptionalParameters filterCreatedAtEnd(String filterCreatedAtEnd) {
       this.filterCreatedAtEnd = filterCreatedAtEnd;
+      return this;
+    }
+
+    /**
+     * Set filterOwnedBy.
+     *
+     * @param filterOwnedBy Filter application keys by owner ID. (optional)
+     * @return ListApplicationKeysOptionalParameters
+     */
+    public ListApplicationKeysOptionalParameters filterOwnedBy(String filterOwnedBy) {
+      this.filterOwnedBy = filterOwnedBy;
       return this;
     }
 
@@ -2066,6 +2078,7 @@ public class KeyManagementApi {
     String filter = parameters.filter;
     String filterCreatedAtStart = parameters.filterCreatedAtStart;
     String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    String filterOwnedBy = parameters.filterOwnedBy;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/application_keys";
@@ -2081,6 +2094,7 @@ public class KeyManagementApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[owned_by]", filterOwnedBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder =
@@ -2120,6 +2134,7 @@ public class KeyManagementApi {
     String filter = parameters.filter;
     String filterCreatedAtStart = parameters.filterCreatedAtStart;
     String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    String filterOwnedBy = parameters.filterOwnedBy;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/application_keys";
@@ -2135,6 +2150,7 @@ public class KeyManagementApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[owned_by]", filterOwnedBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
