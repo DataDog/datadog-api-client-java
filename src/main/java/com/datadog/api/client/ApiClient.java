@@ -1149,6 +1149,9 @@ public class ApiClient {
           put("v2.getSourcemaps", false);
           put("v2.listSourcemaps", false);
           put("v2.restoreSourcemaps", false);
+          put("v2.deleteRumRateLimitConfig", false);
+          put("v2.getRumRateLimitConfig", false);
+          put("v2.updateRumRateLimitConfig", false);
           put("v2.queryAggregatedLongTasks", false);
           put("v2.queryAggregatedSignalsProblems", false);
           put("v2.queryAggregatedWaterfall", false);
