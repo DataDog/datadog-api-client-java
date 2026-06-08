@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi.GetIndicatorOfCompromiseOptionalParameters;
 import com.datadog.api.client.v2.model.GetIoCIndicatorResponse;
 
 public class Example {
@@ -14,7 +15,8 @@ public class Example {
     try {
       GetIoCIndicatorResponse result =
           apiInstance.getIndicatorOfCompromise(
-              "masscan/1.3 (https://github.com/robertdavidgraham/masscan)");
+              "192.0.2.1",
+              new GetIndicatorOfCompromiseOptionalParameters().includeTriageHistory(true));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityMonitoringApi#getIndicatorOfCompromise");
