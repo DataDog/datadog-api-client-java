@@ -24,6 +24,7 @@ import java.util.Objects;
  * events, or Indexed Spans over time.
  */
 @JsonPropertyOrder({
+  TimeseriesWidgetDefinition.JSON_PROPERTY_ANOMALY_DETECTION,
   TimeseriesWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   TimeseriesWidgetDefinition.JSON_PROPERTY_EVENTS,
@@ -45,6 +46,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TimeseriesWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ANOMALY_DETECTION = "anomaly_detection";
+  private TimeseriesWidgetAnomalyDetection anomalyDetection;
+
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -104,6 +108,29 @@ public class TimeseriesWidgetDefinition {
     this.requests = requests;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public TimeseriesWidgetDefinition anomalyDetection(
+      TimeseriesWidgetAnomalyDetection anomalyDetection) {
+    this.anomalyDetection = anomalyDetection;
+    this.unparsed |= anomalyDetection.unparsed;
+    return this;
+  }
+
+  /**
+   * Anomaly detection configuration for a timeseries widget.
+   *
+   * @return anomalyDetection
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ANOMALY_DETECTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TimeseriesWidgetAnomalyDetection getAnomalyDetection() {
+    return anomalyDetection;
+  }
+
+  public void setAnomalyDetection(TimeseriesWidgetAnomalyDetection anomalyDetection) {
+    this.anomalyDetection = anomalyDetection;
   }
 
   public TimeseriesWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
@@ -570,7 +597,8 @@ public class TimeseriesWidgetDefinition {
       return false;
     }
     TimeseriesWidgetDefinition timeseriesWidgetDefinition = (TimeseriesWidgetDefinition) o;
-    return Objects.equals(this.customLinks, timeseriesWidgetDefinition.customLinks)
+    return Objects.equals(this.anomalyDetection, timeseriesWidgetDefinition.anomalyDetection)
+        && Objects.equals(this.customLinks, timeseriesWidgetDefinition.customLinks)
         && Objects.equals(this.description, timeseriesWidgetDefinition.description)
         && Objects.equals(this.events, timeseriesWidgetDefinition.events)
         && Objects.equals(this.legendColumns, timeseriesWidgetDefinition.legendColumns)
@@ -593,6 +621,7 @@ public class TimeseriesWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
+        anomalyDetection,
         customLinks,
         description,
         events,
@@ -616,6 +645,7 @@ public class TimeseriesWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeseriesWidgetDefinition {\n");
+    sb.append("    anomalyDetection: ").append(toIndentedString(anomalyDetection)).append("\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
