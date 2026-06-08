@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"ignored_metric_name_matches\":[],\"metric_name_matches\":[\"dd.test.*\"],\"name\":\"my-indexing-rule\",\"options\":{\"data\":{\"dynamic_tags\":{\"queried_tags_window_seconds\":3600,\"related_asset_tags\":false},\"manage_preexisting_metrics\":true,\"metric_match\":{\"queried_window_seconds\":3600},\"override_previous_rules\":false},\"version\":1},\"rule_order\":2,\"tags\":[\"env\",\"service\"]},\"type\":\"tag_indexing_rules\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/metrics/tag-indexing-rules/00000000-0000-0000-0000-000000000000",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Tag indexing rule not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a23e84fa-41b0-a904-eb77-1bf4f2cf79fa"
+  }
+]

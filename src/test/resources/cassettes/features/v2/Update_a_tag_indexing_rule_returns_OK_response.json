@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_name_matches\":[\"dd.TestUpdateatagindexingrulereturnsOKresponse1780591178.*\"],\"name\":\"TestUpdateatagindexingrulereturnsOKresponse1780591178\",\"tags\":[\"env\",\"service\"]},\"type\":\"tag_indexing_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/metrics/tag-indexing-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c9f5704f-f5b9-4afe-9dec-69edfce00c0a\",\"type\":\"tag_indexing_rules\",\"attributes\":{\"created_at\":\"2026-06-04T16:39:38.068057Z\",\"created_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"exclude_tags_mode\":false,\"metric_name_matches\":[\"dd.TestUpdateatagindexingrulereturnsOKresponse1780591178.*\"],\"modified_at\":\"2026-06-04T16:39:38.068057Z\",\"modified_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"TestUpdateatagindexingrulereturnsOKresponse1780591178\",\"options\":{\"version\":1,\"data\":{\"override_previous_rules\":false,\"manage_preexisting_metrics\":true}},\"rule_order\":1,\"tags\":[\"env\",\"service\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "64a27b85-8206-08cb-57da-88d775db426a"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"ignored_metric_name_matches\":[],\"metric_name_matches\":[\"dd.test.*\"],\"name\":\"my-indexing-rule\",\"options\":{\"data\":{\"dynamic_tags\":{\"queried_tags_window_seconds\":3600,\"related_asset_tags\":false},\"manage_preexisting_metrics\":true,\"metric_match\":{\"queried_window_seconds\":3600},\"override_previous_rules\":false},\"version\":1},\"rule_order\":2,\"tags\":[\"env\",\"service\"]},\"type\":\"tag_indexing_rules\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/metrics/tag-indexing-rules/c9f5704f-f5b9-4afe-9dec-69edfce00c0a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c9f5704f-f5b9-4afe-9dec-69edfce00c0a\",\"type\":\"tag_indexing_rules\",\"attributes\":{\"created_at\":\"2026-06-04T16:39:38.068057Z\",\"created_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"exclude_tags_mode\":false,\"ignored_metric_name_matches\":[],\"metric_name_matches\":[\"dd.test.*\"],\"modified_at\":\"2026-06-04T16:39:38.137079Z\",\"modified_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"my-indexing-rule\",\"options\":{\"version\":1,\"data\":{\"override_previous_rules\":false,\"manage_preexisting_metrics\":true,\"dynamic_tags\":{\"queried_tags_window_seconds\":3600},\"metric_match\":{\"queried_window_seconds\":3600}}},\"rule_order\":2,\"tags\":[\"env\",\"service\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "18be7365-34b6-1d38-0a60-3403ff4a885f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/metrics/tag-indexing-rules/c9f5704f-f5b9-4afe-9dec-69edfce00c0a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8fc916c8-fb8e-2a73-30c2-ae8a3ec45924"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/metrics/tag-indexing-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[],\"meta\":{\"total\":0},\"links\":{\"self\":\"https://api.datadoghq.com/api/v2/metrics/tag-indexing-rules\",\"first\":\"https://api.datadoghq.com/api/v2/metrics/tag-indexing-rules?page%5Blimit%5D=100\\u0026page%5Boffset%5D=0\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9199c78f-2fbe-0bb2-6569-c17bb24023e5"
+  }
+]
