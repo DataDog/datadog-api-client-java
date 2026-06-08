@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"indicator\":\"192.0.2.1\",\"triage_state\":\"invalid_state\"},\"type\":\"ioc_triage_state\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/siem/ioc-explorer/triage",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"invalid triage_state\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "61fd0efb-7a23-54b5-c2dc-4bbb1626c3cb"
+  }
+]

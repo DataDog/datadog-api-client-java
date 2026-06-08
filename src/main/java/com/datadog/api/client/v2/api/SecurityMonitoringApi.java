@@ -46,6 +46,8 @@ import com.datadog.api.client.v2.model.GetSBOMResponse;
 import com.datadog.api.client.v2.model.GetSuppressionVersionHistoryResponse;
 import com.datadog.api.client.v2.model.HistoricalJobResponse;
 import com.datadog.api.client.v2.model.IoCExplorerListResponse;
+import com.datadog.api.client.v2.model.IoCTriageWriteRequest;
+import com.datadog.api.client.v2.model.IoCTriageWriteResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.ListAssetsSBOMsResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
@@ -3247,6 +3249,157 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CreateCustomFrameworkResponse>() {});
+  }
+
+  /**
+   * Create or update an indicator triage state.
+   *
+   * <p>See {@link #createIoCTriageStateWithHttpInfo}.
+   *
+   * @param body The triage state to set for the indicator. (required)
+   * @return IoCTriageWriteResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IoCTriageWriteResponse createIoCTriageState(IoCTriageWriteRequest body)
+      throws ApiException {
+    return createIoCTriageStateWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create or update an indicator triage state.
+   *
+   * <p>See {@link #createIoCTriageStateWithHttpInfoAsync}.
+   *
+   * @param body The triage state to set for the indicator. (required)
+   * @return CompletableFuture&lt;IoCTriageWriteResponse&gt;
+   */
+  public CompletableFuture<IoCTriageWriteResponse> createIoCTriageStateAsync(
+      IoCTriageWriteRequest body) {
+    return createIoCTriageStateWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Set the triage state of an indicator of compromise (IoC). This creates or updates the triage
+   * state for the indicator in your organization.
+   *
+   * @param body The triage state to set for the indicator. (required)
+   * @return ApiResponse&lt;IoCTriageWriteResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IoCTriageWriteResponse> createIoCTriageStateWithHttpInfo(
+      IoCTriageWriteRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIoCTriageState";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createIoCTriageState");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/siem/ioc-explorer/triage";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createIoCTriageState",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IoCTriageWriteResponse>() {});
+  }
+
+  /**
+   * Create or update an indicator triage state.
+   *
+   * <p>See {@link #createIoCTriageStateWithHttpInfo}.
+   *
+   * @param body The triage state to set for the indicator. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IoCTriageWriteResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IoCTriageWriteResponse>>
+      createIoCTriageStateWithHttpInfoAsync(IoCTriageWriteRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createIoCTriageState";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IoCTriageWriteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IoCTriageWriteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createIoCTriageState"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/siem/ioc-explorer/triage";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createIoCTriageState",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IoCTriageWriteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IoCTriageWriteResponse>() {});
   }
 
   /**
@@ -9070,6 +9223,65 @@ public class SecurityMonitoringApi {
         new GenericType<HistoricalJobResponse>() {});
   }
 
+  /** Manage optional parameters to getIndicatorOfCompromise. */
+  public static class GetIndicatorOfCompromiseOptionalParameters {
+    private Boolean ocsf;
+    private Boolean includeTriageHistory;
+    private Integer triageHistoryLimit;
+    private Integer triageHistoryOffset;
+
+    /**
+     * Set ocsf.
+     *
+     * @param ocsf When true, return only OCSF field-based matches. When false, return
+     *     regex/message-based matches. (optional, default to true)
+     * @return GetIndicatorOfCompromiseOptionalParameters
+     */
+    public GetIndicatorOfCompromiseOptionalParameters ocsf(Boolean ocsf) {
+      this.ocsf = ocsf;
+      return this;
+    }
+
+    /**
+     * Set includeTriageHistory.
+     *
+     * @param includeTriageHistory Include full triage history for the indicator. (optional, default
+     *     to false)
+     * @return GetIndicatorOfCompromiseOptionalParameters
+     */
+    public GetIndicatorOfCompromiseOptionalParameters includeTriageHistory(
+        Boolean includeTriageHistory) {
+      this.includeTriageHistory = includeTriageHistory;
+      return this;
+    }
+
+    /**
+     * Set triageHistoryLimit.
+     *
+     * @param triageHistoryLimit Maximum number of triage history events returned. Only applied when
+     *     <code>include_triage_history</code> is true. (optional, default to 50)
+     * @return GetIndicatorOfCompromiseOptionalParameters
+     */
+    public GetIndicatorOfCompromiseOptionalParameters triageHistoryLimit(
+        Integer triageHistoryLimit) {
+      this.triageHistoryLimit = triageHistoryLimit;
+      return this;
+    }
+
+    /**
+     * Set triageHistoryOffset.
+     *
+     * @param triageHistoryOffset Pagination offset into the triage history. Only applied when
+     *     <code>include_triage_history</code> is true. (optional, default to 0)
+     * @return GetIndicatorOfCompromiseOptionalParameters
+     */
+    public GetIndicatorOfCompromiseOptionalParameters triageHistoryOffset(
+        Integer triageHistoryOffset) {
+      this.triageHistoryOffset = triageHistoryOffset;
+      return this;
+    }
+  }
+
   /**
    * Get an indicator of compromise.
    *
@@ -9081,7 +9293,9 @@ public class SecurityMonitoringApi {
    * @throws ApiException if fails to make API call
    */
   public GetIoCIndicatorResponse getIndicatorOfCompromise(String indicator) throws ApiException {
-    return getIndicatorOfCompromiseWithHttpInfo(indicator).getData();
+    return getIndicatorOfCompromiseWithHttpInfo(
+            indicator, new GetIndicatorOfCompromiseOptionalParameters())
+        .getData();
   }
 
   /**
@@ -9095,7 +9309,43 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<GetIoCIndicatorResponse> getIndicatorOfCompromiseAsync(
       String indicator) {
-    return getIndicatorOfCompromiseWithHttpInfoAsync(indicator)
+    return getIndicatorOfCompromiseWithHttpInfoAsync(
+            indicator, new GetIndicatorOfCompromiseOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an indicator of compromise.
+   *
+   * <p>See {@link #getIndicatorOfCompromiseWithHttpInfo}.
+   *
+   * @param indicator The indicator value to look up (for example, an IP address or domain).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return GetIoCIndicatorResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetIoCIndicatorResponse getIndicatorOfCompromise(
+      String indicator, GetIndicatorOfCompromiseOptionalParameters parameters) throws ApiException {
+    return getIndicatorOfCompromiseWithHttpInfo(indicator, parameters).getData();
+  }
+
+  /**
+   * Get an indicator of compromise.
+   *
+   * <p>See {@link #getIndicatorOfCompromiseWithHttpInfoAsync}.
+   *
+   * @param indicator The indicator value to look up (for example, an IP address or domain).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GetIoCIndicatorResponse&gt;
+   */
+  public CompletableFuture<GetIoCIndicatorResponse> getIndicatorOfCompromiseAsync(
+      String indicator, GetIndicatorOfCompromiseOptionalParameters parameters) {
+    return getIndicatorOfCompromiseWithHttpInfoAsync(indicator, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -9107,6 +9357,7 @@ public class SecurityMonitoringApi {
    *
    * @param indicator The indicator value to look up (for example, an IP address or domain).
    *     (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;GetIoCIndicatorResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -9120,8 +9371,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<GetIoCIndicatorResponse> getIndicatorOfCompromiseWithHttpInfo(String indicator)
-      throws ApiException {
+  public ApiResponse<GetIoCIndicatorResponse> getIndicatorOfCompromiseWithHttpInfo(
+      String indicator, GetIndicatorOfCompromiseOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getIndicatorOfCompromise";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -9136,6 +9387,10 @@ public class SecurityMonitoringApi {
       throw new ApiException(
           400, "Missing the required parameter 'indicator' when calling getIndicatorOfCompromise");
     }
+    Boolean ocsf = parameters.ocsf;
+    Boolean includeTriageHistory = parameters.includeTriageHistory;
+    Integer triageHistoryLimit = parameters.triageHistoryLimit;
+    Integer triageHistoryOffset = parameters.triageHistoryOffset;
     // create path and map variables
     String localVarPath = "/api/v2/security/siem/ioc-explorer/indicator";
 
@@ -9143,6 +9398,13 @@ public class SecurityMonitoringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "indicator", indicator));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ocsf", ocsf));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_triage_history", includeTriageHistory));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "triage_history_limit", triageHistoryLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "triage_history_offset", triageHistoryOffset));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -9171,10 +9433,12 @@ public class SecurityMonitoringApi {
    *
    * @param indicator The indicator value to look up (for example, an IP address or domain).
    *     (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;GetIoCIndicatorResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<GetIoCIndicatorResponse>>
-      getIndicatorOfCompromiseWithHttpInfoAsync(String indicator) {
+      getIndicatorOfCompromiseWithHttpInfoAsync(
+          String indicator, GetIndicatorOfCompromiseOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "getIndicatorOfCompromise";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -9196,6 +9460,10 @@ public class SecurityMonitoringApi {
               "Missing the required parameter 'indicator' when calling getIndicatorOfCompromise"));
       return result;
     }
+    Boolean ocsf = parameters.ocsf;
+    Boolean includeTriageHistory = parameters.includeTriageHistory;
+    Integer triageHistoryLimit = parameters.triageHistoryLimit;
+    Integer triageHistoryOffset = parameters.triageHistoryOffset;
     // create path and map variables
     String localVarPath = "/api/v2/security/siem/ioc-explorer/indicator";
 
@@ -9203,6 +9471,13 @@ public class SecurityMonitoringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "indicator", indicator));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ocsf", ocsf));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_triage_history", includeTriageHistory));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "triage_history_limit", triageHistoryLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "triage_history_offset", triageHistoryOffset));
 
     Invocation.Builder builder;
     try {
@@ -15335,6 +15610,9 @@ public class SecurityMonitoringApi {
     private String query;
     private String sortColumn;
     private String sortOrder;
+    private Boolean ocsf;
+    private String workedBy;
+    private String triageState;
 
     /**
      * Set limit.
@@ -15390,6 +15668,41 @@ public class SecurityMonitoringApi {
      */
     public ListIndicatorsOfCompromiseOptionalParameters sortOrder(String sortOrder) {
       this.sortOrder = sortOrder;
+      return this;
+    }
+
+    /**
+     * Set ocsf.
+     *
+     * @param ocsf When true, return only OCSF field-based matches. When false, return
+     *     regex/message-based matches. (optional, default to true)
+     * @return ListIndicatorsOfCompromiseOptionalParameters
+     */
+    public ListIndicatorsOfCompromiseOptionalParameters ocsf(Boolean ocsf) {
+      this.ocsf = ocsf;
+      return this;
+    }
+
+    /**
+     * Set workedBy.
+     *
+     * @param workedBy Filter indicators whose triage state was updated by a specific user UUID.
+     *     (optional)
+     * @return ListIndicatorsOfCompromiseOptionalParameters
+     */
+    public ListIndicatorsOfCompromiseOptionalParameters workedBy(String workedBy) {
+      this.workedBy = workedBy;
+      return this;
+    }
+
+    /**
+     * Set triageState.
+     *
+     * @param triageState Filter by triage state: not_reviewed or reviewed. (optional)
+     * @return ListIndicatorsOfCompromiseOptionalParameters
+     */
+    public ListIndicatorsOfCompromiseOptionalParameters triageState(String triageState) {
+      this.triageState = triageState;
       return this;
     }
   }
@@ -15486,6 +15799,9 @@ public class SecurityMonitoringApi {
     String query = parameters.query;
     String sortColumn = parameters.sortColumn;
     String sortOrder = parameters.sortOrder;
+    Boolean ocsf = parameters.ocsf;
+    String workedBy = parameters.workedBy;
+    String triageState = parameters.triageState;
     // create path and map variables
     String localVarPath = "/api/v2/security/siem/ioc-explorer";
 
@@ -15497,6 +15813,9 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[column]", sortColumn));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[order]", sortOrder));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ocsf", ocsf));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "worked_by", workedBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "triage_state", triageState));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -15545,6 +15864,9 @@ public class SecurityMonitoringApi {
     String query = parameters.query;
     String sortColumn = parameters.sortColumn;
     String sortOrder = parameters.sortOrder;
+    Boolean ocsf = parameters.ocsf;
+    String workedBy = parameters.workedBy;
+    String triageState = parameters.triageState;
     // create path and map variables
     String localVarPath = "/api/v2/security/siem/ioc-explorer";
 
@@ -15556,6 +15878,9 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[column]", sortColumn));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[order]", sortOrder));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ocsf", ocsf));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "worked_by", workedBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "triage_state", triageState));
 
     Invocation.Builder builder;
     try {

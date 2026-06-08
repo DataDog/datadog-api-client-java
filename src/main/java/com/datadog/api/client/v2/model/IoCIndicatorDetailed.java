@@ -52,6 +52,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IoCIndicatorDetailed.JSON_PROPERTY_SIGNAL_TIER,
   IoCIndicatorDetailed.JSON_PROPERTY_SUSPICIOUS_SOURCES,
   IoCIndicatorDetailed.JSON_PROPERTY_TAGS,
+  IoCIndicatorDetailed.JSON_PROPERTY_TRIAGE_HISTORY,
+  IoCIndicatorDetailed.JSON_PROPERTY_TRIAGE_STATE,
+  IoCIndicatorDetailed.JSON_PROPERTY_TRIAGED_AT,
+  IoCIndicatorDetailed.JSON_PROPERTY_TRIAGED_BY,
   IoCIndicatorDetailed.JSON_PROPERTY_USERS
 })
 @jakarta.annotation.Generated(
@@ -149,6 +153,18 @@ public class IoCIndicatorDetailed {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public static final String JSON_PROPERTY_TRIAGE_HISTORY = "triage_history";
+  private List<IoCTriageEvent> triageHistory = null;
+
+  public static final String JSON_PROPERTY_TRIAGE_STATE = "triage_state";
+  private String triageState;
+
+  public static final String JSON_PROPERTY_TRIAGED_AT = "triaged_at";
+  private OffsetDateTime triagedAt;
+
+  public static final String JSON_PROPERTY_TRIAGED_BY = "triaged_by";
+  private String triagedBy;
 
   public static final String JSON_PROPERTY_USERS = "users";
   private Map<String, List<String>> users = null;
@@ -938,6 +954,102 @@ public class IoCIndicatorDetailed {
     this.tags = tags;
   }
 
+  public IoCIndicatorDetailed triageHistory(List<IoCTriageEvent> triageHistory) {
+    this.triageHistory = triageHistory;
+    for (IoCTriageEvent item : triageHistory) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public IoCIndicatorDetailed addTriageHistoryItem(IoCTriageEvent triageHistoryItem) {
+    if (this.triageHistory == null) {
+      this.triageHistory = new ArrayList<>();
+    }
+    this.triageHistory.add(triageHistoryItem);
+    this.unparsed |= triageHistoryItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Full triage history timeline. Returned only when <code>include_triage_history</code> is true.
+   *
+   * @return triageHistory
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRIAGE_HISTORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IoCTriageEvent> getTriageHistory() {
+    return triageHistory;
+  }
+
+  public void setTriageHistory(List<IoCTriageEvent> triageHistory) {
+    this.triageHistory = triageHistory;
+  }
+
+  public IoCIndicatorDetailed triageState(String triageState) {
+    this.triageState = triageState;
+    return this;
+  }
+
+  /**
+   * Current triage state of the indicator: not_reviewed or reviewed.
+   *
+   * @return triageState
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRIAGE_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTriageState() {
+    return triageState;
+  }
+
+  public void setTriageState(String triageState) {
+    this.triageState = triageState;
+  }
+
+  public IoCIndicatorDetailed triagedAt(OffsetDateTime triagedAt) {
+    this.triagedAt = triagedAt;
+    return this;
+  }
+
+  /**
+   * Timestamp when the indicator was last triaged.
+   *
+   * @return triagedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRIAGED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getTriagedAt() {
+    return triagedAt;
+  }
+
+  public void setTriagedAt(OffsetDateTime triagedAt) {
+    this.triagedAt = triagedAt;
+  }
+
+  public IoCIndicatorDetailed triagedBy(String triagedBy) {
+    this.triagedBy = triagedBy;
+    return this;
+  }
+
+  /**
+   * UUID of the user who last triaged the indicator.
+   *
+   * @return triagedBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRIAGED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTriagedBy() {
+    return triagedBy;
+  }
+
+  public void setTriagedBy(String triagedBy) {
+    this.triagedBy = triagedBy;
+  }
+
   public IoCIndicatorDetailed users(Map<String, List<String>> users) {
     this.users = users;
     return this;
@@ -1053,6 +1165,10 @@ public class IoCIndicatorDetailed {
         && Objects.equals(this.signalTier, ioCIndicatorDetailed.signalTier)
         && Objects.equals(this.suspiciousSources, ioCIndicatorDetailed.suspiciousSources)
         && Objects.equals(this.tags, ioCIndicatorDetailed.tags)
+        && Objects.equals(this.triageHistory, ioCIndicatorDetailed.triageHistory)
+        && Objects.equals(this.triageState, ioCIndicatorDetailed.triageState)
+        && Objects.equals(this.triagedAt, ioCIndicatorDetailed.triagedAt)
+        && Objects.equals(this.triagedBy, ioCIndicatorDetailed.triagedBy)
         && Objects.equals(this.users, ioCIndicatorDetailed.users)
         && Objects.equals(this.additionalProperties, ioCIndicatorDetailed.additionalProperties);
   }
@@ -1090,6 +1206,10 @@ public class IoCIndicatorDetailed {
         signalTier,
         suspiciousSources,
         tags,
+        triageHistory,
+        triageState,
+        triagedAt,
+        triagedBy,
         users,
         additionalProperties);
   }
@@ -1128,6 +1248,10 @@ public class IoCIndicatorDetailed {
     sb.append("    signalTier: ").append(toIndentedString(signalTier)).append("\n");
     sb.append("    suspiciousSources: ").append(toIndentedString(suspiciousSources)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    triageHistory: ").append(toIndentedString(triageHistory)).append("\n");
+    sb.append("    triageState: ").append(toIndentedString(triageState)).append("\n");
+    sb.append("    triagedAt: ").append(toIndentedString(triagedAt)).append("\n");
+    sb.append("    triagedBy: ").append(toIndentedString(triagedBy)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

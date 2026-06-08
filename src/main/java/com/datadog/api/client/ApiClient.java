@@ -902,6 +902,7 @@ public class ApiClient {
           put("v2.cancelHistoricalJob", false);
           put("v2.convertJobResultToSignal", false);
           put("v2.convertSecurityMonitoringTerraformResource", false);
+          put("v2.createIoCTriageState", false);
           put("v2.createSampleLogGenerationSubscription", false);
           put("v2.createSecurityMonitoringDataset", false);
           put("v2.createSecurityMonitoringIntegrationConfig", false);
