@@ -1,4 +1,4 @@
-// Create a new dashboard with topology_map widget
+// Create a new dashboard with topology_map data_streams widget
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -16,7 +16,6 @@ import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetLayout;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -48,12 +47,13 @@ public class Example {
                                                         new TopologyQueryDataStreamsOrServiceMap()
                                                             .dataSource(
                                                                 TopologyQueryDataStreamsOrServiceMapDataSource
-                                                                    .SERVICE_MAP)
+                                                                    .DATA_STREAMS)
                                                             .service("")
                                                             .filters(
-                                                                Arrays.asList(
-                                                                    "env:none",
-                                                                    "environment:*"))))))))))
+                                                                Collections.singletonList(
+                                                                    "env:prod"))
+                                                            .queryString(
+                                                                "service:myservice")))))))))
             .layoutType(DashboardLayoutType.FREE);
 
     try {
