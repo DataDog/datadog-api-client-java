@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_name_matches\":[\"dd.test.*\"],\"name\":\"test\",\"options\":{\"data\":{\"manage_preexisting_metrics\":true,\"override_previous_rules\":false},\"version\":99}},\"type\":\"tag_indexing_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/metrics/tag-indexing-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid request body: options version must be 1\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7e717e93-5f17-78b6-9a12-77fb880eeb60"
+  }
+]

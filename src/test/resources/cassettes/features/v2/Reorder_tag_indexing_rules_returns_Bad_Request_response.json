@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"rule_ids\":[]},\"type\":\"tag_indexing_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/metrics/tag-indexing-rules/order",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"rule_ids must not be empty\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0785b408-3c20-f36c-47c7-c1b0bebf7b63"
+  }
+]

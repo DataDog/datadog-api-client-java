@@ -25,6 +25,13 @@ import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurations;
 import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
 import com.datadog.api.client.v2.model.ScalarFormulaQueryRequest;
 import com.datadog.api.client.v2.model.ScalarFormulaQueryResponse;
+import com.datadog.api.client.v2.model.TagIndexingRuleCreateRequest;
+import com.datadog.api.client.v2.model.TagIndexingRuleExemptionCreateRequest;
+import com.datadog.api.client.v2.model.TagIndexingRuleExemptionResponse;
+import com.datadog.api.client.v2.model.TagIndexingRuleOrderRequest;
+import com.datadog.api.client.v2.model.TagIndexingRuleResponse;
+import com.datadog.api.client.v2.model.TagIndexingRuleUpdateRequest;
+import com.datadog.api.client.v2.model.TagIndexingRulesResponse;
 import com.datadog.api.client.v2.model.TimeseriesFormulaQueryRequest;
 import com.datadog.api.client.v2.model.TimeseriesFormulaQueryResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -383,6 +390,309 @@ public class MetricsApi {
   }
 
   /**
+   * Create a tag indexing rule.
+   *
+   * <p>See {@link #createTagIndexingRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return TagIndexingRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRuleResponse createTagIndexingRule(TagIndexingRuleCreateRequest body)
+      throws ApiException {
+    return createTagIndexingRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a tag indexing rule.
+   *
+   * <p>See {@link #createTagIndexingRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;TagIndexingRuleResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRuleResponse> createTagIndexingRuleAsync(
+      TagIndexingRuleCreateRequest body) {
+    return createTagIndexingRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a tag indexing rule for the org. <code>rule_order</code> is assigned server-side as
+   * max+1 among existing rules; use the reorder endpoint to change the evaluation order. Requires
+   * the <code>Manage Tags for Metrics</code> permission.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;TagIndexingRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagIndexingRuleResponse> createTagIndexingRuleWithHttpInfo(
+      TagIndexingRuleCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createTagIndexingRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/tag-indexing-rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.createTagIndexingRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleResponse>() {});
+  }
+
+  /**
+   * Create a tag indexing rule.
+   *
+   * <p>See {@link #createTagIndexingRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TagIndexingRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagIndexingRuleResponse>>
+      createTagIndexingRuleWithHttpInfoAsync(TagIndexingRuleCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createTagIndexingRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/tag-indexing-rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.createTagIndexingRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleResponse>() {});
+  }
+
+  /**
+   * Create a tag indexing rule exemption.
+   *
+   * <p>See {@link #createTagIndexingRuleExemptionWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return TagIndexingRuleExemptionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRuleExemptionResponse createTagIndexingRuleExemption(
+      String metricName, TagIndexingRuleExemptionCreateRequest body) throws ApiException {
+    return createTagIndexingRuleExemptionWithHttpInfo(metricName, body).getData();
+  }
+
+  /**
+   * Create a tag indexing rule exemption.
+   *
+   * <p>See {@link #createTagIndexingRuleExemptionWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;TagIndexingRuleExemptionResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRuleExemptionResponse> createTagIndexingRuleExemptionAsync(
+      String metricName, TagIndexingRuleExemptionCreateRequest body) {
+    return createTagIndexingRuleExemptionWithHttpInfoAsync(metricName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Exempt a metric from all tag indexing rules. The response includes the created exemption
+   * resource. Requires the <code>Manage Tags for Metrics</code> permission.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;TagIndexingRuleExemptionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagIndexingRuleExemptionResponse> createTagIndexingRuleExemptionWithHttpInfo(
+      String metricName, TagIndexingRuleExemptionCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling"
+              + " createTagIndexingRuleExemption");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createTagIndexingRuleExemption");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.createTagIndexingRuleExemption",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleExemptionResponse>() {});
+  }
+
+  /**
+   * Create a tag indexing rule exemption.
+   *
+   * <p>See {@link #createTagIndexingRuleExemptionWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TagIndexingRuleExemptionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>>
+      createTagIndexingRuleExemptionWithHttpInfoAsync(
+          String metricName, TagIndexingRuleExemptionCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " createTagIndexingRuleExemption"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createTagIndexingRuleExemption"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.createTagIndexingRuleExemption",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleExemptionResponse>() {});
+  }
+
+  /**
    * Delete tags for multiple metrics.
    *
    * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
@@ -647,6 +957,283 @@ public class MetricsApi {
               new HashMap<String, String>(),
               new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a tag indexing rule.
+   *
+   * <p>See {@link #deleteTagIndexingRuleWithHttpInfo}.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteTagIndexingRule(String id) throws ApiException {
+    deleteTagIndexingRuleWithHttpInfo(id);
+  }
+
+  /**
+   * Delete a tag indexing rule.
+   *
+   * <p>See {@link #deleteTagIndexingRuleWithHttpInfoAsync}.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteTagIndexingRuleAsync(String id) {
+    return deleteTagIndexingRuleWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Soft-delete a tag indexing rule. Idempotent: returns 204 whether the rule existed or was
+   * already deleted. Remaining rules in the org are automatically re-sequenced to keep <code>
+   * rule_order</code> dense and 1-based. Requires the <code>Manage Tags for Metrics</code>
+   * permission.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteTagIndexingRuleWithHttpInfo(String id) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling deleteTagIndexingRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/tag-indexing-rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.deleteTagIndexingRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a tag indexing rule.
+   *
+   * <p>See {@link #deleteTagIndexingRuleWithHttpInfo}.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteTagIndexingRuleWithHttpInfoAsync(String id) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling deleteTagIndexingRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/tag-indexing-rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.deleteTagIndexingRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a tag indexing rule exemption.
+   *
+   * <p>See {@link #deleteTagIndexingRuleExemptionWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteTagIndexingRuleExemption(String metricName) throws ApiException {
+    deleteTagIndexingRuleExemptionWithHttpInfo(metricName);
+  }
+
+  /**
+   * Delete a tag indexing rule exemption.
+   *
+   * <p>See {@link #deleteTagIndexingRuleExemptionWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteTagIndexingRuleExemptionAsync(String metricName) {
+    return deleteTagIndexingRuleExemptionWithHttpInfoAsync(metricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove a metric's exemption from tag indexing rules. Idempotent: returns 204 whether or not an
+   * exemption existed. Any associated legacy tag configuration record is also removed. Requires the
+   * <code>Manage Tags for Metrics</code> permission.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteTagIndexingRuleExemptionWithHttpInfo(String metricName)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling"
+              + " deleteTagIndexingRuleExemption");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.deleteTagIndexingRuleExemption",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a tag indexing rule exemption.
+   *
+   * <p>See {@link #deleteTagIndexingRuleExemptionWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteTagIndexingRuleExemptionWithHttpInfoAsync(
+      String metricName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " deleteTagIndexingRuleExemption"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.deleteTagIndexingRuleExemption",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1089,6 +1676,290 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricTagCardinalitiesResponse>() {});
+  }
+
+  /**
+   * Get a tag indexing rule.
+   *
+   * <p>See {@link #getTagIndexingRuleWithHttpInfo}.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @return TagIndexingRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRuleResponse getTagIndexingRule(String id) throws ApiException {
+    return getTagIndexingRuleWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Get a tag indexing rule.
+   *
+   * <p>See {@link #getTagIndexingRuleWithHttpInfoAsync}.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @return CompletableFuture&lt;TagIndexingRuleResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRuleResponse> getTagIndexingRuleAsync(String id) {
+    return getTagIndexingRuleWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a single tag indexing rule by its UUID.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @return ApiResponse&lt;TagIndexingRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagIndexingRuleResponse> getTagIndexingRuleWithHttpInfo(String id)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getTagIndexingRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/tag-indexing-rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.getTagIndexingRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleResponse>() {});
+  }
+
+  /**
+   * Get a tag indexing rule.
+   *
+   * <p>See {@link #getTagIndexingRuleWithHttpInfo}.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TagIndexingRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagIndexingRuleResponse>>
+      getTagIndexingRuleWithHttpInfoAsync(String id) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling getTagIndexingRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/tag-indexing-rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.getTagIndexingRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleResponse>() {});
+  }
+
+  /**
+   * Get a tag indexing rule exemption.
+   *
+   * <p>See {@link #getTagIndexingRuleExemptionWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return TagIndexingRuleExemptionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRuleExemptionResponse getTagIndexingRuleExemption(String metricName)
+      throws ApiException {
+    return getTagIndexingRuleExemptionWithHttpInfo(metricName).getData();
+  }
+
+  /**
+   * Get a tag indexing rule exemption.
+   *
+   * <p>See {@link #getTagIndexingRuleExemptionWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;TagIndexingRuleExemptionResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRuleExemptionResponse> getTagIndexingRuleExemptionAsync(
+      String metricName) {
+    return getTagIndexingRuleExemptionWithHttpInfoAsync(metricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns why a metric is excluded from tag indexing rules. Returns 200 with <code>kind=exemption
+   * </code> when an explicit exemption exists, 200 with <code>kind=legacy_tag_configuration</code>
+   * when the metric has a legacy tag configuration acting as an implicit exclusion, or 404 when
+   * neither applies.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return ApiResponse&lt;TagIndexingRuleExemptionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagIndexingRuleExemptionResponse> getTagIndexingRuleExemptionWithHttpInfo(
+      String metricName) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling getTagIndexingRuleExemption");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.getTagIndexingRuleExemption",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleExemptionResponse>() {});
+  }
+
+  /**
+   * Get a tag indexing rule exemption.
+   *
+   * <p>See {@link #getTagIndexingRuleExemptionWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TagIndexingRuleExemptionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>>
+      getTagIndexingRuleExemptionWithHttpInfoAsync(String metricName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " getTagIndexingRuleExemption"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.getTagIndexingRuleExemption",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleExemptionResponse>() {});
   }
 
   /** Manage optional parameters to listActiveMetricConfigurations. */
@@ -2025,6 +2896,352 @@ public class MetricsApi {
         new GenericType<MetricsAndMetricTagConfigurationsResponse>() {});
   }
 
+  /** Manage optional parameters to listTagIndexingRules. */
+  public static class ListTagIndexingRulesOptionalParameters {
+    private Integer pageLimit;
+    private Integer pageOffset;
+    private String search;
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Page size (1–1000, default 100). (optional)
+     * @return ListTagIndexingRulesOptionalParameters
+     */
+    public ListTagIndexingRulesOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Page offset from the start of the list (default 0). (optional)
+     * @return ListTagIndexingRulesOptionalParameters
+     */
+    public ListTagIndexingRulesOptionalParameters pageOffset(Integer pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set search.
+     *
+     * @param search Substring filter on rule name. (optional)
+     * @return ListTagIndexingRulesOptionalParameters
+     */
+    public ListTagIndexingRulesOptionalParameters search(String search) {
+      this.search = search;
+      return this;
+    }
+  }
+
+  /**
+   * List tag indexing rules.
+   *
+   * <p>See {@link #listTagIndexingRulesWithHttpInfo}.
+   *
+   * @return TagIndexingRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRulesResponse listTagIndexingRules() throws ApiException {
+    return listTagIndexingRulesWithHttpInfo(new ListTagIndexingRulesOptionalParameters()).getData();
+  }
+
+  /**
+   * List tag indexing rules.
+   *
+   * <p>See {@link #listTagIndexingRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;TagIndexingRulesResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRulesResponse> listTagIndexingRulesAsync() {
+    return listTagIndexingRulesWithHttpInfoAsync(new ListTagIndexingRulesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List tag indexing rules.
+   *
+   * <p>See {@link #listTagIndexingRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return TagIndexingRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRulesResponse listTagIndexingRules(
+      ListTagIndexingRulesOptionalParameters parameters) throws ApiException {
+    return listTagIndexingRulesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List tag indexing rules.
+   *
+   * <p>See {@link #listTagIndexingRulesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TagIndexingRulesResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRulesResponse> listTagIndexingRulesAsync(
+      ListTagIndexingRulesOptionalParameters parameters) {
+    return listTagIndexingRulesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List tag indexing rules for an org, sorted by <code>rule_order</code>, with offset/limit
+   * pagination.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TagIndexingRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagIndexingRulesResponse> listTagIndexingRulesWithHttpInfo(
+      ListTagIndexingRulesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Integer pageLimit = parameters.pageLimit;
+    Integer pageOffset = parameters.pageOffset;
+    String search = parameters.search;
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/tag-indexing-rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search", search));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.listTagIndexingRules",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRulesResponse>() {});
+  }
+
+  /**
+   * List tag indexing rules.
+   *
+   * <p>See {@link #listTagIndexingRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TagIndexingRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagIndexingRulesResponse>>
+      listTagIndexingRulesWithHttpInfoAsync(ListTagIndexingRulesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Integer pageLimit = parameters.pageLimit;
+    Integer pageOffset = parameters.pageOffset;
+    String search = parameters.search;
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/tag-indexing-rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search", search));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.listTagIndexingRules",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagIndexingRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRulesResponse>() {});
+  }
+
+  /**
+   * List tag indexing rules for a metric.
+   *
+   * <p>See {@link #listTagIndexingRulesForMetricWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return TagIndexingRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRulesResponse listTagIndexingRulesForMetric(String metricName)
+      throws ApiException {
+    return listTagIndexingRulesForMetricWithHttpInfo(metricName).getData();
+  }
+
+  /**
+   * List tag indexing rules for a metric.
+   *
+   * <p>See {@link #listTagIndexingRulesForMetricWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;TagIndexingRulesResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRulesResponse> listTagIndexingRulesForMetricAsync(
+      String metricName) {
+    return listTagIndexingRulesForMetricWithHttpInfoAsync(metricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the tag indexing rules that apply to a given metric, sorted by <code>rule_order</code>.
+   * Matching is performed server-side using each rule's <code>metric_name_matches</code> glob
+   * patterns.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return ApiResponse&lt;TagIndexingRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagIndexingRulesResponse> listTagIndexingRulesForMetricWithHttpInfo(
+      String metricName) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling listTagIndexingRulesForMetric");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rules"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.listTagIndexingRulesForMetric",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRulesResponse>() {});
+  }
+
+  /**
+   * List tag indexing rules for a metric.
+   *
+   * <p>See {@link #listTagIndexingRulesForMetricWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TagIndexingRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagIndexingRulesResponse>>
+      listTagIndexingRulesForMetricWithHttpInfoAsync(String metricName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<TagIndexingRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " listTagIndexingRulesForMetric"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-indexing-rules"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.listTagIndexingRulesForMetric",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagIndexingRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRulesResponse>() {});
+  }
+
   /** Manage optional parameters to listTagsByMetricName. */
   public static class ListTagsByMetricNameOptionalParameters {
     private Long windowSeconds;
@@ -2796,6 +4013,139 @@ public class MetricsApi {
         new GenericType<TimeseriesFormulaQueryResponse>() {});
   }
 
+  /**
+   * Reorder tag indexing rules.
+   *
+   * <p>See {@link #reorderTagIndexingRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void reorderTagIndexingRules(TagIndexingRuleOrderRequest body) throws ApiException {
+    reorderTagIndexingRulesWithHttpInfo(body);
+  }
+
+  /**
+   * Reorder tag indexing rules.
+   *
+   * <p>See {@link #reorderTagIndexingRulesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> reorderTagIndexingRulesAsync(TagIndexingRuleOrderRequest body) {
+    return reorderTagIndexingRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Atomically re-sequence the tag indexing rules for an org to match the supplied list of rule
+   * UUIDs. The server assigns <code>rule_order</code> 1, 2, … matching each rule UUID by position
+   * in the list. Requires the <code>Manage Tags for Metrics</code> permission.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> reorderTagIndexingRulesWithHttpInfo(TagIndexingRuleOrderRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling reorderTagIndexingRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/tag-indexing-rules/order";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.reorderTagIndexingRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Reorder tag indexing rules.
+   *
+   * <p>See {@link #reorderTagIndexingRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> reorderTagIndexingRulesWithHttpInfoAsync(
+      TagIndexingRuleOrderRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling reorderTagIndexingRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/tag-indexing-rules/order";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.reorderTagIndexingRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
   /** Manage optional parameters to submitMetrics. */
   public static class SubmitMetricsOptionalParameters {
     private MetricContentEncoding contentEncoding;
@@ -3172,5 +4522,166 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricTagConfigurationResponse>() {});
+  }
+
+  /**
+   * Update a tag indexing rule.
+   *
+   * <p>See {@link #updateTagIndexingRuleWithHttpInfo}.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @param body (required)
+   * @return TagIndexingRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TagIndexingRuleResponse updateTagIndexingRule(String id, TagIndexingRuleUpdateRequest body)
+      throws ApiException {
+    return updateTagIndexingRuleWithHttpInfo(id, body).getData();
+  }
+
+  /**
+   * Update a tag indexing rule.
+   *
+   * <p>See {@link #updateTagIndexingRuleWithHttpInfoAsync}.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;TagIndexingRuleResponse&gt;
+   */
+  public CompletableFuture<TagIndexingRuleResponse> updateTagIndexingRuleAsync(
+      String id, TagIndexingRuleUpdateRequest body) {
+    return updateTagIndexingRuleWithHttpInfoAsync(id, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Partially update a tag indexing rule. Fields omitted from the request body are left unchanged.
+   * Setting <code>rule_order</code> to a value already used by another rule returns 409; use the
+   * reorder endpoint for atomic re-sequencing. Requires the <code>Manage Tags for Metrics</code>
+   * permission.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;TagIndexingRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TagIndexingRuleResponse> updateTagIndexingRuleWithHttpInfo(
+      String id, TagIndexingRuleUpdateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling updateTagIndexingRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateTagIndexingRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/tag-indexing-rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.updateTagIndexingRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleResponse>() {});
+  }
+
+  /**
+   * Update a tag indexing rule.
+   *
+   * <p>See {@link #updateTagIndexingRuleWithHttpInfo}.
+   *
+   * @param id ID of the tag indexing rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TagIndexingRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TagIndexingRuleResponse>>
+      updateTagIndexingRuleWithHttpInfoAsync(String id, TagIndexingRuleUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling updateTagIndexingRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateTagIndexingRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/tag-indexing-rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.updateTagIndexingRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TagIndexingRuleResponse>() {});
   }
 }
