@@ -258,6 +258,9 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- else %}
     this.{{ variableName }} = {{ variableName }};
     {%- endif %}
+    {%- if model.get("x-keep-typed-in-additional-properties") %}
+    putAdditionalProperty(JSON_PROPERTY_{{ attr|snake_case|upper }}, {%- if not isRequired and isNullable %} this.{{ variableName }}.orElse(null){%- else %} {{ variableName }}{%- endif %});
+    {%- endif %}
   }
   {%- endif %}
   {%- endfor %}
