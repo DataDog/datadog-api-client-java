@@ -20,13 +20,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Targeting condition details. */
+/**
+ * Targeting condition details. A condition is either an inline predicate with <code>operator</code>
+ * , <code>attribute</code>, and <code>value</code>, or a reference to a saved filter with <code>
+ * saved_filter_id</code>. The inline fields are omitted for saved-filter references.
+ */
 @JsonPropertyOrder({
   Condition.JSON_PROPERTY_ATTRIBUTE,
   Condition.JSON_PROPERTY_CREATED_AT,
   Condition.JSON_PROPERTY_ID,
   Condition.JSON_PROPERTY_OPERATOR,
+  Condition.JSON_PROPERTY_SAVED_FILTER_ID,
   Condition.JSON_PROPERTY_UPDATED_AT,
   Condition.JSON_PROPERTY_VALUE
 })
@@ -46,29 +52,25 @@ public class Condition {
   public static final String JSON_PROPERTY_OPERATOR = "operator";
   private ConditionOperator operator;
 
+  public static final String JSON_PROPERTY_SAVED_FILTER_ID = "saved_filter_id";
+  private JsonNullable<UUID> savedFilterId = JsonNullable.<UUID>undefined();
+
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private List<String> value = new ArrayList<>();
+  private List<String> value = null;
 
   public Condition() {}
 
   @JsonCreator
   public Condition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTE) String attribute,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR) ConditionOperator operator,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) List<String> value) {
-    this.attribute = attribute;
+      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt) {
     this.createdAt = createdAt;
     this.id = id;
-    this.operator = operator;
-    this.unparsed |= !operator.isValid();
     this.updatedAt = updatedAt;
-    this.value = value;
   }
 
   public Condition attribute(String attribute) {
@@ -77,12 +79,13 @@ public class Condition {
   }
 
   /**
-   * The user or request attribute to evaluate.
+   * The user or request attribute to evaluate. Omitted for saved-filter references.
    *
    * @return attribute
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAttribute() {
     return attribute;
   }
@@ -142,8 +145,9 @@ public class Condition {
    *
    * @return operator
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPERATOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ConditionOperator getOperator() {
     return operator;
   }
@@ -153,6 +157,37 @@ public class Condition {
       this.unparsed = true;
     }
     this.operator = operator;
+  }
+
+  public Condition savedFilterId(UUID savedFilterId) {
+    this.savedFilterId = JsonNullable.<UUID>of(savedFilterId);
+    return this;
+  }
+
+  /**
+   * The ID of the saved filter referenced by this condition, or null for inline conditions.
+   *
+   * @return savedFilterId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public UUID getSavedFilterId() {
+    return savedFilterId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SAVED_FILTER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<UUID> getSavedFilterId_JsonNullable() {
+    return savedFilterId;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SAVED_FILTER_ID)
+  public void setSavedFilterId_JsonNullable(JsonNullable<UUID> savedFilterId) {
+    this.savedFilterId = savedFilterId;
+  }
+
+  public void setSavedFilterId(UUID savedFilterId) {
+    this.savedFilterId = JsonNullable.<UUID>of(savedFilterId);
   }
 
   public Condition updatedAt(OffsetDateTime updatedAt) {
@@ -181,17 +216,21 @@ public class Condition {
   }
 
   public Condition addValueItem(String valueItem) {
+    if (this.value == null) {
+      this.value = new ArrayList<>();
+    }
     this.value.add(valueItem);
     return this;
   }
 
   /**
-   * Values used by the selected operator.
+   * Values used by the selected operator. Omitted for saved-filter references.
    *
    * @return value
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getValue() {
     return value;
   }
@@ -260,6 +299,7 @@ public class Condition {
         && Objects.equals(this.createdAt, condition.createdAt)
         && Objects.equals(this.id, condition.id)
         && Objects.equals(this.operator, condition.operator)
+        && Objects.equals(this.savedFilterId, condition.savedFilterId)
         && Objects.equals(this.updatedAt, condition.updatedAt)
         && Objects.equals(this.value, condition.value)
         && Objects.equals(this.additionalProperties, condition.additionalProperties);
@@ -267,7 +307,8 @@ public class Condition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attribute, createdAt, id, operator, updatedAt, value, additionalProperties);
+    return Objects.hash(
+        attribute, createdAt, id, operator, savedFilterId, updatedAt, value, additionalProperties);
   }
 
   @Override
@@ -278,6 +319,7 @@ public class Condition {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+    sb.append("    savedFilterId: ").append(toIndentedString(savedFilterId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ")

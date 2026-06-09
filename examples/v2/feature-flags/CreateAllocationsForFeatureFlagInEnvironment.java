@@ -73,6 +73,9 @@ public class Example {
                                                 new ConditionRequest()
                                                     .attribute("user_tier")
                                                     .operator(ConditionOperator.ONE_OF)
+                                                    .savedFilterId(
+                                                        UUID.fromString(
+                                                            "550e8400-e29b-41d4-a716-446655440090"))
                                                     .value(
                                                         Arrays.asList("premium", "enterprise"))))))
                             .type(AllocationType.FEATURE_GATE)
