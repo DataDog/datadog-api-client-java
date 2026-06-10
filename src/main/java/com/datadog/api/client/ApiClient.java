@@ -1159,6 +1159,8 @@ public class ApiClient {
           put("v2.updateConnection", false);
           put("v2.getPrunedTraceByID", false);
           put("v2.getTraceByID", false);
+          put("v2.createReportSchedule", false);
+          put("v2.patchReportSchedule", false);
           put("v2.deleteSourcemaps", false);
           put("v2.getServiceRepositoryInfo", false);
           put("v2.getSourcemaps", false);
