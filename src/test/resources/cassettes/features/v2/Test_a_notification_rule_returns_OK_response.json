@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Rule 1\",\"selectors\":{\"query\":\"env:prod\",\"rule_types\":[\"log_detection\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@john.doe@email.com\"]},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules/send_notification_preview",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"rka-loa-zwu\",\"attributes\":{\"preview_results\":[{\"rule_type\":\"log_detection\",\"notification_status\":\"DEFAULT\"}]},\"type\":\"notification_preview_response\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "27c651f9-0b29-ff02-e640-3e9bc986a0c9"
+  }
+]
