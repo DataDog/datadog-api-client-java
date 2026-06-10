@@ -1177,8 +1177,8 @@ public class ModelLabApiApi {
     private UUID filterOwnerId;
     private String filterTags;
     private String sort;
-    private Integer pageSize;
-    private Integer pageNumber;
+    private Long pageSize;
+    private Long pageNumber;
 
     /**
      * Set filter.
@@ -1231,7 +1231,7 @@ public class ModelLabApiApi {
      * @param pageSize Number of items per page. Maximum is 100. (optional, default to 25)
      * @return ListModelLabProjectsOptionalParameters
      */
-    public ListModelLabProjectsOptionalParameters pageSize(Integer pageSize) {
+    public ListModelLabProjectsOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -1242,7 +1242,7 @@ public class ModelLabApiApi {
      * @param pageNumber Page number (1-indexed). (optional, default to 1)
      * @return ListModelLabProjectsOptionalParameters
      */
-    public ListModelLabProjectsOptionalParameters pageNumber(Integer pageNumber) {
+    public ListModelLabProjectsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -1336,8 +1336,8 @@ public class ModelLabApiApi {
     UUID filterOwnerId = parameters.filterOwnerId;
     String filterTags = parameters.filterTags;
     String sort = parameters.sort;
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v2/model-lab-api/projects";
 
@@ -1396,8 +1396,8 @@ public class ModelLabApiApi {
     UUID filterOwnerId = parameters.filterOwnerId;
     String filterTags = parameters.filterTags;
     String sort = parameters.sort;
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v2/model-lab-api/projects";
 
@@ -2050,8 +2050,8 @@ public class ModelLabApiApi {
     private Boolean includePinned;
     private Boolean includeDescendantMatches;
     private String sort;
-    private Integer pageSize;
-    private Integer pageNumber;
+    private Long pageSize;
+    private Long pageNumber;
 
     /**
      * Set filterId.
@@ -2199,7 +2199,7 @@ public class ModelLabApiApi {
      * @param pageSize Number of items per page. Maximum is 100. (optional, default to 25)
      * @return ListModelLabRunsOptionalParameters
      */
-    public ListModelLabRunsOptionalParameters pageSize(Integer pageSize) {
+    public ListModelLabRunsOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -2210,7 +2210,7 @@ public class ModelLabApiApi {
      * @param pageNumber Page number (1-indexed). (optional, default to 1)
      * @return ListModelLabRunsOptionalParameters
      */
-    public ListModelLabRunsOptionalParameters pageNumber(Integer pageNumber) {
+    public ListModelLabRunsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -2312,8 +2312,8 @@ public class ModelLabApiApi {
     Boolean includePinned = parameters.includePinned;
     Boolean includeDescendantMatches = parameters.includeDescendantMatches;
     String sort = parameters.sort;
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v2/model-lab-api/runs";
 
@@ -2391,8 +2391,8 @@ public class ModelLabApiApi {
     Boolean includePinned = parameters.includePinned;
     Boolean includeDescendantMatches = parameters.includeDescendantMatches;
     String sort = parameters.sort;
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v2/model-lab-api/runs";
 

@@ -46,7 +46,7 @@ public class RumReplaySessionsApi {
   public static class GetSegmentsOptionalParameters {
     private String source;
     private Long ts;
-    private Integer maxListSize;
+    private Long maxListSize;
     private String paging;
 
     /**
@@ -77,7 +77,7 @@ public class RumReplaySessionsApi {
      * @param maxListSize Maximum size in bytes for the segment list. (optional)
      * @return GetSegmentsOptionalParameters
      */
-    public GetSegmentsOptionalParameters maxListSize(Integer maxListSize) {
+    public GetSegmentsOptionalParameters maxListSize(Long maxListSize) {
       this.maxListSize = maxListSize;
       return this;
     }
@@ -192,7 +192,7 @@ public class RumReplaySessionsApi {
     }
     String source = parameters.source;
     Long ts = parameters.ts;
-    Integer maxListSize = parameters.maxListSize;
+    Long maxListSize = parameters.maxListSize;
     String paging = parameters.paging;
     // create path and map variables
     String localVarPath =
@@ -261,7 +261,7 @@ public class RumReplaySessionsApi {
     }
     String source = parameters.source;
     Long ts = parameters.ts;
-    Integer maxListSize = parameters.maxListSize;
+    Long maxListSize = parameters.maxListSize;
     String paging = parameters.paging;
     // create path and map variables
     String localVarPath =

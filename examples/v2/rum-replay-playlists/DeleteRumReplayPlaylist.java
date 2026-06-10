@@ -10,7 +10,7 @@ public class Example {
     RumReplayPlaylistsApi apiInstance = new RumReplayPlaylistsApi(defaultClient);
 
     try {
-      apiInstance.deleteRumReplayPlaylist(1234567);
+      apiInstance.deleteRumReplayPlaylist(1234567L);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumReplayPlaylistsApi#deleteRumReplayPlaylist");
       System.err.println("Status code: " + e.getCode());

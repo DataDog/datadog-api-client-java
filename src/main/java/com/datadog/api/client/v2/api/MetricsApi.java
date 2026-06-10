@@ -2898,8 +2898,8 @@ public class MetricsApi {
 
   /** Manage optional parameters to listTagIndexingRules. */
   public static class ListTagIndexingRulesOptionalParameters {
-    private Integer pageLimit;
-    private Integer pageOffset;
+    private Long pageLimit;
+    private Long pageOffset;
     private String search;
 
     /**
@@ -2908,7 +2908,7 @@ public class MetricsApi {
      * @param pageLimit Page size (1–1000, default 100). (optional)
      * @return ListTagIndexingRulesOptionalParameters
      */
-    public ListTagIndexingRulesOptionalParameters pageLimit(Integer pageLimit) {
+    public ListTagIndexingRulesOptionalParameters pageLimit(Long pageLimit) {
       this.pageLimit = pageLimit;
       return this;
     }
@@ -2919,7 +2919,7 @@ public class MetricsApi {
      * @param pageOffset Page offset from the start of the list (default 0). (optional)
      * @return ListTagIndexingRulesOptionalParameters
      */
-    public ListTagIndexingRulesOptionalParameters pageOffset(Integer pageOffset) {
+    public ListTagIndexingRulesOptionalParameters pageOffset(Long pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -3014,8 +3014,8 @@ public class MetricsApi {
   public ApiResponse<TagIndexingRulesResponse> listTagIndexingRulesWithHttpInfo(
       ListTagIndexingRulesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
-    Integer pageLimit = parameters.pageLimit;
-    Integer pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     String search = parameters.search;
     // create path and map variables
     String localVarPath = "/api/v2/metrics/tag-indexing-rules";
@@ -3058,8 +3058,8 @@ public class MetricsApi {
   public CompletableFuture<ApiResponse<TagIndexingRulesResponse>>
       listTagIndexingRulesWithHttpInfoAsync(ListTagIndexingRulesOptionalParameters parameters) {
     Object localVarPostBody = null;
-    Integer pageLimit = parameters.pageLimit;
-    Integer pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     String search = parameters.search;
     // create path and map variables
     String localVarPath = "/api/v2/metrics/tag-indexing-rules";

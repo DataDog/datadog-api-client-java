@@ -41,7 +41,7 @@ public class SourcemapFileAttributes {
   private String mappings;
 
   public static final String JSON_PROPERTY_MINIFIED_LINE_LENGTHS = "minifiedLineLengths";
-  private List<Integer> minifiedLineLengths = new ArrayList<>();
+  private List<Long> minifiedLineLengths = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAMES = "names";
   private List<Object> names = new ArrayList<>();
@@ -65,7 +65,7 @@ public class SourcemapFileAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_FILE) String file,
       @JsonProperty(required = true, value = JSON_PROPERTY_MAPPINGS) String mappings,
       @JsonProperty(required = true, value = JSON_PROPERTY_MINIFIED_LINE_LENGTHS)
-          List<Integer> minifiedLineLengths,
+          List<Long> minifiedLineLengths,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAMES) List<Object> names,
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE_ROOT) String sourceRoot,
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
@@ -123,12 +123,12 @@ public class SourcemapFileAttributes {
     this.mappings = mappings;
   }
 
-  public SourcemapFileAttributes minifiedLineLengths(List<Integer> minifiedLineLengths) {
+  public SourcemapFileAttributes minifiedLineLengths(List<Long> minifiedLineLengths) {
     this.minifiedLineLengths = minifiedLineLengths;
     return this;
   }
 
-  public SourcemapFileAttributes addMinifiedLineLengthsItem(Integer minifiedLineLengthsItem) {
+  public SourcemapFileAttributes addMinifiedLineLengthsItem(Long minifiedLineLengthsItem) {
     this.minifiedLineLengths.add(minifiedLineLengthsItem);
     return this;
   }
@@ -140,11 +140,11 @@ public class SourcemapFileAttributes {
    */
   @JsonProperty(JSON_PROPERTY_MINIFIED_LINE_LENGTHS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Integer> getMinifiedLineLengths() {
+  public List<Long> getMinifiedLineLengths() {
     return minifiedLineLengths;
   }
 
-  public void setMinifiedLineLengths(List<Integer> minifiedLineLengths) {
+  public void setMinifiedLineLengths(List<Long> minifiedLineLengths) {
     this.minifiedLineLengths = minifiedLineLengths;
   }
 

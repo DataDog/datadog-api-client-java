@@ -4566,8 +4566,8 @@ public class StaticAnalysisApi {
 
   /** Manage optional parameters to listCustomRuleRevisions. */
   public static class ListCustomRuleRevisionsOptionalParameters {
-    private Integer pageOffset;
-    private Integer pageLimit;
+    private Long pageOffset;
+    private Long pageLimit;
 
     /**
      * Set pageOffset.
@@ -4575,7 +4575,7 @@ public class StaticAnalysisApi {
      * @param pageOffset Pagination offset (optional, default to 0)
      * @return ListCustomRuleRevisionsOptionalParameters
      */
-    public ListCustomRuleRevisionsOptionalParameters pageOffset(Integer pageOffset) {
+    public ListCustomRuleRevisionsOptionalParameters pageOffset(Long pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -4586,7 +4586,7 @@ public class StaticAnalysisApi {
      * @param pageLimit Pagination limit (optional, default to 10)
      * @return ListCustomRuleRevisionsOptionalParameters
      */
-    public ListCustomRuleRevisionsOptionalParameters pageLimit(Integer pageLimit) {
+    public ListCustomRuleRevisionsOptionalParameters pageLimit(Long pageLimit) {
       this.pageLimit = pageLimit;
       return this;
     }
@@ -4695,10 +4695,10 @@ public class StaticAnalysisApi {
     String valueGetterPath = "";
     String valueSetterPath = "pageOffset";
     Boolean valueSetterParamOptional = true;
-    Integer limit;
+    Long limit;
 
     if (parameters.pageLimit == null) {
-      limit = 10;
+      limit = 10l;
       parameters.pageLimit(limit);
     } else {
       limit = parameters.pageLimit;
@@ -4768,8 +4768,8 @@ public class StaticAnalysisApi {
       throw new ApiException(
           400, "Missing the required parameter 'ruleName' when calling listCustomRuleRevisions");
     }
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
         "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions"
@@ -4852,8 +4852,8 @@ public class StaticAnalysisApi {
               "Missing the required parameter 'ruleName' when calling listCustomRuleRevisions"));
       return result;
     }
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
         "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions"

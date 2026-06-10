@@ -339,8 +339,8 @@ public class RumReplayViewershipApi {
 
   /** Manage optional parameters to listRumReplaySessionWatchers. */
   public static class ListRumReplaySessionWatchersOptionalParameters {
-    private Integer pageSize;
-    private Integer pageNumber;
+    private Long pageSize;
+    private Long pageNumber;
 
     /**
      * Set pageSize.
@@ -348,7 +348,7 @@ public class RumReplayViewershipApi {
      * @param pageSize Number of items per page. (optional)
      * @return ListRumReplaySessionWatchersOptionalParameters
      */
-    public ListRumReplaySessionWatchersOptionalParameters pageSize(Integer pageSize) {
+    public ListRumReplaySessionWatchersOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -359,7 +359,7 @@ public class RumReplayViewershipApi {
      * @param pageNumber Page number for pagination (0-indexed). (optional)
      * @return ListRumReplaySessionWatchersOptionalParameters
      */
-    public ListRumReplaySessionWatchersOptionalParameters pageNumber(Integer pageNumber) {
+    public ListRumReplaySessionWatchersOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -457,8 +457,8 @@ public class RumReplayViewershipApi {
           400,
           "Missing the required parameter 'sessionId' when calling listRumReplaySessionWatchers");
     }
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath =
         "/api/v2/rum/replay/sessions/{session_id}/watchers"
@@ -513,8 +513,8 @@ public class RumReplayViewershipApi {
                   + " listRumReplaySessionWatchers"));
       return result;
     }
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath =
         "/api/v2/rum/replay/sessions/{session_id}/watchers"
@@ -556,11 +556,11 @@ public class RumReplayViewershipApi {
   /** Manage optional parameters to listRumReplayViewershipHistorySessions. */
   public static class ListRumReplayViewershipHistorySessionsOptionalParameters {
     private Long filterWatchedAtStart;
-    private Integer pageNumber;
+    private Long pageNumber;
     private String filterCreatedBy;
     private Long filterWatchedAtEnd;
     private String filterSessionIds;
-    private Integer pageSize;
+    private Long pageSize;
     private String filterApplicationId;
 
     /**
@@ -581,7 +581,7 @@ public class RumReplayViewershipApi {
      * @param pageNumber Page number for pagination (0-indexed). (optional)
      * @return ListRumReplayViewershipHistorySessionsOptionalParameters
      */
-    public ListRumReplayViewershipHistorySessionsOptionalParameters pageNumber(Integer pageNumber) {
+    public ListRumReplayViewershipHistorySessionsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -629,7 +629,7 @@ public class RumReplayViewershipApi {
      * @param pageSize Number of items per page. (optional)
      * @return ListRumReplayViewershipHistorySessionsOptionalParameters
      */
-    public ListRumReplayViewershipHistorySessionsOptionalParameters pageSize(Integer pageSize) {
+    public ListRumReplayViewershipHistorySessionsOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -730,11 +730,11 @@ public class RumReplayViewershipApi {
           ListRumReplayViewershipHistorySessionsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Long filterWatchedAtStart = parameters.filterWatchedAtStart;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageNumber = parameters.pageNumber;
     String filterCreatedBy = parameters.filterCreatedBy;
     Long filterWatchedAtEnd = parameters.filterWatchedAtEnd;
     String filterSessionIds = parameters.filterSessionIds;
-    Integer pageSize = parameters.pageSize;
+    Long pageSize = parameters.pageSize;
     String filterApplicationId = parameters.filterApplicationId;
     // create path and map variables
     String localVarPath = "/api/v2/rum/replay/viewership-history/sessions";
@@ -788,11 +788,11 @@ public class RumReplayViewershipApi {
           ListRumReplayViewershipHistorySessionsOptionalParameters parameters) {
     Object localVarPostBody = null;
     Long filterWatchedAtStart = parameters.filterWatchedAtStart;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageNumber = parameters.pageNumber;
     String filterCreatedBy = parameters.filterCreatedBy;
     Long filterWatchedAtEnd = parameters.filterWatchedAtEnd;
     String filterSessionIds = parameters.filterSessionIds;
-    Integer pageSize = parameters.pageSize;
+    Long pageSize = parameters.pageSize;
     String filterApplicationId = parameters.filterApplicationId;
     // create path and map variables
     String localVarPath = "/api/v2/rum/replay/viewership-history/sessions";

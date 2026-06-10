@@ -25,19 +25,19 @@ import java.util.Set;
  * failover - 5: RECOVERY - Recovery operation in progress
  */
 @JsonSerialize(using = HamrOrgConnectionStatus.HamrOrgConnectionStatusSerializer.class)
-public class HamrOrgConnectionStatus extends ModelEnum<Integer> {
+public class HamrOrgConnectionStatus extends ModelEnum<Long> {
 
-  private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(Arrays.asList(0, 1, 2, 3, 4, 5));
+  private static final Set<Long> allowedValues =
+      new HashSet<Long>(Arrays.asList(0l, 1l, 2l, 3l, 4l, 5l));
 
-  public static final HamrOrgConnectionStatus UNSPECIFIED = new HamrOrgConnectionStatus(0);
-  public static final HamrOrgConnectionStatus ONBOARDING = new HamrOrgConnectionStatus(1);
-  public static final HamrOrgConnectionStatus PASSIVE = new HamrOrgConnectionStatus(2);
-  public static final HamrOrgConnectionStatus FAILOVER = new HamrOrgConnectionStatus(3);
-  public static final HamrOrgConnectionStatus ACTIVE = new HamrOrgConnectionStatus(4);
-  public static final HamrOrgConnectionStatus RECOVERY = new HamrOrgConnectionStatus(5);
+  public static final HamrOrgConnectionStatus UNSPECIFIED = new HamrOrgConnectionStatus(0l);
+  public static final HamrOrgConnectionStatus ONBOARDING = new HamrOrgConnectionStatus(1l);
+  public static final HamrOrgConnectionStatus PASSIVE = new HamrOrgConnectionStatus(2l);
+  public static final HamrOrgConnectionStatus FAILOVER = new HamrOrgConnectionStatus(3l);
+  public static final HamrOrgConnectionStatus ACTIVE = new HamrOrgConnectionStatus(4l);
+  public static final HamrOrgConnectionStatus RECOVERY = new HamrOrgConnectionStatus(5l);
 
-  HamrOrgConnectionStatus(Integer value) {
+  HamrOrgConnectionStatus(Long value) {
     super(value, allowedValues);
   }
 
@@ -60,7 +60,7 @@ public class HamrOrgConnectionStatus extends ModelEnum<Integer> {
   }
 
   @JsonCreator
-  public static HamrOrgConnectionStatus fromValue(Integer value) {
+  public static HamrOrgConnectionStatus fromValue(Long value) {
     return new HamrOrgConnectionStatus(value);
   }
 }

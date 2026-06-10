@@ -181,7 +181,7 @@ public class SeatsApi {
 
   /** Manage optional parameters to getSeatsUsers. */
   public static class GetSeatsUsersOptionalParameters {
-    private Integer pageLimit;
+    private Long pageLimit;
     private String pageCursor;
 
     /**
@@ -190,7 +190,7 @@ public class SeatsApi {
      * @param pageLimit Maximum number of results to return. (optional)
      * @return GetSeatsUsersOptionalParameters
      */
-    public GetSeatsUsersOptionalParameters pageLimit(Integer pageLimit) {
+    public GetSeatsUsersOptionalParameters pageLimit(Long pageLimit) {
       this.pageLimit = pageLimit;
       return this;
     }
@@ -295,7 +295,7 @@ public class SeatsApi {
       throw new ApiException(
           400, "Missing the required parameter 'productCode' when calling getSeatsUsers");
     }
-    Integer pageLimit = parameters.pageLimit;
+    Long pageLimit = parameters.pageLimit;
     String pageCursor = parameters.pageCursor;
     // create path and map variables
     String localVarPath = "/api/v2/seats/users";
@@ -348,7 +348,7 @@ public class SeatsApi {
               400, "Missing the required parameter 'productCode' when calling getSeatsUsers"));
       return result;
     }
-    Integer pageLimit = parameters.pageLimit;
+    Long pageLimit = parameters.pageLimit;
     String pageCursor = parameters.pageCursor;
     // create path and map variables
     String localVarPath = "/api/v2/seats/users";

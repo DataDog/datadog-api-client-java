@@ -13,7 +13,7 @@ public class Example {
 
     try {
       ListFeatureFlagsResponse result =
-          apiInstance.listFeatureFlags(new ListFeatureFlagsOptionalParameters().limit(10));
+          apiInstance.listFeatureFlags(new ListFeatureFlagsOptionalParameters().limit(10L));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FeatureFlagsApi#listFeatureFlags");

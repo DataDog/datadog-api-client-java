@@ -57,6 +57,7 @@ import com.datadog.api.client.v2.model.MuteFindingsRequest;
 import com.datadog.api.client.v2.model.MuteFindingsResponse;
 import com.datadog.api.client.v2.model.NodeTypesResponse;
 import com.datadog.api.client.v2.model.NotificationRuleResponse;
+import com.datadog.api.client.v2.model.NotificationRulesListResponse;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
 import com.datadog.api.client.v2.model.SBOMComponentLicenseType;
@@ -12504,10 +12505,10 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSignalNotificationRulesWithHttpInfo}.
    *
-   * @return Object
+   * @return NotificationRulesListResponse
    * @throws ApiException if fails to make API call
    */
-  public Object getSignalNotificationRules() throws ApiException {
+  public NotificationRulesListResponse getSignalNotificationRules() throws ApiException {
     return getSignalNotificationRulesWithHttpInfo().getData();
   }
 
@@ -12516,9 +12517,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSignalNotificationRulesWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;Object&gt;
+   * @return CompletableFuture&lt;NotificationRulesListResponse&gt;
    */
-  public CompletableFuture<Object> getSignalNotificationRulesAsync() {
+  public CompletableFuture<NotificationRulesListResponse> getSignalNotificationRulesAsync() {
     return getSignalNotificationRulesWithHttpInfoAsync()
         .thenApply(
             response -> {
@@ -12529,7 +12530,7 @@ public class SecurityMonitoringApi {
   /**
    * Returns the list of notification rules for security signals.
    *
-   * @return ApiResponse&lt;Object&gt;
+   * @return ApiResponse&lt;NotificationRulesListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -12540,7 +12541,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Object> getSignalNotificationRulesWithHttpInfo() throws ApiException {
+  public ApiResponse<NotificationRulesListResponse> getSignalNotificationRulesWithHttpInfo()
+      throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/security/signals/notification_rules";
@@ -12564,7 +12566,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Object>() {});
+        new GenericType<NotificationRulesListResponse>() {});
   }
 
   /**
@@ -12572,9 +12574,10 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSignalNotificationRulesWithHttpInfo}.
    *
-   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRulesListResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Object>> getSignalNotificationRulesWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<NotificationRulesListResponse>>
+      getSignalNotificationRulesWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/security/signals/notification_rules";
@@ -12593,7 +12596,8 @@ public class SecurityMonitoringApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<NotificationRulesListResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -12605,7 +12609,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Object>() {});
+        new GenericType<NotificationRulesListResponse>() {});
   }
 
   /**
@@ -14117,10 +14121,10 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfo}.
    *
-   * @return Object
+   * @return NotificationRulesListResponse
    * @throws ApiException if fails to make API call
    */
-  public Object getVulnerabilityNotificationRules() throws ApiException {
+  public NotificationRulesListResponse getVulnerabilityNotificationRules() throws ApiException {
     return getVulnerabilityNotificationRulesWithHttpInfo().getData();
   }
 
@@ -14129,9 +14133,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;Object&gt;
+   * @return CompletableFuture&lt;NotificationRulesListResponse&gt;
    */
-  public CompletableFuture<Object> getVulnerabilityNotificationRulesAsync() {
+  public CompletableFuture<NotificationRulesListResponse> getVulnerabilityNotificationRulesAsync() {
     return getVulnerabilityNotificationRulesWithHttpInfoAsync()
         .thenApply(
             response -> {
@@ -14142,7 +14146,7 @@ public class SecurityMonitoringApi {
   /**
    * Returns the list of notification rules for security vulnerabilities.
    *
-   * @return ApiResponse&lt;Object&gt;
+   * @return ApiResponse&lt;NotificationRulesListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -14153,7 +14157,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Object> getVulnerabilityNotificationRulesWithHttpInfo() throws ApiException {
+  public ApiResponse<NotificationRulesListResponse> getVulnerabilityNotificationRulesWithHttpInfo()
+      throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
@@ -14177,7 +14182,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Object>() {});
+        new GenericType<NotificationRulesListResponse>() {});
   }
 
   /**
@@ -14185,9 +14190,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfo}.
    *
-   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRulesListResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Object>>
+  public CompletableFuture<ApiResponse<NotificationRulesListResponse>>
       getVulnerabilityNotificationRulesWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
@@ -14207,7 +14212,8 @@ public class SecurityMonitoringApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<NotificationRulesListResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -14219,7 +14225,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Object>() {});
+        new GenericType<NotificationRulesListResponse>() {});
   }
 
   /** Manage optional parameters to listAssetsSBOMs. */
