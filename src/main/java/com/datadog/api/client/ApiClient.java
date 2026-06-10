@@ -766,9 +766,7 @@ public class ApiClient {
           put("v2.listFleetAgents", false);
           put("v2.listFleetAgentTracers", false);
           put("v2.listFleetAgentVersions", false);
-          put("v2.listFleetClusters", false);
           put("v2.listFleetDeployments", false);
-          put("v2.listFleetInstrumentedPods", false);
           put("v2.listFleetSchedules", false);
           put("v2.listFleetTracers", false);
           put("v2.triggerFleetSchedule", false);
