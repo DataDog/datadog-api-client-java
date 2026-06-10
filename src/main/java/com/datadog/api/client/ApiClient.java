@@ -972,6 +972,12 @@ public class ApiClient {
           put("v2.listCostTagMetadataMonths", false);
           put("v2.listCostTagMetadataOrchestrators", false);
           put("v2.searchCostRecommendations", false);
+          put("v2.getCSMAgentlessHostFacetInfo", false);
+          put("v2.getCSMUnifiedHostFacetInfo", false);
+          put("v2.listCSMAgentlessHostFacets", false);
+          put("v2.listCSMAgentlessHosts", false);
+          put("v2.listCSMUnifiedHostFacets", false);
+          put("v2.listCSMUnifiedHosts", false);
           put("v2.createDashboardSecureEmbed", false);
           put("v2.deleteDashboardSecureEmbed", false);
           put("v2.getDashboardSecureEmbed", false);
