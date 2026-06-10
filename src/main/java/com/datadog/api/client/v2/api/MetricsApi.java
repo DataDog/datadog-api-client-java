@@ -82,7 +82,9 @@ public class MetricsApi {
    * @param body (required)
    * @return MetricBulkTagConfigResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public MetricBulkTagConfigResponse createBulkTagsMetricsConfiguration(
       MetricBulkTagConfigCreateRequest body) throws ApiException {
     return createBulkTagsMetricsConfigurationWithHttpInfo(body).getData();
@@ -95,7 +97,9 @@ public class MetricsApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;MetricBulkTagConfigResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<MetricBulkTagConfigResponse> createBulkTagsMetricsConfigurationAsync(
       MetricBulkTagConfigCreateRequest body) {
     return createBulkTagsMetricsConfigurationWithHttpInfoAsync(body)
@@ -106,7 +110,11 @@ public class MetricsApi {
   }
 
   /**
-   * Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and
+   * <strong>Note</strong>: This endpoint is deprecated. Use <a
+   * href="/api/latest/metrics/#create-a-tag-indexing-rule">Tag Indexing Rules</a> (<code>
+   * POST /api/v2/metrics/tag-indexing-rules</code>) instead.
+   *
+   * <p>Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and
    * distribution metrics. Metrics are selected by passing a metric name prefix. Use the Delete
    * method of this API path to remove tag configurations. Results can be sent to a set of account
    * email addresses, just like the same operation in the Datadog web app. If multiple calls include
@@ -129,7 +137,10 @@ public class MetricsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<MetricBulkTagConfigResponse> createBulkTagsMetricsConfigurationWithHttpInfo(
       MetricBulkTagConfigCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -172,7 +183,9 @@ public class MetricsApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricBulkTagConfigResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>>
       createBulkTagsMetricsConfigurationWithHttpInfoAsync(MetricBulkTagConfigCreateRequest body) {
     Object localVarPostBody = body;
@@ -700,7 +713,9 @@ public class MetricsApi {
    * @param body (required)
    * @return MetricBulkTagConfigResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public MetricBulkTagConfigResponse deleteBulkTagsMetricsConfiguration(
       MetricBulkTagConfigDeleteRequest body) throws ApiException {
     return deleteBulkTagsMetricsConfigurationWithHttpInfo(body).getData();
@@ -713,7 +728,9 @@ public class MetricsApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;MetricBulkTagConfigResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<MetricBulkTagConfigResponse> deleteBulkTagsMetricsConfigurationAsync(
       MetricBulkTagConfigDeleteRequest body) {
     return deleteBulkTagsMetricsConfigurationWithHttpInfoAsync(body)
@@ -724,7 +741,11 @@ public class MetricsApi {
   }
 
   /**
-   * Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and
+   * <strong>Note</strong>: This endpoint is deprecated. Use <a
+   * href="/api/latest/metrics/#create-a-tag-indexing-rule">Tag Indexing Rules</a> (<code>
+   * POST /api/v2/metrics/tag-indexing-rules</code>) instead.
+   *
+   * <p>Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and
    * distribution metrics. Metrics are selected by passing a metric name prefix. Results can be sent
    * to a set of account email addresses, just like the same operation in the Datadog web app. Can
    * only be used with application keys of users with the <code>Manage Tags for Metrics</code>
@@ -743,7 +764,10 @@ public class MetricsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<MetricBulkTagConfigResponse> deleteBulkTagsMetricsConfigurationWithHttpInfo(
       MetricBulkTagConfigDeleteRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -786,7 +810,9 @@ public class MetricsApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricBulkTagConfigResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>>
       deleteBulkTagsMetricsConfigurationWithHttpInfoAsync(MetricBulkTagConfigDeleteRequest body) {
     Object localVarPostBody = body;
