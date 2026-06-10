@@ -556,8 +556,8 @@ public class WidgetsApi {
     private String filterTitle;
     private String filterTags;
     private String sort;
-    private Integer pageNumber;
-    private Integer pageSize;
+    private Long pageNumber;
+    private Long pageSize;
 
     /**
      * Set filterWidgetType.
@@ -638,7 +638,7 @@ public class WidgetsApi {
      * @param pageNumber Page number for pagination (0-indexed). (optional, default to 0)
      * @return SearchWidgetsOptionalParameters
      */
-    public SearchWidgetsOptionalParameters pageNumber(Integer pageNumber) {
+    public SearchWidgetsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -649,7 +649,7 @@ public class WidgetsApi {
      * @param pageSize Number of widgets per page. (optional, default to 50)
      * @return SearchWidgetsOptionalParameters
      */
-    public SearchWidgetsOptionalParameters pageSize(Integer pageSize) {
+    public SearchWidgetsOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -763,8 +763,8 @@ public class WidgetsApi {
     String filterTitle = parameters.filterTitle;
     String filterTags = parameters.filterTags;
     String sort = parameters.sort;
-    Integer pageNumber = parameters.pageNumber;
-    Integer pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
     // create path and map variables
     String localVarPath =
         "/api/v2/widgets/{experience_type}"
@@ -834,8 +834,8 @@ public class WidgetsApi {
     String filterTitle = parameters.filterTitle;
     String filterTags = parameters.filterTags;
     String sort = parameters.sort;
-    Integer pageNumber = parameters.pageNumber;
-    Integer pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
     // create path and map variables
     String localVarPath =
         "/api/v2/widgets/{experience_type}"

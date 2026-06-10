@@ -13,7 +13,7 @@ public class Example {
     try {
       PlaylistsSession result =
           apiInstance.addRumReplaySessionToPlaylist(
-              1704067200000L, 1234567, "00000000-0000-0000-0000-000000000001");
+              1704067200000L, 1234567L, "00000000-0000-0000-0000-000000000001");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(

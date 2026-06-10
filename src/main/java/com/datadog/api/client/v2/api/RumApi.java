@@ -1948,8 +1948,8 @@ public class RumApi {
   /** Manage optional parameters to listSourcemaps. */
   public static class ListSourcemapsOptionalParameters {
     private SourcemapMapKind mapkind;
-    private Integer pageSize;
-    private Integer pageNumber;
+    private Long pageSize;
+    private Long pageNumber;
     private List<String> filterService;
     private List<String> filterVersion;
     private List<String> filterVariant;
@@ -1987,7 +1987,7 @@ public class RumApi {
      *     default to 20)
      * @return ListSourcemapsOptionalParameters
      */
-    public ListSourcemapsOptionalParameters pageSize(Integer pageSize) {
+    public ListSourcemapsOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -1998,7 +1998,7 @@ public class RumApi {
      * @param pageNumber The page number to retrieve, starting from 1. (optional, default to 1)
      * @return ListSourcemapsOptionalParameters
      */
-    public ListSourcemapsOptionalParameters pageNumber(Integer pageNumber) {
+    public ListSourcemapsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -2308,8 +2308,8 @@ public class RumApi {
     }
     Object localVarPostBody = null;
     SourcemapMapKind mapkind = parameters.mapkind;
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     List<String> filterService = parameters.filterService;
     List<String> filterVersion = parameters.filterVersion;
     List<String> filterVariant = parameters.filterVariant;
@@ -2409,8 +2409,8 @@ public class RumApi {
     }
     Object localVarPostBody = null;
     SourcemapMapKind mapkind = parameters.mapkind;
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     List<String> filterService = parameters.filterService;
     List<String> filterVersion = parameters.filterVersion;
     List<String> filterVariant = parameters.filterVariant;

@@ -2909,8 +2909,8 @@ public class StatusPagesApi {
   /** Manage optional parameters to listDegradations. */
   public static class ListDegradationsOptionalParameters {
     private String filterPageId;
-    private Integer pageOffset;
-    private Integer pageLimit;
+    private Long pageOffset;
+    private Long pageLimit;
     private String include;
     private String filterStatus;
     private String sort;
@@ -2932,7 +2932,7 @@ public class StatusPagesApi {
      * @param pageOffset Offset to use as the start of the page. (optional, default to 0)
      * @return ListDegradationsOptionalParameters
      */
-    public ListDegradationsOptionalParameters pageOffset(Integer pageOffset) {
+    public ListDegradationsOptionalParameters pageOffset(Long pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -2943,7 +2943,7 @@ public class StatusPagesApi {
      * @param pageLimit The number of degradations to return per page. (optional, default to 50)
      * @return ListDegradationsOptionalParameters
      */
-    public ListDegradationsOptionalParameters pageLimit(Integer pageLimit) {
+    public ListDegradationsOptionalParameters pageLimit(Long pageLimit) {
       this.pageLimit = pageLimit;
       return this;
     }
@@ -3061,8 +3061,8 @@ public class StatusPagesApi {
       ListDegradationsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String filterPageId = parameters.filterPageId;
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     String include = parameters.include;
     String filterStatus = parameters.filterStatus;
     String sort = parameters.sort;
@@ -3111,8 +3111,8 @@ public class StatusPagesApi {
       ListDegradationsOptionalParameters parameters) {
     Object localVarPostBody = null;
     String filterPageId = parameters.filterPageId;
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     String include = parameters.include;
     String filterStatus = parameters.filterStatus;
     String sort = parameters.sort;
@@ -3159,8 +3159,8 @@ public class StatusPagesApi {
   /** Manage optional parameters to listMaintenances. */
   public static class ListMaintenancesOptionalParameters {
     private String filterPageId;
-    private Integer pageOffset;
-    private Integer pageLimit;
+    private Long pageOffset;
+    private Long pageLimit;
     private String include;
     private String filterStatus;
     private String sort;
@@ -3182,7 +3182,7 @@ public class StatusPagesApi {
      * @param pageOffset Offset to use as the start of the page. (optional, default to 0)
      * @return ListMaintenancesOptionalParameters
      */
-    public ListMaintenancesOptionalParameters pageOffset(Integer pageOffset) {
+    public ListMaintenancesOptionalParameters pageOffset(Long pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -3193,7 +3193,7 @@ public class StatusPagesApi {
      * @param pageLimit The number of maintenances to return per page. (optional, default to 50)
      * @return ListMaintenancesOptionalParameters
      */
-    public ListMaintenancesOptionalParameters pageLimit(Integer pageLimit) {
+    public ListMaintenancesOptionalParameters pageLimit(Long pageLimit) {
       this.pageLimit = pageLimit;
       return this;
     }
@@ -3311,8 +3311,8 @@ public class StatusPagesApi {
       ListMaintenancesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String filterPageId = parameters.filterPageId;
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     String include = parameters.include;
     String filterStatus = parameters.filterStatus;
     String sort = parameters.sort;
@@ -3361,8 +3361,8 @@ public class StatusPagesApi {
       ListMaintenancesOptionalParameters parameters) {
     Object localVarPostBody = null;
     String filterPageId = parameters.filterPageId;
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     String include = parameters.include;
     String filterStatus = parameters.filterStatus;
     String sort = parameters.sort;
@@ -3408,8 +3408,8 @@ public class StatusPagesApi {
 
   /** Manage optional parameters to listStatusPages. */
   public static class ListStatusPagesOptionalParameters {
-    private Integer pageOffset;
-    private Integer pageLimit;
+    private Long pageOffset;
+    private Long pageLimit;
     private String filterDomainPrefix;
     private String include;
 
@@ -3419,7 +3419,7 @@ public class StatusPagesApi {
      * @param pageOffset Offset to use as the start of the page. (optional, default to 0)
      * @return ListStatusPagesOptionalParameters
      */
-    public ListStatusPagesOptionalParameters pageOffset(Integer pageOffset) {
+    public ListStatusPagesOptionalParameters pageOffset(Long pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -3430,7 +3430,7 @@ public class StatusPagesApi {
      * @param pageLimit The number of status pages to return per page. (optional, default to 50)
      * @return ListStatusPagesOptionalParameters
      */
-    public ListStatusPagesOptionalParameters pageLimit(Integer pageLimit) {
+    public ListStatusPagesOptionalParameters pageLimit(Long pageLimit) {
       this.pageLimit = pageLimit;
       return this;
     }
@@ -3535,8 +3535,8 @@ public class StatusPagesApi {
   public ApiResponse<StatusPageArray> listStatusPagesWithHttpInfo(
       ListStatusPagesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     String filterDomainPrefix = parameters.filterDomainPrefix;
     String include = parameters.include;
     // create path and map variables
@@ -3582,8 +3582,8 @@ public class StatusPagesApi {
   public CompletableFuture<ApiResponse<StatusPageArray>> listStatusPagesWithHttpInfoAsync(
       ListStatusPagesOptionalParameters parameters) {
     Object localVarPostBody = null;
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     String filterDomainPrefix = parameters.filterDomainPrefix;
     String include = parameters.include;
     // create path and map variables

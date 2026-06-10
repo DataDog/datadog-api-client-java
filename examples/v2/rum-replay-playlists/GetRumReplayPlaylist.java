@@ -11,7 +11,7 @@ public class Example {
     RumReplayPlaylistsApi apiInstance = new RumReplayPlaylistsApi(defaultClient);
 
     try {
-      Playlist result = apiInstance.getRumReplayPlaylist(1234567);
+      Playlist result = apiInstance.getRumReplayPlaylist(1234567L);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumReplayPlaylistsApi#getRumReplayPlaylist");

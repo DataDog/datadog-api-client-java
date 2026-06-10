@@ -100,7 +100,7 @@ public class AssignmentResult {
   }
 
   /**
-   * HTTP-like status code describing the outcome for this finding.
+   * HTTP-like status code describing the outcome for this finding. maximum: 599
    *
    * @return status
    */

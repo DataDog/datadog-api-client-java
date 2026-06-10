@@ -6601,8 +6601,8 @@ public class CloudCostManagementApi {
     private String dismissalCause;
     private String orderBy;
     private String order;
-    private Integer limit;
-    private Integer offset;
+    private Long limit;
+    private Long offset;
     private List<String> providerIds;
 
     /**
@@ -6710,7 +6710,7 @@ public class CloudCostManagementApi {
      * @param limit Maximum number of anomalies to return. Defaults to <code>200</code>. (optional)
      * @return ListCostAnomaliesOptionalParameters
      */
-    public ListCostAnomaliesOptionalParameters limit(Integer limit) {
+    public ListCostAnomaliesOptionalParameters limit(Long limit) {
       this.limit = limit;
       return this;
     }
@@ -6721,7 +6721,7 @@ public class CloudCostManagementApi {
      * @param offset Pagination offset. Defaults to <code>0</code>. (optional)
      * @return ListCostAnomaliesOptionalParameters
      */
-    public ListCostAnomaliesOptionalParameters offset(Integer offset) {
+    public ListCostAnomaliesOptionalParameters offset(Long offset) {
       this.offset = offset;
       return this;
     }
@@ -6832,8 +6832,8 @@ public class CloudCostManagementApi {
     String dismissalCause = parameters.dismissalCause;
     String orderBy = parameters.orderBy;
     String order = parameters.order;
-    Integer limit = parameters.limit;
-    Integer offset = parameters.offset;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
     List<String> providerIds = parameters.providerIds;
     // create path and map variables
     String localVarPath = "/api/v2/cost/anomalies";
@@ -6904,8 +6904,8 @@ public class CloudCostManagementApi {
     String dismissalCause = parameters.dismissalCause;
     String orderBy = parameters.orderBy;
     String order = parameters.order;
-    Integer limit = parameters.limit;
-    Integer offset = parameters.offset;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
     List<String> providerIds = parameters.providerIds;
     // create path and map variables
     String localVarPath = "/api/v2/cost/anomalies";

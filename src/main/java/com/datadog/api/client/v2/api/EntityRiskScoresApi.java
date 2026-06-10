@@ -208,8 +208,8 @@ public class EntityRiskScoresApi {
   public static class ListEntityRiskScoresOptionalParameters {
     private Long from;
     private Long to;
-    private Integer pageSize;
-    private Integer pageNumber;
+    private Long pageSize;
+    private Long pageNumber;
     private String pageQueryId;
     private String filterSort;
     private String filterQuery;
@@ -245,7 +245,7 @@ public class EntityRiskScoresApi {
      * @param pageSize Size of the page to return. Maximum is 1000. (optional, default to 10)
      * @return ListEntityRiskScoresOptionalParameters
      */
-    public ListEntityRiskScoresOptionalParameters pageSize(Integer pageSize) {
+    public ListEntityRiskScoresOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -256,7 +256,7 @@ public class EntityRiskScoresApi {
      * @param pageNumber Page number to return (1-indexed). (optional, default to 1)
      * @return ListEntityRiskScoresOptionalParameters
      */
-    public ListEntityRiskScoresOptionalParameters pageNumber(Integer pageNumber) {
+    public ListEntityRiskScoresOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -399,8 +399,8 @@ public class EntityRiskScoresApi {
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     String pageQueryId = parameters.pageQueryId;
     String filterSort = parameters.filterSort;
     String filterQuery = parameters.filterQuery;
@@ -464,8 +464,8 @@ public class EntityRiskScoresApi {
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     String pageQueryId = parameters.pageQueryId;
     String filterSort = parameters.filterSort;
     String filterQuery = parameters.filterQuery;

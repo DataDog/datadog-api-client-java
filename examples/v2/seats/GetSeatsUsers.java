@@ -14,7 +14,7 @@ public class Example {
     try {
       SeatUserDataArray result =
           apiInstance.getSeatsUsers(
-              "incident_response", new GetSeatsUsersOptionalParameters().pageLimit(100));
+              "incident_response", new GetSeatsUsersOptionalParameters().pageLimit(100L));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SeatsApi#getSeatsUsers");

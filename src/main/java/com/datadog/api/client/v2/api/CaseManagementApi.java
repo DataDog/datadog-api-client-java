@@ -1045,7 +1045,7 @@ public class CaseManagementApi {
   public static class CountCasesOptionalParameters {
     private String queryFilter;
     private String groupBys;
-    private Integer limit;
+    private Long limit;
 
     /**
      * Set queryFilter.
@@ -1075,7 +1075,7 @@ public class CaseManagementApi {
      * @param limit Maximum facet values to return. (optional)
      * @return CountCasesOptionalParameters
      */
-    public CountCasesOptionalParameters limit(Integer limit) {
+    public CountCasesOptionalParameters limit(Long limit) {
       this.limit = limit;
       return this;
     }
@@ -1169,7 +1169,7 @@ public class CaseManagementApi {
     Object localVarPostBody = null;
     String queryFilter = parameters.queryFilter;
     String groupBys = parameters.groupBys;
-    Integer limit = parameters.limit;
+    Long limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v2/cases/count";
 
@@ -1223,7 +1223,7 @@ public class CaseManagementApi {
     Object localVarPostBody = null;
     String queryFilter = parameters.queryFilter;
     String groupBys = parameters.groupBys;
-    Integer limit = parameters.limit;
+    Long limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v2/cases/count";
 
@@ -6230,8 +6230,8 @@ public class CaseManagementApi {
 
   /** Manage optional parameters to listCaseTimeline. */
   public static class ListCaseTimelineOptionalParameters {
-    private Integer pageSize;
-    private Integer pageNumber;
+    private Long pageSize;
+    private Long pageNumber;
     private Boolean sortAscending;
 
     /**
@@ -6240,7 +6240,7 @@ public class CaseManagementApi {
      * @param pageSize Number of timeline cells to return per page. (optional, default to 100)
      * @return ListCaseTimelineOptionalParameters
      */
-    public ListCaseTimelineOptionalParameters pageSize(Integer pageSize) {
+    public ListCaseTimelineOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -6251,7 +6251,7 @@ public class CaseManagementApi {
      * @param pageNumber Zero-based page number for pagination. (optional, default to 0)
      * @return ListCaseTimelineOptionalParameters
      */
-    public ListCaseTimelineOptionalParameters pageNumber(Integer pageNumber) {
+    public ListCaseTimelineOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -6368,8 +6368,8 @@ public class CaseManagementApi {
       throw new ApiException(
           400, "Missing the required parameter 'caseId' when calling listCaseTimeline");
     }
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     Boolean sortAscending = parameters.sortAscending;
     // create path and map variables
     String localVarPath =
@@ -6434,8 +6434,8 @@ public class CaseManagementApi {
               400, "Missing the required parameter 'caseId' when calling listCaseTimeline"));
       return result;
     }
-    Integer pageSize = parameters.pageSize;
-    Integer pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     Boolean sortAscending = parameters.sortAscending;
     // create path and map variables
     String localVarPath =
