@@ -1586,7 +1586,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all AI credits used by Agent Builder over all hours in the current month for
-   * all organizations.
+   * all organizations. Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
    *
    * @return aiCreditsAgentBuilderAiCreditsAggSum
    */
@@ -1608,6 +1608,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all AI credits over all hours in the current month for all organizations.
+   * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
    *
    * @return aiCreditsAggSum
    */
@@ -1630,7 +1631,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all AI credits used by Bits AI Assistant over all hours in the current month
-   * for all organizations.
+   * for all organizations. Values are returned in micro-credits. Divide by 1,000,000 to get AI
+   * credits.
    *
    * @return aiCreditsBitsAssistantAiCreditsAggSum
    */
@@ -1653,7 +1655,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all AI credits used by Bits AI Dev over all hours in the current month for all
-   * organizations.
+   * organizations. Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
    *
    * @return aiCreditsBitsDevAiCreditsAggSum
    */
@@ -1676,7 +1678,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all AI credits used by Bits AI SRE over all hours in the current month for all
-   * organizations.
+   * organizations. Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
    *
    * @return aiCreditsBitsSreAiCreditsAggSum
    */
@@ -3731,7 +3733,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all orchestrator job hours over all hours in the current month for all
-   * organizations.
+   * organizations. Values are returned in seconds. Divide by 3,600 to convert to hours.
    *
    * @return doJobsMonitoringOrchestratorsJobHoursAggSum
    */
@@ -4801,7 +4803,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all Infrastructure vCPU cores over all hours in the current month for all
-   * organizations.
+   * organizations. Values are returned in millicores. Divide by 1,000 to convert to cores.
    *
    * @return infraCpuAggSum
    */
@@ -4823,7 +4825,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all Infrastructure vCPU cores over all hours in the current month for all
-   * organizations.
+   * organizations. Values are returned in millicores. Divide by 1,000 to convert to cores.
    *
    * @return infraCpuAvgSum
    */
@@ -4846,7 +4848,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all default Infrastructure host vCPU cores reported by the Datadog Agent over
-   * all hours in the current month for all organizations.
+   * all hours in the current month for all organizations. Values are returned in millicores. Divide
+   * by 1,000 to convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuAgentAggSum
    */
@@ -4870,7 +4873,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all default Infrastructure host vCPU cores reported by the Datadog Agent
-   * over all hours in the current month for all organizations.
+   * over all hours in the current month for all organizations. Values are returned in millicores.
+   * Divide by 1,000 to convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuAgentAvgSum
    */
@@ -4895,7 +4899,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all default basic Infrastructure host vCPU cores reported by the Datadog Agent
-   * over all hours in the current month for all organizations.
+   * over all hours in the current month for all organizations. Values are returned in millicores.
+   * Divide by 1,000 to convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuAgentBasicAggSum
    */
@@ -4921,7 +4926,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all default basic Infrastructure host vCPU cores reported by the Datadog
-   * Agent over all hours in the current month for all organizations.
+   * Agent over all hours in the current month for all organizations. Values are returned in
+   * millicores. Divide by 1,000 to convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuAgentBasicAvgSum
    */
@@ -4946,7 +4952,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on AWS over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuAwsAggSum
    */
@@ -4969,7 +4976,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all default Infrastructure host vCPU cores on AWS over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuAwsAvgSum
    */
@@ -4992,7 +5000,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on Azure over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuAzureAggSum
    */
@@ -5016,7 +5025,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all default Infrastructure host vCPU cores on Azure over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuAzureAvgSum
    */
@@ -5040,7 +5050,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on GCP over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuGcpAggSum
    */
@@ -5063,7 +5074,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all default Infrastructure host vCPU cores on GCP over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuGcpAvgSum
    */
@@ -5086,7 +5098,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on Nutanix over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuNutanixAggSum
    */
@@ -5110,7 +5123,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all default Infrastructure host vCPU cores on Nutanix over all hours in
-   * the current month for all organizations.
+   * the current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuNutanixAvgSum
    */
@@ -5135,7 +5149,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all default basic Infrastructure host vCPU cores on Nutanix over all hours in
-   * the current month for all organizations.
+   * the current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuNutanixBasicAggSum
    */
@@ -5161,7 +5176,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all default basic Infrastructure host vCPU cores on Nutanix over all hours
-   * in the current month for all organizations.
+   * in the current month for all organizations. Values are returned in millicores. Divide by 1,000
+   * to convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuNutanixBasicAvgSum
    */
@@ -5187,7 +5203,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all default Infrastructure host vCPU cores reported by OpenTelemetry over all
-   * hours in the current month for all organizations.
+   * hours in the current month for all organizations. Values are returned in millicores. Divide by
+   * 1,000 to convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuOpentelemetryAggSum
    */
@@ -5213,7 +5230,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all default Infrastructure host vCPU cores reported by OpenTelemetry over
-   * all hours in the current month for all organizations.
+   * all hours in the current month for all organizations. Values are returned in millicores. Divide
+   * by 1,000 to convert to cores.
    *
    * @return infraCpuDefaultInfraHostVcpuOpentelemetryAvgSum
    */
@@ -5238,7 +5256,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores reported by the Datadog Agent over
-   * all hours in the current month for all organizations.
+   * all hours in the current month for all organizations. Values are returned in millicores. Divide
+   * by 1,000 to convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuAgentAggSum
    */
@@ -5262,7 +5281,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all observed Infrastructure host vCPU cores reported by the Datadog Agent
-   * over all hours in the current month for all organizations.
+   * over all hours in the current month for all organizations. Values are returned in millicores.
+   * Divide by 1,000 to convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuAgentAvgSum
    */
@@ -5286,7 +5306,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on AWS over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuAwsAggSum
    */
@@ -5310,7 +5331,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on AWS over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuAwsAvgSum
    */
@@ -5334,7 +5356,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on Azure over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuAzureAggSum
    */
@@ -5358,7 +5381,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on Azure over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuAzureAvgSum
    */
@@ -5382,7 +5406,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on GCP over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuGcpAggSum
    */
@@ -5406,7 +5431,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on GCP over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuGcpAvgSum
    */
@@ -5430,7 +5456,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on Nutanix over all hours in the
-   * current month for all organizations.
+   * current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuNutanixAggSum
    */
@@ -5454,7 +5481,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on Nutanix over all hours in
-   * the current month for all organizations.
+   * the current month for all organizations. Values are returned in millicores. Divide by 1,000 to
+   * convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuNutanixAvgSum
    */
@@ -5479,7 +5507,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all
-   * hours in the current month for all organizations.
+   * hours in the current month for all organizations. Values are returned in millicores. Divide by
+   * 1,000 to convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuOpentelemetryAggSum
    */
@@ -5505,7 +5534,8 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all observed Infrastructure host vCPU cores reported by OpenTelemetry over
-   * all hours in the current month for all organizations.
+   * all hours in the current month for all organizations. Values are returned in millicores. Divide
+   * by 1,000 to convert to cores.
    *
    * @return infraCpuObservedInfraHostVcpuOpentelemetryAvgSum
    */
