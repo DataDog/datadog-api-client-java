@@ -4,10 +4,17 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.CloneFormRequest;
 import com.datadog.api.client.v2.model.CreateFormRequest;
 import com.datadog.api.client.v2.model.DeleteFormResponse;
+import com.datadog.api.client.v2.model.FormPublicationResponse;
 import com.datadog.api.client.v2.model.FormResponse;
+import com.datadog.api.client.v2.model.FormVersionResponse;
 import com.datadog.api.client.v2.model.FormsResponse;
+import com.datadog.api.client.v2.model.PublishFormRequest;
+import com.datadog.api.client.v2.model.UpdateFormRequest;
+import com.datadog.api.client.v2.model.UpsertAndPublishFormVersionRequest;
+import com.datadog.api.client.v2.model.UpsertFormVersionRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -46,6 +53,175 @@ public class FormsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Clone a form.
+   *
+   * <p>See {@link #cloneFormWithHttpInfo}.
+   *
+   * @param formId The ID of the form to clone. (required)
+   * @param body (required)
+   * @return FormResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FormResponse cloneForm(UUID formId, CloneFormRequest body) throws ApiException {
+    return cloneFormWithHttpInfo(formId, body).getData();
+  }
+
+  /**
+   * Clone a form.
+   *
+   * <p>See {@link #cloneFormWithHttpInfoAsync}.
+   *
+   * @param formId The ID of the form to clone. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FormResponse&gt;
+   */
+  public CompletableFuture<FormResponse> cloneFormAsync(UUID formId, CloneFormRequest body) {
+    return cloneFormWithHttpInfoAsync(formId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Clone an existing form. The clone is created in draft mode using the source form's latest
+   * version.
+   *
+   * @param formId The ID of the form to clone. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FormResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FormResponse> cloneFormWithHttpInfo(UUID formId, CloneFormRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "cloneForm";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      throw new ApiException(400, "Missing the required parameter 'formId' when calling cloneForm");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling cloneForm");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/clone"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FormsApi.cloneForm",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormResponse>() {});
+  }
+
+  /**
+   * Clone a form.
+   *
+   * <p>See {@link #cloneFormWithHttpInfo}.
+   *
+   * @param formId The ID of the form to clone. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FormResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FormResponse>> cloneFormWithHttpInfoAsync(
+      UUID formId, CloneFormRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "cloneForm";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'formId' when calling cloneForm"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling cloneForm"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/clone"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FormsApi.cloneForm",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormResponse>() {});
   }
 
   /**
@@ -831,5 +1007,697 @@ public class FormsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FormsResponse>() {});
+  }
+
+  /**
+   * Publish a form version.
+   *
+   * <p>See {@link #publishFormWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return FormPublicationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FormPublicationResponse publishForm(UUID formId, PublishFormRequest body)
+      throws ApiException {
+    return publishFormWithHttpInfo(formId, body).getData();
+  }
+
+  /**
+   * Publish a form version.
+   *
+   * <p>See {@link #publishFormWithHttpInfoAsync}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FormPublicationResponse&gt;
+   */
+  public CompletableFuture<FormPublicationResponse> publishFormAsync(
+      UUID formId, PublishFormRequest body) {
+    return publishFormWithHttpInfoAsync(formId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Publish a specific version of a form, making it available for submissions.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FormPublicationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FormPublicationResponse> publishFormWithHttpInfo(
+      UUID formId, PublishFormRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "publishForm";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'formId' when calling publishForm");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling publishForm");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/publish"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FormsApi.publishForm",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormPublicationResponse>() {});
+  }
+
+  /**
+   * Publish a form version.
+   *
+   * <p>See {@link #publishFormWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FormPublicationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FormPublicationResponse>> publishFormWithHttpInfoAsync(
+      UUID formId, PublishFormRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "publishForm";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FormPublicationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      CompletableFuture<ApiResponse<FormPublicationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'formId' when calling publishForm"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FormPublicationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling publishForm"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/publish"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FormsApi.publishForm",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FormPublicationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormPublicationResponse>() {});
+  }
+
+  /**
+   * Update a form.
+   *
+   * <p>See {@link #updateFormWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return FormResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FormResponse updateForm(UUID formId, UpdateFormRequest body) throws ApiException {
+    return updateFormWithHttpInfo(formId, body).getData();
+  }
+
+  /**
+   * Update a form.
+   *
+   * <p>See {@link #updateFormWithHttpInfoAsync}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FormResponse&gt;
+   */
+  public CompletableFuture<FormResponse> updateFormAsync(UUID formId, UpdateFormRequest body) {
+    return updateFormWithHttpInfoAsync(formId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a form's properties such as its name, description, or datastore configuration.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FormResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FormResponse> updateFormWithHttpInfo(UUID formId, UpdateFormRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateForm";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'formId' when calling updateForm");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateForm");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FormsApi.updateForm",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormResponse>() {});
+  }
+
+  /**
+   * Update a form.
+   *
+   * <p>See {@link #updateFormWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FormResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FormResponse>> updateFormWithHttpInfoAsync(
+      UUID formId, UpdateFormRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateForm";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'formId' when calling updateForm"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling updateForm"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FormsApi.updateForm",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormResponse>() {});
+  }
+
+  /**
+   * Upsert and publish a form version.
+   *
+   * <p>See {@link #upsertAndPublishFormVersionWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return FormResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FormResponse upsertAndPublishFormVersion(
+      UUID formId, UpsertAndPublishFormVersionRequest body) throws ApiException {
+    return upsertAndPublishFormVersionWithHttpInfo(formId, body).getData();
+  }
+
+  /**
+   * Upsert and publish a form version.
+   *
+   * <p>See {@link #upsertAndPublishFormVersionWithHttpInfoAsync}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FormResponse&gt;
+   */
+  public CompletableFuture<FormResponse> upsertAndPublishFormVersionAsync(
+      UUID formId, UpsertAndPublishFormVersionRequest body) {
+    return upsertAndPublishFormVersionWithHttpInfoAsync(formId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Upsert the latest form version and publish it in a single atomic transaction.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FormResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FormResponse> upsertAndPublishFormVersionWithHttpInfo(
+      UUID formId, UpsertAndPublishFormVersionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "upsertAndPublishFormVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'formId' when calling upsertAndPublishFormVersion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling upsertAndPublishFormVersion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/versions/upsert_and_publish"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FormsApi.upsertAndPublishFormVersion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormResponse>() {});
+  }
+
+  /**
+   * Upsert and publish a form version.
+   *
+   * <p>See {@link #upsertAndPublishFormVersionWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FormResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FormResponse>> upsertAndPublishFormVersionWithHttpInfoAsync(
+      UUID formId, UpsertAndPublishFormVersionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "upsertAndPublishFormVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'formId' when calling upsertAndPublishFormVersion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling upsertAndPublishFormVersion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/versions/upsert_and_publish"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FormsApi.upsertAndPublishFormVersion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FormResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormResponse>() {});
+  }
+
+  /**
+   * Create or update a form version.
+   *
+   * <p>See {@link #upsertFormVersionWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return FormVersionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FormVersionResponse upsertFormVersion(UUID formId, UpsertFormVersionRequest body)
+      throws ApiException {
+    return upsertFormVersionWithHttpInfo(formId, body).getData();
+  }
+
+  /**
+   * Create or update a form version.
+   *
+   * <p>See {@link #upsertFormVersionWithHttpInfoAsync}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FormVersionResponse&gt;
+   */
+  public CompletableFuture<FormVersionResponse> upsertFormVersionAsync(
+      UUID formId, UpsertFormVersionRequest body) {
+    return upsertFormVersionWithHttpInfoAsync(formId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create or update the latest draft version of a form. The <code>upsert_params</code> field
+   * controls optimistic concurrency behavior.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FormVersionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FormVersionResponse> upsertFormVersionWithHttpInfo(
+      UUID formId, UpsertFormVersionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "upsertFormVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'formId' when calling upsertFormVersion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling upsertFormVersion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/versions"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FormsApi.upsertFormVersion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormVersionResponse>() {});
+  }
+
+  /**
+   * Create or update a form version.
+   *
+   * <p>See {@link #upsertFormVersionWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FormVersionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FormVersionResponse>> upsertFormVersionWithHttpInfoAsync(
+      UUID formId, UpsertFormVersionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "upsertFormVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FormVersionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      CompletableFuture<ApiResponse<FormVersionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'formId' when calling upsertFormVersion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FormVersionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling upsertFormVersion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/versions"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FormsApi.upsertFormVersion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FormVersionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormVersionResponse>() {});
   }
 }
