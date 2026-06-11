@@ -144,6 +144,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringTerraformConvertRequest
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformExportResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformResourceType;
 import com.datadog.api.client.v2.model.SignalEntitiesResponse;
+import com.datadog.api.client.v2.model.SingleEntityContextResponse;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.UpdateResourceEvaluationFiltersRequest;
@@ -12611,6 +12612,266 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<NotificationRulesListResponse>() {});
+  }
+
+  /** Manage optional parameters to getSingleEntityContext. */
+  public static class GetSingleEntityContextOptionalParameters {
+    private String from;
+    private String to;
+    private String asOf;
+
+    /**
+     * Set from.
+     *
+     * @param from The start of the time range to query, as an RFC3339 timestamp or a relative time
+     *     (for example, <code>now-7d</code>). Defaults to <code>now-7d</code>. Ignored when <code>
+     *     as_of</code> is set. (optional, default to "now-7d")
+     * @return GetSingleEntityContextOptionalParameters
+     */
+    public GetSingleEntityContextOptionalParameters from(String from) {
+      this.from = from;
+      return this;
+    }
+
+    /**
+     * Set to.
+     *
+     * @param to The end of the time range to query, as an RFC3339 timestamp or a relative time (for
+     *     example, <code>now</code>). Defaults to <code>now</code>. Ignored when <code>as_of</code>
+     *     is set. (optional, default to "now")
+     * @return GetSingleEntityContextOptionalParameters
+     */
+    public GetSingleEntityContextOptionalParameters to(String to) {
+      this.to = to;
+      return this;
+    }
+
+    /**
+     * Set asOf.
+     *
+     * @param asOf A point in time at which to query the entity revisions, as an RFC3339 timestamp,
+     *     a Unix timestamp (in seconds), or a relative time (for example, <code>now-1d</code>).
+     *     When set, <code>from</code> and <code>to</code> are ignored. Cannot be combined with
+     *     custom <code>from</code> / <code>to</code> values. (optional)
+     * @return GetSingleEntityContextOptionalParameters
+     */
+    public GetSingleEntityContextOptionalParameters asOf(String asOf) {
+      this.asOf = asOf;
+      return this;
+    }
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfo}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @return SingleEntityContextResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SingleEntityContextResponse getSingleEntityContext(String id) throws ApiException {
+    return getSingleEntityContextWithHttpInfo(id, new GetSingleEntityContextOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfoAsync}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @return CompletableFuture&lt;SingleEntityContextResponse&gt;
+   */
+  public CompletableFuture<SingleEntityContextResponse> getSingleEntityContextAsync(String id) {
+    return getSingleEntityContextWithHttpInfoAsync(
+            id, new GetSingleEntityContextOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfo}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SingleEntityContextResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SingleEntityContextResponse getSingleEntityContext(
+      String id, GetSingleEntityContextOptionalParameters parameters) throws ApiException {
+    return getSingleEntityContextWithHttpInfo(id, parameters).getData();
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfoAsync}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SingleEntityContextResponse&gt;
+   */
+  public CompletableFuture<SingleEntityContextResponse> getSingleEntityContextAsync(
+      String id, GetSingleEntityContextOptionalParameters parameters) {
+    return getSingleEntityContextWithHttpInfoAsync(id, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a single entity from the Cloud SIEM entity context store by its identifier, returning the
+   * historical revisions of the entity in the requested time range. The endpoint can either return
+   * revisions across an interval (<code>from</code> / <code>to</code>) or the snapshot of the
+   * entity at a single point in time (<code>as_of</code>); the two modes are mutually exclusive.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SingleEntityContextResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SingleEntityContextResponse> getSingleEntityContextWithHttpInfo(
+      String id, GetSingleEntityContextOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSingleEntityContext";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getSingleEntityContext");
+    }
+    String from = parameters.from;
+    String to = parameters.to;
+    String asOf = parameters.asOf;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/entity_context/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSingleEntityContext",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SingleEntityContextResponse>() {});
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfo}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SingleEntityContextResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SingleEntityContextResponse>>
+      getSingleEntityContextWithHttpInfoAsync(
+          String id, GetSingleEntityContextOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getSingleEntityContext";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SingleEntityContextResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<SingleEntityContextResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling getSingleEntityContext"));
+      return result;
+    }
+    String from = parameters.from;
+    String to = parameters.to;
+    String asOf = parameters.asOf;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/entity_context/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSingleEntityContext",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SingleEntityContextResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SingleEntityContextResponse>() {});
   }
 
   /**
