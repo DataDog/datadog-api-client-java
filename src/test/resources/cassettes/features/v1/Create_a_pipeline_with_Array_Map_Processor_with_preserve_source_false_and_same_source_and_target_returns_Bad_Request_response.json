@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipelineArrayMapInvalid\",\"processors\":[{\"is_enabled\":true,\"name\":\"invalid preserve_source\",\"preserve_source\":false,\"processors\":[{\"sources\":[\"$sourceElem.id\"],\"target\":\"$targetElem.uid\",\"type\":\"attribute-remapper\"}],\"source\":\"items\",\"target\":\"items\",\"type\":\"array-map-processor\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"error\":{\"code\":\"InvalidArgument\",\"message\":\"Invalid Pipeline\",\"details\":[{\"code\":\"InvalidArgument\",\"message\":\"preserve_source:false is not allowed when source equals target\"}]}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0e8223b3-4d3b-5c20-8be4-dd2bca117e38"
+  }
+]

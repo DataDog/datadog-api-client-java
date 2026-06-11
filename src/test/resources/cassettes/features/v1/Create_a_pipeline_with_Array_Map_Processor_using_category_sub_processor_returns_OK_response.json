@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipelineArrayMapCategory\",\"processors\":[{\"is_enabled\":true,\"name\":\"categorize items\",\"processors\":[{\"categories\":[{\"filter\":{\"query\":\"@$sourceElem.status:error\"},\"name\":\"error\"},{\"filter\":{\"query\":\"*\"},\"name\":\"info\"}],\"target\":\"$targetElem.level\",\"type\":\"category-processor\"}],\"source\":\"items\",\"target\":\"out\",\"type\":\"array-map-processor\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"m9rsoJZvRyekemX5ED_r9g\",\"type\":\"pipeline\",\"name\":\"testPipelineArrayMapCategory\",\"is_enabled\":false,\"is_read_only\":false,\"filter\":{\"query\":\"source:python\"},\"processors\":[{\"name\":\"categorize items\",\"is_enabled\":true,\"source\":\"items\",\"target\":\"out\",\"processors\":[{\"is_enabled\":true,\"categories\":[{\"filter\":{\"query\":\"@$sourceElem.status:error\"},\"name\":\"error\"},{\"filter\":{\"query\":\"*\"},\"name\":\"info\"}],\"target\":\"$targetElem.level\",\"type\":\"category-processor\"}],\"preserve_source\":true,\"type\":\"array-map-processor\"}],\"tags\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f1b388c4-7ff7-a675-4b4a-245be0bc7b8f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/logs/config/pipelines/m9rsoJZvRyekemX5ED_r9g",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "29554513-f97a-609d-4b36-c7bbc6f0f042"
+  }
+]

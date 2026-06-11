@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipelineArrayMapNoPreserve\",\"processors\":[{\"is_enabled\":true,\"name\":\"map and remove source\",\"preserve_source\":false,\"processors\":[{\"sources\":[\"$sourceElem.id\"],\"target\":\"$targetElem.uid\",\"type\":\"attribute-remapper\"}],\"source\":\"items\",\"target\":\"out\",\"type\":\"array-map-processor\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"ltWiUpfFRCaNE9L65g2VvQ\",\"type\":\"pipeline\",\"name\":\"testPipelineArrayMapNoPreserve\",\"is_enabled\":false,\"is_read_only\":false,\"filter\":{\"query\":\"source:python\"},\"processors\":[{\"name\":\"map and remove source\",\"is_enabled\":true,\"source\":\"items\",\"target\":\"out\",\"processors\":[{\"is_enabled\":true,\"sources\":[\"$sourceElem.id\"],\"target\":\"$targetElem.uid\",\"target_type\":\"attribute\",\"preserve_source\":false,\"override_on_conflict\":false,\"type\":\"attribute-remapper\"}],\"preserve_source\":false,\"type\":\"array-map-processor\"}],\"tags\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b72fdb61-bb65-53f9-3cdb-9a48060cae20"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/logs/config/pipelines/ltWiUpfFRCaNE9L65g2VvQ",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0bd739a4-e269-0a3f-5e39-572a6ab5355c"
+  }
+]
