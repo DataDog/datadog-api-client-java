@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipelineArrayMapTargetElemSource\",\"processors\":[{\"is_enabled\":true,\"name\":\"invalid targetElem source\",\"processors\":[{\"sources\":[\"$targetElem.uid\"],\"target\":\"$targetElem.label\",\"type\":\"attribute-remapper\"}],\"source\":\"items\",\"target\":\"out\",\"type\":\"array-map-processor\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"error\":{\"code\":\"InvalidArgument\",\"message\":\"Invalid Pipeline\",\"details\":[{\"code\":\"InvalidArgument\",\"message\":\"$targetElem cannot be used as a source, got: $targetElem.uid\"}]}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8e2ba586-d5db-f337-0e6f-a32c4f229e5f"
+  }
+]
