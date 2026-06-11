@@ -9,11 +9,13 @@ import com.datadog.api.client.v2.model.AnonymizeUsersRequest;
 import com.datadog.api.client.v2.model.AnonymizeUsersResponse;
 import com.datadog.api.client.v2.model.PermissionsResponse;
 import com.datadog.api.client.v2.model.QuerySortOrder;
+import com.datadog.api.client.v2.model.UpdateUserIdentityProvidersRequest;
 import com.datadog.api.client.v2.model.User;
 import com.datadog.api.client.v2.model.UserCreateRequest;
 import com.datadog.api.client.v2.model.UserInvitationResponse;
 import com.datadog.api.client.v2.model.UserInvitationsRequest;
 import com.datadog.api.client.v2.model.UserInvitationsResponse;
+import com.datadog.api.client.v2.model.UserOverrideIdentityProvidersResponse;
 import com.datadog.api.client.v2.model.UserResponse;
 import com.datadog.api.client.v2.model.UserUpdateRequest;
 import com.datadog.api.client.v2.model.UsersResponse;
@@ -982,6 +984,147 @@ public class UsersApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UserResponse>() {});
+  }
+
+  /**
+   * Get identity provider overrides for a user.
+   *
+   * <p>See {@link #getUserIdentityProvidersWithHttpInfo}.
+   *
+   * @param userId The ID of the user. (required)
+   * @return UserOverrideIdentityProvidersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UserOverrideIdentityProvidersResponse getUserIdentityProviders(String userId)
+      throws ApiException {
+    return getUserIdentityProvidersWithHttpInfo(userId).getData();
+  }
+
+  /**
+   * Get identity provider overrides for a user.
+   *
+   * <p>See {@link #getUserIdentityProvidersWithHttpInfoAsync}.
+   *
+   * @param userId The ID of the user. (required)
+   * @return CompletableFuture&lt;UserOverrideIdentityProvidersResponse&gt;
+   */
+  public CompletableFuture<UserOverrideIdentityProvidersResponse> getUserIdentityProvidersAsync(
+      String userId) {
+    return getUserIdentityProvidersWithHttpInfoAsync(userId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the identity provider overrides for a specific user in the organization. When a user has no
+   * overrides set, they use the organization's default identity providers.
+   *
+   * @param userId The ID of the user. (required)
+   * @return ApiResponse&lt;UserOverrideIdentityProvidersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UserOverrideIdentityProvidersResponse> getUserIdentityProvidersWithHttpInfo(
+      String userId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling getUserIdentityProviders");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/users/{user_id}/identity_providers"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsersApi.getUserIdentityProviders",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UserOverrideIdentityProvidersResponse>() {});
+  }
+
+  /**
+   * Get identity provider overrides for a user.
+   *
+   * <p>See {@link #getUserIdentityProvidersWithHttpInfo}.
+   *
+   * @param userId The ID of the user. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UserOverrideIdentityProvidersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UserOverrideIdentityProvidersResponse>>
+      getUserIdentityProvidersWithHttpInfoAsync(String userId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<UserOverrideIdentityProvidersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling getUserIdentityProviders"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/users/{user_id}/identity_providers"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsersApi.getUserIdentityProviders",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UserOverrideIdentityProvidersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UserOverrideIdentityProvidersResponse>() {});
   }
 
   /**
@@ -1985,5 +2128,164 @@ public class UsersApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UserResponse>() {});
+  }
+
+  /**
+   * Update identity provider overrides for a user.
+   *
+   * <p>See {@link #updateUserIdentityProvidersWithHttpInfo}.
+   *
+   * @param userId The ID of the user. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateUserIdentityProviders(String userId, UpdateUserIdentityProvidersRequest body)
+      throws ApiException {
+    updateUserIdentityProvidersWithHttpInfo(userId, body);
+  }
+
+  /**
+   * Update identity provider overrides for a user.
+   *
+   * <p>See {@link #updateUserIdentityProvidersWithHttpInfoAsync}.
+   *
+   * @param userId The ID of the user. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateUserIdentityProvidersAsync(
+      String userId, UpdateUserIdentityProvidersRequest body) {
+    return updateUserIdentityProvidersWithHttpInfoAsync(userId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Set the identity provider overrides for a specific user in the organization. Pass an empty list
+   * to remove all overrides, reverting the user to the organization's default identity providers.
+   *
+   * @param userId The ID of the user. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateUserIdentityProvidersWithHttpInfo(
+      String userId, UpdateUserIdentityProvidersRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling updateUserIdentityProviders");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateUserIdentityProviders");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/users/{user_id}/relationships/identity_providers"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsersApi.updateUserIdentityProviders",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update identity provider overrides for a user.
+   *
+   * <p>See {@link #updateUserIdentityProvidersWithHttpInfo}.
+   *
+   * @param userId The ID of the user. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateUserIdentityProvidersWithHttpInfoAsync(
+      String userId, UpdateUserIdentityProvidersRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling updateUserIdentityProviders"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateUserIdentityProviders"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/users/{user_id}/relationships/identity_providers"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsersApi.updateUserIdentityProviders",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 }
