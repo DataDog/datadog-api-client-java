@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Copy of My Form\"},\"type\":\"forms\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/forms/00000000-0000-0000-0000-000000000001/clone",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"id\":\"32db2695-29bd-4280-b547-3737365608c3\",\"title\":\"form not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "606ff1b5-8062-909f-ac89-7151a2a14930"
+  }
+]
