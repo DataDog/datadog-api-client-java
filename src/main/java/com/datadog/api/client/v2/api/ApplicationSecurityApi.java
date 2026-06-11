@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.ApplicationSecurityPolicyCreateRequest;
 import com.datadog.api.client.v2.model.ApplicationSecurityPolicyListResponse;
 import com.datadog.api.client.v2.model.ApplicationSecurityPolicyResponse;
 import com.datadog.api.client.v2.model.ApplicationSecurityPolicyUpdateRequest;
+import com.datadog.api.client.v2.model.ApplicationSecurityServicesResponse;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleCreateRequest;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleListResponse;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleResponse;
@@ -1343,6 +1344,172 @@ public class ApplicationSecurityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ApplicationSecurityPolicyResponse>() {});
+  }
+
+  /**
+   * Get Application Security details for a service.
+   *
+   * <p>See {@link #getAsmServiceByNameWithHttpInfo}.
+   *
+   * @param serviceFilter The name of the service to retrieve Application Security details for.
+   *     Returns all matching services across environments. (required)
+   * @return ApplicationSecurityServicesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ApplicationSecurityServicesResponse getAsmServiceByName(String serviceFilter)
+      throws ApiException {
+    return getAsmServiceByNameWithHttpInfo(serviceFilter).getData();
+  }
+
+  /**
+   * Get Application Security details for a service.
+   *
+   * <p>See {@link #getAsmServiceByNameWithHttpInfoAsync}.
+   *
+   * @param serviceFilter The name of the service to retrieve Application Security details for.
+   *     Returns all matching services across environments. (required)
+   * @return CompletableFuture&lt;ApplicationSecurityServicesResponse&gt;
+   */
+  public CompletableFuture<ApplicationSecurityServicesResponse> getAsmServiceByNameAsync(
+      String serviceFilter) {
+    return getAsmServiceByNameWithHttpInfoAsync(serviceFilter)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve Application Security details for services matching the given name. Returns Application
+   * Security activation, compatibility, and product enablement information for each matching <code>
+   * (service, environment)</code> pair, along with a count of services that have Application
+   * Security Management (Threats) enabled.
+   *
+   * @param serviceFilter The name of the service to retrieve Application Security details for.
+   *     Returns all matching services across environments. (required)
+   * @return ApiResponse&lt;ApplicationSecurityServicesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ApplicationSecurityServicesResponse> getAsmServiceByNameWithHttpInfo(
+      String serviceFilter) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getAsmServiceByName";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceFilter' is set
+    if (serviceFilter == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'serviceFilter' when calling getAsmServiceByName");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/asm/services/{service_filter}"
+            .replaceAll(
+                "\\{" + "service_filter" + "\\}", apiClient.escapeString(serviceFilter.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApplicationSecurityApi.getAsmServiceByName",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityServicesResponse>() {});
+  }
+
+  /**
+   * Get Application Security details for a service.
+   *
+   * <p>See {@link #getAsmServiceByNameWithHttpInfo}.
+   *
+   * @param serviceFilter The name of the service to retrieve Application Security details for.
+   *     Returns all matching services across environments. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationSecurityServicesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationSecurityServicesResponse>>
+      getAsmServiceByNameWithHttpInfoAsync(String serviceFilter) {
+    // Check if unstable operation is enabled
+    String operationId = "getAsmServiceByName";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ApplicationSecurityServicesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceFilter' is set
+    if (serviceFilter == null) {
+      CompletableFuture<ApiResponse<ApplicationSecurityServicesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'serviceFilter' when calling getAsmServiceByName"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/asm/services/{service_filter}"
+            .replaceAll(
+                "\\{" + "service_filter" + "\\}", apiClient.escapeString(serviceFilter.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ApplicationSecurityApi.getAsmServiceByName",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationSecurityServicesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityServicesResponse>() {});
   }
 
   /**
