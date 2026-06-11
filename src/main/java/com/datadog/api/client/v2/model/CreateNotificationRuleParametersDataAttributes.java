@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   CreateNotificationRuleParametersDataAttributes.JSON_PROPERTY_ENABLED,
   CreateNotificationRuleParametersDataAttributes.JSON_PROPERTY_NAME,
+  CreateNotificationRuleParametersDataAttributes.JSON_PROPERTY_ROUTING,
   CreateNotificationRuleParametersDataAttributes.JSON_PROPERTY_SELECTORS,
   CreateNotificationRuleParametersDataAttributes.JSON_PROPERTY_TARGETS,
   CreateNotificationRuleParametersDataAttributes.JSON_PROPERTY_TIME_AGGREGATION
@@ -36,6 +37,9 @@ public class CreateNotificationRuleParametersDataAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_ROUTING = "routing";
+  private NotificationRuleRouting routing;
 
   public static final String JSON_PROPERTY_SELECTORS = "selectors";
   private Selectors selectors;
@@ -98,6 +102,28 @@ public class CreateNotificationRuleParametersDataAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CreateNotificationRuleParametersDataAttributes routing(NotificationRuleRouting routing) {
+    this.routing = routing;
+    this.unparsed |= routing.unparsed;
+    return this;
+  }
+
+  /**
+   * Routing configuration for the notification rule.
+   *
+   * @return routing
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROUTING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotificationRuleRouting getRouting() {
+    return routing;
+  }
+
+  public void setRouting(NotificationRuleRouting routing) {
+    this.routing = routing;
   }
 
   public CreateNotificationRuleParametersDataAttributes selectors(Selectors selectors) {
@@ -235,6 +261,7 @@ public class CreateNotificationRuleParametersDataAttributes {
         (CreateNotificationRuleParametersDataAttributes) o;
     return Objects.equals(this.enabled, createNotificationRuleParametersDataAttributes.enabled)
         && Objects.equals(this.name, createNotificationRuleParametersDataAttributes.name)
+        && Objects.equals(this.routing, createNotificationRuleParametersDataAttributes.routing)
         && Objects.equals(this.selectors, createNotificationRuleParametersDataAttributes.selectors)
         && Objects.equals(this.targets, createNotificationRuleParametersDataAttributes.targets)
         && Objects.equals(
@@ -246,7 +273,8 @@ public class CreateNotificationRuleParametersDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, name, selectors, targets, timeAggregation, additionalProperties);
+    return Objects.hash(
+        enabled, name, routing, selectors, targets, timeAggregation, additionalProperties);
   }
 
   @Override
@@ -255,6 +283,7 @@ public class CreateNotificationRuleParametersDataAttributes {
     sb.append("class CreateNotificationRuleParametersDataAttributes {\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    routing: ").append(toIndentedString(routing)).append("\n");
     sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
     sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("    timeAggregation: ").append(toIndentedString(timeAggregation)).append("\n");

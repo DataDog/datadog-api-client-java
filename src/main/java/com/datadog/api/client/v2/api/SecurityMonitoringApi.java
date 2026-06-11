@@ -56,6 +56,7 @@ import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
 import com.datadog.api.client.v2.model.MuteFindingsRequest;
 import com.datadog.api.client.v2.model.MuteFindingsResponse;
 import com.datadog.api.client.v2.model.NodeTypesResponse;
+import com.datadog.api.client.v2.model.NotificationRulePreviewResponse;
 import com.datadog.api.client.v2.model.NotificationRuleResponse;
 import com.datadog.api.client.v2.model.NotificationRulesListResponse;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
@@ -21639,6 +21640,149 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSignalsListResponse>() {});
+  }
+
+  /**
+   * Test a notification rule.
+   *
+   * <p>See {@link #sendSecurityMonitoringNotificationPreviewWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return NotificationRulePreviewResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationRulePreviewResponse sendSecurityMonitoringNotificationPreview(
+      CreateNotificationRuleParameters body) throws ApiException {
+    return sendSecurityMonitoringNotificationPreviewWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Test a notification rule.
+   *
+   * <p>See {@link #sendSecurityMonitoringNotificationPreviewWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;NotificationRulePreviewResponse&gt;
+   */
+  public CompletableFuture<NotificationRulePreviewResponse>
+      sendSecurityMonitoringNotificationPreviewAsync(CreateNotificationRuleParameters body) {
+    return sendSecurityMonitoringNotificationPreviewWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Send a notification preview to test that a notification rule's targets are properly configured.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;NotificationRulePreviewResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationRulePreviewResponse>
+      sendSecurityMonitoringNotificationPreviewWithHttpInfo(CreateNotificationRuleParameters body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " sendSecurityMonitoringNotificationPreview");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/send_notification_preview";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.sendSecurityMonitoringNotificationPreview",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRulePreviewResponse>() {});
+  }
+
+  /**
+   * Test a notification rule.
+   *
+   * <p>See {@link #sendSecurityMonitoringNotificationPreviewWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRulePreviewResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationRulePreviewResponse>>
+      sendSecurityMonitoringNotificationPreviewWithHttpInfoAsync(
+          CreateNotificationRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<NotificationRulePreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " sendSecurityMonitoringNotificationPreview"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/send_notification_preview";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.sendSecurityMonitoringNotificationPreview",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationRulePreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRulePreviewResponse>() {});
   }
 
   /**
