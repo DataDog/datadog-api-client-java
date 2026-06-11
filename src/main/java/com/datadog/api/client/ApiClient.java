@@ -926,6 +926,7 @@ public class ApiClient {
           put("v2.getSecurityMonitoringHistsignalsByJobId", false);
           put("v2.getSecurityMonitoringIntegrationConfig", false);
           put("v2.getSignalEntities", false);
+          put("v2.getSingleEntityContext", false);
           put("v2.getStaticAnalysisDefaultRulesets", false);
           put("v2.getStaticAnalysisNodeTypes", false);
           put("v2.getStaticAnalysisRuleset", false);
