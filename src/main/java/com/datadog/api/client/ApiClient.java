@@ -1183,11 +1183,6 @@ public class ApiClient {
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.getEntityRiskScore", false);
           put("v2.listEntityRiskScores", false);
-          put("v2.createIncidentService", false);
-          put("v2.deleteIncidentService", false);
-          put("v2.getIncidentService", false);
-          put("v2.listIncidentServices", false);
-          put("v2.updateIncidentService", false);
           put("v2.createSLOReportJob", false);
           put("v2.getSLOReport", false);
           put("v2.getSLOReportJobStatus", false);
