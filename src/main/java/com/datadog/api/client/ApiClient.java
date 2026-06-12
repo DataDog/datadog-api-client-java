@@ -983,6 +983,7 @@ public class ApiClient {
           put("v2.listCSMAgentlessHosts", false);
           put("v2.listCSMUnifiedHostFacets", false);
           put("v2.listCSMUnifiedHosts", false);
+          put("v2.listSharedDashboardsByDashboardId", false);
           put("v2.createDashboardSecureEmbed", false);
           put("v2.deleteDashboardSecureEmbed", false);
           put("v2.getDashboardSecureEmbed", false);
