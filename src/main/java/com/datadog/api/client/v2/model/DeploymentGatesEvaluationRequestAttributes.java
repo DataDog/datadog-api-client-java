@@ -17,8 +17,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for a deployment gate evaluation request. */
+/**
+ * Attributes for a deployment gate evaluation request. When <code>configuration</code> is provided,
+ * rules are evaluated inline from that configuration. When omitted, rules are resolved from the
+ * preconfigured gate for the given service and environment.
+ */
 @JsonPropertyOrder({
+  DeploymentGatesEvaluationRequestAttributes.JSON_PROPERTY_CONFIGURATION,
   DeploymentGatesEvaluationRequestAttributes.JSON_PROPERTY_ENV,
   DeploymentGatesEvaluationRequestAttributes.JSON_PROPERTY_IDENTIFIER,
   DeploymentGatesEvaluationRequestAttributes.JSON_PROPERTY_PRIMARY_TAG,
@@ -29,6 +34,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DeploymentGatesEvaluationRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
+  private DeploymentGatesEvaluationConfiguration configuration;
+
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
 
@@ -52,6 +60,31 @@ public class DeploymentGatesEvaluationRequestAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service) {
     this.env = env;
     this.service = service;
+  }
+
+  public DeploymentGatesEvaluationRequestAttributes configuration(
+      DeploymentGatesEvaluationConfiguration configuration) {
+    this.configuration = configuration;
+    this.unparsed |= configuration.unparsed;
+    return this;
+  }
+
+  /**
+   * Inline rule definitions for a deployment gate evaluation. When provided, rules are evaluated
+   * directly from this configuration instead of using the preconfigured gate rules. At least one
+   * rule is required.
+   *
+   * @return configuration
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DeploymentGatesEvaluationConfiguration getConfiguration() {
+    return configuration;
+  }
+
+  public void setConfiguration(DeploymentGatesEvaluationConfiguration configuration) {
+    this.configuration = configuration;
   }
 
   public DeploymentGatesEvaluationRequestAttributes env(String env) {
@@ -215,7 +248,9 @@ public class DeploymentGatesEvaluationRequestAttributes {
     }
     DeploymentGatesEvaluationRequestAttributes deploymentGatesEvaluationRequestAttributes =
         (DeploymentGatesEvaluationRequestAttributes) o;
-    return Objects.equals(this.env, deploymentGatesEvaluationRequestAttributes.env)
+    return Objects.equals(
+            this.configuration, deploymentGatesEvaluationRequestAttributes.configuration)
+        && Objects.equals(this.env, deploymentGatesEvaluationRequestAttributes.env)
         && Objects.equals(this.identifier, deploymentGatesEvaluationRequestAttributes.identifier)
         && Objects.equals(this.primaryTag, deploymentGatesEvaluationRequestAttributes.primaryTag)
         && Objects.equals(this.service, deploymentGatesEvaluationRequestAttributes.service)
@@ -227,13 +262,15 @@ public class DeploymentGatesEvaluationRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(env, identifier, primaryTag, service, version, additionalProperties);
+    return Objects.hash(
+        configuration, env, identifier, primaryTag, service, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeploymentGatesEvaluationRequestAttributes {\n");
+    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    primaryTag: ").append(toIndentedString(primaryTag)).append("\n");

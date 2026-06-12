@@ -55,7 +55,9 @@ public class DeploymentGatesEvaluationRequestData {
   }
 
   /**
-   * Attributes for a deployment gate evaluation request.
+   * Attributes for a deployment gate evaluation request. When <code>configuration</code> is
+   * provided, rules are evaluated inline from that configuration. When omitted, rules are resolved
+   * from the preconfigured gate for the given service and environment.
    *
    * @return attributes
    */
