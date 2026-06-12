@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Restore_a_rule_to_a_historical_version_returns_Not_Found_response-1781253581\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"name\":\"Test-Restore_a_rule_to_a_historical_version_returns_Not_Found_response-1781253581\",\"createdAt\":1781253581645,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isBeta\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"dataSource\":\"logs\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"uig-ynq-xlh\",\"blocking\":false,\"metadata\":{\"entities\":null,\"sources\":null},\"creationAuthorId\":2320499,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"updater\":{\"handle\":\"\",\"name\":\"\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "62c12034-4d94-5e57-f479-cd8bbb48e9e6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules/uig-ynq-xlh/restore/9999",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"error\":{\"code\":\"NotFound\",\"message\":\"Threat detection rule not found: uig-ynq-xlh, version=9999\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "97d83fdc-62c2-dad4-f515-8317b0f3b7dc"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/rules/uig-ynq-xlh",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "650a5c40-b5be-c9c5-2bba-9b4c8ef82242"
+  }
+]

@@ -21128,6 +21128,195 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Restore a rule to a historical version.
+   *
+   * <p>See {@link #restoreSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param version The historical version number of the rule. (required)
+   * @return SecurityMonitoringRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleResponse restoreSecurityMonitoringRule(String ruleId, Long version)
+      throws ApiException {
+    return restoreSecurityMonitoringRuleWithHttpInfo(ruleId, version).getData();
+  }
+
+  /**
+   * Restore a rule to a historical version.
+   *
+   * <p>See {@link #restoreSecurityMonitoringRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param version The historical version number of the rule. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleResponse> restoreSecurityMonitoringRuleAsync(
+      String ruleId, Long version) {
+    return restoreSecurityMonitoringRuleWithHttpInfoAsync(ruleId, version)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Restores a custom detection rule to a previously saved historical version. Only custom rules
+   * can be restored. Default and partner rules return 400. The restore creates a new version entry;
+   * it does not overwrite history.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param version The historical version number of the rule. (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleResponse> restoreSecurityMonitoringRuleWithHttpInfo(
+      String ruleId, Long version) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "restoreSecurityMonitoringRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling restoreSecurityMonitoringRule");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'version' when calling restoreSecurityMonitoringRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/restore/{version}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.restoreSecurityMonitoringRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleResponse>() {});
+  }
+
+  /**
+   * Restore a rule to a historical version.
+   *
+   * <p>See {@link #restoreSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param version The historical version number of the rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>>
+      restoreSecurityMonitoringRuleWithHttpInfoAsync(String ruleId, Long version) {
+    // Check if unstable operation is enabled
+    String operationId = "restoreSecurityMonitoringRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " restoreSecurityMonitoringRule"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'version' when calling"
+                  + " restoreSecurityMonitoringRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/restore/{version}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.restoreSecurityMonitoringRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleResponse>() {});
+  }
+
+  /**
    * Run a historical job.
    *
    * <p>See {@link #runHistoricalJobWithHttpInfo}.
