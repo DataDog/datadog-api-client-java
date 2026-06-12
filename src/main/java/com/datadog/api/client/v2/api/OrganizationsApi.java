@@ -3,7 +3,10 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.GlobalOrgData;
+import com.datadog.api.client.v2.model.GlobalOrgsResponse;
 import com.datadog.api.client.v2.model.ManagedOrgsResponse;
 import com.datadog.api.client.v2.model.OrgConfigGetResponse;
 import com.datadog.api.client.v2.model.OrgConfigListResponse;
@@ -17,6 +20,7 @@ import jakarta.ws.rs.core.GenericType;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -332,6 +336,274 @@ public class OrganizationsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SAMLConfigurationResponse>() {});
+  }
+
+  /** Manage optional parameters to listGlobalOrgs. */
+  public static class ListGlobalOrgsOptionalParameters {
+    private Integer pageLimit;
+    private String pageCursor;
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of results returned. (optional, default to 100)
+     * @return ListGlobalOrgsOptionalParameters
+     */
+    public ListGlobalOrgsOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor String to query the next page of results. This key is provided with each
+     *     valid response from the API in <code>meta.page.next_cursor</code>. (optional)
+     * @return ListGlobalOrgsOptionalParameters
+     */
+    public ListGlobalOrgsOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+  }
+
+  /**
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @return GlobalOrgsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GlobalOrgsResponse listGlobalOrgs(String userHandle) throws ApiException {
+    return listGlobalOrgsWithHttpInfo(userHandle, new ListGlobalOrgsOptionalParameters()).getData();
+  }
+
+  /**
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfoAsync}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @return CompletableFuture&lt;GlobalOrgsResponse&gt;
+   */
+  public CompletableFuture<GlobalOrgsResponse> listGlobalOrgsAsync(String userHandle) {
+    return listGlobalOrgsWithHttpInfoAsync(userHandle, new ListGlobalOrgsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @param parameters Optional parameters for the request.
+   * @return GlobalOrgsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GlobalOrgsResponse listGlobalOrgs(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) throws ApiException {
+    return listGlobalOrgsWithHttpInfo(userHandle, parameters).getData();
+  }
+
+  /**
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfoAsync}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GlobalOrgsResponse&gt;
+   */
+  public CompletableFuture<GlobalOrgsResponse> listGlobalOrgsAsync(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) {
+    return listGlobalOrgsWithHttpInfoAsync(userHandle, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @return PaginationIterable&lt;GlobalOrgData&gt;
+   */
+  public PaginationIterable<GlobalOrgData> listGlobalOrgsWithPagination(String userHandle) {
+    ListGlobalOrgsOptionalParameters parameters = new ListGlobalOrgsOptionalParameters();
+    return listGlobalOrgsWithPagination(userHandle, parameters);
+  }
+
+  /**
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @return GlobalOrgsResponse
+   */
+  public PaginationIterable<GlobalOrgData> listGlobalOrgsWithPagination(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getNextCursor";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 100;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("userHandle", userHandle);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listGlobalOrgs",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            true,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * Returns organizations across regions for the authenticated user. The <code>user_handle</code>
+   * query parameter must match the authenticated user's handle.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;GlobalOrgsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GlobalOrgsResponse> listGlobalOrgsWithHttpInfo(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userHandle' is set
+    if (userHandle == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userHandle' when calling listGlobalOrgs");
+    }
+    Integer pageLimit = parameters.pageLimit;
+    String pageCursor = parameters.pageCursor;
+    // create path and map variables
+    String localVarPath = "/api/v2/global_orgs";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "user_handle", userHandle));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.listGlobalOrgs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GlobalOrgsResponse>() {});
+  }
+
+  /**
+   * List global orgs.
+   *
+   * <p>See {@link #listGlobalOrgsWithHttpInfo}.
+   *
+   * @param userHandle The handle of the authenticated user. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;GlobalOrgsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GlobalOrgsResponse>> listGlobalOrgsWithHttpInfoAsync(
+      String userHandle, ListGlobalOrgsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userHandle' is set
+    if (userHandle == null) {
+      CompletableFuture<ApiResponse<GlobalOrgsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userHandle' when calling listGlobalOrgs"));
+      return result;
+    }
+    Integer pageLimit = parameters.pageLimit;
+    String pageCursor = parameters.pageCursor;
+    // create path and map variables
+    String localVarPath = "/api/v2/global_orgs";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "user_handle", userHandle));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.listGlobalOrgs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GlobalOrgsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GlobalOrgsResponse>() {});
   }
 
   /**
