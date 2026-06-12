@@ -8,6 +8,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.GlobalOrgData;
 import com.datadog.api.client.v2.model.GlobalOrgsResponse;
 import com.datadog.api.client.v2.model.ManagedOrgsResponse;
+import com.datadog.api.client.v2.model.MaxSessionDurationUpdateRequest;
 import com.datadog.api.client.v2.model.OrgConfigGetResponse;
 import com.datadog.api.client.v2.model.OrgConfigListResponse;
 import com.datadog.api.client.v2.model.OrgConfigWriteRequest;
@@ -995,6 +996,145 @@ public class OrganizationsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SAMLConfigurationsResponse>() {});
+  }
+
+  /**
+   * Update the maximum session duration.
+   *
+   * <p>See {@link #updateLoginOrgConfigsMaxSessionDurationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateLoginOrgConfigsMaxSessionDuration(MaxSessionDurationUpdateRequest body)
+      throws ApiException {
+    updateLoginOrgConfigsMaxSessionDurationWithHttpInfo(body);
+  }
+
+  /**
+   * Update the maximum session duration.
+   *
+   * <p>See {@link #updateLoginOrgConfigsMaxSessionDurationWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateLoginOrgConfigsMaxSessionDurationAsync(
+      MaxSessionDurationUpdateRequest body) {
+    return updateLoginOrgConfigsMaxSessionDurationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the maximum session duration for the current organization. The duration is specified in
+   * seconds.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateLoginOrgConfigsMaxSessionDurationWithHttpInfo(
+      MaxSessionDurationUpdateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateLoginOrgConfigsMaxSessionDuration");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/login/org_configs/max_session_duration";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrganizationsApi.updateLoginOrgConfigsMaxSessionDuration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update the maximum session duration.
+   *
+   * <p>See {@link #updateLoginOrgConfigsMaxSessionDurationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      updateLoginOrgConfigsMaxSessionDurationWithHttpInfoAsync(
+          MaxSessionDurationUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateLoginOrgConfigsMaxSessionDuration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/login/org_configs/max_session_duration";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrganizationsApi.updateLoginOrgConfigsMaxSessionDuration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
