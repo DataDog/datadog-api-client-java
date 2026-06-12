@@ -1747,7 +1747,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor configuration policies.
+   * Get all monitor configuration policies. Returns a list of all policies.
    *
    * @return ApiResponse&lt;MonitorConfigPolicyListResponse&gt;
    * @throws ApiException if fails to make API call
