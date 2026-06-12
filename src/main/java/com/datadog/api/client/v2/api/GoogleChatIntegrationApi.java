@@ -6,8 +6,15 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.GoogleChatAppNamedSpaceResponse;
 import com.datadog.api.client.v2.model.GoogleChatCreateOrganizationHandleRequest;
+import com.datadog.api.client.v2.model.GoogleChatDelegatedUserResponse;
 import com.datadog.api.client.v2.model.GoogleChatOrganizationHandleResponse;
 import com.datadog.api.client.v2.model.GoogleChatOrganizationHandlesResponse;
+import com.datadog.api.client.v2.model.GoogleChatOrganizationResponse;
+import com.datadog.api.client.v2.model.GoogleChatOrganizationsResponse;
+import com.datadog.api.client.v2.model.GoogleChatTargetAudienceCreateRequest;
+import com.datadog.api.client.v2.model.GoogleChatTargetAudienceResponse;
+import com.datadog.api.client.v2.model.GoogleChatTargetAudienceUpdateRequest;
+import com.datadog.api.client.v2.model.GoogleChatTargetAudiencesResponse;
 import com.datadog.api.client.v2.model.GoogleChatUpdateOrganizationHandleRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -45,6 +52,180 @@ public class GoogleChatIntegrationApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Create a target audience.
+   *
+   * <p>See {@link #createGoogleChatTargetAudienceWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param body Target audience payload. (required)
+   * @return GoogleChatTargetAudienceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GoogleChatTargetAudienceResponse createGoogleChatTargetAudience(
+      String organizationBindingId, GoogleChatTargetAudienceCreateRequest body)
+      throws ApiException {
+    return createGoogleChatTargetAudienceWithHttpInfo(organizationBindingId, body).getData();
+  }
+
+  /**
+   * Create a target audience.
+   *
+   * <p>See {@link #createGoogleChatTargetAudienceWithHttpInfoAsync}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param body Target audience payload. (required)
+   * @return CompletableFuture&lt;GoogleChatTargetAudienceResponse&gt;
+   */
+  public CompletableFuture<GoogleChatTargetAudienceResponse> createGoogleChatTargetAudienceAsync(
+      String organizationBindingId, GoogleChatTargetAudienceCreateRequest body) {
+    return createGoogleChatTargetAudienceWithHttpInfoAsync(organizationBindingId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a target audience for a Google Chat organization binding in the Datadog Google Chat
+   * integration.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param body Target audience payload. (required)
+   * @return ApiResponse&lt;GoogleChatTargetAudienceResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GoogleChatTargetAudienceResponse> createGoogleChatTargetAudienceWithHttpInfo(
+      String organizationBindingId, GoogleChatTargetAudienceCreateRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'organizationBindingId' when calling"
+              + " createGoogleChatTargetAudience");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createGoogleChatTargetAudience");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.createGoogleChatTargetAudience",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatTargetAudienceResponse>() {});
+  }
+
+  /**
+   * Create a target audience.
+   *
+   * <p>See {@link #createGoogleChatTargetAudienceWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param body Target audience payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GoogleChatTargetAudienceResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>>
+      createGoogleChatTargetAudienceWithHttpInfoAsync(
+          String organizationBindingId, GoogleChatTargetAudienceCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'organizationBindingId' when calling"
+                  + " createGoogleChatTargetAudience"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createGoogleChatTargetAudience"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.createGoogleChatTargetAudience",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatTargetAudienceResponse>() {});
   }
 
   /**
@@ -220,6 +401,465 @@ public class GoogleChatIntegrationApi {
   }
 
   /**
+   * Delete the delegated user.
+   *
+   * <p>See {@link #deleteGoogleChatDelegatedUserWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteGoogleChatDelegatedUser(String organizationBindingId) throws ApiException {
+    deleteGoogleChatDelegatedUserWithHttpInfo(organizationBindingId);
+  }
+
+  /**
+   * Delete the delegated user.
+   *
+   * <p>See {@link #deleteGoogleChatDelegatedUserWithHttpInfoAsync}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteGoogleChatDelegatedUserAsync(String organizationBindingId) {
+    return deleteGoogleChatDelegatedUserWithHttpInfoAsync(organizationBindingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete the delegated user for a Google Chat organization binding from the Datadog Google Chat
+   * integration.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteGoogleChatDelegatedUserWithHttpInfo(String organizationBindingId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'organizationBindingId' when calling"
+              + " deleteGoogleChatDelegatedUser");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.deleteGoogleChatDelegatedUser",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete the delegated user.
+   *
+   * <p>See {@link #deleteGoogleChatDelegatedUserWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteGoogleChatDelegatedUserWithHttpInfoAsync(
+      String organizationBindingId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'organizationBindingId' when calling"
+                  + " deleteGoogleChatDelegatedUser"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.deleteGoogleChatDelegatedUser",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Google Chat organization binding.
+   *
+   * <p>See {@link #deleteGoogleChatOrganizationWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteGoogleChatOrganization(String organizationBindingId) throws ApiException {
+    deleteGoogleChatOrganizationWithHttpInfo(organizationBindingId);
+  }
+
+  /**
+   * Delete a Google Chat organization binding.
+   *
+   * <p>See {@link #deleteGoogleChatOrganizationWithHttpInfoAsync}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteGoogleChatOrganizationAsync(String organizationBindingId) {
+    return deleteGoogleChatOrganizationWithHttpInfoAsync(organizationBindingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Google Chat organization binding from the Datadog Google Chat integration.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteGoogleChatOrganizationWithHttpInfo(String organizationBindingId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'organizationBindingId' when calling"
+              + " deleteGoogleChatOrganization");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.deleteGoogleChatOrganization",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a Google Chat organization binding.
+   *
+   * <p>See {@link #deleteGoogleChatOrganizationWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteGoogleChatOrganizationWithHttpInfoAsync(
+      String organizationBindingId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'organizationBindingId' when calling"
+                  + " deleteGoogleChatOrganization"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.deleteGoogleChatOrganization",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a target audience.
+   *
+   * <p>See {@link #deleteGoogleChatTargetAudienceWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteGoogleChatTargetAudience(String organizationBindingId, String targetAudienceId)
+      throws ApiException {
+    deleteGoogleChatTargetAudienceWithHttpInfo(organizationBindingId, targetAudienceId);
+  }
+
+  /**
+   * Delete a target audience.
+   *
+   * <p>See {@link #deleteGoogleChatTargetAudienceWithHttpInfoAsync}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteGoogleChatTargetAudienceAsync(
+      String organizationBindingId, String targetAudienceId) {
+    return deleteGoogleChatTargetAudienceWithHttpInfoAsync(organizationBindingId, targetAudienceId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a target audience from a Google Chat organization binding in the Datadog Google Chat
+   * integration.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteGoogleChatTargetAudienceWithHttpInfo(
+      String organizationBindingId, String targetAudienceId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'organizationBindingId' when calling"
+              + " deleteGoogleChatTargetAudience");
+    }
+
+    // verify the required parameter 'targetAudienceId' is set
+    if (targetAudienceId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'targetAudienceId' when calling"
+              + " deleteGoogleChatTargetAudience");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()))
+            .replaceAll(
+                "\\{" + "target_audience_id" + "\\}",
+                apiClient.escapeString(targetAudienceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.deleteGoogleChatTargetAudience",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a target audience.
+   *
+   * <p>See {@link #deleteGoogleChatTargetAudienceWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteGoogleChatTargetAudienceWithHttpInfoAsync(
+      String organizationBindingId, String targetAudienceId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'organizationBindingId' when calling"
+                  + " deleteGoogleChatTargetAudience"));
+      return result;
+    }
+
+    // verify the required parameter 'targetAudienceId' is set
+    if (targetAudienceId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'targetAudienceId' when calling"
+                  + " deleteGoogleChatTargetAudience"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()))
+            .replaceAll(
+                "\\{" + "target_audience_id" + "\\}",
+                apiClient.escapeString(targetAudienceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.deleteGoogleChatTargetAudience",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete organization handle.
    *
    * <p>See {@link #deleteOrganizationHandleWithHttpInfo}.
@@ -383,6 +1023,481 @@ public class GoogleChatIntegrationApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Get the delegated user.
+   *
+   * <p>See {@link #getGoogleChatDelegatedUserWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return GoogleChatDelegatedUserResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GoogleChatDelegatedUserResponse getGoogleChatDelegatedUser(String organizationBindingId)
+      throws ApiException {
+    return getGoogleChatDelegatedUserWithHttpInfo(organizationBindingId).getData();
+  }
+
+  /**
+   * Get the delegated user.
+   *
+   * <p>See {@link #getGoogleChatDelegatedUserWithHttpInfoAsync}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture&lt;GoogleChatDelegatedUserResponse&gt;
+   */
+  public CompletableFuture<GoogleChatDelegatedUserResponse> getGoogleChatDelegatedUserAsync(
+      String organizationBindingId) {
+    return getGoogleChatDelegatedUserWithHttpInfoAsync(organizationBindingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the delegated user for a Google Chat organization binding in the Datadog Google Chat
+   * integration.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return ApiResponse&lt;GoogleChatDelegatedUserResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GoogleChatDelegatedUserResponse> getGoogleChatDelegatedUserWithHttpInfo(
+      String organizationBindingId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'organizationBindingId' when calling"
+              + " getGoogleChatDelegatedUser");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.getGoogleChatDelegatedUser",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatDelegatedUserResponse>() {});
+  }
+
+  /**
+   * Get the delegated user.
+   *
+   * <p>See {@link #getGoogleChatDelegatedUserWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GoogleChatDelegatedUserResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GoogleChatDelegatedUserResponse>>
+      getGoogleChatDelegatedUserWithHttpInfoAsync(String organizationBindingId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      CompletableFuture<ApiResponse<GoogleChatDelegatedUserResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'organizationBindingId' when calling"
+                  + " getGoogleChatDelegatedUser"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.getGoogleChatDelegatedUser",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GoogleChatDelegatedUserResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatDelegatedUserResponse>() {});
+  }
+
+  /**
+   * Get a Google Chat organization binding.
+   *
+   * <p>See {@link #getGoogleChatOrganizationWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return GoogleChatOrganizationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GoogleChatOrganizationResponse getGoogleChatOrganization(String organizationBindingId)
+      throws ApiException {
+    return getGoogleChatOrganizationWithHttpInfo(organizationBindingId).getData();
+  }
+
+  /**
+   * Get a Google Chat organization binding.
+   *
+   * <p>See {@link #getGoogleChatOrganizationWithHttpInfoAsync}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture&lt;GoogleChatOrganizationResponse&gt;
+   */
+  public CompletableFuture<GoogleChatOrganizationResponse> getGoogleChatOrganizationAsync(
+      String organizationBindingId) {
+    return getGoogleChatOrganizationWithHttpInfoAsync(organizationBindingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a Google Chat organization binding from the Datadog Google Chat integration.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return ApiResponse&lt;GoogleChatOrganizationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GoogleChatOrganizationResponse> getGoogleChatOrganizationWithHttpInfo(
+      String organizationBindingId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'organizationBindingId' when calling"
+              + " getGoogleChatOrganization");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.getGoogleChatOrganization",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatOrganizationResponse>() {});
+  }
+
+  /**
+   * Get a Google Chat organization binding.
+   *
+   * <p>See {@link #getGoogleChatOrganizationWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GoogleChatOrganizationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GoogleChatOrganizationResponse>>
+      getGoogleChatOrganizationWithHttpInfoAsync(String organizationBindingId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      CompletableFuture<ApiResponse<GoogleChatOrganizationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'organizationBindingId' when calling"
+                  + " getGoogleChatOrganization"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.getGoogleChatOrganization",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GoogleChatOrganizationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatOrganizationResponse>() {});
+  }
+
+  /**
+   * Get a target audience.
+   *
+   * <p>See {@link #getGoogleChatTargetAudienceWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @return GoogleChatTargetAudienceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GoogleChatTargetAudienceResponse getGoogleChatTargetAudience(
+      String organizationBindingId, String targetAudienceId) throws ApiException {
+    return getGoogleChatTargetAudienceWithHttpInfo(organizationBindingId, targetAudienceId)
+        .getData();
+  }
+
+  /**
+   * Get a target audience.
+   *
+   * <p>See {@link #getGoogleChatTargetAudienceWithHttpInfoAsync}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @return CompletableFuture&lt;GoogleChatTargetAudienceResponse&gt;
+   */
+  public CompletableFuture<GoogleChatTargetAudienceResponse> getGoogleChatTargetAudienceAsync(
+      String organizationBindingId, String targetAudienceId) {
+    return getGoogleChatTargetAudienceWithHttpInfoAsync(organizationBindingId, targetAudienceId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a target audience for a Google Chat organization binding in the Datadog Google Chat
+   * integration.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @return ApiResponse&lt;GoogleChatTargetAudienceResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GoogleChatTargetAudienceResponse> getGoogleChatTargetAudienceWithHttpInfo(
+      String organizationBindingId, String targetAudienceId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'organizationBindingId' when calling"
+              + " getGoogleChatTargetAudience");
+    }
+
+    // verify the required parameter 'targetAudienceId' is set
+    if (targetAudienceId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'targetAudienceId' when calling"
+              + " getGoogleChatTargetAudience");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()))
+            .replaceAll(
+                "\\{" + "target_audience_id" + "\\}",
+                apiClient.escapeString(targetAudienceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.getGoogleChatTargetAudience",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatTargetAudienceResponse>() {});
+  }
+
+  /**
+   * Get a target audience.
+   *
+   * <p>See {@link #getGoogleChatTargetAudienceWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GoogleChatTargetAudienceResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>>
+      getGoogleChatTargetAudienceWithHttpInfoAsync(
+          String organizationBindingId, String targetAudienceId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'organizationBindingId' when calling"
+                  + " getGoogleChatTargetAudience"));
+      return result;
+    }
+
+    // verify the required parameter 'targetAudienceId' is set
+    if (targetAudienceId == null) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'targetAudienceId' when calling"
+                  + " getGoogleChatTargetAudience"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()))
+            .replaceAll(
+                "\\{" + "target_audience_id" + "\\}",
+                apiClient.escapeString(targetAudienceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.getGoogleChatTargetAudience",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatTargetAudienceResponse>() {});
   }
 
   /**
@@ -729,6 +1844,266 @@ public class GoogleChatIntegrationApi {
   }
 
   /**
+   * Get all Google Chat organization bindings.
+   *
+   * <p>See {@link #listGoogleChatOrganizationsWithHttpInfo}.
+   *
+   * @return GoogleChatOrganizationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GoogleChatOrganizationsResponse listGoogleChatOrganizations() throws ApiException {
+    return listGoogleChatOrganizationsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get all Google Chat organization bindings.
+   *
+   * <p>See {@link #listGoogleChatOrganizationsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;GoogleChatOrganizationsResponse&gt;
+   */
+  public CompletableFuture<GoogleChatOrganizationsResponse> listGoogleChatOrganizationsAsync() {
+    return listGoogleChatOrganizationsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of all Google Chat organization bindings in the Datadog Google Chat integration.
+   *
+   * @return ApiResponse&lt;GoogleChatOrganizationsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GoogleChatOrganizationsResponse> listGoogleChatOrganizationsWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/google-chat/organizations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.listGoogleChatOrganizations",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatOrganizationsResponse>() {});
+  }
+
+  /**
+   * Get all Google Chat organization bindings.
+   *
+   * <p>See {@link #listGoogleChatOrganizationsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;GoogleChatOrganizationsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GoogleChatOrganizationsResponse>>
+      listGoogleChatOrganizationsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/google-chat/organizations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.listGoogleChatOrganizations",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GoogleChatOrganizationsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatOrganizationsResponse>() {});
+  }
+
+  /**
+   * Get all target audiences.
+   *
+   * <p>See {@link #listGoogleChatTargetAudiencesWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return GoogleChatTargetAudiencesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GoogleChatTargetAudiencesResponse listGoogleChatTargetAudiences(
+      String organizationBindingId) throws ApiException {
+    return listGoogleChatTargetAudiencesWithHttpInfo(organizationBindingId).getData();
+  }
+
+  /**
+   * Get all target audiences.
+   *
+   * <p>See {@link #listGoogleChatTargetAudiencesWithHttpInfoAsync}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture&lt;GoogleChatTargetAudiencesResponse&gt;
+   */
+  public CompletableFuture<GoogleChatTargetAudiencesResponse> listGoogleChatTargetAudiencesAsync(
+      String organizationBindingId) {
+    return listGoogleChatTargetAudiencesWithHttpInfoAsync(organizationBindingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of all target audiences for a Google Chat organization binding in the Datadog Google
+   * Chat integration.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return ApiResponse&lt;GoogleChatTargetAudiencesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GoogleChatTargetAudiencesResponse> listGoogleChatTargetAudiencesWithHttpInfo(
+      String organizationBindingId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'organizationBindingId' when calling"
+              + " listGoogleChatTargetAudiences");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.listGoogleChatTargetAudiences",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatTargetAudiencesResponse>() {});
+  }
+
+  /**
+   * Get all target audiences.
+   *
+   * <p>See {@link #listGoogleChatTargetAudiencesWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GoogleChatTargetAudiencesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GoogleChatTargetAudiencesResponse>>
+      listGoogleChatTargetAudiencesWithHttpInfoAsync(String organizationBindingId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudiencesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'organizationBindingId' when calling"
+                  + " listGoogleChatTargetAudiences"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.listGoogleChatTargetAudiences",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudiencesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatTargetAudiencesResponse>() {});
+  }
+
+  /**
    * Get all organization handles.
    *
    * <p>See {@link #listOrganizationHandlesWithHttpInfo}.
@@ -874,6 +2249,219 @@ public class GoogleChatIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GoogleChatOrganizationHandlesResponse>() {});
+  }
+
+  /**
+   * Update a target audience.
+   *
+   * <p>See {@link #updateGoogleChatTargetAudienceWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @param body Target audience payload. (required)
+   * @return GoogleChatTargetAudienceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GoogleChatTargetAudienceResponse updateGoogleChatTargetAudience(
+      String organizationBindingId,
+      String targetAudienceId,
+      GoogleChatTargetAudienceUpdateRequest body)
+      throws ApiException {
+    return updateGoogleChatTargetAudienceWithHttpInfo(organizationBindingId, targetAudienceId, body)
+        .getData();
+  }
+
+  /**
+   * Update a target audience.
+   *
+   * <p>See {@link #updateGoogleChatTargetAudienceWithHttpInfoAsync}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @param body Target audience payload. (required)
+   * @return CompletableFuture&lt;GoogleChatTargetAudienceResponse&gt;
+   */
+  public CompletableFuture<GoogleChatTargetAudienceResponse> updateGoogleChatTargetAudienceAsync(
+      String organizationBindingId,
+      String targetAudienceId,
+      GoogleChatTargetAudienceUpdateRequest body) {
+    return updateGoogleChatTargetAudienceWithHttpInfoAsync(
+            organizationBindingId, targetAudienceId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a target audience for a Google Chat organization binding in the Datadog Google Chat
+   * integration.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @param body Target audience payload. (required)
+   * @return ApiResponse&lt;GoogleChatTargetAudienceResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GoogleChatTargetAudienceResponse> updateGoogleChatTargetAudienceWithHttpInfo(
+      String organizationBindingId,
+      String targetAudienceId,
+      GoogleChatTargetAudienceUpdateRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'organizationBindingId' when calling"
+              + " updateGoogleChatTargetAudience");
+    }
+
+    // verify the required parameter 'targetAudienceId' is set
+    if (targetAudienceId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'targetAudienceId' when calling"
+              + " updateGoogleChatTargetAudience");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateGoogleChatTargetAudience");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()))
+            .replaceAll(
+                "\\{" + "target_audience_id" + "\\}",
+                apiClient.escapeString(targetAudienceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.GoogleChatIntegrationApi.updateGoogleChatTargetAudience",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatTargetAudienceResponse>() {});
+  }
+
+  /**
+   * Update a target audience.
+   *
+   * <p>See {@link #updateGoogleChatTargetAudienceWithHttpInfo}.
+   *
+   * @param organizationBindingId Your organization binding ID. (required)
+   * @param targetAudienceId Your target audience ID. (required)
+   * @param body Target audience payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GoogleChatTargetAudienceResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>>
+      updateGoogleChatTargetAudienceWithHttpInfoAsync(
+          String organizationBindingId,
+          String targetAudienceId,
+          GoogleChatTargetAudienceUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'organizationBindingId' is set
+    if (organizationBindingId == null) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'organizationBindingId' when calling"
+                  + " updateGoogleChatTargetAudience"));
+      return result;
+    }
+
+    // verify the required parameter 'targetAudienceId' is set
+    if (targetAudienceId == null) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'targetAudienceId' when calling"
+                  + " updateGoogleChatTargetAudience"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateGoogleChatTargetAudience"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
+            .replaceAll(
+                "\\{" + "organization_binding_id" + "\\}",
+                apiClient.escapeString(organizationBindingId.toString()))
+            .replaceAll(
+                "\\{" + "target_audience_id" + "\\}",
+                apiClient.escapeString(targetAudienceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.GoogleChatIntegrationApi.updateGoogleChatTargetAudience",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GoogleChatTargetAudienceResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GoogleChatTargetAudienceResponse>() {});
   }
 
   /**
