@@ -73,7 +73,7 @@ public class IPAllowlistData {
   }
 
   /**
-   * The unique identifier of the org.
+   * The unique identifier of the organization.
    *
    * @return id
    */
