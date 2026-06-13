@@ -943,7 +943,6 @@ public class ApiClient {
           put("v2.listStaticAnalysisCodegenRulesets", false);
           put("v2.listVulnerabilities", false);
           put("v2.listVulnerableAssets", false);
-          put("v2.muteFindings", false);
           put("v2.runHistoricalJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
           put("v2.updateFindingsAssignee", false);
