@@ -790,6 +790,7 @@ public class ApiClient {
           put("v2.deleteLLMObsDatasetRecords", false);
           put("v2.deleteLLMObsDatasets", false);
           put("v2.deleteLLMObsExperiments", false);
+          put("v2.deleteLLMObsPatternsConfig", false);
           put("v2.deleteLLMObsProjects", false);
           put("v2.exportLLMObsDataset", false);
           put("v2.getLLMObsAnnotatedInteractions", false);
@@ -797,6 +798,8 @@ public class ApiClient {
           put("v2.getLLMObsAnnotationQueueLabelSchema", false);
           put("v2.getLLMObsCustomEvalConfig", false);
           put("v2.getLLMObsDatasetDraftState", false);
+          put("v2.getLLMObsPatternsConfig", false);
+          put("v2.getLLMObsPatternsRunStatus", false);
           put("v2.listLLMObsAnnotationQueues", false);
           put("v2.listLLMObsDatasetRecords", false);
           put("v2.listLLMObsDatasets", false);
@@ -807,6 +810,11 @@ public class ApiClient {
           put("v2.listLLMObsExperiments", false);
           put("v2.listLLMObsIntegrationAccounts", false);
           put("v2.listLLMObsIntegrationModels", false);
+          put("v2.listLLMObsPatternsClusteredPoints", false);
+          put("v2.listLLMObsPatternsConfigs", false);
+          put("v2.listLLMObsPatternsRuns", false);
+          put("v2.listLLMObsPatternsTopics", false);
+          put("v2.listLLMObsPatternsTopicsWithClusteredPoints", false);
           put("v2.listLLMObsProjects", false);
           put("v2.listLLMObsSpans", false);
           put("v2.lockLLMObsDatasetDraftState", false);
@@ -814,6 +822,7 @@ public class ApiClient {
           put("v2.searchLLMObsExperimentation", false);
           put("v2.searchLLMObsSpans", false);
           put("v2.simpleSearchLLMObsExperimentation", false);
+          put("v2.triggerLLMObsPatterns", false);
           put("v2.unlockLLMObsDatasetDraftState", false);
           put("v2.updateLLMObsAnnotationQueue", false);
           put("v2.updateLLMObsAnnotationQueueLabelSchema", false);
@@ -824,6 +833,7 @@ public class ApiClient {
           put("v2.updateLLMObsProject", false);
           put("v2.uploadLLMObsDatasetRecordsFile", false);
           put("v2.upsertLLMObsAnnotations", false);
+          put("v2.upsertLLMObsPatternsConfig", false);
           put("v2.createAnnotation", false);
           put("v2.deleteAnnotation", false);
           put("v2.getPageAnnotations", false);
