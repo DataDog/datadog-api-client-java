@@ -47,7 +47,7 @@ RRULE:FREQ=WEEKLY;BYDAY=MO;BYHOUR=9;BYMINUTE=0
                                     new ReportScheduleTemplateVariable()
                                         .name("env")
                                         .values(Collections.singletonList("prod"))))
-                            .timeframe("calendar_month")
+                            .timeframe("1w")
                             .timezone("America/New_York")
                             .title("Weekly Infrastructure Report"))
                     .type(ReportScheduleType.SCHEDULE));
