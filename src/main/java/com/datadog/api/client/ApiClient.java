@@ -1020,6 +1020,7 @@ public class ApiClient {
           put("v2.updateForm", false);
           put("v2.upsertAndPublishFormVersion", false);
           put("v2.upsertFormVersion", false);
+          put("v2.updateOrgSamlConfigurations", false);
           put("v2.createHamrOrgConnection", false);
           put("v2.getHamrOrgConnection", false);
           put("v2.deleteEntityIntegrationConfig", false);
@@ -1132,7 +1133,6 @@ public class ApiClient {
           put("v2.getScopesRestriction", false);
           put("v2.registerOAuthClient", false);
           put("v2.upsertScopesRestriction", false);
-          put("v2.updateOrgSamlConfigurations", false);
           put("v2.disableCustomerOrg", false);
           put("v2.bulkUpdateOrgGroupMemberships", false);
           put("v2.createOrgGroup", false);
@@ -1183,11 +1183,6 @@ public class ApiClient {
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.getEntityRiskScore", false);
           put("v2.listEntityRiskScores", false);
-          put("v2.createIncidentService", false);
-          put("v2.deleteIncidentService", false);
-          put("v2.getIncidentService", false);
-          put("v2.listIncidentServices", false);
-          put("v2.updateIncidentService", false);
           put("v2.createSLOReportJob", false);
           put("v2.getSLOReport", false);
           put("v2.getSLOReportJobStatus", false);

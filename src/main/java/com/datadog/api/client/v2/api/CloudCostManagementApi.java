@@ -7763,6 +7763,7 @@ public class CloudCostManagementApi {
   /** Manage optional parameters to listCostTagKeySources. */
   public static class ListCostTagKeySourcesOptionalParameters {
     private String filterProvider;
+    private String filterMetric;
 
     /**
      * Set filterProvider.
@@ -7776,6 +7777,19 @@ public class CloudCostManagementApi {
      */
     public ListCostTagKeySourcesOptionalParameters filterProvider(String filterProvider) {
       this.filterProvider = filterProvider;
+      return this;
+    }
+
+    /**
+     * Set filterMetric.
+     *
+     * @param filterMetric Filter results to tag keys that have data for a specific Cloud Cost
+     *     Management metric (for example, <code>aws.cost.net.amortized</code>). When omitted, all
+     *     tag keys for the requested period are returned. (optional)
+     * @return ListCostTagKeySourcesOptionalParameters
+     */
+    public ListCostTagKeySourcesOptionalParameters filterMetric(String filterMetric) {
+      this.filterMetric = filterMetric;
       return this;
     }
   }
@@ -7881,6 +7895,7 @@ public class CloudCostManagementApi {
           400, "Missing the required parameter 'filterMonth' when calling listCostTagKeySources");
     }
     String filterProvider = parameters.filterProvider;
+    String filterMetric = parameters.filterMetric;
     // create path and map variables
     String localVarPath = "/api/v2/cost/tag_metadata/tag_sources";
 
@@ -7889,6 +7904,7 @@ public class CloudCostManagementApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -7944,6 +7960,7 @@ public class CloudCostManagementApi {
       return result;
     }
     String filterProvider = parameters.filterProvider;
+    String filterMetric = parameters.filterMetric;
     // create path and map variables
     String localVarPath = "/api/v2/cost/tag_metadata/tag_sources";
 
@@ -7952,6 +7969,7 @@ public class CloudCostManagementApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric]", filterMetric));
 
     Invocation.Builder builder;
     try {
