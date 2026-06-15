@@ -59,6 +59,16 @@ import com.datadog.api.client.v2.model.LLMObsIntegrationInferenceRequest;
 import com.datadog.api.client.v2.model.LLMObsIntegrationInferenceResponse;
 import com.datadog.api.client.v2.model.LLMObsIntegrationModel;
 import com.datadog.api.client.v2.model.LLMObsIntegrationName;
+import com.datadog.api.client.v2.model.LLMObsPatternsClusteredPointsResponse;
+import com.datadog.api.client.v2.model.LLMObsPatternsConfigResponse;
+import com.datadog.api.client.v2.model.LLMObsPatternsConfigUpsertRequest;
+import com.datadog.api.client.v2.model.LLMObsPatternsConfigsResponse;
+import com.datadog.api.client.v2.model.LLMObsPatternsRunStatusResponse;
+import com.datadog.api.client.v2.model.LLMObsPatternsRunsResponse;
+import com.datadog.api.client.v2.model.LLMObsPatternsTopicsResponse;
+import com.datadog.api.client.v2.model.LLMObsPatternsTopicsWithClusteredPointsResponse;
+import com.datadog.api.client.v2.model.LLMObsPatternsTriggerRequest;
+import com.datadog.api.client.v2.model.LLMObsPatternsTriggerResponse;
 import com.datadog.api.client.v2.model.LLMObsProjectRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectResponse;
 import com.datadog.api.client.v2.model.LLMObsProjectUpdateRequest;
@@ -3479,6 +3489,161 @@ public class LlmObservabilityApi {
   }
 
   /**
+   * Delete a patterns configuration.
+   *
+   * <p>See {@link #deleteLLMObsPatternsConfigWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteLLMObsPatternsConfig(String configId) throws ApiException {
+    deleteLLMObsPatternsConfigWithHttpInfo(configId);
+  }
+
+  /**
+   * Delete a patterns configuration.
+   *
+   * <p>See {@link #deleteLLMObsPatternsConfigWithHttpInfoAsync}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteLLMObsPatternsConfigAsync(String configId) {
+    return deleteLLMObsPatternsConfigWithHttpInfoAsync(configId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a patterns configuration by its ID.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteLLMObsPatternsConfigWithHttpInfo(String configId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsPatternsConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'configId' when calling deleteLLMObsPatternsConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/topic-discovery-configs/{config_id}"
+            .replaceAll("\\{" + "config_id" + "\\}", apiClient.escapeString(configId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.deleteLLMObsPatternsConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a patterns configuration.
+   *
+   * <p>See {@link #deleteLLMObsPatternsConfigWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteLLMObsPatternsConfigWithHttpInfoAsync(
+      String configId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsPatternsConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'configId' when calling deleteLLMObsPatternsConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/topic-discovery-configs/{config_id}"
+            .replaceAll("\\{" + "config_id" + "\\}", apiClient.escapeString(configId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.deleteLLMObsPatternsConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete LLM Observability projects.
    *
    * <p>See {@link #deleteLLMObsProjectsWithHttpInfo}.
@@ -4816,6 +4981,304 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsDatasetDraftStateResponse>() {});
+  }
+
+  /**
+   * Get a patterns configuration.
+   *
+   * <p>See {@link #getLLMObsPatternsConfigWithHttpInfo}.
+   *
+   * @return LLMObsPatternsConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsConfigResponse getLLMObsPatternsConfig() throws ApiException {
+    return getLLMObsPatternsConfigWithHttpInfo().getData();
+  }
+
+  /**
+   * Get a patterns configuration.
+   *
+   * <p>See {@link #getLLMObsPatternsConfigWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LLMObsPatternsConfigResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsConfigResponse> getLLMObsPatternsConfigAsync() {
+    return getLLMObsPatternsConfigWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve the patterns configuration for the organization.
+   *
+   * @return ApiResponse&lt;LLMObsPatternsConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsConfigResponse> getLLMObsPatternsConfigWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsPatternsConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs/latest";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.getLLMObsPatternsConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsConfigResponse>() {});
+  }
+
+  /**
+   * Get a patterns configuration.
+   *
+   * <p>See {@link #getLLMObsPatternsConfigWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsConfigResponse>>
+      getLLMObsPatternsConfigWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsPatternsConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs/latest";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.getLLMObsPatternsConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsConfigResponse>() {});
+  }
+
+  /**
+   * Get patterns run status.
+   *
+   * <p>See {@link #getLLMObsPatternsRunStatusWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return LLMObsPatternsRunStatusResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsRunStatusResponse getLLMObsPatternsRunStatus(String configId)
+      throws ApiException {
+    return getLLMObsPatternsRunStatusWithHttpInfo(configId).getData();
+  }
+
+  /**
+   * Get patterns run status.
+   *
+   * <p>See {@link #getLLMObsPatternsRunStatusWithHttpInfoAsync}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return CompletableFuture&lt;LLMObsPatternsRunStatusResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsRunStatusResponse> getLLMObsPatternsRunStatusAsync(
+      String configId) {
+    return getLLMObsPatternsRunStatusWithHttpInfoAsync(configId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve the status and step-by-step progress of the current or most recent patterns run for a
+   * configuration.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return ApiResponse&lt;LLMObsPatternsRunStatusResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsRunStatusResponse> getLLMObsPatternsRunStatusWithHttpInfo(
+      String configId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsPatternsRunStatus";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'configId' when calling getLLMObsPatternsRunStatus");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs/status";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "config_id", configId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.getLLMObsPatternsRunStatus",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsRunStatusResponse>() {});
+  }
+
+  /**
+   * Get patterns run status.
+   *
+   * <p>See {@link #getLLMObsPatternsRunStatusWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsRunStatusResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsRunStatusResponse>>
+      getLLMObsPatternsRunStatusWithHttpInfoAsync(String configId) {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsPatternsRunStatus";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsRunStatusResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      CompletableFuture<ApiResponse<LLMObsPatternsRunStatusResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'configId' when calling getLLMObsPatternsRunStatus"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs/status";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "config_id", configId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.getLLMObsPatternsRunStatus",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsRunStatusResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsRunStatusResponse>() {});
   }
 
   /** Manage optional parameters to listLLMObsAnnotationQueues. */
@@ -7113,6 +7576,1021 @@ public class LlmObservabilityApi {
         new GenericType<List<LLMObsIntegrationModel>>() {});
   }
 
+  /** Manage optional parameters to listLLMObsPatternsClusteredPoints. */
+  public static class ListLLMObsPatternsClusteredPointsOptionalParameters {
+    private Long pageSize;
+    private String pageToken;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Maximum number of clustered points to return per page. (optional)
+     * @return ListLLMObsPatternsClusteredPointsOptionalParameters
+     */
+    public ListLLMObsPatternsClusteredPointsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageToken.
+     *
+     * @param pageToken Pagination token to retrieve the next page of clustered points. (optional)
+     * @return ListLLMObsPatternsClusteredPointsOptionalParameters
+     */
+    public ListLLMObsPatternsClusteredPointsOptionalParameters pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+  }
+
+  /**
+   * List patterns clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsClusteredPointsWithHttpInfo}.
+   *
+   * @param topicId The ID of the topic to retrieve clustered points for. (required)
+   * @return LLMObsPatternsClusteredPointsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsClusteredPointsResponse listLLMObsPatternsClusteredPoints(String topicId)
+      throws ApiException {
+    return listLLMObsPatternsClusteredPointsWithHttpInfo(
+            topicId, new ListLLMObsPatternsClusteredPointsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List patterns clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsClusteredPointsWithHttpInfoAsync}.
+   *
+   * @param topicId The ID of the topic to retrieve clustered points for. (required)
+   * @return CompletableFuture&lt;LLMObsPatternsClusteredPointsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsClusteredPointsResponse>
+      listLLMObsPatternsClusteredPointsAsync(String topicId) {
+    return listLLMObsPatternsClusteredPointsWithHttpInfoAsync(
+            topicId, new ListLLMObsPatternsClusteredPointsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List patterns clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsClusteredPointsWithHttpInfo}.
+   *
+   * @param topicId The ID of the topic to retrieve clustered points for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return LLMObsPatternsClusteredPointsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsClusteredPointsResponse listLLMObsPatternsClusteredPoints(
+      String topicId, ListLLMObsPatternsClusteredPointsOptionalParameters parameters)
+      throws ApiException {
+    return listLLMObsPatternsClusteredPointsWithHttpInfo(topicId, parameters).getData();
+  }
+
+  /**
+   * List patterns clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsClusteredPointsWithHttpInfoAsync}.
+   *
+   * @param topicId The ID of the topic to retrieve clustered points for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LLMObsPatternsClusteredPointsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsClusteredPointsResponse>
+      listLLMObsPatternsClusteredPointsAsync(
+          String topicId, ListLLMObsPatternsClusteredPointsOptionalParameters parameters) {
+    return listLLMObsPatternsClusteredPointsWithHttpInfoAsync(topicId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the data points grouped into a topic. For a parent topic, points from all of its leaf
+   * topics are returned.
+   *
+   * @param topicId The ID of the topic to retrieve clustered points for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;LLMObsPatternsClusteredPointsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsClusteredPointsResponse>
+      listLLMObsPatternsClusteredPointsWithHttpInfo(
+          String topicId, ListLLMObsPatternsClusteredPointsOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsClusteredPoints";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'topicId' is set
+    if (topicId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'topicId' when calling"
+              + " listLLMObsPatternsClusteredPoints");
+    }
+    Long pageSize = parameters.pageSize;
+    String pageToken = parameters.pageToken;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-clustered-points";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "topic_id", topicId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_token", pageToken));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsPatternsClusteredPoints",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsClusteredPointsResponse>() {});
+  }
+
+  /**
+   * List patterns clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsClusteredPointsWithHttpInfo}.
+   *
+   * @param topicId The ID of the topic to retrieve clustered points for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsClusteredPointsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsClusteredPointsResponse>>
+      listLLMObsPatternsClusteredPointsWithHttpInfoAsync(
+          String topicId, ListLLMObsPatternsClusteredPointsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsClusteredPoints";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsClusteredPointsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'topicId' is set
+    if (topicId == null) {
+      CompletableFuture<ApiResponse<LLMObsPatternsClusteredPointsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'topicId' when calling"
+                  + " listLLMObsPatternsClusteredPoints"));
+      return result;
+    }
+    Long pageSize = parameters.pageSize;
+    String pageToken = parameters.pageToken;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-clustered-points";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "topic_id", topicId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_token", pageToken));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsPatternsClusteredPoints",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsClusteredPointsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsClusteredPointsResponse>() {});
+  }
+
+  /**
+   * List patterns configurations.
+   *
+   * <p>See {@link #listLLMObsPatternsConfigsWithHttpInfo}.
+   *
+   * @return LLMObsPatternsConfigsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsConfigsResponse listLLMObsPatternsConfigs() throws ApiException {
+    return listLLMObsPatternsConfigsWithHttpInfo().getData();
+  }
+
+  /**
+   * List patterns configurations.
+   *
+   * <p>See {@link #listLLMObsPatternsConfigsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LLMObsPatternsConfigsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsConfigsResponse> listLLMObsPatternsConfigsAsync() {
+    return listLLMObsPatternsConfigsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all patterns configurations for the organization.
+   *
+   * @return ApiResponse&lt;LLMObsPatternsConfigsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsConfigsResponse> listLLMObsPatternsConfigsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsConfigs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsPatternsConfigs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsConfigsResponse>() {});
+  }
+
+  /**
+   * List patterns configurations.
+   *
+   * <p>See {@link #listLLMObsPatternsConfigsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsConfigsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsConfigsResponse>>
+      listLLMObsPatternsConfigsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsConfigs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsConfigsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsPatternsConfigs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsConfigsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsConfigsResponse>() {});
+  }
+
+  /**
+   * List patterns runs.
+   *
+   * <p>See {@link #listLLMObsPatternsRunsWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return LLMObsPatternsRunsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsRunsResponse listLLMObsPatternsRuns(String configId) throws ApiException {
+    return listLLMObsPatternsRunsWithHttpInfo(configId).getData();
+  }
+
+  /**
+   * List patterns runs.
+   *
+   * <p>See {@link #listLLMObsPatternsRunsWithHttpInfoAsync}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return CompletableFuture&lt;LLMObsPatternsRunsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsRunsResponse> listLLMObsPatternsRunsAsync(
+      String configId) {
+    return listLLMObsPatternsRunsWithHttpInfoAsync(configId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the completed patterns runs for a configuration.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return ApiResponse&lt;LLMObsPatternsRunsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsRunsResponse> listLLMObsPatternsRunsWithHttpInfo(String configId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsRuns";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'configId' when calling listLLMObsPatternsRuns");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "config_id", configId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsPatternsRuns",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsRunsResponse>() {});
+  }
+
+  /**
+   * List patterns runs.
+   *
+   * <p>See {@link #listLLMObsPatternsRunsWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsRunsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsRunsResponse>>
+      listLLMObsPatternsRunsWithHttpInfoAsync(String configId) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsRuns";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsRunsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      CompletableFuture<ApiResponse<LLMObsPatternsRunsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'configId' when calling listLLMObsPatternsRuns"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "config_id", configId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsPatternsRuns",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsRunsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsRunsResponse>() {});
+  }
+
+  /** Manage optional parameters to listLLMObsPatternsTopics. */
+  public static class ListLLMObsPatternsTopicsOptionalParameters {
+    private String runId;
+
+    /**
+     * Set runId.
+     *
+     * @param runId The ID of a specific patterns run. Defaults to the most recent completed run.
+     *     (optional)
+     * @return ListLLMObsPatternsTopicsOptionalParameters
+     */
+    public ListLLMObsPatternsTopicsOptionalParameters runId(String runId) {
+      this.runId = runId;
+      return this;
+    }
+  }
+
+  /**
+   * List patterns topics.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return LLMObsPatternsTopicsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsTopicsResponse listLLMObsPatternsTopics(String configId)
+      throws ApiException {
+    return listLLMObsPatternsTopicsWithHttpInfo(
+            configId, new ListLLMObsPatternsTopicsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List patterns topics.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithHttpInfoAsync}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return CompletableFuture&lt;LLMObsPatternsTopicsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsTopicsResponse> listLLMObsPatternsTopicsAsync(
+      String configId) {
+    return listLLMObsPatternsTopicsWithHttpInfoAsync(
+            configId, new ListLLMObsPatternsTopicsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List patterns topics.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return LLMObsPatternsTopicsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsTopicsResponse listLLMObsPatternsTopics(
+      String configId, ListLLMObsPatternsTopicsOptionalParameters parameters) throws ApiException {
+    return listLLMObsPatternsTopicsWithHttpInfo(configId, parameters).getData();
+  }
+
+  /**
+   * List patterns topics.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithHttpInfoAsync}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LLMObsPatternsTopicsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsTopicsResponse> listLLMObsPatternsTopicsAsync(
+      String configId, ListLLMObsPatternsTopicsOptionalParameters parameters) {
+    return listLLMObsPatternsTopicsWithHttpInfoAsync(configId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the topics discovered by a patterns run. When no run is specified, the most recent
+   * completed run is used.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;LLMObsPatternsTopicsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsTopicsResponse> listLLMObsPatternsTopicsWithHttpInfo(
+      String configId, ListLLMObsPatternsTopicsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsTopics";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'configId' when calling listLLMObsPatternsTopics");
+    }
+    String runId = parameters.runId;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-topics";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "config_id", configId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "run_id", runId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsPatternsTopics",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsTopicsResponse>() {});
+  }
+
+  /**
+   * List patterns topics.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsTopicsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsTopicsResponse>>
+      listLLMObsPatternsTopicsWithHttpInfoAsync(
+          String configId, ListLLMObsPatternsTopicsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsTopics";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsTopicsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      CompletableFuture<ApiResponse<LLMObsPatternsTopicsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'configId' when calling listLLMObsPatternsTopics"));
+      return result;
+    }
+    String runId = parameters.runId;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-topics";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "config_id", configId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "run_id", runId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsPatternsTopics",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsTopicsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsTopicsResponse>() {});
+  }
+
+  /** Manage optional parameters to listLLMObsPatternsTopicsWithClusteredPoints. */
+  public static class ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters {
+    private String runId;
+    private Boolean includeMetrics;
+
+    /**
+     * Set runId.
+     *
+     * @param runId The ID of a specific patterns run. Defaults to the most recent completed run.
+     *     (optional)
+     * @return ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters
+     */
+    public ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters runId(String runId) {
+      this.runId = runId;
+      return this;
+    }
+
+    /**
+     * Set includeMetrics.
+     *
+     * @param includeMetrics When true, enrich each clustered point with span metrics such as
+     *     status, duration, token counts, estimated cost, and evaluations. (optional)
+     * @return ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters
+     */
+    public ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters includeMetrics(
+        Boolean includeMetrics) {
+      this.includeMetrics = includeMetrics;
+      return this;
+    }
+  }
+
+  /**
+   * List patterns topics with clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return LLMObsPatternsTopicsWithClusteredPointsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsTopicsWithClusteredPointsResponse
+      listLLMObsPatternsTopicsWithClusteredPoints(String configId) throws ApiException {
+    return listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfo(
+            configId, new ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List patterns topics with clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfoAsync}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @return CompletableFuture&lt;LLMObsPatternsTopicsWithClusteredPointsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsTopicsWithClusteredPointsResponse>
+      listLLMObsPatternsTopicsWithClusteredPointsAsync(String configId) {
+    return listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfoAsync(
+            configId, new ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List patterns topics with clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return LLMObsPatternsTopicsWithClusteredPointsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsTopicsWithClusteredPointsResponse
+      listLLMObsPatternsTopicsWithClusteredPoints(
+          String configId, ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters parameters)
+          throws ApiException {
+    return listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfo(configId, parameters).getData();
+  }
+
+  /**
+   * List patterns topics with clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfoAsync}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LLMObsPatternsTopicsWithClusteredPointsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsTopicsWithClusteredPointsResponse>
+      listLLMObsPatternsTopicsWithClusteredPointsAsync(
+          String configId,
+          ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters parameters) {
+    return listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfoAsync(configId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the topics discovered by a patterns run, with the clustered points attached inline to each
+   * leaf topic. When no run is specified, the most recent completed run is used.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;LLMObsPatternsTopicsWithClusteredPointsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsTopicsWithClusteredPointsResponse>
+      listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfo(
+          String configId, ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsTopicsWithClusteredPoints";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'configId' when calling"
+              + " listLLMObsPatternsTopicsWithClusteredPoints");
+    }
+    String runId = parameters.runId;
+    Boolean includeMetrics = parameters.includeMetrics;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-topics/with-cluster-points";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "config_id", configId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "run_id", runId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_metrics", includeMetrics));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsPatternsTopicsWithClusteredPoints",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsTopicsWithClusteredPointsResponse>() {});
+  }
+
+  /**
+   * List patterns topics with clustered points.
+   *
+   * <p>See {@link #listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfo}.
+   *
+   * @param configId The ID of the patterns configuration. (required)
+   * @param parameters Optional parameters for the request.
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsTopicsWithClusteredPointsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsTopicsWithClusteredPointsResponse>>
+      listLLMObsPatternsTopicsWithClusteredPointsWithHttpInfoAsync(
+          String configId,
+          ListLLMObsPatternsTopicsWithClusteredPointsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPatternsTopicsWithClusteredPoints";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsTopicsWithClusteredPointsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'configId' is set
+    if (configId == null) {
+      CompletableFuture<ApiResponse<LLMObsPatternsTopicsWithClusteredPointsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'configId' when calling"
+                  + " listLLMObsPatternsTopicsWithClusteredPoints"));
+      return result;
+    }
+    String runId = parameters.runId;
+    Boolean includeMetrics = parameters.includeMetrics;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-topics/with-cluster-points";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "config_id", configId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "run_id", runId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_metrics", includeMetrics));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsPatternsTopicsWithClusteredPoints",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsTopicsWithClusteredPointsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsTopicsWithClusteredPointsResponse>() {});
+  }
+
   /** Manage optional parameters to listLLMObsProjects. */
   public static class ListLLMObsProjectsOptionalParameters {
     private String filterId;
@@ -8593,6 +10071,162 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsExperimentationSimpleSearchResponse>() {});
+  }
+
+  /**
+   * Trigger a patterns run.
+   *
+   * <p>See {@link #triggerLLMObsPatternsWithHttpInfo}.
+   *
+   * @param body Trigger patterns payload. (required)
+   * @return LLMObsPatternsTriggerResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsTriggerResponse triggerLLMObsPatterns(LLMObsPatternsTriggerRequest body)
+      throws ApiException {
+    return triggerLLMObsPatternsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Trigger a patterns run.
+   *
+   * <p>See {@link #triggerLLMObsPatternsWithHttpInfoAsync}.
+   *
+   * @param body Trigger patterns payload. (required)
+   * @return CompletableFuture&lt;LLMObsPatternsTriggerResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsTriggerResponse> triggerLLMObsPatternsAsync(
+      LLMObsPatternsTriggerRequest body) {
+    return triggerLLMObsPatternsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Start a patterns run for a given configuration. The run executes asynchronously.
+   *
+   * @param body Trigger patterns payload. (required)
+   * @return ApiResponse&lt;LLMObsPatternsTriggerResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsTriggerResponse> triggerLLMObsPatternsWithHttpInfo(
+      LLMObsPatternsTriggerRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "triggerLLMObsPatterns";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling triggerLLMObsPatterns");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.triggerLLMObsPatterns",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsTriggerResponse>() {});
+  }
+
+  /**
+   * Trigger a patterns run.
+   *
+   * <p>See {@link #triggerLLMObsPatternsWithHttpInfo}.
+   *
+   * @param body Trigger patterns payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsTriggerResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsTriggerResponse>>
+      triggerLLMObsPatternsWithHttpInfoAsync(LLMObsPatternsTriggerRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "triggerLLMObsPatterns";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsTriggerResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsPatternsTriggerResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling triggerLLMObsPatterns"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.triggerLLMObsPatterns",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsTriggerResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsTriggerResponse>() {});
   }
 
   /**
@@ -10616,5 +12250,163 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsAnnotationsResponse>() {});
+  }
+
+  /**
+   * Create or update a patterns configuration.
+   *
+   * <p>See {@link #upsertLLMObsPatternsConfigWithHttpInfo}.
+   *
+   * @param body Patterns configuration payload. (required)
+   * @return LLMObsPatternsConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPatternsConfigResponse upsertLLMObsPatternsConfig(
+      LLMObsPatternsConfigUpsertRequest body) throws ApiException {
+    return upsertLLMObsPatternsConfigWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create or update a patterns configuration.
+   *
+   * <p>See {@link #upsertLLMObsPatternsConfigWithHttpInfoAsync}.
+   *
+   * @param body Patterns configuration payload. (required)
+   * @return CompletableFuture&lt;LLMObsPatternsConfigResponse&gt;
+   */
+  public CompletableFuture<LLMObsPatternsConfigResponse> upsertLLMObsPatternsConfigAsync(
+      LLMObsPatternsConfigUpsertRequest body) {
+    return upsertLLMObsPatternsConfigWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new patterns configuration, or update an existing one when a configuration ID is
+   * provided.
+   *
+   * @param body Patterns configuration payload. (required)
+   * @return ApiResponse&lt;LLMObsPatternsConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPatternsConfigResponse> upsertLLMObsPatternsConfigWithHttpInfo(
+      LLMObsPatternsConfigUpsertRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "upsertLLMObsPatternsConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling upsertLLMObsPatternsConfig");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.upsertLLMObsPatternsConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsConfigResponse>() {});
+  }
+
+  /**
+   * Create or update a patterns configuration.
+   *
+   * <p>See {@link #upsertLLMObsPatternsConfigWithHttpInfo}.
+   *
+   * @param body Patterns configuration payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPatternsConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPatternsConfigResponse>>
+      upsertLLMObsPatternsConfigWithHttpInfoAsync(LLMObsPatternsConfigUpsertRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "upsertLLMObsPatternsConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPatternsConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsPatternsConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling upsertLLMObsPatternsConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.upsertLLMObsPatternsConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPatternsConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPatternsConfigResponse>() {});
   }
 }
