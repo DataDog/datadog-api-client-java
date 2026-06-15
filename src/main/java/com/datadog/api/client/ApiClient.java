@@ -990,6 +990,8 @@ public class ApiClient {
           put("v2.updateDashboardSecureEmbed", false);
           put("v2.getDashboardUsage", false);
           put("v2.listDashboardsUsage", false);
+          put("v2.getDataObservabilityMonitorRunStatus", false);
+          put("v2.runDataObservabilityMonitor", false);
           put("v2.createDataset", false);
           put("v2.deleteDataset", false);
           put("v2.getAllDatasets", false);
