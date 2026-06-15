@@ -944,6 +944,7 @@ public class ApiClient {
           put("v2.listVulnerabilities", false);
           put("v2.listVulnerableAssets", false);
           put("v2.muteFindings", false);
+          put("v2.restoreSecurityMonitoringRule", false);
           put("v2.runHistoricalJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
           put("v2.updateFindingsAssignee", false);
@@ -990,6 +991,8 @@ public class ApiClient {
           put("v2.updateDashboardSecureEmbed", false);
           put("v2.getDashboardUsage", false);
           put("v2.listDashboardsUsage", false);
+          put("v2.getDataObservabilityMonitorRunStatus", false);
+          put("v2.runDataObservabilityMonitor", false);
           put("v2.createDataset", false);
           put("v2.deleteDataset", false);
           put("v2.getAllDatasets", false);
