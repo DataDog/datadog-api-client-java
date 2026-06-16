@@ -700,13 +700,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<FindingCaseResponse> attachServiceNowTicketWithHttpInfo(
       AttachServiceNowTicketRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "attachServiceNowTicket";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -749,16 +742,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<FindingCaseResponse>>
       attachServiceNowTicketWithHttpInfoAsync(AttachServiceNowTicketRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "attachServiceNowTicket";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -4495,13 +4478,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<FindingCaseResponseArray> createServiceNowTicketsWithHttpInfo(
       CreateServiceNowTicketRequestArray body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createServiceNowTickets";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -4544,16 +4520,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<FindingCaseResponseArray>>
       createServiceNowTicketsWithHttpInfoAsync(CreateServiceNowTicketRequestArray body) {
-    // Check if unstable operation is enabled
-    String operationId = "createServiceNowTickets";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
