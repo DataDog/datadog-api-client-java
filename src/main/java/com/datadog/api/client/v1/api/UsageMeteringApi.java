@@ -7231,11 +7231,12 @@ public class UsageMeteringApi {
   /**
    * Get all usage across your account.
    *
-   * <p>Newly added billing dimensions and usage types appear as untyped keys on the <code>
-   * additionalProperties</code> map of <code>UsageSummaryResponse</code>, <code>UsageSummaryDate
-   * </code>, and <code>UsageSummaryDateOrg</code> instead of as typed fields. Call <code>
-   * GET /api/v2/usage/summary/available_fields</code> to enumerate every key returned at each
-   * response level—both typed fields and <code>additionalProperties</code> keys.
+   * <p>For SDK users only: all fields on <code>UsageSummaryResponse</code>, <code>UsageSummaryDate
+   * </code>, and <code>UsageSummaryDateOrg</code> are accessible through each object's <code>
+   * additionalProperties</code> map. Existing typed-field getters are unchanged. New billing
+   * dimensions will not have typed-field getters. Use <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-summary-available-fields">Get
+   * available fields for usage summary</a> to enumerate every available key at each response level.
    *
    * <p>This endpoint is only accessible for <a
    * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
