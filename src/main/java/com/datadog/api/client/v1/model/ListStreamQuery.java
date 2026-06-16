@@ -21,20 +21,28 @@ import java.util.Objects;
 
 /** Updated list stream widget. */
 @JsonPropertyOrder({
+  ListStreamQuery.JSON_PROPERTY_ASSIGNEE_UUIDS,
   ListStreamQuery.JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH,
   ListStreamQuery.JSON_PROPERTY_COMPUTE,
   ListStreamQuery.JSON_PROPERTY_DATA_SOURCE,
   ListStreamQuery.JSON_PROPERTY_EVENT_SIZE,
   ListStreamQuery.JSON_PROPERTY_GROUP_BY,
   ListStreamQuery.JSON_PROPERTY_INDEXES,
+  ListStreamQuery.JSON_PROPERTY_PERSONA,
   ListStreamQuery.JSON_PROPERTY_QUERY_STRING,
   ListStreamQuery.JSON_PROPERTY_SORT,
-  ListStreamQuery.JSON_PROPERTY_STORAGE
+  ListStreamQuery.JSON_PROPERTY_STATES,
+  ListStreamQuery.JSON_PROPERTY_STORAGE,
+  ListStreamQuery.JSON_PROPERTY_SUSPECTED_CAUSES,
+  ListStreamQuery.JSON_PROPERTY_TEAM_HANDLES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamQuery {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ASSIGNEE_UUIDS = "assignee_uuids";
+  private List<String> assigneeUuids = null;
+
   public static final String JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH =
       "clustering_pattern_field_path";
   private String clusteringPatternFieldPath;
@@ -43,7 +51,7 @@ public class ListStreamQuery {
   private List<ListStreamComputeItems> compute = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-  private ListStreamSource dataSource = ListStreamSource.APM_ISSUE_STREAM;
+  private ListStreamSource dataSource = ListStreamSource.LOGS_STREAM;
 
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
   private WidgetEventSize eventSize;
@@ -54,14 +62,26 @@ public class ListStreamQuery {
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
 
+  public static final String JSON_PROPERTY_PERSONA = "persona";
+  private ListStreamIssuePersona persona;
+
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private WidgetFieldSort sort;
 
+  public static final String JSON_PROPERTY_STATES = "states";
+  private List<ListStreamIssueState> states = null;
+
   public static final String JSON_PROPERTY_STORAGE = "storage";
   private String storage;
+
+  public static final String JSON_PROPERTY_SUSPECTED_CAUSES = "suspected_causes";
+  private List<String> suspectedCauses = null;
+
+  public static final String JSON_PROPERTY_TEAM_HANDLES = "team_handles";
+  private List<String> teamHandles = null;
 
   public ListStreamQuery() {}
 
@@ -72,6 +92,35 @@ public class ListStreamQuery {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     this.queryString = queryString;
+  }
+
+  public ListStreamQuery assigneeUuids(List<String> assigneeUuids) {
+    this.assigneeUuids = assigneeUuids;
+    return this;
+  }
+
+  public ListStreamQuery addAssigneeUuidsItem(String assigneeUuidsItem) {
+    if (this.assigneeUuids == null) {
+      this.assigneeUuids = new ArrayList<>();
+    }
+    this.assigneeUuids.add(assigneeUuidsItem);
+    return this;
+  }
+
+  /**
+   * Filter by assignee UUIDs. Usable only with <code>issue_stream</code>.
+   *
+   * @return assigneeUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSIGNEE_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getAssigneeUuids() {
+    return assigneeUuids;
+  }
+
+  public void setAssigneeUuids(List<String> assigneeUuids) {
+    this.assigneeUuids = assigneeUuids;
   }
 
   public ListStreamQuery clusteringPatternFieldPath(String clusteringPatternFieldPath) {
@@ -136,7 +185,8 @@ public class ListStreamQuery {
   }
 
   /**
-   * Source from which to query items to display in the stream.
+   * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream,
+   * and logs_issue_stream are deprecated. Use issue_stream instead.
    *
    * @return dataSource
    */
@@ -242,6 +292,31 @@ public class ListStreamQuery {
     this.indexes = indexes;
   }
 
+  public ListStreamQuery persona(ListStreamIssuePersona persona) {
+    this.persona = persona;
+    this.unparsed |= !persona.isValid();
+    return this;
+  }
+
+  /**
+   * Persona filter for the <code>issue_stream</code> data source.
+   *
+   * @return persona
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PERSONA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ListStreamIssuePersona getPersona() {
+    return persona;
+  }
+
+  public void setPersona(ListStreamIssuePersona persona) {
+    if (!persona.isValid()) {
+      this.unparsed = true;
+    }
+    this.persona = persona;
+  }
+
   public ListStreamQuery queryString(String queryString) {
     this.queryString = queryString;
     return this;
@@ -284,6 +359,36 @@ public class ListStreamQuery {
     this.sort = sort;
   }
 
+  public ListStreamQuery states(List<ListStreamIssueState> states) {
+    this.states = states;
+    return this;
+  }
+
+  public ListStreamQuery addStatesItem(ListStreamIssueState statesItem) {
+    if (this.states == null) {
+      this.states = new ArrayList<>();
+    }
+    this.states.add(statesItem);
+    this.unparsed |= !statesItem.isValid();
+    return this;
+  }
+
+  /**
+   * Filter by issue states. Usable only with <code>issue_stream</code>.
+   *
+   * @return states
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ListStreamIssueState> getStates() {
+    return states;
+  }
+
+  public void setStates(List<ListStreamIssueState> states) {
+    this.states = states;
+  }
+
   public ListStreamQuery storage(String storage) {
     this.storage = storage;
     return this;
@@ -303,6 +408,64 @@ public class ListStreamQuery {
 
   public void setStorage(String storage) {
     this.storage = storage;
+  }
+
+  public ListStreamQuery suspectedCauses(List<String> suspectedCauses) {
+    this.suspectedCauses = suspectedCauses;
+    return this;
+  }
+
+  public ListStreamQuery addSuspectedCausesItem(String suspectedCausesItem) {
+    if (this.suspectedCauses == null) {
+      this.suspectedCauses = new ArrayList<>();
+    }
+    this.suspectedCauses.add(suspectedCausesItem);
+    return this;
+  }
+
+  /**
+   * Filter by suspected causes. Usable only with <code>issue_stream</code>.
+   *
+   * @return suspectedCauses
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUSPECTED_CAUSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getSuspectedCauses() {
+    return suspectedCauses;
+  }
+
+  public void setSuspectedCauses(List<String> suspectedCauses) {
+    this.suspectedCauses = suspectedCauses;
+  }
+
+  public ListStreamQuery teamHandles(List<String> teamHandles) {
+    this.teamHandles = teamHandles;
+    return this;
+  }
+
+  public ListStreamQuery addTeamHandlesItem(String teamHandlesItem) {
+    if (this.teamHandles == null) {
+      this.teamHandles = new ArrayList<>();
+    }
+    this.teamHandles.add(teamHandlesItem);
+    return this;
+  }
+
+  /**
+   * Filter by team handles. Usable only with <code>issue_stream</code>.
+   *
+   * @return teamHandles
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM_HANDLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTeamHandles() {
+    return teamHandles;
+  }
+
+  public void setTeamHandles(List<String> teamHandles) {
+    this.teamHandles = teamHandles;
   }
 
   /**
@@ -361,31 +524,41 @@ public class ListStreamQuery {
       return false;
     }
     ListStreamQuery listStreamQuery = (ListStreamQuery) o;
-    return Objects.equals(
+    return Objects.equals(this.assigneeUuids, listStreamQuery.assigneeUuids)
+        && Objects.equals(
             this.clusteringPatternFieldPath, listStreamQuery.clusteringPatternFieldPath)
         && Objects.equals(this.compute, listStreamQuery.compute)
         && Objects.equals(this.dataSource, listStreamQuery.dataSource)
         && Objects.equals(this.eventSize, listStreamQuery.eventSize)
         && Objects.equals(this.groupBy, listStreamQuery.groupBy)
         && Objects.equals(this.indexes, listStreamQuery.indexes)
+        && Objects.equals(this.persona, listStreamQuery.persona)
         && Objects.equals(this.queryString, listStreamQuery.queryString)
         && Objects.equals(this.sort, listStreamQuery.sort)
+        && Objects.equals(this.states, listStreamQuery.states)
         && Objects.equals(this.storage, listStreamQuery.storage)
+        && Objects.equals(this.suspectedCauses, listStreamQuery.suspectedCauses)
+        && Objects.equals(this.teamHandles, listStreamQuery.teamHandles)
         && Objects.equals(this.additionalProperties, listStreamQuery.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
+        assigneeUuids,
         clusteringPatternFieldPath,
         compute,
         dataSource,
         eventSize,
         groupBy,
         indexes,
+        persona,
         queryString,
         sort,
+        states,
         storage,
+        suspectedCauses,
+        teamHandles,
         additionalProperties);
   }
 
@@ -393,6 +566,7 @@ public class ListStreamQuery {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListStreamQuery {\n");
+    sb.append("    assigneeUuids: ").append(toIndentedString(assigneeUuids)).append("\n");
     sb.append("    clusteringPatternFieldPath: ")
         .append(toIndentedString(clusteringPatternFieldPath))
         .append("\n");
@@ -401,9 +575,13 @@ public class ListStreamQuery {
     sb.append("    eventSize: ").append(toIndentedString(eventSize)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
+    sb.append("    persona: ").append(toIndentedString(persona)).append("\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    states: ").append(toIndentedString(states)).append("\n");
     sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
+    sb.append("    suspectedCauses: ").append(toIndentedString(suspectedCauses)).append("\n");
+    sb.append("    teamHandles: ").append(toIndentedString(teamHandles)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

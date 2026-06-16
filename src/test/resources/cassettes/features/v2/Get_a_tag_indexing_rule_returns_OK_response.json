@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_name_matches\":[\"dd.TestGetatagindexingrulereturnsOKresponse1780591177.*\"],\"name\":\"TestGetatagindexingrulereturnsOKresponse1780591177\",\"tags\":[\"env\",\"service\"]},\"type\":\"tag_indexing_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/metrics/tag-indexing-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"cab4c8d3-6ac8-4cb8-aa74-e68a110db375\",\"type\":\"tag_indexing_rules\",\"attributes\":{\"created_at\":\"2026-06-04T16:39:37.150692Z\",\"created_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"exclude_tags_mode\":false,\"metric_name_matches\":[\"dd.TestGetatagindexingrulereturnsOKresponse1780591177.*\"],\"modified_at\":\"2026-06-04T16:39:37.150692Z\",\"modified_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"TestGetatagindexingrulereturnsOKresponse1780591177\",\"options\":{\"version\":1,\"data\":{\"override_previous_rules\":false,\"manage_preexisting_metrics\":true}},\"rule_order\":1,\"tags\":[\"env\",\"service\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f7643fc7-bd7d-000c-ff59-ed572f12deaf"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/metrics/tag-indexing-rules/cab4c8d3-6ac8-4cb8-aa74-e68a110db375",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"cab4c8d3-6ac8-4cb8-aa74-e68a110db375\",\"type\":\"tag_indexing_rules\",\"attributes\":{\"created_at\":\"2026-06-04T16:39:37.150692Z\",\"created_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"exclude_tags_mode\":false,\"metric_name_matches\":[\"dd.TestGetatagindexingrulereturnsOKresponse1780591177.*\"],\"modified_at\":\"2026-06-04T16:39:37.150692Z\",\"modified_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"TestGetatagindexingrulereturnsOKresponse1780591177\",\"options\":{\"version\":1,\"data\":{\"override_previous_rules\":false,\"manage_preexisting_metrics\":true}},\"rule_order\":1,\"tags\":[\"env\",\"service\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f79c4666-785d-e51c-fab6-77c7f28de9d5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/metrics/tag-indexing-rules/cab4c8d3-6ac8-4cb8-aa74-e68a110db375",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "daa22f7f-1a1b-78ed-cf4f-498f5b0e6db1"
+  }
+]

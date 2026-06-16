@@ -545,6 +545,59 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             e);
       }
 
+      // deserialize ObservabilityPipelineGenerateMetricsV2Processor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineGenerateMetricsV2Processor.class.equals(Integer.class)
+            || ObservabilityPipelineGenerateMetricsV2Processor.class.equals(Long.class)
+            || ObservabilityPipelineGenerateMetricsV2Processor.class.equals(Float.class)
+            || ObservabilityPipelineGenerateMetricsV2Processor.class.equals(Double.class)
+            || ObservabilityPipelineGenerateMetricsV2Processor.class.equals(Boolean.class)
+            || ObservabilityPipelineGenerateMetricsV2Processor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineGenerateMetricsV2Processor.class.equals(Integer.class)
+                        || ObservabilityPipelineGenerateMetricsV2Processor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineGenerateMetricsV2Processor.class.equals(Float.class)
+                        || ObservabilityPipelineGenerateMetricsV2Processor.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineGenerateMetricsV2Processor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineGenerateMetricsV2Processor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineGenerateMetricsV2Processor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineGenerateMetricsV2Processor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineGenerateMetricsV2Processor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineGenerateMetricsV2Processor'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineOcsfMapperProcessor
       try {
         boolean attemptParsing = true;
@@ -1491,6 +1544,12 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigProcessorItem(
+      ObservabilityPipelineGenerateMetricsV2Processor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineOcsfMapperProcessor o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1608,6 +1667,9 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
         "ObservabilityPipelineGenerateMetricsProcessor",
         new GenericType<ObservabilityPipelineGenerateMetricsProcessor>() {});
     schemas.put(
+        "ObservabilityPipelineGenerateMetricsV2Processor",
+        new GenericType<ObservabilityPipelineGenerateMetricsV2Processor>() {});
+    schemas.put(
         "ObservabilityPipelineOcsfMapperProcessor",
         new GenericType<ObservabilityPipelineOcsfMapperProcessor>() {});
     schemas.put(
@@ -1674,14 +1736,15 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineAddHostnameProcessor, ObservabilityPipelineCustomProcessor,
    * ObservabilityPipelineDatadogTagsProcessor, ObservabilityPipelineDedupeProcessor,
    * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineGenerateMetricsProcessor,
-   * ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineParseGrokProcessor,
-   * ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineParseXMLProcessor,
-   * ObservabilityPipelineQuotaProcessor, ObservabilityPipelineReduceProcessor,
-   * ObservabilityPipelineRemoveFieldsProcessor, ObservabilityPipelineRenameFieldsProcessor,
-   * ObservabilityPipelineSampleProcessor, ObservabilityPipelineSensitiveDataScannerProcessor,
-   * ObservabilityPipelineSplitArrayProcessor, ObservabilityPipelineThrottleProcessor,
-   * ObservabilityPipelineAddMetricTagsProcessor, ObservabilityPipelineAggregateProcessor,
-   * ObservabilityPipelineMetricTagsProcessor, ObservabilityPipelineRenameMetricTagsProcessor,
+   * ObservabilityPipelineGenerateMetricsV2Processor, ObservabilityPipelineOcsfMapperProcessor,
+   * ObservabilityPipelineParseGrokProcessor, ObservabilityPipelineParseJSONProcessor,
+   * ObservabilityPipelineParseXMLProcessor, ObservabilityPipelineQuotaProcessor,
+   * ObservabilityPipelineReduceProcessor, ObservabilityPipelineRemoveFieldsProcessor,
+   * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
+   * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineSplitArrayProcessor,
+   * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineAddMetricTagsProcessor,
+   * ObservabilityPipelineAggregateProcessor, ObservabilityPipelineMetricTagsProcessor,
+   * ObservabilityPipelineRenameMetricTagsProcessor,
    * ObservabilityPipelineTagCardinalityLimitProcessor
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
@@ -1731,6 +1794,11 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     }
     if (JSON.isInstanceOf(
         ObservabilityPipelineGenerateMetricsProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineGenerateMetricsV2Processor.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1835,6 +1903,7 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             + " ObservabilityPipelineDatadogTagsProcessor, ObservabilityPipelineDedupeProcessor,"
             + " ObservabilityPipelineEnrichmentTableProcessor,"
             + " ObservabilityPipelineGenerateMetricsProcessor,"
+            + " ObservabilityPipelineGenerateMetricsV2Processor,"
             + " ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineParseGrokProcessor,"
             + " ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineParseXMLProcessor,"
             + " ObservabilityPipelineQuotaProcessor, ObservabilityPipelineReduceProcessor,"
@@ -1854,14 +1923,15 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineAddHostnameProcessor, ObservabilityPipelineCustomProcessor,
    * ObservabilityPipelineDatadogTagsProcessor, ObservabilityPipelineDedupeProcessor,
    * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineGenerateMetricsProcessor,
-   * ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineParseGrokProcessor,
-   * ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineParseXMLProcessor,
-   * ObservabilityPipelineQuotaProcessor, ObservabilityPipelineReduceProcessor,
-   * ObservabilityPipelineRemoveFieldsProcessor, ObservabilityPipelineRenameFieldsProcessor,
-   * ObservabilityPipelineSampleProcessor, ObservabilityPipelineSensitiveDataScannerProcessor,
-   * ObservabilityPipelineSplitArrayProcessor, ObservabilityPipelineThrottleProcessor,
-   * ObservabilityPipelineAddMetricTagsProcessor, ObservabilityPipelineAggregateProcessor,
-   * ObservabilityPipelineMetricTagsProcessor, ObservabilityPipelineRenameMetricTagsProcessor,
+   * ObservabilityPipelineGenerateMetricsV2Processor, ObservabilityPipelineOcsfMapperProcessor,
+   * ObservabilityPipelineParseGrokProcessor, ObservabilityPipelineParseJSONProcessor,
+   * ObservabilityPipelineParseXMLProcessor, ObservabilityPipelineQuotaProcessor,
+   * ObservabilityPipelineReduceProcessor, ObservabilityPipelineRemoveFieldsProcessor,
+   * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
+   * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineSplitArrayProcessor,
+   * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineAddMetricTagsProcessor,
+   * ObservabilityPipelineAggregateProcessor, ObservabilityPipelineMetricTagsProcessor,
+   * ObservabilityPipelineRenameMetricTagsProcessor,
    * ObservabilityPipelineTagCardinalityLimitProcessor
    *
    * @return The actual instance (ObservabilityPipelineFilterProcessor,
@@ -1869,7 +1939,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    *     ObservabilityPipelineAddHostnameProcessor, ObservabilityPipelineCustomProcessor,
    *     ObservabilityPipelineDatadogTagsProcessor, ObservabilityPipelineDedupeProcessor,
    *     ObservabilityPipelineEnrichmentTableProcessor,
-   *     ObservabilityPipelineGenerateMetricsProcessor, ObservabilityPipelineOcsfMapperProcessor,
+   *     ObservabilityPipelineGenerateMetricsProcessor,
+   *     ObservabilityPipelineGenerateMetricsV2Processor, ObservabilityPipelineOcsfMapperProcessor,
    *     ObservabilityPipelineParseGrokProcessor, ObservabilityPipelineParseJSONProcessor,
    *     ObservabilityPipelineParseXMLProcessor, ObservabilityPipelineQuotaProcessor,
    *     ObservabilityPipelineReduceProcessor, ObservabilityPipelineRemoveFieldsProcessor,
@@ -1995,6 +2066,20 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
   public ObservabilityPipelineGenerateMetricsProcessor
       getObservabilityPipelineGenerateMetricsProcessor() throws ClassCastException {
     return (ObservabilityPipelineGenerateMetricsProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineGenerateMetricsV2Processor`. If the actual
+   * instance is not `ObservabilityPipelineGenerateMetricsV2Processor`, the ClassCastException will
+   * be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineGenerateMetricsV2Processor`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineGenerateMetricsV2Processor`
+   */
+  public ObservabilityPipelineGenerateMetricsV2Processor
+      getObservabilityPipelineGenerateMetricsV2Processor() throws ClassCastException {
+    return (ObservabilityPipelineGenerateMetricsV2Processor) super.getActualInstance();
   }
 
   /**

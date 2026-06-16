@@ -8,8 +8,11 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AnalysisRequest;
 import com.datadog.api.client.v2.model.AnalysisResponse;
 import com.datadog.api.client.v2.model.AssetType;
+import com.datadog.api.client.v2.model.AssigneeRequest;
+import com.datadog.api.client.v2.model.AssigneeResponse;
 import com.datadog.api.client.v2.model.AttachCaseRequest;
 import com.datadog.api.client.v2.model.AttachJiraIssueRequest;
+import com.datadog.api.client.v2.model.AttachServiceNowTicketRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
 import com.datadog.api.client.v2.model.CloudAssetType;
@@ -19,6 +22,7 @@ import com.datadog.api.client.v2.model.CreateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestArray;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
+import com.datadog.api.client.v2.model.CreateServiceNowTicketRequestArray;
 import com.datadog.api.client.v2.model.DefaultRulesetsPerLanguageResponse;
 import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
@@ -52,7 +56,9 @@ import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
 import com.datadog.api.client.v2.model.MuteFindingsRequest;
 import com.datadog.api.client.v2.model.MuteFindingsResponse;
 import com.datadog.api.client.v2.model.NodeTypesResponse;
+import com.datadog.api.client.v2.model.NotificationRulePreviewResponse;
 import com.datadog.api.client.v2.model.NotificationRuleResponse;
+import com.datadog.api.client.v2.model.NotificationRulesListResponse;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
 import com.datadog.api.client.v2.model.SBOMComponentLicenseType;
@@ -138,6 +144,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringTerraformConvertRequest
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformExportResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformResourceType;
 import com.datadog.api.client.v2.model.SignalEntitiesResponse;
+import com.datadog.api.client.v2.model.SingleEntityContextResponse;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.UpdateResourceEvaluationFiltersRequest;
@@ -619,6 +626,161 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.attachJiraIssue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Attach security findings to a ServiceNow ticket.
+   *
+   * <p>See {@link #attachServiceNowTicketWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FindingCaseResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponse attachServiceNowTicket(AttachServiceNowTicketRequest body)
+      throws ApiException {
+    return attachServiceNowTicketWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Attach security findings to a ServiceNow ticket.
+   *
+   * <p>See {@link #attachServiceNowTicketWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponse&gt;
+   */
+  public CompletableFuture<FindingCaseResponse> attachServiceNowTicketAsync(
+      AttachServiceNowTicketRequest body) {
+    return attachServiceNowTicketWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Attach security findings to a ServiceNow ticket by providing the ServiceNow ticket URL. You can
+   * attach up to 50 security findings per ServiceNow ticket. If the ServiceNow ticket is not linked
+   * to any case, this operation will create a case for the security findings and link the
+   * ServiceNow ticket to the newly created case. Security findings that are already attached to
+   * another ServiceNow ticket will be detached from their previous ServiceNow ticket and attached
+   * to the specified ServiceNow ticket.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponse> attachServiceNowTicketWithHttpInfo(
+      AttachServiceNowTicketRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "attachServiceNowTicket";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling attachServiceNowTicket");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.attachServiceNowTicket",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Attach security findings to a ServiceNow ticket.
+   *
+   * <p>See {@link #attachServiceNowTicketWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponse>>
+      attachServiceNowTicketWithHttpInfoAsync(AttachServiceNowTicketRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "attachServiceNowTicket";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling attachServiceNowTicket"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.attachServiceNowTicket",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -4279,6 +4441,161 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
+   * Create ServiceNow tickets for security findings.
+   *
+   * <p>See {@link #createServiceNowTicketsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FindingCaseResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponseArray createServiceNowTickets(CreateServiceNowTicketRequestArray body)
+      throws ApiException {
+    return createServiceNowTicketsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create ServiceNow tickets for security findings.
+   *
+   * <p>See {@link #createServiceNowTicketsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponseArray&gt;
+   */
+  public CompletableFuture<FindingCaseResponseArray> createServiceNowTicketsAsync(
+      CreateServiceNowTicketRequestArray body) {
+    return createServiceNowTicketsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create ServiceNow tickets for security findings. This operation creates a case in Datadog and a
+   * ServiceNow ticket linked to that case for bidirectional sync between Datadog and ServiceNow.
+   * You can create up to 50 ServiceNow tickets per request and associate up to 50 security findings
+   * per ServiceNow ticket. Security findings that are already attached to another ServiceNow ticket
+   * will be detached from their previous ServiceNow ticket and attached to the newly created
+   * ServiceNow ticket.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponseArray> createServiceNowTicketsWithHttpInfo(
+      CreateServiceNowTicketRequestArray body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createServiceNowTickets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createServiceNowTickets");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createServiceNowTickets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
+  }
+
+  /**
+   * Create ServiceNow tickets for security findings.
+   *
+   * <p>See {@link #createServiceNowTicketsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponseArray>>
+      createServiceNowTicketsWithHttpInfoAsync(CreateServiceNowTicketRequestArray body) {
+    // Check if unstable operation is enabled
+    String operationId = "createServiceNowTickets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createServiceNowTickets"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createServiceNowTickets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
   }
 
   /**
@@ -12190,10 +12507,10 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSignalNotificationRulesWithHttpInfo}.
    *
-   * @return Object
+   * @return NotificationRulesListResponse
    * @throws ApiException if fails to make API call
    */
-  public Object getSignalNotificationRules() throws ApiException {
+  public NotificationRulesListResponse getSignalNotificationRules() throws ApiException {
     return getSignalNotificationRulesWithHttpInfo().getData();
   }
 
@@ -12202,9 +12519,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSignalNotificationRulesWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;Object&gt;
+   * @return CompletableFuture&lt;NotificationRulesListResponse&gt;
    */
-  public CompletableFuture<Object> getSignalNotificationRulesAsync() {
+  public CompletableFuture<NotificationRulesListResponse> getSignalNotificationRulesAsync() {
     return getSignalNotificationRulesWithHttpInfoAsync()
         .thenApply(
             response -> {
@@ -12215,7 +12532,7 @@ public class SecurityMonitoringApi {
   /**
    * Returns the list of notification rules for security signals.
    *
-   * @return ApiResponse&lt;Object&gt;
+   * @return ApiResponse&lt;NotificationRulesListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -12226,7 +12543,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Object> getSignalNotificationRulesWithHttpInfo() throws ApiException {
+  public ApiResponse<NotificationRulesListResponse> getSignalNotificationRulesWithHttpInfo()
+      throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/security/signals/notification_rules";
@@ -12250,7 +12568,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Object>() {});
+        new GenericType<NotificationRulesListResponse>() {});
   }
 
   /**
@@ -12258,9 +12576,10 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSignalNotificationRulesWithHttpInfo}.
    *
-   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRulesListResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Object>> getSignalNotificationRulesWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<NotificationRulesListResponse>>
+      getSignalNotificationRulesWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/security/signals/notification_rules";
@@ -12279,7 +12598,8 @@ public class SecurityMonitoringApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<NotificationRulesListResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -12291,7 +12611,267 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Object>() {});
+        new GenericType<NotificationRulesListResponse>() {});
+  }
+
+  /** Manage optional parameters to getSingleEntityContext. */
+  public static class GetSingleEntityContextOptionalParameters {
+    private String from;
+    private String to;
+    private String asOf;
+
+    /**
+     * Set from.
+     *
+     * @param from The start of the time range to query, as an RFC3339 timestamp or a relative time
+     *     (for example, <code>now-7d</code>). Defaults to <code>now-7d</code>. Ignored when <code>
+     *     as_of</code> is set. (optional, default to "now-7d")
+     * @return GetSingleEntityContextOptionalParameters
+     */
+    public GetSingleEntityContextOptionalParameters from(String from) {
+      this.from = from;
+      return this;
+    }
+
+    /**
+     * Set to.
+     *
+     * @param to The end of the time range to query, as an RFC3339 timestamp or a relative time (for
+     *     example, <code>now</code>). Defaults to <code>now</code>. Ignored when <code>as_of</code>
+     *     is set. (optional, default to "now")
+     * @return GetSingleEntityContextOptionalParameters
+     */
+    public GetSingleEntityContextOptionalParameters to(String to) {
+      this.to = to;
+      return this;
+    }
+
+    /**
+     * Set asOf.
+     *
+     * @param asOf A point in time at which to query the entity revisions, as an RFC3339 timestamp,
+     *     a Unix timestamp (in seconds), or a relative time (for example, <code>now-1d</code>).
+     *     When set, <code>from</code> and <code>to</code> are ignored. Cannot be combined with
+     *     custom <code>from</code> / <code>to</code> values. (optional)
+     * @return GetSingleEntityContextOptionalParameters
+     */
+    public GetSingleEntityContextOptionalParameters asOf(String asOf) {
+      this.asOf = asOf;
+      return this;
+    }
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfo}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @return SingleEntityContextResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SingleEntityContextResponse getSingleEntityContext(String id) throws ApiException {
+    return getSingleEntityContextWithHttpInfo(id, new GetSingleEntityContextOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfoAsync}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @return CompletableFuture&lt;SingleEntityContextResponse&gt;
+   */
+  public CompletableFuture<SingleEntityContextResponse> getSingleEntityContextAsync(String id) {
+    return getSingleEntityContextWithHttpInfoAsync(
+            id, new GetSingleEntityContextOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfo}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SingleEntityContextResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SingleEntityContextResponse getSingleEntityContext(
+      String id, GetSingleEntityContextOptionalParameters parameters) throws ApiException {
+    return getSingleEntityContextWithHttpInfo(id, parameters).getData();
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfoAsync}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SingleEntityContextResponse&gt;
+   */
+  public CompletableFuture<SingleEntityContextResponse> getSingleEntityContextAsync(
+      String id, GetSingleEntityContextOptionalParameters parameters) {
+    return getSingleEntityContextWithHttpInfoAsync(id, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a single entity from the Cloud SIEM entity context store by its identifier, returning the
+   * historical revisions of the entity in the requested time range. The endpoint can either return
+   * revisions across an interval (<code>from</code> / <code>to</code>) or the snapshot of the
+   * entity at a single point in time (<code>as_of</code>); the two modes are mutually exclusive.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SingleEntityContextResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SingleEntityContextResponse> getSingleEntityContextWithHttpInfo(
+      String id, GetSingleEntityContextOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSingleEntityContext";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getSingleEntityContext");
+    }
+    String from = parameters.from;
+    String to = parameters.to;
+    String asOf = parameters.asOf;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/entity_context/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSingleEntityContext",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SingleEntityContextResponse>() {});
+  }
+
+  /**
+   * Get a single entity context.
+   *
+   * <p>See {@link #getSingleEntityContextWithHttpInfo}.
+   *
+   * @param id The unique identifier of the entity to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SingleEntityContextResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SingleEntityContextResponse>>
+      getSingleEntityContextWithHttpInfoAsync(
+          String id, GetSingleEntityContextOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getSingleEntityContext";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SingleEntityContextResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<SingleEntityContextResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling getSingleEntityContext"));
+      return result;
+    }
+    String from = parameters.from;
+    String to = parameters.to;
+    String asOf = parameters.asOf;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/entity_context/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "as_of", asOf));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSingleEntityContext",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SingleEntityContextResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SingleEntityContextResponse>() {});
   }
 
   /**
@@ -13803,10 +14383,10 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfo}.
    *
-   * @return Object
+   * @return NotificationRulesListResponse
    * @throws ApiException if fails to make API call
    */
-  public Object getVulnerabilityNotificationRules() throws ApiException {
+  public NotificationRulesListResponse getVulnerabilityNotificationRules() throws ApiException {
     return getVulnerabilityNotificationRulesWithHttpInfo().getData();
   }
 
@@ -13815,9 +14395,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;Object&gt;
+   * @return CompletableFuture&lt;NotificationRulesListResponse&gt;
    */
-  public CompletableFuture<Object> getVulnerabilityNotificationRulesAsync() {
+  public CompletableFuture<NotificationRulesListResponse> getVulnerabilityNotificationRulesAsync() {
     return getVulnerabilityNotificationRulesWithHttpInfoAsync()
         .thenApply(
             response -> {
@@ -13828,7 +14408,7 @@ public class SecurityMonitoringApi {
   /**
    * Returns the list of notification rules for security vulnerabilities.
    *
-   * @return ApiResponse&lt;Object&gt;
+   * @return ApiResponse&lt;NotificationRulesListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -13839,7 +14419,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Object> getVulnerabilityNotificationRulesWithHttpInfo() throws ApiException {
+  public ApiResponse<NotificationRulesListResponse> getVulnerabilityNotificationRulesWithHttpInfo()
+      throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
@@ -13863,7 +14444,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Object>() {});
+        new GenericType<NotificationRulesListResponse>() {});
   }
 
   /**
@@ -13871,9 +14452,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfo}.
    *
-   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRulesListResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Object>>
+  public CompletableFuture<ApiResponse<NotificationRulesListResponse>>
       getVulnerabilityNotificationRulesWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
@@ -13893,7 +14474,8 @@ public class SecurityMonitoringApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<NotificationRulesListResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -13905,7 +14487,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<Object>() {});
+        new GenericType<NotificationRulesListResponse>() {});
   }
 
   /** Manage optional parameters to listAssetsSBOMs. */
@@ -20546,6 +21128,195 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Restore a rule to a historical version.
+   *
+   * <p>See {@link #restoreSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param version The historical version number of the rule. (required)
+   * @return SecurityMonitoringRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleResponse restoreSecurityMonitoringRule(String ruleId, Long version)
+      throws ApiException {
+    return restoreSecurityMonitoringRuleWithHttpInfo(ruleId, version).getData();
+  }
+
+  /**
+   * Restore a rule to a historical version.
+   *
+   * <p>See {@link #restoreSecurityMonitoringRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param version The historical version number of the rule. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleResponse> restoreSecurityMonitoringRuleAsync(
+      String ruleId, Long version) {
+    return restoreSecurityMonitoringRuleWithHttpInfoAsync(ruleId, version)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Restores a custom detection rule to a previously saved historical version. Only custom rules
+   * can be restored. Default and partner rules return 400. The restore creates a new version entry;
+   * it does not overwrite history.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param version The historical version number of the rule. (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleResponse> restoreSecurityMonitoringRuleWithHttpInfo(
+      String ruleId, Long version) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "restoreSecurityMonitoringRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling restoreSecurityMonitoringRule");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'version' when calling restoreSecurityMonitoringRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/restore/{version}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.restoreSecurityMonitoringRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleResponse>() {});
+  }
+
+  /**
+   * Restore a rule to a historical version.
+   *
+   * <p>See {@link #restoreSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param version The historical version number of the rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>>
+      restoreSecurityMonitoringRuleWithHttpInfoAsync(String ruleId, Long version) {
+    // Check if unstable operation is enabled
+    String operationId = "restoreSecurityMonitoringRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " restoreSecurityMonitoringRule"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'version' when calling"
+                  + " restoreSecurityMonitoringRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/restore/{version}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.restoreSecurityMonitoringRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleResponse>() {});
+  }
+
+  /**
    * Run a historical job.
    *
    * <p>See {@link #runHistoricalJobWithHttpInfo}.
@@ -21322,6 +22093,149 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Test a notification rule.
+   *
+   * <p>See {@link #sendSecurityMonitoringNotificationPreviewWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return NotificationRulePreviewResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationRulePreviewResponse sendSecurityMonitoringNotificationPreview(
+      CreateNotificationRuleParameters body) throws ApiException {
+    return sendSecurityMonitoringNotificationPreviewWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Test a notification rule.
+   *
+   * <p>See {@link #sendSecurityMonitoringNotificationPreviewWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;NotificationRulePreviewResponse&gt;
+   */
+  public CompletableFuture<NotificationRulePreviewResponse>
+      sendSecurityMonitoringNotificationPreviewAsync(CreateNotificationRuleParameters body) {
+    return sendSecurityMonitoringNotificationPreviewWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Send a notification preview to test that a notification rule's targets are properly configured.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;NotificationRulePreviewResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationRulePreviewResponse>
+      sendSecurityMonitoringNotificationPreviewWithHttpInfo(CreateNotificationRuleParameters body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " sendSecurityMonitoringNotificationPreview");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/send_notification_preview";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.sendSecurityMonitoringNotificationPreview",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRulePreviewResponse>() {});
+  }
+
+  /**
+   * Test a notification rule.
+   *
+   * <p>See {@link #sendSecurityMonitoringNotificationPreviewWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRulePreviewResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationRulePreviewResponse>>
+      sendSecurityMonitoringNotificationPreviewWithHttpInfoAsync(
+          CreateNotificationRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<NotificationRulePreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " sendSecurityMonitoringNotificationPreview"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/send_notification_preview";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.sendSecurityMonitoringNotificationPreview",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationRulePreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRulePreviewResponse>() {});
+  }
+
+  /**
    * Test an existing rule.
    *
    * <p>See {@link #testExistingSecurityMonitoringRuleWithHttpInfo}.
@@ -21810,6 +22724,158 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UpdateCustomFrameworkResponse>() {});
+  }
+
+  /**
+   * Assign or unassign security findings.
+   *
+   * <p>See {@link #updateFindingsAssigneeWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return AssigneeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AssigneeResponse updateFindingsAssignee(AssigneeRequest body) throws ApiException {
+    return updateFindingsAssigneeWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Assign or unassign security findings.
+   *
+   * <p>See {@link #updateFindingsAssigneeWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;AssigneeResponse&gt;
+   */
+  public CompletableFuture<AssigneeResponse> updateFindingsAssigneeAsync(AssigneeRequest body) {
+    return updateFindingsAssigneeWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Assign or unassign security findings. You can assign up to 100 security findings per request.
+   * Set <code>assignee_id</code> to the unique identifier of the Datadog user you want to assign
+   * the findings to. Omit <code>assignee_id</code> (or set it to <code>null</code>) to unassign the
+   * findings. Per-finding warnings and failures are returned in the response <code>meta</code>
+   * object.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;AssigneeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AssigneeResponse> updateFindingsAssigneeWithHttpInfo(AssigneeRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateFindingsAssignee";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateFindingsAssignee");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/assignee";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateFindingsAssignee",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AssigneeResponse>() {});
+  }
+
+  /**
+   * Assign or unassign security findings.
+   *
+   * <p>See {@link #updateFindingsAssigneeWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AssigneeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AssigneeResponse>> updateFindingsAssigneeWithHttpInfoAsync(
+      AssigneeRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateFindingsAssignee";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AssigneeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AssigneeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateFindingsAssignee"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/assignee";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateFindingsAssignee",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AssigneeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AssigneeResponse>() {});
   }
 
   /**

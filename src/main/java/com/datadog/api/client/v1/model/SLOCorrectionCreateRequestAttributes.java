@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The attribute object associated with the SLO correction to be created. */
+/**
+ * The attribute object associated with the SLO correction to be created.
+ *
+ * <p>Exactly one of <code>slo_id</code> or <code>slo_query</code> must be provided.
+ */
 @JsonPropertyOrder({
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_CATEGORY,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -25,6 +29,7 @@ import java.util.Objects;
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_END,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_RRULE,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_SLO_ID,
+  SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_SLO_QUERY,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_START,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_TIMEZONE
 })
@@ -50,6 +55,9 @@ public class SLOCorrectionCreateRequestAttributes {
   public static final String JSON_PROPERTY_SLO_ID = "slo_id";
   private String sloId;
 
+  public static final String JSON_PROPERTY_SLO_QUERY = "slo_query";
+  private String sloQuery;
+
   public static final String JSON_PROPERTY_START = "start";
   private Long start;
 
@@ -61,11 +69,9 @@ public class SLOCorrectionCreateRequestAttributes {
   @JsonCreator
   public SLOCorrectionCreateRequestAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CATEGORY) SLOCorrectionCategory category,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SLO_ID) String sloId,
       @JsonProperty(required = true, value = JSON_PROPERTY_START) Long start) {
     this.category = category;
     this.unparsed |= !category.isValid();
-    this.sloId = sloId;
     this.start = start;
   }
 
@@ -185,18 +191,42 @@ public class SLOCorrectionCreateRequestAttributes {
   }
 
   /**
-   * ID of the SLO that this correction applies to.
+   * ID of the single SLO that this correction applies to.
    *
    * @return sloId
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SLO_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSloId() {
     return sloId;
   }
 
   public void setSloId(String sloId) {
     this.sloId = sloId;
+  }
+
+  public SLOCorrectionCreateRequestAttributes sloQuery(String sloQuery) {
+    this.sloQuery = sloQuery;
+    return this;
+  }
+
+  /**
+   * Query that matches the SLOs this correction applies to. The query uses the <a
+   * href="https://docs.datadoghq.com/events/explorer/searching/">Events search syntax</a> and can
+   * filter SLOs by SLO tags.
+   *
+   * @return sloQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLO_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSloQuery() {
+    return sloQuery;
+  }
+
+  public void setSloQuery(String sloQuery) {
+    this.sloQuery = sloQuery;
   }
 
   public SLOCorrectionCreateRequestAttributes start(Long start) {
@@ -303,6 +333,7 @@ public class SLOCorrectionCreateRequestAttributes {
         && Objects.equals(this.end, sloCorrectionCreateRequestAttributes.end)
         && Objects.equals(this.rrule, sloCorrectionCreateRequestAttributes.rrule)
         && Objects.equals(this.sloId, sloCorrectionCreateRequestAttributes.sloId)
+        && Objects.equals(this.sloQuery, sloCorrectionCreateRequestAttributes.sloQuery)
         && Objects.equals(this.start, sloCorrectionCreateRequestAttributes.start)
         && Objects.equals(this.timezone, sloCorrectionCreateRequestAttributes.timezone)
         && Objects.equals(
@@ -312,7 +343,16 @@ public class SLOCorrectionCreateRequestAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        category, description, duration, end, rrule, sloId, start, timezone, additionalProperties);
+        category,
+        description,
+        duration,
+        end,
+        rrule,
+        sloId,
+        sloQuery,
+        start,
+        timezone,
+        additionalProperties);
   }
 
   @Override
@@ -325,6 +365,7 @@ public class SLOCorrectionCreateRequestAttributes {
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
     sb.append("    sloId: ").append(toIndentedString(sloId)).append("\n");
+    sb.append("    sloQuery: ").append(toIndentedString(sloQuery)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    additionalProperties: ")

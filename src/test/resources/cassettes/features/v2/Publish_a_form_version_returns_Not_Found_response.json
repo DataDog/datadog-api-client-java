@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"version\":1},\"type\":\"form_publications\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/forms/00000000-0000-0000-0000-000000000001/publish",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"id\":\"890f7bea-c0e2-45f9-a06a-e3214a19be57\",\"title\":\"form not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0ec1fa37-66dd-23ed-c829-eb61770f7f93"
+  }
+]

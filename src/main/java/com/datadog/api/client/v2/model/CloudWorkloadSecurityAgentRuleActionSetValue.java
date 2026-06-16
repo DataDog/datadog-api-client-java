@@ -131,45 +131,44 @@ public class CloudWorkloadSecurityAgentRuleActionSetValue extends AbstractOpenAp
         log.log(Level.FINER, "Input data does not match schema 'String'", e);
       }
 
-      // deserialize Integer
+      // deserialize Long
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (Integer.class.equals(Integer.class)
-            || Integer.class.equals(Long.class)
-            || Integer.class.equals(Float.class)
-            || Integer.class.equals(Double.class)
-            || Integer.class.equals(Boolean.class)
-            || Integer.class.equals(String.class)) {
+        if (Long.class.equals(Integer.class)
+            || Long.class.equals(Long.class)
+            || Long.class.equals(Float.class)
+            || Long.class.equals(Double.class)
+            || Long.class.equals(Boolean.class)
+            || Long.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((Integer.class.equals(Integer.class) || Integer.class.equals(Long.class))
+                ((Long.class.equals(Integer.class) || Long.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((Integer.class.equals(Float.class) || Integer.class.equals(Double.class))
+                ((Long.class.equals(Float.class) || Long.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (Integer.class.equals(Boolean.class)
+                (Long.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (Integer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+            attemptParsing |= (Long.class.equals(String.class) && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(Integer.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(Long.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
           deserialized = tmp;
           match++;
 
-          log.log(Level.FINER, "Input data matches schema 'Integer'");
+          log.log(Level.FINER, "Input data matches schema 'Long'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'Integer'", e);
+        log.log(Level.FINER, "Input data does not match schema 'Long'", e);
       }
 
       // deserialize Boolean
@@ -249,7 +248,7 @@ public class CloudWorkloadSecurityAgentRuleActionSetValue extends AbstractOpenAp
     setActualInstance(o);
   }
 
-  public CloudWorkloadSecurityAgentRuleActionSetValue(Integer o) {
+  public CloudWorkloadSecurityAgentRuleActionSetValue(Long o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -261,7 +260,7 @@ public class CloudWorkloadSecurityAgentRuleActionSetValue extends AbstractOpenAp
 
   static {
     schemas.put("String", new GenericType<String>() {});
-    schemas.put("Integer", new GenericType<Integer>() {});
+    schemas.put("Long", new GenericType<Long>() {});
     schemas.put("Boolean", new GenericType<Boolean>() {});
     JSON.registerDescendants(
         CloudWorkloadSecurityAgentRuleActionSetValue.class, Collections.unmodifiableMap(schemas));
@@ -274,7 +273,7 @@ public class CloudWorkloadSecurityAgentRuleActionSetValue extends AbstractOpenAp
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: String, Integer, Boolean
+   * against the oneOf child schemas: String, Long, Boolean
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -285,7 +284,7 @@ public class CloudWorkloadSecurityAgentRuleActionSetValue extends AbstractOpenAp
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(Integer.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(Long.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -298,13 +297,13 @@ public class CloudWorkloadSecurityAgentRuleActionSetValue extends AbstractOpenAp
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be String, Integer, Boolean");
+    throw new RuntimeException("Invalid instance type. Must be String, Long, Boolean");
   }
 
   /**
-   * Get the actual instance, which can be the following: String, Integer, Boolean
+   * Get the actual instance, which can be the following: String, Long, Boolean
    *
-   * @return The actual instance (String, Integer, Boolean)
+   * @return The actual instance (String, Long, Boolean)
    */
   @Override
   public Object getActualInstance() {
@@ -323,14 +322,14 @@ public class CloudWorkloadSecurityAgentRuleActionSetValue extends AbstractOpenAp
   }
 
   /**
-   * Get the actual instance of `Integer`. If the actual instance is not `Integer`, the
-   * ClassCastException will be thrown.
+   * Get the actual instance of `Long`. If the actual instance is not `Long`, the ClassCastException
+   * will be thrown.
    *
-   * @return The actual instance of `Integer`
-   * @throws ClassCastException if the instance is not `Integer`
+   * @return The actual instance of `Long`
+   * @throws ClassCastException if the instance is not `Long`
    */
-  public Integer getInteger() throws ClassCastException {
-    return (Integer) super.getActualInstance();
+  public Long getLong() throws ClassCastException {
+    return (Long) super.getActualInstance();
   }
 
   /**

@@ -2228,8 +2228,8 @@ public class ScorecardsApi {
     private Boolean filterRuleIsCustom;
     private Boolean filterRuleIsEnabled;
     private String sort;
-    private Integer pageOffset;
-    private Integer pageLimit;
+    private Long pageOffset;
+    private Long pageLimit;
 
     /**
      * Set filterRuleId.
@@ -2316,7 +2316,7 @@ public class ScorecardsApi {
      * @param pageOffset Offset for pagination. (optional, default to 0)
      * @return ListScorecardScoresOptionalParameters
      */
-    public ListScorecardScoresOptionalParameters pageOffset(Integer pageOffset) {
+    public ListScorecardScoresOptionalParameters pageOffset(Long pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -2327,7 +2327,7 @@ public class ScorecardsApi {
      * @param pageLimit Number of scores to return. Max is 1000. (optional, default to 100)
      * @return ListScorecardScoresOptionalParameters
      */
-    public ListScorecardScoresOptionalParameters pageLimit(Integer pageLimit) {
+    public ListScorecardScoresOptionalParameters pageLimit(Long pageLimit) {
       this.pageLimit = pageLimit;
       return this;
     }
@@ -2434,8 +2434,8 @@ public class ScorecardsApi {
     Boolean filterRuleIsCustom = parameters.filterRuleIsCustom;
     Boolean filterRuleIsEnabled = parameters.filterRuleIsEnabled;
     String sort = parameters.sort;
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
         "/api/v2/scorecard/scores/{aggregation}"
@@ -2512,8 +2512,8 @@ public class ScorecardsApi {
     Boolean filterRuleIsCustom = parameters.filterRuleIsCustom;
     Boolean filterRuleIsEnabled = parameters.filterRuleIsEnabled;
     String sort = parameters.sort;
-    Integer pageOffset = parameters.pageOffset;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
         "/api/v2/scorecard/scores/{aggregation}"

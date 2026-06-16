@@ -1,4 +1,4 @@
-// List rum replay playlist sessions returns "OK" response
+// List RUM replay playlist sessions returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -11,7 +11,7 @@ public class Example {
     RumReplayPlaylistsApi apiInstance = new RumReplayPlaylistsApi(defaultClient);
 
     try {
-      PlaylistsSessionArray result = apiInstance.listRumReplayPlaylistSessions(1234567);
+      PlaylistsSessionArray result = apiInstance.listRumReplayPlaylistSessions(1234567L);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(

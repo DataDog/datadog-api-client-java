@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.LlmObservabilityApi;
 import com.datadog.api.client.v2.model.LLMObsExperimentResponse;
+import com.datadog.api.client.v2.model.LLMObsExperimentStatus;
 import com.datadog.api.client.v2.model.LLMObsExperimentType;
 import com.datadog.api.client.v2.model.LLMObsExperimentUpdateDataAttributesRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentUpdateDataRequest;
@@ -19,7 +20,10 @@ public class Example {
         new LLMObsExperimentUpdateRequest()
             .data(
                 new LLMObsExperimentUpdateDataRequest()
-                    .attributes(new LLMObsExperimentUpdateDataAttributesRequest())
+                    .attributes(
+                        new LLMObsExperimentUpdateDataAttributesRequest()
+                            .datasetId("9f64e5c7-dc5a-45c8-a17c-1b85f0bec97d")
+                            .status(LLMObsExperimentStatus.COMPLETED))
                     .type(LLMObsExperimentType.EXPERIMENTS));
 
     try {

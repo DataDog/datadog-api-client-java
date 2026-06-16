@@ -10,6 +10,8 @@ import com.datadog.api.client.v2.model.AWSAccountUpdateRequest;
 import com.datadog.api.client.v2.model.AWSAccountsResponse;
 import com.datadog.api.client.v2.model.AWSCcmConfigRequest;
 import com.datadog.api.client.v2.model.AWSCcmConfigResponse;
+import com.datadog.api.client.v2.model.AWSCcmConfigValidationRequest;
+import com.datadog.api.client.v2.model.AWSCcmConfigValidationResponse;
 import com.datadog.api.client.v2.model.AWSEventBridgeCreateRequest;
 import com.datadog.api.client.v2.model.AWSEventBridgeCreateResponse;
 import com.datadog.api.client.v2.model.AWSEventBridgeDeleteRequest;
@@ -2534,5 +2536,164 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AWSCcmConfigResponse>() {});
+  }
+
+  /**
+   * Validate AWS CCM config.
+   *
+   * <p>See {@link #validateAWSCCMConfigWithHttpInfo}.
+   *
+   * @param body Validate a Cloud Cost Management config for an AWS account integration config.
+   *     (required)
+   * @return AWSCcmConfigValidationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSCcmConfigValidationResponse validateAWSCCMConfig(AWSCcmConfigValidationRequest body)
+      throws ApiException {
+    return validateAWSCCMConfigWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Validate AWS CCM config.
+   *
+   * <p>See {@link #validateAWSCCMConfigWithHttpInfoAsync}.
+   *
+   * @param body Validate a Cloud Cost Management config for an AWS account integration config.
+   *     (required)
+   * @return CompletableFuture&lt;AWSCcmConfigValidationResponse&gt;
+   */
+  public CompletableFuture<AWSCcmConfigValidationResponse> validateAWSCCMConfigAsync(
+      AWSCcmConfigValidationRequest body) {
+    return validateAWSCCMConfigWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Validate a Cloud Cost Management config for an AWS account using Cost and Usage Report (CUR)
+   * 2.0 against Datadog's ingest requirements without persisting it.
+   *
+   * @param body Validate a Cloud Cost Management config for an AWS account integration config.
+   *     (required)
+   * @return ApiResponse&lt;AWSCcmConfigValidationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> AWS CCM Config validation result </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSCcmConfigValidationResponse> validateAWSCCMConfigWithHttpInfo(
+      AWSCcmConfigValidationRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "validateAWSCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling validateAWSCCMConfig");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/aws/validate_ccm_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.validateAWSCCMConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCcmConfigValidationResponse>() {});
+  }
+
+  /**
+   * Validate AWS CCM config.
+   *
+   * <p>See {@link #validateAWSCCMConfigWithHttpInfo}.
+   *
+   * @param body Validate a Cloud Cost Management config for an AWS account integration config.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSCcmConfigValidationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>>
+      validateAWSCCMConfigWithHttpInfoAsync(AWSCcmConfigValidationRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "validateAWSCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling validateAWSCCMConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/aws/validate_ccm_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.validateAWSCCMConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSCcmConfigValidationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCcmConfigValidationResponse>() {});
   }
 }

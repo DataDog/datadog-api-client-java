@@ -1,0 +1,46 @@
+// Create a form returns "OK" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.FormsApi;
+import com.datadog.api.client.v2.model.CreateFormData;
+import com.datadog.api.client.v2.model.CreateFormDataAttributes;
+import com.datadog.api.client.v2.model.CreateFormRequest;
+import com.datadog.api.client.v2.model.FormDataDefinition;
+import com.datadog.api.client.v2.model.FormResponse;
+import com.datadog.api.client.v2.model.FormType;
+import com.datadog.api.client.v2.model.FormUiDefinition;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.createForm", true);
+    FormsApi apiInstance = new FormsApi(defaultClient);
+
+    CreateFormRequest body =
+        new CreateFormRequest()
+            .data(
+                new CreateFormData()
+                    .attributes(
+                        new CreateFormDataAttributes()
+                            .anonymous(false)
+                            .dataDefinition(new FormDataDefinition())
+                            .description("A form to collect user feedback.")
+                            .idpSurvey(false)
+                            .name("User Feedback Form")
+                            .singleResponse(false)
+                            .uiDefinition(new FormUiDefinition()))
+                    .type(FormType.FORMS));
+
+    try {
+      FormResponse result = apiInstance.createForm(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FormsApi#createForm");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}

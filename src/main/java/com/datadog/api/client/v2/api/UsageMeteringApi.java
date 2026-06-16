@@ -16,6 +16,7 @@ import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringRespons
 import com.datadog.api.client.v2.model.UsageAttributionTypesResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
+import com.datadog.api.client.v2.model.UsageSummaryAvailableFieldsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
@@ -1237,22 +1238,26 @@ public class UsageMeteringApi {
    * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
-   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>
-   *     ci_app</code>, <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>
-   *     csm_container_enterprise</code>, <code>csm_host_enterprise</code>, <code>cspm</code>,
-   *     <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>error_tracking</code>
-   *     , <code>fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
-   *     indexed_logs</code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot
-   *     </code>, <code>lambda_traced_invocations</code>, <code>llm_observability</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>network_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>product_analytics</code>, <code>rum</code>, <code>rum_browser_sessions
-   *     </code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>
-   *     software_delivery</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     <code>synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries
-   *     </code>, <code>vuln_management</code> and <code>workflow_executions</code>. The following
-   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     families are <code>all</code>, <code>ai</code>, <code>analyzed_logs</code>, <code>
+   *     application_performance_monitoring</code>, <code>application_security</code>, <code>
+   *     audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>ci_app</code>,
+   *     <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>csm_container_enterprise
+   *     </code>, <code>csm_host_enterprise</code>, <code>csm_host_pro</code>, <code>cspm</code>,
+   *     <code>custom_events</code>, <code>cws</code>, <code>data_observability</code>, <code>dbm
+   *     </code>, <code>digital_experience_management</code>, <code>error_tracking</code>, <code>
+   *     fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
+   *     indexed_logs</code>, <code>indexed_spans</code>, <code>infrastructure_monitoring</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>llm_observability</code>, <code>log_management</code>, <code>logs</code>, <code>
+   *     network_flows</code>, <code>network_hosts</code>, <code>network_monitoring</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>platform_capabilities
+   *     </code>, <code>product_analytics</code>, <code>profiling</code>, <code>rum</code>, <code>
+   *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>
+   *     security</code>, <code>snmp</code>, <code>software_delivery</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @return HourlyUsageResponse
    * @throws ApiException if fails to make API call
    */
@@ -1271,22 +1276,26 @@ public class UsageMeteringApi {
    * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
-   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>
-   *     ci_app</code>, <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>
-   *     csm_container_enterprise</code>, <code>csm_host_enterprise</code>, <code>cspm</code>,
-   *     <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>error_tracking</code>
-   *     , <code>fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
-   *     indexed_logs</code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot
-   *     </code>, <code>lambda_traced_invocations</code>, <code>llm_observability</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>network_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>product_analytics</code>, <code>rum</code>, <code>rum_browser_sessions
-   *     </code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>
-   *     software_delivery</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     <code>synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries
-   *     </code>, <code>vuln_management</code> and <code>workflow_executions</code>. The following
-   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     families are <code>all</code>, <code>ai</code>, <code>analyzed_logs</code>, <code>
+   *     application_performance_monitoring</code>, <code>application_security</code>, <code>
+   *     audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>ci_app</code>,
+   *     <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>csm_container_enterprise
+   *     </code>, <code>csm_host_enterprise</code>, <code>csm_host_pro</code>, <code>cspm</code>,
+   *     <code>custom_events</code>, <code>cws</code>, <code>data_observability</code>, <code>dbm
+   *     </code>, <code>digital_experience_management</code>, <code>error_tracking</code>, <code>
+   *     fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
+   *     indexed_logs</code>, <code>indexed_spans</code>, <code>infrastructure_monitoring</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>llm_observability</code>, <code>log_management</code>, <code>logs</code>, <code>
+   *     network_flows</code>, <code>network_hosts</code>, <code>network_monitoring</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>platform_capabilities
+   *     </code>, <code>product_analytics</code>, <code>profiling</code>, <code>rum</code>, <code>
+   *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>
+   *     security</code>, <code>snmp</code>, <code>software_delivery</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @return CompletableFuture&lt;HourlyUsageResponse&gt;
    */
   public CompletableFuture<HourlyUsageResponse> getHourlyUsageAsync(
@@ -1307,22 +1316,26 @@ public class UsageMeteringApi {
    * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
-   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>
-   *     ci_app</code>, <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>
-   *     csm_container_enterprise</code>, <code>csm_host_enterprise</code>, <code>cspm</code>,
-   *     <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>error_tracking</code>
-   *     , <code>fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
-   *     indexed_logs</code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot
-   *     </code>, <code>lambda_traced_invocations</code>, <code>llm_observability</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>network_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>product_analytics</code>, <code>rum</code>, <code>rum_browser_sessions
-   *     </code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>
-   *     software_delivery</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     <code>synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries
-   *     </code>, <code>vuln_management</code> and <code>workflow_executions</code>. The following
-   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     families are <code>all</code>, <code>ai</code>, <code>analyzed_logs</code>, <code>
+   *     application_performance_monitoring</code>, <code>application_security</code>, <code>
+   *     audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>ci_app</code>,
+   *     <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>csm_container_enterprise
+   *     </code>, <code>csm_host_enterprise</code>, <code>csm_host_pro</code>, <code>cspm</code>,
+   *     <code>custom_events</code>, <code>cws</code>, <code>data_observability</code>, <code>dbm
+   *     </code>, <code>digital_experience_management</code>, <code>error_tracking</code>, <code>
+   *     fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
+   *     indexed_logs</code>, <code>indexed_spans</code>, <code>infrastructure_monitoring</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>llm_observability</code>, <code>log_management</code>, <code>logs</code>, <code>
+   *     network_flows</code>, <code>network_hosts</code>, <code>network_monitoring</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>platform_capabilities
+   *     </code>, <code>product_analytics</code>, <code>profiling</code>, <code>rum</code>, <code>
+   *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>
+   *     security</code>, <code>snmp</code>, <code>software_delivery</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return HourlyUsageResponse
    * @throws ApiException if fails to make API call
@@ -1344,22 +1357,26 @@ public class UsageMeteringApi {
    * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
-   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>
-   *     ci_app</code>, <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>
-   *     csm_container_enterprise</code>, <code>csm_host_enterprise</code>, <code>cspm</code>,
-   *     <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>error_tracking</code>
-   *     , <code>fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
-   *     indexed_logs</code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot
-   *     </code>, <code>lambda_traced_invocations</code>, <code>llm_observability</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>network_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>product_analytics</code>, <code>rum</code>, <code>rum_browser_sessions
-   *     </code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>
-   *     software_delivery</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     <code>synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries
-   *     </code>, <code>vuln_management</code> and <code>workflow_executions</code>. The following
-   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     families are <code>all</code>, <code>ai</code>, <code>analyzed_logs</code>, <code>
+   *     application_performance_monitoring</code>, <code>application_security</code>, <code>
+   *     audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>ci_app</code>,
+   *     <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>csm_container_enterprise
+   *     </code>, <code>csm_host_enterprise</code>, <code>csm_host_pro</code>, <code>cspm</code>,
+   *     <code>custom_events</code>, <code>cws</code>, <code>data_observability</code>, <code>dbm
+   *     </code>, <code>digital_experience_management</code>, <code>error_tracking</code>, <code>
+   *     fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
+   *     indexed_logs</code>, <code>indexed_spans</code>, <code>infrastructure_monitoring</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>llm_observability</code>, <code>log_management</code>, <code>logs</code>, <code>
+   *     network_flows</code>, <code>network_hosts</code>, <code>network_monitoring</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>platform_capabilities
+   *     </code>, <code>product_analytics</code>, <code>profiling</code>, <code>rum</code>, <code>
+   *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>
+   *     security</code>, <code>snmp</code>, <code>software_delivery</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;HourlyUsageResponse&gt;
    */
@@ -1380,22 +1397,26 @@ public class UsageMeteringApi {
    * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
-   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>
-   *     ci_app</code>, <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>
-   *     csm_container_enterprise</code>, <code>csm_host_enterprise</code>, <code>cspm</code>,
-   *     <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>error_tracking</code>
-   *     , <code>fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
-   *     indexed_logs</code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot
-   *     </code>, <code>lambda_traced_invocations</code>, <code>llm_observability</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>network_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>product_analytics</code>, <code>rum</code>, <code>rum_browser_sessions
-   *     </code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>
-   *     software_delivery</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     <code>synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries
-   *     </code>, <code>vuln_management</code> and <code>workflow_executions</code>. The following
-   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     families are <code>all</code>, <code>ai</code>, <code>analyzed_logs</code>, <code>
+   *     application_performance_monitoring</code>, <code>application_security</code>, <code>
+   *     audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>ci_app</code>,
+   *     <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>csm_container_enterprise
+   *     </code>, <code>csm_host_enterprise</code>, <code>csm_host_pro</code>, <code>cspm</code>,
+   *     <code>custom_events</code>, <code>cws</code>, <code>data_observability</code>, <code>dbm
+   *     </code>, <code>digital_experience_management</code>, <code>error_tracking</code>, <code>
+   *     fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
+   *     indexed_logs</code>, <code>indexed_spans</code>, <code>infrastructure_monitoring</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>llm_observability</code>, <code>log_management</code>, <code>logs</code>, <code>
+   *     network_flows</code>, <code>network_hosts</code>, <code>network_monitoring</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>platform_capabilities
+   *     </code>, <code>product_analytics</code>, <code>profiling</code>, <code>rum</code>, <code>
+   *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>
+   *     security</code>, <code>snmp</code>, <code>software_delivery</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HourlyUsageResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1487,22 +1508,26 @@ public class UsageMeteringApi {
    * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
-   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>
-   *     ci_app</code>, <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>
-   *     csm_container_enterprise</code>, <code>csm_host_enterprise</code>, <code>cspm</code>,
-   *     <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>error_tracking</code>
-   *     , <code>fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
-   *     indexed_logs</code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot
-   *     </code>, <code>lambda_traced_invocations</code>, <code>llm_observability</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>network_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>product_analytics</code>, <code>rum</code>, <code>rum_browser_sessions
-   *     </code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>
-   *     software_delivery</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     <code>synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries
-   *     </code>, <code>vuln_management</code> and <code>workflow_executions</code>. The following
-   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     families are <code>all</code>, <code>ai</code>, <code>analyzed_logs</code>, <code>
+   *     application_performance_monitoring</code>, <code>application_security</code>, <code>
+   *     audit_trail</code>, <code>bits_ai</code>, <code>serverless</code>, <code>ci_app</code>,
+   *     <code>cloud_cost_management</code>, <code>cloud_siem</code>, <code>csm_container_enterprise
+   *     </code>, <code>csm_host_enterprise</code>, <code>csm_host_pro</code>, <code>cspm</code>,
+   *     <code>custom_events</code>, <code>cws</code>, <code>data_observability</code>, <code>dbm
+   *     </code>, <code>digital_experience_management</code>, <code>error_tracking</code>, <code>
+   *     fargate</code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>
+   *     indexed_logs</code>, <code>indexed_spans</code>, <code>infrastructure_monitoring</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>llm_observability</code>, <code>log_management</code>, <code>logs</code>, <code>
+   *     network_flows</code>, <code>network_hosts</code>, <code>network_monitoring</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>platform_capabilities
+   *     </code>, <code>product_analytics</code>, <code>profiling</code>, <code>rum</code>, <code>
+   *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>
+   *     security</code>, <code>snmp</code>, <code>software_delivery</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;HourlyUsageResponse&gt;&gt;
    */
@@ -3001,5 +3026,125 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageObservabilityPipelinesResponse>() {});
+  }
+
+  /**
+   * Get available fields for usage summary.
+   *
+   * <p>See {@link #getUsageSummaryAvailableFieldsWithHttpInfo}.
+   *
+   * @return UsageSummaryAvailableFieldsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageSummaryAvailableFieldsResponse getUsageSummaryAvailableFields() throws ApiException {
+    return getUsageSummaryAvailableFieldsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get available fields for usage summary.
+   *
+   * <p>See {@link #getUsageSummaryAvailableFieldsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;UsageSummaryAvailableFieldsResponse&gt;
+   */
+  public CompletableFuture<UsageSummaryAvailableFieldsResponse>
+      getUsageSummaryAvailableFieldsAsync() {
+    return getUsageSummaryAvailableFieldsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the field names returned by <code>GET /api/v1/usage/summary</code> at each of its three
+   * response levels. Each list contains every key the data endpoint emits—both typed fields
+   * declared in the OpenAPI spec and untyped keys exposed through <code>additionalProperties</code>
+   * (the latter used for billing dimensions and usage types added after the v1 schema freeze).
+   *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
+   *
+   * @return ApiResponse&lt;UsageSummaryAvailableFieldsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests. </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageSummaryAvailableFieldsResponse>
+      getUsageSummaryAvailableFieldsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/summary/available_fields";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getUsageSummaryAvailableFields",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSummaryAvailableFieldsResponse>() {});
+  }
+
+  /**
+   * Get available fields for usage summary.
+   *
+   * <p>See {@link #getUsageSummaryAvailableFieldsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSummaryAvailableFieldsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageSummaryAvailableFieldsResponse>>
+      getUsageSummaryAvailableFieldsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/summary/available_fields";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.getUsageSummaryAvailableFields",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSummaryAvailableFieldsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSummaryAvailableFieldsResponse>() {});
   }
 }

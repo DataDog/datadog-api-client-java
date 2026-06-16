@@ -1,4 +1,4 @@
-// Create a rum-based metric returns "Created" response
+// Create a RUM-based metric returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

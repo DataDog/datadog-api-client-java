@@ -1432,8 +1432,8 @@ public class FeatureFlagsApi {
   public static class ListFeatureFlagsOptionalParameters {
     private String key;
     private Boolean isArchived;
-    private Integer limit;
-    private Integer offset;
+    private Long limit;
+    private Long offset;
 
     /**
      * Set key.
@@ -1463,7 +1463,7 @@ public class FeatureFlagsApi {
      * @param limit Maximum number of results to return. (optional, default to 100)
      * @return ListFeatureFlagsOptionalParameters
      */
-    public ListFeatureFlagsOptionalParameters limit(Integer limit) {
+    public ListFeatureFlagsOptionalParameters limit(Long limit) {
       this.limit = limit;
       return this;
     }
@@ -1474,7 +1474,7 @@ public class FeatureFlagsApi {
      * @param offset Number of results to skip. (optional, default to 0)
      * @return ListFeatureFlagsOptionalParameters
      */
-    public ListFeatureFlagsOptionalParameters offset(Integer offset) {
+    public ListFeatureFlagsOptionalParameters offset(Long offset) {
       this.offset = offset;
       return this;
     }
@@ -1559,8 +1559,8 @@ public class FeatureFlagsApi {
     Object localVarPostBody = null;
     String key = parameters.key;
     Boolean isArchived = parameters.isArchived;
-    Integer limit = parameters.limit;
-    Integer offset = parameters.offset;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags";
 
@@ -1605,8 +1605,8 @@ public class FeatureFlagsApi {
     Object localVarPostBody = null;
     String key = parameters.key;
     Boolean isArchived = parameters.isArchived;
-    Integer limit = parameters.limit;
-    Integer offset = parameters.offset;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags";
 
@@ -1649,8 +1649,8 @@ public class FeatureFlagsApi {
   public static class ListFeatureFlagsEnvironmentsOptionalParameters {
     private String name;
     private String key;
-    private Integer limit;
-    private Integer offset;
+    private Long limit;
+    private Long offset;
 
     /**
      * Set name.
@@ -1680,7 +1680,7 @@ public class FeatureFlagsApi {
      * @param limit Maximum number of results to return. (optional, default to 100)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
-    public ListFeatureFlagsEnvironmentsOptionalParameters limit(Integer limit) {
+    public ListFeatureFlagsEnvironmentsOptionalParameters limit(Long limit) {
       this.limit = limit;
       return this;
     }
@@ -1691,7 +1691,7 @@ public class FeatureFlagsApi {
      * @param offset Number of results to skip. (optional, default to 0)
      * @return ListFeatureFlagsEnvironmentsOptionalParameters
      */
-    public ListFeatureFlagsEnvironmentsOptionalParameters offset(Integer offset) {
+    public ListFeatureFlagsEnvironmentsOptionalParameters offset(Long offset) {
       this.offset = offset;
       return this;
     }
@@ -1778,8 +1778,8 @@ public class FeatureFlagsApi {
     Object localVarPostBody = null;
     String name = parameters.name;
     String key = parameters.key;
-    Integer limit = parameters.limit;
-    Integer offset = parameters.offset;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags/environments";
 
@@ -1825,8 +1825,8 @@ public class FeatureFlagsApi {
     Object localVarPostBody = null;
     String name = parameters.name;
     String key = parameters.key;
-    Integer limit = parameters.limit;
-    Integer offset = parameters.offset;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
     // create path and map variables
     String localVarPath = "/api/v2/feature-flags/environments";
 

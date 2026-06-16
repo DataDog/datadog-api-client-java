@@ -80,7 +80,7 @@ public class LLMObsAnnotatedInteractionsDataResponse {
   }
 
   /**
-   * The queue ID.
+   * The annotation queue ID.
    *
    * @return id
    */

@@ -333,6 +333,142 @@ public class MicrosoftTeamsIntegrationApi {
   }
 
   /**
+   * Delete user binding.
+   *
+   * <p>See {@link #deleteMSTeamsUserBindingWithHttpInfo}.
+   *
+   * @param tenantId Your tenant id. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteMSTeamsUserBinding(String tenantId) throws ApiException {
+    deleteMSTeamsUserBindingWithHttpInfo(tenantId);
+  }
+
+  /**
+   * Delete user binding.
+   *
+   * <p>See {@link #deleteMSTeamsUserBindingWithHttpInfoAsync}.
+   *
+   * @param tenantId Your tenant id. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteMSTeamsUserBindingAsync(String tenantId) {
+    return deleteMSTeamsUserBindingWithHttpInfoAsync(tenantId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete the user binding for a given tenant from the Datadog Microsoft Teams integration.
+   *
+   * @param tenantId Your tenant id. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Failed Precondition </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteMSTeamsUserBindingWithHttpInfo(String tenantId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tenantId' is set
+    if (tenantId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'tenantId' when calling deleteMSTeamsUserBinding");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/user-binding/{tenant_id}"
+            .replaceAll("\\{" + "tenant_id" + "\\}", apiClient.escapeString(tenantId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MicrosoftTeamsIntegrationApi.deleteMSTeamsUserBinding",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete user binding.
+   *
+   * <p>See {@link #deleteMSTeamsUserBindingWithHttpInfo}.
+   *
+   * @param tenantId Your tenant id. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteMSTeamsUserBindingWithHttpInfoAsync(
+      String tenantId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'tenantId' is set
+    if (tenantId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'tenantId' when calling deleteMSTeamsUserBinding"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/user-binding/{tenant_id}"
+            .replaceAll("\\{" + "tenant_id" + "\\}", apiClient.escapeString(tenantId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MicrosoftTeamsIntegrationApi.deleteMSTeamsUserBinding",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete tenant-based handle.
    *
    * <p>See {@link #deleteTenantBasedHandleWithHttpInfo}.

@@ -30,6 +30,7 @@ import java.util.Objects;
   IssueCaseAttributes.JSON_PROPERTY_INSIGHTS,
   IssueCaseAttributes.JSON_PROPERTY_JIRA_ISSUE,
   IssueCaseAttributes.JSON_PROPERTY_KEY,
+  IssueCaseAttributes.JSON_PROPERTY_LINEAR_ISSUE,
   IssueCaseAttributes.JSON_PROPERTY_MODIFIED_AT,
   IssueCaseAttributes.JSON_PROPERTY_PRIORITY,
   IssueCaseAttributes.JSON_PROPERTY_STATUS,
@@ -66,6 +67,9 @@ public class IssueCaseAttributes {
 
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
+
+  public static final String JSON_PROPERTY_LINEAR_ISSUE = "linear_issue";
+  private IssueCaseLinearIssue linearIssue;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -284,6 +288,28 @@ public class IssueCaseAttributes {
     this.key = key;
   }
 
+  public IssueCaseAttributes linearIssue(IssueCaseLinearIssue linearIssue) {
+    this.linearIssue = linearIssue;
+    this.unparsed |= linearIssue.unparsed;
+    return this;
+  }
+
+  /**
+   * Linear issue of the case.
+   *
+   * @return linearIssue
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINEAR_ISSUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IssueCaseLinearIssue getLinearIssue() {
+    return linearIssue;
+  }
+
+  public void setLinearIssue(IssueCaseLinearIssue linearIssue) {
+    this.linearIssue = linearIssue;
+  }
+
   public IssueCaseAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
@@ -466,6 +492,7 @@ public class IssueCaseAttributes {
         && Objects.equals(this.insights, issueCaseAttributes.insights)
         && Objects.equals(this.jiraIssue, issueCaseAttributes.jiraIssue)
         && Objects.equals(this.key, issueCaseAttributes.key)
+        && Objects.equals(this.linearIssue, issueCaseAttributes.linearIssue)
         && Objects.equals(this.modifiedAt, issueCaseAttributes.modifiedAt)
         && Objects.equals(this.priority, issueCaseAttributes.priority)
         && Objects.equals(this.status, issueCaseAttributes.status)
@@ -486,6 +513,7 @@ public class IssueCaseAttributes {
         insights,
         jiraIssue,
         key,
+        linearIssue,
         modifiedAt,
         priority,
         status,
@@ -507,6 +535,7 @@ public class IssueCaseAttributes {
     sb.append("    insights: ").append(toIndentedString(insights)).append("\n");
     sb.append("    jiraIssue: ").append(toIndentedString(jiraIssue)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    linearIssue: ").append(toIndentedString(linearIssue)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

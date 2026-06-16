@@ -35,7 +35,7 @@ import java.util.Objects;
 public class ProjectNotificationSettings {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESTINATIONS = "destinations";
-  private List<Integer> destinations = null;
+  private List<Long> destinations = null;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
@@ -65,12 +65,12 @@ public class ProjectNotificationSettings {
       "notify_on_case_unassignment";
   private Boolean notifyOnCaseUnassignment;
 
-  public ProjectNotificationSettings destinations(List<Integer> destinations) {
+  public ProjectNotificationSettings destinations(List<Long> destinations) {
     this.destinations = destinations;
     return this;
   }
 
-  public ProjectNotificationSettings addDestinationsItem(Integer destinationsItem) {
+  public ProjectNotificationSettings addDestinationsItem(Long destinationsItem) {
     if (this.destinations == null) {
       this.destinations = new ArrayList<>();
     }
@@ -86,11 +86,11 @@ public class ProjectNotificationSettings {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESTINATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Integer> getDestinations() {
+  public List<Long> getDestinations() {
     return destinations;
   }
 
-  public void setDestinations(List<Integer> destinations) {
+  public void setDestinations(List<Long> destinations) {
     this.destinations = destinations;
   }
 

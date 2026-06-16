@@ -1,4 +1,4 @@
-// Remove rum replay session from playlist returns "No Content" response
+// Remove RUM replay session from playlist returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -11,7 +11,7 @@ public class Example {
 
     try {
       apiInstance.removeRumReplaySessionFromPlaylist(
-          1234567, "00000000-0000-0000-0000-000000000001");
+          1234567L, "00000000-0000-0000-0000-000000000001");
     } catch (ApiException e) {
       System.err.println(
           "Exception when calling RumReplayPlaylistsApi#removeRumReplaySessionFromPlaylist");

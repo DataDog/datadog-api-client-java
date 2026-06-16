@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Source from which to query items to display in the stream. */
+/**
+ * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream,
+ * and logs_issue_stream are deprecated. Use issue_stream instead.
+ */
 @JsonSerialize(using = ListStreamSource.ListStreamSourceSerializer.class)
 public class ListStreamSource extends ModelEnum<String> {
 
@@ -37,7 +40,8 @@ public class ListStreamSource extends ModelEnum<String> {
               "logs_transaction_stream",
               "event_stream",
               "rum_stream",
-              "llm_observability_stream"));
+              "llm_observability_stream",
+              "issue_stream"));
 
   public static final ListStreamSource LOGS_STREAM = new ListStreamSource("logs_stream");
   public static final ListStreamSource AUDIT_STREAM = new ListStreamSource("audit_stream");
@@ -57,6 +61,7 @@ public class ListStreamSource extends ModelEnum<String> {
   public static final ListStreamSource RUM_STREAM = new ListStreamSource("rum_stream");
   public static final ListStreamSource LLM_OBSERVABILITY_STREAM =
       new ListStreamSource("llm_observability_stream");
+  public static final ListStreamSource ISSUE_STREAM = new ListStreamSource("issue_stream");
 
   ListStreamSource(String value) {
     super(value, allowedValues);

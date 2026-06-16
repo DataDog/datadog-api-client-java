@@ -317,7 +317,7 @@ public class RumReplayHeatmapsApi {
   /** Manage optional parameters to listReplayHeatmapSnapshots. */
   public static class ListReplayHeatmapSnapshotsOptionalParameters {
     private String filterDeviceType;
-    private Integer pageLimit;
+    private Long pageLimit;
     private String filterApplicationId;
 
     /**
@@ -337,7 +337,7 @@ public class RumReplayHeatmapsApi {
      * @param pageLimit Maximum number of snapshots to return. (optional)
      * @return ListReplayHeatmapSnapshotsOptionalParameters
      */
-    public ListReplayHeatmapSnapshotsOptionalParameters pageLimit(Integer pageLimit) {
+    public ListReplayHeatmapSnapshotsOptionalParameters pageLimit(Long pageLimit) {
       this.pageLimit = pageLimit;
       return this;
     }
@@ -449,7 +449,7 @@ public class RumReplayHeatmapsApi {
               + " listReplayHeatmapSnapshots");
     }
     String filterDeviceType = parameters.filterDeviceType;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageLimit = parameters.pageLimit;
     String filterApplicationId = parameters.filterApplicationId;
     // create path and map variables
     String localVarPath = "/api/v2/replay/heatmap/snapshots";
@@ -508,7 +508,7 @@ public class RumReplayHeatmapsApi {
       return result;
     }
     String filterDeviceType = parameters.filterDeviceType;
-    Integer pageLimit = parameters.pageLimit;
+    Long pageLimit = parameters.pageLimit;
     String filterApplicationId = parameters.filterApplicationId;
     // create path and map variables
     String localVarPath = "/api/v2/replay/heatmap/snapshots";

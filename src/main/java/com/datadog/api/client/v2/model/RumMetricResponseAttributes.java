@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The object describing a Datadog rum-based metric. */
+/** The object describing a Datadog RUM-based metric. */
 @JsonPropertyOrder({
   RumMetricResponseAttributes.JSON_PROPERTY_COMPUTE,
   RumMetricResponseAttributes.JSON_PROPERTY_EVENT_TYPE,
@@ -52,7 +52,7 @@ public class RumMetricResponseAttributes {
   }
 
   /**
-   * The compute rule to compute the rum-based metric.
+   * The compute rule to compute the RUM-based metric.
    *
    * @return compute
    */
@@ -99,7 +99,7 @@ public class RumMetricResponseAttributes {
   }
 
   /**
-   * The rum-based metric filter. RUM events matching this filter will be aggregated in this metric.
+   * The RUM-based metric filter. RUM events matching this filter will be aggregated in this metric.
    *
    * @return filter
    */

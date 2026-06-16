@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The rum-based metric object. */
+/** The RUM-based metric object. */
 @JsonPropertyOrder({RumMetricResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class RumMetricResponse {
   }
 
   /**
-   * The rum-based metric properties.
+   * The RUM-based metric properties.
    *
    * @return data
    */

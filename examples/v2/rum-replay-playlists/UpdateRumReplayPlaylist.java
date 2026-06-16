@@ -1,4 +1,4 @@
-// Update rum replay playlist returns "OK" response
+// Update RUM replay playlist returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -29,7 +29,7 @@ public class Example {
                     .type(PlaylistDataType.RUM_REPLAY_PLAYLIST));
 
     try {
-      Playlist result = apiInstance.updateRumReplayPlaylist(1234567, body);
+      Playlist result = apiInstance.updateRumReplayPlaylist(1234567L, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumReplayPlaylistsApi#updateRumReplayPlaylist");

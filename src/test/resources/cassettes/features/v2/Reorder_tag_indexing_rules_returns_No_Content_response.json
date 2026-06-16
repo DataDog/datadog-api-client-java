@@ -1,0 +1,78 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_name_matches\":[\"dd.TestReordertagindexingrulesreturnsNoContentresponse1780591177.*\"],\"name\":\"TestReordertagindexingrulesreturnsNoContentresponse1780591177\",\"tags\":[\"env\",\"service\"]},\"type\":\"tag_indexing_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/metrics/tag-indexing-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"13b0b297-7c54-4744-9333-b1aa7a2fd200\",\"type\":\"tag_indexing_rules\",\"attributes\":{\"created_at\":\"2026-06-04T16:39:37.674807Z\",\"created_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"exclude_tags_mode\":false,\"metric_name_matches\":[\"dd.TestReordertagindexingrulesreturnsNoContentresponse1780591177.*\"],\"modified_at\":\"2026-06-04T16:39:37.674807Z\",\"modified_by_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"TestReordertagindexingrulesreturnsNoContentresponse1780591177\",\"options\":{\"version\":1,\"data\":{\"override_previous_rules\":false,\"manage_preexisting_metrics\":true}},\"rule_order\":1,\"tags\":[\"env\",\"service\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3a31f1e4-9008-79be-ec9f-adf0e351d391"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"rule_ids\":[\"13b0b297-7c54-4744-9333-b1aa7a2fd200\"]},\"type\":\"tag_indexing_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/metrics/tag-indexing-rules/order",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "03305700-9342-c446-14a1-da1a8fb0ddbe"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/metrics/tag-indexing-rules/13b0b297-7c54-4744-9333-b1aa7a2fd200",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2687bb8c-4b26-63be-8418-05935dd03487"
+  }
+]
