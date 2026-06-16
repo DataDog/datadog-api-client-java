@@ -23,6 +23,7 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
   SyntheticsTestOptions.JSON_PROPERTY_ALLOW_INSECURE,
   SyntheticsTestOptions.JSON_PROPERTY_BLOCKED_REQUEST_PATTERNS,
+  SyntheticsTestOptions.JSON_PROPERTY_CAPTURE_NETWORK_PAYLOADS,
   SyntheticsTestOptions.JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION,
   SyntheticsTestOptions.JSON_PROPERTY_CI,
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
@@ -59,6 +60,9 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_BLOCKED_REQUEST_PATTERNS = "blockedRequestPatterns";
   private List<String> blockedRequestPatterns = null;
+
+  public static final String JSON_PROPERTY_CAPTURE_NETWORK_PAYLOADS = "captureNetworkPayloads";
+  private Boolean captureNetworkPayloads;
 
   public static final String JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION =
       "checkCertificateRevocation";
@@ -201,6 +205,27 @@ public class SyntheticsTestOptions {
 
   public void setBlockedRequestPatterns(List<String> blockedRequestPatterns) {
     this.blockedRequestPatterns = blockedRequestPatterns;
+  }
+
+  public SyntheticsTestOptions captureNetworkPayloads(Boolean captureNetworkPayloads) {
+    this.captureNetworkPayloads = captureNetworkPayloads;
+    return this;
+  }
+
+  /**
+   * Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+   *
+   * @return captureNetworkPayloads
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CAPTURE_NETWORK_PAYLOADS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCaptureNetworkPayloads() {
+    return captureNetworkPayloads;
+  }
+
+  public void setCaptureNetworkPayloads(Boolean captureNetworkPayloads) {
+    this.captureNetworkPayloads = captureNetworkPayloads;
   }
 
   public SyntheticsTestOptions checkCertificateRevocation(Boolean checkCertificateRevocation) {
@@ -791,6 +816,7 @@ public class SyntheticsTestOptions {
     return Objects.equals(this.acceptSelfSigned, syntheticsTestOptions.acceptSelfSigned)
         && Objects.equals(this.allowInsecure, syntheticsTestOptions.allowInsecure)
         && Objects.equals(this.blockedRequestPatterns, syntheticsTestOptions.blockedRequestPatterns)
+        && Objects.equals(this.captureNetworkPayloads, syntheticsTestOptions.captureNetworkPayloads)
         && Objects.equals(
             this.checkCertificateRevocation, syntheticsTestOptions.checkCertificateRevocation)
         && Objects.equals(this.ci, syntheticsTestOptions.ci)
@@ -828,6 +854,7 @@ public class SyntheticsTestOptions {
         acceptSelfSigned,
         allowInsecure,
         blockedRequestPatterns,
+        captureNetworkPayloads,
         checkCertificateRevocation,
         ci,
         deviceIds,
@@ -862,6 +889,9 @@ public class SyntheticsTestOptions {
     sb.append("    allowInsecure: ").append(toIndentedString(allowInsecure)).append("\n");
     sb.append("    blockedRequestPatterns: ")
         .append(toIndentedString(blockedRequestPatterns))
+        .append("\n");
+    sb.append("    captureNetworkPayloads: ")
+        .append(toIndentedString(captureNetworkPayloads))
         .append("\n");
     sb.append("    checkCertificateRevocation: ")
         .append(toIndentedString(checkCertificateRevocation))
