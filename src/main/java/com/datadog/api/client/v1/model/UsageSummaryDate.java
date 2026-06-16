@@ -1472,6 +1472,7 @@ public class UsageSummaryDate {
 
   public void setAgentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_AGENT_HOST_TOP99P, agentHostTop99p);
   }
 
   public UsageSummaryDate aiCreditsAgentBuilderAiCreditsSum(
@@ -1495,6 +1496,8 @@ public class UsageSummaryDate {
 
   public void setAiCreditsAgentBuilderAiCreditsSum(Long aiCreditsAgentBuilderAiCreditsSum) {
     this.aiCreditsAgentBuilderAiCreditsSum = aiCreditsAgentBuilderAiCreditsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM, aiCreditsAgentBuilderAiCreditsSum);
   }
 
   public UsageSummaryDate aiCreditsBitsAssistantAiCreditsSum(
@@ -1519,6 +1522,8 @@ public class UsageSummaryDate {
 
   public void setAiCreditsBitsAssistantAiCreditsSum(Long aiCreditsBitsAssistantAiCreditsSum) {
     this.aiCreditsBitsAssistantAiCreditsSum = aiCreditsBitsAssistantAiCreditsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM, aiCreditsBitsAssistantAiCreditsSum);
   }
 
   public UsageSummaryDate aiCreditsBitsDevAiCreditsSum(Long aiCreditsBitsDevAiCreditsSum) {
@@ -1541,6 +1546,8 @@ public class UsageSummaryDate {
 
   public void setAiCreditsBitsDevAiCreditsSum(Long aiCreditsBitsDevAiCreditsSum) {
     this.aiCreditsBitsDevAiCreditsSum = aiCreditsBitsDevAiCreditsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM, aiCreditsBitsDevAiCreditsSum);
   }
 
   public UsageSummaryDate aiCreditsBitsSreAiCreditsSum(Long aiCreditsBitsSreAiCreditsSum) {
@@ -1563,6 +1570,8 @@ public class UsageSummaryDate {
 
   public void setAiCreditsBitsSreAiCreditsSum(Long aiCreditsBitsSreAiCreditsSum) {
     this.aiCreditsBitsSreAiCreditsSum = aiCreditsBitsSreAiCreditsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM, aiCreditsBitsSreAiCreditsSum);
   }
 
   public UsageSummaryDate aiCreditsSum(Long aiCreditsSum) {
@@ -1585,6 +1594,7 @@ public class UsageSummaryDate {
 
   public void setAiCreditsSum(Long aiCreditsSum) {
     this.aiCreditsSum = aiCreditsSum;
+    putAdditionalProperty(JSON_PROPERTY_AI_CREDITS_SUM, aiCreditsSum);
   }
 
   public UsageSummaryDate apmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
@@ -1607,6 +1617,8 @@ public class UsageSummaryDate {
 
   public void setApmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
     this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P, apmAzureAppServiceHostTop99p);
   }
 
   public UsageSummaryDate apmDevsecopsHostTop99p(Long apmDevsecopsHostTop99p) {
@@ -1629,6 +1641,7 @@ public class UsageSummaryDate {
 
   public void setApmDevsecopsHostTop99p(Long apmDevsecopsHostTop99p) {
     this.apmDevsecopsHostTop99p = apmDevsecopsHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P, apmDevsecopsHostTop99p);
   }
 
   public UsageSummaryDate apmEnterpriseStandaloneHostsTop99p(
@@ -1652,6 +1665,8 @@ public class UsageSummaryDate {
 
   public void setApmEnterpriseStandaloneHostsTop99p(Long apmEnterpriseStandaloneHostsTop99p) {
     this.apmEnterpriseStandaloneHostsTop99p = apmEnterpriseStandaloneHostsTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P, apmEnterpriseStandaloneHostsTop99p);
   }
 
   public UsageSummaryDate apmFargateCountAvg(Long apmFargateCountAvg) {
@@ -1674,6 +1689,7 @@ public class UsageSummaryDate {
 
   public void setApmFargateCountAvg(Long apmFargateCountAvg) {
     this.apmFargateCountAvg = apmFargateCountAvg;
+    putAdditionalProperty(JSON_PROPERTY_APM_FARGATE_COUNT_AVG, apmFargateCountAvg);
   }
 
   public UsageSummaryDate apmHostTop99p(Long apmHostTop99p) {
@@ -1696,6 +1712,7 @@ public class UsageSummaryDate {
 
   public void setApmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_APM_HOST_TOP99P, apmHostTop99p);
   }
 
   public UsageSummaryDate apmProStandaloneHostsTop99p(Long apmProStandaloneHostsTop99p) {
@@ -1718,6 +1735,8 @@ public class UsageSummaryDate {
 
   public void setApmProStandaloneHostsTop99p(Long apmProStandaloneHostsTop99p) {
     this.apmProStandaloneHostsTop99p = apmProStandaloneHostsTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P, apmProStandaloneHostsTop99p);
   }
 
   public UsageSummaryDate appsecFargateCountAvg(Long appsecFargateCountAvg) {
@@ -1740,6 +1759,7 @@ public class UsageSummaryDate {
 
   public void setAppsecFargateCountAvg(Long appsecFargateCountAvg) {
     this.appsecFargateCountAvg = appsecFargateCountAvg;
+    putAdditionalProperty(JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG, appsecFargateCountAvg);
   }
 
   public UsageSummaryDate asmServerlessSum(Long asmServerlessSum) {
@@ -1762,6 +1782,7 @@ public class UsageSummaryDate {
 
   public void setAsmServerlessSum(Long asmServerlessSum) {
     this.asmServerlessSum = asmServerlessSum;
+    putAdditionalProperty(JSON_PROPERTY_ASM_SERVERLESS_SUM, asmServerlessSum);
   }
 
   public UsageSummaryDate auditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
@@ -1787,6 +1808,7 @@ public class UsageSummaryDate {
   @Deprecated
   public void setAuditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
     this.auditLogsLinesIndexedSum = auditLogsLinesIndexedSum;
+    putAdditionalProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM, auditLogsLinesIndexedSum);
   }
 
   public UsageSummaryDate auditTrailEnabledHwm(Long auditTrailEnabledHwm) {
@@ -1808,6 +1830,7 @@ public class UsageSummaryDate {
 
   public void setAuditTrailEnabledHwm(Long auditTrailEnabledHwm) {
     this.auditTrailEnabledHwm = auditTrailEnabledHwm;
+    putAdditionalProperty(JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM, auditTrailEnabledHwm);
   }
 
   public UsageSummaryDate auditTrailEventForwardingEventsSum(
@@ -1831,6 +1854,8 @@ public class UsageSummaryDate {
 
   public void setAuditTrailEventForwardingEventsSum(Long auditTrailEventForwardingEventsSum) {
     this.auditTrailEventForwardingEventsSum = auditTrailEventForwardingEventsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM, auditTrailEventForwardingEventsSum);
   }
 
   public UsageSummaryDate avgProfiledFargateTasks(Long avgProfiledFargateTasks) {
@@ -1853,6 +1878,7 @@ public class UsageSummaryDate {
 
   public void setAvgProfiledFargateTasks(Long avgProfiledFargateTasks) {
     this.avgProfiledFargateTasks = avgProfiledFargateTasks;
+    putAdditionalProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS, avgProfiledFargateTasks);
   }
 
   public UsageSummaryDate awsHostTop99p(Long awsHostTop99p) {
@@ -1875,6 +1901,7 @@ public class UsageSummaryDate {
 
   public void setAwsHostTop99p(Long awsHostTop99p) {
     this.awsHostTop99p = awsHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_AWS_HOST_TOP99P, awsHostTop99p);
   }
 
   public UsageSummaryDate awsLambdaFuncCount(Long awsLambdaFuncCount) {
@@ -1897,6 +1924,7 @@ public class UsageSummaryDate {
 
   public void setAwsLambdaFuncCount(Long awsLambdaFuncCount) {
     this.awsLambdaFuncCount = awsLambdaFuncCount;
+    putAdditionalProperty(JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT, awsLambdaFuncCount);
   }
 
   public UsageSummaryDate awsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
@@ -1919,6 +1947,7 @@ public class UsageSummaryDate {
 
   public void setAwsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
+    putAdditionalProperty(JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM, awsLambdaInvocationsSum);
   }
 
   public UsageSummaryDate azureAppServiceTop99p(Long azureAppServiceTop99p) {
@@ -1941,6 +1970,7 @@ public class UsageSummaryDate {
 
   public void setAzureAppServiceTop99p(Long azureAppServiceTop99p) {
     this.azureAppServiceTop99p = azureAppServiceTop99p;
+    putAdditionalProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P, azureAppServiceTop99p);
   }
 
   public UsageSummaryDate billableIngestedBytesSum(Long billableIngestedBytesSum) {
@@ -1963,6 +1993,7 @@ public class UsageSummaryDate {
 
   public void setBillableIngestedBytesSum(Long billableIngestedBytesSum) {
     this.billableIngestedBytesSum = billableIngestedBytesSum;
+    putAdditionalProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM, billableIngestedBytesSum);
   }
 
   public UsageSummaryDate bitsAiInvestigationsSum(Long bitsAiInvestigationsSum) {
@@ -1985,6 +2016,7 @@ public class UsageSummaryDate {
 
   public void setBitsAiInvestigationsSum(Long bitsAiInvestigationsSum) {
     this.bitsAiInvestigationsSum = bitsAiInvestigationsSum;
+    putAdditionalProperty(JSON_PROPERTY_BITS_AI_INVESTIGATIONS_SUM, bitsAiInvestigationsSum);
   }
 
   public UsageSummaryDate browserRumLiteSessionCountSum(Long browserRumLiteSessionCountSum) {
@@ -2010,6 +2042,8 @@ public class UsageSummaryDate {
   @Deprecated
   public void setBrowserRumLiteSessionCountSum(Long browserRumLiteSessionCountSum) {
     this.browserRumLiteSessionCountSum = browserRumLiteSessionCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM, browserRumLiteSessionCountSum);
   }
 
   public UsageSummaryDate browserRumReplaySessionCountSum(Long browserRumReplaySessionCountSum) {
@@ -2032,6 +2066,8 @@ public class UsageSummaryDate {
 
   public void setBrowserRumReplaySessionCountSum(Long browserRumReplaySessionCountSum) {
     this.browserRumReplaySessionCountSum = browserRumReplaySessionCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM, browserRumReplaySessionCountSum);
   }
 
   public UsageSummaryDate browserRumUnitsSum(Long browserRumUnitsSum) {
@@ -2057,6 +2093,7 @@ public class UsageSummaryDate {
   @Deprecated
   public void setBrowserRumUnitsSum(Long browserRumUnitsSum) {
     this.browserRumUnitsSum = browserRumUnitsSum;
+    putAdditionalProperty(JSON_PROPERTY_BROWSER_RUM_UNITS_SUM, browserRumUnitsSum);
   }
 
   public UsageSummaryDate ccmAnthropicSpendLast(Long ccmAnthropicSpendLast) {
@@ -2079,6 +2116,7 @@ public class UsageSummaryDate {
 
   public void setCcmAnthropicSpendLast(Long ccmAnthropicSpendLast) {
     this.ccmAnthropicSpendLast = ccmAnthropicSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_ANTHROPIC_SPEND_LAST, ccmAnthropicSpendLast);
   }
 
   public UsageSummaryDate ccmAwsSpendLast(Long ccmAwsSpendLast) {
@@ -2101,6 +2139,7 @@ public class UsageSummaryDate {
 
   public void setCcmAwsSpendLast(Long ccmAwsSpendLast) {
     this.ccmAwsSpendLast = ccmAwsSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_AWS_SPEND_LAST, ccmAwsSpendLast);
   }
 
   public UsageSummaryDate ccmAzureSpendLast(Long ccmAzureSpendLast) {
@@ -2123,6 +2162,7 @@ public class UsageSummaryDate {
 
   public void setCcmAzureSpendLast(Long ccmAzureSpendLast) {
     this.ccmAzureSpendLast = ccmAzureSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_AZURE_SPEND_LAST, ccmAzureSpendLast);
   }
 
   public UsageSummaryDate ccmConfluentSpendLast(Long ccmConfluentSpendLast) {
@@ -2145,6 +2185,7 @@ public class UsageSummaryDate {
 
   public void setCcmConfluentSpendLast(Long ccmConfluentSpendLast) {
     this.ccmConfluentSpendLast = ccmConfluentSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_CONFLUENT_SPEND_LAST, ccmConfluentSpendLast);
   }
 
   public UsageSummaryDate ccmDatabricksSpendLast(Long ccmDatabricksSpendLast) {
@@ -2167,6 +2208,7 @@ public class UsageSummaryDate {
 
   public void setCcmDatabricksSpendLast(Long ccmDatabricksSpendLast) {
     this.ccmDatabricksSpendLast = ccmDatabricksSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_DATABRICKS_SPEND_LAST, ccmDatabricksSpendLast);
   }
 
   public UsageSummaryDate ccmElasticSpendLast(Long ccmElasticSpendLast) {
@@ -2189,6 +2231,7 @@ public class UsageSummaryDate {
 
   public void setCcmElasticSpendLast(Long ccmElasticSpendLast) {
     this.ccmElasticSpendLast = ccmElasticSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_ELASTIC_SPEND_LAST, ccmElasticSpendLast);
   }
 
   public UsageSummaryDate ccmFastlySpendLast(Long ccmFastlySpendLast) {
@@ -2211,6 +2254,7 @@ public class UsageSummaryDate {
 
   public void setCcmFastlySpendLast(Long ccmFastlySpendLast) {
     this.ccmFastlySpendLast = ccmFastlySpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_FASTLY_SPEND_LAST, ccmFastlySpendLast);
   }
 
   public UsageSummaryDate ccmGcpSpendLast(Long ccmGcpSpendLast) {
@@ -2233,6 +2277,7 @@ public class UsageSummaryDate {
 
   public void setCcmGcpSpendLast(Long ccmGcpSpendLast) {
     this.ccmGcpSpendLast = ccmGcpSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_GCP_SPEND_LAST, ccmGcpSpendLast);
   }
 
   public UsageSummaryDate ccmGithubSpendLast(Long ccmGithubSpendLast) {
@@ -2255,6 +2300,7 @@ public class UsageSummaryDate {
 
   public void setCcmGithubSpendLast(Long ccmGithubSpendLast) {
     this.ccmGithubSpendLast = ccmGithubSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_GITHUB_SPEND_LAST, ccmGithubSpendLast);
   }
 
   public UsageSummaryDate ccmMongodbSpendLast(Long ccmMongodbSpendLast) {
@@ -2277,6 +2323,7 @@ public class UsageSummaryDate {
 
   public void setCcmMongodbSpendLast(Long ccmMongodbSpendLast) {
     this.ccmMongodbSpendLast = ccmMongodbSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_MONGODB_SPEND_LAST, ccmMongodbSpendLast);
   }
 
   public UsageSummaryDate ccmOciSpendLast(Long ccmOciSpendLast) {
@@ -2299,6 +2346,7 @@ public class UsageSummaryDate {
 
   public void setCcmOciSpendLast(Long ccmOciSpendLast) {
     this.ccmOciSpendLast = ccmOciSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_OCI_SPEND_LAST, ccmOciSpendLast);
   }
 
   public UsageSummaryDate ccmOpenaiSpendLast(Long ccmOpenaiSpendLast) {
@@ -2321,6 +2369,7 @@ public class UsageSummaryDate {
 
   public void setCcmOpenaiSpendLast(Long ccmOpenaiSpendLast) {
     this.ccmOpenaiSpendLast = ccmOpenaiSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_OPENAI_SPEND_LAST, ccmOpenaiSpendLast);
   }
 
   public UsageSummaryDate ccmSnowflakeSpendLast(Long ccmSnowflakeSpendLast) {
@@ -2343,6 +2392,7 @@ public class UsageSummaryDate {
 
   public void setCcmSnowflakeSpendLast(Long ccmSnowflakeSpendLast) {
     this.ccmSnowflakeSpendLast = ccmSnowflakeSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_SNOWFLAKE_SPEND_LAST, ccmSnowflakeSpendLast);
   }
 
   public UsageSummaryDate ccmSpendMonitoredEntLast(Long ccmSpendMonitoredEntLast) {
@@ -2365,6 +2415,7 @@ public class UsageSummaryDate {
 
   public void setCcmSpendMonitoredEntLast(Long ccmSpendMonitoredEntLast) {
     this.ccmSpendMonitoredEntLast = ccmSpendMonitoredEntLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST, ccmSpendMonitoredEntLast);
   }
 
   public UsageSummaryDate ccmSpendMonitoredProLast(Long ccmSpendMonitoredProLast) {
@@ -2387,6 +2438,7 @@ public class UsageSummaryDate {
 
   public void setCcmSpendMonitoredProLast(Long ccmSpendMonitoredProLast) {
     this.ccmSpendMonitoredProLast = ccmSpendMonitoredProLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST, ccmSpendMonitoredProLast);
   }
 
   public UsageSummaryDate ccmTwilioSpendLast(Long ccmTwilioSpendLast) {
@@ -2409,6 +2461,7 @@ public class UsageSummaryDate {
 
   public void setCcmTwilioSpendLast(Long ccmTwilioSpendLast) {
     this.ccmTwilioSpendLast = ccmTwilioSpendLast;
+    putAdditionalProperty(JSON_PROPERTY_CCM_TWILIO_SPEND_LAST, ccmTwilioSpendLast);
   }
 
   public UsageSummaryDate ciPipelineIndexedSpansSum(Long ciPipelineIndexedSpansSum) {
@@ -2431,6 +2484,7 @@ public class UsageSummaryDate {
 
   public void setCiPipelineIndexedSpansSum(Long ciPipelineIndexedSpansSum) {
     this.ciPipelineIndexedSpansSum = ciPipelineIndexedSpansSum;
+    putAdditionalProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM, ciPipelineIndexedSpansSum);
   }
 
   public UsageSummaryDate ciTestIndexedSpansSum(Long ciTestIndexedSpansSum) {
@@ -2453,6 +2507,7 @@ public class UsageSummaryDate {
 
   public void setCiTestIndexedSpansSum(Long ciTestIndexedSpansSum) {
     this.ciTestIndexedSpansSum = ciTestIndexedSpansSum;
+    putAdditionalProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM, ciTestIndexedSpansSum);
   }
 
   public UsageSummaryDate ciVisibilityItrCommittersHwm(Long ciVisibilityItrCommittersHwm) {
@@ -2475,6 +2530,8 @@ public class UsageSummaryDate {
 
   public void setCiVisibilityItrCommittersHwm(Long ciVisibilityItrCommittersHwm) {
     this.ciVisibilityItrCommittersHwm = ciVisibilityItrCommittersHwm;
+    putAdditionalProperty(
+        JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM, ciVisibilityItrCommittersHwm);
   }
 
   public UsageSummaryDate ciVisibilityPipelineCommittersHwm(
@@ -2498,6 +2555,8 @@ public class UsageSummaryDate {
 
   public void setCiVisibilityPipelineCommittersHwm(Long ciVisibilityPipelineCommittersHwm) {
     this.ciVisibilityPipelineCommittersHwm = ciVisibilityPipelineCommittersHwm;
+    putAdditionalProperty(
+        JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM, ciVisibilityPipelineCommittersHwm);
   }
 
   public UsageSummaryDate ciVisibilityTestCommittersHwm(Long ciVisibilityTestCommittersHwm) {
@@ -2520,6 +2579,8 @@ public class UsageSummaryDate {
 
   public void setCiVisibilityTestCommittersHwm(Long ciVisibilityTestCommittersHwm) {
     this.ciVisibilityTestCommittersHwm = ciVisibilityTestCommittersHwm;
+    putAdditionalProperty(
+        JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM, ciVisibilityTestCommittersHwm);
   }
 
   public UsageSummaryDate cloudCostManagementAwsHostCountAvg(
@@ -2542,6 +2603,8 @@ public class UsageSummaryDate {
 
   public void setCloudCostManagementAwsHostCountAvg(Long cloudCostManagementAwsHostCountAvg) {
     this.cloudCostManagementAwsHostCountAvg = cloudCostManagementAwsHostCountAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG, cloudCostManagementAwsHostCountAvg);
   }
 
   public UsageSummaryDate cloudCostManagementAzureHostCountAvg(
@@ -2565,6 +2628,9 @@ public class UsageSummaryDate {
 
   public void setCloudCostManagementAzureHostCountAvg(Long cloudCostManagementAzureHostCountAvg) {
     this.cloudCostManagementAzureHostCountAvg = cloudCostManagementAzureHostCountAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG,
+        cloudCostManagementAzureHostCountAvg);
   }
 
   public UsageSummaryDate cloudCostManagementGcpHostCountAvg(
@@ -2587,6 +2653,8 @@ public class UsageSummaryDate {
 
   public void setCloudCostManagementGcpHostCountAvg(Long cloudCostManagementGcpHostCountAvg) {
     this.cloudCostManagementGcpHostCountAvg = cloudCostManagementGcpHostCountAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG, cloudCostManagementGcpHostCountAvg);
   }
 
   public UsageSummaryDate cloudCostManagementHostCountAvg(Long cloudCostManagementHostCountAvg) {
@@ -2609,6 +2677,8 @@ public class UsageSummaryDate {
 
   public void setCloudCostManagementHostCountAvg(Long cloudCostManagementHostCountAvg) {
     this.cloudCostManagementHostCountAvg = cloudCostManagementHostCountAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG, cloudCostManagementHostCountAvg);
   }
 
   public UsageSummaryDate cloudCostManagementOciHostCountAvg(
@@ -2631,6 +2701,8 @@ public class UsageSummaryDate {
 
   public void setCloudCostManagementOciHostCountAvg(Long cloudCostManagementOciHostCountAvg) {
     this.cloudCostManagementOciHostCountAvg = cloudCostManagementOciHostCountAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG, cloudCostManagementOciHostCountAvg);
   }
 
   public UsageSummaryDate cloudSiemEventsSum(Long cloudSiemEventsSum) {
@@ -2653,6 +2725,7 @@ public class UsageSummaryDate {
 
   public void setCloudSiemEventsSum(Long cloudSiemEventsSum) {
     this.cloudSiemEventsSum = cloudSiemEventsSum;
+    putAdditionalProperty(JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM, cloudSiemEventsSum);
   }
 
   public UsageSummaryDate cloudSiemIndexedLogsSum(Long cloudSiemIndexedLogsSum) {
@@ -2675,6 +2748,7 @@ public class UsageSummaryDate {
 
   public void setCloudSiemIndexedLogsSum(Long cloudSiemIndexedLogsSum) {
     this.cloudSiemIndexedLogsSum = cloudSiemIndexedLogsSum;
+    putAdditionalProperty(JSON_PROPERTY_CLOUD_SIEM_INDEXED_LOGS_SUM, cloudSiemIndexedLogsSum);
   }
 
   public UsageSummaryDate codeAnalysisSaCommittersHwm(Long codeAnalysisSaCommittersHwm) {
@@ -2697,6 +2771,8 @@ public class UsageSummaryDate {
 
   public void setCodeAnalysisSaCommittersHwm(Long codeAnalysisSaCommittersHwm) {
     this.codeAnalysisSaCommittersHwm = codeAnalysisSaCommittersHwm;
+    putAdditionalProperty(
+        JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM, codeAnalysisSaCommittersHwm);
   }
 
   public UsageSummaryDate codeAnalysisScaCommittersHwm(Long codeAnalysisScaCommittersHwm) {
@@ -2719,6 +2795,8 @@ public class UsageSummaryDate {
 
   public void setCodeAnalysisScaCommittersHwm(Long codeAnalysisScaCommittersHwm) {
     this.codeAnalysisScaCommittersHwm = codeAnalysisScaCommittersHwm;
+    putAdditionalProperty(
+        JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM, codeAnalysisScaCommittersHwm);
   }
 
   public UsageSummaryDate codeSecurityHostTop99p(Long codeSecurityHostTop99p) {
@@ -2741,6 +2819,7 @@ public class UsageSummaryDate {
 
   public void setCodeSecurityHostTop99p(Long codeSecurityHostTop99p) {
     this.codeSecurityHostTop99p = codeSecurityHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P, codeSecurityHostTop99p);
   }
 
   public UsageSummaryDate containerAvg(Long containerAvg) {
@@ -2763,6 +2842,7 @@ public class UsageSummaryDate {
 
   public void setContainerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
+    putAdditionalProperty(JSON_PROPERTY_CONTAINER_AVG, containerAvg);
   }
 
   public UsageSummaryDate containerExclAgentAvg(Long containerExclAgentAvg) {
@@ -2785,6 +2865,7 @@ public class UsageSummaryDate {
 
   public void setContainerExclAgentAvg(Long containerExclAgentAvg) {
     this.containerExclAgentAvg = containerExclAgentAvg;
+    putAdditionalProperty(JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG, containerExclAgentAvg);
   }
 
   public UsageSummaryDate containerHwm(Long containerHwm) {
@@ -2807,6 +2888,7 @@ public class UsageSummaryDate {
 
   public void setContainerHwm(Long containerHwm) {
     this.containerHwm = containerHwm;
+    putAdditionalProperty(JSON_PROPERTY_CONTAINER_HWM, containerHwm);
   }
 
   public UsageSummaryDate csmContainerEnterpriseComplianceCountSum(
@@ -2831,6 +2913,9 @@ public class UsageSummaryDate {
   public void setCsmContainerEnterpriseComplianceCountSum(
       Long csmContainerEnterpriseComplianceCountSum) {
     this.csmContainerEnterpriseComplianceCountSum = csmContainerEnterpriseComplianceCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM,
+        csmContainerEnterpriseComplianceCountSum);
   }
 
   public UsageSummaryDate csmContainerEnterpriseCwsCountSum(
@@ -2854,6 +2939,8 @@ public class UsageSummaryDate {
 
   public void setCsmContainerEnterpriseCwsCountSum(Long csmContainerEnterpriseCwsCountSum) {
     this.csmContainerEnterpriseCwsCountSum = csmContainerEnterpriseCwsCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM, csmContainerEnterpriseCwsCountSum);
   }
 
   public UsageSummaryDate csmContainerEnterpriseTotalCountSum(
@@ -2877,6 +2964,9 @@ public class UsageSummaryDate {
 
   public void setCsmContainerEnterpriseTotalCountSum(Long csmContainerEnterpriseTotalCountSum) {
     this.csmContainerEnterpriseTotalCountSum = csmContainerEnterpriseTotalCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM,
+        csmContainerEnterpriseTotalCountSum);
   }
 
   public UsageSummaryDate csmHostEnterpriseAasHostCountTop99p(
@@ -2900,6 +2990,9 @@ public class UsageSummaryDate {
 
   public void setCsmHostEnterpriseAasHostCountTop99p(Long csmHostEnterpriseAasHostCountTop99p) {
     this.csmHostEnterpriseAasHostCountTop99p = csmHostEnterpriseAasHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P,
+        csmHostEnterpriseAasHostCountTop99p);
   }
 
   public UsageSummaryDate csmHostEnterpriseAwsHostCountTop99p(
@@ -2923,6 +3016,9 @@ public class UsageSummaryDate {
 
   public void setCsmHostEnterpriseAwsHostCountTop99p(Long csmHostEnterpriseAwsHostCountTop99p) {
     this.csmHostEnterpriseAwsHostCountTop99p = csmHostEnterpriseAwsHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P,
+        csmHostEnterpriseAwsHostCountTop99p);
   }
 
   public UsageSummaryDate csmHostEnterpriseAzureHostCountTop99p(
@@ -2946,6 +3042,9 @@ public class UsageSummaryDate {
 
   public void setCsmHostEnterpriseAzureHostCountTop99p(Long csmHostEnterpriseAzureHostCountTop99p) {
     this.csmHostEnterpriseAzureHostCountTop99p = csmHostEnterpriseAzureHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P,
+        csmHostEnterpriseAzureHostCountTop99p);
   }
 
   public UsageSummaryDate csmHostEnterpriseComplianceHostCountTop99p(
@@ -2970,6 +3069,9 @@ public class UsageSummaryDate {
   public void setCsmHostEnterpriseComplianceHostCountTop99p(
       Long csmHostEnterpriseComplianceHostCountTop99p) {
     this.csmHostEnterpriseComplianceHostCountTop99p = csmHostEnterpriseComplianceHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P,
+        csmHostEnterpriseComplianceHostCountTop99p);
   }
 
   public UsageSummaryDate csmHostEnterpriseCwsHostCountTop99p(
@@ -2993,6 +3095,9 @@ public class UsageSummaryDate {
 
   public void setCsmHostEnterpriseCwsHostCountTop99p(Long csmHostEnterpriseCwsHostCountTop99p) {
     this.csmHostEnterpriseCwsHostCountTop99p = csmHostEnterpriseCwsHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P,
+        csmHostEnterpriseCwsHostCountTop99p);
   }
 
   public UsageSummaryDate csmHostEnterpriseGcpHostCountTop99p(
@@ -3016,6 +3121,9 @@ public class UsageSummaryDate {
 
   public void setCsmHostEnterpriseGcpHostCountTop99p(Long csmHostEnterpriseGcpHostCountTop99p) {
     this.csmHostEnterpriseGcpHostCountTop99p = csmHostEnterpriseGcpHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P,
+        csmHostEnterpriseGcpHostCountTop99p);
   }
 
   public UsageSummaryDate csmHostEnterpriseOciHostCountTop99p(
@@ -3039,6 +3147,9 @@ public class UsageSummaryDate {
 
   public void setCsmHostEnterpriseOciHostCountTop99p(Long csmHostEnterpriseOciHostCountTop99p) {
     this.csmHostEnterpriseOciHostCountTop99p = csmHostEnterpriseOciHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P,
+        csmHostEnterpriseOciHostCountTop99p);
   }
 
   public UsageSummaryDate csmHostEnterpriseTotalHostCountTop99p(
@@ -3062,6 +3173,9 @@ public class UsageSummaryDate {
 
   public void setCsmHostEnterpriseTotalHostCountTop99p(Long csmHostEnterpriseTotalHostCountTop99p) {
     this.csmHostEnterpriseTotalHostCountTop99p = csmHostEnterpriseTotalHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P,
+        csmHostEnterpriseTotalHostCountTop99p);
   }
 
   public UsageSummaryDate csmHostProHostsAgentlessScannersSum(
@@ -3085,6 +3199,9 @@ public class UsageSummaryDate {
 
   public void setCsmHostProHostsAgentlessScannersSum(Long csmHostProHostsAgentlessScannersSum) {
     this.csmHostProHostsAgentlessScannersSum = csmHostProHostsAgentlessScannersSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM,
+        csmHostProHostsAgentlessScannersSum);
   }
 
   public UsageSummaryDate csmHostProHostsAgentlessScannersTop99p(
@@ -3109,6 +3226,9 @@ public class UsageSummaryDate {
   public void setCsmHostProHostsAgentlessScannersTop99p(
       Long csmHostProHostsAgentlessScannersTop99p) {
     this.csmHostProHostsAgentlessScannersTop99p = csmHostProHostsAgentlessScannersTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P,
+        csmHostProHostsAgentlessScannersTop99p);
   }
 
   public UsageSummaryDate csmHostProOciHostCountTop99p(Long csmHostProOciHostCountTop99p) {
@@ -3131,6 +3251,8 @@ public class UsageSummaryDate {
 
   public void setCsmHostProOciHostCountTop99p(Long csmHostProOciHostCountTop99p) {
     this.csmHostProOciHostCountTop99p = csmHostProOciHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P, csmHostProOciHostCountTop99p);
   }
 
   public UsageSummaryDate cspmAasHostTop99p(Long cspmAasHostTop99p) {
@@ -3153,6 +3275,7 @@ public class UsageSummaryDate {
 
   public void setCspmAasHostTop99p(Long cspmAasHostTop99p) {
     this.cspmAasHostTop99p = cspmAasHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_CSPM_AAS_HOST_TOP99P, cspmAasHostTop99p);
   }
 
   public UsageSummaryDate cspmAwsHostTop99p(Long cspmAwsHostTop99p) {
@@ -3175,6 +3298,7 @@ public class UsageSummaryDate {
 
   public void setCspmAwsHostTop99p(Long cspmAwsHostTop99p) {
     this.cspmAwsHostTop99p = cspmAwsHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_CSPM_AWS_HOST_TOP99P, cspmAwsHostTop99p);
   }
 
   public UsageSummaryDate cspmAzureHostTop99p(Long cspmAzureHostTop99p) {
@@ -3197,6 +3321,7 @@ public class UsageSummaryDate {
 
   public void setCspmAzureHostTop99p(Long cspmAzureHostTop99p) {
     this.cspmAzureHostTop99p = cspmAzureHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P, cspmAzureHostTop99p);
   }
 
   public UsageSummaryDate cspmContainerAvg(Long cspmContainerAvg) {
@@ -3219,6 +3344,7 @@ public class UsageSummaryDate {
 
   public void setCspmContainerAvg(Long cspmContainerAvg) {
     this.cspmContainerAvg = cspmContainerAvg;
+    putAdditionalProperty(JSON_PROPERTY_CSPM_CONTAINER_AVG, cspmContainerAvg);
   }
 
   public UsageSummaryDate cspmContainerHwm(Long cspmContainerHwm) {
@@ -3241,6 +3367,7 @@ public class UsageSummaryDate {
 
   public void setCspmContainerHwm(Long cspmContainerHwm) {
     this.cspmContainerHwm = cspmContainerHwm;
+    putAdditionalProperty(JSON_PROPERTY_CSPM_CONTAINER_HWM, cspmContainerHwm);
   }
 
   public UsageSummaryDate cspmGcpHostTop99p(Long cspmGcpHostTop99p) {
@@ -3263,6 +3390,7 @@ public class UsageSummaryDate {
 
   public void setCspmGcpHostTop99p(Long cspmGcpHostTop99p) {
     this.cspmGcpHostTop99p = cspmGcpHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_CSPM_GCP_HOST_TOP99P, cspmGcpHostTop99p);
   }
 
   public UsageSummaryDate cspmHostTop99p(Long cspmHostTop99p) {
@@ -3285,6 +3413,7 @@ public class UsageSummaryDate {
 
   public void setCspmHostTop99p(Long cspmHostTop99p) {
     this.cspmHostTop99p = cspmHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_CSPM_HOST_TOP99P, cspmHostTop99p);
   }
 
   public UsageSummaryDate cspmHostsAgentlessScannersSum(Long cspmHostsAgentlessScannersSum) {
@@ -3307,6 +3436,8 @@ public class UsageSummaryDate {
 
   public void setCspmHostsAgentlessScannersSum(Long cspmHostsAgentlessScannersSum) {
     this.cspmHostsAgentlessScannersSum = cspmHostsAgentlessScannersSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM, cspmHostsAgentlessScannersSum);
   }
 
   public UsageSummaryDate cspmHostsAgentlessScannersTop99p(Long cspmHostsAgentlessScannersTop99p) {
@@ -3329,6 +3460,8 @@ public class UsageSummaryDate {
 
   public void setCspmHostsAgentlessScannersTop99p(Long cspmHostsAgentlessScannersTop99p) {
     this.cspmHostsAgentlessScannersTop99p = cspmHostsAgentlessScannersTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P, cspmHostsAgentlessScannersTop99p);
   }
 
   public UsageSummaryDate customTsAvg(Long customTsAvg) {
@@ -3351,6 +3484,7 @@ public class UsageSummaryDate {
 
   public void setCustomTsAvg(Long customTsAvg) {
     this.customTsAvg = customTsAvg;
+    putAdditionalProperty(JSON_PROPERTY_CUSTOM_TS_AVG, customTsAvg);
   }
 
   public UsageSummaryDate cwsContainerCountAvg(Long cwsContainerCountAvg) {
@@ -3373,6 +3507,7 @@ public class UsageSummaryDate {
 
   public void setCwsContainerCountAvg(Long cwsContainerCountAvg) {
     this.cwsContainerCountAvg = cwsContainerCountAvg;
+    putAdditionalProperty(JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG, cwsContainerCountAvg);
   }
 
   public UsageSummaryDate cwsFargateTaskAvg(Long cwsFargateTaskAvg) {
@@ -3395,6 +3530,7 @@ public class UsageSummaryDate {
 
   public void setCwsFargateTaskAvg(Long cwsFargateTaskAvg) {
     this.cwsFargateTaskAvg = cwsFargateTaskAvg;
+    putAdditionalProperty(JSON_PROPERTY_CWS_FARGATE_TASK_AVG, cwsFargateTaskAvg);
   }
 
   public UsageSummaryDate cwsHostTop99p(Long cwsHostTop99p) {
@@ -3417,6 +3553,7 @@ public class UsageSummaryDate {
 
   public void setCwsHostTop99p(Long cwsHostTop99p) {
     this.cwsHostTop99p = cwsHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_CWS_HOST_TOP99P, cwsHostTop99p);
   }
 
   public UsageSummaryDate dataJobsMonitoringHostHrSum(Long dataJobsMonitoringHostHrSum) {
@@ -3439,6 +3576,8 @@ public class UsageSummaryDate {
 
   public void setDataJobsMonitoringHostHrSum(Long dataJobsMonitoringHostHrSum) {
     this.dataJobsMonitoringHostHrSum = dataJobsMonitoringHostHrSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM, dataJobsMonitoringHostHrSum);
   }
 
   public UsageSummaryDate dataStreamMonitoringHostCountSum(Long dataStreamMonitoringHostCountSum) {
@@ -3461,6 +3600,8 @@ public class UsageSummaryDate {
 
   public void setDataStreamMonitoringHostCountSum(Long dataStreamMonitoringHostCountSum) {
     this.dataStreamMonitoringHostCountSum = dataStreamMonitoringHostCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM, dataStreamMonitoringHostCountSum);
   }
 
   public UsageSummaryDate dataStreamMonitoringHostCountTop99p(
@@ -3484,6 +3625,9 @@ public class UsageSummaryDate {
 
   public void setDataStreamMonitoringHostCountTop99p(Long dataStreamMonitoringHostCountTop99p) {
     this.dataStreamMonitoringHostCountTop99p = dataStreamMonitoringHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P,
+        dataStreamMonitoringHostCountTop99p);
   }
 
   public UsageSummaryDate date(OffsetDateTime date) {
@@ -3505,6 +3649,7 @@ public class UsageSummaryDate {
 
   public void setDate(OffsetDateTime date) {
     this.date = date;
+    putAdditionalProperty(JSON_PROPERTY_DATE, date);
   }
 
   public UsageSummaryDate dbmHostTop99p(Long dbmHostTop99p) {
@@ -3527,6 +3672,7 @@ public class UsageSummaryDate {
 
   public void setDbmHostTop99p(Long dbmHostTop99p) {
     this.dbmHostTop99p = dbmHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_DBM_HOST_TOP99P, dbmHostTop99p);
   }
 
   public UsageSummaryDate dbmQueriesCountAvg(Long dbmQueriesCountAvg) {
@@ -3549,6 +3695,7 @@ public class UsageSummaryDate {
 
   public void setDbmQueriesCountAvg(Long dbmQueriesCountAvg) {
     this.dbmQueriesCountAvg = dbmQueriesCountAvg;
+    putAdditionalProperty(JSON_PROPERTY_DBM_QUERIES_COUNT_AVG, dbmQueriesCountAvg);
   }
 
   public UsageSummaryDate doJobsMonitoringOrchestratorsJobHoursSum(
@@ -3573,6 +3720,9 @@ public class UsageSummaryDate {
   public void setDoJobsMonitoringOrchestratorsJobHoursSum(
       Long doJobsMonitoringOrchestratorsJobHoursSum) {
     this.doJobsMonitoringOrchestratorsJobHoursSum = doJobsMonitoringOrchestratorsJobHoursSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM,
+        doJobsMonitoringOrchestratorsJobHoursSum);
   }
 
   public UsageSummaryDate ephInfraHostAgentSum(Long ephInfraHostAgentSum) {
@@ -3595,6 +3745,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostAgentSum(Long ephInfraHostAgentSum) {
     this.ephInfraHostAgentSum = ephInfraHostAgentSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM, ephInfraHostAgentSum);
   }
 
   public UsageSummaryDate ephInfraHostAlibabaSum(Long ephInfraHostAlibabaSum) {
@@ -3617,6 +3768,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostAlibabaSum(Long ephInfraHostAlibabaSum) {
     this.ephInfraHostAlibabaSum = ephInfraHostAlibabaSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM, ephInfraHostAlibabaSum);
   }
 
   public UsageSummaryDate ephInfraHostAwsSum(Long ephInfraHostAwsSum) {
@@ -3639,6 +3791,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostAwsSum(Long ephInfraHostAwsSum) {
     this.ephInfraHostAwsSum = ephInfraHostAwsSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM, ephInfraHostAwsSum);
   }
 
   public UsageSummaryDate ephInfraHostAzureSum(Long ephInfraHostAzureSum) {
@@ -3661,6 +3814,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostAzureSum(Long ephInfraHostAzureSum) {
     this.ephInfraHostAzureSum = ephInfraHostAzureSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM, ephInfraHostAzureSum);
   }
 
   public UsageSummaryDate ephInfraHostBasicInfraBasicAgentSum(
@@ -3684,6 +3838,9 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostBasicInfraBasicAgentSum(Long ephInfraHostBasicInfraBasicAgentSum) {
     this.ephInfraHostBasicInfraBasicAgentSum = ephInfraHostBasicInfraBasicAgentSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_SUM,
+        ephInfraHostBasicInfraBasicAgentSum);
   }
 
   public UsageSummaryDate ephInfraHostBasicInfraBasicVsphereSum(
@@ -3707,6 +3864,9 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostBasicInfraBasicVsphereSum(Long ephInfraHostBasicInfraBasicVsphereSum) {
     this.ephInfraHostBasicInfraBasicVsphereSum = ephInfraHostBasicInfraBasicVsphereSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_SUM,
+        ephInfraHostBasicInfraBasicVsphereSum);
   }
 
   public UsageSummaryDate ephInfraHostBasicSum(Long ephInfraHostBasicSum) {
@@ -3729,6 +3889,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostBasicSum(Long ephInfraHostBasicSum) {
     this.ephInfraHostBasicSum = ephInfraHostBasicSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_SUM, ephInfraHostBasicSum);
   }
 
   public UsageSummaryDate ephInfraHostEntSum(Long ephInfraHostEntSum) {
@@ -3751,6 +3912,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostEntSum(Long ephInfraHostEntSum) {
     this.ephInfraHostEntSum = ephInfraHostEntSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_ENT_SUM, ephInfraHostEntSum);
   }
 
   public UsageSummaryDate ephInfraHostGcpSum(Long ephInfraHostGcpSum) {
@@ -3773,6 +3935,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostGcpSum(Long ephInfraHostGcpSum) {
     this.ephInfraHostGcpSum = ephInfraHostGcpSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_GCP_SUM, ephInfraHostGcpSum);
   }
 
   public UsageSummaryDate ephInfraHostHerokuSum(Long ephInfraHostHerokuSum) {
@@ -3795,6 +3958,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostHerokuSum(Long ephInfraHostHerokuSum) {
     this.ephInfraHostHerokuSum = ephInfraHostHerokuSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_HEROKU_SUM, ephInfraHostHerokuSum);
   }
 
   public UsageSummaryDate ephInfraHostOnlyAasSum(Long ephInfraHostOnlyAasSum) {
@@ -3817,6 +3981,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostOnlyAasSum(Long ephInfraHostOnlyAasSum) {
     this.ephInfraHostOnlyAasSum = ephInfraHostOnlyAasSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_ONLY_AAS_SUM, ephInfraHostOnlyAasSum);
   }
 
   public UsageSummaryDate ephInfraHostOnlyVsphereSum(Long ephInfraHostOnlyVsphereSum) {
@@ -3839,6 +4004,8 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostOnlyVsphereSum(Long ephInfraHostOnlyVsphereSum) {
     this.ephInfraHostOnlyVsphereSum = ephInfraHostOnlyVsphereSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM, ephInfraHostOnlyVsphereSum);
   }
 
   public UsageSummaryDate ephInfraHostOpentelemetryApmSum(Long ephInfraHostOpentelemetryApmSum) {
@@ -3861,6 +4028,8 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostOpentelemetryApmSum(Long ephInfraHostOpentelemetryApmSum) {
     this.ephInfraHostOpentelemetryApmSum = ephInfraHostOpentelemetryApmSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM, ephInfraHostOpentelemetryApmSum);
   }
 
   public UsageSummaryDate ephInfraHostOpentelemetrySum(Long ephInfraHostOpentelemetrySum) {
@@ -3883,6 +4052,8 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostOpentelemetrySum(Long ephInfraHostOpentelemetrySum) {
     this.ephInfraHostOpentelemetrySum = ephInfraHostOpentelemetrySum;
+    putAdditionalProperty(
+        JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM, ephInfraHostOpentelemetrySum);
   }
 
   public UsageSummaryDate ephInfraHostProSum(Long ephInfraHostProSum) {
@@ -3905,6 +4076,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostProSum(Long ephInfraHostProSum) {
     this.ephInfraHostProSum = ephInfraHostProSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_PRO_SUM, ephInfraHostProSum);
   }
 
   public UsageSummaryDate ephInfraHostProplusSum(Long ephInfraHostProplusSum) {
@@ -3927,6 +4099,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostProplusSum(Long ephInfraHostProplusSum) {
     this.ephInfraHostProplusSum = ephInfraHostProplusSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM, ephInfraHostProplusSum);
   }
 
   public UsageSummaryDate ephInfraHostProxmoxSum(Long ephInfraHostProxmoxSum) {
@@ -3949,6 +4122,7 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostProxmoxSum(Long ephInfraHostProxmoxSum) {
     this.ephInfraHostProxmoxSum = ephInfraHostProxmoxSum;
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROXMOX_SUM, ephInfraHostProxmoxSum);
   }
 
   public UsageSummaryDate errorTrackingApmErrorEventsSum(Long errorTrackingApmErrorEventsSum) {
@@ -3971,6 +4145,8 @@ public class UsageSummaryDate {
 
   public void setErrorTrackingApmErrorEventsSum(Long errorTrackingApmErrorEventsSum) {
     this.errorTrackingApmErrorEventsSum = errorTrackingApmErrorEventsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM, errorTrackingApmErrorEventsSum);
   }
 
   public UsageSummaryDate errorTrackingErrorEventsSum(Long errorTrackingErrorEventsSum) {
@@ -3993,6 +4169,8 @@ public class UsageSummaryDate {
 
   public void setErrorTrackingErrorEventsSum(Long errorTrackingErrorEventsSum) {
     this.errorTrackingErrorEventsSum = errorTrackingErrorEventsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM, errorTrackingErrorEventsSum);
   }
 
   public UsageSummaryDate errorTrackingEventsSum(Long errorTrackingEventsSum) {
@@ -4015,6 +4193,7 @@ public class UsageSummaryDate {
 
   public void setErrorTrackingEventsSum(Long errorTrackingEventsSum) {
     this.errorTrackingEventsSum = errorTrackingEventsSum;
+    putAdditionalProperty(JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM, errorTrackingEventsSum);
   }
 
   public UsageSummaryDate errorTrackingRumErrorEventsSum(Long errorTrackingRumErrorEventsSum) {
@@ -4037,6 +4216,8 @@ public class UsageSummaryDate {
 
   public void setErrorTrackingRumErrorEventsSum(Long errorTrackingRumErrorEventsSum) {
     this.errorTrackingRumErrorEventsSum = errorTrackingRumErrorEventsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM, errorTrackingRumErrorEventsSum);
   }
 
   public UsageSummaryDate eventManagementCorrelationCorrelatedEventsSum(
@@ -4063,6 +4244,9 @@ public class UsageSummaryDate {
       Long eventManagementCorrelationCorrelatedEventsSum) {
     this.eventManagementCorrelationCorrelatedEventsSum =
         eventManagementCorrelationCorrelatedEventsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM,
+        eventManagementCorrelationCorrelatedEventsSum);
   }
 
   public UsageSummaryDate eventManagementCorrelationCorrelatedRelatedEventsSum(
@@ -4089,6 +4273,9 @@ public class UsageSummaryDate {
       Long eventManagementCorrelationCorrelatedRelatedEventsSum) {
     this.eventManagementCorrelationCorrelatedRelatedEventsSum =
         eventManagementCorrelationCorrelatedRelatedEventsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM,
+        eventManagementCorrelationCorrelatedRelatedEventsSum);
   }
 
   public UsageSummaryDate eventManagementCorrelationSum(Long eventManagementCorrelationSum) {
@@ -4111,6 +4298,8 @@ public class UsageSummaryDate {
 
   public void setEventManagementCorrelationSum(Long eventManagementCorrelationSum) {
     this.eventManagementCorrelationSum = eventManagementCorrelationSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM, eventManagementCorrelationSum);
   }
 
   public UsageSummaryDate fargateContainerProfilerProfilingFargateAvg(
@@ -4135,6 +4324,9 @@ public class UsageSummaryDate {
   public void setFargateContainerProfilerProfilingFargateAvg(
       Long fargateContainerProfilerProfilingFargateAvg) {
     this.fargateContainerProfilerProfilingFargateAvg = fargateContainerProfilerProfilingFargateAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG,
+        fargateContainerProfilerProfilingFargateAvg);
   }
 
   public UsageSummaryDate fargateContainerProfilerProfilingFargateEksAvg(
@@ -4161,6 +4353,9 @@ public class UsageSummaryDate {
       Long fargateContainerProfilerProfilingFargateEksAvg) {
     this.fargateContainerProfilerProfilingFargateEksAvg =
         fargateContainerProfilerProfilingFargateEksAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG,
+        fargateContainerProfilerProfilingFargateEksAvg);
   }
 
   public UsageSummaryDate fargateTasksCountAvg(Long fargateTasksCountAvg) {
@@ -4183,6 +4378,7 @@ public class UsageSummaryDate {
 
   public void setFargateTasksCountAvg(Long fargateTasksCountAvg) {
     this.fargateTasksCountAvg = fargateTasksCountAvg;
+    putAdditionalProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG, fargateTasksCountAvg);
   }
 
   public UsageSummaryDate fargateTasksCountHwm(Long fargateTasksCountHwm) {
@@ -4205,6 +4401,7 @@ public class UsageSummaryDate {
 
   public void setFargateTasksCountHwm(Long fargateTasksCountHwm) {
     this.fargateTasksCountHwm = fargateTasksCountHwm;
+    putAdditionalProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM, fargateTasksCountHwm);
   }
 
   public UsageSummaryDate featureFlagsConfigRequestsSum(Long featureFlagsConfigRequestsSum) {
@@ -4227,6 +4424,8 @@ public class UsageSummaryDate {
 
   public void setFeatureFlagsConfigRequestsSum(Long featureFlagsConfigRequestsSum) {
     this.featureFlagsConfigRequestsSum = featureFlagsConfigRequestsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM, featureFlagsConfigRequestsSum);
   }
 
   public UsageSummaryDate flexLogsComputeLargeAvg(Long flexLogsComputeLargeAvg) {
@@ -4249,6 +4448,7 @@ public class UsageSummaryDate {
 
   public void setFlexLogsComputeLargeAvg(Long flexLogsComputeLargeAvg) {
     this.flexLogsComputeLargeAvg = flexLogsComputeLargeAvg;
+    putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG, flexLogsComputeLargeAvg);
   }
 
   public UsageSummaryDate flexLogsComputeMediumAvg(Long flexLogsComputeMediumAvg) {
@@ -4271,6 +4471,7 @@ public class UsageSummaryDate {
 
   public void setFlexLogsComputeMediumAvg(Long flexLogsComputeMediumAvg) {
     this.flexLogsComputeMediumAvg = flexLogsComputeMediumAvg;
+    putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG, flexLogsComputeMediumAvg);
   }
 
   public UsageSummaryDate flexLogsComputeSmallAvg(Long flexLogsComputeSmallAvg) {
@@ -4293,6 +4494,7 @@ public class UsageSummaryDate {
 
   public void setFlexLogsComputeSmallAvg(Long flexLogsComputeSmallAvg) {
     this.flexLogsComputeSmallAvg = flexLogsComputeSmallAvg;
+    putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG, flexLogsComputeSmallAvg);
   }
 
   public UsageSummaryDate flexLogsComputeXlargeAvg(Long flexLogsComputeXlargeAvg) {
@@ -4315,6 +4517,7 @@ public class UsageSummaryDate {
 
   public void setFlexLogsComputeXlargeAvg(Long flexLogsComputeXlargeAvg) {
     this.flexLogsComputeXlargeAvg = flexLogsComputeXlargeAvg;
+    putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG, flexLogsComputeXlargeAvg);
   }
 
   public UsageSummaryDate flexLogsComputeXsmallAvg(Long flexLogsComputeXsmallAvg) {
@@ -4337,6 +4540,7 @@ public class UsageSummaryDate {
 
   public void setFlexLogsComputeXsmallAvg(Long flexLogsComputeXsmallAvg) {
     this.flexLogsComputeXsmallAvg = flexLogsComputeXsmallAvg;
+    putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG, flexLogsComputeXsmallAvg);
   }
 
   public UsageSummaryDate flexLogsStarterAvg(Long flexLogsStarterAvg) {
@@ -4359,6 +4563,7 @@ public class UsageSummaryDate {
 
   public void setFlexLogsStarterAvg(Long flexLogsStarterAvg) {
     this.flexLogsStarterAvg = flexLogsStarterAvg;
+    putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_AVG, flexLogsStarterAvg);
   }
 
   public UsageSummaryDate flexLogsStarterStorageIndexAvg(Long flexLogsStarterStorageIndexAvg) {
@@ -4381,6 +4586,8 @@ public class UsageSummaryDate {
 
   public void setFlexLogsStarterStorageIndexAvg(Long flexLogsStarterStorageIndexAvg) {
     this.flexLogsStarterStorageIndexAvg = flexLogsStarterStorageIndexAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG, flexLogsStarterStorageIndexAvg);
   }
 
   public UsageSummaryDate flexLogsStarterStorageRetentionAdjustmentAvg(
@@ -4407,6 +4614,9 @@ public class UsageSummaryDate {
       Long flexLogsStarterStorageRetentionAdjustmentAvg) {
     this.flexLogsStarterStorageRetentionAdjustmentAvg =
         flexLogsStarterStorageRetentionAdjustmentAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG,
+        flexLogsStarterStorageRetentionAdjustmentAvg);
   }
 
   public UsageSummaryDate flexStoredLogsAvg(Long flexStoredLogsAvg) {
@@ -4428,6 +4638,7 @@ public class UsageSummaryDate {
 
   public void setFlexStoredLogsAvg(Long flexStoredLogsAvg) {
     this.flexStoredLogsAvg = flexStoredLogsAvg;
+    putAdditionalProperty(JSON_PROPERTY_FLEX_STORED_LOGS_AVG, flexStoredLogsAvg);
   }
 
   public UsageSummaryDate forwardingEventsBytesSum(Long forwardingEventsBytesSum) {
@@ -4450,6 +4661,7 @@ public class UsageSummaryDate {
 
   public void setForwardingEventsBytesSum(Long forwardingEventsBytesSum) {
     this.forwardingEventsBytesSum = forwardingEventsBytesSum;
+    putAdditionalProperty(JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM, forwardingEventsBytesSum);
   }
 
   public UsageSummaryDate gcpHostTop99p(Long gcpHostTop99p) {
@@ -4472,6 +4684,7 @@ public class UsageSummaryDate {
 
   public void setGcpHostTop99p(Long gcpHostTop99p) {
     this.gcpHostTop99p = gcpHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_GCP_HOST_TOP99P, gcpHostTop99p);
   }
 
   public UsageSummaryDate herokuHostTop99p(Long herokuHostTop99p) {
@@ -4494,6 +4707,7 @@ public class UsageSummaryDate {
 
   public void setHerokuHostTop99p(Long herokuHostTop99p) {
     this.herokuHostTop99p = herokuHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P, herokuHostTop99p);
   }
 
   public UsageSummaryDate incidentManagementMonthlyActiveUsersHwm(
@@ -4518,6 +4732,9 @@ public class UsageSummaryDate {
   public void setIncidentManagementMonthlyActiveUsersHwm(
       Long incidentManagementMonthlyActiveUsersHwm) {
     this.incidentManagementMonthlyActiveUsersHwm = incidentManagementMonthlyActiveUsersHwm;
+    putAdditionalProperty(
+        JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
+        incidentManagementMonthlyActiveUsersHwm);
   }
 
   public UsageSummaryDate incidentManagementSeatsHwm(Long incidentManagementSeatsHwm) {
@@ -4540,6 +4757,7 @@ public class UsageSummaryDate {
 
   public void setIncidentManagementSeatsHwm(Long incidentManagementSeatsHwm) {
     this.incidentManagementSeatsHwm = incidentManagementSeatsHwm;
+    putAdditionalProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM, incidentManagementSeatsHwm);
   }
 
   public UsageSummaryDate indexedEventsCountSum(Long indexedEventsCountSum) {
@@ -4562,6 +4780,7 @@ public class UsageSummaryDate {
 
   public void setIndexedEventsCountSum(Long indexedEventsCountSum) {
     this.indexedEventsCountSum = indexedEventsCountSum;
+    putAdditionalProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM, indexedEventsCountSum);
   }
 
   public UsageSummaryDate indexedPointsSum(Long indexedPointsSum) {
@@ -4584,6 +4803,7 @@ public class UsageSummaryDate {
 
   public void setIndexedPointsSum(Long indexedPointsSum) {
     this.indexedPointsSum = indexedPointsSum;
+    putAdditionalProperty(JSON_PROPERTY_INDEXED_POINTS_SUM, indexedPointsSum);
   }
 
   public UsageSummaryDate infraCpuAvg(Long infraCpuAvg) {
@@ -4606,6 +4826,7 @@ public class UsageSummaryDate {
 
   public void setInfraCpuAvg(Long infraCpuAvg) {
     this.infraCpuAvg = infraCpuAvg;
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_AVG, infraCpuAvg);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentAvg(
@@ -4630,6 +4851,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuDefaultInfraHostVcpuAgentAvg(Long infraCpuDefaultInfraHostVcpuAgentAvg) {
     this.infraCpuDefaultInfraHostVcpuAgentAvg = infraCpuDefaultInfraHostVcpuAgentAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG,
+        infraCpuDefaultInfraHostVcpuAgentAvg);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentBasicAvg(
@@ -4655,6 +4879,9 @@ public class UsageSummaryDate {
   public void setInfraCpuDefaultInfraHostVcpuAgentBasicAvg(
       Long infraCpuDefaultInfraHostVcpuAgentBasicAvg) {
     this.infraCpuDefaultInfraHostVcpuAgentBasicAvg = infraCpuDefaultInfraHostVcpuAgentBasicAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG,
+        infraCpuDefaultInfraHostVcpuAgentBasicAvg);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentBasicSum(
@@ -4680,6 +4907,9 @@ public class UsageSummaryDate {
   public void setInfraCpuDefaultInfraHostVcpuAgentBasicSum(
       Long infraCpuDefaultInfraHostVcpuAgentBasicSum) {
     this.infraCpuDefaultInfraHostVcpuAgentBasicSum = infraCpuDefaultInfraHostVcpuAgentBasicSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM,
+        infraCpuDefaultInfraHostVcpuAgentBasicSum);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentSum(
@@ -4704,6 +4934,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuDefaultInfraHostVcpuAgentSum(Long infraCpuDefaultInfraHostVcpuAgentSum) {
     this.infraCpuDefaultInfraHostVcpuAgentSum = infraCpuDefaultInfraHostVcpuAgentSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM,
+        infraCpuDefaultInfraHostVcpuAgentSum);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuAwsAvg(
@@ -4728,6 +4961,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuDefaultInfraHostVcpuAwsAvg(Long infraCpuDefaultInfraHostVcpuAwsAvg) {
     this.infraCpuDefaultInfraHostVcpuAwsAvg = infraCpuDefaultInfraHostVcpuAwsAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG,
+        infraCpuDefaultInfraHostVcpuAwsAvg);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuAwsSum(
@@ -4752,6 +4988,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuDefaultInfraHostVcpuAwsSum(Long infraCpuDefaultInfraHostVcpuAwsSum) {
     this.infraCpuDefaultInfraHostVcpuAwsSum = infraCpuDefaultInfraHostVcpuAwsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM,
+        infraCpuDefaultInfraHostVcpuAwsSum);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuAzureAvg(
@@ -4776,6 +5015,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuDefaultInfraHostVcpuAzureAvg(Long infraCpuDefaultInfraHostVcpuAzureAvg) {
     this.infraCpuDefaultInfraHostVcpuAzureAvg = infraCpuDefaultInfraHostVcpuAzureAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG,
+        infraCpuDefaultInfraHostVcpuAzureAvg);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuAzureSum(
@@ -4800,6 +5042,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuDefaultInfraHostVcpuAzureSum(Long infraCpuDefaultInfraHostVcpuAzureSum) {
     this.infraCpuDefaultInfraHostVcpuAzureSum = infraCpuDefaultInfraHostVcpuAzureSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM,
+        infraCpuDefaultInfraHostVcpuAzureSum);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuGcpAvg(
@@ -4824,6 +5069,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuDefaultInfraHostVcpuGcpAvg(Long infraCpuDefaultInfraHostVcpuGcpAvg) {
     this.infraCpuDefaultInfraHostVcpuGcpAvg = infraCpuDefaultInfraHostVcpuGcpAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG,
+        infraCpuDefaultInfraHostVcpuGcpAvg);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuGcpSum(
@@ -4848,6 +5096,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuDefaultInfraHostVcpuGcpSum(Long infraCpuDefaultInfraHostVcpuGcpSum) {
     this.infraCpuDefaultInfraHostVcpuGcpSum = infraCpuDefaultInfraHostVcpuGcpSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM,
+        infraCpuDefaultInfraHostVcpuGcpSum);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixAvg(
@@ -4873,6 +5124,9 @@ public class UsageSummaryDate {
   public void setInfraCpuDefaultInfraHostVcpuNutanixAvg(
       Long infraCpuDefaultInfraHostVcpuNutanixAvg) {
     this.infraCpuDefaultInfraHostVcpuNutanixAvg = infraCpuDefaultInfraHostVcpuNutanixAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG,
+        infraCpuDefaultInfraHostVcpuNutanixAvg);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixBasicAvg(
@@ -4898,6 +5152,9 @@ public class UsageSummaryDate {
   public void setInfraCpuDefaultInfraHostVcpuNutanixBasicAvg(
       Long infraCpuDefaultInfraHostVcpuNutanixBasicAvg) {
     this.infraCpuDefaultInfraHostVcpuNutanixBasicAvg = infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG,
+        infraCpuDefaultInfraHostVcpuNutanixBasicAvg);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixBasicSum(
@@ -4923,6 +5180,9 @@ public class UsageSummaryDate {
   public void setInfraCpuDefaultInfraHostVcpuNutanixBasicSum(
       Long infraCpuDefaultInfraHostVcpuNutanixBasicSum) {
     this.infraCpuDefaultInfraHostVcpuNutanixBasicSum = infraCpuDefaultInfraHostVcpuNutanixBasicSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM,
+        infraCpuDefaultInfraHostVcpuNutanixBasicSum);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixSum(
@@ -4948,6 +5208,9 @@ public class UsageSummaryDate {
   public void setInfraCpuDefaultInfraHostVcpuNutanixSum(
       Long infraCpuDefaultInfraHostVcpuNutanixSum) {
     this.infraCpuDefaultInfraHostVcpuNutanixSum = infraCpuDefaultInfraHostVcpuNutanixSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM,
+        infraCpuDefaultInfraHostVcpuNutanixSum);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuOpentelemetryAvg(
@@ -4975,6 +5238,9 @@ public class UsageSummaryDate {
       Long infraCpuDefaultInfraHostVcpuOpentelemetryAvg) {
     this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg =
         infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG,
+        infraCpuDefaultInfraHostVcpuOpentelemetryAvg);
   }
 
   public UsageSummaryDate infraCpuDefaultInfraHostVcpuOpentelemetrySum(
@@ -5002,6 +5268,9 @@ public class UsageSummaryDate {
       Long infraCpuDefaultInfraHostVcpuOpentelemetrySum) {
     this.infraCpuDefaultInfraHostVcpuOpentelemetrySum =
         infraCpuDefaultInfraHostVcpuOpentelemetrySum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM,
+        infraCpuDefaultInfraHostVcpuOpentelemetrySum);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuAgentAvg(
@@ -5026,6 +5295,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuObservedInfraHostVcpuAgentAvg(Long infraCpuObservedInfraHostVcpuAgentAvg) {
     this.infraCpuObservedInfraHostVcpuAgentAvg = infraCpuObservedInfraHostVcpuAgentAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG,
+        infraCpuObservedInfraHostVcpuAgentAvg);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuAgentSum(
@@ -5050,6 +5322,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuObservedInfraHostVcpuAgentSum(Long infraCpuObservedInfraHostVcpuAgentSum) {
     this.infraCpuObservedInfraHostVcpuAgentSum = infraCpuObservedInfraHostVcpuAgentSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM,
+        infraCpuObservedInfraHostVcpuAgentSum);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuAwsAvg(
@@ -5074,6 +5349,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuObservedInfraHostVcpuAwsAvg(Long infraCpuObservedInfraHostVcpuAwsAvg) {
     this.infraCpuObservedInfraHostVcpuAwsAvg = infraCpuObservedInfraHostVcpuAwsAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG,
+        infraCpuObservedInfraHostVcpuAwsAvg);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuAwsSum(
@@ -5098,6 +5376,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuObservedInfraHostVcpuAwsSum(Long infraCpuObservedInfraHostVcpuAwsSum) {
     this.infraCpuObservedInfraHostVcpuAwsSum = infraCpuObservedInfraHostVcpuAwsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM,
+        infraCpuObservedInfraHostVcpuAwsSum);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuAzureAvg(
@@ -5122,6 +5403,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuObservedInfraHostVcpuAzureAvg(Long infraCpuObservedInfraHostVcpuAzureAvg) {
     this.infraCpuObservedInfraHostVcpuAzureAvg = infraCpuObservedInfraHostVcpuAzureAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG,
+        infraCpuObservedInfraHostVcpuAzureAvg);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuAzureSum(
@@ -5146,6 +5430,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuObservedInfraHostVcpuAzureSum(Long infraCpuObservedInfraHostVcpuAzureSum) {
     this.infraCpuObservedInfraHostVcpuAzureSum = infraCpuObservedInfraHostVcpuAzureSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM,
+        infraCpuObservedInfraHostVcpuAzureSum);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuGcpAvg(
@@ -5170,6 +5457,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuObservedInfraHostVcpuGcpAvg(Long infraCpuObservedInfraHostVcpuGcpAvg) {
     this.infraCpuObservedInfraHostVcpuGcpAvg = infraCpuObservedInfraHostVcpuGcpAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG,
+        infraCpuObservedInfraHostVcpuGcpAvg);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuGcpSum(
@@ -5194,6 +5484,9 @@ public class UsageSummaryDate {
 
   public void setInfraCpuObservedInfraHostVcpuGcpSum(Long infraCpuObservedInfraHostVcpuGcpSum) {
     this.infraCpuObservedInfraHostVcpuGcpSum = infraCpuObservedInfraHostVcpuGcpSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM,
+        infraCpuObservedInfraHostVcpuGcpSum);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuNutanixAvg(
@@ -5219,6 +5512,9 @@ public class UsageSummaryDate {
   public void setInfraCpuObservedInfraHostVcpuNutanixAvg(
       Long infraCpuObservedInfraHostVcpuNutanixAvg) {
     this.infraCpuObservedInfraHostVcpuNutanixAvg = infraCpuObservedInfraHostVcpuNutanixAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG,
+        infraCpuObservedInfraHostVcpuNutanixAvg);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuNutanixSum(
@@ -5244,6 +5540,9 @@ public class UsageSummaryDate {
   public void setInfraCpuObservedInfraHostVcpuNutanixSum(
       Long infraCpuObservedInfraHostVcpuNutanixSum) {
     this.infraCpuObservedInfraHostVcpuNutanixSum = infraCpuObservedInfraHostVcpuNutanixSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM,
+        infraCpuObservedInfraHostVcpuNutanixSum);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuOpentelemetryAvg(
@@ -5271,6 +5570,9 @@ public class UsageSummaryDate {
       Long infraCpuObservedInfraHostVcpuOpentelemetryAvg) {
     this.infraCpuObservedInfraHostVcpuOpentelemetryAvg =
         infraCpuObservedInfraHostVcpuOpentelemetryAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG,
+        infraCpuObservedInfraHostVcpuOpentelemetryAvg);
   }
 
   public UsageSummaryDate infraCpuObservedInfraHostVcpuOpentelemetrySum(
@@ -5298,6 +5600,9 @@ public class UsageSummaryDate {
       Long infraCpuObservedInfraHostVcpuOpentelemetrySum) {
     this.infraCpuObservedInfraHostVcpuOpentelemetrySum =
         infraCpuObservedInfraHostVcpuOpentelemetrySum;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM,
+        infraCpuObservedInfraHostVcpuOpentelemetrySum);
   }
 
   public UsageSummaryDate infraCpuSum(Long infraCpuSum) {
@@ -5320,6 +5625,7 @@ public class UsageSummaryDate {
 
   public void setInfraCpuSum(Long infraCpuSum) {
     this.infraCpuSum = infraCpuSum;
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_SUM, infraCpuSum);
   }
 
   public UsageSummaryDate infraEdgeMonitoringDevicesTop99p(Long infraEdgeMonitoringDevicesTop99p) {
@@ -5342,6 +5648,8 @@ public class UsageSummaryDate {
 
   public void setInfraEdgeMonitoringDevicesTop99p(Long infraEdgeMonitoringDevicesTop99p) {
     this.infraEdgeMonitoringDevicesTop99p = infraEdgeMonitoringDevicesTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P, infraEdgeMonitoringDevicesTop99p);
   }
 
   public UsageSummaryDate infraHostBasicInfraBasicAgentTop99p(
@@ -5365,6 +5673,9 @@ public class UsageSummaryDate {
 
   public void setInfraHostBasicInfraBasicAgentTop99p(Long infraHostBasicInfraBasicAgentTop99p) {
     this.infraHostBasicInfraBasicAgentTop99p = infraHostBasicInfraBasicAgentTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_TOP99P,
+        infraHostBasicInfraBasicAgentTop99p);
   }
 
   public UsageSummaryDate infraHostBasicInfraBasicVsphereTop99p(
@@ -5388,6 +5699,9 @@ public class UsageSummaryDate {
 
   public void setInfraHostBasicInfraBasicVsphereTop99p(Long infraHostBasicInfraBasicVsphereTop99p) {
     this.infraHostBasicInfraBasicVsphereTop99p = infraHostBasicInfraBasicVsphereTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P,
+        infraHostBasicInfraBasicVsphereTop99p);
   }
 
   public UsageSummaryDate infraHostBasicTop99p(Long infraHostBasicTop99p) {
@@ -5410,6 +5724,7 @@ public class UsageSummaryDate {
 
   public void setInfraHostBasicTop99p(Long infraHostBasicTop99p) {
     this.infraHostBasicTop99p = infraHostBasicTop99p;
+    putAdditionalProperty(JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P, infraHostBasicTop99p);
   }
 
   public UsageSummaryDate infraHostTop99p(Long infraHostTop99p) {
@@ -5432,6 +5747,7 @@ public class UsageSummaryDate {
 
   public void setInfraHostTop99p(Long infraHostTop99p) {
     this.infraHostTop99p = infraHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_INFRA_HOST_TOP99P, infraHostTop99p);
   }
 
   public UsageSummaryDate infraStorageMgmtObjectsCountAvg(Long infraStorageMgmtObjectsCountAvg) {
@@ -5454,6 +5770,8 @@ public class UsageSummaryDate {
 
   public void setInfraStorageMgmtObjectsCountAvg(Long infraStorageMgmtObjectsCountAvg) {
     this.infraStorageMgmtObjectsCountAvg = infraStorageMgmtObjectsCountAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG, infraStorageMgmtObjectsCountAvg);
   }
 
   public UsageSummaryDate ingestPointsSum(Long ingestPointsSum) {
@@ -5476,6 +5794,7 @@ public class UsageSummaryDate {
 
   public void setIngestPointsSum(Long ingestPointsSum) {
     this.ingestPointsSum = ingestPointsSum;
+    putAdditionalProperty(JSON_PROPERTY_INGEST_POINTS_SUM, ingestPointsSum);
   }
 
   public UsageSummaryDate ingestedEventsBytesSum(Long ingestedEventsBytesSum) {
@@ -5498,6 +5817,7 @@ public class UsageSummaryDate {
 
   public void setIngestedEventsBytesSum(Long ingestedEventsBytesSum) {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
+    putAdditionalProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM, ingestedEventsBytesSum);
   }
 
   public UsageSummaryDate iotApmHostSum(Long iotApmHostSum) {
@@ -5520,6 +5840,7 @@ public class UsageSummaryDate {
 
   public void setIotApmHostSum(Long iotApmHostSum) {
     this.iotApmHostSum = iotApmHostSum;
+    putAdditionalProperty(JSON_PROPERTY_IOT_APM_HOST_SUM, iotApmHostSum);
   }
 
   public UsageSummaryDate iotApmHostTop99p(Long iotApmHostTop99p) {
@@ -5542,6 +5863,7 @@ public class UsageSummaryDate {
 
   public void setIotApmHostTop99p(Long iotApmHostTop99p) {
     this.iotApmHostTop99p = iotApmHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_IOT_APM_HOST_TOP99P, iotApmHostTop99p);
   }
 
   public UsageSummaryDate iotDeviceSum(Long iotDeviceSum) {
@@ -5563,6 +5885,7 @@ public class UsageSummaryDate {
 
   public void setIotDeviceSum(Long iotDeviceSum) {
     this.iotDeviceSum = iotDeviceSum;
+    putAdditionalProperty(JSON_PROPERTY_IOT_DEVICE_SUM, iotDeviceSum);
   }
 
   public UsageSummaryDate iotDeviceTop99p(Long iotDeviceTop99p) {
@@ -5585,6 +5908,7 @@ public class UsageSummaryDate {
 
   public void setIotDeviceTop99p(Long iotDeviceTop99p) {
     this.iotDeviceTop99p = iotDeviceTop99p;
+    putAdditionalProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P, iotDeviceTop99p);
   }
 
   public UsageSummaryDate llmObservability15dayRetentionSpansSum(
@@ -5609,6 +5933,9 @@ public class UsageSummaryDate {
   public void setLlmObservability15dayRetentionSpansSum(
       Long llmObservability15dayRetentionSpansSum) {
     this.llmObservability15dayRetentionSpansSum = llmObservability15dayRetentionSpansSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM,
+        llmObservability15dayRetentionSpansSum);
   }
 
   public UsageSummaryDate llmObservability30dayRetentionSpansSum(
@@ -5633,6 +5960,9 @@ public class UsageSummaryDate {
   public void setLlmObservability30dayRetentionSpansSum(
       Long llmObservability30dayRetentionSpansSum) {
     this.llmObservability30dayRetentionSpansSum = llmObservability30dayRetentionSpansSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM,
+        llmObservability30dayRetentionSpansSum);
   }
 
   public UsageSummaryDate llmObservability60dayRetentionSpansSum(
@@ -5657,6 +5987,9 @@ public class UsageSummaryDate {
   public void setLlmObservability60dayRetentionSpansSum(
       Long llmObservability60dayRetentionSpansSum) {
     this.llmObservability60dayRetentionSpansSum = llmObservability60dayRetentionSpansSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM,
+        llmObservability60dayRetentionSpansSum);
   }
 
   public UsageSummaryDate llmObservability90dayRetentionSpansSum(
@@ -5681,6 +6014,9 @@ public class UsageSummaryDate {
   public void setLlmObservability90dayRetentionSpansSum(
       Long llmObservability90dayRetentionSpansSum) {
     this.llmObservability90dayRetentionSpansSum = llmObservability90dayRetentionSpansSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM,
+        llmObservability90dayRetentionSpansSum);
   }
 
   public UsageSummaryDate llmObservabilityMinSpendSum(Long llmObservabilityMinSpendSum) {
@@ -5703,6 +6039,8 @@ public class UsageSummaryDate {
 
   public void setLlmObservabilityMinSpendSum(Long llmObservabilityMinSpendSum) {
     this.llmObservabilityMinSpendSum = llmObservabilityMinSpendSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM, llmObservabilityMinSpendSum);
   }
 
   public UsageSummaryDate llmObservabilitySum(Long llmObservabilitySum) {
@@ -5724,6 +6062,7 @@ public class UsageSummaryDate {
 
   public void setLlmObservabilitySum(Long llmObservabilitySum) {
     this.llmObservabilitySum = llmObservabilitySum;
+    putAdditionalProperty(JSON_PROPERTY_LLM_OBSERVABILITY_SUM, llmObservabilitySum);
   }
 
   public UsageSummaryDate logsArchiveSearchGbScannedSum(Long logsArchiveSearchGbScannedSum) {
@@ -5746,6 +6085,8 @@ public class UsageSummaryDate {
 
   public void setLogsArchiveSearchGbScannedSum(Long logsArchiveSearchGbScannedSum) {
     this.logsArchiveSearchGbScannedSum = logsArchiveSearchGbScannedSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM, logsArchiveSearchGbScannedSum);
   }
 
   public UsageSummaryDate metricNamesSum(Long metricNamesSum) {
@@ -5768,6 +6109,7 @@ public class UsageSummaryDate {
 
   public void setMetricNamesSum(Long metricNamesSum) {
     this.metricNamesSum = metricNamesSum;
+    putAdditionalProperty(JSON_PROPERTY_METRIC_NAMES_SUM, metricNamesSum);
   }
 
   public UsageSummaryDate mobileRumLiteSessionCountSum(Long mobileRumLiteSessionCountSum) {
@@ -5793,6 +6135,8 @@ public class UsageSummaryDate {
   @Deprecated
   public void setMobileRumLiteSessionCountSum(Long mobileRumLiteSessionCountSum) {
     this.mobileRumLiteSessionCountSum = mobileRumLiteSessionCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM, mobileRumLiteSessionCountSum);
   }
 
   public UsageSummaryDate mobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
@@ -5818,6 +6162,8 @@ public class UsageSummaryDate {
   @Deprecated
   public void setMobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
     this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM, mobileRumSessionCountAndroidSum);
   }
 
   public UsageSummaryDate mobileRumSessionCountFlutterSum(Long mobileRumSessionCountFlutterSum) {
@@ -5843,6 +6189,8 @@ public class UsageSummaryDate {
   @Deprecated
   public void setMobileRumSessionCountFlutterSum(Long mobileRumSessionCountFlutterSum) {
     this.mobileRumSessionCountFlutterSum = mobileRumSessionCountFlutterSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM, mobileRumSessionCountFlutterSum);
   }
 
   public UsageSummaryDate mobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
@@ -5868,6 +6216,8 @@ public class UsageSummaryDate {
   @Deprecated
   public void setMobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
     this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM, mobileRumSessionCountIosSum);
   }
 
   public UsageSummaryDate mobileRumSessionCountReactnativeSum(
@@ -5894,6 +6244,9 @@ public class UsageSummaryDate {
   @Deprecated
   public void setMobileRumSessionCountReactnativeSum(Long mobileRumSessionCountReactnativeSum) {
     this.mobileRumSessionCountReactnativeSum = mobileRumSessionCountReactnativeSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM,
+        mobileRumSessionCountReactnativeSum);
   }
 
   public UsageSummaryDate mobileRumSessionCountRokuSum(Long mobileRumSessionCountRokuSum) {
@@ -5919,6 +6272,8 @@ public class UsageSummaryDate {
   @Deprecated
   public void setMobileRumSessionCountRokuSum(Long mobileRumSessionCountRokuSum) {
     this.mobileRumSessionCountRokuSum = mobileRumSessionCountRokuSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM, mobileRumSessionCountRokuSum);
   }
 
   public UsageSummaryDate mobileRumSessionCountSum(Long mobileRumSessionCountSum) {
@@ -5944,6 +6299,7 @@ public class UsageSummaryDate {
   @Deprecated
   public void setMobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
+    putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM, mobileRumSessionCountSum);
   }
 
   public UsageSummaryDate mobileRumUnitsSum(Long mobileRumUnitsSum) {
@@ -5969,6 +6325,7 @@ public class UsageSummaryDate {
   @Deprecated
   public void setMobileRumUnitsSum(Long mobileRumUnitsSum) {
     this.mobileRumUnitsSum = mobileRumUnitsSum;
+    putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_UNITS_SUM, mobileRumUnitsSum);
   }
 
   public UsageSummaryDate ndmNetflowEventsSum(Long ndmNetflowEventsSum) {
@@ -5991,6 +6348,7 @@ public class UsageSummaryDate {
 
   public void setNdmNetflowEventsSum(Long ndmNetflowEventsSum) {
     this.ndmNetflowEventsSum = ndmNetflowEventsSum;
+    putAdditionalProperty(JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM, ndmNetflowEventsSum);
   }
 
   public UsageSummaryDate netflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
@@ -6016,6 +6374,8 @@ public class UsageSummaryDate {
   @Deprecated
   public void setNetflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM, netflowIndexedEventsCountSum);
   }
 
   public UsageSummaryDate networkDeviceWirelessTop99p(Long networkDeviceWirelessTop99p) {
@@ -6038,6 +6398,8 @@ public class UsageSummaryDate {
 
   public void setNetworkDeviceWirelessTop99p(Long networkDeviceWirelessTop99p) {
     this.networkDeviceWirelessTop99p = networkDeviceWirelessTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_TOP99P, networkDeviceWirelessTop99p);
   }
 
   public UsageSummaryDate networkPathSum(Long networkPathSum) {
@@ -6060,6 +6422,7 @@ public class UsageSummaryDate {
 
   public void setNetworkPathSum(Long networkPathSum) {
     this.networkPathSum = networkPathSum;
+    putAdditionalProperty(JSON_PROPERTY_NETWORK_PATH_SUM, networkPathSum);
   }
 
   public UsageSummaryDate npmHostTop99p(Long npmHostTop99p) {
@@ -6082,6 +6445,7 @@ public class UsageSummaryDate {
 
   public void setNpmHostTop99p(Long npmHostTop99p) {
     this.npmHostTop99p = npmHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_NPM_HOST_TOP99P, npmHostTop99p);
   }
 
   public UsageSummaryDate observabilityPipelinesBytesProcessedSum(
@@ -6106,6 +6470,9 @@ public class UsageSummaryDate {
   public void setObservabilityPipelinesBytesProcessedSum(
       Long observabilityPipelinesBytesProcessedSum) {
     this.observabilityPipelinesBytesProcessedSum = observabilityPipelinesBytesProcessedSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
+        observabilityPipelinesBytesProcessedSum);
   }
 
   public UsageSummaryDate ociHostSum(Long ociHostSum) {
@@ -6128,6 +6495,7 @@ public class UsageSummaryDate {
 
   public void setOciHostSum(Long ociHostSum) {
     this.ociHostSum = ociHostSum;
+    putAdditionalProperty(JSON_PROPERTY_OCI_HOST_SUM, ociHostSum);
   }
 
   public UsageSummaryDate ociHostTop99p(Long ociHostTop99p) {
@@ -6150,6 +6518,7 @@ public class UsageSummaryDate {
 
   public void setOciHostTop99p(Long ociHostTop99p) {
     this.ociHostTop99p = ociHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_OCI_HOST_TOP99P, ociHostTop99p);
   }
 
   public UsageSummaryDate onCallSeatHwm(Long onCallSeatHwm) {
@@ -6172,6 +6541,7 @@ public class UsageSummaryDate {
 
   public void setOnCallSeatHwm(Long onCallSeatHwm) {
     this.onCallSeatHwm = onCallSeatHwm;
+    putAdditionalProperty(JSON_PROPERTY_ON_CALL_SEAT_HWM, onCallSeatHwm);
   }
 
   public UsageSummaryDate onlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
@@ -6193,6 +6563,8 @@ public class UsageSummaryDate {
 
   public void setOnlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
     this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM, onlineArchiveEventsCountSum);
   }
 
   public UsageSummaryDate opentelemetryApmHostTop99p(Long opentelemetryApmHostTop99p) {
@@ -6215,6 +6587,7 @@ public class UsageSummaryDate {
 
   public void setOpentelemetryApmHostTop99p(Long opentelemetryApmHostTop99p) {
     this.opentelemetryApmHostTop99p = opentelemetryApmHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P, opentelemetryApmHostTop99p);
   }
 
   public UsageSummaryDate opentelemetryHostTop99p(Long opentelemetryHostTop99p) {
@@ -6237,6 +6610,7 @@ public class UsageSummaryDate {
 
   public void setOpentelemetryHostTop99p(Long opentelemetryHostTop99p) {
     this.opentelemetryHostTop99p = opentelemetryHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P, opentelemetryHostTop99p);
   }
 
   public UsageSummaryDate orgs(List<UsageSummaryDateOrg> orgs) {
@@ -6270,6 +6644,7 @@ public class UsageSummaryDate {
 
   public void setOrgs(List<UsageSummaryDateOrg> orgs) {
     this.orgs = orgs;
+    putAdditionalProperty(JSON_PROPERTY_ORGS, orgs);
   }
 
   public UsageSummaryDate productAnalyticsSum(Long productAnalyticsSum) {
@@ -6291,6 +6666,7 @@ public class UsageSummaryDate {
 
   public void setProductAnalyticsSum(Long productAnalyticsSum) {
     this.productAnalyticsSum = productAnalyticsSum;
+    putAdditionalProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SUM, productAnalyticsSum);
   }
 
   public UsageSummaryDate profilingAasCountTop99p(Long profilingAasCountTop99p) {
@@ -6313,6 +6689,7 @@ public class UsageSummaryDate {
 
   public void setProfilingAasCountTop99p(Long profilingAasCountTop99p) {
     this.profilingAasCountTop99p = profilingAasCountTop99p;
+    putAdditionalProperty(JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P, profilingAasCountTop99p);
   }
 
   public UsageSummaryDate profilingHostTop99p(Long profilingHostTop99p) {
@@ -6335,6 +6712,7 @@ public class UsageSummaryDate {
 
   public void setProfilingHostTop99p(Long profilingHostTop99p) {
     this.profilingHostTop99p = profilingHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_PROFILING_HOST_TOP99P, profilingHostTop99p);
   }
 
   public UsageSummaryDate proxmoxHostSum(Long proxmoxHostSum) {
@@ -6356,6 +6734,7 @@ public class UsageSummaryDate {
 
   public void setProxmoxHostSum(Long proxmoxHostSum) {
     this.proxmoxHostSum = proxmoxHostSum;
+    putAdditionalProperty(JSON_PROPERTY_PROXMOX_HOST_SUM, proxmoxHostSum);
   }
 
   public UsageSummaryDate proxmoxHostTop99p(Long proxmoxHostTop99p) {
@@ -6377,6 +6756,7 @@ public class UsageSummaryDate {
 
   public void setProxmoxHostTop99p(Long proxmoxHostTop99p) {
     this.proxmoxHostTop99p = proxmoxHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_PROXMOX_HOST_TOP99P, proxmoxHostTop99p);
   }
 
   public UsageSummaryDate publishedAppHwm(Long publishedAppHwm) {
@@ -6399,6 +6779,7 @@ public class UsageSummaryDate {
 
   public void setPublishedAppHwm(Long publishedAppHwm) {
     this.publishedAppHwm = publishedAppHwm;
+    putAdditionalProperty(JSON_PROPERTY_PUBLISHED_APP_HWM, publishedAppHwm);
   }
 
   public UsageSummaryDate rumBrowserAndMobileSessionCount(Long rumBrowserAndMobileSessionCount) {
@@ -6421,6 +6802,8 @@ public class UsageSummaryDate {
 
   public void setRumBrowserAndMobileSessionCount(Long rumBrowserAndMobileSessionCount) {
     this.rumBrowserAndMobileSessionCount = rumBrowserAndMobileSessionCount;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT, rumBrowserAndMobileSessionCount);
   }
 
   public UsageSummaryDate rumBrowserLegacySessionCountSum(Long rumBrowserLegacySessionCountSum) {
@@ -6443,6 +6826,8 @@ public class UsageSummaryDate {
 
   public void setRumBrowserLegacySessionCountSum(Long rumBrowserLegacySessionCountSum) {
     this.rumBrowserLegacySessionCountSum = rumBrowserLegacySessionCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM, rumBrowserLegacySessionCountSum);
   }
 
   public UsageSummaryDate rumBrowserLiteSessionCountSum(Long rumBrowserLiteSessionCountSum) {
@@ -6465,6 +6850,8 @@ public class UsageSummaryDate {
 
   public void setRumBrowserLiteSessionCountSum(Long rumBrowserLiteSessionCountSum) {
     this.rumBrowserLiteSessionCountSum = rumBrowserLiteSessionCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM, rumBrowserLiteSessionCountSum);
   }
 
   public UsageSummaryDate rumBrowserReplaySessionCountSum(Long rumBrowserReplaySessionCountSum) {
@@ -6487,6 +6874,8 @@ public class UsageSummaryDate {
 
   public void setRumBrowserReplaySessionCountSum(Long rumBrowserReplaySessionCountSum) {
     this.rumBrowserReplaySessionCountSum = rumBrowserReplaySessionCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM, rumBrowserReplaySessionCountSum);
   }
 
   public UsageSummaryDate rumIndexedSessionsSum(Long rumIndexedSessionsSum) {
@@ -6508,6 +6897,7 @@ public class UsageSummaryDate {
 
   public void setRumIndexedSessionsSum(Long rumIndexedSessionsSum) {
     this.rumIndexedSessionsSum = rumIndexedSessionsSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_INDEXED_SESSIONS_SUM, rumIndexedSessionsSum);
   }
 
   public UsageSummaryDate rumIngestedSessionsSum(Long rumIngestedSessionsSum) {
@@ -6529,6 +6919,7 @@ public class UsageSummaryDate {
 
   public void setRumIngestedSessionsSum(Long rumIngestedSessionsSum) {
     this.rumIngestedSessionsSum = rumIngestedSessionsSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_INGESTED_SESSIONS_SUM, rumIngestedSessionsSum);
   }
 
   public UsageSummaryDate rumLiteSessionCountSum(Long rumLiteSessionCountSum) {
@@ -6551,6 +6942,7 @@ public class UsageSummaryDate {
 
   public void setRumLiteSessionCountSum(Long rumLiteSessionCountSum) {
     this.rumLiteSessionCountSum = rumLiteSessionCountSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_LITE_SESSION_COUNT_SUM, rumLiteSessionCountSum);
   }
 
   public UsageSummaryDate rumMobileLegacySessionCountAndroidSum(
@@ -6574,6 +6966,9 @@ public class UsageSummaryDate {
 
   public void setRumMobileLegacySessionCountAndroidSum(Long rumMobileLegacySessionCountAndroidSum) {
     this.rumMobileLegacySessionCountAndroidSum = rumMobileLegacySessionCountAndroidSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM,
+        rumMobileLegacySessionCountAndroidSum);
   }
 
   public UsageSummaryDate rumMobileLegacySessionCountFlutterSum(
@@ -6597,6 +6992,9 @@ public class UsageSummaryDate {
 
   public void setRumMobileLegacySessionCountFlutterSum(Long rumMobileLegacySessionCountFlutterSum) {
     this.rumMobileLegacySessionCountFlutterSum = rumMobileLegacySessionCountFlutterSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM,
+        rumMobileLegacySessionCountFlutterSum);
   }
 
   public UsageSummaryDate rumMobileLegacySessionCountIosSum(
@@ -6620,6 +7018,8 @@ public class UsageSummaryDate {
 
   public void setRumMobileLegacySessionCountIosSum(Long rumMobileLegacySessionCountIosSum) {
     this.rumMobileLegacySessionCountIosSum = rumMobileLegacySessionCountIosSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM, rumMobileLegacySessionCountIosSum);
   }
 
   public UsageSummaryDate rumMobileLegacySessionCountReactnativeSum(
@@ -6644,6 +7044,9 @@ public class UsageSummaryDate {
   public void setRumMobileLegacySessionCountReactnativeSum(
       Long rumMobileLegacySessionCountReactnativeSum) {
     this.rumMobileLegacySessionCountReactnativeSum = rumMobileLegacySessionCountReactnativeSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM,
+        rumMobileLegacySessionCountReactnativeSum);
   }
 
   public UsageSummaryDate rumMobileLegacySessionCountRokuSum(
@@ -6667,6 +7070,8 @@ public class UsageSummaryDate {
 
   public void setRumMobileLegacySessionCountRokuSum(Long rumMobileLegacySessionCountRokuSum) {
     this.rumMobileLegacySessionCountRokuSum = rumMobileLegacySessionCountRokuSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM, rumMobileLegacySessionCountRokuSum);
   }
 
   public UsageSummaryDate rumMobileLiteSessionCountAndroidSum(
@@ -6690,6 +7095,9 @@ public class UsageSummaryDate {
 
   public void setRumMobileLiteSessionCountAndroidSum(Long rumMobileLiteSessionCountAndroidSum) {
     this.rumMobileLiteSessionCountAndroidSum = rumMobileLiteSessionCountAndroidSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM,
+        rumMobileLiteSessionCountAndroidSum);
   }
 
   public UsageSummaryDate rumMobileLiteSessionCountFlutterSum(
@@ -6713,6 +7121,9 @@ public class UsageSummaryDate {
 
   public void setRumMobileLiteSessionCountFlutterSum(Long rumMobileLiteSessionCountFlutterSum) {
     this.rumMobileLiteSessionCountFlutterSum = rumMobileLiteSessionCountFlutterSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM,
+        rumMobileLiteSessionCountFlutterSum);
   }
 
   public UsageSummaryDate rumMobileLiteSessionCountIosSum(Long rumMobileLiteSessionCountIosSum) {
@@ -6735,6 +7146,8 @@ public class UsageSummaryDate {
 
   public void setRumMobileLiteSessionCountIosSum(Long rumMobileLiteSessionCountIosSum) {
     this.rumMobileLiteSessionCountIosSum = rumMobileLiteSessionCountIosSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM, rumMobileLiteSessionCountIosSum);
   }
 
   public UsageSummaryDate rumMobileLiteSessionCountKotlinmultiplatformSum(
@@ -6761,6 +7174,9 @@ public class UsageSummaryDate {
       Long rumMobileLiteSessionCountKotlinmultiplatformSum) {
     this.rumMobileLiteSessionCountKotlinmultiplatformSum =
         rumMobileLiteSessionCountKotlinmultiplatformSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM,
+        rumMobileLiteSessionCountKotlinmultiplatformSum);
   }
 
   public UsageSummaryDate rumMobileLiteSessionCountReactnativeSum(
@@ -6785,6 +7201,9 @@ public class UsageSummaryDate {
   public void setRumMobileLiteSessionCountReactnativeSum(
       Long rumMobileLiteSessionCountReactnativeSum) {
     this.rumMobileLiteSessionCountReactnativeSum = rumMobileLiteSessionCountReactnativeSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM,
+        rumMobileLiteSessionCountReactnativeSum);
   }
 
   public UsageSummaryDate rumMobileLiteSessionCountRokuSum(Long rumMobileLiteSessionCountRokuSum) {
@@ -6807,6 +7226,8 @@ public class UsageSummaryDate {
 
   public void setRumMobileLiteSessionCountRokuSum(Long rumMobileLiteSessionCountRokuSum) {
     this.rumMobileLiteSessionCountRokuSum = rumMobileLiteSessionCountRokuSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM, rumMobileLiteSessionCountRokuSum);
   }
 
   public UsageSummaryDate rumMobileLiteSessionCountUnitySum(
@@ -6830,6 +7251,8 @@ public class UsageSummaryDate {
 
   public void setRumMobileLiteSessionCountUnitySum(Long rumMobileLiteSessionCountUnitySum) {
     this.rumMobileLiteSessionCountUnitySum = rumMobileLiteSessionCountUnitySum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM, rumMobileLiteSessionCountUnitySum);
   }
 
   public UsageSummaryDate rumMobileReplaySessionCountAndroidSum(
@@ -6853,6 +7276,9 @@ public class UsageSummaryDate {
 
   public void setRumMobileReplaySessionCountAndroidSum(Long rumMobileReplaySessionCountAndroidSum) {
     this.rumMobileReplaySessionCountAndroidSum = rumMobileReplaySessionCountAndroidSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM,
+        rumMobileReplaySessionCountAndroidSum);
   }
 
   public UsageSummaryDate rumMobileReplaySessionCountIosSum(
@@ -6876,6 +7302,8 @@ public class UsageSummaryDate {
 
   public void setRumMobileReplaySessionCountIosSum(Long rumMobileReplaySessionCountIosSum) {
     this.rumMobileReplaySessionCountIosSum = rumMobileReplaySessionCountIosSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM, rumMobileReplaySessionCountIosSum);
   }
 
   public UsageSummaryDate rumMobileReplaySessionCountKotlinmultiplatformSum(
@@ -6902,6 +7330,9 @@ public class UsageSummaryDate {
       Long rumMobileReplaySessionCountKotlinmultiplatformSum) {
     this.rumMobileReplaySessionCountKotlinmultiplatformSum =
         rumMobileReplaySessionCountKotlinmultiplatformSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM,
+        rumMobileReplaySessionCountKotlinmultiplatformSum);
   }
 
   public UsageSummaryDate rumMobileReplaySessionCountReactnativeSum(
@@ -6926,6 +7357,9 @@ public class UsageSummaryDate {
   public void setRumMobileReplaySessionCountReactnativeSum(
       Long rumMobileReplaySessionCountReactnativeSum) {
     this.rumMobileReplaySessionCountReactnativeSum = rumMobileReplaySessionCountReactnativeSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM,
+        rumMobileReplaySessionCountReactnativeSum);
   }
 
   public UsageSummaryDate rumReplaySessionCountSum(Long rumReplaySessionCountSum) {
@@ -6948,6 +7382,7 @@ public class UsageSummaryDate {
 
   public void setRumReplaySessionCountSum(Long rumReplaySessionCountSum) {
     this.rumReplaySessionCountSum = rumReplaySessionCountSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM, rumReplaySessionCountSum);
   }
 
   public UsageSummaryDate rumSessionCountSum(Long rumSessionCountSum) {
@@ -6973,6 +7408,7 @@ public class UsageSummaryDate {
   @Deprecated
   public void setRumSessionCountSum(Long rumSessionCountSum) {
     this.rumSessionCountSum = rumSessionCountSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM, rumSessionCountSum);
   }
 
   public UsageSummaryDate rumSessionReplayAddOnSum(Long rumSessionReplayAddOnSum) {
@@ -6995,6 +7431,7 @@ public class UsageSummaryDate {
 
   public void setRumSessionReplayAddOnSum(Long rumSessionReplayAddOnSum) {
     this.rumSessionReplayAddOnSum = rumSessionReplayAddOnSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_SUM, rumSessionReplayAddOnSum);
   }
 
   public UsageSummaryDate rumTotalSessionCountSum(Long rumTotalSessionCountSum) {
@@ -7017,6 +7454,7 @@ public class UsageSummaryDate {
 
   public void setRumTotalSessionCountSum(Long rumTotalSessionCountSum) {
     this.rumTotalSessionCountSum = rumTotalSessionCountSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM, rumTotalSessionCountSum);
   }
 
   public UsageSummaryDate rumUnitsSum(Long rumUnitsSum) {
@@ -7042,6 +7480,7 @@ public class UsageSummaryDate {
   @Deprecated
   public void setRumUnitsSum(Long rumUnitsSum) {
     this.rumUnitsSum = rumUnitsSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_UNITS_SUM, rumUnitsSum);
   }
 
   public UsageSummaryDate scaFargateCountAvg(Long scaFargateCountAvg) {
@@ -7064,6 +7503,7 @@ public class UsageSummaryDate {
 
   public void setScaFargateCountAvg(Long scaFargateCountAvg) {
     this.scaFargateCountAvg = scaFargateCountAvg;
+    putAdditionalProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_AVG, scaFargateCountAvg);
   }
 
   public UsageSummaryDate scaFargateCountHwm(Long scaFargateCountHwm) {
@@ -7086,6 +7526,7 @@ public class UsageSummaryDate {
 
   public void setScaFargateCountHwm(Long scaFargateCountHwm) {
     this.scaFargateCountHwm = scaFargateCountHwm;
+    putAdditionalProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_HWM, scaFargateCountHwm);
   }
 
   public UsageSummaryDate sdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
@@ -7108,6 +7549,7 @@ public class UsageSummaryDate {
 
   public void setSdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
     this.sdsApmScannedBytesSum = sdsApmScannedBytesSum;
+    putAdditionalProperty(JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM, sdsApmScannedBytesSum);
   }
 
   public UsageSummaryDate sdsEventsScannedBytesSum(Long sdsEventsScannedBytesSum) {
@@ -7130,6 +7572,7 @@ public class UsageSummaryDate {
 
   public void setSdsEventsScannedBytesSum(Long sdsEventsScannedBytesSum) {
     this.sdsEventsScannedBytesSum = sdsEventsScannedBytesSum;
+    putAdditionalProperty(JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM, sdsEventsScannedBytesSum);
   }
 
   public UsageSummaryDate sdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
@@ -7152,6 +7595,7 @@ public class UsageSummaryDate {
 
   public void setSdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
     this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
+    putAdditionalProperty(JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM, sdsLogsScannedBytesSum);
   }
 
   public UsageSummaryDate sdsRumScannedBytesSum(Long sdsRumScannedBytesSum) {
@@ -7174,6 +7618,7 @@ public class UsageSummaryDate {
 
   public void setSdsRumScannedBytesSum(Long sdsRumScannedBytesSum) {
     this.sdsRumScannedBytesSum = sdsRumScannedBytesSum;
+    putAdditionalProperty(JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM, sdsRumScannedBytesSum);
   }
 
   public UsageSummaryDate sdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
@@ -7196,6 +7641,7 @@ public class UsageSummaryDate {
 
   public void setSdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
     this.sdsTotalScannedBytesSum = sdsTotalScannedBytesSum;
+    putAdditionalProperty(JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM, sdsTotalScannedBytesSum);
   }
 
   public UsageSummaryDate serverlessAppsApmApmAzureAppserviceInstancesAvg(
@@ -7222,6 +7668,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmApmAzureAppserviceInstancesAvg) {
     this.serverlessAppsApmApmAzureAppserviceInstancesAvg =
         serverlessAppsApmApmAzureAppserviceInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_APPSERVICE_INSTANCES_AVG,
+        serverlessAppsApmApmAzureAppserviceInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmApmAzureAzurefunctionInstancesAvg(
@@ -7248,6 +7697,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmApmAzureAzurefunctionInstancesAvg) {
     this.serverlessAppsApmApmAzureAzurefunctionInstancesAvg =
         serverlessAppsApmApmAzureAzurefunctionInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG,
+        serverlessAppsApmApmAzureAzurefunctionInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmApmAzureContainerappInstancesAvg(
@@ -7274,6 +7726,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmApmAzureContainerappInstancesAvg) {
     this.serverlessAppsApmApmAzureContainerappInstancesAvg =
         serverlessAppsApmApmAzureContainerappInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_CONTAINERAPP_INSTANCES_AVG,
+        serverlessAppsApmApmAzureContainerappInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmApmFargateEcsTasksAvg(
@@ -7298,6 +7753,9 @@ public class UsageSummaryDate {
   public void setServerlessAppsApmApmFargateEcsTasksAvg(
       Long serverlessAppsApmApmFargateEcsTasksAvg) {
     this.serverlessAppsApmApmFargateEcsTasksAvg = serverlessAppsApmApmFargateEcsTasksAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_FARGATE_ECS_TASKS_AVG,
+        serverlessAppsApmApmFargateEcsTasksAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmApmGcpCloudfunctionInstancesAvg(
@@ -7324,6 +7782,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmApmGcpCloudfunctionInstancesAvg) {
     this.serverlessAppsApmApmGcpCloudfunctionInstancesAvg =
         serverlessAppsApmApmGcpCloudfunctionInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG,
+        serverlessAppsApmApmGcpCloudfunctionInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmApmGcpCloudrunInstancesAvg(
@@ -7348,6 +7809,9 @@ public class UsageSummaryDate {
   public void setServerlessAppsApmApmGcpCloudrunInstancesAvg(
       Long serverlessAppsApmApmGcpCloudrunInstancesAvg) {
     this.serverlessAppsApmApmGcpCloudrunInstancesAvg = serverlessAppsApmApmGcpCloudrunInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDRUN_INSTANCES_AVG,
+        serverlessAppsApmApmGcpCloudrunInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmApmGcpGkeAutopilotPodsAvg(
@@ -7372,6 +7836,9 @@ public class UsageSummaryDate {
   public void setServerlessAppsApmApmGcpGkeAutopilotPodsAvg(
       Long serverlessAppsApmApmGcpGkeAutopilotPodsAvg) {
     this.serverlessAppsApmApmGcpGkeAutopilotPodsAvg = serverlessAppsApmApmGcpGkeAutopilotPodsAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG,
+        serverlessAppsApmApmGcpGkeAutopilotPodsAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmAvg(Long serverlessAppsApmAvg) {
@@ -7394,6 +7861,7 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsApmAvg(Long serverlessAppsApmAvg) {
     this.serverlessAppsApmAvg = serverlessAppsApmAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_AVG, serverlessAppsApmAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg(
@@ -7420,6 +7888,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg) {
     this.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg =
         serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG,
+        serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg(
@@ -7447,6 +7918,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg) {
     this.serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg =
         serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG,
+        serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg(
@@ -7473,6 +7947,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg) {
     this.serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg =
         serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_CONTAINERAPP_INSTANCES_AVG,
+        serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg(
@@ -7500,6 +7977,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg) {
     this.serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg =
         serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG,
+        serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg(
@@ -7527,6 +8007,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg) {
     this.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg =
         serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG,
+        serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg(
@@ -7553,6 +8036,9 @@ public class UsageSummaryDate {
       Long serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg) {
     this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg =
         serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG,
+        serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg);
   }
 
   public UsageSummaryDate serverlessAppsApmExclFargateAvg(Long serverlessAppsApmExclFargateAvg) {
@@ -7575,6 +8061,8 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsApmExclFargateAvg(Long serverlessAppsApmExclFargateAvg) {
     this.serverlessAppsApmExclFargateAvg = serverlessAppsApmExclFargateAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG, serverlessAppsApmExclFargateAvg);
   }
 
   public UsageSummaryDate serverlessAppsAzureContainerAppInstancesAvg(
@@ -7599,6 +8087,9 @@ public class UsageSummaryDate {
   public void setServerlessAppsAzureContainerAppInstancesAvg(
       Long serverlessAppsAzureContainerAppInstancesAvg) {
     this.serverlessAppsAzureContainerAppInstancesAvg = serverlessAppsAzureContainerAppInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_AZURE_CONTAINER_APP_INSTANCES_AVG,
+        serverlessAppsAzureContainerAppInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsAzureCountAvg(Long serverlessAppsAzureCountAvg) {
@@ -7620,6 +8111,8 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsAzureCountAvg(Long serverlessAppsAzureCountAvg) {
     this.serverlessAppsAzureCountAvg = serverlessAppsAzureCountAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG, serverlessAppsAzureCountAvg);
   }
 
   public UsageSummaryDate serverlessAppsAzureFunctionAppInstancesAvg(
@@ -7644,6 +8137,9 @@ public class UsageSummaryDate {
   public void setServerlessAppsAzureFunctionAppInstancesAvg(
       Long serverlessAppsAzureFunctionAppInstancesAvg) {
     this.serverlessAppsAzureFunctionAppInstancesAvg = serverlessAppsAzureFunctionAppInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_AZURE_FUNCTION_APP_INSTANCES_AVG,
+        serverlessAppsAzureFunctionAppInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsAzureWebAppInstancesAvg(
@@ -7667,6 +8163,9 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsAzureWebAppInstancesAvg(Long serverlessAppsAzureWebAppInstancesAvg) {
     this.serverlessAppsAzureWebAppInstancesAvg = serverlessAppsAzureWebAppInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG,
+        serverlessAppsAzureWebAppInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsDsmFargateTasksAvg(Long serverlessAppsDsmFargateTasksAvg) {
@@ -7689,6 +8188,8 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsDsmFargateTasksAvg(Long serverlessAppsDsmFargateTasksAvg) {
     this.serverlessAppsDsmFargateTasksAvg = serverlessAppsDsmFargateTasksAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG, serverlessAppsDsmFargateTasksAvg);
   }
 
   public UsageSummaryDate serverlessAppsEcsAvg(Long serverlessAppsEcsAvg) {
@@ -7711,6 +8212,7 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsEcsAvg(Long serverlessAppsEcsAvg) {
     this.serverlessAppsEcsAvg = serverlessAppsEcsAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_ECS_AVG, serverlessAppsEcsAvg);
   }
 
   public UsageSummaryDate serverlessAppsEksAvg(Long serverlessAppsEksAvg) {
@@ -7733,6 +8235,7 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsEksAvg(Long serverlessAppsEksAvg) {
     this.serverlessAppsEksAvg = serverlessAppsEksAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_EKS_AVG, serverlessAppsEksAvg);
   }
 
   public UsageSummaryDate serverlessAppsExclFargateAvg(Long serverlessAppsExclFargateAvg) {
@@ -7755,6 +8258,8 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsExclFargateAvg(Long serverlessAppsExclFargateAvg) {
     this.serverlessAppsExclFargateAvg = serverlessAppsExclFargateAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AVG, serverlessAppsExclFargateAvg);
   }
 
   public UsageSummaryDate serverlessAppsExclFargateAzureContainerAppInstancesAvg(
@@ -7781,6 +8286,9 @@ public class UsageSummaryDate {
       Long serverlessAppsExclFargateAzureContainerAppInstancesAvg) {
     this.serverlessAppsExclFargateAzureContainerAppInstancesAvg =
         serverlessAppsExclFargateAzureContainerAppInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_CONTAINER_APP_INSTANCES_AVG,
+        serverlessAppsExclFargateAzureContainerAppInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsExclFargateAzureFunctionAppInstancesAvg(
@@ -7807,6 +8315,9 @@ public class UsageSummaryDate {
       Long serverlessAppsExclFargateAzureFunctionAppInstancesAvg) {
     this.serverlessAppsExclFargateAzureFunctionAppInstancesAvg =
         serverlessAppsExclFargateAzureFunctionAppInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_FUNCTION_APP_INSTANCES_AVG,
+        serverlessAppsExclFargateAzureFunctionAppInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsExclFargateAzureWebAppInstancesAvg(
@@ -7833,6 +8344,9 @@ public class UsageSummaryDate {
       Long serverlessAppsExclFargateAzureWebAppInstancesAvg) {
     this.serverlessAppsExclFargateAzureWebAppInstancesAvg =
         serverlessAppsExclFargateAzureWebAppInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_WEB_APP_INSTANCES_AVG,
+        serverlessAppsExclFargateAzureWebAppInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg(
@@ -7859,6 +8373,9 @@ public class UsageSummaryDate {
       Long serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg) {
     this.serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg =
         serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG,
+        serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsExclFargateGoogleCloudRunInstancesAvg(
@@ -7885,6 +8402,9 @@ public class UsageSummaryDate {
       Long serverlessAppsExclFargateGoogleCloudRunInstancesAvg) {
     this.serverlessAppsExclFargateGoogleCloudRunInstancesAvg =
         serverlessAppsExclFargateGoogleCloudRunInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_RUN_INSTANCES_AVG,
+        serverlessAppsExclFargateGoogleCloudRunInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg(
@@ -7911,6 +8431,9 @@ public class UsageSummaryDate {
       Long serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg) {
     this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg =
         serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG,
+        serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg);
   }
 
   public UsageSummaryDate serverlessAppsGoogleCloudFunctionsInstancesAvg(
@@ -7937,6 +8460,9 @@ public class UsageSummaryDate {
       Long serverlessAppsGoogleCloudFunctionsInstancesAvg) {
     this.serverlessAppsGoogleCloudFunctionsInstancesAvg =
         serverlessAppsGoogleCloudFunctionsInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG,
+        serverlessAppsGoogleCloudFunctionsInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsGoogleCloudRunInstancesAvg(
@@ -7961,6 +8487,9 @@ public class UsageSummaryDate {
   public void setServerlessAppsGoogleCloudRunInstancesAvg(
       Long serverlessAppsGoogleCloudRunInstancesAvg) {
     this.serverlessAppsGoogleCloudRunInstancesAvg = serverlessAppsGoogleCloudRunInstancesAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_RUN_INSTANCES_AVG,
+        serverlessAppsGoogleCloudRunInstancesAvg);
   }
 
   public UsageSummaryDate serverlessAppsGoogleCountAvg(Long serverlessAppsGoogleCountAvg) {
@@ -7982,6 +8511,8 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsGoogleCountAvg(Long serverlessAppsGoogleCountAvg) {
     this.serverlessAppsGoogleCountAvg = serverlessAppsGoogleCountAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG, serverlessAppsGoogleCountAvg);
   }
 
   public UsageSummaryDate serverlessAppsInfraGcpGkeAutopilotPodsAvg(
@@ -8006,6 +8537,9 @@ public class UsageSummaryDate {
   public void setServerlessAppsInfraGcpGkeAutopilotPodsAvg(
       Long serverlessAppsInfraGcpGkeAutopilotPodsAvg) {
     this.serverlessAppsInfraGcpGkeAutopilotPodsAvg = serverlessAppsInfraGcpGkeAutopilotPodsAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG,
+        serverlessAppsInfraGcpGkeAutopilotPodsAvg);
   }
 
   public UsageSummaryDate serverlessAppsTotalCountAvg(Long serverlessAppsTotalCountAvg) {
@@ -8028,6 +8562,8 @@ public class UsageSummaryDate {
 
   public void setServerlessAppsTotalCountAvg(Long serverlessAppsTotalCountAvg) {
     this.serverlessAppsTotalCountAvg = serverlessAppsTotalCountAvg;
+    putAdditionalProperty(
+        JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG, serverlessAppsTotalCountAvg);
   }
 
   public UsageSummaryDate siem12moRetentionSum(Long siem12moRetentionSum) {
@@ -8050,6 +8586,7 @@ public class UsageSummaryDate {
 
   public void setSiem12moRetentionSum(Long siem12moRetentionSum) {
     this.siem12moRetentionSum = siem12moRetentionSum;
+    putAdditionalProperty(JSON_PROPERTY_SIEM_12MO_RETENTION_SUM, siem12moRetentionSum);
   }
 
   public UsageSummaryDate siem6moRetentionSum(Long siem6moRetentionSum) {
@@ -8072,6 +8609,7 @@ public class UsageSummaryDate {
 
   public void setSiem6moRetentionSum(Long siem6moRetentionSum) {
     this.siem6moRetentionSum = siem6moRetentionSum;
+    putAdditionalProperty(JSON_PROPERTY_SIEM_6MO_RETENTION_SUM, siem6moRetentionSum);
   }
 
   public UsageSummaryDate siemAnalyzedLogsAddOnCountSum(Long siemAnalyzedLogsAddOnCountSum) {
@@ -8094,6 +8632,8 @@ public class UsageSummaryDate {
 
   public void setSiemAnalyzedLogsAddOnCountSum(Long siemAnalyzedLogsAddOnCountSum) {
     this.siemAnalyzedLogsAddOnCountSum = siemAnalyzedLogsAddOnCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM, siemAnalyzedLogsAddOnCountSum);
   }
 
   public UsageSummaryDate snmpDeviceCountSum(Long snmpDeviceCountSum) {
@@ -8116,6 +8656,7 @@ public class UsageSummaryDate {
 
   public void setSnmpDeviceCountSum(Long snmpDeviceCountSum) {
     this.snmpDeviceCountSum = snmpDeviceCountSum;
+    putAdditionalProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_SUM, snmpDeviceCountSum);
   }
 
   public UsageSummaryDate snmpDeviceCountTop99p(Long snmpDeviceCountTop99p) {
@@ -8138,6 +8679,7 @@ public class UsageSummaryDate {
 
   public void setSnmpDeviceCountTop99p(Long snmpDeviceCountTop99p) {
     this.snmpDeviceCountTop99p = snmpDeviceCountTop99p;
+    putAdditionalProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_TOP99P, snmpDeviceCountTop99p);
   }
 
   public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(
@@ -8161,6 +8703,9 @@ public class UsageSummaryDate {
 
   public void setSyntheticsBrowserCheckCallsCountSum(Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
+        syntheticsBrowserCheckCallsCountSum);
   }
 
   public UsageSummaryDate syntheticsCheckCallsCountSum(Long syntheticsCheckCallsCountSum) {
@@ -8183,6 +8728,8 @@ public class UsageSummaryDate {
 
   public void setSyntheticsCheckCallsCountSum(Long syntheticsCheckCallsCountSum) {
     this.syntheticsCheckCallsCountSum = syntheticsCheckCallsCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM, syntheticsCheckCallsCountSum);
   }
 
   public UsageSummaryDate syntheticsMobileTestRunsSum(Long syntheticsMobileTestRunsSum) {
@@ -8205,6 +8752,8 @@ public class UsageSummaryDate {
 
   public void setSyntheticsMobileTestRunsSum(Long syntheticsMobileTestRunsSum) {
     this.syntheticsMobileTestRunsSum = syntheticsMobileTestRunsSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM, syntheticsMobileTestRunsSum);
   }
 
   public UsageSummaryDate syntheticsParallelTestingMaxSlotsHwm(
@@ -8228,6 +8777,9 @@ public class UsageSummaryDate {
 
   public void setSyntheticsParallelTestingMaxSlotsHwm(Long syntheticsParallelTestingMaxSlotsHwm) {
     this.syntheticsParallelTestingMaxSlotsHwm = syntheticsParallelTestingMaxSlotsHwm;
+    putAdditionalProperty(
+        JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM,
+        syntheticsParallelTestingMaxSlotsHwm);
   }
 
   public UsageSummaryDate traceSearchIndexedEventsCountSum(Long traceSearchIndexedEventsCountSum) {
@@ -8250,6 +8802,8 @@ public class UsageSummaryDate {
 
   public void setTraceSearchIndexedEventsCountSum(Long traceSearchIndexedEventsCountSum) {
     this.traceSearchIndexedEventsCountSum = traceSearchIndexedEventsCountSum;
+    putAdditionalProperty(
+        JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM, traceSearchIndexedEventsCountSum);
   }
 
   public UsageSummaryDate twolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
@@ -8272,6 +8826,7 @@ public class UsageSummaryDate {
 
   public void setTwolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
     this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
+    putAdditionalProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM, twolIngestedEventsBytesSum);
   }
 
   public UsageSummaryDate universalServiceMonitoringHostTop99p(
@@ -8295,6 +8850,9 @@ public class UsageSummaryDate {
 
   public void setUniversalServiceMonitoringHostTop99p(Long universalServiceMonitoringHostTop99p) {
     this.universalServiceMonitoringHostTop99p = universalServiceMonitoringHostTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P,
+        universalServiceMonitoringHostTop99p);
   }
 
   public UsageSummaryDate vsphereHostTop99p(Long vsphereHostTop99p) {
@@ -8317,6 +8875,7 @@ public class UsageSummaryDate {
 
   public void setVsphereHostTop99p(Long vsphereHostTop99p) {
     this.vsphereHostTop99p = vsphereHostTop99p;
+    putAdditionalProperty(JSON_PROPERTY_VSPHERE_HOST_TOP99P, vsphereHostTop99p);
   }
 
   public UsageSummaryDate vulnManagementHostCountTop99p(Long vulnManagementHostCountTop99p) {
@@ -8339,6 +8898,8 @@ public class UsageSummaryDate {
 
   public void setVulnManagementHostCountTop99p(Long vulnManagementHostCountTop99p) {
     this.vulnManagementHostCountTop99p = vulnManagementHostCountTop99p;
+    putAdditionalProperty(
+        JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P, vulnManagementHostCountTop99p);
   }
 
   public UsageSummaryDate workflowExecutionsUsageSum(Long workflowExecutionsUsageSum) {
@@ -8360,6 +8921,7 @@ public class UsageSummaryDate {
 
   public void setWorkflowExecutionsUsageSum(Long workflowExecutionsUsageSum) {
     this.workflowExecutionsUsageSum = workflowExecutionsUsageSum;
+    putAdditionalProperty(JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM, workflowExecutionsUsageSum);
   }
 
   /**
