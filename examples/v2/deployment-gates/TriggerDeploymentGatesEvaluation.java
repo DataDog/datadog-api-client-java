@@ -3,11 +3,17 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.DeploymentGatesApi;
+import com.datadog.api.client.v2.model.DeploymentGatesEvaluationConfiguration;
 import com.datadog.api.client.v2.model.DeploymentGatesEvaluationRequest;
 import com.datadog.api.client.v2.model.DeploymentGatesEvaluationRequestAttributes;
 import com.datadog.api.client.v2.model.DeploymentGatesEvaluationRequestData;
 import com.datadog.api.client.v2.model.DeploymentGatesEvaluationRequestDataType;
 import com.datadog.api.client.v2.model.DeploymentGatesEvaluationResponse;
+import com.datadog.api.client.v2.model.DeploymentGatesEvaluationRule;
+import com.datadog.api.client.v2.model.DeploymentGatesMonitorRule;
+import com.datadog.api.client.v2.model.DeploymentGatesMonitorRuleOptions;
+import com.datadog.api.client.v2.model.DeploymentGatesMonitorRuleType;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,6 +27,23 @@ public class Example {
                 new DeploymentGatesEvaluationRequestData()
                     .attributes(
                         new DeploymentGatesEvaluationRequestAttributes()
+                            .configuration(
+                                new DeploymentGatesEvaluationConfiguration()
+                                    .dryRun(false)
+                                    .rules(
+                                        Collections.singletonList(
+                                            new DeploymentGatesEvaluationRule(
+                                                new DeploymentGatesMonitorRule()
+                                                    .dryRun(false)
+                                                    .name("error rate monitors")
+                                                    .options(
+                                                        new DeploymentGatesMonitorRuleOptions()
+                                                            .duration(300L)
+                                                            .query(
+                                                                "service:transaction-backend"
+                                                                    + " env:production"))
+                                                    .type(
+                                                        DeploymentGatesMonitorRuleType.MONITOR)))))
                             .env("staging")
                             .identifier("pre-deploy")
                             .primaryTag("region:us-east-1")

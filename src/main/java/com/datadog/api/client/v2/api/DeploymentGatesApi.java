@@ -1610,6 +1610,11 @@ public class DeploymentGatesApi {
    * Returns an evaluation ID that can be used to poll for the result via the <code>
    * GET /api/v2/deployments/gates/evaluation/{id}</code> endpoint.
    *
+   * <p>When the <code>configuration</code> attribute is provided, rules are evaluated inline from
+   * that configuration and no pre-configured gate is required. When <code>configuration</code> is
+   * omitted, rules are resolved from the gate pre-configured for the given service and environment
+   * through the Datadog UI, API, or Terraform.
+   *
    * @param body (required)
    * @return ApiResponse&lt;DeploymentGatesEvaluationResponse&gt;
    * @throws ApiException if fails to make API call
