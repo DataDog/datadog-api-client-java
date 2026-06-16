@@ -42,7 +42,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IoCIndicator.JSON_PROPERTY_SIGNAL_MATCHES,
   IoCIndicator.JSON_PROPERTY_SIGNAL_TIER,
   IoCIndicator.JSON_PROPERTY_SUSPICIOUS_SOURCES,
-  IoCIndicator.JSON_PROPERTY_TAGS
+  IoCIndicator.JSON_PROPERTY_TAGS,
+  IoCIndicator.JSON_PROPERTY_TRIAGE_STATE,
+  IoCIndicator.JSON_PROPERTY_TRIAGED_AT,
+  IoCIndicator.JSON_PROPERTY_TRIAGED_BY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -112,6 +115,15 @@ public class IoCIndicator {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public static final String JSON_PROPERTY_TRIAGE_STATE = "triage_state";
+  private IoCTriageState triageState;
+
+  public static final String JSON_PROPERTY_TRIAGED_AT = "triaged_at";
+  private OffsetDateTime triagedAt;
+
+  public static final String JSON_PROPERTY_TRIAGED_BY = "triaged_by";
+  private String triagedBy;
 
   public IoCIndicator asGeo(IoCGeoLocation asGeo) {
     this.asGeo = asGeo;
@@ -657,6 +669,73 @@ public class IoCIndicator {
     this.tags = tags;
   }
 
+  public IoCIndicator triageState(IoCTriageState triageState) {
+    this.triageState = triageState;
+    this.unparsed |= !triageState.isValid();
+    return this;
+  }
+
+  /**
+   * Current triage state of the indicator.
+   *
+   * @return triageState
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRIAGE_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IoCTriageState getTriageState() {
+    return triageState;
+  }
+
+  public void setTriageState(IoCTriageState triageState) {
+    if (!triageState.isValid()) {
+      this.unparsed = true;
+    }
+    this.triageState = triageState;
+  }
+
+  public IoCIndicator triagedAt(OffsetDateTime triagedAt) {
+    this.triagedAt = triagedAt;
+    return this;
+  }
+
+  /**
+   * Timestamp when the indicator was last triaged.
+   *
+   * @return triagedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRIAGED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getTriagedAt() {
+    return triagedAt;
+  }
+
+  public void setTriagedAt(OffsetDateTime triagedAt) {
+    this.triagedAt = triagedAt;
+  }
+
+  public IoCIndicator triagedBy(String triagedBy) {
+    this.triagedBy = triagedBy;
+    return this;
+  }
+
+  /**
+   * UUID of the user who last triaged the indicator.
+   *
+   * @return triagedBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRIAGED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTriagedBy() {
+    return triagedBy;
+  }
+
+  public void setTriagedBy(String triagedBy) {
+    this.triagedBy = triagedBy;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -734,6 +813,9 @@ public class IoCIndicator {
         && Objects.equals(this.signalTier, ioCIndicator.signalTier)
         && Objects.equals(this.suspiciousSources, ioCIndicator.suspiciousSources)
         && Objects.equals(this.tags, ioCIndicator.tags)
+        && Objects.equals(this.triageState, ioCIndicator.triageState)
+        && Objects.equals(this.triagedAt, ioCIndicator.triagedAt)
+        && Objects.equals(this.triagedBy, ioCIndicator.triagedBy)
         && Objects.equals(this.additionalProperties, ioCIndicator.additionalProperties);
   }
 
@@ -761,6 +843,9 @@ public class IoCIndicator {
         signalTier,
         suspiciousSources,
         tags,
+        triageState,
+        triagedAt,
+        triagedBy,
         additionalProperties);
   }
 
@@ -789,6 +874,9 @@ public class IoCIndicator {
     sb.append("    signalTier: ").append(toIndentedString(signalTier)).append("\n");
     sb.append("    suspiciousSources: ").append(toIndentedString(suspiciousSources)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    triageState: ").append(toIndentedString(triageState)).append("\n");
+    sb.append("    triagedAt: ").append(toIndentedString(triagedAt)).append("\n");
+    sb.append("    triagedBy: ").append(toIndentedString(triagedBy)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
