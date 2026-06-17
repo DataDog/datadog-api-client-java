@@ -53,7 +53,9 @@ public class CloudAuthenticationApi {
    * @param body (required)
    * @return AWSCloudAuthPersonaMappingResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSCloudAuthPersonaMappingResponse createAWSCloudAuthPersonaMapping(
       AWSCloudAuthPersonaMappingCreateRequest body) throws ApiException {
     return createAWSCloudAuthPersonaMappingWithHttpInfo(body).getData();
@@ -66,7 +68,9 @@ public class CloudAuthenticationApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;AWSCloudAuthPersonaMappingResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSCloudAuthPersonaMappingResponse>
       createAWSCloudAuthPersonaMappingAsync(AWSCloudAuthPersonaMappingCreateRequest body) {
     return createAWSCloudAuthPersonaMappingWithHttpInfoAsync(body)
@@ -93,7 +97,10 @@ public class CloudAuthenticationApi {
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSCloudAuthPersonaMappingResponse>
       createAWSCloudAuthPersonaMappingWithHttpInfo(AWSCloudAuthPersonaMappingCreateRequest body)
           throws ApiException {
@@ -144,7 +151,9 @@ public class CloudAuthenticationApi {
    *
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSCloudAuthPersonaMappingResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSCloudAuthPersonaMappingResponse>>
       createAWSCloudAuthPersonaMappingWithHttpInfoAsync(
           AWSCloudAuthPersonaMappingCreateRequest body) {
@@ -212,7 +221,9 @@ public class CloudAuthenticationApi {
    *
    * @param personaMappingId The ID of the persona mapping (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void deleteAWSCloudAuthPersonaMapping(String personaMappingId) throws ApiException {
     deleteAWSCloudAuthPersonaMappingWithHttpInfo(personaMappingId);
   }
@@ -224,7 +235,9 @@ public class CloudAuthenticationApi {
    *
    * @param personaMappingId The ID of the persona mapping (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> deleteAWSCloudAuthPersonaMappingAsync(String personaMappingId) {
     return deleteAWSCloudAuthPersonaMappingWithHttpInfoAsync(personaMappingId)
         .thenApply(
@@ -249,7 +262,10 @@ public class CloudAuthenticationApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> deleteAWSCloudAuthPersonaMappingWithHttpInfo(String personaMappingId)
       throws ApiException {
     // Check if unstable operation is enabled
@@ -304,7 +320,9 @@ public class CloudAuthenticationApi {
    *
    * @param personaMappingId The ID of the persona mapping (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> deleteAWSCloudAuthPersonaMappingWithHttpInfoAsync(
       String personaMappingId) {
     // Check if unstable operation is enabled
@@ -373,7 +391,9 @@ public class CloudAuthenticationApi {
    * @param personaMappingId The ID of the persona mapping (required)
    * @return AWSCloudAuthPersonaMappingResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSCloudAuthPersonaMappingResponse getAWSCloudAuthPersonaMapping(String personaMappingId)
       throws ApiException {
     return getAWSCloudAuthPersonaMappingWithHttpInfo(personaMappingId).getData();
@@ -386,7 +406,9 @@ public class CloudAuthenticationApi {
    *
    * @param personaMappingId The ID of the persona mapping (required)
    * @return CompletableFuture&lt;AWSCloudAuthPersonaMappingResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSCloudAuthPersonaMappingResponse> getAWSCloudAuthPersonaMappingAsync(
       String personaMappingId) {
     return getAWSCloudAuthPersonaMappingWithHttpInfoAsync(personaMappingId)
@@ -412,7 +434,10 @@ public class CloudAuthenticationApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSCloudAuthPersonaMappingResponse> getAWSCloudAuthPersonaMappingWithHttpInfo(
       String personaMappingId) throws ApiException {
     // Check if unstable operation is enabled
@@ -467,7 +492,9 @@ public class CloudAuthenticationApi {
    *
    * @param personaMappingId The ID of the persona mapping (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSCloudAuthPersonaMappingResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSCloudAuthPersonaMappingResponse>>
       getAWSCloudAuthPersonaMappingWithHttpInfoAsync(String personaMappingId) {
     // Check if unstable operation is enabled
@@ -538,7 +565,9 @@ public class CloudAuthenticationApi {
    *
    * @return AWSCloudAuthPersonaMappingsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSCloudAuthPersonaMappingsResponse listAWSCloudAuthPersonaMappings() throws ApiException {
     return listAWSCloudAuthPersonaMappingsWithHttpInfo().getData();
   }
@@ -549,7 +578,9 @@ public class CloudAuthenticationApi {
    * <p>See {@link #listAWSCloudAuthPersonaMappingsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;AWSCloudAuthPersonaMappingsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSCloudAuthPersonaMappingsResponse>
       listAWSCloudAuthPersonaMappingsAsync() {
     return listAWSCloudAuthPersonaMappingsWithHttpInfoAsync()
@@ -574,7 +605,10 @@ public class CloudAuthenticationApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSCloudAuthPersonaMappingsResponse>
       listAWSCloudAuthPersonaMappingsWithHttpInfo() throws ApiException {
     // Check if unstable operation is enabled
@@ -616,7 +650,9 @@ public class CloudAuthenticationApi {
    * <p>See {@link #listAWSCloudAuthPersonaMappingsWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;AWSCloudAuthPersonaMappingsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSCloudAuthPersonaMappingsResponse>>
       listAWSCloudAuthPersonaMappingsWithHttpInfoAsync() {
     // Check if unstable operation is enabled
