@@ -23,10 +23,11 @@ import java.util.Objects;
  * Response summarizing all usage aggregated across the months in the request for all organizations,
  * and broken down by month and by organization.
  *
- * <p>Newly added billing dimensions and usage types appear as untyped keys on the <code>
- * additionalProperties</code> map instead of as typed fields. Call <code>
- * GET /api/v2/usage/summary/available_fields</code> to enumerate every key returned at this
- * response level—both typed fields and <code>additionalProperties</code> keys.
+ * <p>For SDK users only: all fields at this response level are accessible through the <code>
+ * additionalProperties</code> map. Existing typed-field getters are unchanged. New billing
+ * dimensions will not have typed-field getters. Use <a
+ * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-summary-available-fields">Get
+ * available fields for usage summary</a> to enumerate every available key.
  */
 @JsonPropertyOrder({
   UsageSummaryResponse.JSON_PROPERTY_AGENT_HOST_TOP99P_SUM,
