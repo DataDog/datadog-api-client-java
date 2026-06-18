@@ -24,6 +24,11 @@ import com.datadog.api.client.v2.model.CreateServiceNowTicketRequestArray;
 import com.datadog.api.client.v2.model.DefaultRulesetsPerLanguageResponse;
 import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
+import com.datadog.api.client.v2.model.DueDateRuleCreateRequest;
+import com.datadog.api.client.v2.model.DueDateRuleReorderRequest;
+import com.datadog.api.client.v2.model.DueDateRuleResponse;
+import com.datadog.api.client.v2.model.DueDateRuleUpdateRequest;
+import com.datadog.api.client.v2.model.DueDateRulesResponse;
 import com.datadog.api.client.v2.model.EntityContextResponse;
 import com.datadog.api.client.v2.model.Finding;
 import com.datadog.api.client.v2.model.FindingCaseResponse;
@@ -56,6 +61,11 @@ import com.datadog.api.client.v2.model.ListVulnerabilitiesResponse;
 import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
 import com.datadog.api.client.v2.model.MuteFindingsRequest;
 import com.datadog.api.client.v2.model.MuteFindingsResponse;
+import com.datadog.api.client.v2.model.MuteRuleCreateRequest;
+import com.datadog.api.client.v2.model.MuteRuleReorderRequest;
+import com.datadog.api.client.v2.model.MuteRuleResponse;
+import com.datadog.api.client.v2.model.MuteRuleUpdateRequest;
+import com.datadog.api.client.v2.model.MuteRulesResponse;
 import com.datadog.api.client.v2.model.NodeTypesResponse;
 import com.datadog.api.client.v2.model.NotificationRulePreviewResponse;
 import com.datadog.api.client.v2.model.NotificationRuleResponse;
@@ -146,6 +156,11 @@ import com.datadog.api.client.v2.model.SecurityMonitoringTerraformExportResponse
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformResourceType;
 import com.datadog.api.client.v2.model.SignalEntitiesResponse;
 import com.datadog.api.client.v2.model.SingleEntityContextResponse;
+import com.datadog.api.client.v2.model.TicketCreationRuleCreateRequest;
+import com.datadog.api.client.v2.model.TicketCreationRuleReorderRequest;
+import com.datadog.api.client.v2.model.TicketCreationRuleResponse;
+import com.datadog.api.client.v2.model.TicketCreationRuleUpdateRequest;
+import com.datadog.api.client.v2.model.TicketCreationRulesResponse;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.UpdateResourceEvaluationFiltersRequest;
@@ -164,6 +179,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -3854,6 +3870,474 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Create a due date rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return DueDateRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DueDateRuleResponse createSecurityFindingsAutomationDueDateRule(
+      DueDateRuleCreateRequest body) throws ApiException {
+    return createSecurityFindingsAutomationDueDateRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a due date rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;DueDateRuleResponse&gt;
+   */
+  public CompletableFuture<DueDateRuleResponse> createSecurityFindingsAutomationDueDateRuleAsync(
+      DueDateRuleCreateRequest body) {
+    return createSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new due date rule for the current organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;DueDateRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created the due date rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DueDateRuleResponse> createSecurityFindingsAutomationDueDateRuleWithHttpInfo(
+      DueDateRuleCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationDueDateRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityFindingsAutomationDueDateRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/due_date_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityFindingsAutomationDueDateRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRuleResponse>() {});
+  }
+
+  /**
+   * Create a due date rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DueDateRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DueDateRuleResponse>>
+      createSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync(DueDateRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationDueDateRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityFindingsAutomationDueDateRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/due_date_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityFindingsAutomationDueDateRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRuleResponse>() {});
+  }
+
+  /**
+   * Create a mute rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationMuteRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return MuteRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRuleResponse createSecurityFindingsAutomationMuteRule(MuteRuleCreateRequest body)
+      throws ApiException {
+    return createSecurityFindingsAutomationMuteRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a mute rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationMuteRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;MuteRuleResponse&gt;
+   */
+  public CompletableFuture<MuteRuleResponse> createSecurityFindingsAutomationMuteRuleAsync(
+      MuteRuleCreateRequest body) {
+    return createSecurityFindingsAutomationMuteRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new mute rule for the current organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;MuteRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created the mute rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteRuleResponse> createSecurityFindingsAutomationMuteRuleWithHttpInfo(
+      MuteRuleCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationMuteRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityFindingsAutomationMuteRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/mute_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityFindingsAutomationMuteRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Create a mute rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationMuteRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteRuleResponse>>
+      createSecurityFindingsAutomationMuteRuleWithHttpInfoAsync(MuteRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationMuteRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityFindingsAutomationMuteRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/mute_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityFindingsAutomationMuteRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Create a ticket creation rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return TicketCreationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TicketCreationRuleResponse createSecurityFindingsAutomationTicketCreationRule(
+      TicketCreationRuleCreateRequest body) throws ApiException {
+    return createSecurityFindingsAutomationTicketCreationRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a ticket creation rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;TicketCreationRuleResponse&gt;
+   */
+  public CompletableFuture<TicketCreationRuleResponse>
+      createSecurityFindingsAutomationTicketCreationRuleAsync(
+          TicketCreationRuleCreateRequest body) {
+    return createSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new ticket creation rule for the current organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;TicketCreationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created the ticket creation rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TicketCreationRuleResponse>
+      createSecurityFindingsAutomationTicketCreationRuleWithHttpInfo(
+          TicketCreationRuleCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationTicketCreationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityFindingsAutomationTicketCreationRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/ticket_creation_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityFindingsAutomationTicketCreationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRuleResponse>() {});
+  }
+
+  /**
+   * Create a ticket creation rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TicketCreationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TicketCreationRuleResponse>>
+      createSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync(
+          TicketCreationRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationTicketCreationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityFindingsAutomationTicketCreationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/ticket_creation_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityFindingsAutomationTicketCreationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRuleResponse>() {});
+  }
+
+  /**
    * Create a critical asset.
    *
    * <p>See {@link #createSecurityMonitoringCriticalAssetWithHttpInfo}.
@@ -6111,6 +6595,472 @@ public class SecurityMonitoringApi {
               new HashMap<String, String>(),
               new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a due date rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityFindingsAutomationDueDateRule(UUID ruleId) throws ApiException {
+    deleteSecurityFindingsAutomationDueDateRuleWithHttpInfo(ruleId);
+  }
+
+  /**
+   * Delete a due date rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityFindingsAutomationDueDateRuleAsync(UUID ruleId) {
+    return deleteSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an existing due date rule by ID.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityFindingsAutomationDueDateRuleWithHttpInfo(UUID ruleId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationDueDateRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " deleteSecurityFindingsAutomationDueDateRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/due_date_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationDueDateRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a due date rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationDueDateRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " deleteSecurityFindingsAutomationDueDateRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/due_date_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationDueDateRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a mute rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationMuteRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityFindingsAutomationMuteRule(UUID ruleId) throws ApiException {
+    deleteSecurityFindingsAutomationMuteRuleWithHttpInfo(ruleId);
+  }
+
+  /**
+   * Delete a mute rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationMuteRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityFindingsAutomationMuteRuleAsync(UUID ruleId) {
+    return deleteSecurityFindingsAutomationMuteRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an existing mute rule by ID.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityFindingsAutomationMuteRuleWithHttpInfo(UUID ruleId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationMuteRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " deleteSecurityFindingsAutomationMuteRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/mute_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationMuteRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a mute rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationMuteRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityFindingsAutomationMuteRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationMuteRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " deleteSecurityFindingsAutomationMuteRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/mute_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationMuteRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a ticket creation rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityFindingsAutomationTicketCreationRule(UUID ruleId) throws ApiException {
+    deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfo(ruleId);
+  }
+
+  /**
+   * Delete a ticket creation rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityFindingsAutomationTicketCreationRuleAsync(
+      UUID ruleId) {
+    return deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an existing ticket creation rule by ID.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfo(
+      UUID ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationTicketCreationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " deleteSecurityFindingsAutomationTicketCreationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/ticket_creation_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationTicketCreationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a ticket creation rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationTicketCreationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " deleteSecurityFindingsAutomationTicketCreationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/ticket_creation_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationTicketCreationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -10606,6 +11556,479 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFilterResponse>() {});
+  }
+
+  /**
+   * Get a due date rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @return DueDateRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DueDateRuleResponse getSecurityFindingsAutomationDueDateRule(UUID ruleId)
+      throws ApiException {
+    return getSecurityFindingsAutomationDueDateRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get a due date rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @return CompletableFuture&lt;DueDateRuleResponse&gt;
+   */
+  public CompletableFuture<DueDateRuleResponse> getSecurityFindingsAutomationDueDateRuleAsync(
+      UUID ruleId) {
+    return getSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a due date rule by ID.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @return ApiResponse&lt;DueDateRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the due date rule </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DueDateRuleResponse> getSecurityFindingsAutomationDueDateRuleWithHttpInfo(
+      UUID ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationDueDateRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " getSecurityFindingsAutomationDueDateRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/due_date_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityFindingsAutomationDueDateRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRuleResponse>() {});
+  }
+
+  /**
+   * Get a due date rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DueDateRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DueDateRuleResponse>>
+      getSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationDueDateRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " getSecurityFindingsAutomationDueDateRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/due_date_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityFindingsAutomationDueDateRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRuleResponse>() {});
+  }
+
+  /**
+   * Get a mute rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationMuteRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @return MuteRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRuleResponse getSecurityFindingsAutomationMuteRule(UUID ruleId) throws ApiException {
+    return getSecurityFindingsAutomationMuteRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get a mute rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationMuteRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @return CompletableFuture&lt;MuteRuleResponse&gt;
+   */
+  public CompletableFuture<MuteRuleResponse> getSecurityFindingsAutomationMuteRuleAsync(
+      UUID ruleId) {
+    return getSecurityFindingsAutomationMuteRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a mute rule by ID.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @return ApiResponse&lt;MuteRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the mute rule </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteRuleResponse> getSecurityFindingsAutomationMuteRuleWithHttpInfo(
+      UUID ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationMuteRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " getSecurityFindingsAutomationMuteRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/mute_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityFindingsAutomationMuteRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Get a mute rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationMuteRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteRuleResponse>>
+      getSecurityFindingsAutomationMuteRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationMuteRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " getSecurityFindingsAutomationMuteRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/mute_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityFindingsAutomationMuteRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Get a ticket creation rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @return TicketCreationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TicketCreationRuleResponse getSecurityFindingsAutomationTicketCreationRule(UUID ruleId)
+      throws ApiException {
+    return getSecurityFindingsAutomationTicketCreationRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get a ticket creation rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @return CompletableFuture&lt;TicketCreationRuleResponse&gt;
+   */
+  public CompletableFuture<TicketCreationRuleResponse>
+      getSecurityFindingsAutomationTicketCreationRuleAsync(UUID ruleId) {
+    return getSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a ticket creation rule by ID.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @return ApiResponse&lt;TicketCreationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the ticket creation rule </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TicketCreationRuleResponse>
+      getSecurityFindingsAutomationTicketCreationRuleWithHttpInfo(UUID ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationTicketCreationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " getSecurityFindingsAutomationTicketCreationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/ticket_creation_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityFindingsAutomationTicketCreationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRuleResponse>() {});
+  }
+
+  /**
+   * Get a ticket creation rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TicketCreationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TicketCreationRuleResponse>>
+      getSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationTicketCreationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " getSecurityFindingsAutomationTicketCreationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/ticket_creation_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityFindingsAutomationTicketCreationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRuleResponse>() {});
   }
 
   /**
@@ -17416,6 +18839,632 @@ public class SecurityMonitoringApi {
         new GenericType<ListSecurityFindingsResponse>() {});
   }
 
+  /** Manage optional parameters to listSecurityFindingsAutomationDueDateRules. */
+  public static class ListSecurityFindingsAutomationDueDateRulesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize The number of rules per page. Maximum is 1000. (optional, default to 1000)
+     * @return ListSecurityFindingsAutomationDueDateRulesOptionalParameters
+     */
+    public ListSecurityFindingsAutomationDueDateRulesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The page number to return. (optional, default to 0)
+     * @return ListSecurityFindingsAutomationDueDateRulesOptionalParameters
+     */
+    public ListSecurityFindingsAutomationDueDateRulesOptionalParameters pageNumber(
+        Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
+  /**
+   * Get all due date rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationDueDateRulesWithHttpInfo}.
+   *
+   * @return DueDateRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DueDateRulesResponse listSecurityFindingsAutomationDueDateRules() throws ApiException {
+    return listSecurityFindingsAutomationDueDateRulesWithHttpInfo(
+            new ListSecurityFindingsAutomationDueDateRulesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get all due date rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;DueDateRulesResponse&gt;
+   */
+  public CompletableFuture<DueDateRulesResponse> listSecurityFindingsAutomationDueDateRulesAsync() {
+    return listSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync(
+            new ListSecurityFindingsAutomationDueDateRulesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all due date rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationDueDateRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return DueDateRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DueDateRulesResponse listSecurityFindingsAutomationDueDateRules(
+      ListSecurityFindingsAutomationDueDateRulesOptionalParameters parameters) throws ApiException {
+    return listSecurityFindingsAutomationDueDateRulesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all due date rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;DueDateRulesResponse&gt;
+   */
+  public CompletableFuture<DueDateRulesResponse> listSecurityFindingsAutomationDueDateRulesAsync(
+      ListSecurityFindingsAutomationDueDateRulesOptionalParameters parameters) {
+    return listSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all due date rules for the current organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;DueDateRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the list of due date rules </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DueDateRulesResponse> listSecurityFindingsAutomationDueDateRulesWithHttpInfo(
+      ListSecurityFindingsAutomationDueDateRulesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationDueDateRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/due_date_rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityFindingsAutomationDueDateRules",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRulesResponse>() {});
+  }
+
+  /**
+   * Get all due date rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationDueDateRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;DueDateRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DueDateRulesResponse>>
+      listSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync(
+          ListSecurityFindingsAutomationDueDateRulesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationDueDateRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DueDateRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/due_date_rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityFindingsAutomationDueDateRules",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DueDateRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRulesResponse>() {});
+  }
+
+  /** Manage optional parameters to listSecurityFindingsAutomationMuteRules. */
+  public static class ListSecurityFindingsAutomationMuteRulesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize The number of rules per page. Maximum is 1000. (optional, default to 1000)
+     * @return ListSecurityFindingsAutomationMuteRulesOptionalParameters
+     */
+    public ListSecurityFindingsAutomationMuteRulesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The page number to return. (optional, default to 0)
+     * @return ListSecurityFindingsAutomationMuteRulesOptionalParameters
+     */
+    public ListSecurityFindingsAutomationMuteRulesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
+  /**
+   * Get all mute rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationMuteRulesWithHttpInfo}.
+   *
+   * @return MuteRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRulesResponse listSecurityFindingsAutomationMuteRules() throws ApiException {
+    return listSecurityFindingsAutomationMuteRulesWithHttpInfo(
+            new ListSecurityFindingsAutomationMuteRulesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get all mute rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationMuteRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;MuteRulesResponse&gt;
+   */
+  public CompletableFuture<MuteRulesResponse> listSecurityFindingsAutomationMuteRulesAsync() {
+    return listSecurityFindingsAutomationMuteRulesWithHttpInfoAsync(
+            new ListSecurityFindingsAutomationMuteRulesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all mute rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationMuteRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return MuteRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRulesResponse listSecurityFindingsAutomationMuteRules(
+      ListSecurityFindingsAutomationMuteRulesOptionalParameters parameters) throws ApiException {
+    return listSecurityFindingsAutomationMuteRulesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all mute rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationMuteRulesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MuteRulesResponse&gt;
+   */
+  public CompletableFuture<MuteRulesResponse> listSecurityFindingsAutomationMuteRulesAsync(
+      ListSecurityFindingsAutomationMuteRulesOptionalParameters parameters) {
+    return listSecurityFindingsAutomationMuteRulesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all mute rules for the current organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MuteRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the list of mute rules </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteRulesResponse> listSecurityFindingsAutomationMuteRulesWithHttpInfo(
+      ListSecurityFindingsAutomationMuteRulesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationMuteRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/mute_rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityFindingsAutomationMuteRules",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRulesResponse>() {});
+  }
+
+  /**
+   * Get all mute rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationMuteRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteRulesResponse>>
+      listSecurityFindingsAutomationMuteRulesWithHttpInfoAsync(
+          ListSecurityFindingsAutomationMuteRulesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationMuteRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MuteRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/mute_rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityFindingsAutomationMuteRules",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRulesResponse>() {});
+  }
+
+  /** Manage optional parameters to listSecurityFindingsAutomationTicketCreationRules. */
+  public static class ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize The number of rules per page. Maximum is 1000. (optional, default to 1000)
+     * @return ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters
+     */
+    public ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters pageSize(
+        Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The page number to return. (optional, default to 0)
+     * @return ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters
+     */
+    public ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters pageNumber(
+        Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
+  /**
+   * Get all ticket creation rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationTicketCreationRulesWithHttpInfo}.
+   *
+   * @return TicketCreationRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TicketCreationRulesResponse listSecurityFindingsAutomationTicketCreationRules()
+      throws ApiException {
+    return listSecurityFindingsAutomationTicketCreationRulesWithHttpInfo(
+            new ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get all ticket creation rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;TicketCreationRulesResponse&gt;
+   */
+  public CompletableFuture<TicketCreationRulesResponse>
+      listSecurityFindingsAutomationTicketCreationRulesAsync() {
+    return listSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync(
+            new ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all ticket creation rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationTicketCreationRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return TicketCreationRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TicketCreationRulesResponse listSecurityFindingsAutomationTicketCreationRules(
+      ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters parameters)
+      throws ApiException {
+    return listSecurityFindingsAutomationTicketCreationRulesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all ticket creation rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TicketCreationRulesResponse&gt;
+   */
+  public CompletableFuture<TicketCreationRulesResponse>
+      listSecurityFindingsAutomationTicketCreationRulesAsync(
+          ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters parameters) {
+    return listSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all ticket creation rules for the current organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TicketCreationRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the list of ticket creation rules </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TicketCreationRulesResponse>
+      listSecurityFindingsAutomationTicketCreationRulesWithHttpInfo(
+          ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationTicketCreationRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/ticket_creation_rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityFindingsAutomationTicketCreationRules",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRulesResponse>() {});
+  }
+
+  /**
+   * Get all ticket creation rules.
+   *
+   * <p>See {@link #listSecurityFindingsAutomationTicketCreationRulesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TicketCreationRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TicketCreationRulesResponse>>
+      listSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync(
+          ListSecurityFindingsAutomationTicketCreationRulesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindingsAutomationTicketCreationRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TicketCreationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/ticket_creation_rules";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityFindingsAutomationTicketCreationRules",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TicketCreationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRulesResponse>() {});
+  }
+
   /**
    * Get all critical assets.
    *
@@ -21266,6 +23315,479 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Reorder due date rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationDueDateRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return DueDateRuleReorderRequest
+   * @throws ApiException if fails to make API call
+   */
+  public DueDateRuleReorderRequest reorderSecurityFindingsAutomationDueDateRules(
+      DueDateRuleReorderRequest body) throws ApiException {
+    return reorderSecurityFindingsAutomationDueDateRulesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Reorder due date rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;DueDateRuleReorderRequest&gt;
+   */
+  public CompletableFuture<DueDateRuleReorderRequest>
+      reorderSecurityFindingsAutomationDueDateRulesAsync(DueDateRuleReorderRequest body) {
+    return reorderSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reorder the list of due date rules for the current organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;DueDateRuleReorderRequest&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully reordered the due date rules </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DueDateRuleReorderRequest>
+      reorderSecurityFindingsAutomationDueDateRulesWithHttpInfo(DueDateRuleReorderRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "reorderSecurityFindingsAutomationDueDateRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " reorderSecurityFindingsAutomationDueDateRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/due_date_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationDueDateRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRuleReorderRequest>() {});
+  }
+
+  /**
+   * Reorder due date rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationDueDateRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DueDateRuleReorderRequest&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DueDateRuleReorderRequest>>
+      reorderSecurityFindingsAutomationDueDateRulesWithHttpInfoAsync(
+          DueDateRuleReorderRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "reorderSecurityFindingsAutomationDueDateRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DueDateRuleReorderRequest>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DueDateRuleReorderRequest>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " reorderSecurityFindingsAutomationDueDateRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/due_date_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationDueDateRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DueDateRuleReorderRequest>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRuleReorderRequest>() {});
+  }
+
+  /**
+   * Reorder mute rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationMuteRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return MuteRuleReorderRequest
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRuleReorderRequest reorderSecurityFindingsAutomationMuteRules(
+      MuteRuleReorderRequest body) throws ApiException {
+    return reorderSecurityFindingsAutomationMuteRulesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Reorder mute rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationMuteRulesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;MuteRuleReorderRequest&gt;
+   */
+  public CompletableFuture<MuteRuleReorderRequest> reorderSecurityFindingsAutomationMuteRulesAsync(
+      MuteRuleReorderRequest body) {
+    return reorderSecurityFindingsAutomationMuteRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reorder the list of mute rules for the current organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;MuteRuleReorderRequest&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully reordered the mute rules </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteRuleReorderRequest> reorderSecurityFindingsAutomationMuteRulesWithHttpInfo(
+      MuteRuleReorderRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "reorderSecurityFindingsAutomationMuteRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " reorderSecurityFindingsAutomationMuteRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/mute_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationMuteRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleReorderRequest>() {});
+  }
+
+  /**
+   * Reorder mute rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationMuteRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleReorderRequest&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteRuleReorderRequest>>
+      reorderSecurityFindingsAutomationMuteRulesWithHttpInfoAsync(MuteRuleReorderRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "reorderSecurityFindingsAutomationMuteRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MuteRuleReorderRequest>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MuteRuleReorderRequest>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " reorderSecurityFindingsAutomationMuteRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/mute_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationMuteRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteRuleReorderRequest>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleReorderRequest>() {});
+  }
+
+  /**
+   * Reorder ticket creation rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return TicketCreationRuleReorderRequest
+   * @throws ApiException if fails to make API call
+   */
+  public TicketCreationRuleReorderRequest reorderSecurityFindingsAutomationTicketCreationRules(
+      TicketCreationRuleReorderRequest body) throws ApiException {
+    return reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Reorder ticket creation rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;TicketCreationRuleReorderRequest&gt;
+   */
+  public CompletableFuture<TicketCreationRuleReorderRequest>
+      reorderSecurityFindingsAutomationTicketCreationRulesAsync(
+          TicketCreationRuleReorderRequest body) {
+    return reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reorder the list of ticket creation rules for the current organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;TicketCreationRuleReorderRequest&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully reordered the ticket creation rules </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TicketCreationRuleReorderRequest>
+      reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfo(
+          TicketCreationRuleReorderRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "reorderSecurityFindingsAutomationTicketCreationRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " reorderSecurityFindingsAutomationTicketCreationRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/ticket_creation_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationTicketCreationRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRuleReorderRequest>() {});
+  }
+
+  /**
+   * Reorder ticket creation rules.
+   *
+   * <p>See {@link #reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TicketCreationRuleReorderRequest&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TicketCreationRuleReorderRequest>>
+      reorderSecurityFindingsAutomationTicketCreationRulesWithHttpInfoAsync(
+          TicketCreationRuleReorderRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "reorderSecurityFindingsAutomationTicketCreationRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TicketCreationRuleReorderRequest>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TicketCreationRuleReorderRequest>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " reorderSecurityFindingsAutomationTicketCreationRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/ticket_creation_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationTicketCreationRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TicketCreationRuleReorderRequest>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRuleReorderRequest>() {});
+  }
+
+  /**
    * Restore a rule to a historical version.
    *
    * <p>See {@link #restoreSecurityMonitoringRuleWithHttpInfo}.
@@ -23321,6 +25843,560 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFilterResponse>() {});
+  }
+
+  /**
+   * Update a due date rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @param body (required)
+   * @return DueDateRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DueDateRuleResponse updateSecurityFindingsAutomationDueDateRule(
+      UUID ruleId, DueDateRuleUpdateRequest body) throws ApiException {
+    return updateSecurityFindingsAutomationDueDateRuleWithHttpInfo(ruleId, body).getData();
+  }
+
+  /**
+   * Update a due date rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;DueDateRuleResponse&gt;
+   */
+  public CompletableFuture<DueDateRuleResponse> updateSecurityFindingsAutomationDueDateRuleAsync(
+      UUID ruleId, DueDateRuleUpdateRequest body) {
+    return updateSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync(ruleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing due date rule by ID.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;DueDateRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully updated the due date rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DueDateRuleResponse> updateSecurityFindingsAutomationDueDateRuleWithHttpInfo(
+      UUID ruleId, DueDateRuleUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityFindingsAutomationDueDateRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " updateSecurityFindingsAutomationDueDateRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateSecurityFindingsAutomationDueDateRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/due_date_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationDueDateRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRuleResponse>() {});
+  }
+
+  /**
+   * Update a due date rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationDueDateRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the due date rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DueDateRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DueDateRuleResponse>>
+      updateSecurityFindingsAutomationDueDateRuleWithHttpInfoAsync(
+          UUID ruleId, DueDateRuleUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityFindingsAutomationDueDateRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " updateSecurityFindingsAutomationDueDateRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityFindingsAutomationDueDateRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/due_date_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationDueDateRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DueDateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DueDateRuleResponse>() {});
+  }
+
+  /**
+   * Update a mute rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationMuteRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @param body (required)
+   * @return MuteRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRuleResponse updateSecurityFindingsAutomationMuteRule(
+      UUID ruleId, MuteRuleUpdateRequest body) throws ApiException {
+    return updateSecurityFindingsAutomationMuteRuleWithHttpInfo(ruleId, body).getData();
+  }
+
+  /**
+   * Update a mute rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationMuteRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;MuteRuleResponse&gt;
+   */
+  public CompletableFuture<MuteRuleResponse> updateSecurityFindingsAutomationMuteRuleAsync(
+      UUID ruleId, MuteRuleUpdateRequest body) {
+    return updateSecurityFindingsAutomationMuteRuleWithHttpInfoAsync(ruleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing mute rule by ID.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;MuteRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully updated the mute rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteRuleResponse> updateSecurityFindingsAutomationMuteRuleWithHttpInfo(
+      UUID ruleId, MuteRuleUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityFindingsAutomationMuteRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " updateSecurityFindingsAutomationMuteRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateSecurityFindingsAutomationMuteRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/mute_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationMuteRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Update a mute rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationMuteRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the mute rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteRuleResponse>>
+      updateSecurityFindingsAutomationMuteRuleWithHttpInfoAsync(
+          UUID ruleId, MuteRuleUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityFindingsAutomationMuteRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " updateSecurityFindingsAutomationMuteRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityFindingsAutomationMuteRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/mute_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationMuteRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Update a ticket creation rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param body (required)
+   * @return TicketCreationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TicketCreationRuleResponse updateSecurityFindingsAutomationTicketCreationRule(
+      UUID ruleId, TicketCreationRuleUpdateRequest body) throws ApiException {
+    return updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfo(ruleId, body).getData();
+  }
+
+  /**
+   * Update a ticket creation rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;TicketCreationRuleResponse&gt;
+   */
+  public CompletableFuture<TicketCreationRuleResponse>
+      updateSecurityFindingsAutomationTicketCreationRuleAsync(
+          UUID ruleId, TicketCreationRuleUpdateRequest body) {
+    return updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync(ruleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing ticket creation rule by ID.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;TicketCreationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully updated the ticket creation rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TicketCreationRuleResponse>
+      updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfo(
+          UUID ruleId, TicketCreationRuleUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityFindingsAutomationTicketCreationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " updateSecurityFindingsAutomationTicketCreationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateSecurityFindingsAutomationTicketCreationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/ticket_creation_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationTicketCreationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRuleResponse>() {});
+  }
+
+  /**
+   * Update a ticket creation rule.
+   *
+   * <p>See {@link #updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the ticket creation rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TicketCreationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TicketCreationRuleResponse>>
+      updateSecurityFindingsAutomationTicketCreationRuleWithHttpInfoAsync(
+          UUID ruleId, TicketCreationRuleUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityFindingsAutomationTicketCreationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " updateSecurityFindingsAutomationTicketCreationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityFindingsAutomationTicketCreationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/ticket_creation_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationTicketCreationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TicketCreationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TicketCreationRuleResponse>() {});
   }
 
   /**
