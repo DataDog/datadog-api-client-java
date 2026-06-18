@@ -29,6 +29,7 @@ import java.util.Objects;
   RUMApplicationAttributes.JSON_PROPERTY_NAME,
   RUMApplicationAttributes.JSON_PROPERTY_ORG_ID,
   RUMApplicationAttributes.JSON_PROPERTY_PRODUCT_SCALES,
+  RUMApplicationAttributes.JSON_PROPERTY_REMOTE_CONFIG_ID,
   RUMApplicationAttributes.JSON_PROPERTY_TYPE,
   RUMApplicationAttributes.JSON_PROPERTY_UPDATED_AT,
   RUMApplicationAttributes.JSON_PROPERTY_UPDATED_BY_HANDLE
@@ -66,6 +67,9 @@ public class RUMApplicationAttributes {
 
   public static final String JSON_PROPERTY_PRODUCT_SCALES = "product_scales";
   private RUMProductScales productScales;
+
+  public static final String JSON_PROPERTY_REMOTE_CONFIG_ID = "remote_config_id";
+  private String remoteConfigId;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -307,6 +311,27 @@ public class RUMApplicationAttributes {
     this.productScales = productScales;
   }
 
+  public RUMApplicationAttributes remoteConfigId(String remoteConfigId) {
+    this.remoteConfigId = remoteConfigId;
+    return this;
+  }
+
+  /**
+   * ID of the RUM SDK remote configuration for the application, if one exists.
+   *
+   * @return remoteConfigId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REMOTE_CONFIG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRemoteConfigId() {
+    return remoteConfigId;
+  }
+
+  public void setRemoteConfigId(String remoteConfigId) {
+    this.remoteConfigId = remoteConfigId;
+  }
+
   public RUMApplicationAttributes type(String type) {
     this.type = type;
     return this;
@@ -435,6 +460,7 @@ public class RUMApplicationAttributes {
         && Objects.equals(this.name, rumApplicationAttributes.name)
         && Objects.equals(this.orgId, rumApplicationAttributes.orgId)
         && Objects.equals(this.productScales, rumApplicationAttributes.productScales)
+        && Objects.equals(this.remoteConfigId, rumApplicationAttributes.remoteConfigId)
         && Objects.equals(this.type, rumApplicationAttributes.type)
         && Objects.equals(this.updatedAt, rumApplicationAttributes.updatedAt)
         && Objects.equals(this.updatedByHandle, rumApplicationAttributes.updatedByHandle)
@@ -454,6 +480,7 @@ public class RUMApplicationAttributes {
         name,
         orgId,
         productScales,
+        remoteConfigId,
         type,
         updatedAt,
         updatedByHandle,
@@ -474,6 +501,7 @@ public class RUMApplicationAttributes {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    productScales: ").append(toIndentedString(productScales)).append("\n");
+    sb.append("    remoteConfigId: ").append(toIndentedString(remoteConfigId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedByHandle: ").append(toIndentedString(updatedByHandle)).append("\n");

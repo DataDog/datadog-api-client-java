@@ -1200,6 +1200,8 @@ public class ApiClient {
           put("v2.getPrunedTraceByID", false);
           put("v2.getTraceByID", false);
           put("v2.getAsmServiceByName", false);
+          put("v2.getRumSdkConfig", false);
+          put("v2.updateRumSdkConfig", false);
           put("v2.createReportSchedule", false);
           put("v2.patchReportSchedule", false);
           put("v2.deleteSourcemaps", false);
