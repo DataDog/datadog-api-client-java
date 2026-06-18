@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/remote_config/products/rum/configs/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Forbidden\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ]
+      },
+      "statusCode": 403,
+      "reasonPhrase": "Forbidden"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e0c7c782-056c-f124-b275-b28421d82197"
+  }
+]
