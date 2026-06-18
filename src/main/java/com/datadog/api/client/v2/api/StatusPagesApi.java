@@ -12,10 +12,12 @@ import com.datadog.api.client.v2.model.CreateMaintenanceRequest;
 import com.datadog.api.client.v2.model.CreateStatusPageRequest;
 import com.datadog.api.client.v2.model.Degradation;
 import com.datadog.api.client.v2.model.DegradationArray;
+import com.datadog.api.client.v2.model.DegradationUpdate;
 import com.datadog.api.client.v2.model.Maintenance;
 import com.datadog.api.client.v2.model.MaintenanceArray;
 import com.datadog.api.client.v2.model.PatchComponentRequest;
 import com.datadog.api.client.v2.model.PatchDegradationRequest;
+import com.datadog.api.client.v2.model.PatchDegradationUpdateRequest;
 import com.datadog.api.client.v2.model.PatchMaintenanceRequest;
 import com.datadog.api.client.v2.model.PatchStatusPageRequest;
 import com.datadog.api.client.v2.model.StatusPage;
@@ -1853,6 +1855,294 @@ public class StatusPagesApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /** Manage optional parameters to editDegradationUpdate. */
+  public static class EditDegradationUpdateOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of resources to include. Supported values:
+     *     created_by_user, last_modified_by_user, degradation, status_page. (optional)
+     * @return EditDegradationUpdateOptionalParameters
+     */
+    public EditDegradationUpdateOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Edit degradation update.
+   *
+   * <p>See {@link #editDegradationUpdateWithHttpInfo}.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @param body (required)
+   * @return DegradationUpdate
+   * @throws ApiException if fails to make API call
+   */
+  public DegradationUpdate editDegradationUpdate(
+      UUID degradationId, UUID pageId, UUID updateId, PatchDegradationUpdateRequest body)
+      throws ApiException {
+    return editDegradationUpdateWithHttpInfo(
+            degradationId, pageId, updateId, body, new EditDegradationUpdateOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Edit degradation update.
+   *
+   * <p>See {@link #editDegradationUpdateWithHttpInfoAsync}.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;DegradationUpdate&gt;
+   */
+  public CompletableFuture<DegradationUpdate> editDegradationUpdateAsync(
+      UUID degradationId, UUID pageId, UUID updateId, PatchDegradationUpdateRequest body) {
+    return editDegradationUpdateWithHttpInfoAsync(
+            degradationId, pageId, updateId, body, new EditDegradationUpdateOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Edit degradation update.
+   *
+   * <p>See {@link #editDegradationUpdateWithHttpInfo}.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return DegradationUpdate
+   * @throws ApiException if fails to make API call
+   */
+  public DegradationUpdate editDegradationUpdate(
+      UUID degradationId,
+      UUID pageId,
+      UUID updateId,
+      PatchDegradationUpdateRequest body,
+      EditDegradationUpdateOptionalParameters parameters)
+      throws ApiException {
+    return editDegradationUpdateWithHttpInfo(degradationId, pageId, updateId, body, parameters)
+        .getData();
+  }
+
+  /**
+   * Edit degradation update.
+   *
+   * <p>See {@link #editDegradationUpdateWithHttpInfoAsync}.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;DegradationUpdate&gt;
+   */
+  public CompletableFuture<DegradationUpdate> editDegradationUpdateAsync(
+      UUID degradationId,
+      UUID pageId,
+      UUID updateId,
+      PatchDegradationUpdateRequest body,
+      EditDegradationUpdateOptionalParameters parameters) {
+    return editDegradationUpdateWithHttpInfoAsync(degradationId, pageId, updateId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Edits a specific degradation update.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;DegradationUpdate&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DegradationUpdate> editDegradationUpdateWithHttpInfo(
+      UUID degradationId,
+      UUID pageId,
+      UUID updateId,
+      PatchDegradationUpdateRequest body,
+      EditDegradationUpdateOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'degradationId' is set
+    if (degradationId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'degradationId' when calling editDegradationUpdate");
+    }
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling editDegradationUpdate");
+    }
+
+    // verify the required parameter 'updateId' is set
+    if (updateId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'updateId' when calling editDegradationUpdate");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling editDegradationUpdate");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+            .replaceAll(
+                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.editDegradationUpdate",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DegradationUpdate>() {});
+  }
+
+  /**
+   * Edit degradation update.
+   *
+   * <p>See {@link #editDegradationUpdateWithHttpInfo}.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;DegradationUpdate&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DegradationUpdate>> editDegradationUpdateWithHttpInfoAsync(
+      UUID degradationId,
+      UUID pageId,
+      UUID updateId,
+      PatchDegradationUpdateRequest body,
+      EditDegradationUpdateOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'degradationId' is set
+    if (degradationId == null) {
+      CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'degradationId' when calling editDegradationUpdate"));
+      return result;
+    }
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling editDegradationUpdate"));
+      return result;
+    }
+
+    // verify the required parameter 'updateId' is set
+    if (updateId == null) {
+      CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'updateId' when calling editDegradationUpdate"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling editDegradationUpdate"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+            .replaceAll(
+                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.editDegradationUpdate",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DegradationUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DegradationUpdate>() {});
   }
 
   /** Manage optional parameters to getComponent. */
@@ -3752,6 +4042,192 @@ public class StatusPagesApi {
     }
     return apiClient.invokeAPIAsync(
         "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Soft delete degradation update.
+   *
+   * <p>See {@link #softDeleteDegradationUpdateWithHttpInfo}.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void softDeleteDegradationUpdate(UUID degradationId, UUID pageId, UUID updateId)
+      throws ApiException {
+    softDeleteDegradationUpdateWithHttpInfo(degradationId, pageId, updateId);
+  }
+
+  /**
+   * Soft delete degradation update.
+   *
+   * <p>See {@link #softDeleteDegradationUpdateWithHttpInfoAsync}.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> softDeleteDegradationUpdateAsync(
+      UUID degradationId, UUID pageId, UUID updateId) {
+    return softDeleteDegradationUpdateWithHttpInfoAsync(degradationId, pageId, updateId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Soft-deletes a degradation update.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> softDeleteDegradationUpdateWithHttpInfo(
+      UUID degradationId, UUID pageId, UUID updateId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'degradationId' is set
+    if (degradationId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'degradationId' when calling"
+              + " softDeleteDegradationUpdate");
+    }
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling softDeleteDegradationUpdate");
+    }
+
+    // verify the required parameter 'updateId' is set
+    if (updateId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'updateId' when calling softDeleteDegradationUpdate");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+            .replaceAll(
+                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.softDeleteDegradationUpdate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Soft delete degradation update.
+   *
+   * <p>See {@link #softDeleteDegradationUpdateWithHttpInfo}.
+   *
+   * @param degradationId The ID of the degradation. (required)
+   * @param pageId The ID of the status page. (required)
+   * @param updateId The ID of the degradation update. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> softDeleteDegradationUpdateWithHttpInfoAsync(
+      UUID degradationId, UUID pageId, UUID updateId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'degradationId' is set
+    if (degradationId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'degradationId' when calling"
+                  + " softDeleteDegradationUpdate"));
+      return result;
+    }
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'pageId' when calling softDeleteDegradationUpdate"));
+      return result;
+    }
+
+    // verify the required parameter 'updateId' is set
+    if (updateId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'updateId' when calling"
+                  + " softDeleteDegradationUpdate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+            .replaceAll(
+                "\\{" + "degradation_id" + "\\}", apiClient.escapeString(degradationId.toString()))
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.softDeleteDegradationUpdate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
         builder,
         localVarHeaderParams,
         new String[] {},

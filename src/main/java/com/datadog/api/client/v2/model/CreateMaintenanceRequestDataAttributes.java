@@ -42,7 +42,7 @@ public class CreateMaintenanceRequestDataAttributes {
 
   public static final String JSON_PROPERTY_COMPONENTS_AFFECTED = "components_affected";
   private List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected =
-      new ArrayList<>();
+      null;
 
   public static final String JSON_PROPERTY_IN_PROGRESS_DESCRIPTION = "in_progress_description";
   private String inProgressDescription;
@@ -64,8 +64,6 @@ public class CreateMaintenanceRequestDataAttributes {
           OffsetDateTime completedDate,
       @JsonProperty(required = true, value = JSON_PROPERTY_COMPLETED_DESCRIPTION)
           String completedDescription,
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMPONENTS_AFFECTED)
-          List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected,
       @JsonProperty(required = true, value = JSON_PROPERTY_IN_PROGRESS_DESCRIPTION)
           String inProgressDescription,
       @JsonProperty(required = true, value = JSON_PROPERTY_SCHEDULED_DESCRIPTION)
@@ -74,7 +72,6 @@ public class CreateMaintenanceRequestDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
     this.completedDate = completedDate;
     this.completedDescription = completedDescription;
-    this.componentsAffected = componentsAffected;
     this.inProgressDescription = inProgressDescription;
     this.scheduledDescription = scheduledDescription;
     this.startDate = startDate;
@@ -132,6 +129,9 @@ public class CreateMaintenanceRequestDataAttributes {
 
   public CreateMaintenanceRequestDataAttributes addComponentsAffectedItem(
       CreateMaintenanceRequestDataAttributesComponentsAffectedItems componentsAffectedItem) {
+    if (this.componentsAffected == null) {
+      this.componentsAffected = new ArrayList<>();
+    }
     this.componentsAffected.add(componentsAffectedItem);
     this.unparsed |= componentsAffectedItem.unparsed;
     return this;
@@ -142,8 +142,9 @@ public class CreateMaintenanceRequestDataAttributes {
    *
    * @return componentsAffected
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENTS_AFFECTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>
       getComponentsAffected() {
     return componentsAffected;

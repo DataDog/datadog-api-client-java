@@ -24,6 +24,8 @@ import java.util.Objects;
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_ENABLED,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_FAVICON,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_NAME,
+  PatchStatusPageRequestDataAttributes.JSON_PROPERTY_SLACK_APP_ICON,
+  PatchStatusPageRequestDataAttributes.JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_SUBSCRIPTIONS_ENABLED,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_TYPE,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_VISUALIZATION_TYPE
@@ -49,6 +51,13 @@ public class PatchStatusPageRequestDataAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SLACK_APP_ICON = "slack_app_icon";
+  private String slackAppIcon;
+
+  public static final String JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED =
+      "slack_subscriptions_enabled";
+  private Boolean slackSubscriptionsEnabled;
 
   public static final String JSON_PROPERTY_SUBSCRIPTIONS_ENABLED = "subscriptions_enabled";
   private Boolean subscriptionsEnabled;
@@ -185,6 +194,49 @@ public class PatchStatusPageRequestDataAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public PatchStatusPageRequestDataAttributes slackAppIcon(String slackAppIcon) {
+    this.slackAppIcon = slackAppIcon;
+    return this;
+  }
+
+  /**
+   * The Slack app icon URL for the status page.
+   *
+   * @return slackAppIcon
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLACK_APP_ICON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSlackAppIcon() {
+    return slackAppIcon;
+  }
+
+  public void setSlackAppIcon(String slackAppIcon) {
+    this.slackAppIcon = slackAppIcon;
+  }
+
+  public PatchStatusPageRequestDataAttributes slackSubscriptionsEnabled(
+      Boolean slackSubscriptionsEnabled) {
+    this.slackSubscriptionsEnabled = slackSubscriptionsEnabled;
+    return this;
+  }
+
+  /**
+   * Whether Slack subscriptions are enabled for the status page.
+   *
+   * @return slackSubscriptionsEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSlackSubscriptionsEnabled() {
+    return slackSubscriptionsEnabled;
+  }
+
+  public void setSlackSubscriptionsEnabled(Boolean slackSubscriptionsEnabled) {
+    this.slackSubscriptionsEnabled = slackSubscriptionsEnabled;
   }
 
   public PatchStatusPageRequestDataAttributes subscriptionsEnabled(Boolean subscriptionsEnabled) {
@@ -324,6 +376,10 @@ public class PatchStatusPageRequestDataAttributes {
         && Objects.equals(this.enabled, patchStatusPageRequestDataAttributes.enabled)
         && Objects.equals(this.favicon, patchStatusPageRequestDataAttributes.favicon)
         && Objects.equals(this.name, patchStatusPageRequestDataAttributes.name)
+        && Objects.equals(this.slackAppIcon, patchStatusPageRequestDataAttributes.slackAppIcon)
+        && Objects.equals(
+            this.slackSubscriptionsEnabled,
+            patchStatusPageRequestDataAttributes.slackSubscriptionsEnabled)
         && Objects.equals(
             this.subscriptionsEnabled, patchStatusPageRequestDataAttributes.subscriptionsEnabled)
         && Objects.equals(this.type, patchStatusPageRequestDataAttributes.type)
@@ -342,6 +398,8 @@ public class PatchStatusPageRequestDataAttributes {
         enabled,
         favicon,
         name,
+        slackAppIcon,
+        slackSubscriptionsEnabled,
         subscriptionsEnabled,
         type,
         visualizationType,
@@ -358,6 +416,10 @@ public class PatchStatusPageRequestDataAttributes {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    favicon: ").append(toIndentedString(favicon)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    slackAppIcon: ").append(toIndentedString(slackAppIcon)).append("\n");
+    sb.append("    slackSubscriptionsEnabled: ")
+        .append(toIndentedString(slackSubscriptionsEnabled))
+        .append("\n");
     sb.append("    subscriptionsEnabled: ")
         .append(toIndentedString(subscriptionsEnabled))
         .append("\n");

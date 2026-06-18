@@ -24,6 +24,8 @@ import java.util.UUID;
 @JsonPropertyOrder({
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_COMPONENTS_AFFECTED,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_CREATED_AT,
+  DegradationDataAttributesUpdatesItems.JSON_PROPERTY_DELETED_AT,
+  DegradationDataAttributesUpdatesItems.JSON_PROPERTY_DELETED_BY_USER_UUID,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_DESCRIPTION,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_ID,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_LAST_MODIFIED_BY_USER_UUID,
@@ -41,6 +43,12 @@ public class DegradationDataAttributesUpdatesItems {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_DELETED_AT = "deleted_at";
+  private String deletedAt;
+
+  public static final String JSON_PROPERTY_DELETED_BY_USER_UUID = "deleted_by_user_uuid";
+  private String deletedByUserUuid;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -108,6 +116,48 @@ public class DegradationDataAttributesUpdatesItems {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
+  }
+
+  public DegradationDataAttributesUpdatesItems deletedAt(String deletedAt) {
+    this.deletedAt = deletedAt;
+    return this;
+  }
+
+  /**
+   * The date and time the resource was deleted.
+   *
+   * @return deletedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DELETED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDeletedAt() {
+    return deletedAt;
+  }
+
+  public void setDeletedAt(String deletedAt) {
+    this.deletedAt = deletedAt;
+  }
+
+  public DegradationDataAttributesUpdatesItems deletedByUserUuid(String deletedByUserUuid) {
+    this.deletedByUserUuid = deletedByUserUuid;
+    return this;
+  }
+
+  /**
+   * UUID of the user who deleted the resource.
+   *
+   * @return deletedByUserUuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DELETED_BY_USER_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDeletedByUserUuid() {
+    return deletedByUserUuid;
+  }
+
+  public void setDeletedByUserUuid(String deletedByUserUuid) {
+    this.deletedByUserUuid = deletedByUserUuid;
   }
 
   public DegradationDataAttributesUpdatesItems description(String description) {
@@ -284,6 +334,9 @@ public class DegradationDataAttributesUpdatesItems {
     return Objects.equals(
             this.componentsAffected, degradationDataAttributesUpdatesItems.componentsAffected)
         && Objects.equals(this.createdAt, degradationDataAttributesUpdatesItems.createdAt)
+        && Objects.equals(this.deletedAt, degradationDataAttributesUpdatesItems.deletedAt)
+        && Objects.equals(
+            this.deletedByUserUuid, degradationDataAttributesUpdatesItems.deletedByUserUuid)
         && Objects.equals(this.description, degradationDataAttributesUpdatesItems.description)
         && Objects.equals(this.id, degradationDataAttributesUpdatesItems.id)
         && Objects.equals(
@@ -301,6 +354,8 @@ public class DegradationDataAttributesUpdatesItems {
     return Objects.hash(
         componentsAffected,
         createdAt,
+        deletedAt,
+        deletedByUserUuid,
         description,
         id,
         lastModifiedByUserUuid,
@@ -316,6 +371,8 @@ public class DegradationDataAttributesUpdatesItems {
     sb.append("class DegradationDataAttributesUpdatesItems {\n");
     sb.append("    componentsAffected: ").append(toIndentedString(componentsAffected)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
+    sb.append("    deletedByUserUuid: ").append(toIndentedString(deletedByUserUuid)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    lastModifiedByUserUuid: ")
