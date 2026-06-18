@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason\":\"risk_accepted\"},\"enabled\":true,\"name\":\"Test-Update_a_mute_rule_returns_Successfully_updated_the_mute_rule_response-1781624479\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}},\"type\":\"mute_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/findings/automation/mute_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9a1d22ad-558c-4c4e-bdf5-72cd264cf7a9\",\"type\":\"mute_rules\",\"attributes\":{\"action\":{\"reason\":\"risk_accepted\"},\"created_at\":1781624479894,\"created_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":true,\"modified_at\":1781624479894,\"modified_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"name\":\"Test-Update_a_mute_rule_returns_Successfully_updated_the_mute_rule_response-1781624479\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2accd935-f7c9-bdbb-3b0d-e22d792bf4b0"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason\":\"false_positive\"},\"enabled\":false,\"name\":\"Test-Update_a_mute_rule_returns_Successfully_updated_the_mute_rule_response-1781624479\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}},\"type\":\"mute_rules\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/security/findings/automation/mute_rules/9a1d22ad-558c-4c4e-bdf5-72cd264cf7a9",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9a1d22ad-558c-4c4e-bdf5-72cd264cf7a9\",\"type\":\"mute_rules\",\"attributes\":{\"action\":{\"reason\":\"false_positive\"},\"created_at\":1781624479894,\"created_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":false,\"modified_at\":1781624480318,\"modified_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"name\":\"Test-Update_a_mute_rule_returns_Successfully_updated_the_mute_rule_response-1781624479\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "91a47cb5-f80d-82e4-4778-d06b8748cf54"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/findings/automation/mute_rules/9a1d22ad-558c-4c4e-bdf5-72cd264cf7a9",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "904dc5cc-94dc-6984-d25e-5610f07bad19"
+  }
+]

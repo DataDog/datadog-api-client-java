@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"max_tickets_per_day\":10,\"project_id\":\"11111111-1111-1111-1111-111111111111\",\"target\":\"jira\"},\"enabled\":true,\"name\":\"Test-Get_all_ticket_creation_rules_returns_Successfully_retrieved_the_list_of_ticket_creation_rules_respo-1781624473\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}},\"type\":\"ticket_creation_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/findings/automation/ticket_creation_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"399d69c3-6fcd-4538-b0cc-05e6db5aac38\",\"type\":\"ticket_creation_rules\",\"attributes\":{\"action\":{\"project_id\":\"11111111-1111-1111-1111-111111111111\",\"target\":\"jira\",\"max_tickets_per_day\":10},\"created_at\":1781624473944,\"created_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":true,\"modified_at\":1781624473944,\"modified_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"name\":\"Test-Get_all_ticket_creation_rules_returns_Successfully_retrieved_the_list_of_ticket_creation_rules_respo-1781624473\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1053fa7c-4d28-67a1-0e0c-68f15463818a"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security/findings/automation/ticket_creation_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"399d69c3-6fcd-4538-b0cc-05e6db5aac38\",\"type\":\"ticket_creation_rules\",\"attributes\":{\"action\":{\"project_id\":\"11111111-1111-1111-1111-111111111111\",\"target\":\"jira\",\"max_tickets_per_day\":10},\"created_at\":1781624473944,\"created_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":true,\"modified_at\":1781624473944,\"modified_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"name\":\"Test-Get_all_ticket_creation_rules_returns_Successfully_retrieved_the_list_of_ticket_creation_rules_respo-1781624473\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}}}],\"meta\":{\"page\":{\"total_filtered_count\":1}},\"links\":{\"first\":\"/api/v2/security/findings/automation/ticket_creation_rules?page[size]=1000\\u0026page[number]=0\",\"last\":\"/api/v2/security/findings/automation/ticket_creation_rules?page[size]=1000\\u0026page[number]=0\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cc24b62d-d374-33ce-171b-753a3644799e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/findings/automation/ticket_creation_rules/399d69c3-6fcd-4538-b0cc-05e6db5aac38",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b40b5bd7-4984-4e68-a26d-b3867a45f8e5"
+  }
+]
