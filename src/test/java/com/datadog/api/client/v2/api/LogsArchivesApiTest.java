@@ -39,6 +39,7 @@ import com.datadog.api.client.v2.model.LogsArchiveEncryptionS3Type;
 import com.datadog.api.client.v2.model.LogsArchiveIntegrationAzure;
 import com.datadog.api.client.v2.model.LogsArchiveIntegrationGCS;
 import com.datadog.api.client.v2.model.LogsArchiveIntegrationS3;
+import com.datadog.api.client.v2.model.LogsArchiveIntegrationS3Role;
 import com.datadog.api.client.v2.model.LogsArchiveOrder;
 import com.datadog.api.client.v2.model.LogsArchiveOrderAttributes;
 import com.datadog.api.client.v2.model.LogsArchiveOrderDefinition;
@@ -280,10 +281,11 @@ public class LogsArchivesApiTest extends V2APITest {
   }
 
   private LogsArchiveCreateRequest createLogsArchiveCreateRequestS3() {
-    LogsArchiveIntegrationS3 integration =
-        new LogsArchiveIntegrationS3()
+    LogsArchiveIntegrationS3Role integrationRole =
+        new LogsArchiveIntegrationS3Role()
             .accountId("711111111111")
             .roleName("DatadogGoClientTestIntegrationRole");
+    LogsArchiveIntegrationS3 integration = new LogsArchiveIntegrationS3(integrationRole);
     LogsArchiveEncryptionS3 encryptionS3 =
         new LogsArchiveEncryptionS3().key("test").type(LogsArchiveEncryptionS3Type.NO_OVERRIDE);
     LogsArchiveDestinationS3 destination =
