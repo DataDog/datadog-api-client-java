@@ -55,7 +55,9 @@ public class TestOptimizationUpdateServiceSettingsRequestData {
 
   /**
    * Attributes for updating Test Optimization service settings. All non-required fields are
-   * optional; only provided fields will be updated.
+   * optional; only provided fields will be updated. Setting a field to <code>null</code> is a
+   * no-op. To reset a setting to inherit from the repository level, use the corresponding <code>
+   * &lt;setting&gt;_inherit</code> field.
    *
    * @return attributes
    */

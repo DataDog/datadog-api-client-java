@@ -21,14 +21,19 @@ public class Example {
                     .attributes(
                         new TestOptimizationUpdateServiceSettingsRequestAttributes()
                             .autoTestRetriesEnabled(false)
+                            .autoTestRetriesEnabledInherit(false)
                             .codeCoverageEnabled(false)
+                            .codeCoverageEnabledInherit(false)
                             .earlyFlakeDetectionEnabled(false)
+                            .earlyFlakeDetectionEnabledInherit(false)
                             .env("prod")
                             .failedTestReplayEnabled(false)
-                            .prCommentsEnabled(true)
+                            .failedTestReplayEnabledInherit(false)
+                            .prCommentsEnabled(false)
                             .repositoryId("github.com/datadog/shopist")
                             .serviceName("shopist")
-                            .testImpactAnalysisEnabled(false))
+                            .testImpactAnalysisEnabled(true)
+                            .testImpactAnalysisEnabledInherit(true))
                     .type(
                         TestOptimizationUpdateServiceSettingsRequestDataType
                             .TEST_OPTIMIZATION_UPDATE_SERVICE_SETTINGS_REQUEST));
