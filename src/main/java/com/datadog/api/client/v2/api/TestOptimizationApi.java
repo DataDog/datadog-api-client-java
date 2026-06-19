@@ -1037,8 +1037,10 @@ public class TestOptimizationApi {
 
   /**
    * Partially update Test Optimization settings for a specific service identified by repository,
-   * service name, and environment. Only provided fields are updated; null or omitted fields are
-   * left unchanged.
+   * service name, and environment. Only provided fields are updated; setting a field to <code>null
+   * </code> is a no-op. To reset a setting to inherit from the repository level, use the
+   * corresponding <code>&lt;setting&gt;_inherit</code> field. The <code>pr_comments_enabled</code>
+   * field is ignored as it cannot be overridden at the service level.
    *
    * @param body (required)
    * @return ApiResponse&lt;TestOptimizationServiceSettingsResponse&gt;

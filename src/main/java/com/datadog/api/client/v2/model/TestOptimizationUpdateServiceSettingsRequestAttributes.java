@@ -19,19 +19,31 @@ import java.util.Objects;
 
 /**
  * Attributes for updating Test Optimization service settings. All non-required fields are optional;
- * only provided fields will be updated.
+ * only provided fields will be updated. Setting a field to <code>null</code> is a no-op. To reset a
+ * setting to inherit from the repository level, use the corresponding <code>&lt;setting&gt;_inherit
+ * </code> field.
  */
 @JsonPropertyOrder({
   TestOptimizationUpdateServiceSettingsRequestAttributes.JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED,
+  TestOptimizationUpdateServiceSettingsRequestAttributes
+      .JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED_INHERIT,
   TestOptimizationUpdateServiceSettingsRequestAttributes.JSON_PROPERTY_CODE_COVERAGE_ENABLED,
   TestOptimizationUpdateServiceSettingsRequestAttributes
+      .JSON_PROPERTY_CODE_COVERAGE_ENABLED_INHERIT,
+  TestOptimizationUpdateServiceSettingsRequestAttributes
       .JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED,
+  TestOptimizationUpdateServiceSettingsRequestAttributes
+      .JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED_INHERIT,
   TestOptimizationUpdateServiceSettingsRequestAttributes.JSON_PROPERTY_ENV,
   TestOptimizationUpdateServiceSettingsRequestAttributes.JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED,
+  TestOptimizationUpdateServiceSettingsRequestAttributes
+      .JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED_INHERIT,
   TestOptimizationUpdateServiceSettingsRequestAttributes.JSON_PROPERTY_PR_COMMENTS_ENABLED,
   TestOptimizationUpdateServiceSettingsRequestAttributes.JSON_PROPERTY_REPOSITORY_ID,
   TestOptimizationUpdateServiceSettingsRequestAttributes.JSON_PROPERTY_SERVICE_NAME,
-  TestOptimizationUpdateServiceSettingsRequestAttributes.JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED
+  TestOptimizationUpdateServiceSettingsRequestAttributes.JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED,
+  TestOptimizationUpdateServiceSettingsRequestAttributes
+      .JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED_INHERIT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,12 +52,24 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   public static final String JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED = "auto_test_retries_enabled";
   private Boolean autoTestRetriesEnabled;
 
+  public static final String JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED_INHERIT =
+      "auto_test_retries_enabled_inherit";
+  private Boolean autoTestRetriesEnabledInherit;
+
   public static final String JSON_PROPERTY_CODE_COVERAGE_ENABLED = "code_coverage_enabled";
   private Boolean codeCoverageEnabled;
+
+  public static final String JSON_PROPERTY_CODE_COVERAGE_ENABLED_INHERIT =
+      "code_coverage_enabled_inherit";
+  private Boolean codeCoverageEnabledInherit;
 
   public static final String JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED =
       "early_flake_detection_enabled";
   private Boolean earlyFlakeDetectionEnabled;
+
+  public static final String JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED_INHERIT =
+      "early_flake_detection_enabled_inherit";
+  private Boolean earlyFlakeDetectionEnabledInherit;
 
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
@@ -53,6 +77,10 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   public static final String JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED =
       "failed_test_replay_enabled";
   private Boolean failedTestReplayEnabled;
+
+  public static final String JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED_INHERIT =
+      "failed_test_replay_enabled_inherit";
+  private Boolean failedTestReplayEnabledInherit;
 
   public static final String JSON_PROPERTY_PR_COMMENTS_ENABLED = "pr_comments_enabled";
   private Boolean prCommentsEnabled;
@@ -66,6 +94,10 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   public static final String JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED =
       "test_impact_analysis_enabled";
   private Boolean testImpactAnalysisEnabled;
+
+  public static final String JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED_INHERIT =
+      "test_impact_analysis_enabled_inherit";
+  private Boolean testImpactAnalysisEnabledInherit;
 
   public TestOptimizationUpdateServiceSettingsRequestAttributes() {}
 
@@ -84,7 +116,9 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   }
 
   /**
-   * Whether Auto Test Retries are enabled for this service.
+   * Whether Auto Test Retries are enabled for this service. Setting to <code>null</code> is a
+   * no-op; use <code>auto_test_retries_enabled_inherit</code> to reset to repository-level
+   * inheritance.
    *
    * @return autoTestRetriesEnabled
    */
@@ -99,6 +133,29 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
     this.autoTestRetriesEnabled = autoTestRetriesEnabled;
   }
 
+  public TestOptimizationUpdateServiceSettingsRequestAttributes autoTestRetriesEnabledInherit(
+      Boolean autoTestRetriesEnabledInherit) {
+    this.autoTestRetriesEnabledInherit = autoTestRetriesEnabledInherit;
+    return this;
+  }
+
+  /**
+   * When <code>true</code>, resets the Auto Test Retries setting to inherit from the repository
+   * level.
+   *
+   * @return autoTestRetriesEnabledInherit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED_INHERIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAutoTestRetriesEnabledInherit() {
+    return autoTestRetriesEnabledInherit;
+  }
+
+  public void setAutoTestRetriesEnabledInherit(Boolean autoTestRetriesEnabledInherit) {
+    this.autoTestRetriesEnabledInherit = autoTestRetriesEnabledInherit;
+  }
+
   public TestOptimizationUpdateServiceSettingsRequestAttributes codeCoverageEnabled(
       Boolean codeCoverageEnabled) {
     this.codeCoverageEnabled = codeCoverageEnabled;
@@ -106,7 +163,8 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   }
 
   /**
-   * Whether Code Coverage is enabled for this service.
+   * Whether Code Coverage is enabled for this service. Setting to <code>null</code> is a no-op; use
+   * <code>code_coverage_enabled_inherit</code> to reset to repository-level inheritance.
    *
    * @return codeCoverageEnabled
    */
@@ -121,6 +179,28 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
     this.codeCoverageEnabled = codeCoverageEnabled;
   }
 
+  public TestOptimizationUpdateServiceSettingsRequestAttributes codeCoverageEnabledInherit(
+      Boolean codeCoverageEnabledInherit) {
+    this.codeCoverageEnabledInherit = codeCoverageEnabledInherit;
+    return this;
+  }
+
+  /**
+   * When <code>true</code>, resets the Code Coverage setting to inherit from the repository level.
+   *
+   * @return codeCoverageEnabledInherit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_COVERAGE_ENABLED_INHERIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCodeCoverageEnabledInherit() {
+    return codeCoverageEnabledInherit;
+  }
+
+  public void setCodeCoverageEnabledInherit(Boolean codeCoverageEnabledInherit) {
+    this.codeCoverageEnabledInherit = codeCoverageEnabledInherit;
+  }
+
   public TestOptimizationUpdateServiceSettingsRequestAttributes earlyFlakeDetectionEnabled(
       Boolean earlyFlakeDetectionEnabled) {
     this.earlyFlakeDetectionEnabled = earlyFlakeDetectionEnabled;
@@ -128,7 +208,9 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   }
 
   /**
-   * Whether Early Flake Detection is enabled for this service.
+   * Whether Early Flake Detection is enabled for this service. Setting to <code>null</code> is a
+   * no-op; use <code>early_flake_detection_enabled_inherit</code> to reset to repository-level
+   * inheritance.
    *
    * @return earlyFlakeDetectionEnabled
    */
@@ -141,6 +223,29 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
 
   public void setEarlyFlakeDetectionEnabled(Boolean earlyFlakeDetectionEnabled) {
     this.earlyFlakeDetectionEnabled = earlyFlakeDetectionEnabled;
+  }
+
+  public TestOptimizationUpdateServiceSettingsRequestAttributes earlyFlakeDetectionEnabledInherit(
+      Boolean earlyFlakeDetectionEnabledInherit) {
+    this.earlyFlakeDetectionEnabledInherit = earlyFlakeDetectionEnabledInherit;
+    return this;
+  }
+
+  /**
+   * When <code>true</code>, resets the Early Flake Detection setting to inherit from the repository
+   * level.
+   *
+   * @return earlyFlakeDetectionEnabledInherit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED_INHERIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEarlyFlakeDetectionEnabledInherit() {
+    return earlyFlakeDetectionEnabledInherit;
+  }
+
+  public void setEarlyFlakeDetectionEnabledInherit(Boolean earlyFlakeDetectionEnabledInherit) {
+    this.earlyFlakeDetectionEnabledInherit = earlyFlakeDetectionEnabledInherit;
   }
 
   public TestOptimizationUpdateServiceSettingsRequestAttributes env(String env) {
@@ -171,7 +276,9 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   }
 
   /**
-   * Whether Failed Test Replay is enabled for this service.
+   * Whether Failed Test Replay is enabled for this service. Setting to <code>null</code> is a
+   * no-op; use <code>failed_test_replay_enabled_inherit</code> to reset to repository-level
+   * inheritance.
    *
    * @return failedTestReplayEnabled
    */
@@ -186,6 +293,29 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
     this.failedTestReplayEnabled = failedTestReplayEnabled;
   }
 
+  public TestOptimizationUpdateServiceSettingsRequestAttributes failedTestReplayEnabledInherit(
+      Boolean failedTestReplayEnabledInherit) {
+    this.failedTestReplayEnabledInherit = failedTestReplayEnabledInherit;
+    return this;
+  }
+
+  /**
+   * When <code>true</code>, resets the Failed Test Replay setting to inherit from the repository
+   * level.
+   *
+   * @return failedTestReplayEnabledInherit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED_INHERIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getFailedTestReplayEnabledInherit() {
+    return failedTestReplayEnabledInherit;
+  }
+
+  public void setFailedTestReplayEnabledInherit(Boolean failedTestReplayEnabledInherit) {
+    this.failedTestReplayEnabledInherit = failedTestReplayEnabledInherit;
+  }
+
   public TestOptimizationUpdateServiceSettingsRequestAttributes prCommentsEnabled(
       Boolean prCommentsEnabled) {
     this.prCommentsEnabled = prCommentsEnabled;
@@ -193,7 +323,7 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   }
 
   /**
-   * Whether PR Comments are enabled for this service.
+   * This field is ignored. PR Comments cannot be overridden at the service level.
    *
    * @return prCommentsEnabled
    */
@@ -255,7 +385,9 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   }
 
   /**
-   * Whether Test Impact Analysis is enabled for this service.
+   * Whether Test Impact Analysis is enabled for this service. Setting to <code>null</code> is a
+   * no-op; use <code>test_impact_analysis_enabled_inherit</code> to reset to repository-level
+   * inheritance.
    *
    * @return testImpactAnalysisEnabled
    */
@@ -268,6 +400,29 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
 
   public void setTestImpactAnalysisEnabled(Boolean testImpactAnalysisEnabled) {
     this.testImpactAnalysisEnabled = testImpactAnalysisEnabled;
+  }
+
+  public TestOptimizationUpdateServiceSettingsRequestAttributes testImpactAnalysisEnabledInherit(
+      Boolean testImpactAnalysisEnabledInherit) {
+    this.testImpactAnalysisEnabledInherit = testImpactAnalysisEnabledInherit;
+    return this;
+  }
+
+  /**
+   * When <code>true</code>, resets the Test Impact Analysis setting to inherit from the repository
+   * level.
+   *
+   * @return testImpactAnalysisEnabledInherit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED_INHERIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getTestImpactAnalysisEnabledInherit() {
+    return testImpactAnalysisEnabledInherit;
+  }
+
+  public void setTestImpactAnalysisEnabledInherit(Boolean testImpactAnalysisEnabledInherit) {
+    this.testImpactAnalysisEnabledInherit = testImpactAnalysisEnabledInherit;
   }
 
   /**
@@ -336,15 +491,28 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
             this.autoTestRetriesEnabled,
             testOptimizationUpdateServiceSettingsRequestAttributes.autoTestRetriesEnabled)
         && Objects.equals(
+            this.autoTestRetriesEnabledInherit,
+            testOptimizationUpdateServiceSettingsRequestAttributes.autoTestRetriesEnabledInherit)
+        && Objects.equals(
             this.codeCoverageEnabled,
             testOptimizationUpdateServiceSettingsRequestAttributes.codeCoverageEnabled)
         && Objects.equals(
+            this.codeCoverageEnabledInherit,
+            testOptimizationUpdateServiceSettingsRequestAttributes.codeCoverageEnabledInherit)
+        && Objects.equals(
             this.earlyFlakeDetectionEnabled,
             testOptimizationUpdateServiceSettingsRequestAttributes.earlyFlakeDetectionEnabled)
+        && Objects.equals(
+            this.earlyFlakeDetectionEnabledInherit,
+            testOptimizationUpdateServiceSettingsRequestAttributes
+                .earlyFlakeDetectionEnabledInherit)
         && Objects.equals(this.env, testOptimizationUpdateServiceSettingsRequestAttributes.env)
         && Objects.equals(
             this.failedTestReplayEnabled,
             testOptimizationUpdateServiceSettingsRequestAttributes.failedTestReplayEnabled)
+        && Objects.equals(
+            this.failedTestReplayEnabledInherit,
+            testOptimizationUpdateServiceSettingsRequestAttributes.failedTestReplayEnabledInherit)
         && Objects.equals(
             this.prCommentsEnabled,
             testOptimizationUpdateServiceSettingsRequestAttributes.prCommentsEnabled)
@@ -356,6 +524,9 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
             this.testImpactAnalysisEnabled,
             testOptimizationUpdateServiceSettingsRequestAttributes.testImpactAnalysisEnabled)
         && Objects.equals(
+            this.testImpactAnalysisEnabledInherit,
+            testOptimizationUpdateServiceSettingsRequestAttributes.testImpactAnalysisEnabledInherit)
+        && Objects.equals(
             this.additionalProperties,
             testOptimizationUpdateServiceSettingsRequestAttributes.additionalProperties);
   }
@@ -364,14 +535,19 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
   public int hashCode() {
     return Objects.hash(
         autoTestRetriesEnabled,
+        autoTestRetriesEnabledInherit,
         codeCoverageEnabled,
+        codeCoverageEnabledInherit,
         earlyFlakeDetectionEnabled,
+        earlyFlakeDetectionEnabledInherit,
         env,
         failedTestReplayEnabled,
+        failedTestReplayEnabledInherit,
         prCommentsEnabled,
         repositoryId,
         serviceName,
         testImpactAnalysisEnabled,
+        testImpactAnalysisEnabledInherit,
         additionalProperties);
   }
 
@@ -382,21 +558,36 @@ public class TestOptimizationUpdateServiceSettingsRequestAttributes {
     sb.append("    autoTestRetriesEnabled: ")
         .append(toIndentedString(autoTestRetriesEnabled))
         .append("\n");
+    sb.append("    autoTestRetriesEnabledInherit: ")
+        .append(toIndentedString(autoTestRetriesEnabledInherit))
+        .append("\n");
     sb.append("    codeCoverageEnabled: ")
         .append(toIndentedString(codeCoverageEnabled))
+        .append("\n");
+    sb.append("    codeCoverageEnabledInherit: ")
+        .append(toIndentedString(codeCoverageEnabledInherit))
         .append("\n");
     sb.append("    earlyFlakeDetectionEnabled: ")
         .append(toIndentedString(earlyFlakeDetectionEnabled))
         .append("\n");
+    sb.append("    earlyFlakeDetectionEnabledInherit: ")
+        .append(toIndentedString(earlyFlakeDetectionEnabledInherit))
+        .append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    failedTestReplayEnabled: ")
         .append(toIndentedString(failedTestReplayEnabled))
+        .append("\n");
+    sb.append("    failedTestReplayEnabledInherit: ")
+        .append(toIndentedString(failedTestReplayEnabledInherit))
         .append("\n");
     sb.append("    prCommentsEnabled: ").append(toIndentedString(prCommentsEnabled)).append("\n");
     sb.append("    repositoryId: ").append(toIndentedString(repositoryId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    testImpactAnalysisEnabled: ")
         .append(toIndentedString(testImpactAnalysisEnabled))
+        .append("\n");
+    sb.append("    testImpactAnalysisEnabledInherit: ")
+        .append(toIndentedString(testImpactAnalysisEnabledInherit))
         .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

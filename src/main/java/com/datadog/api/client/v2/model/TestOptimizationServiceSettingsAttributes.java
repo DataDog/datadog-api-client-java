@@ -19,14 +19,20 @@ import java.util.Objects;
 /** Attributes for Test Optimization service settings. */
 @JsonPropertyOrder({
   TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED,
+  TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED_IS_OVERRIDDEN,
   TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_CODE_COVERAGE_ENABLED,
+  TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_CODE_COVERAGE_ENABLED_IS_OVERRIDDEN,
   TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED,
+  TestOptimizationServiceSettingsAttributes
+      .JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED_IS_OVERRIDDEN,
   TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_ENV,
   TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED,
+  TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED_IS_OVERRIDDEN,
   TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_PR_COMMENTS_ENABLED,
   TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_REPOSITORY_ID,
   TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_SERVICE_NAME,
-  TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED
+  TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED,
+  TestOptimizationServiceSettingsAttributes.JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED_IS_OVERRIDDEN
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,12 +41,24 @@ public class TestOptimizationServiceSettingsAttributes {
   public static final String JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED = "auto_test_retries_enabled";
   private Boolean autoTestRetriesEnabled;
 
+  public static final String JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED_IS_OVERRIDDEN =
+      "auto_test_retries_enabled_is_overridden";
+  private Boolean autoTestRetriesEnabledIsOverridden;
+
   public static final String JSON_PROPERTY_CODE_COVERAGE_ENABLED = "code_coverage_enabled";
   private Boolean codeCoverageEnabled;
+
+  public static final String JSON_PROPERTY_CODE_COVERAGE_ENABLED_IS_OVERRIDDEN =
+      "code_coverage_enabled_is_overridden";
+  private Boolean codeCoverageEnabledIsOverridden;
 
   public static final String JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED =
       "early_flake_detection_enabled";
   private Boolean earlyFlakeDetectionEnabled;
+
+  public static final String JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED_IS_OVERRIDDEN =
+      "early_flake_detection_enabled_is_overridden";
+  private Boolean earlyFlakeDetectionEnabledIsOverridden;
 
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
@@ -48,6 +66,10 @@ public class TestOptimizationServiceSettingsAttributes {
   public static final String JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED =
       "failed_test_replay_enabled";
   private Boolean failedTestReplayEnabled;
+
+  public static final String JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED_IS_OVERRIDDEN =
+      "failed_test_replay_enabled_is_overridden";
+  private Boolean failedTestReplayEnabledIsOverridden;
 
   public static final String JSON_PROPERTY_PR_COMMENTS_ENABLED = "pr_comments_enabled";
   private Boolean prCommentsEnabled;
@@ -61,6 +83,10 @@ public class TestOptimizationServiceSettingsAttributes {
   public static final String JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED =
       "test_impact_analysis_enabled";
   private Boolean testImpactAnalysisEnabled;
+
+  public static final String JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED_IS_OVERRIDDEN =
+      "test_impact_analysis_enabled_is_overridden";
+  private Boolean testImpactAnalysisEnabledIsOverridden;
 
   public TestOptimizationServiceSettingsAttributes autoTestRetriesEnabled(
       Boolean autoTestRetriesEnabled) {
@@ -82,6 +108,28 @@ public class TestOptimizationServiceSettingsAttributes {
 
   public void setAutoTestRetriesEnabled(Boolean autoTestRetriesEnabled) {
     this.autoTestRetriesEnabled = autoTestRetriesEnabled;
+  }
+
+  public TestOptimizationServiceSettingsAttributes autoTestRetriesEnabledIsOverridden(
+      Boolean autoTestRetriesEnabledIsOverridden) {
+    this.autoTestRetriesEnabledIsOverridden = autoTestRetriesEnabledIsOverridden;
+    return this;
+  }
+
+  /**
+   * Whether the Auto Test Retries setting is overridden at the service level.
+   *
+   * @return autoTestRetriesEnabledIsOverridden
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST_RETRIES_ENABLED_IS_OVERRIDDEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAutoTestRetriesEnabledIsOverridden() {
+    return autoTestRetriesEnabledIsOverridden;
+  }
+
+  public void setAutoTestRetriesEnabledIsOverridden(Boolean autoTestRetriesEnabledIsOverridden) {
+    this.autoTestRetriesEnabledIsOverridden = autoTestRetriesEnabledIsOverridden;
   }
 
   public TestOptimizationServiceSettingsAttributes codeCoverageEnabled(
@@ -106,6 +154,28 @@ public class TestOptimizationServiceSettingsAttributes {
     this.codeCoverageEnabled = codeCoverageEnabled;
   }
 
+  public TestOptimizationServiceSettingsAttributes codeCoverageEnabledIsOverridden(
+      Boolean codeCoverageEnabledIsOverridden) {
+    this.codeCoverageEnabledIsOverridden = codeCoverageEnabledIsOverridden;
+    return this;
+  }
+
+  /**
+   * Whether the Code Coverage setting is overridden at the service level.
+   *
+   * @return codeCoverageEnabledIsOverridden
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_COVERAGE_ENABLED_IS_OVERRIDDEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCodeCoverageEnabledIsOverridden() {
+    return codeCoverageEnabledIsOverridden;
+  }
+
+  public void setCodeCoverageEnabledIsOverridden(Boolean codeCoverageEnabledIsOverridden) {
+    this.codeCoverageEnabledIsOverridden = codeCoverageEnabledIsOverridden;
+  }
+
   public TestOptimizationServiceSettingsAttributes earlyFlakeDetectionEnabled(
       Boolean earlyFlakeDetectionEnabled) {
     this.earlyFlakeDetectionEnabled = earlyFlakeDetectionEnabled;
@@ -126,6 +196,29 @@ public class TestOptimizationServiceSettingsAttributes {
 
   public void setEarlyFlakeDetectionEnabled(Boolean earlyFlakeDetectionEnabled) {
     this.earlyFlakeDetectionEnabled = earlyFlakeDetectionEnabled;
+  }
+
+  public TestOptimizationServiceSettingsAttributes earlyFlakeDetectionEnabledIsOverridden(
+      Boolean earlyFlakeDetectionEnabledIsOverridden) {
+    this.earlyFlakeDetectionEnabledIsOverridden = earlyFlakeDetectionEnabledIsOverridden;
+    return this;
+  }
+
+  /**
+   * Whether the Early Flake Detection setting is overridden at the service level.
+   *
+   * @return earlyFlakeDetectionEnabledIsOverridden
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EARLY_FLAKE_DETECTION_ENABLED_IS_OVERRIDDEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEarlyFlakeDetectionEnabledIsOverridden() {
+    return earlyFlakeDetectionEnabledIsOverridden;
+  }
+
+  public void setEarlyFlakeDetectionEnabledIsOverridden(
+      Boolean earlyFlakeDetectionEnabledIsOverridden) {
+    this.earlyFlakeDetectionEnabledIsOverridden = earlyFlakeDetectionEnabledIsOverridden;
   }
 
   public TestOptimizationServiceSettingsAttributes env(String env) {
@@ -171,13 +264,36 @@ public class TestOptimizationServiceSettingsAttributes {
     this.failedTestReplayEnabled = failedTestReplayEnabled;
   }
 
+  public TestOptimizationServiceSettingsAttributes failedTestReplayEnabledIsOverridden(
+      Boolean failedTestReplayEnabledIsOverridden) {
+    this.failedTestReplayEnabledIsOverridden = failedTestReplayEnabledIsOverridden;
+    return this;
+  }
+
+  /**
+   * Whether the Failed Test Replay setting is overridden at the service level.
+   *
+   * @return failedTestReplayEnabledIsOverridden
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAILED_TEST_REPLAY_ENABLED_IS_OVERRIDDEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getFailedTestReplayEnabledIsOverridden() {
+    return failedTestReplayEnabledIsOverridden;
+  }
+
+  public void setFailedTestReplayEnabledIsOverridden(Boolean failedTestReplayEnabledIsOverridden) {
+    this.failedTestReplayEnabledIsOverridden = failedTestReplayEnabledIsOverridden;
+  }
+
   public TestOptimizationServiceSettingsAttributes prCommentsEnabled(Boolean prCommentsEnabled) {
     this.prCommentsEnabled = prCommentsEnabled;
     return this;
   }
 
   /**
-   * Whether PR Comments are enabled for this service.
+   * Whether PR Comments are enabled. This value reflects the repository-level setting and cannot be
+   * overridden at the service level.
    *
    * @return prCommentsEnabled
    */
@@ -256,6 +372,29 @@ public class TestOptimizationServiceSettingsAttributes {
     this.testImpactAnalysisEnabled = testImpactAnalysisEnabled;
   }
 
+  public TestOptimizationServiceSettingsAttributes testImpactAnalysisEnabledIsOverridden(
+      Boolean testImpactAnalysisEnabledIsOverridden) {
+    this.testImpactAnalysisEnabledIsOverridden = testImpactAnalysisEnabledIsOverridden;
+    return this;
+  }
+
+  /**
+   * Whether the Test Impact Analysis setting is overridden at the service level.
+   *
+   * @return testImpactAnalysisEnabledIsOverridden
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST_IMPACT_ANALYSIS_ENABLED_IS_OVERRIDDEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getTestImpactAnalysisEnabledIsOverridden() {
+    return testImpactAnalysisEnabledIsOverridden;
+  }
+
+  public void setTestImpactAnalysisEnabledIsOverridden(
+      Boolean testImpactAnalysisEnabledIsOverridden) {
+    this.testImpactAnalysisEnabledIsOverridden = testImpactAnalysisEnabledIsOverridden;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -317,14 +456,26 @@ public class TestOptimizationServiceSettingsAttributes {
             this.autoTestRetriesEnabled,
             testOptimizationServiceSettingsAttributes.autoTestRetriesEnabled)
         && Objects.equals(
+            this.autoTestRetriesEnabledIsOverridden,
+            testOptimizationServiceSettingsAttributes.autoTestRetriesEnabledIsOverridden)
+        && Objects.equals(
             this.codeCoverageEnabled, testOptimizationServiceSettingsAttributes.codeCoverageEnabled)
+        && Objects.equals(
+            this.codeCoverageEnabledIsOverridden,
+            testOptimizationServiceSettingsAttributes.codeCoverageEnabledIsOverridden)
         && Objects.equals(
             this.earlyFlakeDetectionEnabled,
             testOptimizationServiceSettingsAttributes.earlyFlakeDetectionEnabled)
+        && Objects.equals(
+            this.earlyFlakeDetectionEnabledIsOverridden,
+            testOptimizationServiceSettingsAttributes.earlyFlakeDetectionEnabledIsOverridden)
         && Objects.equals(this.env, testOptimizationServiceSettingsAttributes.env)
         && Objects.equals(
             this.failedTestReplayEnabled,
             testOptimizationServiceSettingsAttributes.failedTestReplayEnabled)
+        && Objects.equals(
+            this.failedTestReplayEnabledIsOverridden,
+            testOptimizationServiceSettingsAttributes.failedTestReplayEnabledIsOverridden)
         && Objects.equals(
             this.prCommentsEnabled, testOptimizationServiceSettingsAttributes.prCommentsEnabled)
         && Objects.equals(this.repositoryId, testOptimizationServiceSettingsAttributes.repositoryId)
@@ -332,6 +483,9 @@ public class TestOptimizationServiceSettingsAttributes {
         && Objects.equals(
             this.testImpactAnalysisEnabled,
             testOptimizationServiceSettingsAttributes.testImpactAnalysisEnabled)
+        && Objects.equals(
+            this.testImpactAnalysisEnabledIsOverridden,
+            testOptimizationServiceSettingsAttributes.testImpactAnalysisEnabledIsOverridden)
         && Objects.equals(
             this.additionalProperties,
             testOptimizationServiceSettingsAttributes.additionalProperties);
@@ -341,14 +495,19 @@ public class TestOptimizationServiceSettingsAttributes {
   public int hashCode() {
     return Objects.hash(
         autoTestRetriesEnabled,
+        autoTestRetriesEnabledIsOverridden,
         codeCoverageEnabled,
+        codeCoverageEnabledIsOverridden,
         earlyFlakeDetectionEnabled,
+        earlyFlakeDetectionEnabledIsOverridden,
         env,
         failedTestReplayEnabled,
+        failedTestReplayEnabledIsOverridden,
         prCommentsEnabled,
         repositoryId,
         serviceName,
         testImpactAnalysisEnabled,
+        testImpactAnalysisEnabledIsOverridden,
         additionalProperties);
   }
 
@@ -359,21 +518,36 @@ public class TestOptimizationServiceSettingsAttributes {
     sb.append("    autoTestRetriesEnabled: ")
         .append(toIndentedString(autoTestRetriesEnabled))
         .append("\n");
+    sb.append("    autoTestRetriesEnabledIsOverridden: ")
+        .append(toIndentedString(autoTestRetriesEnabledIsOverridden))
+        .append("\n");
     sb.append("    codeCoverageEnabled: ")
         .append(toIndentedString(codeCoverageEnabled))
+        .append("\n");
+    sb.append("    codeCoverageEnabledIsOverridden: ")
+        .append(toIndentedString(codeCoverageEnabledIsOverridden))
         .append("\n");
     sb.append("    earlyFlakeDetectionEnabled: ")
         .append(toIndentedString(earlyFlakeDetectionEnabled))
         .append("\n");
+    sb.append("    earlyFlakeDetectionEnabledIsOverridden: ")
+        .append(toIndentedString(earlyFlakeDetectionEnabledIsOverridden))
+        .append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    failedTestReplayEnabled: ")
         .append(toIndentedString(failedTestReplayEnabled))
+        .append("\n");
+    sb.append("    failedTestReplayEnabledIsOverridden: ")
+        .append(toIndentedString(failedTestReplayEnabledIsOverridden))
         .append("\n");
     sb.append("    prCommentsEnabled: ").append(toIndentedString(prCommentsEnabled)).append("\n");
     sb.append("    repositoryId: ").append(toIndentedString(repositoryId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    testImpactAnalysisEnabled: ")
         .append(toIndentedString(testImpactAnalysisEnabled))
+        .append("\n");
+    sb.append("    testImpactAnalysisEnabledIsOverridden: ")
+        .append(toIndentedString(testImpactAnalysisEnabledIsOverridden))
         .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
