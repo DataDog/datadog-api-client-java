@@ -33,7 +33,7 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPONENTS_AFFECTED = "components_affected";
   private List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected =
-      new ArrayList<>();
+      null;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -48,13 +48,10 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
 
   @JsonCreator
   public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMPONENTS_AFFECTED)
-          List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected,
       @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
       @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) OffsetDateTime startedAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
           CreateMaintenanceRequestDataAttributesUpdatesItemsStatus status) {
-    this.componentsAffected = componentsAffected;
     this.description = description;
     this.startedAt = startedAt;
     this.status = status;
@@ -72,6 +69,9 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
 
   public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems addComponentsAffectedItem(
       CreateMaintenanceRequestDataAttributesComponentsAffectedItems componentsAffectedItem) {
+    if (this.componentsAffected == null) {
+      this.componentsAffected = new ArrayList<>();
+    }
     this.componentsAffected.add(componentsAffectedItem);
     this.unparsed |= componentsAffectedItem.unparsed;
     return this;
@@ -82,8 +82,9 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
    *
    * @return componentsAffected
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENTS_AFFECTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>
       getComponentsAffected() {
     return componentsAffected;

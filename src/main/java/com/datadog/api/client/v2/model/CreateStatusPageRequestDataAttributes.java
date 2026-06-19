@@ -25,8 +25,11 @@ import java.util.Objects;
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_COMPONENTS,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_DOMAIN_PREFIX,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_EMAIL_HEADER_IMAGE,
+  CreateStatusPageRequestDataAttributes.JSON_PROPERTY_ENABLED,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_FAVICON,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_NAME,
+  CreateStatusPageRequestDataAttributes.JSON_PROPERTY_SLACK_APP_ICON,
+  CreateStatusPageRequestDataAttributes.JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_SUBSCRIPTIONS_ENABLED,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_TYPE,
   CreateStatusPageRequestDataAttributes.JSON_PROPERTY_VISUALIZATION_TYPE
@@ -47,11 +50,21 @@ public class CreateStatusPageRequestDataAttributes {
   public static final String JSON_PROPERTY_EMAIL_HEADER_IMAGE = "email_header_image";
   private String emailHeaderImage;
 
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_FAVICON = "favicon";
   private String favicon;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SLACK_APP_ICON = "slack_app_icon";
+  private String slackAppIcon;
+
+  public static final String JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED =
+      "slack_subscriptions_enabled";
+  private Boolean slackSubscriptionsEnabled;
 
   public static final String JSON_PROPERTY_SUBSCRIPTIONS_ENABLED = "subscriptions_enabled";
   private Boolean subscriptionsEnabled;
@@ -179,6 +192,27 @@ public class CreateStatusPageRequestDataAttributes {
     this.emailHeaderImage = emailHeaderImage;
   }
 
+  public CreateStatusPageRequestDataAttributes enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether the status page is enabled.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
   public CreateStatusPageRequestDataAttributes favicon(String favicon) {
     this.favicon = favicon;
     return this;
@@ -218,6 +252,49 @@ public class CreateStatusPageRequestDataAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CreateStatusPageRequestDataAttributes slackAppIcon(String slackAppIcon) {
+    this.slackAppIcon = slackAppIcon;
+    return this;
+  }
+
+  /**
+   * The Slack app icon URL for the status page.
+   *
+   * @return slackAppIcon
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLACK_APP_ICON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSlackAppIcon() {
+    return slackAppIcon;
+  }
+
+  public void setSlackAppIcon(String slackAppIcon) {
+    this.slackAppIcon = slackAppIcon;
+  }
+
+  public CreateStatusPageRequestDataAttributes slackSubscriptionsEnabled(
+      Boolean slackSubscriptionsEnabled) {
+    this.slackSubscriptionsEnabled = slackSubscriptionsEnabled;
+    return this;
+  }
+
+  /**
+   * Whether Slack subscriptions are enabled for the status page.
+   *
+   * @return slackSubscriptionsEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLACK_SUBSCRIPTIONS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSlackSubscriptionsEnabled() {
+    return slackSubscriptionsEnabled;
+  }
+
+  public void setSlackSubscriptionsEnabled(Boolean slackSubscriptionsEnabled) {
+    this.slackSubscriptionsEnabled = slackSubscriptionsEnabled;
   }
 
   public CreateStatusPageRequestDataAttributes subscriptionsEnabled(Boolean subscriptionsEnabled) {
@@ -354,8 +431,13 @@ public class CreateStatusPageRequestDataAttributes {
         && Objects.equals(this.domainPrefix, createStatusPageRequestDataAttributes.domainPrefix)
         && Objects.equals(
             this.emailHeaderImage, createStatusPageRequestDataAttributes.emailHeaderImage)
+        && Objects.equals(this.enabled, createStatusPageRequestDataAttributes.enabled)
         && Objects.equals(this.favicon, createStatusPageRequestDataAttributes.favicon)
         && Objects.equals(this.name, createStatusPageRequestDataAttributes.name)
+        && Objects.equals(this.slackAppIcon, createStatusPageRequestDataAttributes.slackAppIcon)
+        && Objects.equals(
+            this.slackSubscriptionsEnabled,
+            createStatusPageRequestDataAttributes.slackSubscriptionsEnabled)
         && Objects.equals(
             this.subscriptionsEnabled, createStatusPageRequestDataAttributes.subscriptionsEnabled)
         && Objects.equals(this.type, createStatusPageRequestDataAttributes.type)
@@ -372,8 +454,11 @@ public class CreateStatusPageRequestDataAttributes {
         components,
         domainPrefix,
         emailHeaderImage,
+        enabled,
         favicon,
         name,
+        slackAppIcon,
+        slackSubscriptionsEnabled,
         subscriptionsEnabled,
         type,
         visualizationType,
@@ -388,8 +473,13 @@ public class CreateStatusPageRequestDataAttributes {
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    domainPrefix: ").append(toIndentedString(domainPrefix)).append("\n");
     sb.append("    emailHeaderImage: ").append(toIndentedString(emailHeaderImage)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    favicon: ").append(toIndentedString(favicon)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    slackAppIcon: ").append(toIndentedString(slackAppIcon)).append("\n");
+    sb.append("    slackSubscriptionsEnabled: ")
+        .append(toIndentedString(slackSubscriptionsEnabled))
+        .append("\n");
     sb.append("    subscriptionsEnabled: ")
         .append(toIndentedString(subscriptionsEnabled))
         .append("\n");
