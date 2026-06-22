@@ -2046,8 +2046,9 @@ public class SecurityMonitoringApi {
   /**
    * Export multiple security monitoring resources to Terraform, packaged as a zip archive. The
    * <code>resource_type</code> path parameter specifies the type of resources to export and must be
-   * one of <code>suppressions</code> or <code>critical_assets</code>. A maximum of 1000 resources
-   * can be exported in a single request.
+   * one of <code>suppressions</code>, <code>critical_assets</code>, <code>security_filters</code>,
+   * or <code>rules</code>. A maximum of 1000 resources can be exported in a single request. For
+   * <code>rules</code>, partner rules cannot be exported and return a 400 error.
    *
    * @param resourceType The type of security monitoring resource to export. (required)
    * @param body The resource IDs to export. (required)
@@ -2844,7 +2845,8 @@ public class SecurityMonitoringApi {
   /**
    * Convert a security monitoring resource that doesn't (yet) exist from JSON to Terraform. The
    * <code>resource_type</code> path parameter specifies the type of resource to convert and must be
-   * one of <code>suppressions</code> or <code>critical_assets</code>.
+   * one of <code>suppressions</code>, <code>critical_assets</code>, <code>security_filters</code>,
+   * or <code>rules</code>.
    *
    * @param resourceType The type of security monitoring resource to export. (required)
    * @param body The resource JSON to convert. (required)
@@ -8936,7 +8938,8 @@ public class SecurityMonitoringApi {
   /**
    * Export a security monitoring resource to a Terraform configuration. The <code>resource_type
    * </code> path parameter specifies the type of resource to export and must be one of <code>
-   * suppressions</code> or <code>critical_assets</code>.
+   * suppressions</code>, <code>critical_assets</code>, <code>security_filters</code>, or <code>
+   * rules</code>. For <code>rules</code>, partner rules cannot be exported and return a 400 error.
    *
    * @param resourceType The type of security monitoring resource to export. (required)
    * @param resourceId The ID of the security monitoring resource to export. (required)
