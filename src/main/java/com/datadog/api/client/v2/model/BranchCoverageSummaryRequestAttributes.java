@@ -20,7 +20,8 @@ import java.util.Objects;
 /** Attributes for requesting code coverage summary for a branch. */
 @JsonPropertyOrder({
   BranchCoverageSummaryRequestAttributes.JSON_PROPERTY_BRANCH,
-  BranchCoverageSummaryRequestAttributes.JSON_PROPERTY_REPOSITORY_ID
+  BranchCoverageSummaryRequestAttributes.JSON_PROPERTY_REPOSITORY_ID,
+  BranchCoverageSummaryRequestAttributes.JSON_PROPERTY_REPOSITORY_URL
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,14 +33,15 @@ public class BranchCoverageSummaryRequestAttributes {
   public static final String JSON_PROPERTY_REPOSITORY_ID = "repository_id";
   private String repositoryId;
 
+  public static final String JSON_PROPERTY_REPOSITORY_URL = "repository_url";
+  private String repositoryUrl;
+
   public BranchCoverageSummaryRequestAttributes() {}
 
   @JsonCreator
   public BranchCoverageSummaryRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_BRANCH) String branch,
-      @JsonProperty(required = true, value = JSON_PROPERTY_REPOSITORY_ID) String repositoryId) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_BRANCH) String branch) {
     this.branch = branch;
-    this.repositoryId = repositoryId;
   }
 
   public BranchCoverageSummaryRequestAttributes branch(String branch) {
@@ -68,18 +70,44 @@ public class BranchCoverageSummaryRequestAttributes {
   }
 
   /**
-   * The repository identifier.
+   * Deprecated: use <code>repository_url</code> instead. The repository URL.
    *
    * @return repositoryId
+   * @deprecated
    */
+  @Deprecated
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REPOSITORY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRepositoryId() {
     return repositoryId;
   }
 
+  @Deprecated
   public void setRepositoryId(String repositoryId) {
     this.repositoryId = repositoryId;
+  }
+
+  public BranchCoverageSummaryRequestAttributes repositoryUrl(String repositoryUrl) {
+    this.repositoryUrl = repositoryUrl;
+    return this;
+  }
+
+  /**
+   * The repository URL. Accepts a full URL with or without a scheme (for example, <code>
+   * https://github.com/org/repo</code> or <code>github.com/org/repo</code>).
+   *
+   * @return repositoryUrl
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REPOSITORY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRepositoryUrl() {
+    return repositoryUrl;
+  }
+
+  public void setRepositoryUrl(String repositoryUrl) {
+    this.repositoryUrl = repositoryUrl;
   }
 
   /**
@@ -141,13 +169,14 @@ public class BranchCoverageSummaryRequestAttributes {
         (BranchCoverageSummaryRequestAttributes) o;
     return Objects.equals(this.branch, branchCoverageSummaryRequestAttributes.branch)
         && Objects.equals(this.repositoryId, branchCoverageSummaryRequestAttributes.repositoryId)
+        && Objects.equals(this.repositoryUrl, branchCoverageSummaryRequestAttributes.repositoryUrl)
         && Objects.equals(
             this.additionalProperties, branchCoverageSummaryRequestAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(branch, repositoryId, additionalProperties);
+    return Objects.hash(branch, repositoryId, repositoryUrl, additionalProperties);
   }
 
   @Override
@@ -156,6 +185,7 @@ public class BranchCoverageSummaryRequestAttributes {
     sb.append("class BranchCoverageSummaryRequestAttributes {\n");
     sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
     sb.append("    repositoryId: ").append(toIndentedString(repositoryId)).append("\n");
+    sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
