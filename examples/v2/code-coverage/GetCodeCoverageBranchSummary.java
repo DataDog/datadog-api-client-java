@@ -22,7 +22,8 @@ public class Example {
                     .attributes(
                         new BranchCoverageSummaryRequestAttributes()
                             .branch("prod")
-                            .repositoryId("github.com/datadog/shopist"))
+                            .repositoryId("github.com/datadog/shopist")
+                            .repositoryUrl("https://github.com/datadog/shopist"))
                     .type(BranchCoverageSummaryRequestType.CI_APP_COVERAGE_BRANCH_SUMMARY_REQUEST));
 
     try {

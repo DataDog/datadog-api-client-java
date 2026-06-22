@@ -22,7 +22,8 @@ public class Example {
                     .attributes(
                         new CommitCoverageSummaryRequestAttributes()
                             .commitSha("66adc9350f2cc9b250b69abddab733dd55e1a588")
-                            .repositoryId("github.com/datadog/shopist"))
+                            .repositoryId("github.com/datadog/shopist")
+                            .repositoryUrl("https://github.com/datadog/shopist"))
                     .type(CommitCoverageSummaryRequestType.CI_APP_COVERAGE_COMMIT_SUMMARY_REQUEST));
 
     try {
