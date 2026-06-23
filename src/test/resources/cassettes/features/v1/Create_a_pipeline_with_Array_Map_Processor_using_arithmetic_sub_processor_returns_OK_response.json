@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipelineArrayMapArithmetic\",\"processors\":[{\"is_enabled\":true,\"name\":\"double counts\",\"processors\":[{\"expression\":\"$sourceElem.count * 2\",\"target\":\"$targetElem.doubled\",\"type\":\"arithmetic-processor\"}],\"source\":\"items\",\"target\":\"out\",\"type\":\"array-map-processor\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"PxfujWHYRaGCWVqVCVrBAg\",\"type\":\"pipeline\",\"name\":\"testPipelineArrayMapArithmetic\",\"is_enabled\":false,\"is_read_only\":false,\"filter\":{\"query\":\"source:python\"},\"processors\":[{\"name\":\"double counts\",\"is_enabled\":true,\"source\":\"items\",\"target\":\"out\",\"processors\":[{\"expression\":\"$sourceElem.count * 2\",\"target\":\"$targetElem.doubled\",\"is_replace_missing\":false,\"type\":\"arithmetic-processor\"}],\"preserve_source\":true,\"type\":\"array-map-processor\"}],\"tags\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5b92624f-b8ed-c712-d3f5-ec45a299c051"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/logs/config/pipelines/PxfujWHYRaGCWVqVCVrBAg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c7ee4261-be30-23c9-67d7-d0e49b1fb528"
+  }
+]
