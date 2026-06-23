@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.AllocationResponse;
 import com.datadog.api.client.v2.model.CreateAllocationsRequest;
 import com.datadog.api.client.v2.model.CreateEnvironmentRequest;
 import com.datadog.api.client.v2.model.CreateFeatureFlagRequest;
+import com.datadog.api.client.v2.model.CreateVariant;
 import com.datadog.api.client.v2.model.EnvironmentResponse;
 import com.datadog.api.client.v2.model.FeatureFlagResponse;
 import com.datadog.api.client.v2.model.ListAllocationsResponse;
@@ -17,6 +18,8 @@ import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
 import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
 import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
 import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
+import com.datadog.api.client.v2.model.UpdateVariantRequest;
+import com.datadog.api.client.v2.model.Variant;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -669,6 +672,178 @@ public class FeatureFlagsApi {
   }
 
   /**
+   * Add a variant to a feature flag.
+   *
+   * <p>See {@link #createVariantForFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return Variant
+   * @throws ApiException if fails to make API call
+   */
+  public Variant createVariantForFeatureFlag(UUID featureFlagId, CreateVariant body)
+      throws ApiException {
+    return createVariantForFeatureFlagWithHttpInfo(featureFlagId, body).getData();
+  }
+
+  /**
+   * Add a variant to a feature flag.
+   *
+   * <p>See {@link #createVariantForFeatureFlagWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;Variant&gt;
+   */
+  public CompletableFuture<Variant> createVariantForFeatureFlagAsync(
+      UUID featureFlagId, CreateVariant body) {
+    return createVariantForFeatureFlagWithHttpInfoAsync(featureFlagId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Adds a single new variant to an existing feature flag. This endpoint is additive-only: it never
+   * modifies existing variants. A request whose <code>key</code> already exists on the flag is
+   * rejected with <code>409 Conflict</code>; a <code>value</code> whose type does not match the
+   * flag's <code>value_type</code> is rejected with <code>400</code>. The server generates the
+   * variant UUID and returns it in the response body; callers (for example, the flag-migration
+   * tool) need this UUID to reference the new variant in subsequent allocation syncs.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Variant&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A variant with this key already exists on the flag. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Variant> createVariantForFeatureFlagWithHttpInfo(
+      UUID featureFlagId, CreateVariant body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " createVariantForFeatureFlag");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createVariantForFeatureFlag");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.createVariantForFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Variant>() {});
+  }
+
+  /**
+   * Add a variant to a feature flag.
+   *
+   * <p>See {@link #createVariantForFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Variant&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Variant>> createVariantForFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId, CreateVariant body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " createVariantForFeatureFlag"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createVariantForFeatureFlag"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.createVariantForFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Variant>() {});
+  }
+
+  /**
    * Delete an environment.
    *
    * <p>See {@link #deleteFeatureFlagsEnvironmentWithHttpInfo}.
@@ -786,6 +961,178 @@ public class FeatureFlagsApi {
       builder =
           apiClient.createBuilder(
               "v2.FeatureFlagsApi.deleteFeatureFlagsEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a variant.
+   *
+   * <p>See {@link #deleteVariantFromFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteVariantFromFeatureFlag(UUID featureFlagId, UUID variantId) throws ApiException {
+    deleteVariantFromFeatureFlagWithHttpInfo(featureFlagId, variantId);
+  }
+
+  /**
+   * Delete a variant.
+   *
+   * <p>See {@link #deleteVariantFromFeatureFlagWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteVariantFromFeatureFlagAsync(
+      UUID featureFlagId, UUID variantId) {
+    return deleteVariantFromFeatureFlagWithHttpInfoAsync(featureFlagId, variantId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deletes a variant from a feature flag.
+   *
+   * <p>When backend approvals are enabled and the flag requires approval, this endpoint creates and
+   * returns a <code>FlagSuggestion</code> with <code>201 Created</code> instead of deleting the
+   * variant immediately. If a pending suggestion already exists for this flag's variant property,
+   * the endpoint returns <code>409 Conflict</code>.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A pending suggestion already exists for this property. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteVariantFromFeatureFlagWithHttpInfo(
+      UUID featureFlagId, UUID variantId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " deleteVariantFromFeatureFlag");
+    }
+
+    // verify the required parameter 'variantId' is set
+    if (variantId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'variantId' when calling deleteVariantFromFeatureFlag");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.deleteVariantFromFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a variant.
+   *
+   * <p>See {@link #deleteVariantFromFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteVariantFromFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId, UUID variantId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " deleteVariantFromFeatureFlag"));
+      return result;
+    }
+
+    // verify the required parameter 'variantId' is set
+    if (variantId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'variantId' when calling"
+                  + " deleteVariantFromFeatureFlag"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.deleteVariantFromFeatureFlag",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3130,5 +3477,200 @@ public class FeatureFlagsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<EnvironmentResponse>() {});
+  }
+
+  /**
+   * Update a variant.
+   *
+   * <p>See {@link #updateVariantForFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @param body (required)
+   * @return Variant
+   * @throws ApiException if fails to make API call
+   */
+  public Variant updateVariantForFeatureFlag(
+      UUID featureFlagId, UUID variantId, UpdateVariantRequest body) throws ApiException {
+    return updateVariantForFeatureFlagWithHttpInfo(featureFlagId, variantId, body).getData();
+  }
+
+  /**
+   * Update a variant.
+   *
+   * <p>See {@link #updateVariantForFeatureFlagWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;Variant&gt;
+   */
+  public CompletableFuture<Variant> updateVariantForFeatureFlagAsync(
+      UUID featureFlagId, UUID variantId, UpdateVariantRequest body) {
+    return updateVariantForFeatureFlagWithHttpInfoAsync(featureFlagId, variantId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates the name and value of an existing variant on a feature flag.
+   *
+   * <p>When backend approvals are enabled and the flag requires approval, this endpoint creates and
+   * returns a <code>FlagSuggestion</code> with <code>201 Created</code> instead of applying the
+   * change immediately. Use the returned suggestion <code>id</code> to approve or reject the
+   * change. If a pending suggestion already exists for this flag's variant property, the endpoint
+   * returns <code>409 Conflict</code>.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Variant&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict - A pending suggestion already exists for this property. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Variant> updateVariantForFeatureFlagWithHttpInfo(
+      UUID featureFlagId, UUID variantId, UpdateVariantRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " updateVariantForFeatureFlag");
+    }
+
+    // verify the required parameter 'variantId' is set
+    if (variantId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'variantId' when calling updateVariantForFeatureFlag");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateVariantForFeatureFlag");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.updateVariantForFeatureFlag",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Variant>() {});
+  }
+
+  /**
+   * Update a variant.
+   *
+   * <p>See {@link #updateVariantForFeatureFlagWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param variantId The ID of the variant. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Variant&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Variant>> updateVariantForFeatureFlagWithHttpInfoAsync(
+      UUID featureFlagId, UUID variantId, UpdateVariantRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " updateVariantForFeatureFlag"));
+      return result;
+    }
+
+    // verify the required parameter 'variantId' is set
+    if (variantId == null) {
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'variantId' when calling"
+                  + " updateVariantForFeatureFlag"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateVariantForFeatureFlag"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll("\\{" + "variant_id" + "\\}", apiClient.escapeString(variantId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.updateVariantForFeatureFlag",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Variant>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Variant>() {});
   }
 }
