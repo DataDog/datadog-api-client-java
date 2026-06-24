@@ -26,12 +26,17 @@ import java.util.Set;
 public class SecurityMonitoringTerraformResourceType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("suppressions", "critical_assets"));
+      new HashSet<String>(
+          Arrays.asList("suppressions", "critical_assets", "security_filters", "rules"));
 
   public static final SecurityMonitoringTerraformResourceType SUPPRESSIONS =
       new SecurityMonitoringTerraformResourceType("suppressions");
   public static final SecurityMonitoringTerraformResourceType CRITICAL_ASSETS =
       new SecurityMonitoringTerraformResourceType("critical_assets");
+  public static final SecurityMonitoringTerraformResourceType SECURITY_FILTERS =
+      new SecurityMonitoringTerraformResourceType("security_filters");
+  public static final SecurityMonitoringTerraformResourceType RULES =
+      new SecurityMonitoringTerraformResourceType("rules");
 
   SecurityMonitoringTerraformResourceType(String value) {
     super(value, allowedValues);
