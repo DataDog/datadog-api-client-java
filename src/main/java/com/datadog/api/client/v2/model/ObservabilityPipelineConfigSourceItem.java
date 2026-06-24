@@ -869,6 +869,55 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
             e);
       }
 
+      // deserialize ObservabilityPipelineWebsocketSource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineWebsocketSource.class.equals(Integer.class)
+            || ObservabilityPipelineWebsocketSource.class.equals(Long.class)
+            || ObservabilityPipelineWebsocketSource.class.equals(Float.class)
+            || ObservabilityPipelineWebsocketSource.class.equals(Double.class)
+            || ObservabilityPipelineWebsocketSource.class.equals(Boolean.class)
+            || ObservabilityPipelineWebsocketSource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineWebsocketSource.class.equals(Integer.class)
+                        || ObservabilityPipelineWebsocketSource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineWebsocketSource.class.equals(Float.class)
+                        || ObservabilityPipelineWebsocketSource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineWebsocketSource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineWebsocketSource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineWebsocketSource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineWebsocketSource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineWebsocketSource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineWebsocketSource'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineOpentelemetrySource
       try {
         boolean attemptParsing = true;
@@ -1030,6 +1079,11 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineWebsocketSource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineOpentelemetrySource o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1084,6 +1138,9 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
         "ObservabilityPipelineSyslogNgSource",
         new GenericType<ObservabilityPipelineSyslogNgSource>() {});
     schemas.put(
+        "ObservabilityPipelineWebsocketSource",
+        new GenericType<ObservabilityPipelineWebsocketSource>() {});
+    schemas.put(
         "ObservabilityPipelineOpentelemetrySource",
         new GenericType<ObservabilityPipelineOpentelemetrySource>() {});
     JSON.registerDescendants(
@@ -1105,7 +1162,8 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
    * ObservabilityPipelineLogstashSource, ObservabilityPipelineRsyslogSource,
    * ObservabilityPipelineSocketSource, ObservabilityPipelineSplunkHecSource,
    * ObservabilityPipelineSplunkTcpSource, ObservabilityPipelineSumoLogicSource,
-   * ObservabilityPipelineSyslogNgSource, ObservabilityPipelineOpentelemetrySource
+   * ObservabilityPipelineSyslogNgSource, ObservabilityPipelineWebsocketSource,
+   * ObservabilityPipelineOpentelemetrySource
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1193,6 +1251,11 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
       return;
     }
     if (JSON.isInstanceOf(
+        ObservabilityPipelineWebsocketSource.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
         ObservabilityPipelineOpentelemetrySource.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1211,7 +1274,8 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
             + " ObservabilityPipelineLogstashSource, ObservabilityPipelineRsyslogSource,"
             + " ObservabilityPipelineSocketSource, ObservabilityPipelineSplunkHecSource,"
             + " ObservabilityPipelineSplunkTcpSource, ObservabilityPipelineSumoLogicSource,"
-            + " ObservabilityPipelineSyslogNgSource, ObservabilityPipelineOpentelemetrySource");
+            + " ObservabilityPipelineSyslogNgSource, ObservabilityPipelineWebsocketSource,"
+            + " ObservabilityPipelineOpentelemetrySource");
   }
 
   /**
@@ -1223,7 +1287,8 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
    * ObservabilityPipelineLogstashSource, ObservabilityPipelineRsyslogSource,
    * ObservabilityPipelineSocketSource, ObservabilityPipelineSplunkHecSource,
    * ObservabilityPipelineSplunkTcpSource, ObservabilityPipelineSumoLogicSource,
-   * ObservabilityPipelineSyslogNgSource, ObservabilityPipelineOpentelemetrySource
+   * ObservabilityPipelineSyslogNgSource, ObservabilityPipelineWebsocketSource,
+   * ObservabilityPipelineOpentelemetrySource
    *
    * @return The actual instance (ObservabilityPipelineDatadogAgentSource,
    *     ObservabilityPipelineAmazonDataFirehoseSource, ObservabilityPipelineAmazonS3Source,
@@ -1233,7 +1298,8 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
    *     ObservabilityPipelineLogstashSource, ObservabilityPipelineRsyslogSource,
    *     ObservabilityPipelineSocketSource, ObservabilityPipelineSplunkHecSource,
    *     ObservabilityPipelineSplunkTcpSource, ObservabilityPipelineSumoLogicSource,
-   *     ObservabilityPipelineSyslogNgSource, ObservabilityPipelineOpentelemetrySource)
+   *     ObservabilityPipelineSyslogNgSource, ObservabilityPipelineWebsocketSource,
+   *     ObservabilityPipelineOpentelemetrySource)
    */
   @Override
   public Object getActualInstance() {
@@ -1432,6 +1498,18 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
   public ObservabilityPipelineSyslogNgSource getObservabilityPipelineSyslogNgSource()
       throws ClassCastException {
     return (ObservabilityPipelineSyslogNgSource) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineWebsocketSource`. If the actual instance is
+   * not `ObservabilityPipelineWebsocketSource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineWebsocketSource`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineWebsocketSource`
+   */
+  public ObservabilityPipelineWebsocketSource getObservabilityPipelineWebsocketSource()
+      throws ClassCastException {
+    return (ObservabilityPipelineWebsocketSource) super.getActualInstance();
   }
 
   /**
