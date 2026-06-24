@@ -2236,6 +2236,62 @@ public class CloudCostManagementApi {
         new GenericType<GenerateCostTagDescriptionResponse>() {});
   }
 
+  /** Manage optional parameters to getBudget. */
+  public static class GetBudgetOptionalParameters {
+    private Boolean actual;
+    private Boolean forecast;
+    private Long start;
+    private Long end;
+
+    /**
+     * Set actual.
+     *
+     * @param actual When <code>true</code>, includes actual cost data in the response. (optional)
+     * @return GetBudgetOptionalParameters
+     */
+    public GetBudgetOptionalParameters actual(Boolean actual) {
+      this.actual = actual;
+      return this;
+    }
+
+    /**
+     * Set forecast.
+     *
+     * @param forecast When <code>true</code>, includes forecast cost data in the response,
+     *     including <code>ootb_forecast</code> and <code>custom_forecast</code> per entry.
+     *     (optional)
+     * @return GetBudgetOptionalParameters
+     */
+    public GetBudgetOptionalParameters forecast(Boolean forecast) {
+      this.forecast = forecast;
+      return this;
+    }
+
+    /**
+     * Set start.
+     *
+     * @param start Start of the cost window in milliseconds since epoch. Must be used together with
+     *     <code>end</code>. (optional)
+     * @return GetBudgetOptionalParameters
+     */
+    public GetBudgetOptionalParameters start(Long start) {
+      this.start = start;
+      return this;
+    }
+
+    /**
+     * Set end.
+     *
+     * @param end End of the cost window in milliseconds since epoch. Must be used together with
+     *     <code>start</code>. (optional)
+     * @return GetBudgetOptionalParameters
+     */
+    public GetBudgetOptionalParameters end(Long end) {
+      this.end = end;
+      return this;
+    }
+  }
+
   /**
    * Get budget.
    *
@@ -2246,7 +2302,7 @@ public class CloudCostManagementApi {
    * @throws ApiException if fails to make API call
    */
   public BudgetWithEntries getBudget(String budgetId) throws ApiException {
-    return getBudgetWithHttpInfo(budgetId).getData();
+    return getBudgetWithHttpInfo(budgetId, new GetBudgetOptionalParameters()).getData();
   }
 
   /**
@@ -2258,7 +2314,7 @@ public class CloudCostManagementApi {
    * @return CompletableFuture&lt;BudgetWithEntries&gt;
    */
   public CompletableFuture<BudgetWithEntries> getBudgetAsync(String budgetId) {
-    return getBudgetWithHttpInfoAsync(budgetId)
+    return getBudgetWithHttpInfoAsync(budgetId, new GetBudgetOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -2266,9 +2322,47 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Get a budget
+   * Get budget.
+   *
+   * <p>See {@link #getBudgetWithHttpInfo}.
    *
    * @param budgetId Budget id. (required)
+   * @param parameters Optional parameters for the request.
+   * @return BudgetWithEntries
+   * @throws ApiException if fails to make API call
+   */
+  public BudgetWithEntries getBudget(String budgetId, GetBudgetOptionalParameters parameters)
+      throws ApiException {
+    return getBudgetWithHttpInfo(budgetId, parameters).getData();
+  }
+
+  /**
+   * Get budget.
+   *
+   * <p>See {@link #getBudgetWithHttpInfoAsync}.
+   *
+   * @param budgetId Budget id. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;BudgetWithEntries&gt;
+   */
+  public CompletableFuture<BudgetWithEntries> getBudgetAsync(
+      String budgetId, GetBudgetOptionalParameters parameters) {
+    return getBudgetWithHttpInfoAsync(budgetId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a budget by ID. Pass <code>actual=true</code> or <code>forecast=true</code> to include cost
+   * data in the response. Use <code>start</code> and <code>end</code> (millisecond epochs, both
+   * required) to set the cost window. When <code>forecast=true</code>, each entry also includes
+   * <code>ootb_forecast</code> (the ML forecast before overrides) and <code>custom_forecast</code>
+   * (<code>null</code> if no override is set, a number if one is).
+   *
+   * @param budgetId Budget id. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;BudgetWithEntries&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2276,10 +2370,13 @@ public class CloudCostManagementApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<BudgetWithEntries> getBudgetWithHttpInfo(String budgetId) throws ApiException {
+  public ApiResponse<BudgetWithEntries> getBudgetWithHttpInfo(
+      String budgetId, GetBudgetOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
@@ -2287,18 +2384,28 @@ public class CloudCostManagementApi {
       throw new ApiException(
           400, "Missing the required parameter 'budgetId' when calling getBudget");
     }
+    Boolean actual = parameters.actual;
+    Boolean forecast = parameters.forecast;
+    Long start = parameters.start;
+    Long end = parameters.end;
     // create path and map variables
     String localVarPath =
         "/api/v2/cost/budget/{budget_id}"
             .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "actual", actual));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "forecast", forecast));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.CloudCostManagementApi.getBudget",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -2320,10 +2427,11 @@ public class CloudCostManagementApi {
    * <p>See {@link #getBudgetWithHttpInfo}.
    *
    * @param budgetId Budget id. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;BudgetWithEntries&gt;&gt;
    */
   public CompletableFuture<ApiResponse<BudgetWithEntries>> getBudgetWithHttpInfoAsync(
-      String budgetId) {
+      String budgetId, GetBudgetOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
@@ -2334,12 +2442,22 @@ public class CloudCostManagementApi {
               400, "Missing the required parameter 'budgetId' when calling getBudget"));
       return result;
     }
+    Boolean actual = parameters.actual;
+    Boolean forecast = parameters.forecast;
+    Long start = parameters.start;
+    Long end = parameters.end;
     // create path and map variables
     String localVarPath =
         "/api/v2/cost/budget/{budget_id}"
             .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "actual", actual));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "forecast", forecast));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
 
     Invocation.Builder builder;
     try {
@@ -2347,7 +2465,7 @@ public class CloudCostManagementApi {
           apiClient.createBuilder(
               "v2.CloudCostManagementApi.getBudget",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
