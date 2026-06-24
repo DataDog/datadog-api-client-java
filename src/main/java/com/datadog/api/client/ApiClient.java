@@ -1054,6 +1054,9 @@ public class ApiClient {
           put("v2.upsertAndPublishFormVersion", false);
           put("v2.upsertFormVersion", false);
           put("v2.updateOrgSamlConfigurations", false);
+          put("v2.getGovernanceControl", false);
+          put("v2.listGovernanceControls", false);
+          put("v2.updateGovernanceControl", false);
           put("v2.listGovernanceInsights", false);
           put("v2.createHamrOrgConnection", false);
           put("v2.getHamrOrgConnection", false);
