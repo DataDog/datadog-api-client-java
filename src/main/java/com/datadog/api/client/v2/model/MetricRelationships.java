@@ -16,66 +16,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object containing the definition of a metric's ingested and indexed volume. */
-@JsonPropertyOrder({
-  MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INDEXED_VOLUME,
-  MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME
-})
+/** Relationships for a metric. */
+@JsonPropertyOrder({MetricRelationships.JSON_PROPERTY_METRIC_VOLUMES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MetricIngestedIndexedVolumeAttributes {
+public class MetricRelationships {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INDEXED_VOLUME = "indexed_volume";
-  private Long indexedVolume;
+  public static final String JSON_PROPERTY_METRIC_VOLUMES = "metric_volumes";
+  private MetricVolumesRelationship metricVolumes;
 
-  public static final String JSON_PROPERTY_INGESTED_VOLUME = "ingested_volume";
-  private Long ingestedVolume;
-
-  public MetricIngestedIndexedVolumeAttributes indexedVolume(Long indexedVolume) {
-    this.indexedVolume = indexedVolume;
+  public MetricRelationships metricVolumes(MetricVolumesRelationship metricVolumes) {
+    this.metricVolumes = metricVolumes;
+    this.unparsed |= metricVolumes.unparsed;
     return this;
   }
 
   /**
-   * Estimated average hourly number of indexed time series for the given metric over the last hour.
-   * For organizations on Metric Name Pricing, this represents the estimated sum of indexed data
-   * points over the last hour.
+   * Relationship to a metric volume included in the response.
    *
-   * @return indexedVolume
+   * @return metricVolumes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME)
+  @JsonProperty(JSON_PROPERTY_METRIC_VOLUMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedVolume() {
-    return indexedVolume;
+  public MetricVolumesRelationship getMetricVolumes() {
+    return metricVolumes;
   }
 
-  public void setIndexedVolume(Long indexedVolume) {
-    this.indexedVolume = indexedVolume;
-  }
-
-  public MetricIngestedIndexedVolumeAttributes ingestedVolume(Long ingestedVolume) {
-    this.ingestedVolume = ingestedVolume;
-    return this;
-  }
-
-  /**
-   * Estimated average hourly number of ingested time series for the given metric over the last
-   * hour. This value is <code>0</code> for metrics not configured with Metrics Without Limits. For
-   * organizations on Metric Name Pricing, this represents the estimated sum of ingested data points
-   * over the last hour.
-   *
-   * @return ingestedVolume
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIngestedVolume() {
-    return ingestedVolume;
-  }
-
-  public void setIngestedVolume(Long ingestedVolume) {
-    this.ingestedVolume = ingestedVolume;
+  public void setMetricVolumes(MetricVolumesRelationship metricVolumes) {
+    this.metricVolumes = metricVolumes;
   }
 
   /**
@@ -90,10 +59,10 @@ public class MetricIngestedIndexedVolumeAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MetricIngestedIndexedVolumeAttributes
+   * @return MetricRelationships
    */
   @JsonAnySetter
-  public MetricIngestedIndexedVolumeAttributes putAdditionalProperty(String key, Object value) {
+  public MetricRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -124,7 +93,7 @@ public class MetricIngestedIndexedVolumeAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MetricIngestedIndexedVolumeAttributes object is equal to o. */
+  /** Return true if this MetricRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,25 +102,21 @@ public class MetricIngestedIndexedVolumeAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricIngestedIndexedVolumeAttributes metricIngestedIndexedVolumeAttributes =
-        (MetricIngestedIndexedVolumeAttributes) o;
-    return Objects.equals(this.indexedVolume, metricIngestedIndexedVolumeAttributes.indexedVolume)
-        && Objects.equals(this.ingestedVolume, metricIngestedIndexedVolumeAttributes.ingestedVolume)
-        && Objects.equals(
-            this.additionalProperties, metricIngestedIndexedVolumeAttributes.additionalProperties);
+    MetricRelationships metricRelationships = (MetricRelationships) o;
+    return Objects.equals(this.metricVolumes, metricRelationships.metricVolumes)
+        && Objects.equals(this.additionalProperties, metricRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(indexedVolume, ingestedVolume, additionalProperties);
+    return Objects.hash(metricVolumes, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MetricIngestedIndexedVolumeAttributes {\n");
-    sb.append("    indexedVolume: ").append(toIndentedString(indexedVolume)).append("\n");
-    sb.append("    ingestedVolume: ").append(toIndentedString(ingestedVolume)).append("\n");
+    sb.append("class MetricRelationships {\n");
+    sb.append("    metricVolumes: ").append(toIndentedString(metricVolumes)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

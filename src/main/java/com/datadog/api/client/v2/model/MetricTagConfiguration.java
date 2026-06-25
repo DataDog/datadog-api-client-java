@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MetricTagConfiguration.JSON_PROPERTY_ATTRIBUTES,
   MetricTagConfiguration.JSON_PROPERTY_ID,
+  MetricTagConfiguration.JSON_PROPERTY_RELATIONSHIPS,
   MetricTagConfiguration.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -31,6 +32,9 @@ public class MetricTagConfiguration {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private MetricRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private MetricTagConfigurationType type = MetricTagConfigurationType.MANAGE_TAGS;
@@ -76,6 +80,28 @@ public class MetricTagConfiguration {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public MetricTagConfiguration relationships(MetricRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationships for a metric.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MetricRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(MetricRelationships relationships) {
+    this.relationships = relationships;
   }
 
   public MetricTagConfiguration type(MetricTagConfigurationType type) {
@@ -161,13 +187,14 @@ public class MetricTagConfiguration {
     MetricTagConfiguration metricTagConfiguration = (MetricTagConfiguration) o;
     return Objects.equals(this.attributes, metricTagConfiguration.attributes)
         && Objects.equals(this.id, metricTagConfiguration.id)
+        && Objects.equals(this.relationships, metricTagConfiguration.relationships)
         && Objects.equals(this.type, metricTagConfiguration.type)
         && Objects.equals(this.additionalProperties, metricTagConfiguration.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -176,6 +203,7 @@ public class MetricTagConfiguration {
     sb.append("class MetricTagConfiguration {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
