@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_BATCH,
   ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_BATCH_ENCODING,
+  ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_DATABASE,
   ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_DATE_TIME_BEST_EFFORT,
@@ -54,6 +55,9 @@ public class ObservabilityPipelineClickhouseDestination {
 
   public static final String JSON_PROPERTY_BATCH_ENCODING = "batch_encoding";
   private ObservabilityPipelineClickhouseDestinationBatchEncoding batchEncoding;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_COMPRESSION = "compression";
   private ObservabilityPipelineClickhouseDestinationCompression compression;
@@ -177,6 +181,29 @@ public class ObservabilityPipelineClickhouseDestination {
   public void setBatchEncoding(
       ObservabilityPipelineClickhouseDestinationBatchEncoding batchEncoding) {
     this.batchEncoding = batchEncoding;
+  }
+
+  public ObservabilityPipelineClickhouseDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineClickhouseDestination compression(
@@ -509,6 +536,7 @@ public class ObservabilityPipelineClickhouseDestination {
         && Objects.equals(this.batch, observabilityPipelineClickhouseDestination.batch)
         && Objects.equals(
             this.batchEncoding, observabilityPipelineClickhouseDestination.batchEncoding)
+        && Objects.equals(this.buffer, observabilityPipelineClickhouseDestination.buffer)
         && Objects.equals(this.compression, observabilityPipelineClickhouseDestination.compression)
         && Objects.equals(this.database, observabilityPipelineClickhouseDestination.database)
         && Objects.equals(
@@ -534,6 +562,7 @@ public class ObservabilityPipelineClickhouseDestination {
         auth,
         batch,
         batchEncoding,
+        buffer,
         compression,
         database,
         dateTimeBestEffort,
@@ -555,6 +584,7 @@ public class ObservabilityPipelineClickhouseDestination {
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    batch: ").append(toIndentedString(batch)).append("\n");
     sb.append("    batchEncoding: ").append(toIndentedString(batchEncoding)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    database: ").append(toIndentedString(database)).append("\n");
     sb.append("    dateTimeBestEffort: ").append(toIndentedString(dateTimeBestEffort)).append("\n");
