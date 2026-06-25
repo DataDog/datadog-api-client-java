@@ -16,14 +16,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object for a single metric tag configuration. */
-@JsonPropertyOrder({Metric.JSON_PROPERTY_ID, Metric.JSON_PROPERTY_TYPE})
+/** Object for a single metric. */
+@JsonPropertyOrder({
+  Metric.JSON_PROPERTY_ID,
+  Metric.JSON_PROPERTY_RELATIONSHIPS,
+  Metric.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Metric {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private MetricRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private MetricType type = MetricType.METRICS;
@@ -47,6 +54,28 @@ public class Metric {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public Metric relationships(MetricRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationships for a metric.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MetricRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(MetricRelationships relationships) {
+    this.relationships = relationships;
   }
 
   public Metric type(MetricType type) {
@@ -131,13 +160,14 @@ public class Metric {
     }
     Metric metric = (Metric) o;
     return Objects.equals(this.id, metric.id)
+        && Objects.equals(this.relationships, metric.relationships)
         && Objects.equals(this.type, metric.type)
         && Objects.equals(this.additionalProperties, metric.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -145,6 +175,7 @@ public class Metric {
     StringBuilder sb = new StringBuilder();
     sb.append("class Metric {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

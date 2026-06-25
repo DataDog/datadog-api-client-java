@@ -16,66 +16,65 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object containing the definition of a metric's ingested and indexed volume. */
+/** Relationship data for a metric volume. */
 @JsonPropertyOrder({
-  MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INDEXED_VOLUME,
-  MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME
+  MetricVolumesRelationshipData.JSON_PROPERTY_ID,
+  MetricVolumesRelationshipData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MetricIngestedIndexedVolumeAttributes {
+public class MetricVolumesRelationshipData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INDEXED_VOLUME = "indexed_volume";
-  private Long indexedVolume;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_INGESTED_VOLUME = "ingested_volume";
-  private Long ingestedVolume;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private MetricIngestedIndexedVolumeType type = MetricIngestedIndexedVolumeType.METRIC_VOLUMES;
 
-  public MetricIngestedIndexedVolumeAttributes indexedVolume(Long indexedVolume) {
-    this.indexedVolume = indexedVolume;
+  public MetricVolumesRelationshipData id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Estimated average hourly number of indexed time series for the given metric over the last hour.
-   * For organizations on Metric Name Pricing, this represents the estimated sum of indexed data
-   * points over the last hour.
+   * The metric name for this resource.
    *
-   * @return indexedVolume
+   * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedVolume() {
-    return indexedVolume;
+  public String getId() {
+    return id;
   }
 
-  public void setIndexedVolume(Long indexedVolume) {
-    this.indexedVolume = indexedVolume;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public MetricIngestedIndexedVolumeAttributes ingestedVolume(Long ingestedVolume) {
-    this.ingestedVolume = ingestedVolume;
+  public MetricVolumesRelationshipData type(MetricIngestedIndexedVolumeType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Estimated average hourly number of ingested time series for the given metric over the last
-   * hour. This value is <code>0</code> for metrics not configured with Metrics Without Limits. For
-   * organizations on Metric Name Pricing, this represents the estimated sum of ingested data points
-   * over the last hour.
+   * The metric ingested and indexed volume type.
    *
-   * @return ingestedVolume
+   * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIngestedVolume() {
-    return ingestedVolume;
+  public MetricIngestedIndexedVolumeType getType() {
+    return type;
   }
 
-  public void setIngestedVolume(Long ingestedVolume) {
-    this.ingestedVolume = ingestedVolume;
+  public void setType(MetricIngestedIndexedVolumeType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -90,10 +89,10 @@ public class MetricIngestedIndexedVolumeAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MetricIngestedIndexedVolumeAttributes
+   * @return MetricVolumesRelationshipData
    */
   @JsonAnySetter
-  public MetricIngestedIndexedVolumeAttributes putAdditionalProperty(String key, Object value) {
+  public MetricVolumesRelationshipData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -124,7 +123,7 @@ public class MetricIngestedIndexedVolumeAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MetricIngestedIndexedVolumeAttributes object is equal to o. */
+  /** Return true if this MetricVolumesRelationshipData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,25 +132,24 @@ public class MetricIngestedIndexedVolumeAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricIngestedIndexedVolumeAttributes metricIngestedIndexedVolumeAttributes =
-        (MetricIngestedIndexedVolumeAttributes) o;
-    return Objects.equals(this.indexedVolume, metricIngestedIndexedVolumeAttributes.indexedVolume)
-        && Objects.equals(this.ingestedVolume, metricIngestedIndexedVolumeAttributes.ingestedVolume)
+    MetricVolumesRelationshipData metricVolumesRelationshipData = (MetricVolumesRelationshipData) o;
+    return Objects.equals(this.id, metricVolumesRelationshipData.id)
+        && Objects.equals(this.type, metricVolumesRelationshipData.type)
         && Objects.equals(
-            this.additionalProperties, metricIngestedIndexedVolumeAttributes.additionalProperties);
+            this.additionalProperties, metricVolumesRelationshipData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(indexedVolume, ingestedVolume, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MetricIngestedIndexedVolumeAttributes {\n");
-    sb.append("    indexedVolume: ").append(toIndentedString(indexedVolume)).append("\n");
-    sb.append("    ingestedVolume: ").append(toIndentedString(ingestedVolume)).append("\n");
+    sb.append("class MetricVolumesRelationshipData {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

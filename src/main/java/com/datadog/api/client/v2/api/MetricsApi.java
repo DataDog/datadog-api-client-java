@@ -2490,6 +2490,7 @@ public class MetricsApi {
   /** Manage optional parameters to listTagConfigurations. */
   public static class ListTagConfigurationsOptionalParameters {
     private Boolean filterConfigured;
+    private Boolean filterIsConfigurable;
     private String filterTagsConfigured;
     private MetricTagConfigurationMetricTypeCategory filterMetricType;
     private Boolean filterIncludePercentiles;
@@ -2497,6 +2498,8 @@ public class MetricsApi {
     private Long filterQueriedWindowSeconds;
     private String filterTags;
     private Boolean filterRelatedAssets;
+    private String include;
+    private String sort;
     private Long windowSeconds;
     private Integer pageSize;
     private String pageCursor;
@@ -2504,12 +2507,25 @@ public class MetricsApi {
     /**
      * Set filterConfigured.
      *
-     * @param filterConfigured Only return custom metrics that have been configured with Metrics
-     *     Without Limits. (optional)
+     * @param filterConfigured Only return custom metrics that have been configured (<code>true
+     *     </code>) or not configured (<code>false</code>) with Metrics Without Limits. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterConfigured(Boolean filterConfigured) {
       this.filterConfigured = filterConfigured;
+      return this;
+    }
+
+    /**
+     * Set filterIsConfigurable.
+     *
+     * @param filterIsConfigurable Only return metrics that are eligible (<code>true</code>) or
+     *     ineligible (<code>false</code>) for configuration with Metrics Without Limits. (optional)
+     * @return ListTagConfigurationsOptionalParameters
+     */
+    public ListTagConfigurationsOptionalParameters filterIsConfigurable(
+        Boolean filterIsConfigurable) {
+      this.filterIsConfigurable = filterIsConfigurable;
       return this;
     }
 
@@ -2605,6 +2621,33 @@ public class MetricsApi {
     public ListTagConfigurationsOptionalParameters filterRelatedAssets(
         Boolean filterRelatedAssets) {
       this.filterRelatedAssets = filterRelatedAssets;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Include related resources in the response. Set to <code>metric_volumes</code>
+     *     to include indexed and ingested volume counts for each metric. (optional)
+     * @return ListTagConfigurationsOptionalParameters
+     */
+    public ListTagConfigurationsOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort results by metric volume. Prefix a key with <code>-</code> for descending
+     *     order. Supported keys: <code>metric_volumes.indexed_volume</code>, <code>
+     *     metric_volumes.ingested_volume</code>, <code>metric_volumes.indexed_volume_delta</code>,
+     *     <code>metric_volumes.ingested_volume_delta</code>. Requires a paginated request (<code>
+     *     page[size]</code> or <code>page[cursor]</code>). (optional)
+     * @return ListTagConfigurationsOptionalParameters
+     */
+    public ListTagConfigurationsOptionalParameters sort(String sort) {
+      this.sort = sort;
       return this;
     }
 
@@ -2792,6 +2835,7 @@ public class MetricsApi {
       ListTagConfigurationsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Boolean filterConfigured = parameters.filterConfigured;
+    Boolean filterIsConfigurable = parameters.filterIsConfigurable;
     String filterTagsConfigured = parameters.filterTagsConfigured;
     MetricTagConfigurationMetricTypeCategory filterMetricType = parameters.filterMetricType;
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
@@ -2799,6 +2843,8 @@ public class MetricsApi {
     Long filterQueriedWindowSeconds = parameters.filterQueriedWindowSeconds;
     String filterTags = parameters.filterTags;
     Boolean filterRelatedAssets = parameters.filterRelatedAssets;
+    String include = parameters.include;
+    String sort = parameters.sort;
     Long windowSeconds = parameters.windowSeconds;
     Integer pageSize = parameters.pageSize;
     String pageCursor = parameters.pageCursor;
@@ -2810,6 +2856,8 @@ public class MetricsApi {
 
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[configured]", filterConfigured));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[is_configurable]", filterIsConfigurable));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[tags_configured]", filterTagsConfigured));
     localVarQueryParams.addAll(
@@ -2823,6 +2871,8 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[related_assets]", filterRelatedAssets));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
@@ -2859,6 +2909,7 @@ public class MetricsApi {
       listTagConfigurationsWithHttpInfoAsync(ListTagConfigurationsOptionalParameters parameters) {
     Object localVarPostBody = null;
     Boolean filterConfigured = parameters.filterConfigured;
+    Boolean filterIsConfigurable = parameters.filterIsConfigurable;
     String filterTagsConfigured = parameters.filterTagsConfigured;
     MetricTagConfigurationMetricTypeCategory filterMetricType = parameters.filterMetricType;
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
@@ -2866,6 +2917,8 @@ public class MetricsApi {
     Long filterQueriedWindowSeconds = parameters.filterQueriedWindowSeconds;
     String filterTags = parameters.filterTags;
     Boolean filterRelatedAssets = parameters.filterRelatedAssets;
+    String include = parameters.include;
+    String sort = parameters.sort;
     Long windowSeconds = parameters.windowSeconds;
     Integer pageSize = parameters.pageSize;
     String pageCursor = parameters.pageCursor;
@@ -2877,6 +2930,8 @@ public class MetricsApi {
 
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[configured]", filterConfigured));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[is_configurable]", filterIsConfigurable));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[tags_configured]", filterTagsConfigured));
     localVarQueryParams.addAll(
@@ -2890,6 +2945,8 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[related_assets]", filterRelatedAssets));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
