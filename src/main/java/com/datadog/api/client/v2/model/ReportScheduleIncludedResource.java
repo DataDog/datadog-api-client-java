@@ -128,6 +128,51 @@ public class ReportScheduleIncludedResource extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'ReportScheduleAuthor'", e);
       }
 
+      // deserialize ReportScheduleResource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ReportScheduleResource.class.equals(Integer.class)
+            || ReportScheduleResource.class.equals(Long.class)
+            || ReportScheduleResource.class.equals(Float.class)
+            || ReportScheduleResource.class.equals(Double.class)
+            || ReportScheduleResource.class.equals(Boolean.class)
+            || ReportScheduleResource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ReportScheduleResource.class.equals(Integer.class)
+                        || ReportScheduleResource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ReportScheduleResource.class.equals(Float.class)
+                        || ReportScheduleResource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ReportScheduleResource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ReportScheduleResource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ReportScheduleResource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ReportScheduleResource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ReportScheduleResource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ReportScheduleResource'", e);
+      }
+
       ReportScheduleIncludedResource ret = new ReportScheduleIncludedResource();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -163,8 +208,14 @@ public class ReportScheduleIncludedResource extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public ReportScheduleIncludedResource(ReportScheduleResource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("ReportScheduleAuthor", new GenericType<ReportScheduleAuthor>() {});
+    schemas.put("ReportScheduleResource", new GenericType<ReportScheduleResource>() {});
     JSON.registerDescendants(
         ReportScheduleIncludedResource.class, Collections.unmodifiableMap(schemas));
   }
@@ -176,7 +227,7 @@ public class ReportScheduleIncludedResource extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: ReportScheduleAuthor
+   * against the oneOf child schemas: ReportScheduleAuthor, ReportScheduleResource
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -187,18 +238,24 @@ public class ReportScheduleIncludedResource extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(ReportScheduleResource.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be ReportScheduleAuthor");
+    throw new RuntimeException(
+        "Invalid instance type. Must be ReportScheduleAuthor, ReportScheduleResource");
   }
 
   /**
-   * Get the actual instance, which can be the following: ReportScheduleAuthor
+   * Get the actual instance, which can be the following: ReportScheduleAuthor,
+   * ReportScheduleResource
    *
-   * @return The actual instance (ReportScheduleAuthor)
+   * @return The actual instance (ReportScheduleAuthor, ReportScheduleResource)
    */
   @Override
   public Object getActualInstance() {
@@ -214,5 +271,16 @@ public class ReportScheduleIncludedResource extends AbstractOpenApiSchema {
    */
   public ReportScheduleAuthor getReportScheduleAuthor() throws ClassCastException {
     return (ReportScheduleAuthor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ReportScheduleResource`. If the actual instance is not
+   * `ReportScheduleResource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ReportScheduleResource`
+   * @throws ClassCastException if the instance is not `ReportScheduleResource`
+   */
+  public ReportScheduleResource getReportScheduleResource() throws ClassCastException {
+    return (ReportScheduleResource) super.getActualInstance();
   }
 }
