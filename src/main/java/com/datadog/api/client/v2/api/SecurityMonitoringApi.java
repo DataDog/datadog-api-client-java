@@ -21,6 +21,7 @@ import com.datadog.api.client.v2.model.CreateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestArray;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
 import com.datadog.api.client.v2.model.CreateServiceNowTicketRequestArray;
+import com.datadog.api.client.v2.model.CycloneDXBom;
 import com.datadog.api.client.v2.model.DefaultRulesetsPerLanguageResponse;
 import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
@@ -16188,6 +16189,181 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<NotificationRulesListResponse>() {});
+  }
+
+  /**
+   * Import security vulnerabilities.
+   *
+   * <p>See {@link #importSecurityVulnerabilitiesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void importSecurityVulnerabilities(CycloneDXBom body) throws ApiException {
+    importSecurityVulnerabilitiesWithHttpInfo(body);
+  }
+
+  /**
+   * Import security vulnerabilities.
+   *
+   * <p>See {@link #importSecurityVulnerabilitiesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> importSecurityVulnerabilitiesAsync(CycloneDXBom body) {
+    return importSecurityVulnerabilitiesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Import security vulnerabilities from an external scanner in CycloneDX 1.5 format.
+   *
+   * <p>The payload is validated against the CycloneDX 1.5 JSON schema and the following additional
+   * constraints:
+   *
+   * <ul>
+   *   <li><code>metadata</code>, <code>metadata.component</code>, and <code>metadata.component.name
+   *       </code> are required.
+   *   <li><code>metadata.tools.components</code> must contain exactly one element with a <code>name
+   *       </code> field.
+   *   <li><code>components</code> cannot be empty. Each component requires <code>bom-ref</code>,
+   *       <code>type</code>, <code>name</code>, and <code>version</code>.
+   *   <li>When <code>type</code> is <code>library</code>, <code>purl</code> is required and must be
+   *       a valid PURL.
+   *   <li>When <code>type</code> is <code>operating-system</code>, <code>name</code> must be one of
+   *       the supported OS values: <code>alma</code>, <code>alpine</code>, <code>amazon</code>,
+   *       <code>azurelinux</code>, <code>bottlerocket</code>, <code>cbl-mariner</code>, <code>
+   *       chainguard</code>, <code>centos</code>, <code>debian</code>, <code>fedora</code>, <code>
+   *       opensuse</code>, <code>opensuse-leap</code>, <code>opensuse-tumbleweed</code>, <code>
+   *       oracle</code>, <code>photon</code>, <code>redhat</code>, <code>rocky</code>, <code>slem
+   *       </code>, <code>sles</code>, <code>ubuntu</code>, <code>wolfi</code>, <code>windows</code>
+   *       , <code>macos</code>.
+   *   <li><code>vulnerabilities</code> cannot be empty. Each vulnerability requires <code>id</code>
+   *       , exactly one <code>ratings</code> entry, and at least one <code>affects</code> entry.
+   *   <li>Each <code>affects[].ref</code> must match a <code>bom-ref</code> value in <code>
+   *       components</code>.
+   * </ul>
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Vulnerabilities accepted successfully. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> importSecurityVulnerabilitiesWithHttpInfo(CycloneDXBom body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "importSecurityVulnerabilities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling importSecurityVulnerabilities");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.importSecurityVulnerabilities",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Import security vulnerabilities.
+   *
+   * <p>See {@link #importSecurityVulnerabilitiesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> importSecurityVulnerabilitiesWithHttpInfoAsync(
+      CycloneDXBom body) {
+    // Check if unstable operation is enabled
+    String operationId = "importSecurityVulnerabilities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling importSecurityVulnerabilities"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.importSecurityVulnerabilities",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /** Manage optional parameters to listAssetsSBOMs. */
