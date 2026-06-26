@@ -137,7 +137,9 @@ public class ComplianceApi {
    * @param to Timestamp of the query end, in milliseconds since the Unix epoch. (required)
    * @return RuleBasedViewResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public RuleBasedViewResponse getRuleBasedView(Long to) throws ApiException {
     return getRuleBasedViewWithHttpInfo(to, new GetRuleBasedViewOptionalParameters()).getData();
   }
@@ -149,7 +151,9 @@ public class ComplianceApi {
    *
    * @param to Timestamp of the query end, in milliseconds since the Unix epoch. (required)
    * @return CompletableFuture&lt;RuleBasedViewResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<RuleBasedViewResponse> getRuleBasedViewAsync(Long to) {
     return getRuleBasedViewWithHttpInfoAsync(to, new GetRuleBasedViewOptionalParameters())
         .thenApply(
@@ -167,7 +171,9 @@ public class ComplianceApi {
    * @param parameters Optional parameters for the request.
    * @return RuleBasedViewResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public RuleBasedViewResponse getRuleBasedView(
       Long to, GetRuleBasedViewOptionalParameters parameters) throws ApiException {
     return getRuleBasedViewWithHttpInfo(to, parameters).getData();
@@ -181,7 +187,9 @@ public class ComplianceApi {
    * @param to Timestamp of the query end, in milliseconds since the Unix epoch. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;RuleBasedViewResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<RuleBasedViewResponse> getRuleBasedViewAsync(
       Long to, GetRuleBasedViewOptionalParameters parameters) {
     return getRuleBasedViewWithHttpInfoAsync(to, parameters)
@@ -192,7 +200,11 @@ public class ComplianceApi {
   }
 
   /**
-   * Get an aggregated view of compliance rules with their pass, fail, and muted finding counts.
+   * <strong>This endpoint is deprecated.</strong> Use the <a
+   * href="https://docs.datadoghq.com/api/latest/security-monitoring/search-security-findings/">Security
+   * Monitoring - Search Security Findings</a> endpoint instead.
+   *
+   * <p>Get an aggregated view of compliance rules with their pass, fail, and muted finding counts.
    * Supports filtering by compliance framework, framework version, and additional query filters.
    *
    * @param to Timestamp of the query end, in milliseconds since the Unix epoch. (required)
@@ -209,7 +221,10 @@ public class ComplianceApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<RuleBasedViewResponse> getRuleBasedViewWithHttpInfo(
       Long to, GetRuleBasedViewOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
@@ -278,7 +293,9 @@ public class ComplianceApi {
    * @param to Timestamp of the query end, in milliseconds since the Unix epoch. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;RuleBasedViewResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<RuleBasedViewResponse>> getRuleBasedViewWithHttpInfoAsync(
       Long to, GetRuleBasedViewOptionalParameters parameters) {
     // Check if unstable operation is enabled
