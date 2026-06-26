@@ -951,6 +951,7 @@ public class ApiClient {
           put("v2.getStaticAnalysisNodeTypes", false);
           put("v2.getStaticAnalysisRuleset", false);
           put("v2.getStaticAnalysisTreeSitterWasm", false);
+          put("v2.importSecurityVulnerabilities", false);
           put("v2.listFindings", false);
           put("v2.listHistoricalJobs", false);
           put("v2.listIndicatorsOfCompromise", false);
