@@ -12,6 +12,7 @@ import com.datadog.api.client.v1.model.MonitorOptionsSchedulingOptions;
 import com.datadog.api.client.v1.model.MonitorOptionsSchedulingOptionsEvaluationWindow;
 import com.datadog.api.client.v1.model.MonitorThresholds;
 import com.datadog.api.client.v1.model.MonitorType;
+import com.datadog.api.client.v1.model.OnMissingDataOption;
 import java.util.Collections;
 
 public class Example {
@@ -29,6 +30,7 @@ public class Example {
                     .thresholds(new MonitorThresholds().critical(0.5))
                     .notifyAudit(false)
                     .includeTags(false)
+                    .onMissingData(OnMissingDataOption.DEFAULT)
                     .schedulingOptions(
                         new MonitorOptionsSchedulingOptions()
                             .evaluationWindow(
