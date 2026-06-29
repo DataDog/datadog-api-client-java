@@ -17555,8 +17555,8 @@ public class SecurityMonitoringApi {
     /**
      * Set workedBy.
      *
-     * @param workedBy Filter indicators whose triage state was updated by a specific user UUID.
-     *     (optional)
+     * @param workedBy Filter indicators whose triage state was updated by a specific user
+     *     identified by their handle. (optional)
      * @return ListIndicatorsOfCompromiseOptionalParameters
      */
     public ListIndicatorsOfCompromiseOptionalParameters workedBy(String workedBy) {
