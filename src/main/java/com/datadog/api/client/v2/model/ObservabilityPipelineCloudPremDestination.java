@@ -29,6 +29,7 @@ import java.util.Objects;
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_INPUTS,
+  ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_TLS,
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -46,6 +47,9 @@ public class ObservabilityPipelineCloudPremDestination {
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
   private List<String> inputs = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_TLS = "tls";
+  private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineCloudPremDestinationType type =
@@ -154,6 +158,28 @@ public class ObservabilityPipelineCloudPremDestination {
     this.inputs = inputs;
   }
 
+  public ObservabilityPipelineCloudPremDestination tls(ObservabilityPipelineTls tls) {
+    this.tls = tls;
+    this.unparsed |= tls.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   *
+   * @return tls
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineTls getTls() {
+    return tls;
+  }
+
+  public void setTls(ObservabilityPipelineTls tls) {
+    this.tls = tls;
+  }
+
   public ObservabilityPipelineCloudPremDestination type(
       ObservabilityPipelineCloudPremDestinationType type) {
     this.type = type;
@@ -241,6 +267,7 @@ public class ObservabilityPipelineCloudPremDestination {
             this.endpointUrlKey, observabilityPipelineCloudPremDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineCloudPremDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineCloudPremDestination.inputs)
+        && Objects.equals(this.tls, observabilityPipelineCloudPremDestination.tls)
         && Objects.equals(this.type, observabilityPipelineCloudPremDestination.type)
         && Objects.equals(
             this.additionalProperties,
@@ -249,7 +276,7 @@ public class ObservabilityPipelineCloudPremDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buffer, endpointUrlKey, id, inputs, type, additionalProperties);
+    return Objects.hash(buffer, endpointUrlKey, id, inputs, tls, type, additionalProperties);
   }
 
   @Override
@@ -260,6 +287,7 @@ public class ObservabilityPipelineCloudPremDestination {
     sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+    sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
