@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 2.57.0/2026-06-30
+
+### Added
+* Add the uk1 data center. [#4037](https://github.com/DataDog/datadog-api-client-java/pull/4037)
+* [obs-pipelines] Add TLS support to cloud_prem destination [#4031](https://github.com/DataDog/datadog-api-client-java/pull/4031)
+* Add OpenAPI spec for k9-integration-api security findings and vulnerabilities [#4028](https://github.com/DataDog/datadog-api-client-java/pull/4028)
+* Document metrics volume includes [#4026](https://github.com/DataDog/datadog-api-client-java/pull/4026)
+* Add buffer configuration to ClickHouse destination [#4025](https://github.com/DataDog/datadog-api-client-java/pull/4025)
+* Add public API endpoints for feature flag variant create, update, and delete [#4023](https://github.com/DataDog/datadog-api-client-java/pull/4023)
+* Add public v2 OpenAPI operations for governance controls [#4021](https://github.com/DataDog/datadog-api-client-java/pull/4021)
+* Add ObservabilityPipelineClickhouseDestination to OpenAPI spec [#4020](https://github.com/DataDog/datadog-api-client-java/pull/4020)
+* Add ObservabilityPipelineWebsocketSource to schema [#4018](https://github.com/DataDog/datadog-api-client-java/pull/4018)
+* Add security_filters and rules resource types to terraform export endpoints [#4016](https://github.com/DataDog/datadog-api-client-java/pull/4016)
+* Add OpenAPI for Cloud Cost Management custom forecast endpoints [#4015](https://github.com/DataDog/datadog-api-client-java/pull/4015)
+* Add Edit and Delete Notice Update and Slack icon support in API spec [#4010](https://github.com/DataDog/datadog-api-client-java/pull/4010)
+* Add OpenAPI spec for RUM Remote Config endpoints [#4007](https://github.com/DataDog/datadog-api-client-java/pull/4007)
+* Add OpenAPI spec for code-coverage PR summary and files endpoints [#4006](https://github.com/DataDog/datadog-api-client-java/pull/4006)
+* Add public API for security findings automation rules [#4003](https://github.com/DataDog/datadog-api-client-java/pull/4003)
+* Add OpenAPI spec for governance insights [#3998](https://github.com/DataDog/datadog-api-client-java/pull/3998)
+* Add OpenAPI specs for reporting schedule endpoints [#3991](https://github.com/DataDog/datadog-api-client-java/pull/3991)
+* Add LogsArrayMapProcessor to OpenAPI v1 spec [#3964](https://github.com/DataDog/datadog-api-client-java/pull/3964)
+* Update GetBudget API spec with cost query parameters and custom forecast fields [#3963](https://github.com/DataDog/datadog-api-client-java/pull/3963)
+
+### Changed
+* Update worked_by param to accept handle instead of UUID [#4035](https://github.com/DataDog/datadog-api-client-java/pull/4035)
+* Add support for running CI jobs [#4022](https://github.com/DataDog/datadog-api-client-java/pull/4022)
+* feat(test-optimization): update service settings API with override and inherit fields [#4005](https://github.com/DataDog/datadog-api-client-java/pull/4005)
+* Mark tag indexing rule endpoints as Preview in API spec [#4004](https://github.com/DataDog/datadog-api-client-java/pull/4004)
+
+### Deprecated
+* Remove Compliance Findings rule-based view endpoint from OpenAPI v2 [#4032](https://github.com/DataDog/datadog-api-client-java/pull/4032)
+
+### Fixed
+* Fix test by adding on_missing_data options to the req payload [#4030](https://github.com/DataDog/datadog-api-client-java/pull/4030)
+
 ## 2.56.0/2026-06-17
 
 ### Added
