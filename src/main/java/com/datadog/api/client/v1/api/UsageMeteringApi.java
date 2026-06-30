@@ -7235,7 +7235,7 @@ public class UsageMeteringApi {
    * </code>, and <code>UsageSummaryDateOrg</code> are accessible through each object's <code>
    * additionalProperties</code> map. Existing typed-field getters are unchanged. New billing
    * dimensions will not have typed-field getters. Use <a
-   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-summary-available-fields">Get
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/get-available-fields-for-usage-summary/">Get
    * available fields for usage summary</a> to enumerate every available key at each response level.
    *
    * <p>This endpoint is only accessible for <a
