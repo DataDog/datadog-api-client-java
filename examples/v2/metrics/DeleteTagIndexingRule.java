@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.api.MetricsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.deleteTagIndexingRule", true);
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     // there is a valid "tag_indexing_rule" in the system

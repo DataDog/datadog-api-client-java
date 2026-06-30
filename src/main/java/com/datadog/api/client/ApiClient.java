@@ -1143,6 +1143,16 @@ public class ApiClient {
           put("v2.removeRoleFromRestrictionQuery", false);
           put("v2.replaceRestrictionQuery", false);
           put("v2.updateRestrictionQuery", false);
+          put("v2.createTagIndexingRule", false);
+          put("v2.createTagIndexingRuleExemption", false);
+          put("v2.deleteTagIndexingRule", false);
+          put("v2.deleteTagIndexingRuleExemption", false);
+          put("v2.getTagIndexingRule", false);
+          put("v2.getTagIndexingRuleExemption", false);
+          put("v2.listTagIndexingRules", false);
+          put("v2.listTagIndexingRulesForMetric", false);
+          put("v2.reorderTagIndexingRules", false);
+          put("v2.updateTagIndexingRule", false);
           put("v2.deleteModelLabRun", false);
           put("v2.getModelLabArtifactContent", false);
           put("v2.getModelLabProject", false);

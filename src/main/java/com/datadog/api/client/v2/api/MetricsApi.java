@@ -453,6 +453,13 @@ public class MetricsApi {
    */
   public ApiResponse<TagIndexingRuleResponse> createTagIndexingRuleWithHttpInfo(
       TagIndexingRuleCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createTagIndexingRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -495,6 +502,16 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<TagIndexingRuleResponse>>
       createTagIndexingRuleWithHttpInfoAsync(TagIndexingRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createTagIndexingRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -590,6 +607,13 @@ public class MetricsApi {
    */
   public ApiResponse<TagIndexingRuleExemptionResponse> createTagIndexingRuleExemptionWithHttpInfo(
       String metricName, TagIndexingRuleExemptionCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createTagIndexingRuleExemption";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
@@ -645,6 +669,17 @@ public class MetricsApi {
   public CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>>
       createTagIndexingRuleExemptionWithHttpInfoAsync(
           String metricName, TagIndexingRuleExemptionCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createTagIndexingRuleExemption";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
@@ -1047,6 +1082,13 @@ public class MetricsApi {
    *     </table>
    */
   public ApiResponse<Void> deleteTagIndexingRuleWithHttpInfo(String id) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteTagIndexingRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -1090,6 +1132,16 @@ public class MetricsApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteTagIndexingRuleWithHttpInfoAsync(String id) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteTagIndexingRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -1182,6 +1234,13 @@ public class MetricsApi {
    */
   public ApiResponse<Void> deleteTagIndexingRuleExemptionWithHttpInfo(String metricName)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteTagIndexingRuleExemption";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -1229,6 +1288,16 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteTagIndexingRuleExemptionWithHttpInfoAsync(
       String metricName) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteTagIndexingRuleExemption";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -1752,6 +1821,13 @@ public class MetricsApi {
    */
   public ApiResponse<TagIndexingRuleResponse> getTagIndexingRuleWithHttpInfo(String id)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getTagIndexingRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -1796,6 +1872,16 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<TagIndexingRuleResponse>>
       getTagIndexingRuleWithHttpInfoAsync(String id) {
+    // Check if unstable operation is enabled
+    String operationId = "getTagIndexingRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -1893,6 +1979,13 @@ public class MetricsApi {
    */
   public ApiResponse<TagIndexingRuleExemptionResponse> getTagIndexingRuleExemptionWithHttpInfo(
       String metricName) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getTagIndexingRuleExemption";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -1939,6 +2032,17 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>>
       getTagIndexingRuleExemptionWithHttpInfoAsync(String metricName) {
+    // Check if unstable operation is enabled
+    String operationId = "getTagIndexingRuleExemption";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagIndexingRuleExemptionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -3096,6 +3200,13 @@ public class MetricsApi {
    */
   public ApiResponse<TagIndexingRulesResponse> listTagIndexingRulesWithHttpInfo(
       ListTagIndexingRulesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listTagIndexingRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     Long pageLimit = parameters.pageLimit;
     Long pageOffset = parameters.pageOffset;
@@ -3140,6 +3251,16 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<TagIndexingRulesResponse>>
       listTagIndexingRulesWithHttpInfoAsync(ListTagIndexingRulesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listTagIndexingRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagIndexingRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     Long pageLimit = parameters.pageLimit;
     Long pageOffset = parameters.pageOffset;
@@ -3232,6 +3353,13 @@ public class MetricsApi {
    */
   public ApiResponse<TagIndexingRulesResponse> listTagIndexingRulesForMetricWithHttpInfo(
       String metricName) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listTagIndexingRulesForMetric";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -3278,6 +3406,16 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<TagIndexingRulesResponse>>
       listTagIndexingRulesForMetricWithHttpInfoAsync(String metricName) {
+    // Check if unstable operation is enabled
+    String operationId = "listTagIndexingRulesForMetric";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagIndexingRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -4145,6 +4283,13 @@ public class MetricsApi {
    */
   public ApiResponse<Void> reorderTagIndexingRulesWithHttpInfo(TagIndexingRuleOrderRequest body)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "reorderTagIndexingRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -4187,6 +4332,16 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<Void>> reorderTagIndexingRulesWithHttpInfoAsync(
       TagIndexingRuleOrderRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "reorderTagIndexingRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -4664,6 +4819,13 @@ public class MetricsApi {
    */
   public ApiResponse<TagIndexingRuleResponse> updateTagIndexingRuleWithHttpInfo(
       String id, TagIndexingRuleUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateTagIndexingRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'id' is set
@@ -4715,6 +4877,16 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<TagIndexingRuleResponse>>
       updateTagIndexingRuleWithHttpInfoAsync(String id, TagIndexingRuleUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateTagIndexingRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TagIndexingRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'id' is set
