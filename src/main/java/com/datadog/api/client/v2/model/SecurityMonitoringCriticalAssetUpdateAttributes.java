@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** The critical asset properties to be updated. */
 @JsonPropertyOrder({
+  SecurityMonitoringCriticalAssetUpdateAttributes.JSON_PROPERTY_DESCRIPTION,
   SecurityMonitoringCriticalAssetUpdateAttributes.JSON_PROPERTY_ENABLED,
   SecurityMonitoringCriticalAssetUpdateAttributes.JSON_PROPERTY_QUERY,
   SecurityMonitoringCriticalAssetUpdateAttributes.JSON_PROPERTY_RULE_QUERY,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringCriticalAssetUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -48,6 +52,27 @@ public class SecurityMonitoringCriticalAssetUpdateAttributes {
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Integer version;
+
+  public SecurityMonitoringCriticalAssetUpdateAttributes description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * A description of the critical asset.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
   public SecurityMonitoringCriticalAssetUpdateAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -251,7 +276,9 @@ public class SecurityMonitoringCriticalAssetUpdateAttributes {
     SecurityMonitoringCriticalAssetUpdateAttributes
         securityMonitoringCriticalAssetUpdateAttributes =
             (SecurityMonitoringCriticalAssetUpdateAttributes) o;
-    return Objects.equals(this.enabled, securityMonitoringCriticalAssetUpdateAttributes.enabled)
+    return Objects.equals(
+            this.description, securityMonitoringCriticalAssetUpdateAttributes.description)
+        && Objects.equals(this.enabled, securityMonitoringCriticalAssetUpdateAttributes.enabled)
         && Objects.equals(this.query, securityMonitoringCriticalAssetUpdateAttributes.query)
         && Objects.equals(this.ruleQuery, securityMonitoringCriticalAssetUpdateAttributes.ruleQuery)
         && Objects.equals(this.severity, securityMonitoringCriticalAssetUpdateAttributes.severity)
@@ -264,13 +291,15 @@ public class SecurityMonitoringCriticalAssetUpdateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, query, ruleQuery, severity, tags, version, additionalProperties);
+    return Objects.hash(
+        description, enabled, query, ruleQuery, severity, tags, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringCriticalAssetUpdateAttributes {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    ruleQuery: ").append(toIndentedString(ruleQuery)).append("\n");

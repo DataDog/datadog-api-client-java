@@ -23,6 +23,7 @@ import java.util.Objects;
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_CREATION_AUTHOR_ID,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_CREATION_DATE,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_CREATOR,
+  SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_DESCRIPTION,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_ENABLED,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_QUERY,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_RULE_QUERY,
@@ -45,6 +46,9 @@ public class SecurityMonitoringCriticalAssetAttributes {
 
   public static final String JSON_PROPERTY_CREATOR = "creator";
   private SecurityMonitoringUser creator;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
@@ -135,6 +139,27 @@ public class SecurityMonitoringCriticalAssetAttributes {
 
   public void setCreator(SecurityMonitoringUser creator) {
     this.creator = creator;
+  }
+
+  public SecurityMonitoringCriticalAssetAttributes description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * A description of the critical asset.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public SecurityMonitoringCriticalAssetAttributes enabled(Boolean enabled) {
@@ -405,6 +430,7 @@ public class SecurityMonitoringCriticalAssetAttributes {
             this.creationAuthorId, securityMonitoringCriticalAssetAttributes.creationAuthorId)
         && Objects.equals(this.creationDate, securityMonitoringCriticalAssetAttributes.creationDate)
         && Objects.equals(this.creator, securityMonitoringCriticalAssetAttributes.creator)
+        && Objects.equals(this.description, securityMonitoringCriticalAssetAttributes.description)
         && Objects.equals(this.enabled, securityMonitoringCriticalAssetAttributes.enabled)
         && Objects.equals(this.query, securityMonitoringCriticalAssetAttributes.query)
         && Objects.equals(this.ruleQuery, securityMonitoringCriticalAssetAttributes.ruleQuery)
@@ -426,6 +452,7 @@ public class SecurityMonitoringCriticalAssetAttributes {
         creationAuthorId,
         creationDate,
         creator,
+        description,
         enabled,
         query,
         ruleQuery,
@@ -445,6 +472,7 @@ public class SecurityMonitoringCriticalAssetAttributes {
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    ruleQuery: ").append(toIndentedString(ruleQuery)).append("\n");
