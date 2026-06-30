@@ -34,7 +34,8 @@ import java.util.Objects;
   ListStreamQuery.JSON_PROPERTY_STATES,
   ListStreamQuery.JSON_PROPERTY_STORAGE,
   ListStreamQuery.JSON_PROPERTY_SUSPECTED_CAUSES,
-  ListStreamQuery.JSON_PROPERTY_TEAM_HANDLES
+  ListStreamQuery.JSON_PROPERTY_TEAM_HANDLES,
+  ListStreamQuery.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -82,6 +83,9 @@ public class ListStreamQuery {
 
   public static final String JSON_PROPERTY_TEAM_HANDLES = "team_handles";
   private List<String> teamHandles = null;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private ListStreamQueryVersion version;
 
   public ListStreamQuery() {}
 
@@ -468,6 +472,33 @@ public class ListStreamQuery {
     this.teamHandles = teamHandles;
   }
 
+  public ListStreamQuery version(ListStreamQueryVersion version) {
+    this.version = version;
+    this.unparsed |= !version.isValid();
+    return this;
+  }
+
+  /**
+   * Version of the query for the logs transaction stream widget. When omitted, v1 query behavior is
+   * preserved. Set to <code>sequential_query</code> to use v2 behavior. <strong>This feature is in
+   * Preview.</strong>
+   *
+   * @return version
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ListStreamQueryVersion getVersion() {
+    return version;
+  }
+
+  public void setVersion(ListStreamQueryVersion version) {
+    if (!version.isValid()) {
+      this.unparsed = true;
+    }
+    this.version = version;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -539,6 +570,7 @@ public class ListStreamQuery {
         && Objects.equals(this.storage, listStreamQuery.storage)
         && Objects.equals(this.suspectedCauses, listStreamQuery.suspectedCauses)
         && Objects.equals(this.teamHandles, listStreamQuery.teamHandles)
+        && Objects.equals(this.version, listStreamQuery.version)
         && Objects.equals(this.additionalProperties, listStreamQuery.additionalProperties);
   }
 
@@ -559,6 +591,7 @@ public class ListStreamQuery {
         storage,
         suspectedCauses,
         teamHandles,
+        version,
         additionalProperties);
   }
 
@@ -582,6 +615,7 @@ public class ListStreamQuery {
     sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("    suspectedCauses: ").append(toIndentedString(suspectedCauses)).append("\n");
     sb.append("    teamHandles: ").append(toIndentedString(teamHandles)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
