@@ -64,7 +64,10 @@ public class FlakyTestsSearchFilter {
    * UI. The supported search keys are: - <code>flaky_test_state</code> - <code>flaky_test_category
    * </code> - <code>@test.name</code> - <code>@test.suite</code> - <code>@test.module</code> -
    * <code>@test.service</code> - <code>@git.repository.id_v2</code> - <code>@git.branch</code> -
-   * <code>@test.codeowners</code> - <code>env</code>
+   * <code>@test.codeowners</code> - <code>env</code> - <code>fingerprint_fqn</code>
+   *
+   * <p>Use <code>fingerprint_fqn</code> to filter by a test's stable Fingerprint FQN (the same
+   * value as the test's <code>id</code>).
    *
    * @return query
    */

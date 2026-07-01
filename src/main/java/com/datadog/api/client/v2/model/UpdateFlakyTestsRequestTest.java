@@ -51,7 +51,9 @@ public class UpdateFlakyTestsRequestTest {
 
   /**
    * The ID of the flaky test. This is the same ID returned by the Search flaky tests endpoint and
-   * corresponds to the test_fingerprint_fqn field in test run events.
+   * is the value of the <code>@test.fingerprint_fqn</code> facet on test events. You can find it by
+   * searching on <code>@test.fingerprint_fqn</code> in the Test Optimization Explorer, or by
+   * filtering the Search flaky tests endpoint with the <code>fingerprint_fqn</code> key.
    *
    * @return id
    */
