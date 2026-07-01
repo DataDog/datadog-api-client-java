@@ -12,18 +12,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Response object for a batch rows query against a reference table. */
-@JsonPropertyOrder({BatchRowsQueryResponse.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  BatchRowsQueryResponse.JSON_PROPERTY_DATA,
+  BatchRowsQueryResponse.JSON_PROPERTY_INCLUDED
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class BatchRowsQueryResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private BatchRowsQueryResponseData data;
+
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<TableRowResourceData> included = null;
 
   public BatchRowsQueryResponse data(BatchRowsQueryResponseData data) {
     this.data = data;
@@ -45,6 +53,40 @@ public class BatchRowsQueryResponse {
 
   public void setData(BatchRowsQueryResponseData data) {
     this.data = data;
+  }
+
+  public BatchRowsQueryResponse included(List<TableRowResourceData> included) {
+    this.included = included;
+    for (TableRowResourceData item : included) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public BatchRowsQueryResponse addIncludedItem(TableRowResourceData includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Full row resources matching the query, included alongside the relationship references in <code>
+   * data</code>.
+   *
+   * @return included
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TableRowResourceData> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<TableRowResourceData> included) {
+    this.included = included;
   }
 
   /**
@@ -104,12 +146,13 @@ public class BatchRowsQueryResponse {
     }
     BatchRowsQueryResponse batchRowsQueryResponse = (BatchRowsQueryResponse) o;
     return Objects.equals(this.data, batchRowsQueryResponse.data)
+        && Objects.equals(this.included, batchRowsQueryResponse.included)
         && Objects.equals(this.additionalProperties, batchRowsQueryResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(data, included, additionalProperties);
   }
 
   @Override
@@ -117,6 +160,7 @@ public class BatchRowsQueryResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class BatchRowsQueryResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
