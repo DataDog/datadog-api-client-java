@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"my-processor-group\"],\"type\":\"datadog_logs\"}],\"processor_groups\":[{\"enabled\":true,\"id\":\"my-processor-group\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"enabled\":true,\"id\":\"parse-grok-processor\",\"include\":\"*\",\"rules\":[{\"match_rules\":[{\"name\":\"MyParsingRule\",\"rule\":\"%{word:user}\"}],\"source\":\"message\"}],\"type\":\"parse_grok\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]},\"name\":\"Pipeline with Parse Grok Source Rules\"},\"type\":\"pipelines\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/obs-pipelines/pipelines/validate",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bca7a00b-7717-b67f-4393-6397923b1e3c"
+  }
+]

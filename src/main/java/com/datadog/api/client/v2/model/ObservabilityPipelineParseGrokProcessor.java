@@ -29,6 +29,7 @@ import java.util.Objects;
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_DISABLE_LIBRARY_RULES,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_ENABLED,
+  ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_FIELD,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_RULES,
@@ -47,6 +48,9 @@ public class ObservabilityPipelineParseGrokProcessor {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
+  public static final String JSON_PROPERTY_FIELD = "field";
+  private String field = "message";
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -54,7 +58,7 @@ public class ObservabilityPipelineParseGrokProcessor {
   private String include;
 
   public static final String JSON_PROPERTY_RULES = "rules";
-  private List<ObservabilityPipelineParseGrokProcessorRule> rules = new ArrayList<>();
+  private List<ObservabilityPipelineParseGrokProcessorRuleItem> rules = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineParseGrokProcessorType type =
@@ -68,7 +72,7 @@ public class ObservabilityPipelineParseGrokProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
       @JsonProperty(required = true, value = JSON_PROPERTY_RULES)
-          List<ObservabilityPipelineParseGrokProcessorRule> rules,
+          List<ObservabilityPipelineParseGrokProcessorRuleItem> rules,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineParseGrokProcessorType type) {
     this.enabled = enabled;
@@ -141,6 +145,27 @@ public class ObservabilityPipelineParseGrokProcessor {
     this.enabled = enabled;
   }
 
+  public ObservabilityPipelineParseGrokProcessor field(String field) {
+    this.field = field;
+    return this;
+  }
+
+  /**
+   * The log field to parse with the Grok rules.
+   *
+   * @return field
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getField() {
+    return field;
+  }
+
+  public void setField(String field) {
+    this.field = field;
+  }
+
   public ObservabilityPipelineParseGrokProcessor id(String id) {
     this.id = id;
     return this;
@@ -182,34 +207,33 @@ public class ObservabilityPipelineParseGrokProcessor {
   }
 
   public ObservabilityPipelineParseGrokProcessor rules(
-      List<ObservabilityPipelineParseGrokProcessorRule> rules) {
+      List<ObservabilityPipelineParseGrokProcessorRuleItem> rules) {
     this.rules = rules;
-    for (ObservabilityPipelineParseGrokProcessorRule item : rules) {
+    for (ObservabilityPipelineParseGrokProcessorRuleItem item : rules) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public ObservabilityPipelineParseGrokProcessor addRulesItem(
-      ObservabilityPipelineParseGrokProcessorRule rulesItem) {
+      ObservabilityPipelineParseGrokProcessorRuleItem rulesItem) {
     this.rules.add(rulesItem);
     this.unparsed |= rulesItem.unparsed;
     return this;
   }
 
   /**
-   * The list of Grok parsing rules. If multiple matching rules are provided, they are evaluated in
-   * order. The first successful match is applied.
+   * The list of Grok parsing rules selected by either source field or include query.
    *
    * @return rules
    */
   @JsonProperty(JSON_PROPERTY_RULES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ObservabilityPipelineParseGrokProcessorRule> getRules() {
+  public List<ObservabilityPipelineParseGrokProcessorRuleItem> getRules() {
     return rules;
   }
 
-  public void setRules(List<ObservabilityPipelineParseGrokProcessorRule> rules) {
+  public void setRules(List<ObservabilityPipelineParseGrokProcessorRuleItem> rules) {
     this.rules = rules;
   }
 
@@ -299,6 +323,7 @@ public class ObservabilityPipelineParseGrokProcessor {
             this.disableLibraryRules, observabilityPipelineParseGrokProcessor.disableLibraryRules)
         && Objects.equals(this.displayName, observabilityPipelineParseGrokProcessor.displayName)
         && Objects.equals(this.enabled, observabilityPipelineParseGrokProcessor.enabled)
+        && Objects.equals(this.field, observabilityPipelineParseGrokProcessor.field)
         && Objects.equals(this.id, observabilityPipelineParseGrokProcessor.id)
         && Objects.equals(this.include, observabilityPipelineParseGrokProcessor.include)
         && Objects.equals(this.rules, observabilityPipelineParseGrokProcessor.rules)
@@ -311,7 +336,15 @@ public class ObservabilityPipelineParseGrokProcessor {
   @Override
   public int hashCode() {
     return Objects.hash(
-        disableLibraryRules, displayName, enabled, id, include, rules, type, additionalProperties);
+        disableLibraryRules,
+        displayName,
+        enabled,
+        field,
+        id,
+        include,
+        rules,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -323,6 +356,7 @@ public class ObservabilityPipelineParseGrokProcessor {
         .append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
