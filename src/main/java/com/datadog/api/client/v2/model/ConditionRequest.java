@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,11 +17,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** Condition request payload for targeting rules. */
+/**
+ * Condition request payload for targeting rules. A condition is either an inline predicate with
+ * <code>operator</code>, <code>attribute</code>, and <code>value</code>, or a reference to a saved
+ * filter with <code>saved_filter_id</code>. The two shapes are mutually exclusive.
+ */
 @JsonPropertyOrder({
   ConditionRequest.JSON_PROPERTY_ATTRIBUTE,
   ConditionRequest.JSON_PROPERTY_OPERATOR,
+  ConditionRequest.JSON_PROPERTY_SAVED_FILTER_ID,
   ConditionRequest.JSON_PROPERTY_VALUE
 })
 @jakarta.annotation.Generated(
@@ -35,21 +40,11 @@ public class ConditionRequest {
   public static final String JSON_PROPERTY_OPERATOR = "operator";
   private ConditionOperator operator;
 
+  public static final String JSON_PROPERTY_SAVED_FILTER_ID = "saved_filter_id";
+  private UUID savedFilterId;
+
   public static final String JSON_PROPERTY_VALUE = "value";
-  private List<String> value = new ArrayList<>();
-
-  public ConditionRequest() {}
-
-  @JsonCreator
-  public ConditionRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTE) String attribute,
-      @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR) ConditionOperator operator,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) List<String> value) {
-    this.attribute = attribute;
-    this.operator = operator;
-    this.unparsed |= !operator.isValid();
-    this.value = value;
-  }
+  private List<String> value = null;
 
   public ConditionRequest attribute(String attribute) {
     this.attribute = attribute;
@@ -57,12 +52,14 @@ public class ConditionRequest {
   }
 
   /**
-   * The user or request attribute to evaluate.
+   * The user or request attribute to evaluate. Required for inline conditions; omit when <code>
+   * saved_filter_id</code> is set.
    *
    * @return attribute
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAttribute() {
     return attribute;
   }
@@ -82,8 +79,9 @@ public class ConditionRequest {
    *
    * @return operator
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPERATOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ConditionOperator getOperator() {
     return operator;
   }
@@ -95,23 +93,51 @@ public class ConditionRequest {
     this.operator = operator;
   }
 
+  public ConditionRequest savedFilterId(UUID savedFilterId) {
+    this.savedFilterId = savedFilterId;
+    return this;
+  }
+
+  /**
+   * The ID of a saved filter to reference as this condition. Mutually exclusive with <code>operator
+   * </code>, <code>attribute</code>, and <code>value</code>. When set, the saved filter's targeting
+   * rules are evaluated in place of an inline predicate.
+   *
+   * @return savedFilterId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SAVED_FILTER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UUID getSavedFilterId() {
+    return savedFilterId;
+  }
+
+  public void setSavedFilterId(UUID savedFilterId) {
+    this.savedFilterId = savedFilterId;
+  }
+
   public ConditionRequest value(List<String> value) {
     this.value = value;
     return this;
   }
 
   public ConditionRequest addValueItem(String valueItem) {
+    if (this.value == null) {
+      this.value = new ArrayList<>();
+    }
     this.value.add(valueItem);
     return this;
   }
 
   /**
-   * Values used by the selected operator.
+   * Values used by the selected operator. Required for inline conditions; omit when <code>
+   * saved_filter_id</code> is set.
    *
    * @return value
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getValue() {
     return value;
   }
@@ -178,13 +204,14 @@ public class ConditionRequest {
     ConditionRequest conditionRequest = (ConditionRequest) o;
     return Objects.equals(this.attribute, conditionRequest.attribute)
         && Objects.equals(this.operator, conditionRequest.operator)
+        && Objects.equals(this.savedFilterId, conditionRequest.savedFilterId)
         && Objects.equals(this.value, conditionRequest.value)
         && Objects.equals(this.additionalProperties, conditionRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attribute, operator, value, additionalProperties);
+    return Objects.hash(attribute, operator, savedFilterId, value, additionalProperties);
   }
 
   @Override
@@ -193,6 +220,7 @@ public class ConditionRequest {
     sb.append("class ConditionRequest {\n");
     sb.append("    attribute: ").append(toIndentedString(attribute)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+    sb.append("    savedFilterId: ").append(toIndentedString(savedFilterId)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
