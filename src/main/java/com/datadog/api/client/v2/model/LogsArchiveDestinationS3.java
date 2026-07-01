@@ -113,7 +113,9 @@ public class LogsArchiveDestinationS3 {
   }
 
   /**
-   * The S3 Archive's integration destination.
+   * The S3 Archive's integration destination. You must provide one of the following: <code>
+   * access_key_id</code> alone, or both <code>account_id</code> and <code>role_name</code>
+   * together.
    *
    * @return integration
    */
