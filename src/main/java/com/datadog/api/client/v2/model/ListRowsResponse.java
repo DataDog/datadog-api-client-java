@@ -20,7 +20,11 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Paginated list of reference table rows. */
-@JsonPropertyOrder({ListRowsResponse.JSON_PROPERTY_DATA, ListRowsResponse.JSON_PROPERTY_LINKS})
+@JsonPropertyOrder({
+  ListRowsResponse.JSON_PROPERTY_DATA,
+  ListRowsResponse.JSON_PROPERTY_LINKS,
+  ListRowsResponse.JSON_PROPERTY_META
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListRowsResponse {
@@ -30,6 +34,9 @@ public class ListRowsResponse {
 
   public static final String JSON_PROPERTY_LINKS = "links";
   private ListRowsResponseLinks links;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private ListRowsResponseMeta meta;
 
   public ListRowsResponse() {}
 
@@ -92,6 +99,28 @@ public class ListRowsResponse {
     this.links = links;
   }
 
+  public ListRowsResponse meta(ListRowsResponseMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Contains pagination details, including the continuation token for fetching additional rows.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ListRowsResponseMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(ListRowsResponseMeta meta) {
+    this.meta = meta;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -150,12 +179,13 @@ public class ListRowsResponse {
     ListRowsResponse listRowsResponse = (ListRowsResponse) o;
     return Objects.equals(this.data, listRowsResponse.data)
         && Objects.equals(this.links, listRowsResponse.links)
+        && Objects.equals(this.meta, listRowsResponse.meta)
         && Objects.equals(this.additionalProperties, listRowsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, additionalProperties);
+    return Objects.hash(data, links, meta, additionalProperties);
   }
 
   @Override
@@ -164,6 +194,7 @@ public class ListRowsResponse {
     sb.append("class ListRowsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
