@@ -63,8 +63,10 @@ public class FlakyTest {
   }
 
   /**
-   * Test's ID. This ID is the hash of the test's Fully Qualified Name and Git repository ID. On the
-   * Test Runs UI it is the same as the <code>test_fingerprint_fqn</code> tag.
+   * Test's ID. This ID is the hash of the test's Fully Qualified Name and Git repository ID. It is
+   * the value of the <code>@test.fingerprint_fqn</code> facet on test events, which you can search
+   * on in the Test Optimization Explorer to locate a specific test. To filter search results by
+   * this ID, use the <code>fingerprint_fqn</code> search key.
    *
    * @return id
    */

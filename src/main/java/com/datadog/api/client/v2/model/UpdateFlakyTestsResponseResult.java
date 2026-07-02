@@ -73,8 +73,9 @@ public class UpdateFlakyTestsResponseResult {
   }
 
   /**
-   * The ID of the flaky test from the request. This is the same ID returned by the Search flaky
-   * tests endpoint and corresponds to the test_fingerprint_fqn field in test run events.
+   * The ID of the flaky test from the request. This is the value of the <code>@test.fingerprint_fqn
+   * </code> facet on test events, the same ID accepted by the update request and returned by the
+   * Search flaky tests endpoint.
    *
    * @return id
    */
