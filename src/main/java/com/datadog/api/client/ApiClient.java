@@ -1242,6 +1242,7 @@ public class ApiClient {
           put("v2.getSLOReport", false);
           put("v2.getSLOReportJobStatus", false);
           put("v2.getSloStatus", false);
+          put("v2.createSnapshot", false);
           put("v2.getSPARecommendations", false);
           put("v2.getSPARecommendationsWithShard", false);
           put("v2.createAiCustomRule", false);
