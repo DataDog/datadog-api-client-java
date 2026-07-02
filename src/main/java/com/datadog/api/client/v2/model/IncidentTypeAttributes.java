@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Incident type's attributes. */
 @JsonPropertyOrder({
+  IncidentTypeAttributes.JSON_PROPERTY_CONFIGURATION,
   IncidentTypeAttributes.JSON_PROPERTY_CREATED_AT,
   IncidentTypeAttributes.JSON_PROPERTY_CREATED_BY,
   IncidentTypeAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -33,6 +34,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTypeAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
+  private IncidentTypeConfiguration configuration;
+
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
 
@@ -63,6 +67,30 @@ public class IncidentTypeAttributes {
   public IncidentTypeAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public IncidentTypeAttributes configuration(IncidentTypeConfiguration configuration) {
+    this.configuration = configuration;
+    this.unparsed |= configuration.unparsed;
+    return this;
+  }
+
+  /**
+   * The incident-type-scoped behavior settings. All fields are optional on update. Any field
+   * omitted from a PATCH request keeps its current value. This object is read-only on the incident
+   * type resource itself and is only mutated through the update (PATCH) endpoint.
+   *
+   * @return configuration
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentTypeConfiguration getConfiguration() {
+    return configuration;
+  }
+
+  public void setConfiguration(IncidentTypeConfiguration configuration) {
+    this.configuration = configuration;
   }
 
   /**
@@ -244,7 +272,8 @@ public class IncidentTypeAttributes {
       return false;
     }
     IncidentTypeAttributes incidentTypeAttributes = (IncidentTypeAttributes) o;
-    return Objects.equals(this.createdAt, incidentTypeAttributes.createdAt)
+    return Objects.equals(this.configuration, incidentTypeAttributes.configuration)
+        && Objects.equals(this.createdAt, incidentTypeAttributes.createdAt)
         && Objects.equals(this.createdBy, incidentTypeAttributes.createdBy)
         && Objects.equals(this.description, incidentTypeAttributes.description)
         && Objects.equals(this.isDefault, incidentTypeAttributes.isDefault)
@@ -258,6 +287,7 @@ public class IncidentTypeAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        configuration,
         createdAt,
         createdBy,
         description,
@@ -273,6 +303,7 @@ public class IncidentTypeAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentTypeAttributes {\n");
+    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
