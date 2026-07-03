@@ -86,7 +86,8 @@ public class NotificationRulePreviewResult {
    * notification rules can filter vulnerabilities based on rule types
    * application_code_vulnerability, application_library_vulnerability, attack_path,
    * container_image_vulnerability, identity_risk, misconfiguration, api_security,
-   * host_vulnerability, iac_misconfiguration, sast_vulnerability and secret_vulnerability.
+   * host_vulnerability, iac_misconfiguration, sast_vulnerability, secret_vulnerability and
+   * workload_activity.
    *
    * @return ruleType
    */
