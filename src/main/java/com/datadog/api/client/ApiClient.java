@@ -909,6 +909,7 @@ public class ApiClient {
           put("v2.getAWSCloudAuthPersonaMapping", false);
           put("v2.listAWSCloudAuthPersonaMappings", false);
           put("v2.activateContentPack", false);
+          put("v2.attachLinearIssue", false);
           put("v2.batchGetSecurityMonitoringDatasetDependencies", false);
           put("v2.bulkCreateSampleLogGenerationSubscriptions", false);
           put("v2.bulkExportSecurityMonitoringTerraformResources", false);
@@ -916,6 +917,7 @@ public class ApiClient {
           put("v2.convertJobResultToSignal", false);
           put("v2.convertSecurityMonitoringTerraformResource", false);
           put("v2.createIoCTriageState", false);
+          put("v2.createLinearIssues", false);
           put("v2.createSampleLogGenerationSubscription", false);
           put("v2.createSecurityFindingsAutomationDueDateRule", false);
           put("v2.createSecurityFindingsAutomationMuteRule", false);

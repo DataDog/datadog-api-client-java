@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.AssigneeRequest;
 import com.datadog.api.client.v2.model.AssigneeResponse;
 import com.datadog.api.client.v2.model.AttachCaseRequest;
 import com.datadog.api.client.v2.model.AttachJiraIssueRequest;
+import com.datadog.api.client.v2.model.AttachLinearIssueRequest;
 import com.datadog.api.client.v2.model.AttachServiceNowTicketRequest;
 import com.datadog.api.client.v2.model.CloudAssetType;
 import com.datadog.api.client.v2.model.ConvertJobResultsToSignalsRequest;
@@ -19,6 +20,7 @@ import com.datadog.api.client.v2.model.CreateCaseRequestArray;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestArray;
+import com.datadog.api.client.v2.model.CreateLinearIssueRequestArray;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
 import com.datadog.api.client.v2.model.CreateServiceNowTicketRequestArray;
 import com.datadog.api.client.v2.model.CycloneDXBom;
@@ -644,6 +646,159 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.attachJiraIssue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Attach security findings to a Linear issue.
+   *
+   * <p>See {@link #attachLinearIssueWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FindingCaseResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponse attachLinearIssue(AttachLinearIssueRequest body) throws ApiException {
+    return attachLinearIssueWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Attach security findings to a Linear issue.
+   *
+   * <p>See {@link #attachLinearIssueWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponse&gt;
+   */
+  public CompletableFuture<FindingCaseResponse> attachLinearIssueAsync(
+      AttachLinearIssueRequest body) {
+    return attachLinearIssueWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Attach security findings to a Linear issue by providing the Linear issue URL. You can attach up
+   * to 50 security findings per Linear issue. If the Linear issue is not linked to any case, this
+   * operation will create a case for the security findings and link the Linear issue to the newly
+   * created case. Security findings that are already attached to another Linear issue will be
+   * detached from their previous Linear issue and attached to the specified Linear issue.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponse> attachLinearIssueWithHttpInfo(
+      AttachLinearIssueRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "attachLinearIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling attachLinearIssue");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/linear_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.attachLinearIssue",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Attach security findings to a Linear issue.
+   *
+   * <p>See {@link #attachLinearIssueWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponse>> attachLinearIssueWithHttpInfoAsync(
+      AttachLinearIssueRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "attachLinearIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling attachLinearIssue"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/linear_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.attachLinearIssue",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3524,6 +3679,160 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.createJiraIssues",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
+  }
+
+  /**
+   * Create Linear issues for security findings.
+   *
+   * <p>See {@link #createLinearIssuesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FindingCaseResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponseArray createLinearIssues(CreateLinearIssueRequestArray body)
+      throws ApiException {
+    return createLinearIssuesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create Linear issues for security findings.
+   *
+   * <p>See {@link #createLinearIssuesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponseArray&gt;
+   */
+  public CompletableFuture<FindingCaseResponseArray> createLinearIssuesAsync(
+      CreateLinearIssueRequestArray body) {
+    return createLinearIssuesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create Linear issues for security findings. This operation creates a case in Datadog and a
+   * Linear issue linked to that case for bidirectional sync between Datadog and Linear. You can
+   * create up to 50 Linear issues per request and associate up to 50 security findings per Linear
+   * issue. Security findings that are already attached to another Linear issue will be detached
+   * from their previous Linear issue and attached to the newly created Linear issue.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponseArray> createLinearIssuesWithHttpInfo(
+      CreateLinearIssueRequestArray body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createLinearIssues";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createLinearIssues");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/linear_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createLinearIssues",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
+  }
+
+  /**
+   * Create Linear issues for security findings.
+   *
+   * <p>See {@link #createLinearIssuesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponseArray>>
+      createLinearIssuesWithHttpInfoAsync(CreateLinearIssueRequestArray body) {
+    // Check if unstable operation is enabled
+    String operationId = "createLinearIssues";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createLinearIssues"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/linear_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createLinearIssues",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

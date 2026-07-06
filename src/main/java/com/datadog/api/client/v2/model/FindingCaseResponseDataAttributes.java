@@ -32,6 +32,7 @@ import java.util.Objects;
   FindingCaseResponseDataAttributes.JSON_PROPERTY_INSIGHTS,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_JIRA_ISSUE,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_KEY,
+  FindingCaseResponseDataAttributes.JSON_PROPERTY_LINEAR_ISSUE,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_MODIFIED_AT,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_PRIORITY,
   FindingCaseResponseDataAttributes.JSON_PROPERTY_SERVICENOW_TICKET,
@@ -77,6 +78,9 @@ public class FindingCaseResponseDataAttributes {
 
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
+
+  public static final String JSON_PROPERTY_LINEAR_ISSUE = "linear_issue";
+  private FindingLinearIssue linearIssue;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -356,6 +360,28 @@ public class FindingCaseResponseDataAttributes {
     this.key = key;
   }
 
+  public FindingCaseResponseDataAttributes linearIssue(FindingLinearIssue linearIssue) {
+    this.linearIssue = linearIssue;
+    this.unparsed |= linearIssue.unparsed;
+    return this;
+  }
+
+  /**
+   * Linear issue associated with the case.
+   *
+   * @return linearIssue
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINEAR_ISSUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FindingLinearIssue getLinearIssue() {
+    return linearIssue;
+  }
+
+  public void setLinearIssue(FindingLinearIssue linearIssue) {
+    this.linearIssue = linearIssue;
+  }
+
   public FindingCaseResponseDataAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
@@ -594,6 +620,7 @@ public class FindingCaseResponseDataAttributes {
         && Objects.equals(this.insights, findingCaseResponseDataAttributes.insights)
         && Objects.equals(this.jiraIssue, findingCaseResponseDataAttributes.jiraIssue)
         && Objects.equals(this.key, findingCaseResponseDataAttributes.key)
+        && Objects.equals(this.linearIssue, findingCaseResponseDataAttributes.linearIssue)
         && Objects.equals(this.modifiedAt, findingCaseResponseDataAttributes.modifiedAt)
         && Objects.equals(this.priority, findingCaseResponseDataAttributes.priority)
         && Objects.equals(this.servicenowTicket, findingCaseResponseDataAttributes.servicenowTicket)
@@ -620,6 +647,7 @@ public class FindingCaseResponseDataAttributes {
         insights,
         jiraIssue,
         key,
+        linearIssue,
         modifiedAt,
         priority,
         servicenowTicket,
@@ -646,6 +674,7 @@ public class FindingCaseResponseDataAttributes {
     sb.append("    insights: ").append(toIndentedString(insights)).append("\n");
     sb.append("    jiraIssue: ").append(toIndentedString(jiraIssue)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    linearIssue: ").append(toIndentedString(linearIssue)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    servicenowTicket: ").append(toIndentedString(servicenowTicket)).append("\n");
