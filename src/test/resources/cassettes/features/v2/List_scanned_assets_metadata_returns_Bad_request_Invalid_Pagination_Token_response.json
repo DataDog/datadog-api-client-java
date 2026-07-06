@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security/sboms",
+      "path": "/api/v2/security/scanned-assets-metadata",
       "queryStringParameters": {
         "page[token]": [
           "unknown"
@@ -16,14 +16,14 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Unexpected internal error\"}]}",
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Unexpected internal error\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
         ]
       },
-      "statusCode": 404,
-      "reasonPhrase": "Not Found"
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
     },
     "times": {
       "remainingTimes": 1
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5eb3b8f5-3dd3-195c-e37e-46f12fa2d7a1"
+    "id": "62e25434-3c98-aa74-afed-678d589a7636"
   }
 ]
