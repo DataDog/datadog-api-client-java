@@ -16,14 +16,14 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Unexpected internal error\"}]}",
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Unexpected internal error\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
         ]
       },
-      "statusCode": 404,
-      "reasonPhrase": "Not Found"
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
     },
     "times": {
       "remainingTimes": 1
