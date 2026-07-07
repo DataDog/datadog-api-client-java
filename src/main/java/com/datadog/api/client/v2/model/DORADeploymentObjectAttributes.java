@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,7 +43,7 @@ public class DORADeploymentObjectAttributes {
   private String env;
 
   public static final String JSON_PROPERTY_FINISHED_AT = "finished_at";
-  private Long finishedAt;
+  private OffsetDateTime finishedAt;
 
   public static final String JSON_PROPERTY_GIT = "git";
   private DORAGitInfoResponse git;
@@ -51,7 +52,7 @@ public class DORADeploymentObjectAttributes {
   private String service;
 
   public static final String JSON_PROPERTY_STARTED_AT = "started_at";
-  private Long startedAt;
+  private OffsetDateTime startedAt;
 
   public static final String JSON_PROPERTY_TEAM = "team";
   private String team;
@@ -63,10 +64,8 @@ public class DORADeploymentObjectAttributes {
 
   @JsonCreator
   public DORADeploymentObjectAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FINISHED_AT) Long finishedAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) Long startedAt) {
-    this.finishedAt = finishedAt;
+      @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) OffsetDateTime startedAt) {
     this.service = service;
     this.startedAt = startedAt;
   }
@@ -136,23 +135,24 @@ public class DORADeploymentObjectAttributes {
     this.env = env;
   }
 
-  public DORADeploymentObjectAttributes finishedAt(Long finishedAt) {
+  public DORADeploymentObjectAttributes finishedAt(OffsetDateTime finishedAt) {
     this.finishedAt = finishedAt;
     return this;
   }
 
   /**
-   * Unix timestamp when the deployment finished.
+   * The time when the deployment finished.
    *
    * @return finishedAt
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FINISHED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getFinishedAt() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getFinishedAt() {
     return finishedAt;
   }
 
-  public void setFinishedAt(Long finishedAt) {
+  public void setFinishedAt(OffsetDateTime finishedAt) {
     this.finishedAt = finishedAt;
   }
 
@@ -198,23 +198,23 @@ public class DORADeploymentObjectAttributes {
     this.service = service;
   }
 
-  public DORADeploymentObjectAttributes startedAt(Long startedAt) {
+  public DORADeploymentObjectAttributes startedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
     return this;
   }
 
   /**
-   * Unix timestamp when the deployment started.
+   * The time when the deployment started.
    *
    * @return startedAt
    */
   @JsonProperty(JSON_PROPERTY_STARTED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getStartedAt() {
+  public OffsetDateTime getStartedAt() {
     return startedAt;
   }
 
-  public void setStartedAt(Long startedAt) {
+  public void setStartedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
   }
 

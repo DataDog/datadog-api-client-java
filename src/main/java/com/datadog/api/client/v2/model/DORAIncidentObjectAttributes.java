@@ -8,11 +8,11 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +44,7 @@ public class DORAIncidentObjectAttributes {
   private String env;
 
   public static final String JSON_PROPERTY_FINISHED_AT = "finished_at";
-  private Long finishedAt;
+  private OffsetDateTime finishedAt;
 
   public static final String JSON_PROPERTY_GIT = "git";
   private DORAGitInfo git;
@@ -59,21 +59,13 @@ public class DORAIncidentObjectAttributes {
   private String severity;
 
   public static final String JSON_PROPERTY_STARTED_AT = "started_at";
-  private Long startedAt;
+  private OffsetDateTime startedAt;
 
   public static final String JSON_PROPERTY_TEAM = "team";
   private String team;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
-
-  public DORAIncidentObjectAttributes() {}
-
-  @JsonCreator
-  public DORAIncidentObjectAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) Long startedAt) {
-    this.startedAt = startedAt;
-  }
 
   public DORAIncidentObjectAttributes customTags(List<String> customTags) {
     this.customTags = JsonNullable.<List<String>>of(customTags);
@@ -140,24 +132,24 @@ public class DORAIncidentObjectAttributes {
     this.env = env;
   }
 
-  public DORAIncidentObjectAttributes finishedAt(Long finishedAt) {
+  public DORAIncidentObjectAttributes finishedAt(OffsetDateTime finishedAt) {
     this.finishedAt = finishedAt;
     return this;
   }
 
   /**
-   * Unix timestamp when the incident finished.
+   * The time when the incident finished.
    *
    * @return finishedAt
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FINISHED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFinishedAt() {
+  public OffsetDateTime getFinishedAt() {
     return finishedAt;
   }
 
-  public void setFinishedAt(Long finishedAt) {
+  public void setFinishedAt(OffsetDateTime finishedAt) {
     this.finishedAt = finishedAt;
   }
 
@@ -254,23 +246,24 @@ public class DORAIncidentObjectAttributes {
     this.severity = severity;
   }
 
-  public DORAIncidentObjectAttributes startedAt(Long startedAt) {
+  public DORAIncidentObjectAttributes startedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
     return this;
   }
 
   /**
-   * Unix timestamp when the incident started.
+   * The time when the incident started.
    *
    * @return startedAt
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STARTED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getStartedAt() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getStartedAt() {
     return startedAt;
   }
 
-  public void setStartedAt(Long startedAt) {
+  public void setStartedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
   }
 
