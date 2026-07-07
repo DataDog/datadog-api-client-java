@@ -23,13 +23,16 @@ import java.util.Set;
 public class AssetType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("Repository", "Service", "Host", "HostImage", "Image"));
+      new HashSet<String>(
+          Arrays.asList(
+              "Repository", "Service", "Host", "HostImage", "Image", "ServerlessFunction"));
 
   public static final AssetType REPOSITORY = new AssetType("Repository");
   public static final AssetType SERVICE = new AssetType("Service");
   public static final AssetType HOST = new AssetType("Host");
   public static final AssetType HOSTIMAGE = new AssetType("HostImage");
   public static final AssetType IMAGE = new AssetType("Image");
+  public static final AssetType SERVERLESSFUNCTION = new AssetType("ServerlessFunction");
 
   AssetType(String value) {
     super(value, allowedValues);

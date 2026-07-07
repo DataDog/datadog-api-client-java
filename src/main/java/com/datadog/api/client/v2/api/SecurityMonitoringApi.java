@@ -16679,7 +16679,11 @@ public class SecurityMonitoringApi {
     /**
      * Set filterAssetType.
      *
-     * @param filterAssetType The type of the assets for the SBOM request. (optional)
+     * @param filterAssetType The type of the assets for the SBOM request. Required for initial
+     *     requests (when no <code>page[token]</code> is provided). Infrastructure types (<code>Host
+     *     </code>, <code>HostImage</code>, <code>Image</code>, <code>ServerlessFunction</code>) and
+     *     code types (<code>Repository</code>, <code>Service</code>) cannot be mixed in the same
+     *     request. (optional)
      * @return ListAssetsSBOMsOptionalParameters
      */
     public ListAssetsSBOMsOptionalParameters filterAssetType(AssetType filterAssetType) {
@@ -16808,6 +16812,13 @@ public class SecurityMonitoringApi {
 
   /**
    * Get a list of assets SBOMs for an organization.
+   *
+   * <p>The <code>filter[asset_type]</code> parameter is required for initial requests (when no
+   * <code>page[token]</code> is provided). Subsequent pages encode the asset type in the pagination
+   * token, so <code>filter[asset_type]</code> is not required for paginated requests. Mixing
+   * infrastructure asset types (<code>Host</code>, <code>HostImage</code>, <code>Image</code>,
+   * <code>ServerlessFunction</code>) with code asset types (<code>Repository</code>, <code>Service
+   * </code>) in the same request is not supported and returns a 400 error.
    *
    * <h3>Pagination</h3>
    *
