@@ -909,6 +909,7 @@ public class ApiClient {
           put("v2.getAWSCloudAuthPersonaMapping", false);
           put("v2.listAWSCloudAuthPersonaMappings", false);
           put("v2.activateContentPack", false);
+          put("v2.activateIntegration", false);
           put("v2.attachLinearIssue", false);
           put("v2.batchGetSecurityMonitoringDatasetDependencies", false);
           put("v2.bulkCreateSampleLogGenerationSubscriptions", false);
@@ -927,6 +928,7 @@ public class ApiClient {
           put("v2.createStaticAnalysisAst", false);
           put("v2.createStaticAnalysisServerAnalysis", false);
           put("v2.deactivateContentPack", false);
+          put("v2.deactivateIntegration", false);
           put("v2.deleteHistoricalJob", false);
           put("v2.deleteSampleLogGenerationSubscription", false);
           put("v2.deleteSecurityFindingsAutomationDueDateRule", false);
@@ -937,6 +939,7 @@ public class ApiClient {
           put("v2.exportSecurityMonitoringTerraformResource", false);
           put("v2.getContentPacksStates", false);
           put("v2.getEntityContext", false);
+          put("v2.getEntraIdAzureAppRegistrations", false);
           put("v2.getFinding", false);
           put("v2.getHistoricalJob", false);
           put("v2.getIndicatorOfCompromise", false);

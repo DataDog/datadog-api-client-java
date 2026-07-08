@@ -152,7 +152,8 @@ public class SecurityMonitoringIntegrationConfigUpdateAttributes {
 
   /**
    * The secrets used to authenticate against the external entity source. The accepted keys depend
-   * on the source type (for example, <code>admin_email</code> for Google Workspace).
+   * on the source type (for example, <code>admin_email</code> for Google Workspace). Not required
+   * for source types that do not use secrets (for example, <code>ENTRA_ID</code>).
    *
    * @return secrets
    */
