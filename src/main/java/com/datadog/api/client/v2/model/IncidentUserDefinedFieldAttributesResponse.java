@@ -22,7 +22,6 @@ import java.util.Objects;
 
 /** Attributes of an incident user-defined field. */
 @JsonPropertyOrder({
-  IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_ATTACHED_TO,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_CATEGORY,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_COLLECTED,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_CREATED,
@@ -33,10 +32,8 @@ import java.util.Objects;
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_MODIFIED,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_NAME,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_ORDINAL,
-  IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_PREREQUISITE,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_REQUIRED,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_RESERVED,
-  IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_TABLE_ID,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_TAG_KEY,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_TYPE,
   IncidentUserDefinedFieldAttributesResponse.JSON_PROPERTY_VALID_VALUES
@@ -45,9 +42,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentUserDefinedFieldAttributesResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTACHED_TO = "attached_to";
-  private String attachedTo;
-
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private IncidentUserDefinedFieldCategory category;
 
@@ -78,17 +72,11 @@ public class IncidentUserDefinedFieldAttributesResponse {
   public static final String JSON_PROPERTY_ORDINAL = "ordinal";
   private String ordinal;
 
-  public static final String JSON_PROPERTY_PREREQUISITE = "prerequisite";
-  private String prerequisite;
-
   public static final String JSON_PROPERTY_REQUIRED = "required";
   private Boolean required;
 
   public static final String JSON_PROPERTY_RESERVED = "reserved";
   private Boolean reserved;
-
-  public static final String JSON_PROPERTY_TABLE_ID = "table_id";
-  private Long tableId;
 
   public static final String JSON_PROPERTY_TAG_KEY = "tag_key";
   private String tagKey;
@@ -103,7 +91,6 @@ public class IncidentUserDefinedFieldAttributesResponse {
 
   @JsonCreator
   public IncidentUserDefinedFieldAttributesResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTACHED_TO) String attachedTo,
       @JsonProperty(required = true, value = JSON_PROPERTY_CATEGORY)
           IncidentUserDefinedFieldCategory category,
       @JsonProperty(required = true, value = JSON_PROPERTY_COLLECTED)
@@ -117,15 +104,12 @@ public class IncidentUserDefinedFieldAttributesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED) OffsetDateTime modified,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_ORDINAL) String ordinal,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PREREQUISITE) String prerequisite,
       @JsonProperty(required = true, value = JSON_PROPERTY_REQUIRED) Boolean required,
       @JsonProperty(required = true, value = JSON_PROPERTY_RESERVED) Boolean reserved,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TABLE_ID) Long tableId,
       @JsonProperty(required = true, value = JSON_PROPERTY_TAG_KEY) String tagKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) Integer type,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALID_VALUES)
           List<IncidentUserDefinedFieldValidValue> validValues) {
-    this.attachedTo = attachedTo;
     this.category = category;
     if (category != null) {
       this.unparsed |= !category.isValid();
@@ -149,28 +133,14 @@ public class IncidentUserDefinedFieldAttributesResponse {
     this.name = name;
     this.ordinal = ordinal;
     if (ordinal != null) {}
-    this.prerequisite = prerequisite;
-    if (prerequisite != null) {}
     this.required = required;
     this.reserved = reserved;
-    this.tableId = tableId;
     this.tagKey = tagKey;
     if (tagKey != null) {}
     this.type = type;
     if (type != null) {}
     this.validValues = validValues;
     if (validValues != null) {}
-  }
-
-  /**
-   * The resource type this field is attached to. Always "incidents".
-   *
-   * @return attachedTo
-   */
-  @JsonProperty(JSON_PROPERTY_ATTACHED_TO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAttachedTo() {
-    return attachedTo;
   }
 
   public IncidentUserDefinedFieldAttributesResponse category(
@@ -376,18 +346,6 @@ public class IncidentUserDefinedFieldAttributesResponse {
     this.ordinal = ordinal;
   }
 
-  /**
-   * Reserved for future use. Always null.
-   *
-   * @return prerequisite
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PREREQUISITE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPrerequisite() {
-    return prerequisite;
-  }
-
   public IncidentUserDefinedFieldAttributesResponse required(Boolean required) {
     this.required = required;
     return this;
@@ -417,17 +375,6 @@ public class IncidentUserDefinedFieldAttributesResponse {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getReserved() {
     return reserved;
-  }
-
-  /**
-   * Reserved for internal use. Always 0.
-   *
-   * @return tableId
-   */
-  @JsonProperty(JSON_PROPERTY_TABLE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getTableId() {
-    return tableId;
   }
 
   public IncidentUserDefinedFieldAttributesResponse tagKey(String tagKey) {
@@ -565,8 +512,7 @@ public class IncidentUserDefinedFieldAttributesResponse {
     }
     IncidentUserDefinedFieldAttributesResponse incidentUserDefinedFieldAttributesResponse =
         (IncidentUserDefinedFieldAttributesResponse) o;
-    return Objects.equals(this.attachedTo, incidentUserDefinedFieldAttributesResponse.attachedTo)
-        && Objects.equals(this.category, incidentUserDefinedFieldAttributesResponse.category)
+    return Objects.equals(this.category, incidentUserDefinedFieldAttributesResponse.category)
         && Objects.equals(this.collected, incidentUserDefinedFieldAttributesResponse.collected)
         && Objects.equals(this.created, incidentUserDefinedFieldAttributesResponse.created)
         && Objects.equals(
@@ -577,11 +523,8 @@ public class IncidentUserDefinedFieldAttributesResponse {
         && Objects.equals(this.modified, incidentUserDefinedFieldAttributesResponse.modified)
         && Objects.equals(this.name, incidentUserDefinedFieldAttributesResponse.name)
         && Objects.equals(this.ordinal, incidentUserDefinedFieldAttributesResponse.ordinal)
-        && Objects.equals(
-            this.prerequisite, incidentUserDefinedFieldAttributesResponse.prerequisite)
         && Objects.equals(this.required, incidentUserDefinedFieldAttributesResponse.required)
         && Objects.equals(this.reserved, incidentUserDefinedFieldAttributesResponse.reserved)
-        && Objects.equals(this.tableId, incidentUserDefinedFieldAttributesResponse.tableId)
         && Objects.equals(this.tagKey, incidentUserDefinedFieldAttributesResponse.tagKey)
         && Objects.equals(this.type, incidentUserDefinedFieldAttributesResponse.type)
         && Objects.equals(this.validValues, incidentUserDefinedFieldAttributesResponse.validValues)
@@ -593,7 +536,6 @@ public class IncidentUserDefinedFieldAttributesResponse {
   @Override
   public int hashCode() {
     return Objects.hash(
-        attachedTo,
         category,
         collected,
         created,
@@ -604,10 +546,8 @@ public class IncidentUserDefinedFieldAttributesResponse {
         modified,
         name,
         ordinal,
-        prerequisite,
         required,
         reserved,
-        tableId,
         tagKey,
         type,
         validValues,
@@ -618,7 +558,6 @@ public class IncidentUserDefinedFieldAttributesResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentUserDefinedFieldAttributesResponse {\n");
-    sb.append("    attachedTo: ").append(toIndentedString(attachedTo)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    collected: ").append(toIndentedString(collected)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
@@ -629,10 +568,8 @@ public class IncidentUserDefinedFieldAttributesResponse {
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ordinal: ").append(toIndentedString(ordinal)).append("\n");
-    sb.append("    prerequisite: ").append(toIndentedString(prerequisite)).append("\n");
     sb.append("    required: ").append(toIndentedString(required)).append("\n");
     sb.append("    reserved: ").append(toIndentedString(reserved)).append("\n");
-    sb.append("    tableId: ").append(toIndentedString(tableId)).append("\n");
     sb.append("    tagKey: ").append(toIndentedString(tagKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    validValues: ").append(toIndentedString(validValues)).append("\n");
