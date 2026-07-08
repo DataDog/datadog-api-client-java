@@ -6,7 +6,7 @@
       "path": "/api/v2/security/sboms",
       "queryStringParameters": {
         "page[token]": [
-          "unknown"
+          "SERVICE:unknown"
         ],
         "page[number]": [
           "1"
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad request: asset_type\",\"detail\":\"asset_type filter is required\"}]}",
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Unexpected internal error\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5eb3b8f5-3dd3-195c-e37e-46f12fa2d7a1"
+    "id": "ba0ed496-453c-e8e1-0a23-16ea3ab92b2f"
   }
 ]
