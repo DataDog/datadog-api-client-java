@@ -16,7 +16,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Updated host map. */
+/**
+ * Deprecated - Legacy metric-based host map request. Use the infrastructure-backed (<code>
+ * request_type: infrastructure_hostmap</code>) or DDSQL (<code>request_type: data_projection</code>
+ * ) format instead.
+ *
+ * @deprecated
+ */
+@Deprecated
 @JsonPropertyOrder({
   HostMapRequest.JSON_PROPERTY_APM_QUERY,
   HostMapRequest.JSON_PROPERTY_EVENT_QUERY,

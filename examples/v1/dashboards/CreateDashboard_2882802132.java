@@ -9,12 +9,12 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.client.v1.model.HostMapWidgetDefinition;
+import com.datadog.api.client.v1.model.HostMapWidgetDefinitionRequestType;
 import com.datadog.api.client.v1.model.HostMapWidgetDefinitionRequests;
 import com.datadog.api.client.v1.model.HostMapWidgetDefinitionType;
 import com.datadog.api.client.v1.model.HostMapWidgetDimension;
 import com.datadog.api.client.v1.model.HostMapWidgetFormula;
 import com.datadog.api.client.v1.model.HostMapWidgetGroupBy;
-import com.datadog.api.client.v1.model.HostMapWidgetInfrastructureRequestRequestType;
 import com.datadog.api.client.v1.model.HostMapWidgetInfrastructureStyle;
 import com.datadog.api.client.v1.model.HostMapWidgetNodeType;
 import com.datadog.api.client.v1.model.HostMapWidgetScalarRequest;
@@ -48,7 +48,7 @@ public class Example {
                                     .requests(
                                         new HostMapWidgetDefinitionRequests()
                                             .requestType(
-                                                HostMapWidgetInfrastructureRequestRequestType
+                                                HostMapWidgetDefinitionRequestType
                                                     .INFRASTRUCTURE_HOSTMAP)
                                             .nodeType(HostMapWidgetNodeType.HOST)
                                             .filter("env:prod")

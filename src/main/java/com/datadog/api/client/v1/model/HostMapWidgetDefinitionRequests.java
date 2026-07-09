@@ -19,10 +19,11 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Query definition for the host map widget. Supports two mutually exclusive formats distinguished
- * by the presence of <code>request_type</code>: the legacy metric-based format (<code>fill</code>/
- * <code>size</code>) and the infrastructure-backed format (<code>request_type</code>, <code>
- * node_type</code>, <code>enrichments</code>).
+ * Query definition for the host map widget. Supports three mutually exclusive formats distinguished
+ * by <code>request_type</code>: the deprecated legacy metric-based format (<code>fill</code>/<code>
+ * size</code>, no <code>request_type</code>), the infrastructure-backed format (<code>
+ * request_type: infrastructure_hostmap</code>), and the DDSQL published-dataset format (<code>
+ * request_type: data_projection</code>).
  */
 @JsonPropertyOrder({
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_CHILD,
@@ -31,9 +32,12 @@ import java.util.Objects;
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILL,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILTER,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_GROUP_BY,
+  HostMapWidgetDefinitionRequests.JSON_PROPERTY_LIMIT,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_NO_GROUP_HOSTS,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_NO_METRIC_HOSTS,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_NODE_TYPE,
+  HostMapWidgetDefinitionRequests.JSON_PROPERTY_PROJECTION,
+  HostMapWidgetDefinitionRequests.JSON_PROPERTY_QUERY,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_REQUEST_TYPE,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_SIZE,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_STYLE
@@ -60,6 +64,9 @@ public class HostMapWidgetDefinitionRequests {
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private List<HostMapWidgetGroupBy> groupBy = null;
 
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private Long limit;
+
   public static final String JSON_PROPERTY_NO_GROUP_HOSTS = "no_group_hosts";
   private Boolean noGroupHosts;
 
@@ -69,8 +76,14 @@ public class HostMapWidgetDefinitionRequests {
   public static final String JSON_PROPERTY_NODE_TYPE = "node_type";
   private HostMapWidgetNodeType nodeType;
 
+  public static final String JSON_PROPERTY_PROJECTION = "projection";
+  private HostMapWidgetProjection projection;
+
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private DatasetListQuery query;
+
   public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
-  private HostMapWidgetInfrastructureRequestRequestType requestType;
+  private HostMapWidgetDefinitionRequestType requestType;
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private HostMapRequest size;
@@ -156,6 +169,7 @@ public class HostMapWidgetDefinitionRequests {
 
   /**
    * Metric or event queries joined to the entity set. Each formula specifies a visual dimension.
+   * Only used by the infrastructure-backed format.
    *
    * @return enrichments
    */
@@ -177,10 +191,14 @@ public class HostMapWidgetDefinitionRequests {
   }
 
   /**
-   * Updated host map.
+   * Deprecated - Legacy metric-based host map request. Use the infrastructure-backed (<code>
+   * request_type: infrastructure_hostmap</code>) or DDSQL (<code>request_type: data_projection
+   * </code>) format instead.
    *
    * @return fill
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,6 +206,7 @@ public class HostMapWidgetDefinitionRequests {
     return fill;
   }
 
+  @Deprecated
   public void setFill(HostMapRequest fill) {
     this.fill = fill;
   }
@@ -198,7 +217,8 @@ public class HostMapWidgetDefinitionRequests {
   }
 
   /**
-   * Filter string for the entity set in tag format (for example, <code>env:prod</code>).
+   * Filter string for the entity set in tag format (for example, <code>env:prod</code>). Only used
+   * by the infrastructure-backed format.
    *
    * @return filter
    */
@@ -232,7 +252,7 @@ public class HostMapWidgetDefinitionRequests {
 
   /**
    * Defines how entities are grouped into tiles. The ordering of entries implies the grouping
-   * hierarchy.
+   * hierarchy. Only used by the infrastructure-backed format.
    *
    * @return groupBy
    */
@@ -245,6 +265,27 @@ public class HostMapWidgetDefinitionRequests {
 
   public void setGroupBy(List<HostMapWidgetGroupBy> groupBy) {
     this.groupBy = groupBy;
+  }
+
+  public HostMapWidgetDefinitionRequests limit(Long limit) {
+    this.limit = limit;
+    return this;
+  }
+
+  /**
+   * Maximum number of rows to return from the dataset query. Only used by the DDSQL format.
+   *
+   * @return limit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
   }
 
   public HostMapWidgetDefinitionRequests noGroupHosts(Boolean noGroupHosts) {
@@ -314,26 +355,75 @@ public class HostMapWidgetDefinitionRequests {
     this.nodeType = nodeType;
   }
 
+  public HostMapWidgetDefinitionRequests projection(HostMapWidgetProjection projection) {
+    this.projection = projection;
+    this.unparsed |= projection.unparsed;
+    return this;
+  }
+
+  /**
+   * Projection for the DDSQL host map request. Maps dataset columns to map dimensions: <code>node
+   * </code> identifies the entity, repeated <code>group</code> entries define the grouping
+   * hierarchy (outermost first), and <code>fill</code>/<code>size</code> drive the tile color and
+   * size.
+   *
+   * @return projection
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROJECTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public HostMapWidgetProjection getProjection() {
+    return projection;
+  }
+
+  public void setProjection(HostMapWidgetProjection projection) {
+    this.projection = projection;
+  }
+
+  public HostMapWidgetDefinitionRequests query(DatasetListQuery query) {
+    this.query = query;
+    this.unparsed |= query.unparsed;
+    return this;
+  }
+
+  /**
+   * Query that lists the rows of a published dataset (a DDSQL query) without aggregation.
+   *
+   * @return query
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DatasetListQuery getQuery() {
+    return query;
+  }
+
+  public void setQuery(DatasetListQuery query) {
+    this.query = query;
+  }
+
   public HostMapWidgetDefinitionRequests requestType(
-      HostMapWidgetInfrastructureRequestRequestType requestType) {
+      HostMapWidgetDefinitionRequestType requestType) {
     this.requestType = requestType;
     this.unparsed |= !requestType.isValid();
     return this;
   }
 
   /**
-   * Identifies this as an infrastructure-backed host map request.
+   * Identifies which host map request format the sibling fields on <code>
+   * HostMapWidgetDefinitionRequests</code> describe: an infrastructure-backed request or a DDSQL
+   * published-dataset request.
    *
    * @return requestType
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HostMapWidgetInfrastructureRequestRequestType getRequestType() {
+  public HostMapWidgetDefinitionRequestType getRequestType() {
     return requestType;
   }
 
-  public void setRequestType(HostMapWidgetInfrastructureRequestRequestType requestType) {
+  public void setRequestType(HostMapWidgetDefinitionRequestType requestType) {
     if (!requestType.isValid()) {
       this.unparsed = true;
     }
@@ -347,10 +437,14 @@ public class HostMapWidgetDefinitionRequests {
   }
 
   /**
-   * Updated host map.
+   * Deprecated - Legacy metric-based host map request. Use the infrastructure-backed (<code>
+   * request_type: infrastructure_hostmap</code>) or DDSQL (<code>request_type: data_projection
+   * </code>) format instead.
    *
    * @return size
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -358,6 +452,7 @@ public class HostMapWidgetDefinitionRequests {
     return size;
   }
 
+  @Deprecated
   public void setSize(HostMapRequest size) {
     this.size = size;
   }
@@ -448,9 +543,12 @@ public class HostMapWidgetDefinitionRequests {
         && Objects.equals(this.fill, hostMapWidgetDefinitionRequests.fill)
         && Objects.equals(this.filter, hostMapWidgetDefinitionRequests.filter)
         && Objects.equals(this.groupBy, hostMapWidgetDefinitionRequests.groupBy)
+        && Objects.equals(this.limit, hostMapWidgetDefinitionRequests.limit)
         && Objects.equals(this.noGroupHosts, hostMapWidgetDefinitionRequests.noGroupHosts)
         && Objects.equals(this.noMetricHosts, hostMapWidgetDefinitionRequests.noMetricHosts)
         && Objects.equals(this.nodeType, hostMapWidgetDefinitionRequests.nodeType)
+        && Objects.equals(this.projection, hostMapWidgetDefinitionRequests.projection)
+        && Objects.equals(this.query, hostMapWidgetDefinitionRequests.query)
         && Objects.equals(this.requestType, hostMapWidgetDefinitionRequests.requestType)
         && Objects.equals(this.size, hostMapWidgetDefinitionRequests.size)
         && Objects.equals(this.style, hostMapWidgetDefinitionRequests.style)
@@ -467,9 +565,12 @@ public class HostMapWidgetDefinitionRequests {
         fill,
         filter,
         groupBy,
+        limit,
         noGroupHosts,
         noMetricHosts,
         nodeType,
+        projection,
+        query,
         requestType,
         size,
         style,
@@ -486,9 +587,12 @@ public class HostMapWidgetDefinitionRequests {
     sb.append("    fill: ").append(toIndentedString(fill)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    noGroupHosts: ").append(toIndentedString(noGroupHosts)).append("\n");
     sb.append("    noMetricHosts: ").append(toIndentedString(noMetricHosts)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
+    sb.append("    projection: ").append(toIndentedString(projection)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
