@@ -18,16 +18,21 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Visual dimension driven by a formula in the infrastructure host map widget. */
+/**
+ * Visual dimension for the host map widget. Used both by infrastructure-backed formulas and by
+ * DDSQL projection columns; <code>group</code> is only meaningful for DDSQL projection columns,
+ * where repeated entries define the grouping hierarchy.
+ */
 @JsonSerialize(using = HostMapWidgetDimension.HostMapWidgetDimensionSerializer.class)
 public class HostMapWidgetDimension extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("node", "fill", "size"));
+      new HashSet<String>(Arrays.asList("node", "fill", "size", "group"));
 
   public static final HostMapWidgetDimension NODE = new HostMapWidgetDimension("node");
   public static final HostMapWidgetDimension FILL = new HostMapWidgetDimension("fill");
   public static final HostMapWidgetDimension SIZE = new HostMapWidgetDimension("size");
+  public static final HostMapWidgetDimension GROUP = new HostMapWidgetDimension("group");
 
   HostMapWidgetDimension(String value) {
     super(value, allowedValues);

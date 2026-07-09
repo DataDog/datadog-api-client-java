@@ -17,51 +17,48 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Formula for the infrastructure host map widget that specifies both the expression and the visual
- * dimension it populates.
- */
+/** Maps a dataset column to a host map visual dimension. */
 @JsonPropertyOrder({
-  HostMapWidgetFormula.JSON_PROPERTY_ALIAS,
-  HostMapWidgetFormula.JSON_PROPERTY_DIMENSION,
-  HostMapWidgetFormula.JSON_PROPERTY_FORMULA,
-  HostMapWidgetFormula.JSON_PROPERTY_NUMBER_FORMAT
+  HostMapWidgetProjectionDimensionMapping.JSON_PROPERTY_ALIAS,
+  HostMapWidgetProjectionDimensionMapping.JSON_PROPERTY_COLUMN,
+  HostMapWidgetProjectionDimensionMapping.JSON_PROPERTY_DIMENSION,
+  HostMapWidgetProjectionDimensionMapping.JSON_PROPERTY_NUMBER_FORMAT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HostMapWidgetFormula {
+public class HostMapWidgetProjectionDimensionMapping {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
 
+  public static final String JSON_PROPERTY_COLUMN = "column";
+  private String column;
+
   public static final String JSON_PROPERTY_DIMENSION = "dimension";
   private HostMapWidgetDimension dimension;
-
-  public static final String JSON_PROPERTY_FORMULA = "formula";
-  private String formula;
 
   public static final String JSON_PROPERTY_NUMBER_FORMAT = "number_format";
   private WidgetNumberFormat numberFormat;
 
-  public HostMapWidgetFormula() {}
+  public HostMapWidgetProjectionDimensionMapping() {}
 
   @JsonCreator
-  public HostMapWidgetFormula(
+  public HostMapWidgetProjectionDimensionMapping(
+      @JsonProperty(required = true, value = JSON_PROPERTY_COLUMN) String column,
       @JsonProperty(required = true, value = JSON_PROPERTY_DIMENSION)
-          HostMapWidgetDimension dimension,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FORMULA) String formula) {
+          HostMapWidgetDimension dimension) {
+    this.column = column;
     this.dimension = dimension;
     this.unparsed |= !dimension.isValid();
-    this.formula = formula;
   }
 
-  public HostMapWidgetFormula alias(String alias) {
+  public HostMapWidgetProjectionDimensionMapping alias(String alias) {
     this.alias = alias;
     return this;
   }
 
   /**
-   * Expression alias.
+   * Alias used to label the column instead of its name.
    *
    * @return alias
    */
@@ -76,7 +73,27 @@ public class HostMapWidgetFormula {
     this.alias = alias;
   }
 
-  public HostMapWidgetFormula dimension(HostMapWidgetDimension dimension) {
+  public HostMapWidgetProjectionDimensionMapping column(String column) {
+    this.column = column;
+    return this;
+  }
+
+  /**
+   * Source column name from the dataset.
+   *
+   * @return column
+   */
+  @JsonProperty(JSON_PROPERTY_COLUMN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getColumn() {
+    return column;
+  }
+
+  public void setColumn(String column) {
+    this.column = column;
+  }
+
+  public HostMapWidgetProjectionDimensionMapping dimension(HostMapWidgetDimension dimension) {
     this.dimension = dimension;
     this.unparsed |= !dimension.isValid();
     return this;
@@ -102,27 +119,7 @@ public class HostMapWidgetFormula {
     this.dimension = dimension;
   }
 
-  public HostMapWidgetFormula formula(String formula) {
-    this.formula = formula;
-    return this;
-  }
-
-  /**
-   * String expression built from queries, formulas, and functions.
-   *
-   * @return formula
-   */
-  @JsonProperty(JSON_PROPERTY_FORMULA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFormula() {
-    return formula;
-  }
-
-  public void setFormula(String formula) {
-    this.formula = formula;
-  }
-
-  public HostMapWidgetFormula numberFormat(WidgetNumberFormat numberFormat) {
+  public HostMapWidgetProjectionDimensionMapping numberFormat(WidgetNumberFormat numberFormat) {
     this.numberFormat = numberFormat;
     this.unparsed |= numberFormat.unparsed;
     return this;
@@ -156,10 +153,10 @@ public class HostMapWidgetFormula {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HostMapWidgetFormula
+   * @return HostMapWidgetProjectionDimensionMapping
    */
   @JsonAnySetter
-  public HostMapWidgetFormula putAdditionalProperty(String key, Object value) {
+  public HostMapWidgetProjectionDimensionMapping putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -190,7 +187,7 @@ public class HostMapWidgetFormula {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HostMapWidgetFormula object is equal to o. */
+  /** Return true if this HostMapWidgetProjectionDimensionMapping object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -199,26 +196,29 @@ public class HostMapWidgetFormula {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HostMapWidgetFormula hostMapWidgetFormula = (HostMapWidgetFormula) o;
-    return Objects.equals(this.alias, hostMapWidgetFormula.alias)
-        && Objects.equals(this.dimension, hostMapWidgetFormula.dimension)
-        && Objects.equals(this.formula, hostMapWidgetFormula.formula)
-        && Objects.equals(this.numberFormat, hostMapWidgetFormula.numberFormat)
-        && Objects.equals(this.additionalProperties, hostMapWidgetFormula.additionalProperties);
+    HostMapWidgetProjectionDimensionMapping hostMapWidgetProjectionDimensionMapping =
+        (HostMapWidgetProjectionDimensionMapping) o;
+    return Objects.equals(this.alias, hostMapWidgetProjectionDimensionMapping.alias)
+        && Objects.equals(this.column, hostMapWidgetProjectionDimensionMapping.column)
+        && Objects.equals(this.dimension, hostMapWidgetProjectionDimensionMapping.dimension)
+        && Objects.equals(this.numberFormat, hostMapWidgetProjectionDimensionMapping.numberFormat)
+        && Objects.equals(
+            this.additionalProperties,
+            hostMapWidgetProjectionDimensionMapping.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alias, dimension, formula, numberFormat, additionalProperties);
+    return Objects.hash(alias, column, dimension, numberFormat, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HostMapWidgetFormula {\n");
+    sb.append("class HostMapWidgetProjectionDimensionMapping {\n");
     sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
+    sb.append("    column: ").append(toIndentedString(column)).append("\n");
     sb.append("    dimension: ").append(toIndentedString(dimension)).append("\n");
-    sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
     sb.append("    numberFormat: ").append(toIndentedString(numberFormat)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -166,10 +166,14 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * List of tag prefixes to group by.
+   * Deprecated - Only used by the legacy metric-based format. Use <code>group_by</code>
+   * (infrastructure) or a <code>group</code> dimension (DDSQL) inside <code>requests</code>
+   * instead.
    *
    * @return group
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,6 +181,7 @@ public class HostMapWidgetDefinition {
     return group;
   }
 
+  @Deprecated
   public void setGroup(List<String> group) {
     this.group = group;
   }
@@ -187,10 +192,13 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * Whether to show the hosts that don’t fit in a group.
+   * Deprecated - Only used by the legacy metric-based format. Use <code>no_group_hosts</code>
+   * inside <code>requests</code> instead.
    *
    * @return noGroupHosts
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NO_GROUP_HOSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,6 +206,7 @@ public class HostMapWidgetDefinition {
     return noGroupHosts;
   }
 
+  @Deprecated
   public void setNoGroupHosts(Boolean noGroupHosts) {
     this.noGroupHosts = noGroupHosts;
   }
@@ -208,10 +217,13 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * Whether to show the hosts with no metrics.
+   * Deprecated - Only used by the legacy metric-based format. Use <code>no_metric_hosts</code>
+   * inside <code>requests</code> instead.
    *
    * @return noMetricHosts
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NO_METRIC_HOSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,6 +231,7 @@ public class HostMapWidgetDefinition {
     return noMetricHosts;
   }
 
+  @Deprecated
   public void setNoMetricHosts(Boolean noMetricHosts) {
     this.noMetricHosts = noMetricHosts;
   }
@@ -276,10 +289,11 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * Query definition for the host map widget. Supports two mutually exclusive formats distinguished
-   * by the presence of <code>request_type</code>: the legacy metric-based format (<code>fill</code>
-   * /<code>size</code>) and the infrastructure-backed format (<code>request_type</code>, <code>
-   * node_type</code>, <code>enrichments</code>).
+   * Query definition for the host map widget. Supports three mutually exclusive formats
+   * distinguished by <code>request_type</code>: the deprecated legacy metric-based format (<code>
+   * fill</code>/<code>size</code>, no <code>request_type</code>), the infrastructure-backed format
+   * (<code>request_type: infrastructure_hostmap</code>), and the DDSQL published-dataset format (
+   * <code>request_type: data_projection</code>).
    *
    * @return requests
    */
@@ -307,10 +321,13 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * List of tags used to filter the map.
+   * Deprecated - Only used by the legacy metric-based format. Use <code>filter</code> inside <code>
+   * requests</code> instead.
    *
    * @return scope
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,6 +335,7 @@ public class HostMapWidgetDefinition {
     return scope;
   }
 
+  @Deprecated
   public void setScope(List<String> scope) {
     this.scope = scope;
   }
@@ -329,10 +347,13 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * The style to apply to the widget.
+   * Deprecated - The style to apply to the legacy metric-based host map widget. Use <code>
+   * HostMapWidgetInfrastructureStyle</code> instead.
    *
    * @return style
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,6 +361,7 @@ public class HostMapWidgetDefinition {
     return style;
   }
 
+  @Deprecated
   public void setStyle(HostMapWidgetDefinitionStyle style) {
     this.style = style;
   }

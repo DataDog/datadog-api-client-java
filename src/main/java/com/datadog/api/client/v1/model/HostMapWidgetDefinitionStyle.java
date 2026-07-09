@@ -16,7 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The style to apply to the widget. */
+/**
+ * Deprecated - The style to apply to the legacy metric-based host map widget. Use <code>
+ * HostMapWidgetInfrastructureStyle</code> instead.
+ *
+ * @deprecated
+ */
+@Deprecated
 @JsonPropertyOrder({
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_FILL_MAX,
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_FILL_MIN,
