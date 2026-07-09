@@ -34,7 +34,7 @@ public class SecurityMonitoringIntegrationCredentialsValidateAttributes {
   private SecurityMonitoringIntegrationType integrationType;
 
   public static final String JSON_PROPERTY_SECRETS = "secrets";
-  private Map<String, Object> secrets = new HashMap<String, Object>();
+  private Map<String, Object> secrets = null;
 
   public SecurityMonitoringIntegrationCredentialsValidateAttributes() {}
 
@@ -42,12 +42,10 @@ public class SecurityMonitoringIntegrationCredentialsValidateAttributes {
   public SecurityMonitoringIntegrationCredentialsValidateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) String domain,
       @JsonProperty(required = true, value = JSON_PROPERTY_INTEGRATION_TYPE)
-          SecurityMonitoringIntegrationType integrationType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SECRETS) Map<String, Object> secrets) {
+          SecurityMonitoringIntegrationType integrationType) {
     this.domain = domain;
     this.integrationType = integrationType;
     this.unparsed |= !integrationType.isValid();
-    this.secrets = secrets;
   }
 
   public SecurityMonitoringIntegrationCredentialsValidateAttributes domain(String domain) {
@@ -103,18 +101,23 @@ public class SecurityMonitoringIntegrationCredentialsValidateAttributes {
 
   public SecurityMonitoringIntegrationCredentialsValidateAttributes putSecretsItem(
       String key, Object secretsItem) {
+    if (this.secrets == null) {
+      this.secrets = new HashMap<>();
+    }
     this.secrets.put(key, secretsItem);
     return this;
   }
 
   /**
    * The secrets used to authenticate against the external entity source. The accepted keys depend
-   * on the source type (for example, <code>admin_email</code> for Google Workspace).
+   * on the source type (for example, <code>admin_email</code> for Google Workspace). Not required
+   * for source types that do not use secrets (for example, <code>ENTRA_ID</code>).
    *
    * @return secrets
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECRETS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getSecrets() {
     return secrets;
   }

@@ -111,6 +111,8 @@ import com.datadog.api.client.v2.model.SecurityMonitoringDatasetResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringDatasetUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringDatasetVersionHistoryResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringDatasetsListResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringEntraIdAzureAppRegistrationsResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationActivateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigCreateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigUpdateRequest;
@@ -375,6 +377,235 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /** Manage optional parameters to activateIntegration. */
+  public static class ActivateIntegrationOptionalParameters {
+    private SecurityMonitoringIntegrationActivateRequest body;
+
+    /**
+     * Set body.
+     *
+     * @param body Optional configuration overrides for the integration to activate. (optional)
+     * @return ActivateIntegrationOptionalParameters
+     */
+    public ActivateIntegrationOptionalParameters body(
+        SecurityMonitoringIntegrationActivateRequest body) {
+      this.body = body;
+      return this;
+    }
+  }
+
+  /**
+   * Activate an entity context sync integration.
+   *
+   * <p>See {@link #activateIntegrationWithHttpInfo}.
+   *
+   * @param integrationType The integration type to activate (for example, <code>entra_id</code>).
+   *     (required)
+   * @return SecurityMonitoringIntegrationConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringIntegrationConfigResponse activateIntegration(String integrationType)
+      throws ApiException {
+    return activateIntegrationWithHttpInfo(
+            integrationType, new ActivateIntegrationOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Activate an entity context sync integration.
+   *
+   * <p>See {@link #activateIntegrationWithHttpInfoAsync}.
+   *
+   * @param integrationType The integration type to activate (for example, <code>entra_id</code>).
+   *     (required)
+   * @return CompletableFuture&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringIntegrationConfigResponse> activateIntegrationAsync(
+      String integrationType) {
+    return activateIntegrationWithHttpInfoAsync(
+            integrationType, new ActivateIntegrationOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Activate an entity context sync integration.
+   *
+   * <p>See {@link #activateIntegrationWithHttpInfo}.
+   *
+   * @param integrationType The integration type to activate (for example, <code>entra_id</code>).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringIntegrationConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringIntegrationConfigResponse activateIntegration(
+      String integrationType, ActivateIntegrationOptionalParameters parameters)
+      throws ApiException {
+    return activateIntegrationWithHttpInfo(integrationType, parameters).getData();
+  }
+
+  /**
+   * Activate an entity context sync integration.
+   *
+   * <p>See {@link #activateIntegrationWithHttpInfoAsync}.
+   *
+   * @param integrationType The integration type to activate (for example, <code>entra_id</code>).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringIntegrationConfigResponse> activateIntegrationAsync(
+      String integrationType, ActivateIntegrationOptionalParameters parameters) {
+    return activateIntegrationWithHttpInfoAsync(integrationType, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Activate an entity context sync integration for a source type that does not require manually
+   * supplied credentials (for example, Entra ID). If an integration of this type already exists, it
+   * is returned (re-enabling it first if it was disabled) instead of creating a duplicate.
+   *
+   * @param integrationType The integration type to activate (for example, <code>entra_id</code>).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringIntegrationConfigResponse> activateIntegrationWithHttpInfo(
+      String integrationType, ActivateIntegrationOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "activateIntegration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = parameters.body;
+
+    // verify the required parameter 'integrationType' is set
+    if (integrationType == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'integrationType' when calling activateIntegration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_type}/activate"
+            .replaceAll(
+                "\\{" + "integration_type" + "\\}",
+                apiClient.escapeString(integrationType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.activateIntegration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
+  }
+
+  /**
+   * Activate an entity context sync integration.
+   *
+   * <p>See {@link #activateIntegrationWithHttpInfo}.
+   *
+   * @param integrationType The integration type to activate (for example, <code>entra_id</code>).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>>
+      activateIntegrationWithHttpInfoAsync(
+          String integrationType, ActivateIntegrationOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "activateIntegration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = parameters.body;
+
+    // verify the required parameter 'integrationType' is set
+    if (integrationType == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integrationType' when calling activateIntegration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_type}/activate"
+            .replaceAll(
+                "\\{" + "integration_type" + "\\}",
+                apiClient.escapeString(integrationType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.activateIntegration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
   }
 
   /**
@@ -6261,6 +6492,175 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Deactivate an entity context sync integration.
+   *
+   * <p>See {@link #deactivateIntegrationWithHttpInfo}.
+   *
+   * @param integrationType The integration type to deactivate (for example, <code>entra_id</code>).
+   *     (required)
+   * @return SecurityMonitoringIntegrationConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringIntegrationConfigResponse deactivateIntegration(String integrationType)
+      throws ApiException {
+    return deactivateIntegrationWithHttpInfo(integrationType).getData();
+  }
+
+  /**
+   * Deactivate an entity context sync integration.
+   *
+   * <p>See {@link #deactivateIntegrationWithHttpInfoAsync}.
+   *
+   * @param integrationType The integration type to deactivate (for example, <code>entra_id</code>).
+   *     (required)
+   * @return CompletableFuture&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringIntegrationConfigResponse> deactivateIntegrationAsync(
+      String integrationType) {
+    return deactivateIntegrationWithHttpInfoAsync(integrationType)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deactivate all active entity context sync integrations of the given source type (for example,
+   * Entra ID).
+   *
+   * @param integrationType The integration type to deactivate (for example, <code>entra_id</code>).
+   *     (required)
+   * @return ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringIntegrationConfigResponse> deactivateIntegrationWithHttpInfo(
+      String integrationType) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deactivateIntegration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationType' is set
+    if (integrationType == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'integrationType' when calling deactivateIntegration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_type}/deactivate"
+            .replaceAll(
+                "\\{" + "integration_type" + "\\}",
+                apiClient.escapeString(integrationType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deactivateIntegration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
+  }
+
+  /**
+   * Deactivate an entity context sync integration.
+   *
+   * <p>See {@link #deactivateIntegrationWithHttpInfo}.
+   *
+   * @param integrationType The integration type to deactivate (for example, <code>entra_id</code>).
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringIntegrationConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>>
+      deactivateIntegrationWithHttpInfoAsync(String integrationType) {
+    // Check if unstable operation is enabled
+    String operationId = "deactivateIntegration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'integrationType' is set
+    if (integrationType == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'integrationType' when calling"
+                  + " deactivateIntegration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/{integration_type}/deactivate"
+            .replaceAll(
+                "\\{" + "integration_type" + "\\}",
+                apiClient.escapeString(integrationType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deactivateIntegration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringIntegrationConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringIntegrationConfigResponse>() {});
+  }
+
+  /**
    * Delete a custom framework.
    *
    * <p>See {@link #deleteCustomFrameworkWithHttpInfo}.
@@ -10084,6 +10484,143 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<EntityContextResponse>() {});
+  }
+
+  /**
+   * Get Entra ID Azure App Registration prerequisites.
+   *
+   * <p>See {@link #getEntraIdAzureAppRegistrationsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringEntraIdAzureAppRegistrationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringEntraIdAzureAppRegistrationsResponse getEntraIdAzureAppRegistrations()
+      throws ApiException {
+    return getEntraIdAzureAppRegistrationsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get Entra ID Azure App Registration prerequisites.
+   *
+   * <p>See {@link #getEntraIdAzureAppRegistrationsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringEntraIdAzureAppRegistrationsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringEntraIdAzureAppRegistrationsResponse>
+      getEntraIdAzureAppRegistrationsAsync() {
+    return getEntraIdAzureAppRegistrationsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the Azure App Registrations discovered for the organization and whether at least one of
+   * them has resource collection enabled, which is a prerequisite for activating the Entra ID
+   * entity context sync integration.
+   *
+   * @return ApiResponse&lt;SecurityMonitoringEntraIdAzureAppRegistrationsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringEntraIdAzureAppRegistrationsResponse>
+      getEntraIdAzureAppRegistrationsWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getEntraIdAzureAppRegistrations";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/entra_id/azure_app_registrations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getEntraIdAzureAppRegistrations",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringEntraIdAzureAppRegistrationsResponse>() {});
+  }
+
+  /**
+   * Get Entra ID Azure App Registration prerequisites.
+   *
+   * <p>See {@link #getEntraIdAzureAppRegistrationsWithHttpInfo}.
+   *
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringEntraIdAzureAppRegistrationsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringEntraIdAzureAppRegistrationsResponse>>
+      getEntraIdAzureAppRegistrationsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getEntraIdAzureAppRegistrations";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringEntraIdAzureAppRegistrationsResponse>>
+          result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/integration_config/entra_id/azure_app_registrations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getEntraIdAzureAppRegistrations",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringEntraIdAzureAppRegistrationsResponse>>
+          result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringEntraIdAzureAppRegistrationsResponse>() {});
   }
 
   /** Manage optional parameters to getFinding. */
