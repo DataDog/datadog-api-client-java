@@ -35,6 +35,7 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestOptions.JSON_PROPERTY_HTTP_VERSION,
   SyntheticsTestOptions.JSON_PROPERTY_IGNORE_SERVER_CERTIFICATE_ERROR,
+  SyntheticsTestOptions.JSON_PROPERTY_IGNORE_CERTIFICATE_VALIDATION,
   SyntheticsTestOptions.JSON_PROPERTY_INITIAL_NAVIGATION_TIMEOUT,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
@@ -99,6 +100,10 @@ public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_IGNORE_SERVER_CERTIFICATE_ERROR =
       "ignoreServerCertificateError";
   private Boolean ignoreServerCertificateError;
+
+  public static final String JSON_PROPERTY_IGNORE_CERTIFICATE_VALIDATION =
+      "ignore_certificate_validation";
+  private Boolean ignoreCertificateValidation;
 
   public static final String JSON_PROPERTY_INITIAL_NAVIGATION_TIMEOUT = "initialNavigationTimeout";
   private Long initialNavigationTimeout;
@@ -478,6 +483,27 @@ public class SyntheticsTestOptions {
     this.ignoreServerCertificateError = ignoreServerCertificateError;
   }
 
+  public SyntheticsTestOptions ignoreCertificateValidation(Boolean ignoreCertificateValidation) {
+    this.ignoreCertificateValidation = ignoreCertificateValidation;
+    return this;
+  }
+
+  /**
+   * For SSL tests, whether or not the test should ignore certificate validation.
+   *
+   * @return ignoreCertificateValidation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IGNORE_CERTIFICATE_VALIDATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIgnoreCertificateValidation() {
+    return ignoreCertificateValidation;
+  }
+
+  public void setIgnoreCertificateValidation(Boolean ignoreCertificateValidation) {
+    this.ignoreCertificateValidation = ignoreCertificateValidation;
+  }
+
   public SyntheticsTestOptions initialNavigationTimeout(Long initialNavigationTimeout) {
     this.initialNavigationTimeout = initialNavigationTimeout;
     return this;
@@ -833,6 +859,8 @@ public class SyntheticsTestOptions {
         && Objects.equals(
             this.ignoreServerCertificateError, syntheticsTestOptions.ignoreServerCertificateError)
         && Objects.equals(
+            this.ignoreCertificateValidation, syntheticsTestOptions.ignoreCertificateValidation)
+        && Objects.equals(
             this.initialNavigationTimeout, syntheticsTestOptions.initialNavigationTimeout)
         && Objects.equals(this.minFailureDuration, syntheticsTestOptions.minFailureDuration)
         && Objects.equals(this.minLocationFailed, syntheticsTestOptions.minLocationFailed)
@@ -866,6 +894,7 @@ public class SyntheticsTestOptions {
         followRedirects,
         httpVersion,
         ignoreServerCertificateError,
+        ignoreCertificateValidation,
         initialNavigationTimeout,
         minFailureDuration,
         minLocationFailed,
@@ -911,6 +940,9 @@ public class SyntheticsTestOptions {
     sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    ignoreServerCertificateError: ")
         .append(toIndentedString(ignoreServerCertificateError))
+        .append("\n");
+    sb.append("    ignoreCertificateValidation: ")
+        .append(toIndentedString(ignoreCertificateValidation))
         .append("\n");
     sb.append("    initialNavigationTimeout: ")
         .append(toIndentedString(initialNavigationTimeout))
