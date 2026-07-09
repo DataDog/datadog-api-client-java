@@ -553,6 +553,22 @@ public class RolesApi {
   /**
    * Create a new role for your organization.
    *
+   * <p>The following read permissions are automatically added to every new role, even if they are
+   * not included in the request:
+   *
+   * <ul>
+   *   <li>Dashboards Read
+   *   <li>Notebooks Read
+   *   <li>Monitors Read
+   *   <li>APM Read
+   *   <li>Vulnerability Management Read
+   *   <li>RUM Apps Read
+   *   <li>Incidents Read
+   *   <li>SLOs Read
+   *   <li>CI Visibility Read
+   *   <li>CD Visibility Read
+   * </ul>
+   *
    * @param body (required)
    * @return ApiResponse&lt;RoleCreateResponse&gt;
    * @throws ApiException if fails to make API call
