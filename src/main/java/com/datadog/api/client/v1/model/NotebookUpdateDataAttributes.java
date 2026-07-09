@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The data attributes of a notebook. */
 @JsonPropertyOrder({
@@ -25,6 +26,7 @@ import java.util.Objects;
   NotebookUpdateDataAttributes.JSON_PROPERTY_METADATA,
   NotebookUpdateDataAttributes.JSON_PROPERTY_NAME,
   NotebookUpdateDataAttributes.JSON_PROPERTY_STATUS,
+  NotebookUpdateDataAttributes.JSON_PROPERTY_TEMPLATE_VARIABLES,
   NotebookUpdateDataAttributes.JSON_PROPERTY_TIME
 })
 @jakarta.annotation.Generated(
@@ -42,6 +44,10 @@ public class NotebookUpdateDataAttributes {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private NotebookStatus status = NotebookStatus.PUBLISHED;
+
+  public static final String JSON_PROPERTY_TEMPLATE_VARIABLES = "template_variables";
+  private JsonNullable<List<NotebookTemplateVariable>> templateVariables =
+      JsonNullable.<List<NotebookTemplateVariable>>undefined();
 
   public static final String JSON_PROPERTY_TIME = "time";
   private NotebookGlobalTime time;
@@ -155,6 +161,52 @@ public class NotebookUpdateDataAttributes {
     this.status = status;
   }
 
+  public NotebookUpdateDataAttributes templateVariables(
+      List<NotebookTemplateVariable> templateVariables) {
+    this.templateVariables = JsonNullable.<List<NotebookTemplateVariable>>of(templateVariables);
+    return this;
+  }
+
+  public NotebookUpdateDataAttributes addTemplateVariablesItem(
+      NotebookTemplateVariable templateVariablesItem) {
+    if (this.templateVariables == null || !this.templateVariables.isPresent()) {
+      this.templateVariables = JsonNullable.<List<NotebookTemplateVariable>>of(new ArrayList<>());
+    }
+    try {
+      this.templateVariables.get().add(templateVariablesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * List of template variables for this notebook.
+   *
+   * @return templateVariables
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<NotebookTemplateVariable> getTemplateVariables() {
+    return templateVariables.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<NotebookTemplateVariable>> getTemplateVariables_JsonNullable() {
+    return templateVariables;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
+  public void setTemplateVariables_JsonNullable(
+      JsonNullable<List<NotebookTemplateVariable>> templateVariables) {
+    this.templateVariables = templateVariables;
+  }
+
+  public void setTemplateVariables(List<NotebookTemplateVariable> templateVariables) {
+    this.templateVariables = JsonNullable.<List<NotebookTemplateVariable>>of(templateVariables);
+  }
+
   public NotebookUpdateDataAttributes time(NotebookGlobalTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -236,6 +288,7 @@ public class NotebookUpdateDataAttributes {
         && Objects.equals(this.metadata, notebookUpdateDataAttributes.metadata)
         && Objects.equals(this.name, notebookUpdateDataAttributes.name)
         && Objects.equals(this.status, notebookUpdateDataAttributes.status)
+        && Objects.equals(this.templateVariables, notebookUpdateDataAttributes.templateVariables)
         && Objects.equals(this.time, notebookUpdateDataAttributes.time)
         && Objects.equals(
             this.additionalProperties, notebookUpdateDataAttributes.additionalProperties);
@@ -243,7 +296,8 @@ public class NotebookUpdateDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cells, metadata, name, status, time, additionalProperties);
+    return Objects.hash(
+        cells, metadata, name, status, templateVariables, time, additionalProperties);
   }
 
   @Override
@@ -254,6 +308,7 @@ public class NotebookUpdateDataAttributes {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    templateVariables: ").append(toIndentedString(templateVariables)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
