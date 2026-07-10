@@ -31,6 +31,9 @@ import com.datadog.api.client.v2.model.IncidentNotificationRule;
 import com.datadog.api.client.v2.model.IncidentNotificationRuleArray;
 import com.datadog.api.client.v2.model.IncidentNotificationTemplate;
 import com.datadog.api.client.v2.model.IncidentNotificationTemplateArray;
+import com.datadog.api.client.v2.model.IncidentPostmortemCreateRequest;
+import com.datadog.api.client.v2.model.IncidentPostmortemResponse;
+import com.datadog.api.client.v2.model.IncidentPostmortemUpdateRequest;
 import com.datadog.api.client.v2.model.IncidentRelatedObject;
 import com.datadog.api.client.v2.model.IncidentResponse;
 import com.datadog.api.client.v2.model.IncidentResponseData;
@@ -1449,6 +1452,265 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentNotificationTemplate>() {});
+  }
+
+  /** Manage optional parameters to createIncidentPostmortem. */
+  public static class CreateIncidentPostmortemOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Resources to include in the response. Supported values: <code>
+     *     last_modified_by_user</code>, <code>postmortem_owner_user</code>, <code>
+     *     postmortem_owner_responder</code>, <code>incident</code>. (optional)
+     * @return CreateIncidentPostmortemOptionalParameters
+     */
+    public CreateIncidentPostmortemOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create postmortem for an incident.
+   *
+   * <p>See {@link #createIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem creation payload. (required)
+   * @return IncidentPostmortemResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentPostmortemResponse createIncidentPostmortem(
+      String incidentId, IncidentPostmortemCreateRequest body) throws ApiException {
+    return createIncidentPostmortemWithHttpInfo(
+            incidentId, body, new CreateIncidentPostmortemOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create postmortem for an incident.
+   *
+   * <p>See {@link #createIncidentPostmortemWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem creation payload. (required)
+   * @return CompletableFuture&lt;IncidentPostmortemResponse&gt;
+   */
+  public CompletableFuture<IncidentPostmortemResponse> createIncidentPostmortemAsync(
+      String incidentId, IncidentPostmortemCreateRequest body) {
+    return createIncidentPostmortemWithHttpInfoAsync(
+            incidentId, body, new CreateIncidentPostmortemOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create postmortem for an incident.
+   *
+   * <p>See {@link #createIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem creation payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentPostmortemResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentPostmortemResponse createIncidentPostmortem(
+      String incidentId,
+      IncidentPostmortemCreateRequest body,
+      CreateIncidentPostmortemOptionalParameters parameters)
+      throws ApiException {
+    return createIncidentPostmortemWithHttpInfo(incidentId, body, parameters).getData();
+  }
+
+  /**
+   * Create postmortem for an incident.
+   *
+   * <p>See {@link #createIncidentPostmortemWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem creation payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentPostmortemResponse&gt;
+   */
+  public CompletableFuture<IncidentPostmortemResponse> createIncidentPostmortemAsync(
+      String incidentId,
+      IncidentPostmortemCreateRequest body,
+      CreateIncidentPostmortemOptionalParameters parameters) {
+    return createIncidentPostmortemWithHttpInfoAsync(incidentId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a postmortem for an incident by linking a title and document URL (for example, a Datadog
+   * notebook, Confluence page, or Google Doc).
+   *
+   * <p>Only one postmortem is allowed per incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem creation payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentPostmortemResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentPostmortemResponse> createIncidentPostmortemWithHttpInfo(
+      String incidentId,
+      IncidentPostmortemCreateRequest body,
+      CreateIncidentPostmortemOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentPostmortem";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'incidentId' when calling createIncidentPostmortem");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createIncidentPostmortem");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/postmortem"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createIncidentPostmortem",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentPostmortemResponse>() {});
+  }
+
+  /**
+   * Create postmortem for an incident.
+   *
+   * <p>See {@link #createIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem creation payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentPostmortemResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentPostmortemResponse>>
+      createIncidentPostmortemWithHttpInfoAsync(
+          String incidentId,
+          IncidentPostmortemCreateRequest body,
+          CreateIncidentPostmortemOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentPostmortem";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling createIncidentPostmortem"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createIncidentPostmortem"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/postmortem"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createIncidentPostmortem",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentPostmortemResponse>() {});
   }
 
   /**
@@ -3588,6 +3850,162 @@ public class IncidentsApi {
   }
 
   /**
+   * Delete postmortem for an incident.
+   *
+   * <p>See {@link #deleteIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIncidentPostmortem(String incidentId) throws ApiException {
+    deleteIncidentPostmortemWithHttpInfo(incidentId);
+  }
+
+  /**
+   * Delete postmortem for an incident.
+   *
+   * <p>See {@link #deleteIncidentPostmortemWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIncidentPostmortemAsync(String incidentId) {
+    return deleteIncidentPostmortemWithHttpInfoAsync(incidentId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete the postmortem attached to an incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteIncidentPostmortemWithHttpInfo(String incidentId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentPostmortem";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'incidentId' when calling deleteIncidentPostmortem");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/postmortem"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.deleteIncidentPostmortem",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete postmortem for an incident.
+   *
+   * <p>See {@link #deleteIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteIncidentPostmortemWithHttpInfoAsync(
+      String incidentId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentPostmortem";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling deleteIncidentPostmortem"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/postmortem"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.deleteIncidentPostmortem",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete postmortem template.
    *
    * <p>See {@link #deleteIncidentPostmortemTemplateWithHttpInfo}.
@@ -5213,6 +5631,229 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentNotificationTemplate>() {});
+  }
+
+  /** Manage optional parameters to getIncidentPostmortem. */
+  public static class GetIncidentPostmortemOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Resources to include in the response. Supported values: <code>
+     *     last_modified_by_user</code>, <code>postmortem_owner_user</code>, <code>
+     *     postmortem_owner_responder</code>, <code>incident</code>. (optional)
+     * @return GetIncidentPostmortemOptionalParameters
+     */
+    public GetIncidentPostmortemOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get postmortem for an incident.
+   *
+   * <p>See {@link #getIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @return IncidentPostmortemResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentPostmortemResponse getIncidentPostmortem(String incidentId) throws ApiException {
+    return getIncidentPostmortemWithHttpInfo(
+            incidentId, new GetIncidentPostmortemOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get postmortem for an incident.
+   *
+   * <p>See {@link #getIncidentPostmortemWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @return CompletableFuture&lt;IncidentPostmortemResponse&gt;
+   */
+  public CompletableFuture<IncidentPostmortemResponse> getIncidentPostmortemAsync(
+      String incidentId) {
+    return getIncidentPostmortemWithHttpInfoAsync(
+            incidentId, new GetIncidentPostmortemOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get postmortem for an incident.
+   *
+   * <p>See {@link #getIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentPostmortemResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentPostmortemResponse getIncidentPostmortem(
+      String incidentId, GetIncidentPostmortemOptionalParameters parameters) throws ApiException {
+    return getIncidentPostmortemWithHttpInfo(incidentId, parameters).getData();
+  }
+
+  /**
+   * Get postmortem for an incident.
+   *
+   * <p>See {@link #getIncidentPostmortemWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentPostmortemResponse&gt;
+   */
+  public CompletableFuture<IncidentPostmortemResponse> getIncidentPostmortemAsync(
+      String incidentId, GetIncidentPostmortemOptionalParameters parameters) {
+    return getIncidentPostmortemWithHttpInfoAsync(incidentId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the postmortem attached to an incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentPostmortemResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentPostmortemResponse> getIncidentPostmortemWithHttpInfo(
+      String incidentId, GetIncidentPostmortemOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentPostmortem";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'incidentId' when calling getIncidentPostmortem");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/postmortem"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.getIncidentPostmortem",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentPostmortemResponse>() {});
+  }
+
+  /**
+   * Get postmortem for an incident.
+   *
+   * <p>See {@link #getIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentPostmortemResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentPostmortemResponse>>
+      getIncidentPostmortemWithHttpInfoAsync(
+          String incidentId, GetIncidentPostmortemOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentPostmortem";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling getIncidentPostmortem"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/postmortem"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.getIncidentPostmortem",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentPostmortemResponse>() {});
   }
 
   /**
@@ -10344,6 +10985,261 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentNotificationTemplate>() {});
+  }
+
+  /** Manage optional parameters to updateIncidentPostmortem. */
+  public static class UpdateIncidentPostmortemOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Resources to include in the response. Supported values: <code>
+     *     last_modified_by_user</code>, <code>postmortem_owner_user</code>, <code>
+     *     postmortem_owner_responder</code>, <code>incident</code>. (optional)
+     * @return UpdateIncidentPostmortemOptionalParameters
+     */
+    public UpdateIncidentPostmortemOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Update postmortem for an incident.
+   *
+   * <p>See {@link #updateIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem update payload. (required)
+   * @return IncidentPostmortemResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentPostmortemResponse updateIncidentPostmortem(
+      String incidentId, IncidentPostmortemUpdateRequest body) throws ApiException {
+    return updateIncidentPostmortemWithHttpInfo(
+            incidentId, body, new UpdateIncidentPostmortemOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update postmortem for an incident.
+   *
+   * <p>See {@link #updateIncidentPostmortemWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem update payload. (required)
+   * @return CompletableFuture&lt;IncidentPostmortemResponse&gt;
+   */
+  public CompletableFuture<IncidentPostmortemResponse> updateIncidentPostmortemAsync(
+      String incidentId, IncidentPostmortemUpdateRequest body) {
+    return updateIncidentPostmortemWithHttpInfoAsync(
+            incidentId, body, new UpdateIncidentPostmortemOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update postmortem for an incident.
+   *
+   * <p>See {@link #updateIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem update payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentPostmortemResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentPostmortemResponse updateIncidentPostmortem(
+      String incidentId,
+      IncidentPostmortemUpdateRequest body,
+      UpdateIncidentPostmortemOptionalParameters parameters)
+      throws ApiException {
+    return updateIncidentPostmortemWithHttpInfo(incidentId, body, parameters).getData();
+  }
+
+  /**
+   * Update postmortem for an incident.
+   *
+   * <p>See {@link #updateIncidentPostmortemWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem update payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentPostmortemResponse&gt;
+   */
+  public CompletableFuture<IncidentPostmortemResponse> updateIncidentPostmortemAsync(
+      String incidentId,
+      IncidentPostmortemUpdateRequest body,
+      UpdateIncidentPostmortemOptionalParameters parameters) {
+    return updateIncidentPostmortemWithHttpInfoAsync(incidentId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the postmortem attached to an incident, for example to change its status.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem update payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentPostmortemResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentPostmortemResponse> updateIncidentPostmortemWithHttpInfo(
+      String incidentId,
+      IncidentPostmortemUpdateRequest body,
+      UpdateIncidentPostmortemOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentPostmortem";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'incidentId' when calling updateIncidentPostmortem");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateIncidentPostmortem");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/postmortem"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateIncidentPostmortem",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentPostmortemResponse>() {});
+  }
+
+  /**
+   * Update postmortem for an incident.
+   *
+   * <p>See {@link #updateIncidentPostmortemWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Postmortem update payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentPostmortemResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentPostmortemResponse>>
+      updateIncidentPostmortemWithHttpInfoAsync(
+          String incidentId,
+          IncidentPostmortemUpdateRequest body,
+          UpdateIncidentPostmortemOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentPostmortem";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling updateIncidentPostmortem"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateIncidentPostmortem"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/postmortem"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateIncidentPostmortem",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentPostmortemResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentPostmortemResponse>() {});
   }
 
   /**
