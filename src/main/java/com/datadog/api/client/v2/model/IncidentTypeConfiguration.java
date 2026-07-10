@@ -25,7 +25,6 @@ import java.util.Objects;
   IncidentTypeConfiguration.JSON_PROPERTY_ALLOW_INCIDENT_DELETION,
   IncidentTypeConfiguration.JSON_PROPERTY_ALLOW_WORKFLOWS,
   IncidentTypeConfiguration.JSON_PROPERTY_CREATE_MESSAGE,
-  IncidentTypeConfiguration.JSON_PROPERTY_DISABLE_OUT_OF_THE_BOX_POSTMORTEM_TEMPLATE,
   IncidentTypeConfiguration.JSON_PROPERTY_EDITABLE_TIMESTAMPS,
   IncidentTypeConfiguration.JSON_PROPERTY_PRIVATE_INCIDENTS,
   IncidentTypeConfiguration.JSON_PROPERTY_PRIVATE_INCIDENTS_BY_DEFAULT,
@@ -44,10 +43,6 @@ public class IncidentTypeConfiguration {
 
   public static final String JSON_PROPERTY_CREATE_MESSAGE = "create_message";
   private String createMessage;
-
-  public static final String JSON_PROPERTY_DISABLE_OUT_OF_THE_BOX_POSTMORTEM_TEMPLATE =
-      "disable_out_of_the_box_postmortem_template";
-  private Boolean disableOutOfTheBoxPostmortemTemplate = false;
 
   public static final String JSON_PROPERTY_EDITABLE_TIMESTAMPS = "editable_timestamps";
   private Boolean editableTimestamps = false;
@@ -126,29 +121,6 @@ public class IncidentTypeConfiguration {
 
   public void setCreateMessage(String createMessage) {
     this.createMessage = createMessage;
-  }
-
-  public IncidentTypeConfiguration disableOutOfTheBoxPostmortemTemplate(
-      Boolean disableOutOfTheBoxPostmortemTemplate) {
-    this.disableOutOfTheBoxPostmortemTemplate = disableOutOfTheBoxPostmortemTemplate;
-    return this;
-  }
-
-  /**
-   * Whether the out-of-the-box postmortem template is disabled for incidents of this type.
-   *
-   * @return disableOutOfTheBoxPostmortemTemplate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISABLE_OUT_OF_THE_BOX_POSTMORTEM_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getDisableOutOfTheBoxPostmortemTemplate() {
-    return disableOutOfTheBoxPostmortemTemplate;
-  }
-
-  public void setDisableOutOfTheBoxPostmortemTemplate(
-      Boolean disableOutOfTheBoxPostmortemTemplate) {
-    this.disableOutOfTheBoxPostmortemTemplate = disableOutOfTheBoxPostmortemTemplate;
   }
 
   public IncidentTypeConfiguration editableTimestamps(Boolean editableTimestamps) {
@@ -323,9 +295,6 @@ public class IncidentTypeConfiguration {
             this.allowIncidentDeletion, incidentTypeConfiguration.allowIncidentDeletion)
         && Objects.equals(this.allowWorkflows, incidentTypeConfiguration.allowWorkflows)
         && Objects.equals(this.createMessage, incidentTypeConfiguration.createMessage)
-        && Objects.equals(
-            this.disableOutOfTheBoxPostmortemTemplate,
-            incidentTypeConfiguration.disableOutOfTheBoxPostmortemTemplate)
         && Objects.equals(this.editableTimestamps, incidentTypeConfiguration.editableTimestamps)
         && Objects.equals(this.privateIncidents, incidentTypeConfiguration.privateIncidents)
         && Objects.equals(
@@ -342,7 +311,6 @@ public class IncidentTypeConfiguration {
         allowIncidentDeletion,
         allowWorkflows,
         createMessage,
-        disableOutOfTheBoxPostmortemTemplate,
         editableTimestamps,
         privateIncidents,
         privateIncidentsByDefault,
@@ -360,9 +328,6 @@ public class IncidentTypeConfiguration {
         .append("\n");
     sb.append("    allowWorkflows: ").append(toIndentedString(allowWorkflows)).append("\n");
     sb.append("    createMessage: ").append(toIndentedString(createMessage)).append("\n");
-    sb.append("    disableOutOfTheBoxPostmortemTemplate: ")
-        .append(toIndentedString(disableOutOfTheBoxPostmortemTemplate))
-        .append("\n");
     sb.append("    editableTimestamps: ").append(toIndentedString(editableTimestamps)).append("\n");
     sb.append("    privateIncidents: ").append(toIndentedString(privateIncidents)).append("\n");
     sb.append("    privateIncidentsByDefault: ")
