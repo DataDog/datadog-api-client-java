@@ -45,6 +45,7 @@ public class Example {
                     .acceptSelfSigned(true)
                     .checkCertificateRevocation(true)
                     .disableAiaIntermediateFetching(true)
+                    .ignoreCertificateValidation(true)
                     .tickEvery(60L))
             .subtype(SyntheticsTestDetailsSubType.SSL)
             .tags(Collections.singletonList("testing:api"))
