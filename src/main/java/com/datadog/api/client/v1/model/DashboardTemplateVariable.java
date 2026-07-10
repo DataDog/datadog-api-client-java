@@ -23,6 +23,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Template variable. */
 @JsonPropertyOrder({
   DashboardTemplateVariable.JSON_PROPERTY_AVAILABLE_VALUES,
+  DashboardTemplateVariable.JSON_PROPERTY_AVAILABLE_VALUES_QUERY,
+  DashboardTemplateVariable.JSON_PROPERTY_DATA_SOURCE_MAPPINGS,
   DashboardTemplateVariable.JSON_PROPERTY_DEFAULT,
   DashboardTemplateVariable.JSON_PROPERTY_DEFAULTS,
   DashboardTemplateVariable.JSON_PROPERTY_NAME,
@@ -35,6 +37,12 @@ public class DashboardTemplateVariable {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVAILABLE_VALUES = "available_values";
   private JsonNullable<List<String>> availableValues = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_AVAILABLE_VALUES_QUERY = "available_values_query";
+  private DashboardTemplateVariableAvailableValuesQuery availableValuesQuery;
+
+  public static final String JSON_PROPERTY_DATA_SOURCE_MAPPINGS = "data_source_mappings";
+  private Map<String, String> dataSourceMappings = null;
 
   public static final String JSON_PROPERTY_DEFAULT = "default";
   private JsonNullable<String> _default = JsonNullable.<String>undefined();
@@ -100,6 +108,60 @@ public class DashboardTemplateVariable {
 
   public void setAvailableValues(List<String> availableValues) {
     this.availableValues = JsonNullable.<List<String>>of(availableValues);
+  }
+
+  public DashboardTemplateVariable availableValuesQuery(
+      DashboardTemplateVariableAvailableValuesQuery availableValuesQuery) {
+    this.availableValuesQuery = availableValuesQuery;
+    this.unparsed |= availableValuesQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * A query that dynamically computes the list of values available for this template variable.
+   *
+   * @return availableValuesQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DashboardTemplateVariableAvailableValuesQuery getAvailableValuesQuery() {
+    return availableValuesQuery;
+  }
+
+  public void setAvailableValuesQuery(
+      DashboardTemplateVariableAvailableValuesQuery availableValuesQuery) {
+    this.availableValuesQuery = availableValuesQuery;
+  }
+
+  public DashboardTemplateVariable dataSourceMappings(Map<String, String> dataSourceMappings) {
+    this.dataSourceMappings = dataSourceMappings;
+    return this;
+  }
+
+  public DashboardTemplateVariable putDataSourceMappingsItem(
+      String key, String dataSourceMappingsItem) {
+    if (this.dataSourceMappings == null) {
+      this.dataSourceMappings = new HashMap<>();
+    }
+    this.dataSourceMappings.put(key, dataSourceMappingsItem);
+    return this;
+  }
+
+  /**
+   * A mapping from data source type to the variable value to use for that data source.
+   *
+   * @return dataSourceMappings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE_MAPPINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getDataSourceMappings() {
+    return dataSourceMappings;
+  }
+
+  public void setDataSourceMappings(Map<String, String> dataSourceMappings) {
+    this.dataSourceMappings = dataSourceMappings;
   }
 
   public DashboardTemplateVariable _default(String _default) {
@@ -309,6 +371,8 @@ public class DashboardTemplateVariable {
     }
     DashboardTemplateVariable dashboardTemplateVariable = (DashboardTemplateVariable) o;
     return Objects.equals(this.availableValues, dashboardTemplateVariable.availableValues)
+        && Objects.equals(this.availableValuesQuery, dashboardTemplateVariable.availableValuesQuery)
+        && Objects.equals(this.dataSourceMappings, dashboardTemplateVariable.dataSourceMappings)
         && Objects.equals(this._default, dashboardTemplateVariable._default)
         && Objects.equals(this.defaults, dashboardTemplateVariable.defaults)
         && Objects.equals(this.name, dashboardTemplateVariable.name)
@@ -321,7 +385,15 @@ public class DashboardTemplateVariable {
   @Override
   public int hashCode() {
     return Objects.hash(
-        availableValues, _default, defaults, name, prefix, type, additionalProperties);
+        availableValues,
+        availableValuesQuery,
+        dataSourceMappings,
+        _default,
+        defaults,
+        name,
+        prefix,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -329,6 +401,10 @@ public class DashboardTemplateVariable {
     StringBuilder sb = new StringBuilder();
     sb.append("class DashboardTemplateVariable {\n");
     sb.append("    availableValues: ").append(toIndentedString(availableValues)).append("\n");
+    sb.append("    availableValuesQuery: ")
+        .append(toIndentedString(availableValuesQuery))
+        .append("\n");
+    sb.append("    dataSourceMappings: ").append(toIndentedString(dataSourceMappings)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    defaults: ").append(toIndentedString(defaults)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
