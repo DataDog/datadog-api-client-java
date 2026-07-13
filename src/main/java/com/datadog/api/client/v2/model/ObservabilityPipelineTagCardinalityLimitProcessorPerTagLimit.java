@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** A cardinality override for a specific tag key within a per-metric limit. */
 @JsonPropertyOrder({
-  ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit.JSON_PROPERTY_MODE,
+  ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit.JSON_PROPERTY_OVERRIDE_TYPE,
   ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit.JSON_PROPERTY_TAG_KEY,
   ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit.JSON_PROPERTY_VALUE_LIMIT
 })
@@ -27,8 +27,8 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_MODE = "mode";
-  private ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode mode;
+  public static final String JSON_PROPERTY_OVERRIDE_TYPE = "override_type";
+  private ObservabilityPipelineTagCardinalityLimitProcessorOverrideType overrideType;
 
   public static final String JSON_PROPERTY_TAG_KEY = "tag_key";
   private String tagKey;
@@ -40,38 +40,39 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
 
   @JsonCreator
   public ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit(
-      @JsonProperty(required = true, value = JSON_PROPERTY_MODE)
-          ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode mode,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OVERRIDE_TYPE)
+          ObservabilityPipelineTagCardinalityLimitProcessorOverrideType overrideType,
       @JsonProperty(required = true, value = JSON_PROPERTY_TAG_KEY) String tagKey) {
-    this.mode = mode;
-    this.unparsed |= !mode.isValid();
+    this.overrideType = overrideType;
+    this.unparsed |= !overrideType.isValid();
     this.tagKey = tagKey;
   }
 
-  public ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit mode(
-      ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode mode) {
-    this.mode = mode;
-    this.unparsed |= !mode.isValid();
+  public ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit overrideType(
+      ObservabilityPipelineTagCardinalityLimitProcessorOverrideType overrideType) {
+    this.overrideType = overrideType;
+    this.unparsed |= !overrideType.isValid();
     return this;
   }
 
   /**
-   * How the per-tag override is applied. <code>limit_override</code> enforces a custom limit on the
-   * tag; <code>excluded</code> skips the tag from cardinality tracking.
+   * How the override is applied. <code>limit_override</code> enforces a custom limit; <code>
+   * excluded</code> omits the metric or tag from cardinality tracking.
    *
-   * @return mode
+   * @return overrideType
    */
-  @JsonProperty(JSON_PROPERTY_MODE)
+  @JsonProperty(JSON_PROPERTY_OVERRIDE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode getMode() {
-    return mode;
+  public ObservabilityPipelineTagCardinalityLimitProcessorOverrideType getOverrideType() {
+    return overrideType;
   }
 
-  public void setMode(ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode mode) {
-    if (!mode.isValid()) {
+  public void setOverrideType(
+      ObservabilityPipelineTagCardinalityLimitProcessorOverrideType overrideType) {
+    if (!overrideType.isValid()) {
       this.unparsed = true;
     }
-    this.mode = mode;
+    this.overrideType = overrideType;
   }
 
   public ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit tagKey(String tagKey) {
@@ -100,9 +101,9 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
   }
 
   /**
-   * The maximum number of distinct values allowed for this tag. Required when <code>mode</code> is
-   * <code>limit_override</code>. Must be omitted when <code>mode</code> is <code>excluded</code>.
-   * minimum: 0 maximum: 1000000
+   * The maximum number of distinct values allowed for this tag. Required when <code>override_type
+   * </code> is <code>limit_override</code>. Must be omitted when <code>override_type</code> is
+   * <code>excluded</code>. minimum: 0 maximum: 1000000
    *
    * @return valueLimit
    */
@@ -180,7 +181,8 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
         observabilityPipelineTagCardinalityLimitProcessorPerTagLimit =
             (ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit) o;
     return Objects.equals(
-            this.mode, observabilityPipelineTagCardinalityLimitProcessorPerTagLimit.mode)
+            this.overrideType,
+            observabilityPipelineTagCardinalityLimitProcessorPerTagLimit.overrideType)
         && Objects.equals(
             this.tagKey, observabilityPipelineTagCardinalityLimitProcessorPerTagLimit.tagKey)
         && Objects.equals(
@@ -193,14 +195,14 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mode, tagKey, valueLimit, additionalProperties);
+    return Objects.hash(overrideType, tagKey, valueLimit, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {\n");
-    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    overrideType: ").append(toIndentedString(overrideType)).append("\n");
     sb.append("    tagKey: ").append(toIndentedString(tagKey)).append("\n");
     sb.append("    valueLimit: ").append(toIndentedString(valueLimit)).append("\n");
     sb.append("    additionalProperties: ")

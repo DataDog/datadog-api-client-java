@@ -4,6 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.DatasetReportScheduleListResponse;
+import com.datadog.api.client.v2.model.PrintReportRequest;
+import com.datadog.api.client.v2.model.PrintReportResponse;
 import com.datadog.api.client.v2.model.ReportScheduleCreateRequest;
 import com.datadog.api.client.v2.model.ReportScheduleListResponse;
 import com.datadog.api.client.v2.model.ReportSchedulePatchRequest;
@@ -655,6 +658,155 @@ public class ReportSchedulesApi {
         new GenericType<ReportScheduleListResponse>() {});
   }
 
+  /**
+   * List dataset report schedules.
+   *
+   * <p>See {@link #listDatasetReportSchedulesWithHttpInfo}.
+   *
+   * @param datasetId The identifier of the published dataset to retrieve report schedules for.
+   *     (required)
+   * @return DatasetReportScheduleListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DatasetReportScheduleListResponse listDatasetReportSchedules(String datasetId)
+      throws ApiException {
+    return listDatasetReportSchedulesWithHttpInfo(datasetId).getData();
+  }
+
+  /**
+   * List dataset report schedules.
+   *
+   * <p>See {@link #listDatasetReportSchedulesWithHttpInfoAsync}.
+   *
+   * @param datasetId The identifier of the published dataset to retrieve report schedules for.
+   *     (required)
+   * @return CompletableFuture&lt;DatasetReportScheduleListResponse&gt;
+   */
+  public CompletableFuture<DatasetReportScheduleListResponse> listDatasetReportSchedulesAsync(
+      String datasetId) {
+    return listDatasetReportSchedulesWithHttpInfoAsync(datasetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve all report schedules for a given published dataset. Returns report schedules belonging
+   * to the authenticated user's organization that target the specified dataset. Requires the <code>
+   * generate_log_reports</code> or <code>manage_log_reports</code> permission.
+   *
+   * @param datasetId The identifier of the published dataset to retrieve report schedules for.
+   *     (required)
+   * @return ApiResponse&lt;DatasetReportScheduleListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DatasetReportScheduleListResponse> listDatasetReportSchedulesWithHttpInfo(
+      String datasetId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datasetId' when calling listDatasetReportSchedules");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/reporting/dataset/{dataset_id}/schedules"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ReportSchedulesApi.listDatasetReportSchedules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DatasetReportScheduleListResponse>() {});
+  }
+
+  /**
+   * List dataset report schedules.
+   *
+   * <p>See {@link #listDatasetReportSchedulesWithHttpInfo}.
+   *
+   * @param datasetId The identifier of the published dataset to retrieve report schedules for.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DatasetReportScheduleListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DatasetReportScheduleListResponse>>
+      listDatasetReportSchedulesWithHttpInfoAsync(String datasetId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<DatasetReportScheduleListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling"
+                  + " listDatasetReportSchedules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/reporting/dataset/{dataset_id}/schedules"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ReportSchedulesApi.listDatasetReportSchedules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DatasetReportScheduleListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DatasetReportScheduleListResponse>() {});
+  }
+
   /** Manage optional parameters to listReportSchedules. */
   public static class ListReportSchedulesOptionalParameters {
     private Long pageLimit;
@@ -1075,6 +1227,139 @@ public class ReportSchedulesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ReportScheduleResponse>() {});
+  }
+
+  /**
+   * Print a report.
+   *
+   * <p>See {@link #printReportWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return PrintReportResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PrintReportResponse printReport(PrintReportRequest body) throws ApiException {
+    return printReportWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Print a report.
+   *
+   * <p>See {@link #printReportWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;PrintReportResponse&gt;
+   */
+  public CompletableFuture<PrintReportResponse> printReportAsync(PrintReportRequest body) {
+    return printReportWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Initiate a one-off, print-only report for a dashboard or integration dashboard. The report is
+   * rendered as a PDF and made available for download through the URL returned in the response.
+   * Requires a reporting permission appropriate to the targeted resource type.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;PrintReportResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PrintReportResponse> printReportWithHttpInfo(PrintReportRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling printReport");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/reporting/print";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ReportSchedulesApi.printReport",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PrintReportResponse>() {});
+  }
+
+  /**
+   * Print a report.
+   *
+   * <p>See {@link #printReportWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PrintReportResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PrintReportResponse>> printReportWithHttpInfoAsync(
+      PrintReportRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PrintReportResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling printReport"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/reporting/print";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ReportSchedulesApi.printReport",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PrintReportResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PrintReportResponse>() {});
   }
 
   /**
