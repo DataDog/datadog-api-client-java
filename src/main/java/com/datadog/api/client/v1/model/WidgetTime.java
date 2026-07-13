@@ -210,6 +210,51 @@ public class WidgetTime extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'WidgetNewFixedSpan'", e);
       }
 
+      // deserialize WidgetCalendarAlignedSpan
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (WidgetCalendarAlignedSpan.class.equals(Integer.class)
+            || WidgetCalendarAlignedSpan.class.equals(Long.class)
+            || WidgetCalendarAlignedSpan.class.equals(Float.class)
+            || WidgetCalendarAlignedSpan.class.equals(Double.class)
+            || WidgetCalendarAlignedSpan.class.equals(Boolean.class)
+            || WidgetCalendarAlignedSpan.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((WidgetCalendarAlignedSpan.class.equals(Integer.class)
+                        || WidgetCalendarAlignedSpan.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((WidgetCalendarAlignedSpan.class.equals(Float.class)
+                        || WidgetCalendarAlignedSpan.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (WidgetCalendarAlignedSpan.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (WidgetCalendarAlignedSpan.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(WidgetCalendarAlignedSpan.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((WidgetCalendarAlignedSpan) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'WidgetCalendarAlignedSpan'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'WidgetCalendarAlignedSpan'", e);
+      }
+
       WidgetTime ret = new WidgetTime();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -253,10 +298,16 @@ public class WidgetTime extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetTime(WidgetCalendarAlignedSpan o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("WidgetLegacyLiveSpan", new GenericType<WidgetLegacyLiveSpan>() {});
     schemas.put("WidgetNewLiveSpan", new GenericType<WidgetNewLiveSpan>() {});
     schemas.put("WidgetNewFixedSpan", new GenericType<WidgetNewFixedSpan>() {});
+    schemas.put("WidgetCalendarAlignedSpan", new GenericType<WidgetCalendarAlignedSpan>() {});
     JSON.registerDescendants(WidgetTime.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -267,7 +318,8 @@ public class WidgetTime extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: WidgetLegacyLiveSpan, WidgetNewLiveSpan, WidgetNewFixedSpan
+   * against the oneOf child schemas: WidgetLegacyLiveSpan, WidgetNewLiveSpan, WidgetNewFixedSpan,
+   * WidgetCalendarAlignedSpan
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -286,6 +338,10 @@ public class WidgetTime extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(WidgetCalendarAlignedSpan.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -293,14 +349,15 @@ public class WidgetTime extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be WidgetLegacyLiveSpan, WidgetNewLiveSpan,"
-            + " WidgetNewFixedSpan");
+            + " WidgetNewFixedSpan, WidgetCalendarAlignedSpan");
   }
 
   /**
    * Get the actual instance, which can be the following: WidgetLegacyLiveSpan, WidgetNewLiveSpan,
-   * WidgetNewFixedSpan
+   * WidgetNewFixedSpan, WidgetCalendarAlignedSpan
    *
-   * @return The actual instance (WidgetLegacyLiveSpan, WidgetNewLiveSpan, WidgetNewFixedSpan)
+   * @return The actual instance (WidgetLegacyLiveSpan, WidgetNewLiveSpan, WidgetNewFixedSpan,
+   *     WidgetCalendarAlignedSpan)
    */
   @Override
   public Object getActualInstance() {
@@ -338,5 +395,16 @@ public class WidgetTime extends AbstractOpenApiSchema {
    */
   public WidgetNewFixedSpan getWidgetNewFixedSpan() throws ClassCastException {
     return (WidgetNewFixedSpan) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `WidgetCalendarAlignedSpan`. If the actual instance is not
+   * `WidgetCalendarAlignedSpan`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `WidgetCalendarAlignedSpan`
+   * @throws ClassCastException if the instance is not `WidgetCalendarAlignedSpan`
+   */
+  public WidgetCalendarAlignedSpan getWidgetCalendarAlignedSpan() throws ClassCastException {
+    return (WidgetCalendarAlignedSpan) super.getActualInstance();
   }
 }
