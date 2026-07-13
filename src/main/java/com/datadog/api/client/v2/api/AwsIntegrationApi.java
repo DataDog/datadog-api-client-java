@@ -18,6 +18,8 @@ import com.datadog.api.client.v2.model.AWSEventBridgeDeleteRequest;
 import com.datadog.api.client.v2.model.AWSEventBridgeDeleteResponse;
 import com.datadog.api.client.v2.model.AWSEventBridgeListResponse;
 import com.datadog.api.client.v2.model.AWSIntegrationIamPermissionsResponse;
+import com.datadog.api.client.v2.model.AWSMetricNameFilterPreviewRequest;
+import com.datadog.api.client.v2.model.AWSMetricNameFilterPreviewResponse;
 import com.datadog.api.client.v2.model.AWSNamespacesResponse;
 import com.datadog.api.client.v2.model.AWSNewExternalIDResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -1774,6 +1776,184 @@ public class AwsIntegrationApi {
         new GenericType<AWSIntegrationIamPermissionsResponse>() {});
   }
 
+  /**
+   * Get AWS metric name filter preview.
+   *
+   * <p>See {@link #getAWSMetricNameFilterPreviewWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return AWSMetricNameFilterPreviewResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSMetricNameFilterPreviewResponse getAWSMetricNameFilterPreview(String awsAccountConfigId)
+      throws ApiException {
+    return getAWSMetricNameFilterPreviewWithHttpInfo(awsAccountConfigId).getData();
+  }
+
+  /**
+   * Get AWS metric name filter preview.
+   *
+   * <p>See {@link #getAWSMetricNameFilterPreviewWithHttpInfoAsync}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return CompletableFuture&lt;AWSMetricNameFilterPreviewResponse&gt;
+   */
+  public CompletableFuture<AWSMetricNameFilterPreviewResponse> getAWSMetricNameFilterPreviewAsync(
+      String awsAccountConfigId) {
+    return getAWSMetricNameFilterPreviewWithHttpInfoAsync(awsAccountConfigId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Preview which collected CloudWatch metrics would be filtered by the account's saved metric name
+   * filters.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return ApiResponse&lt;AWSMetricNameFilterPreviewResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> AWS metric name filter preview result </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSMetricNameFilterPreviewResponse> getAWSMetricNameFilterPreviewWithHttpInfo(
+      String awsAccountConfigId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getAWSMetricNameFilterPreview";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'awsAccountConfigId' when calling"
+              + " getAWSMetricNameFilterPreview");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.getAWSMetricNameFilterPreview",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSMetricNameFilterPreviewResponse>() {});
+  }
+
+  /**
+   * Get AWS metric name filter preview.
+   *
+   * <p>See {@link #getAWSMetricNameFilterPreviewWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSMetricNameFilterPreviewResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>>
+      getAWSMetricNameFilterPreviewWithHttpInfoAsync(String awsAccountConfigId) {
+    // Check if unstable operation is enabled
+    String operationId = "getAWSMetricNameFilterPreview";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'awsAccountConfigId' when calling"
+                  + " getAWSMetricNameFilterPreview"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.getAWSMetricNameFilterPreview",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSMetricNameFilterPreviewResponse>() {});
+  }
+
   /** Manage optional parameters to listAWSAccounts. */
   public static class ListAWSAccountsOptionalParameters {
     private String awsAccountId;
@@ -2163,6 +2343,207 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AWSNamespacesResponse>() {});
+  }
+
+  /**
+   * Preview AWS metric name filter.
+   *
+   * <p>See {@link #previewAWSMetricNameFilterWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body The metric name filters to preview. (required)
+   * @return AWSMetricNameFilterPreviewResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSMetricNameFilterPreviewResponse previewAWSMetricNameFilter(
+      String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) throws ApiException {
+    return previewAWSMetricNameFilterWithHttpInfo(awsAccountConfigId, body).getData();
+  }
+
+  /**
+   * Preview AWS metric name filter.
+   *
+   * <p>See {@link #previewAWSMetricNameFilterWithHttpInfoAsync}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body The metric name filters to preview. (required)
+   * @return CompletableFuture&lt;AWSMetricNameFilterPreviewResponse&gt;
+   */
+  public CompletableFuture<AWSMetricNameFilterPreviewResponse> previewAWSMetricNameFilterAsync(
+      String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) {
+    return previewAWSMetricNameFilterWithHttpInfoAsync(awsAccountConfigId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Preview which collected CloudWatch metrics would be filtered by the supplied metric name
+   * filters. The filters are not persisted.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body The metric name filters to preview. (required)
+   * @return ApiResponse&lt;AWSMetricNameFilterPreviewResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> AWS metric name filter preview result </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSMetricNameFilterPreviewResponse> previewAWSMetricNameFilterWithHttpInfo(
+      String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "previewAWSMetricNameFilter";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'awsAccountConfigId' when calling"
+              + " previewAWSMetricNameFilter");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling previewAWSMetricNameFilter");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.previewAWSMetricNameFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSMetricNameFilterPreviewResponse>() {});
+  }
+
+  /**
+   * Preview AWS metric name filter.
+   *
+   * <p>See {@link #previewAWSMetricNameFilterWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body The metric name filters to preview. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSMetricNameFilterPreviewResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>>
+      previewAWSMetricNameFilterWithHttpInfoAsync(
+          String awsAccountConfigId, AWSMetricNameFilterPreviewRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "previewAWSMetricNameFilter";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'awsAccountConfigId' when calling"
+                  + " previewAWSMetricNameFilter"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling previewAWSMetricNameFilter"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.previewAWSMetricNameFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSMetricNameFilterPreviewResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSMetricNameFilterPreviewResponse>() {});
   }
 
   /**

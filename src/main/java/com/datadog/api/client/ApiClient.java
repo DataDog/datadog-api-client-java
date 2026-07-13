@@ -1129,6 +1129,8 @@ public class ApiClient {
           put("v2.createAWSAccountCCMConfig", false);
           put("v2.deleteAWSAccountCCMConfig", false);
           put("v2.getAWSAccountCCMConfig", false);
+          put("v2.getAWSMetricNameFilterPreview", false);
+          put("v2.previewAWSMetricNameFilter", false);
           put("v2.updateAWSAccountCCMConfig", false);
           put("v2.validateAWSCCMConfig", false);
           put("v2.createJiraIssueTemplate", false);
