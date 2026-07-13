@@ -24,6 +24,7 @@ import java.util.Objects;
   AWSMetricsConfig.JSON_PROPERTY_COLLECT_CLOUDWATCH_ALARMS,
   AWSMetricsConfig.JSON_PROPERTY_COLLECT_CUSTOM_METRICS,
   AWSMetricsConfig.JSON_PROPERTY_ENABLED,
+  AWSMetricsConfig.JSON_PROPERTY_METRIC_NAME_FILTERS,
   AWSMetricsConfig.JSON_PROPERTY_NAMESPACE_FILTERS,
   AWSMetricsConfig.JSON_PROPERTY_TAG_FILTERS
 })
@@ -42,6 +43,9 @@ public class AWSMetricsConfig {
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
+
+  public static final String JSON_PROPERTY_METRIC_NAME_FILTERS = "metric_name_filters";
+  private List<AWSMetricNameFilters> metricNameFilters = null;
 
   public static final String JSON_PROPERTY_NAMESPACE_FILTERS = "namespace_filters";
   private AWSNamespaceFilters namespaceFilters;
@@ -131,6 +135,40 @@ public class AWSMetricsConfig {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public AWSMetricsConfig metricNameFilters(List<AWSMetricNameFilters> metricNameFilters) {
+    this.metricNameFilters = metricNameFilters;
+    for (AWSMetricNameFilters item : metricNameFilters) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public AWSMetricsConfig addMetricNameFiltersItem(AWSMetricNameFilters metricNameFiltersItem) {
+    if (this.metricNameFilters == null) {
+      this.metricNameFilters = new ArrayList<>();
+    }
+    this.metricNameFilters.add(metricNameFiltersItem);
+    this.unparsed |= metricNameFiltersItem.unparsed;
+    return this;
+  }
+
+  /**
+   * AWS CloudWatch metric name filters. Each filter applies to a single namespace. Exactly one of
+   * <code>include_only</code> or <code>exclude_only</code> must be set on each filter.
+   *
+   * @return metricNameFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRIC_NAME_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AWSMetricNameFilters> getMetricNameFilters() {
+    return metricNameFilters;
+  }
+
+  public void setMetricNameFilters(List<AWSMetricNameFilters> metricNameFilters) {
+    this.metricNameFilters = metricNameFilters;
   }
 
   public AWSMetricsConfig namespaceFilters(AWSNamespaceFilters namespaceFilters) {
@@ -248,6 +286,7 @@ public class AWSMetricsConfig {
         && Objects.equals(this.collectCloudwatchAlarms, awsMetricsConfig.collectCloudwatchAlarms)
         && Objects.equals(this.collectCustomMetrics, awsMetricsConfig.collectCustomMetrics)
         && Objects.equals(this.enabled, awsMetricsConfig.enabled)
+        && Objects.equals(this.metricNameFilters, awsMetricsConfig.metricNameFilters)
         && Objects.equals(this.namespaceFilters, awsMetricsConfig.namespaceFilters)
         && Objects.equals(this.tagFilters, awsMetricsConfig.tagFilters)
         && Objects.equals(this.additionalProperties, awsMetricsConfig.additionalProperties);
@@ -260,6 +299,7 @@ public class AWSMetricsConfig {
         collectCloudwatchAlarms,
         collectCustomMetrics,
         enabled,
+        metricNameFilters,
         namespaceFilters,
         tagFilters,
         additionalProperties);
@@ -277,6 +317,7 @@ public class AWSMetricsConfig {
         .append(toIndentedString(collectCustomMetrics))
         .append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    metricNameFilters: ").append(toIndentedString(metricNameFilters)).append("\n");
     sb.append("    namespaceFilters: ").append(toIndentedString(namespaceFilters)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    additionalProperties: ")
