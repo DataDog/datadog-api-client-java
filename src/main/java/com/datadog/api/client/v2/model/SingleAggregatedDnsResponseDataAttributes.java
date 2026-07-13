@@ -66,6 +66,11 @@ public class SingleAggregatedDnsResponseDataAttributes {
 
   public void setGroupBys(List<SingleAggregatedDnsResponseDataAttributesGroupByItems> groupBys) {
     this.groupBys = groupBys;
+    if (groupBys != null) {
+      for (SingleAggregatedDnsResponseDataAttributesGroupByItems item : groupBys) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SingleAggregatedDnsResponseDataAttributes metrics(
@@ -101,6 +106,11 @@ public class SingleAggregatedDnsResponseDataAttributes {
 
   public void setMetrics(List<SingleAggregatedDnsResponseDataAttributesMetricsItems> metrics) {
     this.metrics = metrics;
+    if (metrics != null) {
+      for (SingleAggregatedDnsResponseDataAttributesMetricsItems item : metrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -41,6 +41,9 @@ public class DowntimeScheduleRecurrencesCreateRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_RECURRENCES)
           List<DowntimeScheduleRecurrenceCreateUpdateRequest> recurrences) {
     this.recurrences = recurrences;
+    for (DowntimeScheduleRecurrenceCreateUpdateRequest item : recurrences) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DowntimeScheduleRecurrencesCreateRequest recurrences(
@@ -72,6 +75,11 @@ public class DowntimeScheduleRecurrencesCreateRequest {
 
   public void setRecurrences(List<DowntimeScheduleRecurrenceCreateUpdateRequest> recurrences) {
     this.recurrences = recurrences;
+    if (recurrences != null) {
+      for (DowntimeScheduleRecurrenceCreateUpdateRequest item : recurrences) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DowntimeScheduleRecurrencesCreateRequest timezone(String timezone) {

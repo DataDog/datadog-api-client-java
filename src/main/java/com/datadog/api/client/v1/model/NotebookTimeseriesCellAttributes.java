@@ -71,6 +71,9 @@ public class NotebookTimeseriesCellAttributes {
 
   public void setDefinition(TimeseriesWidgetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public NotebookTimeseriesCellAttributes graphSize(NotebookGraphSize graphSize) {
@@ -118,6 +121,9 @@ public class NotebookTimeseriesCellAttributes {
 
   public void setSplitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
+    if (splitBy != null) {
+      this.unparsed |= splitBy.unparsed;
+    }
   }
 
   public NotebookTimeseriesCellAttributes time(NotebookCellTime time) {

@@ -57,6 +57,9 @@ public class FacetInfoResponseDataAttributesResult {
 
   public void setRange(FacetInfoResponseDataAttributesResultRange range) {
     this.range = range;
+    if (range != null) {
+      this.unparsed |= range.unparsed;
+    }
   }
 
   public FacetInfoResponseDataAttributesResult values(
@@ -92,6 +95,11 @@ public class FacetInfoResponseDataAttributesResult {
 
   public void setValues(List<FacetInfoResponseDataAttributesResultValuesItems> values) {
     this.values = values;
+    if (values != null) {
+      for (FacetInfoResponseDataAttributesResultValuesItems item : values) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

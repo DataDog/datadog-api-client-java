@@ -61,6 +61,11 @@ public class HourlyUsageResponse {
 
   public void setData(List<HourlyUsage> data) {
     this.data = data;
+    if (data != null) {
+      for (HourlyUsage item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HourlyUsageResponse meta(HourlyUsageMetadata meta) {
@@ -83,6 +88,9 @@ public class HourlyUsageResponse {
 
   public void setMeta(HourlyUsageMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

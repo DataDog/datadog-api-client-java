@@ -59,6 +59,9 @@ public class ApplicationSecurityPolicyData {
 
   public void setAttributes(ApplicationSecurityPolicyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

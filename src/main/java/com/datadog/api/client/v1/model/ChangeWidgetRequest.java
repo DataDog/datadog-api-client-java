@@ -117,6 +117,9 @@ public class ChangeWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public ChangeWidgetRequest changeType(WidgetChangeType changeType) {
@@ -189,6 +192,9 @@ public class ChangeWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public ChangeWidgetRequest formulas(List<WidgetFormula> formulas) {
@@ -222,6 +228,11 @@ public class ChangeWidgetRequest {
 
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ChangeWidgetRequest increaseGood(Boolean increaseGood) {
@@ -265,6 +276,9 @@ public class ChangeWidgetRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public ChangeWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -287,6 +301,9 @@ public class ChangeWidgetRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public ChangeWidgetRequest orderBy(WidgetOrderBy orderBy) {
@@ -359,6 +376,9 @@ public class ChangeWidgetRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public ChangeWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -381,6 +401,9 @@ public class ChangeWidgetRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public ChangeWidgetRequest q(String q) {
@@ -438,6 +461,11 @@ public class ChangeWidgetRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ChangeWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
@@ -486,6 +514,9 @@ public class ChangeWidgetRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public ChangeWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -508,6 +539,9 @@ public class ChangeWidgetRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   public ChangeWidgetRequest showPresent(Boolean showPresent) {

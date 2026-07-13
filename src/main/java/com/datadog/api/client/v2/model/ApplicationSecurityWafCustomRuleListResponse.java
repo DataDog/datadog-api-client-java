@@ -60,6 +60,11 @@ public class ApplicationSecurityWafCustomRuleListResponse {
 
   public void setData(List<ApplicationSecurityWafCustomRuleData> data) {
     this.data = data;
+    if (data != null) {
+      for (ApplicationSecurityWafCustomRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

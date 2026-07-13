@@ -87,6 +87,11 @@ public class SignalsProblemsDetections {
 
   public void setHighFrozenFrameRates(List<AggregatedHighFrozenFrameRate> highFrozenFrameRates) {
     this.highFrozenFrameRates = highFrozenFrameRates;
+    if (highFrozenFrameRates != null) {
+      for (AggregatedHighFrozenFrameRate item : highFrozenFrameRates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections highScriptEvaluations(
@@ -122,6 +127,11 @@ public class SignalsProblemsDetections {
 
   public void setHighScriptEvaluations(List<AggregatedHighScriptEval> highScriptEvaluations) {
     this.highScriptEvaluations = highScriptEvaluations;
+    if (highScriptEvaluations != null) {
+      for (AggregatedHighScriptEval item : highScriptEvaluations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections lowCacheHitRates(
@@ -157,6 +167,11 @@ public class SignalsProblemsDetections {
 
   public void setLowCacheHitRates(List<AggregatedLowCacheHitRate> lowCacheHitRates) {
     this.lowCacheHitRates = lowCacheHitRates;
+    if (lowCacheHitRates != null) {
+      for (AggregatedLowCacheHitRate item : lowCacheHitRates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections mobileScrollFrictions(
@@ -192,6 +207,11 @@ public class SignalsProblemsDetections {
 
   public void setMobileScrollFrictions(List<AggregatedMobileScrollFriction> mobileScrollFrictions) {
     this.mobileScrollFrictions = mobileScrollFrictions;
+    if (mobileScrollFrictions != null) {
+      for (AggregatedMobileScrollFriction item : mobileScrollFrictions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections slowFcpHighBytes(
@@ -227,6 +247,11 @@ public class SignalsProblemsDetections {
 
   public void setSlowFcpHighBytes(List<AggregatedSlowFCPHighBytes> slowFcpHighBytes) {
     this.slowFcpHighBytes = slowFcpHighBytes;
+    if (slowFcpHighBytes != null) {
+      for (AggregatedSlowFCPHighBytes item : slowFcpHighBytes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections slowInteractionLongTasks(
@@ -263,6 +288,11 @@ public class SignalsProblemsDetections {
   public void setSlowInteractionLongTasks(
       List<AggregatedSlowInteractionLongTask> slowInteractionLongTasks) {
     this.slowInteractionLongTasks = slowInteractionLongTasks;
+    if (slowInteractionLongTasks != null) {
+      for (AggregatedSlowInteractionLongTask item : slowInteractionLongTasks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections uncompressedResources(
@@ -298,6 +328,11 @@ public class SignalsProblemsDetections {
 
   public void setUncompressedResources(List<AggregatedUncompressedResource> uncompressedResources) {
     this.uncompressedResources = uncompressedResources;
+    if (uncompressedResources != null) {
+      for (AggregatedUncompressedResource item : uncompressedResources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

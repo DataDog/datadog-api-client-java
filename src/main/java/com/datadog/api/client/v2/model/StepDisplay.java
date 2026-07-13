@@ -45,6 +45,9 @@ public class StepDisplay {
 
   public void setBounds(StepDisplayBounds bounds) {
     this.bounds = bounds;
+    if (bounds != null) {
+      this.unparsed |= bounds.unparsed;
+    }
   }
 
   /**

@@ -60,6 +60,11 @@ public class SingleAggregatedConnectionResponseArray {
 
   public void setData(List<SingleAggregatedConnectionResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (SingleAggregatedConnectionResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

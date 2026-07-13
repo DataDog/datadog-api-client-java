@@ -63,6 +63,9 @@ public class CreateBackfilledDegradationRequestData {
 
   public void setAttributes(CreateBackfilledDegradationRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateBackfilledDegradationRequestData type(PatchDegradationRequestDataType type) {

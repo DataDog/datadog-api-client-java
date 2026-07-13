@@ -66,6 +66,9 @@ public class CreateConnectionRequestData {
 
   public void setAttributes(CreateConnectionRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateConnectionRequestData id(String id) {

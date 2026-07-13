@@ -70,6 +70,9 @@ public class TableResultV2DataAttributesFileMetadata {
   public void setAccessDetails(
       TableResultV2DataAttributesFileMetadataOneOfAccessDetails accessDetails) {
     this.accessDetails = accessDetails;
+    if (accessDetails != null) {
+      this.unparsed |= accessDetails.unparsed;
+    }
   }
 
   public TableResultV2DataAttributesFileMetadata errorMessage(String errorMessage) {

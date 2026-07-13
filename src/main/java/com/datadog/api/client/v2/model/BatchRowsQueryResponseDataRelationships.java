@@ -46,6 +46,9 @@ public class BatchRowsQueryResponseDataRelationships {
 
   public void setRows(BatchRowsQueryResponseDataRelationshipsRows rows) {
     this.rows = rows;
+    if (rows != null) {
+      this.unparsed |= rows.unparsed;
+    }
   }
 
   /**

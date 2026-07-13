@@ -34,6 +34,9 @@ public class JSONAPIErrorResponse {
   public JSONAPIErrorResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_ERRORS) List<JSONAPIErrorItem> errors) {
     this.errors = errors;
+    for (JSONAPIErrorItem item : errors) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public JSONAPIErrorResponse errors(List<JSONAPIErrorItem> errors) {
@@ -63,6 +66,11 @@ public class JSONAPIErrorResponse {
 
   public void setErrors(List<JSONAPIErrorItem> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (JSONAPIErrorItem item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

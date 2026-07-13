@@ -117,6 +117,9 @@ public class DeploymentGateResponseDataAttributes {
 
   public void setCreatedBy(DeploymentGateResponseDataAttributesCreatedBy createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public DeploymentGateResponseDataAttributes dryRun(Boolean dryRun) {
@@ -241,6 +244,9 @@ public class DeploymentGateResponseDataAttributes {
 
   public void setUpdatedBy(DeploymentGateResponseDataAttributesUpdatedBy updatedBy) {
     this.updatedBy = updatedBy;
+    if (updatedBy != null) {
+      this.unparsed |= updatedBy.unparsed;
+    }
   }
 
   /**

@@ -71,6 +71,9 @@ public class FeatureFlag {
 
   public void setAttributes(FeatureFlagAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FeatureFlag id(UUID id) {

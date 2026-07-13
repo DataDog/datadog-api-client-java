@@ -70,6 +70,9 @@ public class AllocationDataResponse {
 
   public void setAttributes(Allocation attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AllocationDataResponse id(UUID id) {

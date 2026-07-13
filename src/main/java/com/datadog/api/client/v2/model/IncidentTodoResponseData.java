@@ -71,6 +71,9 @@ public class IncidentTodoResponseData {
 
   public void setAttributes(IncidentTodoAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentTodoResponseData id(String id) {
@@ -113,6 +116,9 @@ public class IncidentTodoResponseData {
 
   public void setRelationships(IncidentTodoRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentTodoResponseData type(IncidentTodoType type) {

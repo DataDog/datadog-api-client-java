@@ -56,6 +56,9 @@ public class StatusPagesComponentDataRelationshipsLastModifiedByUser {
 
   public void setData(StatusPagesComponentDataRelationshipsLastModifiedByUserData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

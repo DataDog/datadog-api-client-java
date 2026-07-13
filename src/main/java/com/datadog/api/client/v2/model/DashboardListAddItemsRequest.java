@@ -58,6 +58,11 @@ public class DashboardListAddItemsRequest {
 
   public void setDashboards(List<DashboardListItemRequest> dashboards) {
     this.dashboards = dashboards;
+    if (dashboards != null) {
+      for (DashboardListItemRequest item : dashboards) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

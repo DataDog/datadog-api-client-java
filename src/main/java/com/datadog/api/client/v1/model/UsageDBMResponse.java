@@ -58,6 +58,11 @@ public class UsageDBMResponse {
 
   public void setUsage(List<UsageDBMHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageDBMHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

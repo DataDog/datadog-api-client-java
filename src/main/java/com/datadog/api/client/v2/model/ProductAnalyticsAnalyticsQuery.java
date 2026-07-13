@@ -79,6 +79,9 @@ public class ProductAnalyticsAnalyticsQuery {
 
   public void setAudienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
+    if (audienceFilters != null) {
+      this.unparsed |= audienceFilters.unparsed;
+    }
   }
 
   public ProductAnalyticsAnalyticsQuery compute(ProductAnalyticsCompute compute) {
@@ -100,6 +103,9 @@ public class ProductAnalyticsAnalyticsQuery {
 
   public void setCompute(ProductAnalyticsCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public ProductAnalyticsAnalyticsQuery groupBy(List<ProductAnalyticsGroupBy> groupBy) {
@@ -133,6 +139,11 @@ public class ProductAnalyticsAnalyticsQuery {
 
   public void setGroupBy(List<ProductAnalyticsGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (ProductAnalyticsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProductAnalyticsAnalyticsQuery indexes(List<String> indexes) {
@@ -185,6 +196,9 @@ public class ProductAnalyticsAnalyticsQuery {
 
   public void setQuery(ProductAnalyticsBaseQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   /**

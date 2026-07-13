@@ -54,6 +54,9 @@ public class ModelLabPageMeta {
 
   public void setPage(ModelLabPageMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

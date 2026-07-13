@@ -52,6 +52,9 @@ public class UpdateAppFavoriteRequestData {
 
   public void setAttributes(UpdateAppFavoriteRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateAppFavoriteRequestData type(AppFavoriteType type) {

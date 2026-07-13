@@ -63,6 +63,11 @@ public class EscalationPolicyDataRelationshipsSteps {
 
   public void setData(List<EscalationPolicyDataRelationshipsStepsDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (EscalationPolicyDataRelationshipsStepsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

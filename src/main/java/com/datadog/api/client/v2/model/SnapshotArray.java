@@ -34,6 +34,9 @@ public class SnapshotArray {
   public SnapshotArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SnapshotData> data) {
     this.data = data;
+    for (SnapshotData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SnapshotArray data(List<SnapshotData> data) {
@@ -63,6 +66,11 @@ public class SnapshotArray {
 
   public void setData(List<SnapshotData> data) {
     this.data = data;
+    if (data != null) {
+      for (SnapshotData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

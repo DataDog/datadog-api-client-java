@@ -89,6 +89,9 @@ public class RuleBasedViewRule {
       @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) RuleBasedViewRuleCategory type) {
     this.complianceFrameworks = complianceFrameworks;
+    for (RuleBasedViewComplianceFramework item : complianceFrameworks) {
+      this.unparsed |= item.unparsed;
+    }
     this.enabled = enabled;
     this.id = id;
     this.name = name;
@@ -132,6 +135,11 @@ public class RuleBasedViewRule {
 
   public void setComplianceFrameworks(List<RuleBasedViewComplianceFramework> complianceFrameworks) {
     this.complianceFrameworks = complianceFrameworks;
+    if (complianceFrameworks != null) {
+      for (RuleBasedViewComplianceFramework item : complianceFrameworks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RuleBasedViewRule enabled(Boolean enabled) {
@@ -278,6 +286,9 @@ public class RuleBasedViewRule {
 
   public void setStats(RuleBasedViewRuleStats stats) {
     this.stats = stats;
+    if (stats != null) {
+      this.unparsed |= stats.unparsed;
+    }
   }
 
   public RuleBasedViewRule status(String status) {

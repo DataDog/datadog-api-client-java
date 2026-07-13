@@ -113,6 +113,9 @@ public class TimeseriesWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public TimeseriesWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
@@ -135,6 +138,9 @@ public class TimeseriesWidgetRequest {
 
   public void setAuditQuery(LogQueryDefinition auditQuery) {
     this.auditQuery = auditQuery;
+    if (auditQuery != null) {
+      this.unparsed |= auditQuery.unparsed;
+    }
   }
 
   public TimeseriesWidgetRequest displayType(WidgetDisplayType displayType) {
@@ -182,6 +188,9 @@ public class TimeseriesWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public TimeseriesWidgetRequest formulas(List<WidgetFormula> formulas) {
@@ -215,6 +224,11 @@ public class TimeseriesWidgetRequest {
 
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -237,6 +251,9 @@ public class TimeseriesWidgetRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public TimeseriesWidgetRequest metadata(List<TimeseriesWidgetExpressionAlias> metadata) {
@@ -270,6 +287,11 @@ public class TimeseriesWidgetRequest {
 
   public void setMetadata(List<TimeseriesWidgetExpressionAlias> metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      for (TimeseriesWidgetExpressionAlias item : metadata) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -292,6 +314,9 @@ public class TimeseriesWidgetRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public TimeseriesWidgetRequest onRightYaxis(Boolean onRightYaxis) {
@@ -335,6 +360,9 @@ public class TimeseriesWidgetRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public TimeseriesWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -357,6 +385,9 @@ public class TimeseriesWidgetRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public TimeseriesWidgetRequest q(String q) {
@@ -414,6 +445,11 @@ public class TimeseriesWidgetRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
@@ -462,6 +498,9 @@ public class TimeseriesWidgetRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public TimeseriesWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -484,6 +523,9 @@ public class TimeseriesWidgetRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   public TimeseriesWidgetRequest style(TimeseriesRequestStyle style) {
@@ -506,6 +548,9 @@ public class TimeseriesWidgetRequest {
 
   public void setStyle(TimeseriesRequestStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /**

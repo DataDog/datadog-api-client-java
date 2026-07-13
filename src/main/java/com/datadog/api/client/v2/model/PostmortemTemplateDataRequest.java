@@ -64,6 +64,9 @@ public class PostmortemTemplateDataRequest {
 
   public void setAttributes(PostmortemTemplateAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PostmortemTemplateDataRequest type(PostmortemTemplateType type) {

@@ -51,6 +51,9 @@ public class UsageSpecifiedCustomReportsResponse {
 
   public void setData(UsageSpecifiedCustomReportsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public UsageSpecifiedCustomReportsResponse meta(UsageSpecifiedCustomReportsMeta meta) {
@@ -73,6 +76,9 @@ public class UsageSpecifiedCustomReportsResponse {
 
   public void setMeta(UsageSpecifiedCustomReportsMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

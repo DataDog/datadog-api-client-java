@@ -136,6 +136,9 @@ public class SyntheticsCITest {
 
   public void setBasicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
+    if (basicAuth != null) {
+      this.unparsed |= basicAuth.unparsed;
+    }
   }
 
   public SyntheticsCITest body(String body) {
@@ -329,6 +332,9 @@ public class SyntheticsCITest {
 
   public void setMetadata(SyntheticsCIBatchMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public SyntheticsCITest publicId(String publicId) {
@@ -371,6 +377,9 @@ public class SyntheticsCITest {
 
   public void setRetry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
+    if (retry != null) {
+      this.unparsed |= retry.unparsed;
+    }
   }
 
   public SyntheticsCITest startUrl(String startUrl) {

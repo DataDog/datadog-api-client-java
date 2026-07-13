@@ -45,6 +45,9 @@ public class EnvironmentsPaginationMeta {
 
   public void setPage(EnvironmentsPaginationMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

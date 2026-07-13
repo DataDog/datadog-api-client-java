@@ -65,6 +65,9 @@ public class LLMObsDatasetRecordsDataRequest {
 
   public void setAttributes(LLMObsDatasetRecordsDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDatasetRecordsDataRequest type(LLMObsRecordType type) {

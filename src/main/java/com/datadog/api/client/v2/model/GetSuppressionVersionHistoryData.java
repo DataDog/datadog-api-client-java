@@ -55,6 +55,9 @@ public class GetSuppressionVersionHistoryData {
 
   public void setAttributes(SuppressionVersionHistory attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetSuppressionVersionHistoryData id(String id) {

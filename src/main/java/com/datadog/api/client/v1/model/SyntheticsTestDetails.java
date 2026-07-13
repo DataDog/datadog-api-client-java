@@ -97,6 +97,9 @@ public class SyntheticsTestDetails {
 
   public void setConfig(SyntheticsTestConfig config) {
     this.config = config;
+    if (config != null) {
+      this.unparsed |= config.unparsed;
+    }
   }
 
   /**
@@ -214,6 +217,9 @@ public class SyntheticsTestDetails {
 
   public void setOptions(SyntheticsTestOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**
@@ -285,6 +291,11 @@ public class SyntheticsTestDetails {
 
   public void setSteps(List<SyntheticsStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (SyntheticsStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestDetails subtype(SyntheticsTestDetailsSubType subtype) {

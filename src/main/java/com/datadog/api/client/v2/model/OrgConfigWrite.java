@@ -61,6 +61,9 @@ public class OrgConfigWrite {
 
   public void setAttributes(OrgConfigWriteAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgConfigWrite type(OrgConfigType type) {

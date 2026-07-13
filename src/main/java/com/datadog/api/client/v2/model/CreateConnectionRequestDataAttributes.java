@@ -93,6 +93,11 @@ public class CreateConnectionRequestDataAttributes {
 
   public void setFields(List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateConnectionRequestDataAttributes joinAttribute(String joinAttribute) {

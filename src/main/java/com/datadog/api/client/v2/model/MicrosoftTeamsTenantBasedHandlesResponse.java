@@ -35,6 +35,9 @@ public class MicrosoftTeamsTenantBasedHandlesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<MicrosoftTeamsTenantBasedHandleInfoResponseData> data) {
     this.data = data;
+    for (MicrosoftTeamsTenantBasedHandleInfoResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MicrosoftTeamsTenantBasedHandlesResponse data(
@@ -66,6 +69,11 @@ public class MicrosoftTeamsTenantBasedHandlesResponse {
 
   public void setData(List<MicrosoftTeamsTenantBasedHandleInfoResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (MicrosoftTeamsTenantBasedHandleInfoResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

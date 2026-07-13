@@ -65,6 +65,9 @@ public class UpdateFlakyTestsRequestData {
 
   public void setAttributes(UpdateFlakyTestsRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateFlakyTestsRequestData type(UpdateFlakyTestsRequestDataType type) {

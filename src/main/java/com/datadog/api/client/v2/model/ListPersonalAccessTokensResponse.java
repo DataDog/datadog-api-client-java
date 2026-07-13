@@ -64,6 +64,11 @@ public class ListPersonalAccessTokensResponse {
 
   public void setData(List<AccessTokenListItem> data) {
     this.data = data;
+    if (data != null) {
+      for (AccessTokenListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListPersonalAccessTokensResponse meta(PersonalAccessTokenResponseMeta meta) {
@@ -86,6 +91,9 @@ public class ListPersonalAccessTokensResponse {
 
   public void setMeta(PersonalAccessTokenResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

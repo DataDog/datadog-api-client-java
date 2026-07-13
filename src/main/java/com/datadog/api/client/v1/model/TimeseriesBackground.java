@@ -85,6 +85,9 @@ public class TimeseriesBackground {
 
   public void setYaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
+    if (yaxis != null) {
+      this.unparsed |= yaxis.unparsed;
+    }
   }
 
   /**

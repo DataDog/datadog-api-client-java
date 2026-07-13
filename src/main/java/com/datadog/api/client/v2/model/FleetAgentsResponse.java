@@ -57,6 +57,9 @@ public class FleetAgentsResponse {
 
   public void setData(FleetAgentsResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public FleetAgentsResponse meta(FleetAgentsResponseMeta meta) {
@@ -79,6 +82,9 @@ public class FleetAgentsResponse {
 
   public void setMeta(FleetAgentsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

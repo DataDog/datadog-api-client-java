@@ -58,6 +58,11 @@ public class CustomDestinationsResponse {
 
   public void setData(List<CustomDestinationResponseDefinition> data) {
     this.data = data;
+    if (data != null) {
+      for (CustomDestinationResponseDefinition item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

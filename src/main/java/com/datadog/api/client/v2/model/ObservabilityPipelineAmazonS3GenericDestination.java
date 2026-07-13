@@ -138,6 +138,9 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
 
   public void setAuth(ObservabilityPipelineAwsAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3GenericDestination batchSettings(
@@ -161,6 +164,9 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
 
   public void setBatchSettings(ObservabilityPipelineAmazonS3GenericBatchSettings batchSettings) {
     this.batchSettings = batchSettings;
+    if (batchSettings != null) {
+      this.unparsed |= batchSettings.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3GenericDestination bucket(String bucket) {
@@ -204,6 +210,9 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3GenericDestination compression(
@@ -226,6 +235,9 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
 
   public void setCompression(ObservabilityPipelineAmazonS3GenericCompression compression) {
     this.compression = compression;
+    if (compression != null) {
+      this.unparsed |= compression.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3GenericDestination encoding(
@@ -248,6 +260,9 @@ public class ObservabilityPipelineAmazonS3GenericDestination {
 
   public void setEncoding(ObservabilityPipelineAmazonS3GenericEncoding encoding) {
     this.encoding = encoding;
+    if (encoding != null) {
+      this.unparsed |= encoding.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3GenericDestination id(String id) {

@@ -66,6 +66,9 @@ public class FacetInfoRequestData {
 
   public void setAttributes(FacetInfoRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FacetInfoRequestData id(String id) {

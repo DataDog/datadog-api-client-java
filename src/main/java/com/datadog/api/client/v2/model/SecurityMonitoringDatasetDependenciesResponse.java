@@ -35,6 +35,9 @@ public class SecurityMonitoringDatasetDependenciesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<SecurityMonitoringDatasetDependentsData> data) {
     this.data = data;
+    for (SecurityMonitoringDatasetDependentsData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecurityMonitoringDatasetDependenciesResponse data(
@@ -66,6 +69,11 @@ public class SecurityMonitoringDatasetDependenciesResponse {
 
   public void setData(List<SecurityMonitoringDatasetDependentsData> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringDatasetDependentsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

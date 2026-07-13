@@ -34,6 +34,9 @@ public class ProjectFavoritesResponse {
   public ProjectFavoritesResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<ProjectFavorite> data) {
     this.data = data;
+    for (ProjectFavorite item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ProjectFavoritesResponse data(List<ProjectFavorite> data) {
@@ -63,6 +66,11 @@ public class ProjectFavoritesResponse {
 
   public void setData(List<ProjectFavorite> data) {
     this.data = data;
+    if (data != null) {
+      for (ProjectFavorite item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

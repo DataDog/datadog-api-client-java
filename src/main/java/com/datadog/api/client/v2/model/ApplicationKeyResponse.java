@@ -53,6 +53,9 @@ public class ApplicationKeyResponse {
 
   public void setData(FullApplicationKey data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public ApplicationKeyResponse included(List<ApplicationKeyResponseIncludedItem> included) {
@@ -86,6 +89,11 @@ public class ApplicationKeyResponse {
 
   public void setIncluded(List<ApplicationKeyResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (ApplicationKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

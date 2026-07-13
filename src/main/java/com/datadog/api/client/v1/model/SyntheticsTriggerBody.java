@@ -35,6 +35,9 @@ public class SyntheticsTriggerBody {
       @JsonProperty(required = true, value = JSON_PROPERTY_TESTS)
           List<SyntheticsTriggerTest> tests) {
     this.tests = tests;
+    for (SyntheticsTriggerTest item : tests) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SyntheticsTriggerBody tests(List<SyntheticsTriggerTest> tests) {
@@ -64,6 +67,11 @@ public class SyntheticsTriggerBody {
 
   public void setTests(List<SyntheticsTriggerTest> tests) {
     this.tests = tests;
+    if (tests != null) {
+      for (SyntheticsTriggerTest item : tests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

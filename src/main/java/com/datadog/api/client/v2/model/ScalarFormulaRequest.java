@@ -64,6 +64,9 @@ public class ScalarFormulaRequest {
 
   public void setAttributes(ScalarFormulaRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScalarFormulaRequest type(ScalarFormulaRequestType type) {

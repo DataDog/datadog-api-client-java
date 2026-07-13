@@ -65,6 +65,11 @@ public class AWSEventBridgeListResponse {
 
   public void setAccounts(List<AWSEventBridgeAccountConfiguration> accounts) {
     this.accounts = accounts;
+    if (accounts != null) {
+      for (AWSEventBridgeAccountConfiguration item : accounts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AWSEventBridgeListResponse isInstalled(Boolean isInstalled) {

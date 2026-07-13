@@ -105,6 +105,9 @@ public class BudgetAttributes {
 
   public void setCosts(BudgetAttributesCosts costs) {
     this.costs = costs;
+    if (costs != null) {
+      this.unparsed |= costs.unparsed;
+    }
   }
 
   public BudgetAttributes costsPeriodEnd(Long costsPeriodEnd) {
@@ -169,6 +172,9 @@ public class BudgetAttributes {
 
   public void setCostsUnit(BudgetAttributesCostsUnit costsUnit) {
     this.costsUnit = costsUnit;
+    if (costsUnit != null) {
+      this.unparsed |= costsUnit.unparsed;
+    }
   }
 
   public BudgetAttributes createdAt(Long createdAt) {
@@ -265,6 +271,11 @@ public class BudgetAttributes {
 
   public void setEntries(List<BudgetWithEntriesDataAttributesEntriesItems> entries) {
     this.entries = entries;
+    if (entries != null) {
+      for (BudgetWithEntriesDataAttributesEntriesItems item : entries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public BudgetAttributes metricsQuery(String metricsQuery) {

@@ -72,6 +72,11 @@ public class MonitorSearchResponseCounts {
 
   public void setMuted(List<MonitorSearchCountItem> muted) {
     this.muted = muted;
+    if (muted != null) {
+      for (MonitorSearchCountItem item : muted) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorSearchResponseCounts status(List<MonitorSearchCountItem> status) {
@@ -105,6 +110,11 @@ public class MonitorSearchResponseCounts {
 
   public void setStatus(List<MonitorSearchCountItem> status) {
     this.status = status;
+    if (status != null) {
+      for (MonitorSearchCountItem item : status) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorSearchResponseCounts tag(List<MonitorSearchCountItem> tag) {
@@ -138,6 +148,11 @@ public class MonitorSearchResponseCounts {
 
   public void setTag(List<MonitorSearchCountItem> tag) {
     this.tag = tag;
+    if (tag != null) {
+      for (MonitorSearchCountItem item : tag) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorSearchResponseCounts type(List<MonitorSearchCountItem> type) {
@@ -171,6 +186,11 @@ public class MonitorSearchResponseCounts {
 
   public void setType(List<MonitorSearchCountItem> type) {
     this.type = type;
+    if (type != null) {
+      for (MonitorSearchCountItem item : type) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

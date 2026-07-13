@@ -71,6 +71,9 @@ public class SyntheticsAPITestResultFull {
 
   public void setCheck(SyntheticsAPITestResultFullCheck check) {
     this.check = check;
+    if (check != null) {
+      this.unparsed |= check.unparsed;
+    }
   }
 
   public SyntheticsAPITestResultFull checkTime(Double checkTime) {
@@ -156,6 +159,9 @@ public class SyntheticsAPITestResultFull {
 
   public void setResult(SyntheticsAPITestResultData result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public SyntheticsAPITestResultFull resultId(String resultId) {

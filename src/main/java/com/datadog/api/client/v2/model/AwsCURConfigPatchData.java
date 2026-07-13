@@ -66,6 +66,9 @@ public class AwsCURConfigPatchData {
 
   public void setAttributes(AwsCURConfigPatchRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AwsCURConfigPatchData type(AwsCURConfigPatchRequestType type) {

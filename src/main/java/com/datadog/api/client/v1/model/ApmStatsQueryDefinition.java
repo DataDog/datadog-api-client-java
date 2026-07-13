@@ -102,6 +102,11 @@ public class ApmStatsQueryDefinition {
 
   public void setColumns(List<ApmStatsQueryColumnType> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (ApmStatsQueryColumnType item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApmStatsQueryDefinition env(String env) {

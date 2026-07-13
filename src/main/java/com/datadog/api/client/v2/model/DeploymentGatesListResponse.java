@@ -64,6 +64,11 @@ public class DeploymentGatesListResponse {
 
   public void setData(List<DeploymentGateResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (DeploymentGateResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DeploymentGatesListResponse meta(DeploymentGatesListResponseMeta meta) {
@@ -86,6 +91,9 @@ public class DeploymentGatesListResponse {
 
   public void setMeta(DeploymentGatesListResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

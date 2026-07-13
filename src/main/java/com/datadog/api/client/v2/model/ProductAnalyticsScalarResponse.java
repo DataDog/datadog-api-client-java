@@ -51,6 +51,9 @@ public class ProductAnalyticsScalarResponse {
 
   public void setData(ProductAnalyticsScalarResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public ProductAnalyticsScalarResponse meta(ProductAnalyticsResponseMeta meta) {
@@ -73,6 +76,9 @@ public class ProductAnalyticsScalarResponse {
 
   public void setMeta(ProductAnalyticsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

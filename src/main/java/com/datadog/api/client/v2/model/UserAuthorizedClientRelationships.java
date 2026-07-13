@@ -74,6 +74,9 @@ public class UserAuthorizedClientRelationships {
 
   public void setOauth2Client(UserAuthorizedClientRelationshipOAuth2Client oauth2Client) {
     this.oauth2Client = oauth2Client;
+    if (oauth2Client != null) {
+      this.unparsed |= oauth2Client.unparsed;
+    }
   }
 
   public UserAuthorizedClientRelationships scopes(UserAuthorizedClientRelationshipScopes scopes) {
@@ -95,6 +98,9 @@ public class UserAuthorizedClientRelationships {
 
   public void setScopes(UserAuthorizedClientRelationshipScopes scopes) {
     this.scopes = scopes;
+    if (scopes != null) {
+      this.unparsed |= scopes.unparsed;
+    }
   }
 
   public UserAuthorizedClientRelationships user(UserAuthorizedClientRelationshipUser user) {
@@ -116,6 +122,9 @@ public class UserAuthorizedClientRelationships {
 
   public void setUser(UserAuthorizedClientRelationshipUser user) {
     this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**

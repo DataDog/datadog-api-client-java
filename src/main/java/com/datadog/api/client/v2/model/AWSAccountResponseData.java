@@ -67,6 +67,9 @@ public class AWSAccountResponseData {
 
   public void setAttributes(AWSAccountResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSAccountResponseData id(String id) {

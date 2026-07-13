@@ -55,6 +55,9 @@ public class AwsScanOptionsData {
 
   public void setAttributes(AwsScanOptionsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AwsScanOptionsData id(String id) {

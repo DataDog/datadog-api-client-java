@@ -58,6 +58,9 @@ public class ObservabilityPipelineSpec {
 
   public void setData(ObservabilityPipelineSpecData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

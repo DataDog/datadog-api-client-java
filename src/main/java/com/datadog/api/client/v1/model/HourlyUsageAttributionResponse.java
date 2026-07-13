@@ -53,6 +53,9 @@ public class HourlyUsageAttributionResponse {
 
   public void setMetadata(HourlyUsageAttributionMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public HourlyUsageAttributionResponse usage(List<HourlyUsageAttributionBody> usage) {
@@ -86,6 +89,11 @@ public class HourlyUsageAttributionResponse {
 
   public void setUsage(List<HourlyUsageAttributionBody> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (HourlyUsageAttributionBody item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

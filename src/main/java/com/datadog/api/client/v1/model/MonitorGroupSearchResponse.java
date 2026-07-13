@@ -80,6 +80,9 @@ public class MonitorGroupSearchResponse {
 
   public void setMetadata(MonitorSearchResponseMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   /**

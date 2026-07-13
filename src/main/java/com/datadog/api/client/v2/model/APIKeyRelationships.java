@@ -53,6 +53,9 @@ public class APIKeyRelationships {
 
   public void setCreatedBy(RelationshipToUser createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public APIKeyRelationships modifiedBy(NullableRelationshipToUser modifiedBy) {

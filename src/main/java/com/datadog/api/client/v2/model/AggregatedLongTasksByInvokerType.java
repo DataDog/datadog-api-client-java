@@ -65,6 +65,9 @@ public class AggregatedLongTasksByInvokerType {
     this.statsPerView = statsPerView;
     this.unparsed |= statsPerView.unparsed;
     this.topInvokers = topInvokers;
+    for (TopLongTaskInvoker item : topInvokers) {
+      this.unparsed |= item.unparsed;
+    }
     this.viewOccurrences = viewOccurrences;
   }
 
@@ -150,6 +153,9 @@ public class AggregatedLongTasksByInvokerType {
 
   public void setStatsPerView(LongTaskStatsPerView statsPerView) {
     this.statsPerView = statsPerView;
+    if (statsPerView != null) {
+      this.unparsed |= statsPerView.unparsed;
+    }
   }
 
   public AggregatedLongTasksByInvokerType topInvokers(List<TopLongTaskInvoker> topInvokers) {
@@ -179,6 +185,11 @@ public class AggregatedLongTasksByInvokerType {
 
   public void setTopInvokers(List<TopLongTaskInvoker> topInvokers) {
     this.topInvokers = topInvokers;
+    if (topInvokers != null) {
+      for (TopLongTaskInvoker item : topInvokers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AggregatedLongTasksByInvokerType viewOccurrences(Integer viewOccurrences) {

@@ -45,6 +45,9 @@ public class UpdateAppVersionNameRequest {
 
   public void setData(UpdateAppVersionNameRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

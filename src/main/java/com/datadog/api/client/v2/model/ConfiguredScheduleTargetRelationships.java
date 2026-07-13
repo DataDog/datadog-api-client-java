@@ -56,6 +56,9 @@ public class ConfiguredScheduleTargetRelationships {
 
   public void setSchedule(ConfiguredScheduleTargetRelationshipsSchedule schedule) {
     this.schedule = schedule;
+    if (schedule != null) {
+      this.unparsed |= schedule.unparsed;
+    }
   }
 
   /**

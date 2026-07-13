@@ -58,6 +58,11 @@ public class UserListResponse {
 
   public void setUsers(List<User> users) {
     this.users = users;
+    if (users != null) {
+      for (User item : users) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

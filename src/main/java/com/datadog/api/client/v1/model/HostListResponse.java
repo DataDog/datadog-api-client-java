@@ -68,6 +68,11 @@ public class HostListResponse {
 
   public void setHostList(List<Host> hostList) {
     this.hostList = hostList;
+    if (hostList != null) {
+      for (Host item : hostList) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostListResponse totalMatching(Long totalMatching) {

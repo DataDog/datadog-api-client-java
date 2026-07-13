@@ -71,6 +71,9 @@ public class CreateTenancyConfigData {
 
   public void setAttributes(CreateTenancyConfigDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateTenancyConfigData id(String id) {

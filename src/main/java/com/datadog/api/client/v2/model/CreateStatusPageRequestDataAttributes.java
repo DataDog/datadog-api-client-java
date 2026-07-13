@@ -147,6 +147,11 @@ public class CreateStatusPageRequestDataAttributes {
 
   public void setComponents(List<CreateStatusPageRequestDataAttributesComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (CreateStatusPageRequestDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateStatusPageRequestDataAttributes domainPrefix(String domainPrefix) {

@@ -41,6 +41,9 @@ public class CostRecommendationArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<CostRecommendationData> data) {
     this.data = data;
+    for (CostRecommendationData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CostRecommendationArray data(List<CostRecommendationData> data) {
@@ -70,6 +73,11 @@ public class CostRecommendationArray {
 
   public void setData(List<CostRecommendationData> data) {
     this.data = data;
+    if (data != null) {
+      for (CostRecommendationData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CostRecommendationArray meta(RecommendationsPageMeta meta) {
@@ -92,6 +100,9 @@ public class CostRecommendationArray {
 
   public void setMeta(RecommendationsPageMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

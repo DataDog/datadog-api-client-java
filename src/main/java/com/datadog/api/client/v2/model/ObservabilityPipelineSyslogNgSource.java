@@ -154,6 +154,9 @@ public class ObservabilityPipelineSyslogNgSource {
 
   public void setTls(ObservabilityPipelineMtlsServerTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineSyslogNgSource type(ObservabilityPipelineSyslogNgSourceType type) {

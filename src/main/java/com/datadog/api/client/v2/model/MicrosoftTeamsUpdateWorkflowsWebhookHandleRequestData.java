@@ -67,6 +67,9 @@ public class MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData {
 
   public void setAttributes(MicrosoftTeamsWorkflowsWebhookHandleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData type(

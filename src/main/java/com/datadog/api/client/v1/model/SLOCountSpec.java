@@ -52,6 +52,9 @@ public class SLOCountSpec {
 
   public void setCount(SLOCountDefinition count) {
     this.count = count;
+    if (count != null) {
+      this.unparsed |= count.unparsed;
+    }
   }
 
   /** Return true if this SLOCountSpec object is equal to o. */

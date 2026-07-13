@@ -60,6 +60,11 @@ public class GetMappingResponseDataAttributes {
 
   public void setAttributes(List<GetMappingResponseDataAttributesAttributesItems> attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      for (GetMappingResponseDataAttributesAttributesItems item : attributes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

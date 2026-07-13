@@ -51,6 +51,9 @@ public class Span {
 
   public void setAttributes(SpansAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Span id(String id) {

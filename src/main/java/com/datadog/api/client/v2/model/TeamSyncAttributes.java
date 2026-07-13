@@ -115,6 +115,11 @@ public class TeamSyncAttributes {
 
   public void setSelectionState(List<TeamSyncSelectionStateItem> selectionState) {
     this.selectionState = selectionState;
+    if (selectionState != null) {
+      for (TeamSyncSelectionStateItem item : selectionState) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamSyncAttributes source(TeamSyncAttributesSource source) {

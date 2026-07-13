@@ -606,6 +606,11 @@ public class FleetAgentAttributes {
 
   public void setTags(List<FleetAgentAttributesTagsItems> tags) {
     this.tags = tags;
+    if (tags != null) {
+      for (FleetAgentAttributesTagsItems item : tags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetAgentAttributes team(String team) {

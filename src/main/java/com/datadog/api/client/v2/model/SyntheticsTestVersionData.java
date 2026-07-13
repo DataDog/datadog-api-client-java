@@ -55,6 +55,9 @@ public class SyntheticsTestVersionData {
 
   public void setAttributes(SyntheticsTestVersionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsTestVersionData id(String id) {

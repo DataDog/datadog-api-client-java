@@ -55,6 +55,9 @@ public class PersonalAccessTokenUpdateRequest {
 
   public void setData(PersonalAccessTokenUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

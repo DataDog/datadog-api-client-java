@@ -53,6 +53,9 @@ public class SLOTimeSliceSpec {
 
   public void setTimeSlice(SLOTimeSliceCondition timeSlice) {
     this.timeSlice = timeSlice;
+    if (timeSlice != null) {
+      this.unparsed |= timeSlice.unparsed;
+    }
   }
 
   /** Return true if this SLOTimeSliceSpec object is equal to o. */

@@ -93,6 +93,9 @@ public class SyntheticsTestDetailsWithoutSteps {
 
   public void setConfig(SyntheticsTestConfig config) {
     this.config = config;
+    if (config != null) {
+      this.unparsed |= config.unparsed;
+    }
   }
 
   /**
@@ -210,6 +213,9 @@ public class SyntheticsTestDetailsWithoutSteps {
 
   public void setOptions(SyntheticsTestOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

@@ -75,6 +75,9 @@ public class GeneratedCostTagDescription {
 
   public void setAttributes(GeneratedCostTagDescriptionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GeneratedCostTagDescription id(String id) {

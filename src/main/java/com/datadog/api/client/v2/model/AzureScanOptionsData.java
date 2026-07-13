@@ -67,6 +67,9 @@ public class AzureScanOptionsData {
 
   public void setAttributes(AzureScanOptionsDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AzureScanOptionsData id(String id) {

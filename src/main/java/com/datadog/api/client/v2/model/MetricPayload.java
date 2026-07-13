@@ -34,6 +34,9 @@ public class MetricPayload {
   public MetricPayload(
       @JsonProperty(required = true, value = JSON_PROPERTY_SERIES) List<MetricSeries> series) {
     this.series = series;
+    for (MetricSeries item : series) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MetricPayload series(List<MetricSeries> series) {
@@ -63,6 +66,11 @@ public class MetricPayload {
 
   public void setSeries(List<MetricSeries> series) {
     this.series = series;
+    if (series != null) {
+      for (MetricSeries item : series) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

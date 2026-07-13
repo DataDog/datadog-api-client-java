@@ -86,6 +86,9 @@ public class ModelLabProjectAttributes {
     this.isStarred = isStarred;
     this.name = name;
     this.tags = tags;
+    for (ModelLabTag item : tags) {
+      this.unparsed |= item.unparsed;
+    }
     this.updatedAt = updatedAt;
   }
 
@@ -309,6 +312,11 @@ public class ModelLabProjectAttributes {
 
   public void setTags(List<ModelLabTag> tags) {
     this.tags = tags;
+    if (tags != null) {
+      for (ModelLabTag item : tags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ModelLabProjectAttributes updatedAt(OffsetDateTime updatedAt) {

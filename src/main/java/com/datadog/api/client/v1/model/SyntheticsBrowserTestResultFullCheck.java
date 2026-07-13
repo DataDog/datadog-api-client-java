@@ -54,6 +54,9 @@ public class SyntheticsBrowserTestResultFullCheck {
 
   public void setConfig(SyntheticsTestConfig config) {
     this.config = config;
+    if (config != null) {
+      this.unparsed |= config.unparsed;
+    }
   }
 
   /**

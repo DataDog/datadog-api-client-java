@@ -61,6 +61,11 @@ public class MetricAssetDashboardRelationships {
 
   public void setData(List<MetricAssetDashboardRelationship> data) {
     this.data = data;
+    if (data != null) {
+      for (MetricAssetDashboardRelationship item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

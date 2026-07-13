@@ -67,6 +67,9 @@ public class RUMApplicationUpdate {
 
   public void setAttributes(RUMApplicationUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RUMApplicationUpdate id(String id) {

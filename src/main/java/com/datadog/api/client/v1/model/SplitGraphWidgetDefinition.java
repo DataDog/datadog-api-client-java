@@ -140,6 +140,9 @@ public class SplitGraphWidgetDefinition {
 
   public void setSourceWidgetDefinition(SplitGraphSourceWidgetDefinition sourceWidgetDefinition) {
     this.sourceWidgetDefinition = sourceWidgetDefinition;
+    if (sourceWidgetDefinition != null) {
+      this.unparsed |= sourceWidgetDefinition.unparsed;
+    }
   }
 
   public SplitGraphWidgetDefinition splitConfig(SplitConfig splitConfig) {
@@ -161,6 +164,9 @@ public class SplitGraphWidgetDefinition {
 
   public void setSplitConfig(SplitConfig splitConfig) {
     this.splitConfig = splitConfig;
+    if (splitConfig != null) {
+      this.unparsed |= splitConfig.unparsed;
+    }
   }
 
   public SplitGraphWidgetDefinition time(WidgetTime time) {
@@ -183,6 +189,9 @@ public class SplitGraphWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public SplitGraphWidgetDefinition title(String title) {

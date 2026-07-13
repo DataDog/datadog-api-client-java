@@ -58,6 +58,11 @@ public class WebIntegrationAccountsResponse {
 
   public void setData(List<WebIntegrationAccountResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (WebIntegrationAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

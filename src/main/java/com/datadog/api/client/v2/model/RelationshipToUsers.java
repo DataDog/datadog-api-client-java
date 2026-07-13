@@ -35,6 +35,9 @@ public class RelationshipToUsers {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<RelationshipToUserData> data) {
     this.data = data;
+    for (RelationshipToUserData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RelationshipToUsers data(List<RelationshipToUserData> data) {
@@ -64,6 +67,11 @@ public class RelationshipToUsers {
 
   public void setData(List<RelationshipToUserData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToUserData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

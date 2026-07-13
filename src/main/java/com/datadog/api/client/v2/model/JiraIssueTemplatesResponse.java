@@ -40,6 +40,9 @@ public class JiraIssueTemplatesResponse {
   public JiraIssueTemplatesResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<JiraIssueTemplateData> data) {
     this.data = data;
+    for (JiraIssueTemplateData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public JiraIssueTemplatesResponse data(List<JiraIssueTemplateData> data) {
@@ -69,6 +72,11 @@ public class JiraIssueTemplatesResponse {
 
   public void setData(List<JiraIssueTemplateData> data) {
     this.data = data;
+    if (data != null) {
+      for (JiraIssueTemplateData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public JiraIssueTemplatesResponse included(List<JiraAccountData> included) {
@@ -102,6 +110,11 @@ public class JiraIssueTemplatesResponse {
 
   public void setIncluded(List<JiraAccountData> included) {
     this.included = included;
+    if (included != null) {
+      for (JiraAccountData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

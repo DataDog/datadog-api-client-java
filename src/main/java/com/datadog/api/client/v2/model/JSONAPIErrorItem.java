@@ -113,6 +113,9 @@ public class JSONAPIErrorItem {
 
   public void setSource(JSONAPIErrorItemSource source) {
     this.source = source;
+    if (source != null) {
+      this.unparsed |= source.unparsed;
+    }
   }
 
   public JSONAPIErrorItem status(String status) {

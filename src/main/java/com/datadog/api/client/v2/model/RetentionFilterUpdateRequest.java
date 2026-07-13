@@ -54,6 +54,9 @@ public class RetentionFilterUpdateRequest {
 
   public void setData(RetentionFilterUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

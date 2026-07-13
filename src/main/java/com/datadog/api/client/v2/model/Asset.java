@@ -69,6 +69,9 @@ public class Asset {
 
   public void setAttributes(AssetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Asset id(String id) {

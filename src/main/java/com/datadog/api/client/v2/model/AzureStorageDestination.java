@@ -114,6 +114,9 @@ public class AzureStorageDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public AzureStorageDestination connectionStringKey(String connectionStringKey) {

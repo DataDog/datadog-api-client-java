@@ -85,6 +85,11 @@ public class CreateStatusPageRequestDataAttributesComponentsItems {
   public void setComponents(
       List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

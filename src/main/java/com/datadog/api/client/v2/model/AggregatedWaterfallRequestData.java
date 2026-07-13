@@ -66,6 +66,9 @@ public class AggregatedWaterfallRequestData {
 
   public void setAttributes(AggregatedWaterfallRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AggregatedWaterfallRequestData type(AggregatedWaterfallRequestType type) {

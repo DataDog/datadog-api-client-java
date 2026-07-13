@@ -101,6 +101,9 @@ public class UserJourneySearchGraphFilter {
 
   public void setTarget(UserJourneySearchTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   public UserJourneySearchGraphFilter value(Long value) {

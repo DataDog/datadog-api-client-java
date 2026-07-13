@@ -112,6 +112,9 @@ public class SensitiveDataScannerGetConfigResponseData {
 
   public void setRelationships(SensitiveDataScannerConfigurationRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SensitiveDataScannerGetConfigResponseData type(

@@ -51,6 +51,9 @@ public class AttachmentDataRelationships {
 
   public void setIncident(RelationshipToIncident incident) {
     this.incident = incident;
+    if (incident != null) {
+      this.unparsed |= incident.unparsed;
+    }
   }
 
   public AttachmentDataRelationships lastModifiedByUser(RelationshipToUser lastModifiedByUser) {
@@ -73,6 +76,9 @@ public class AttachmentDataRelationships {
 
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   /**

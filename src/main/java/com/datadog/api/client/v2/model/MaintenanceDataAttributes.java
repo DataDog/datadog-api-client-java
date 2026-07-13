@@ -150,6 +150,11 @@ public class MaintenanceDataAttributes {
   public void setComponentsAffected(
       List<MaintenanceDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (MaintenanceDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MaintenanceDataAttributes inProgressDescription(String inProgressDescription) {
@@ -356,6 +361,11 @@ public class MaintenanceDataAttributes {
 
   public void setUpdates(List<MaintenanceDataAttributesUpdatesItems> updates) {
     this.updates = updates;
+    if (updates != null) {
+      for (MaintenanceDataAttributesUpdatesItems item : updates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

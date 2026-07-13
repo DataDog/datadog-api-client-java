@@ -59,8 +59,14 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           LLMObsDisplayBlockInteractionType type) {
     this.annotations = annotations;
+    for (LLMObsAnnotationItem item : annotations) {
+      this.unparsed |= item.unparsed;
+    }
     this.contentId = contentId;
     this.displayBlock = displayBlock;
+    for (LLMObsContentBlock item : displayBlock) {
+      this.unparsed |= item.unparsed;
+    }
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -95,6 +101,11 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
 
   public void setAnnotations(List<LLMObsAnnotationItem> annotations) {
     this.annotations = annotations;
+    if (annotations != null) {
+      for (LLMObsAnnotationItem item : annotations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsDisplayBlockAnnotatedInteractionItem contentId(String contentId) {
@@ -147,6 +158,11 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
 
   public void setDisplayBlock(List<LLMObsContentBlock> displayBlock) {
     this.displayBlock = displayBlock;
+    if (displayBlock != null) {
+      for (LLMObsContentBlock item : displayBlock) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsDisplayBlockAnnotatedInteractionItem id(String id) {

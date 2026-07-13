@@ -45,6 +45,9 @@ public class RulesValidateQueryResponse {
 
   public void setData(RulesValidateQueryResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

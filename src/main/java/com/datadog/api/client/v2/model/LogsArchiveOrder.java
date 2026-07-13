@@ -45,6 +45,9 @@ public class LogsArchiveOrder {
 
   public void setData(LogsArchiveOrderDefinition data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

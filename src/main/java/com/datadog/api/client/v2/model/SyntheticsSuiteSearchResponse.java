@@ -45,6 +45,9 @@ public class SyntheticsSuiteSearchResponse {
 
   public void setData(SyntheticsSuiteSearchResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class CreateSnapshotResponse {
 
   public void setData(CreateSnapshotDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -48,6 +48,9 @@ public class ObservabilityPipelineOcsfMappingCustom {
           ObservabilityPipelineOcsfMappingCustomMetadata metadata,
       @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Long version) {
     this.mapping = mapping;
+    for (ObservabilityPipelineOcsfMappingCustomFieldMapping item : mapping) {
+      this.unparsed |= item.unparsed;
+    }
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
     this.version = version;
@@ -82,6 +85,11 @@ public class ObservabilityPipelineOcsfMappingCustom {
 
   public void setMapping(List<ObservabilityPipelineOcsfMappingCustomFieldMapping> mapping) {
     this.mapping = mapping;
+    if (mapping != null) {
+      for (ObservabilityPipelineOcsfMappingCustomFieldMapping item : mapping) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineOcsfMappingCustom metadata(
@@ -104,6 +112,9 @@ public class ObservabilityPipelineOcsfMappingCustom {
 
   public void setMetadata(ObservabilityPipelineOcsfMappingCustomMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public ObservabilityPipelineOcsfMappingCustom version(Long version) {

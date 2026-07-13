@@ -46,6 +46,9 @@ public class FacetInfoResponseDataAttributes {
 
   public void setResult(FacetInfoResponseDataAttributesResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   /**

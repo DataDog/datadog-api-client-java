@@ -72,6 +72,9 @@ public class ResolveVulnerableSymbolsRequestData {
 
   public void setAttributes(ResolveVulnerableSymbolsRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ResolveVulnerableSymbolsRequestData id(String id) {

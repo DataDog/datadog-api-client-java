@@ -61,6 +61,11 @@ public class InputSchema {
 
   public void setParameters(List<InputSchemaParameters> parameters) {
     this.parameters = parameters;
+    if (parameters != null) {
+      for (InputSchemaParameters item : parameters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -34,6 +34,9 @@ public class CaseInsightsAttributes {
   public CaseInsightsAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_INSIGHTS) List<CaseInsight> insights) {
     this.insights = insights;
+    for (CaseInsight item : insights) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CaseInsightsAttributes insights(List<CaseInsight> insights) {
@@ -63,6 +66,11 @@ public class CaseInsightsAttributes {
 
   public void setInsights(List<CaseInsight> insights) {
     this.insights = insights;
+    if (insights != null) {
+      for (CaseInsight item : insights) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

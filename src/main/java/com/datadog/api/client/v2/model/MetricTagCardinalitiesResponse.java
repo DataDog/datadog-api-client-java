@@ -67,6 +67,11 @@ public class MetricTagCardinalitiesResponse {
 
   public void setData(List<MetricTagCardinality> data) {
     this.data = data;
+    if (data != null) {
+      for (MetricTagCardinality item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MetricTagCardinalitiesResponse meta(MetricTagCardinalitiesMeta meta) {
@@ -89,6 +94,9 @@ public class MetricTagCardinalitiesResponse {
 
   public void setMeta(MetricTagCardinalitiesMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

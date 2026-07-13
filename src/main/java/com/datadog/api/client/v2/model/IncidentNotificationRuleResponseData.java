@@ -74,6 +74,9 @@ public class IncidentNotificationRuleResponseData {
 
   public void setAttributes(IncidentNotificationRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentNotificationRuleResponseData id(UUID id) {
@@ -117,6 +120,9 @@ public class IncidentNotificationRuleResponseData {
 
   public void setRelationships(IncidentNotificationRuleRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentNotificationRuleResponseData type(IncidentNotificationRuleType type) {

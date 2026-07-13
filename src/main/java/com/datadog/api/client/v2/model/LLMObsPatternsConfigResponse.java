@@ -55,6 +55,9 @@ public class LLMObsPatternsConfigResponse {
 
   public void setData(LLMObsPatternsConfigResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

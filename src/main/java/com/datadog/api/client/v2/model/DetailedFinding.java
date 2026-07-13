@@ -55,6 +55,9 @@ public class DetailedFinding {
 
   public void setAttributes(DetailedFindingAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DetailedFinding id(String id) {

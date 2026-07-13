@@ -100,6 +100,9 @@ public class UsageTopAvgMetricsMetadata {
 
   public void setPagination(UsageTopAvgMetricsPagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

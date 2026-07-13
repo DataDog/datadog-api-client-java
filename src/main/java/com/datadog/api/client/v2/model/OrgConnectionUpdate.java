@@ -71,6 +71,9 @@ public class OrgConnectionUpdate {
 
   public void setAttributes(OrgConnectionUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgConnectionUpdate id(UUID id) {

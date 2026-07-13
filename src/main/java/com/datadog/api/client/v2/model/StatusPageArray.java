@@ -44,6 +44,9 @@ public class StatusPageArray {
   public StatusPageArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<StatusPageData> data) {
     this.data = data;
+    for (StatusPageData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public StatusPageArray data(List<StatusPageData> data) {
@@ -73,6 +76,11 @@ public class StatusPageArray {
 
   public void setData(List<StatusPageData> data) {
     this.data = data;
+    if (data != null) {
+      for (StatusPageData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public StatusPageArray included(List<StatusPageArrayIncluded> included) {
@@ -107,6 +115,11 @@ public class StatusPageArray {
 
   public void setIncluded(List<StatusPageArrayIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (StatusPageArrayIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class DowntimeResponse {
 
   public void setData(DowntimeResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public DowntimeResponse included(List<DowntimeResponseIncludedItem> included) {
@@ -87,6 +90,11 @@ public class DowntimeResponse {
 
   public void setIncluded(List<DowntimeResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (DowntimeResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -62,6 +62,11 @@ public class DowntimeScheduleRecurrencesUpdateRequest {
 
   public void setRecurrences(List<DowntimeScheduleRecurrenceCreateUpdateRequest> recurrences) {
     this.recurrences = recurrences;
+    if (recurrences != null) {
+      for (DowntimeScheduleRecurrenceCreateUpdateRequest item : recurrences) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DowntimeScheduleRecurrencesUpdateRequest timezone(String timezone) {

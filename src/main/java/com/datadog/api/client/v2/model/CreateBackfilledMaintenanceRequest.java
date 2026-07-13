@@ -45,6 +45,9 @@ public class CreateBackfilledMaintenanceRequest {
 
   public void setData(CreateBackfilledMaintenanceRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

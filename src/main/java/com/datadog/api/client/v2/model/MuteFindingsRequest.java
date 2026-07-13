@@ -54,6 +54,9 @@ public class MuteFindingsRequest {
 
   public void setData(MuteFindingsRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

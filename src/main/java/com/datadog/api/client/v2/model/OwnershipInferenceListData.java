@@ -70,6 +70,9 @@ public class OwnershipInferenceListData {
 
   public void setAttributes(OwnershipInferenceListAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OwnershipInferenceListData id(String id) {

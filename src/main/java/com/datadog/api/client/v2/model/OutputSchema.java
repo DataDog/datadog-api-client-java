@@ -58,6 +58,11 @@ public class OutputSchema {
 
   public void setParameters(List<OutputSchemaParameters> parameters) {
     this.parameters = parameters;
+    if (parameters != null) {
+      for (OutputSchemaParameters item : parameters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

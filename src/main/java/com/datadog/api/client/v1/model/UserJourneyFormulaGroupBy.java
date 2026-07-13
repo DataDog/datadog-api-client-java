@@ -134,6 +134,9 @@ public class UserJourneyFormulaGroupBy {
 
   public void setSort(FormulaAndFunctionEventQueryGroupBySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public UserJourneyFormulaGroupBy target(UserJourneySearchTarget target) {
@@ -156,6 +159,9 @@ public class UserJourneyFormulaGroupBy {
 
   public void setTarget(UserJourneySearchTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   /**

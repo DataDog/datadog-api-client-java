@@ -67,6 +67,9 @@ public class SecurityMonitoringIntegrationConfigCreateData {
 
   public void setAttributes(SecurityMonitoringIntegrationConfigCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringIntegrationConfigCreateData type(

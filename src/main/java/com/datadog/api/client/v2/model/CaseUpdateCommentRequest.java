@@ -54,6 +54,9 @@ public class CaseUpdateCommentRequest {
 
   public void setData(CaseUpdateComment data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -64,6 +64,9 @@ public class CaseAggregateRequestData {
 
   public void setAttributes(CaseAggregateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseAggregateRequestData type(CaseAggregateResourceType type) {

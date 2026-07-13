@@ -62,6 +62,9 @@ public class TagIndexingRuleUpdateData {
 
   public void setAttributes(TagIndexingRuleUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TagIndexingRuleUpdateData type(TagIndexingRuleType type) {

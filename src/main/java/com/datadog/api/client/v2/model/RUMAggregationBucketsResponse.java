@@ -58,6 +58,11 @@ public class RUMAggregationBucketsResponse {
 
   public void setBuckets(List<RUMBucketResponse> buckets) {
     this.buckets = buckets;
+    if (buckets != null) {
+      for (RUMBucketResponse item : buckets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

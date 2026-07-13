@@ -69,6 +69,9 @@ public class ScheduleData {
 
   public void setAttributes(ScheduleDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScheduleData id(String id) {
@@ -112,6 +115,9 @@ public class ScheduleData {
 
   public void setRelationships(ScheduleDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ScheduleData type(ScheduleDataType type) {

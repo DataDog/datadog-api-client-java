@@ -69,6 +69,9 @@ public class AWSEventBridgeCreateResponseData {
 
   public void setAttributes(AWSEventBridgeCreateResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSEventBridgeCreateResponseData id(String id) {

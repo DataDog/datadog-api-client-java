@@ -54,6 +54,9 @@ public class EntityIntegrationConfigResponse {
 
   public void setData(EntityIntegrationConfigData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -51,6 +51,9 @@ public class SensitiveDataScannerCreateGroupResponse {
 
   public void setData(SensitiveDataScannerGroupResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SensitiveDataScannerCreateGroupResponse meta(SensitiveDataScannerMetaVersionOnly meta) {
@@ -73,6 +76,9 @@ public class SensitiveDataScannerCreateGroupResponse {
 
   public void setMeta(SensitiveDataScannerMetaVersionOnly meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class LogsMetricResponseData {
 
   public void setAttributes(LogsMetricResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LogsMetricResponseData id(String id) {

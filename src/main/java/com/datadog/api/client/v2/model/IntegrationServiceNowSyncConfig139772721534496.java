@@ -55,6 +55,9 @@ public class IntegrationServiceNowSyncConfig139772721534496 {
 
   public void setComments(SyncProperty comments) {
     this.comments = comments;
+    if (comments != null) {
+      this.unparsed |= comments.unparsed;
+    }
   }
 
   public IntegrationServiceNowSyncConfig139772721534496 priority(
@@ -78,6 +81,9 @@ public class IntegrationServiceNowSyncConfig139772721534496 {
 
   public void setPriority(IntegrationServiceNowSyncConfigPriority priority) {
     this.priority = priority;
+    if (priority != null) {
+      this.unparsed |= priority.unparsed;
+    }
   }
 
   public IntegrationServiceNowSyncConfig139772721534496 status(SyncPropertyWithMapping status) {
@@ -100,6 +106,9 @@ public class IntegrationServiceNowSyncConfig139772721534496 {
 
   public void setStatus(SyncPropertyWithMapping status) {
     this.status = status;
+    if (status != null) {
+      this.unparsed |= status.unparsed;
+    }
   }
 
   /**

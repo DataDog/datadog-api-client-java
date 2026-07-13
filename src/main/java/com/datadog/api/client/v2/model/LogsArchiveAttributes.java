@@ -133,6 +133,9 @@ public class LogsArchiveAttributes {
 
   public void setDestination(LogsArchiveDestination destination) {
     this.destination = destination;
+    if (destination != null) {
+      this.unparsed |= destination.unparsed;
+    }
   }
 
   public LogsArchiveAttributes includeTags(Boolean includeTags) {

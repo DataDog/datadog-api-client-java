@@ -45,6 +45,9 @@ public class EntityToSchema {
 
   public void setData(RelationshipItem data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

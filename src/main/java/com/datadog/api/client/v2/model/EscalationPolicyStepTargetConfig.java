@@ -46,6 +46,9 @@ public class EscalationPolicyStepTargetConfig {
 
   public void setSchedule(EscalationPolicyStepTargetConfigSchedule schedule) {
     this.schedule = schedule;
+    if (schedule != null) {
+      this.unparsed |= schedule.unparsed;
+    }
   }
 
   /**

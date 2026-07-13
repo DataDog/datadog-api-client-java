@@ -160,6 +160,9 @@ public class ObservabilityPipelineKafkaDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineKafkaDestination compression(
@@ -334,6 +337,11 @@ public class ObservabilityPipelineKafkaDestination {
   public void setLibrdkafkaOptions(
       List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions) {
     this.librdkafkaOptions = librdkafkaOptions;
+    if (librdkafkaOptions != null) {
+      for (ObservabilityPipelineKafkaLibrdkafkaOption item : librdkafkaOptions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineKafkaDestination messageTimeoutMs(Long messageTimeoutMs) {
@@ -419,6 +427,9 @@ public class ObservabilityPipelineKafkaDestination {
 
   public void setSasl(ObservabilityPipelineKafkaSasl sasl) {
     this.sasl = sasl;
+    if (sasl != null) {
+      this.unparsed |= sasl.unparsed;
+    }
   }
 
   public ObservabilityPipelineKafkaDestination socketTimeoutMs(Long socketTimeoutMs) {
@@ -462,6 +473,9 @@ public class ObservabilityPipelineKafkaDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineKafkaDestination topic(String topic) {

@@ -54,6 +54,9 @@ public class AuthNMappingRelationshipToRole {
 
   public void setRole(RelationshipToRole role) {
     this.role = role;
+    if (role != null) {
+      this.unparsed |= role.unparsed;
+    }
   }
 
   /**

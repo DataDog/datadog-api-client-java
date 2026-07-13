@@ -55,6 +55,9 @@ public class SearchSLOResponse {
 
   public void setData(SearchSLOResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SearchSLOResponse links(SearchSLOResponseLinks links) {
@@ -77,6 +80,9 @@ public class SearchSLOResponse {
 
   public void setLinks(SearchSLOResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public SearchSLOResponse meta(SearchSLOResponseMeta meta) {
@@ -99,6 +105,9 @@ public class SearchSLOResponse {
 
   public void setMeta(SearchSLOResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

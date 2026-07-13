@@ -45,6 +45,9 @@ public class FleetDeploymentResponseMeta {
 
   public void setHosts(FleetDeploymentHostsPage hosts) {
     this.hosts = hosts;
+    if (hosts != null) {
+      this.unparsed |= hosts.unparsed;
+    }
   }
 
   /**

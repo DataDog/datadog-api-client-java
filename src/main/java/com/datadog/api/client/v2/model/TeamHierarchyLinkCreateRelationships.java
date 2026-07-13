@@ -66,6 +66,9 @@ public class TeamHierarchyLinkCreateRelationships {
 
   public void setParentTeam(TeamHierarchyLinkCreateTeamRelationship parentTeam) {
     this.parentTeam = parentTeam;
+    if (parentTeam != null) {
+      this.unparsed |= parentTeam.unparsed;
+    }
   }
 
   public TeamHierarchyLinkCreateRelationships subTeam(
@@ -88,6 +91,9 @@ public class TeamHierarchyLinkCreateRelationships {
 
   public void setSubTeam(TeamHierarchyLinkCreateTeamRelationship subTeam) {
     this.subTeam = subTeam;
+    if (subTeam != null) {
+      this.unparsed |= subTeam.unparsed;
+    }
   }
 
   /**

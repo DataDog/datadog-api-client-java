@@ -57,6 +57,9 @@ public class SingleAggregatedDnsResponseData {
 
   public void setAttributes(SingleAggregatedDnsResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SingleAggregatedDnsResponseData id(String id) {

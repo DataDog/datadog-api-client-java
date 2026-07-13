@@ -45,6 +45,9 @@ public class UpdateAppFavoriteRequest {
 
   public void setData(UpdateAppFavoriteRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -71,6 +71,9 @@ public class PostmortemTemplateDataResponse {
 
   public void setAttributes(PostmortemTemplateAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PostmortemTemplateDataResponse id(String id) {

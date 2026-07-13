@@ -79,6 +79,11 @@ public class RUMAggregateRequest {
 
   public void setCompute(List<RUMCompute> compute) {
     this.compute = compute;
+    if (compute != null) {
+      for (RUMCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RUMAggregateRequest filter(RUMQueryFilter filter) {
@@ -101,6 +106,9 @@ public class RUMAggregateRequest {
 
   public void setFilter(RUMQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public RUMAggregateRequest groupBy(List<RUMGroupBy> groupBy) {
@@ -134,6 +142,11 @@ public class RUMAggregateRequest {
 
   public void setGroupBy(List<RUMGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (RUMGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RUMAggregateRequest options(RUMQueryOptions options) {
@@ -157,6 +170,9 @@ public class RUMAggregateRequest {
 
   public void setOptions(RUMQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public RUMAggregateRequest page(RUMQueryPageOptions page) {
@@ -179,6 +195,9 @@ public class RUMAggregateRequest {
 
   public void setPage(RUMQueryPageOptions page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

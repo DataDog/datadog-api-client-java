@@ -55,6 +55,9 @@ public class ProcessSummary {
 
   public void setAttributes(ProcessSummaryAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ProcessSummary id(String id) {

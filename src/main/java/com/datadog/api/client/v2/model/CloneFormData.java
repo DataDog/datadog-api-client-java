@@ -57,6 +57,9 @@ public class CloneFormData {
 
   public void setAttributes(CloneFormDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CloneFormData type(FormType type) {

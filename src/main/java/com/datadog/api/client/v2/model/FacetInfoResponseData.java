@@ -65,6 +65,9 @@ public class FacetInfoResponseData {
 
   public void setAttributes(FacetInfoResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FacetInfoResponseData id(String id) {

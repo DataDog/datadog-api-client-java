@@ -1071,4 +1071,32 @@ public class DashboardsApiTest extends V1ApiTest {
       assertNotNull(error.getErrors());
     }
   }
+
+  private static String userJourneyQuery(String sortAggregation) {
+    return "{"
+        + "\"data_source\":\"product_analytics_journey\","
+        + "\"name\":\"query1\","
+        + "\"compute\":{\"aggregation\":\"count\"},"
+        + "\"search\":{\"expression\":\"node_0\",\"node_objects\":{}},"
+        + "\"group_by\":[{\"facet\":\"@x\",\"sort\":{\"aggregation\":\""
+        + sortAggregation
+        + "\",\"order\":\"asc\"}}]"
+        + "}";
+  }
+
+  @Test
+  public void testUserJourneyFormulaGroupByPropagatesUnparsed() throws Exception {
+    ObjectMapper mapper = generalApiClient.getJSON().getMapper();
+
+    FormulaAndFunctionUserJourneyQueryDefinition invalid =
+        com.datadog.api.World.fromJSON(
+            mapper,
+            FormulaAndFunctionUserJourneyQueryDefinition.class,
+            userJourneyQuery("NOT_A_VALID_AGGREGATION"));
+    assertTrue(invalid.getGroupBy().get(0).getSort().unparsed);
+    assertTrue(
+        "group-by item must propagate unparsed from its sort",
+        invalid.getGroupBy().get(0).unparsed);
+    assertTrue("query must propagate unparsed from its group_by items", invalid.unparsed);
+  }
 }

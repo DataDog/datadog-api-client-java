@@ -64,6 +64,9 @@ public class RetentionFilterCreateData {
 
   public void setAttributes(RetentionFilterCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RetentionFilterCreateData type(ApmRetentionFilterType type) {

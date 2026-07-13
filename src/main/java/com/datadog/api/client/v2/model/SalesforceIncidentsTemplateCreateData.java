@@ -67,6 +67,9 @@ public class SalesforceIncidentsTemplateCreateData {
 
   public void setAttributes(SalesforceIncidentsTemplateCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SalesforceIncidentsTemplateCreateData type(SalesforceIncidentsTemplateType type) {

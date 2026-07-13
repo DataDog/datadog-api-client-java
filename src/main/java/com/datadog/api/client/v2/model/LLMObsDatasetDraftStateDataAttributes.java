@@ -84,6 +84,9 @@ public class LLMObsDatasetDraftStateDataAttributes {
 
   public void setUser(LLMObsDatasetDraftStateUser user) {
     this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**

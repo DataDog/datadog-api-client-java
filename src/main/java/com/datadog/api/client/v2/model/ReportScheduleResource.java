@@ -71,6 +71,9 @@ public class ReportScheduleResource {
 
   public void setAttributes(ReportScheduleResourceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ReportScheduleResource id(String id) {

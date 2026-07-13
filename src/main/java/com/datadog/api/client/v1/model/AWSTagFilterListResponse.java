@@ -58,6 +58,11 @@ public class AWSTagFilterListResponse {
 
   public void setFilters(List<AWSTagFilter> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (AWSTagFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

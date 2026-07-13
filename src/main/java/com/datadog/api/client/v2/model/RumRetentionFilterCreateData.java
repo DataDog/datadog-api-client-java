@@ -64,6 +64,9 @@ public class RumRetentionFilterCreateData {
 
   public void setAttributes(RumRetentionFilterCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RumRetentionFilterCreateData type(RumRetentionFilterType type) {

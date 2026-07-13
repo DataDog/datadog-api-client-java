@@ -45,6 +45,9 @@ public class CreateRulesetRequest {
 
   public void setData(CreateRulesetRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

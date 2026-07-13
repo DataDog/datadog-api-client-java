@@ -61,6 +61,11 @@ public class CasesResponse {
 
   public void setData(List<Case> data) {
     this.data = data;
+    if (data != null) {
+      for (Case item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CasesResponse meta(CasesResponseMeta meta) {
@@ -83,6 +88,9 @@ public class CasesResponse {
 
   public void setMeta(CasesResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

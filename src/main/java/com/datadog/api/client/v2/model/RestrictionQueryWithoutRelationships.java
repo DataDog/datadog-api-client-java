@@ -55,6 +55,9 @@ public class RestrictionQueryWithoutRelationships {
 
   public void setAttributes(RestrictionQueryAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RestrictionQueryWithoutRelationships id(String id) {

@@ -114,6 +114,9 @@ public class DashboardListItem {
 
   public void setAuthor(Creator author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   /**

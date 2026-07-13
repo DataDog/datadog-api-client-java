@@ -61,6 +61,9 @@ public class CreateNotificationChannelData {
 
   public void setAttributes(CreateNotificationChannelAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateNotificationChannelData type(NotificationChannelType type) {

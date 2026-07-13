@@ -58,6 +58,11 @@ public class FleetTracersResponseDataAttributes {
 
   public void setTracers(List<FleetTracerAttributes> tracers) {
     this.tracers = tracers;
+    if (tracers != null) {
+      for (FleetTracerAttributes item : tracers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

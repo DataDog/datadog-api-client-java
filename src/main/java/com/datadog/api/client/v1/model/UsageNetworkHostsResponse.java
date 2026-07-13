@@ -58,6 +58,11 @@ public class UsageNetworkHostsResponse {
 
   public void setUsage(List<UsageNetworkHostsHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageNetworkHostsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

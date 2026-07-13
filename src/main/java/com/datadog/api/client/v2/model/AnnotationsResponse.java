@@ -34,6 +34,9 @@ public class AnnotationsResponse {
   public AnnotationsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AnnotationData> data) {
     this.data = data;
+    for (AnnotationData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AnnotationsResponse data(List<AnnotationData> data) {
@@ -63,6 +66,11 @@ public class AnnotationsResponse {
 
   public void setData(List<AnnotationData> data) {
     this.data = data;
+    if (data != null) {
+      for (AnnotationData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -60,6 +60,9 @@ public class RumPermanentRetentionFilterAttributes {
 
   public void setCrossProductSampling(RumCrossProductSampling crossProductSampling) {
     this.crossProductSampling = crossProductSampling;
+    if (crossProductSampling != null) {
+      this.unparsed |= crossProductSampling.unparsed;
+    }
   }
 
   public RumPermanentRetentionFilterAttributes description(String description) {
@@ -104,6 +107,9 @@ public class RumPermanentRetentionFilterAttributes {
 
   public void setEditability(RumPermanentRetentionFilterEditability editability) {
     this.editability = editability;
+    if (editability != null) {
+      this.unparsed |= editability.unparsed;
+    }
   }
 
   public RumPermanentRetentionFilterAttributes name(String name) {

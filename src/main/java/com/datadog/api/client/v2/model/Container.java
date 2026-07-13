@@ -55,6 +55,9 @@ public class Container {
 
   public void setAttributes(ContainerAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Container id(String id) {

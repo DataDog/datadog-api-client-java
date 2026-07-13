@@ -59,6 +59,9 @@ public class CIAppPipelineEventsRequest {
 
   public void setFilter(CIAppPipelinesQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public CIAppPipelineEventsRequest options(CIAppQueryOptions options) {
@@ -82,6 +85,9 @@ public class CIAppPipelineEventsRequest {
 
   public void setOptions(CIAppQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public CIAppPipelineEventsRequest page(CIAppQueryPageOptions page) {
@@ -104,6 +110,9 @@ public class CIAppPipelineEventsRequest {
 
   public void setPage(CIAppQueryPageOptions page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public CIAppPipelineEventsRequest sort(CIAppSort sort) {

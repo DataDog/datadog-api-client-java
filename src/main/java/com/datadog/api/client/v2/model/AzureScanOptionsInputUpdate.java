@@ -45,6 +45,9 @@ public class AzureScanOptionsInputUpdate {
 
   public void setData(AzureScanOptionsInputUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class LLMObsAnnotationQueueLabelSchemaResponse {
 
   public void setData(LLMObsAnnotationQueueLabelSchemaData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -197,6 +197,9 @@ public class SecurityMonitoringDatasetAttributesResponse {
 
   public void setDefinition(SecurityMonitoringDatasetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public SecurityMonitoringDatasetAttributesResponse description(String description) {

@@ -65,6 +65,9 @@ public class LLMObsDeleteAnnotationsDataRequest {
 
   public void setAttributes(LLMObsDeleteAnnotationsDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDeleteAnnotationsDataRequest type(LLMObsAnnotationsType type) {

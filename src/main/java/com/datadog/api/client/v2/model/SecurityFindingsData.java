@@ -55,6 +55,9 @@ public class SecurityFindingsData {
 
   public void setAttributes(SecurityFindingsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityFindingsData id(String id) {

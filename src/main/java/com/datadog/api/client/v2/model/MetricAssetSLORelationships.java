@@ -58,6 +58,11 @@ public class MetricAssetSLORelationships {
 
   public void setData(List<MetricAssetSLORelationship> data) {
     this.data = data;
+    if (data != null) {
+      for (MetricAssetSLORelationship item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

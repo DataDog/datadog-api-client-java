@@ -58,6 +58,11 @@ public class UsageProfilingResponse {
 
   public void setUsage(List<UsageProfilingHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageProfilingHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

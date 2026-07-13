@@ -57,6 +57,9 @@ public class LogsMetricResponseAttributes {
 
   public void setCompute(LogsMetricResponseCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public LogsMetricResponseAttributes filter(LogsMetricResponseFilter filter) {
@@ -79,6 +82,9 @@ public class LogsMetricResponseAttributes {
 
   public void setFilter(LogsMetricResponseFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LogsMetricResponseAttributes groupBy(List<LogsMetricResponseGroupBy> groupBy) {
@@ -112,6 +118,11 @@ public class LogsMetricResponseAttributes {
 
   public void setGroupBy(List<LogsMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (LogsMetricResponseGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

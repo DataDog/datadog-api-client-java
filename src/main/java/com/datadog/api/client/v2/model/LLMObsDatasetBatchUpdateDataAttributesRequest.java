@@ -130,6 +130,11 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
 
   public void setInsertRecords(List<LLMObsDatasetBatchUpdateInsertRecord> insertRecords) {
     this.insertRecords = insertRecords;
+    if (insertRecords != null) {
+      for (LLMObsDatasetBatchUpdateInsertRecord item : insertRecords) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsDatasetBatchUpdateDataAttributesRequest tags(List<String> tags) {
@@ -194,6 +199,11 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
 
   public void setUpdateRecords(List<LLMObsDatasetBatchUpdateUpdateRecord> updateRecords) {
     this.updateRecords = updateRecords;
+    if (updateRecords != null) {
+      for (LLMObsDatasetBatchUpdateUpdateRecord item : updateRecords) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

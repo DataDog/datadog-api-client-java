@@ -67,6 +67,9 @@ public class SecurityMonitoringCriticalAssetUpdateData {
 
   public void setAttributes(SecurityMonitoringCriticalAssetUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringCriticalAssetUpdateData type(SecurityMonitoringCriticalAssetType type) {

@@ -139,6 +139,9 @@ public class CustomRuleRevisionAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_TREE_SITTER_QUERY)
           String treeSitterQuery) {
     this.arguments = arguments;
+    for (Argument item : arguments) {
+      this.unparsed |= item.unparsed;
+    }
     this.category = category;
     this.unparsed |= !category.isValid();
     this.checksum = checksum;
@@ -163,6 +166,9 @@ public class CustomRuleRevisionAttributes {
     this.shouldUseAiFix = shouldUseAiFix;
     this.tags = tags;
     this.tests = tests;
+    for (CustomRuleRevisionTest item : tests) {
+      this.unparsed |= item.unparsed;
+    }
     this.treeSitterQuery = treeSitterQuery;
   }
 
@@ -193,6 +199,11 @@ public class CustomRuleRevisionAttributes {
 
   public void setArguments(List<Argument> arguments) {
     this.arguments = arguments;
+    if (arguments != null) {
+      for (Argument item : arguments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CustomRuleRevisionAttributes category(CustomRuleRevisionAttributesCategory category) {
@@ -585,6 +596,11 @@ public class CustomRuleRevisionAttributes {
 
   public void setTests(List<CustomRuleRevisionTest> tests) {
     this.tests = tests;
+    if (tests != null) {
+      for (CustomRuleRevisionTest item : tests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CustomRuleRevisionAttributes treeSitterQuery(String treeSitterQuery) {

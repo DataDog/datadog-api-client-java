@@ -58,6 +58,11 @@ public class SyntheticsDeleteTestsResponse {
 
   public void setDeletedTests(List<SyntheticsDeletedTest> deletedTests) {
     this.deletedTests = deletedTests;
+    if (deletedTests != null) {
+      for (SyntheticsDeletedTest item : deletedTests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

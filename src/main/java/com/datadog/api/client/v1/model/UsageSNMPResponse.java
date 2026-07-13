@@ -58,6 +58,11 @@ public class UsageSNMPResponse {
 
   public void setUsage(List<UsageSNMPHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageSNMPHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

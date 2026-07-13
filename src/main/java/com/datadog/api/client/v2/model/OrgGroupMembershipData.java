@@ -75,6 +75,9 @@ public class OrgGroupMembershipData {
 
   public void setAttributes(OrgGroupMembershipAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupMembershipData id(UUID id) {
@@ -117,6 +120,9 @@ public class OrgGroupMembershipData {
 
   public void setRelationships(OrgGroupMembershipRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgGroupMembershipData type(OrgGroupMembershipType type) {

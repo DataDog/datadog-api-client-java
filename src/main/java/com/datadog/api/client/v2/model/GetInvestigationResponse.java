@@ -64,6 +64,9 @@ public class GetInvestigationResponse {
 
   public void setData(GetInvestigationResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public GetInvestigationResponse links(GetInvestigationResponseLinks links) {
@@ -85,6 +88,9 @@ public class GetInvestigationResponse {
 
   public void setLinks(GetInvestigationResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   /**

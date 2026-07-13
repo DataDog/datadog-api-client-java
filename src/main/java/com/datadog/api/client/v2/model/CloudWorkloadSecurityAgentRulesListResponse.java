@@ -60,6 +60,11 @@ public class CloudWorkloadSecurityAgentRulesListResponse {
 
   public void setData(List<CloudWorkloadSecurityAgentRuleData> data) {
     this.data = data;
+    if (data != null) {
+      for (CloudWorkloadSecurityAgentRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

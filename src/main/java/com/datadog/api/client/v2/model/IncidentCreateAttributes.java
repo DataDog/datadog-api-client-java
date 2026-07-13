@@ -195,6 +195,11 @@ public class IncidentCreateAttributes {
 
   public void setInitialCells(List<IncidentTimelineCellCreateAttributes> initialCells) {
     this.initialCells = initialCells;
+    if (initialCells != null) {
+      for (IncidentTimelineCellCreateAttributes item : initialCells) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentCreateAttributes isTest(Boolean isTest) {
@@ -251,6 +256,11 @@ public class IncidentCreateAttributes {
 
   public void setNotificationHandles(List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
+    if (notificationHandles != null) {
+      for (IncidentNotificationHandle item : notificationHandles) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentCreateAttributes title(String title) {

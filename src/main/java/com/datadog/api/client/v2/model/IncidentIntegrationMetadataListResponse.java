@@ -45,6 +45,9 @@ public class IncidentIntegrationMetadataListResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<IncidentIntegrationMetadataResponseData> data) {
     this.data = data;
+    for (IncidentIntegrationMetadataResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public IncidentIntegrationMetadataListResponse data(
@@ -76,6 +79,11 @@ public class IncidentIntegrationMetadataListResponse {
 
   public void setData(List<IncidentIntegrationMetadataResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (IncidentIntegrationMetadataResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

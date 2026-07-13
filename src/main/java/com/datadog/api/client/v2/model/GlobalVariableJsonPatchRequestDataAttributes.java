@@ -60,6 +60,11 @@ public class GlobalVariableJsonPatchRequestDataAttributes {
 
   public void setJsonPatch(List<JsonPatchOperation> jsonPatch) {
     this.jsonPatch = jsonPatch;
+    if (jsonPatch != null) {
+      for (JsonPatchOperation item : jsonPatch) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

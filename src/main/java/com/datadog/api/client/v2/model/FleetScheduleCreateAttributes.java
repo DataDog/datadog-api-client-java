@@ -118,6 +118,9 @@ public class FleetScheduleCreateAttributes {
 
   public void setRule(FleetScheduleRecurrenceRule rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   public FleetScheduleCreateAttributes status(FleetScheduleStatus status) {

@@ -63,6 +63,9 @@ public class ScannedAssetMetadata {
 
   public void setAttributes(ScannedAssetMetadataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScannedAssetMetadata id(String id) {

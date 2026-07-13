@@ -45,6 +45,9 @@ public class EscalationPolicyStepRelationships {
 
   public void setTargets(EscalationTargets targets) {
     this.targets = targets;
+    if (targets != null) {
+      this.unparsed |= targets.unparsed;
+    }
   }
 
   /**

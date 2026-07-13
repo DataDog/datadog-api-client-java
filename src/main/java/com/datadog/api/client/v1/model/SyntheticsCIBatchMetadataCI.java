@@ -51,6 +51,9 @@ public class SyntheticsCIBatchMetadataCI {
 
   public void setPipeline(SyntheticsCIBatchMetadataPipeline pipeline) {
     this.pipeline = pipeline;
+    if (pipeline != null) {
+      this.unparsed |= pipeline.unparsed;
+    }
   }
 
   public SyntheticsCIBatchMetadataCI provider(SyntheticsCIBatchMetadataProvider provider) {
@@ -73,6 +76,9 @@ public class SyntheticsCIBatchMetadataCI {
 
   public void setProvider(SyntheticsCIBatchMetadataProvider provider) {
     this.provider = provider;
+    if (provider != null) {
+      this.unparsed |= provider.unparsed;
+    }
   }
 
   /**

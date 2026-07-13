@@ -95,6 +95,11 @@ public class MaintenanceDataAttributesUpdatesItems {
   public void setComponentsAffected(
       List<MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -70,6 +70,9 @@ public class RestrictionQueryRole {
 
   public void setAttributes(RestrictionQueryRoleAttribute attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RestrictionQueryRole id(String id) {

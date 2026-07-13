@@ -86,6 +86,11 @@ public class FleetDeploymentAttributes {
 
   public void setConfigOperations(List<FleetDeploymentOperation> configOperations) {
     this.configOperations = configOperations;
+    if (configOperations != null) {
+      for (FleetDeploymentOperation item : configOperations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetDeploymentAttributes estimatedEndTimeUnix(Long estimatedEndTimeUnix) {
@@ -186,6 +191,11 @@ public class FleetDeploymentAttributes {
 
   public void setHosts(List<FleetDeploymentHost> hosts) {
     this.hosts = hosts;
+    if (hosts != null) {
+      for (FleetDeploymentHost item : hosts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetDeploymentAttributes packages(List<FleetDeploymentPackage> packages) {
@@ -219,6 +229,11 @@ public class FleetDeploymentAttributes {
 
   public void setPackages(List<FleetDeploymentPackage> packages) {
     this.packages = packages;
+    if (packages != null) {
+      for (FleetDeploymentPackage item : packages) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetDeploymentAttributes totalHosts(Long totalHosts) {

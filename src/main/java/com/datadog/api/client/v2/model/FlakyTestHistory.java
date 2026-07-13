@@ -122,6 +122,9 @@ public class FlakyTestHistory {
 
   public void setPolicyMeta(FlakyTestHistoryPolicyMeta policyMeta) {
     this.policyMeta = policyMeta;
+    if (policyMeta != null) {
+      this.unparsed |= policyMeta.unparsed;
+    }
   }
 
   public FlakyTestHistory status(String status) {

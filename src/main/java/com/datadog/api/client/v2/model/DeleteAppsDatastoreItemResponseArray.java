@@ -35,6 +35,9 @@ public class DeleteAppsDatastoreItemResponseArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<DeleteAppsDatastoreItemResponseData> data) {
     this.data = data;
+    for (DeleteAppsDatastoreItemResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DeleteAppsDatastoreItemResponseArray data(List<DeleteAppsDatastoreItemResponseData> data) {
@@ -65,6 +68,11 @@ public class DeleteAppsDatastoreItemResponseArray {
 
   public void setData(List<DeleteAppsDatastoreItemResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (DeleteAppsDatastoreItemResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

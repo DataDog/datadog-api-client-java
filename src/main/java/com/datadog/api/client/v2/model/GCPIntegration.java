@@ -60,6 +60,9 @@ public class GCPIntegration {
 
   public void setCredentials(GCPCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public GCPIntegration type(GCPIntegrationType type) {

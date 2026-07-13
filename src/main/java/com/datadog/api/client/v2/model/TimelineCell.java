@@ -71,6 +71,9 @@ public class TimelineCell {
 
   public void setAuthor(TimelineCellAuthor author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   public TimelineCell cellContent(TimelineCellContent cellContent) {
@@ -93,6 +96,9 @@ public class TimelineCell {
 
   public void setCellContent(TimelineCellContent cellContent) {
     this.cellContent = cellContent;
+    if (cellContent != null) {
+      this.unparsed |= cellContent.unparsed;
+    }
   }
 
   /**

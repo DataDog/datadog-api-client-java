@@ -65,6 +65,9 @@ public class ServiceListData {
 
   public void setAttributes(ServiceListDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceListData id(String id) {

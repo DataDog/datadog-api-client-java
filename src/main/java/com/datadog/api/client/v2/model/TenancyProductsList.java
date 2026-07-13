@@ -36,6 +36,9 @@ public class TenancyProductsList {
   public TenancyProductsList(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<TenancyProductsData> data) {
     this.data = data;
+    for (TenancyProductsData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public TenancyProductsList data(List<TenancyProductsData> data) {
@@ -65,6 +68,11 @@ public class TenancyProductsList {
 
   public void setData(List<TenancyProductsData> data) {
     this.data = data;
+    if (data != null) {
+      for (TenancyProductsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -58,6 +58,11 @@ public class RUMApplicationsResponse {
 
   public void setData(List<RUMApplicationList> data) {
     this.data = data;
+    if (data != null) {
+      for (RUMApplicationList item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

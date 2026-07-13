@@ -54,6 +54,9 @@ public class CaseAssignRequest {
 
   public void setData(CaseAssign data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

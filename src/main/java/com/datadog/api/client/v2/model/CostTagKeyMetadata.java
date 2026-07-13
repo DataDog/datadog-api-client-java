@@ -73,6 +73,9 @@ public class CostTagKeyMetadata {
 
   public void setAttributes(CostTagKeyMetadataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CostTagKeyMetadata id(String id) {

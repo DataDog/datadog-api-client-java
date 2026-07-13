@@ -56,6 +56,9 @@ public class ApplicationSecurityWafCustomRuleCreateRequest {
 
   public void setData(ApplicationSecurityWafCustomRuleCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

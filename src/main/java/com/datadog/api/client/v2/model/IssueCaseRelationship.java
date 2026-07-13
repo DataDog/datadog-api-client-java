@@ -54,6 +54,9 @@ public class IssueCaseRelationship {
 
   public void setData(IssueCaseReference data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

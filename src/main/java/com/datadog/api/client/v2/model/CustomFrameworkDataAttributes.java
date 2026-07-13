@@ -62,6 +62,9 @@ public class CustomFrameworkDataAttributes {
     this.handle = handle;
     this.name = name;
     this.requirements = requirements;
+    for (CustomFrameworkRequirement item : requirements) {
+      this.unparsed |= item.unparsed;
+    }
     this.version = version;
   }
 
@@ -175,6 +178,11 @@ public class CustomFrameworkDataAttributes {
 
   public void setRequirements(List<CustomFrameworkRequirement> requirements) {
     this.requirements = requirements;
+    if (requirements != null) {
+      for (CustomFrameworkRequirement item : requirements) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CustomFrameworkDataAttributes version(String version) {

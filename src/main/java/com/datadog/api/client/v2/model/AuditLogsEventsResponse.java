@@ -68,6 +68,11 @@ public class AuditLogsEventsResponse {
 
   public void setData(List<AuditLogsEvent> data) {
     this.data = data;
+    if (data != null) {
+      for (AuditLogsEvent item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AuditLogsEventsResponse links(AuditLogsResponseLinks links) {
@@ -90,6 +95,9 @@ public class AuditLogsEventsResponse {
 
   public void setLinks(AuditLogsResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public AuditLogsEventsResponse meta(AuditLogsResponseMetadata meta) {
@@ -112,6 +120,9 @@ public class AuditLogsEventsResponse {
 
   public void setMeta(AuditLogsResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

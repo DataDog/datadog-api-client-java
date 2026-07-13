@@ -78,6 +78,9 @@ public class AttachmentData {
 
   public void setAttributes(AttachmentDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AttachmentData id(String id) {
@@ -119,6 +122,9 @@ public class AttachmentData {
 
   public void setRelationships(AttachmentDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public AttachmentData type(IncidentAttachmentType type) {

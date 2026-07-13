@@ -68,6 +68,9 @@ public class LogsSchemaCategoryMapperCategory {
 
   public void setFilter(LogsFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LogsSchemaCategoryMapperCategory id(Long id) {

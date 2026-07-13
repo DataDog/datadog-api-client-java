@@ -35,6 +35,9 @@ public class LLMObsAnnotationsDataAttributesRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
           List<LLMObsUpsertAnnotationItem> annotations) {
     this.annotations = annotations;
+    for (LLMObsUpsertAnnotationItem item : annotations) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsAnnotationsDataAttributesRequest annotations(
@@ -66,6 +69,11 @@ public class LLMObsAnnotationsDataAttributesRequest {
 
   public void setAnnotations(List<LLMObsUpsertAnnotationItem> annotations) {
     this.annotations = annotations;
+    if (annotations != null) {
+      for (LLMObsUpsertAnnotationItem item : annotations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

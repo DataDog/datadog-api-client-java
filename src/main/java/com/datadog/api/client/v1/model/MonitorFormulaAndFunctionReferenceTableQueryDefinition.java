@@ -87,6 +87,11 @@ public class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
 
   public void setColumns(List<MonitorFormulaAndFunctionReferenceTableColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (MonitorFormulaAndFunctionReferenceTableColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorFormulaAndFunctionReferenceTableQueryDefinition dataSource(

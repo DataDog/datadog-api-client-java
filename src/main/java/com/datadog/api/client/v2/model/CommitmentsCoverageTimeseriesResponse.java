@@ -64,6 +64,9 @@ public class CommitmentsCoverageTimeseriesResponse {
 
   public void setCost(CommitmentsTimeseriesMetric cost) {
     this.cost = cost;
+    if (cost != null) {
+      this.unparsed |= cost.unparsed;
+    }
   }
 
   public CommitmentsCoverageTimeseriesResponse hours(CommitmentsTimeseriesMetric hours) {
@@ -85,6 +88,9 @@ public class CommitmentsCoverageTimeseriesResponse {
 
   public void setHours(CommitmentsTimeseriesMetric hours) {
     this.hours = hours;
+    if (hours != null) {
+      this.unparsed |= hours.unparsed;
+    }
   }
 
   /**

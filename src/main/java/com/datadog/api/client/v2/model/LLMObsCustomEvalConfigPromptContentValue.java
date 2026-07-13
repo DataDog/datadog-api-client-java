@@ -77,6 +77,9 @@ public class LLMObsCustomEvalConfigPromptContentValue {
 
   public void setToolCall(LLMObsCustomEvalConfigPromptToolCall toolCall) {
     this.toolCall = toolCall;
+    if (toolCall != null) {
+      this.unparsed |= toolCall.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigPromptContentValue toolCallResult(
@@ -100,6 +103,9 @@ public class LLMObsCustomEvalConfigPromptContentValue {
 
   public void setToolCallResult(LLMObsCustomEvalConfigPromptToolResult toolCallResult) {
     this.toolCallResult = toolCallResult;
+    if (toolCallResult != null) {
+      this.unparsed |= toolCallResult.unparsed;
+    }
   }
 
   /**

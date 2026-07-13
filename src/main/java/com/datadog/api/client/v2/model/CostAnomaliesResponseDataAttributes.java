@@ -59,6 +59,9 @@ public class CostAnomaliesResponseDataAttributes {
           Double totalAnomalousCost,
       @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_COUNT) Long totalCount) {
     this.anomalies = anomalies;
+    for (CostAnomaly item : anomalies) {
+      this.unparsed |= item.unparsed;
+    }
     this.avgDailyAnomalousCost = avgDailyAnomalousCost;
     this.totalActualCost = totalActualCost;
     this.totalAnomalousCost = totalAnomalousCost;
@@ -92,6 +95,11 @@ public class CostAnomaliesResponseDataAttributes {
 
   public void setAnomalies(List<CostAnomaly> anomalies) {
     this.anomalies = anomalies;
+    if (anomalies != null) {
+      for (CostAnomaly item : anomalies) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CostAnomaliesResponseDataAttributes avgDailyAnomalousCost(Double avgDailyAnomalousCost) {

@@ -75,6 +75,11 @@ public class RoutingRuleAttributes {
 
   public void setActions(List<RoutingRuleAction> actions) {
     this.actions = actions;
+    if (actions != null) {
+      for (RoutingRuleAction item : actions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RoutingRuleAttributes query(String query) {
@@ -120,6 +125,9 @@ public class RoutingRuleAttributes {
 
   public void setTimeRestriction(TimeRestrictions timeRestriction) {
     this.timeRestriction = timeRestriction;
+    if (timeRestriction != null) {
+      this.unparsed |= timeRestriction.unparsed;
+    }
   }
 
   public RoutingRuleAttributes urgency(Urgency urgency) {

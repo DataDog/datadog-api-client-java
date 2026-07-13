@@ -45,6 +45,9 @@ public class SpansListRequest {
 
   public void setData(SpansListRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

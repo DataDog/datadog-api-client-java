@@ -60,6 +60,9 @@ public class MetricAssetResponseRelationships {
 
   public void setDashboards(MetricAssetDashboardRelationships dashboards) {
     this.dashboards = dashboards;
+    if (dashboards != null) {
+      this.unparsed |= dashboards.unparsed;
+    }
   }
 
   public MetricAssetResponseRelationships monitors(MetricAssetMonitorRelationships monitors) {
@@ -83,6 +86,9 @@ public class MetricAssetResponseRelationships {
 
   public void setMonitors(MetricAssetMonitorRelationships monitors) {
     this.monitors = monitors;
+    if (monitors != null) {
+      this.unparsed |= monitors.unparsed;
+    }
   }
 
   public MetricAssetResponseRelationships notebooks(MetricAssetNotebookRelationships notebooks) {
@@ -106,6 +112,9 @@ public class MetricAssetResponseRelationships {
 
   public void setNotebooks(MetricAssetNotebookRelationships notebooks) {
     this.notebooks = notebooks;
+    if (notebooks != null) {
+      this.unparsed |= notebooks.unparsed;
+    }
   }
 
   public MetricAssetResponseRelationships slos(MetricAssetSLORelationships slos) {
@@ -128,6 +137,9 @@ public class MetricAssetResponseRelationships {
 
   public void setSlos(MetricAssetSLORelationships slos) {
     this.slos = slos;
+    if (slos != null) {
+      this.unparsed |= slos.unparsed;
+    }
   }
 
   /**

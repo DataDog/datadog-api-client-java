@@ -55,6 +55,9 @@ public class CreateDataDeletionRequestBody {
 
   public void setData(CreateDataDeletionRequestBodyData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -113,6 +113,11 @@ public class IntegrationOnCall {
   public void setEscalationQueries(
       List<IntegrationOnCallEscalationQueriesItems> escalationQueries) {
     this.escalationQueries = escalationQueries;
+    if (escalationQueries != null) {
+      for (IntegrationOnCallEscalationQueriesItems item : escalationQueries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

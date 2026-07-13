@@ -84,6 +84,11 @@ public class StatusPageDataAttributesComponentsItems {
   public void setComponents(
       List<StatusPageDataAttributesComponentsItemsComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (StatusPageDataAttributesComponentsItemsComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public StatusPageDataAttributesComponentsItems id(UUID id) {

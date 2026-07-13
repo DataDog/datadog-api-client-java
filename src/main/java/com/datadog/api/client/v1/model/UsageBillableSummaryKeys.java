@@ -418,6 +418,9 @@ public class UsageBillableSummaryKeys {
 
   public void setApmFargateAverage(UsageBillableSummaryBody apmFargateAverage) {
     this.apmFargateAverage = apmFargateAverage;
+    if (apmFargateAverage != null) {
+      this.unparsed |= apmFargateAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys apmFargateSum(UsageBillableSummaryBody apmFargateSum) {
@@ -440,6 +443,9 @@ public class UsageBillableSummaryKeys {
 
   public void setApmFargateSum(UsageBillableSummaryBody apmFargateSum) {
     this.apmFargateSum = apmFargateSum;
+    if (apmFargateSum != null) {
+      this.unparsed |= apmFargateSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys apmHostSum(UsageBillableSummaryBody apmHostSum) {
@@ -462,6 +468,9 @@ public class UsageBillableSummaryKeys {
 
   public void setApmHostSum(UsageBillableSummaryBody apmHostSum) {
     this.apmHostSum = apmHostSum;
+    if (apmHostSum != null) {
+      this.unparsed |= apmHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys apmHostTop99p(UsageBillableSummaryBody apmHostTop99p) {
@@ -484,6 +493,9 @@ public class UsageBillableSummaryKeys {
 
   public void setApmHostTop99p(UsageBillableSummaryBody apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
+    if (apmHostTop99p != null) {
+      this.unparsed |= apmHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys apmProfilerHostSum(UsageBillableSummaryBody apmProfilerHostSum) {
@@ -506,6 +518,9 @@ public class UsageBillableSummaryKeys {
 
   public void setApmProfilerHostSum(UsageBillableSummaryBody apmProfilerHostSum) {
     this.apmProfilerHostSum = apmProfilerHostSum;
+    if (apmProfilerHostSum != null) {
+      this.unparsed |= apmProfilerHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys apmProfilerHostTop99p(
@@ -529,6 +544,9 @@ public class UsageBillableSummaryKeys {
 
   public void setApmProfilerHostTop99p(UsageBillableSummaryBody apmProfilerHostTop99p) {
     this.apmProfilerHostTop99p = apmProfilerHostTop99p;
+    if (apmProfilerHostTop99p != null) {
+      this.unparsed |= apmProfilerHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys apmTraceSearchSum(UsageBillableSummaryBody apmTraceSearchSum) {
@@ -551,6 +569,9 @@ public class UsageBillableSummaryKeys {
 
   public void setApmTraceSearchSum(UsageBillableSummaryBody apmTraceSearchSum) {
     this.apmTraceSearchSum = apmTraceSearchSum;
+    if (apmTraceSearchSum != null) {
+      this.unparsed |= apmTraceSearchSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys applicationSecurityFargateAverage(
@@ -575,6 +596,9 @@ public class UsageBillableSummaryKeys {
   public void setApplicationSecurityFargateAverage(
       UsageBillableSummaryBody applicationSecurityFargateAverage) {
     this.applicationSecurityFargateAverage = applicationSecurityFargateAverage;
+    if (applicationSecurityFargateAverage != null) {
+      this.unparsed |= applicationSecurityFargateAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys applicationSecurityHostSum(
@@ -598,6 +622,9 @@ public class UsageBillableSummaryKeys {
 
   public void setApplicationSecurityHostSum(UsageBillableSummaryBody applicationSecurityHostSum) {
     this.applicationSecurityHostSum = applicationSecurityHostSum;
+    if (applicationSecurityHostSum != null) {
+      this.unparsed |= applicationSecurityHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys applicationSecurityHostTop99p(
@@ -622,6 +649,9 @@ public class UsageBillableSummaryKeys {
   public void setApplicationSecurityHostTop99p(
       UsageBillableSummaryBody applicationSecurityHostTop99p) {
     this.applicationSecurityHostTop99p = applicationSecurityHostTop99p;
+    if (applicationSecurityHostTop99p != null) {
+      this.unparsed |= applicationSecurityHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys ciPipelineIndexedSpansSum(
@@ -645,6 +675,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCiPipelineIndexedSpansSum(UsageBillableSummaryBody ciPipelineIndexedSpansSum) {
     this.ciPipelineIndexedSpansSum = ciPipelineIndexedSpansSum;
+    if (ciPipelineIndexedSpansSum != null) {
+      this.unparsed |= ciPipelineIndexedSpansSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys ciPipelineMaximum(UsageBillableSummaryBody ciPipelineMaximum) {
@@ -667,6 +700,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCiPipelineMaximum(UsageBillableSummaryBody ciPipelineMaximum) {
     this.ciPipelineMaximum = ciPipelineMaximum;
+    if (ciPipelineMaximum != null) {
+      this.unparsed |= ciPipelineMaximum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys ciPipelineSum(UsageBillableSummaryBody ciPipelineSum) {
@@ -689,6 +725,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCiPipelineSum(UsageBillableSummaryBody ciPipelineSum) {
     this.ciPipelineSum = ciPipelineSum;
+    if (ciPipelineSum != null) {
+      this.unparsed |= ciPipelineSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys ciTestIndexedSpansSum(
@@ -712,6 +751,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCiTestIndexedSpansSum(UsageBillableSummaryBody ciTestIndexedSpansSum) {
     this.ciTestIndexedSpansSum = ciTestIndexedSpansSum;
+    if (ciTestIndexedSpansSum != null) {
+      this.unparsed |= ciTestIndexedSpansSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys ciTestingMaximum(UsageBillableSummaryBody ciTestingMaximum) {
@@ -734,6 +776,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCiTestingMaximum(UsageBillableSummaryBody ciTestingMaximum) {
     this.ciTestingMaximum = ciTestingMaximum;
+    if (ciTestingMaximum != null) {
+      this.unparsed |= ciTestingMaximum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys ciTestingSum(UsageBillableSummaryBody ciTestingSum) {
@@ -756,6 +801,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCiTestingSum(UsageBillableSummaryBody ciTestingSum) {
     this.ciTestingSum = ciTestingSum;
+    if (ciTestingSum != null) {
+      this.unparsed |= ciTestingSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys cloudCostManagementAverage(
@@ -779,6 +827,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCloudCostManagementAverage(UsageBillableSummaryBody cloudCostManagementAverage) {
     this.cloudCostManagementAverage = cloudCostManagementAverage;
+    if (cloudCostManagementAverage != null) {
+      this.unparsed |= cloudCostManagementAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys cloudCostManagementSum(
@@ -802,6 +853,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCloudCostManagementSum(UsageBillableSummaryBody cloudCostManagementSum) {
     this.cloudCostManagementSum = cloudCostManagementSum;
+    if (cloudCostManagementSum != null) {
+      this.unparsed |= cloudCostManagementSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys cspmContainerSum(UsageBillableSummaryBody cspmContainerSum) {
@@ -824,6 +878,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCspmContainerSum(UsageBillableSummaryBody cspmContainerSum) {
     this.cspmContainerSum = cspmContainerSum;
+    if (cspmContainerSum != null) {
+      this.unparsed |= cspmContainerSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys cspmHostSum(UsageBillableSummaryBody cspmHostSum) {
@@ -846,6 +903,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCspmHostSum(UsageBillableSummaryBody cspmHostSum) {
     this.cspmHostSum = cspmHostSum;
+    if (cspmHostSum != null) {
+      this.unparsed |= cspmHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys cspmHostTop99p(UsageBillableSummaryBody cspmHostTop99p) {
@@ -868,6 +928,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCspmHostTop99p(UsageBillableSummaryBody cspmHostTop99p) {
     this.cspmHostTop99p = cspmHostTop99p;
+    if (cspmHostTop99p != null) {
+      this.unparsed |= cspmHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys customEventSum(UsageBillableSummaryBody customEventSum) {
@@ -890,6 +953,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCustomEventSum(UsageBillableSummaryBody customEventSum) {
     this.customEventSum = customEventSum;
+    if (customEventSum != null) {
+      this.unparsed |= customEventSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys cwsContainerSum(UsageBillableSummaryBody cwsContainerSum) {
@@ -912,6 +978,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCwsContainerSum(UsageBillableSummaryBody cwsContainerSum) {
     this.cwsContainerSum = cwsContainerSum;
+    if (cwsContainerSum != null) {
+      this.unparsed |= cwsContainerSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys cwsHostSum(UsageBillableSummaryBody cwsHostSum) {
@@ -934,6 +1003,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCwsHostSum(UsageBillableSummaryBody cwsHostSum) {
     this.cwsHostSum = cwsHostSum;
+    if (cwsHostSum != null) {
+      this.unparsed |= cwsHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys cwsHostTop99p(UsageBillableSummaryBody cwsHostTop99p) {
@@ -956,6 +1028,9 @@ public class UsageBillableSummaryKeys {
 
   public void setCwsHostTop99p(UsageBillableSummaryBody cwsHostTop99p) {
     this.cwsHostTop99p = cwsHostTop99p;
+    if (cwsHostTop99p != null) {
+      this.unparsed |= cwsHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys dbmHostSum(UsageBillableSummaryBody dbmHostSum) {
@@ -978,6 +1053,9 @@ public class UsageBillableSummaryKeys {
 
   public void setDbmHostSum(UsageBillableSummaryBody dbmHostSum) {
     this.dbmHostSum = dbmHostSum;
+    if (dbmHostSum != null) {
+      this.unparsed |= dbmHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys dbmHostTop99p(UsageBillableSummaryBody dbmHostTop99p) {
@@ -1000,6 +1078,9 @@ public class UsageBillableSummaryKeys {
 
   public void setDbmHostTop99p(UsageBillableSummaryBody dbmHostTop99p) {
     this.dbmHostTop99p = dbmHostTop99p;
+    if (dbmHostTop99p != null) {
+      this.unparsed |= dbmHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys dbmNormalizedQueriesAverage(
@@ -1023,6 +1104,9 @@ public class UsageBillableSummaryKeys {
 
   public void setDbmNormalizedQueriesAverage(UsageBillableSummaryBody dbmNormalizedQueriesAverage) {
     this.dbmNormalizedQueriesAverage = dbmNormalizedQueriesAverage;
+    if (dbmNormalizedQueriesAverage != null) {
+      this.unparsed |= dbmNormalizedQueriesAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys dbmNormalizedQueriesSum(
@@ -1046,6 +1130,9 @@ public class UsageBillableSummaryKeys {
 
   public void setDbmNormalizedQueriesSum(UsageBillableSummaryBody dbmNormalizedQueriesSum) {
     this.dbmNormalizedQueriesSum = dbmNormalizedQueriesSum;
+    if (dbmNormalizedQueriesSum != null) {
+      this.unparsed |= dbmNormalizedQueriesSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys fargateContainerApmAndProfilerAverage(
@@ -1070,6 +1157,9 @@ public class UsageBillableSummaryKeys {
   public void setFargateContainerApmAndProfilerAverage(
       UsageBillableSummaryBody fargateContainerApmAndProfilerAverage) {
     this.fargateContainerApmAndProfilerAverage = fargateContainerApmAndProfilerAverage;
+    if (fargateContainerApmAndProfilerAverage != null) {
+      this.unparsed |= fargateContainerApmAndProfilerAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys fargateContainerApmAndProfilerSum(
@@ -1094,6 +1184,9 @@ public class UsageBillableSummaryKeys {
   public void setFargateContainerApmAndProfilerSum(
       UsageBillableSummaryBody fargateContainerApmAndProfilerSum) {
     this.fargateContainerApmAndProfilerSum = fargateContainerApmAndProfilerSum;
+    if (fargateContainerApmAndProfilerSum != null) {
+      this.unparsed |= fargateContainerApmAndProfilerSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys fargateContainerAverage(
@@ -1117,6 +1210,9 @@ public class UsageBillableSummaryKeys {
 
   public void setFargateContainerAverage(UsageBillableSummaryBody fargateContainerAverage) {
     this.fargateContainerAverage = fargateContainerAverage;
+    if (fargateContainerAverage != null) {
+      this.unparsed |= fargateContainerAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys fargateContainerProfilerAverage(
@@ -1141,6 +1237,9 @@ public class UsageBillableSummaryKeys {
   public void setFargateContainerProfilerAverage(
       UsageBillableSummaryBody fargateContainerProfilerAverage) {
     this.fargateContainerProfilerAverage = fargateContainerProfilerAverage;
+    if (fargateContainerProfilerAverage != null) {
+      this.unparsed |= fargateContainerProfilerAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys fargateContainerProfilerSum(
@@ -1164,6 +1263,9 @@ public class UsageBillableSummaryKeys {
 
   public void setFargateContainerProfilerSum(UsageBillableSummaryBody fargateContainerProfilerSum) {
     this.fargateContainerProfilerSum = fargateContainerProfilerSum;
+    if (fargateContainerProfilerSum != null) {
+      this.unparsed |= fargateContainerProfilerSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys fargateContainerSum(
@@ -1187,6 +1289,9 @@ public class UsageBillableSummaryKeys {
 
   public void setFargateContainerSum(UsageBillableSummaryBody fargateContainerSum) {
     this.fargateContainerSum = fargateContainerSum;
+    if (fargateContainerSum != null) {
+      this.unparsed |= fargateContainerSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys incidentManagementMaximum(
@@ -1210,6 +1315,9 @@ public class UsageBillableSummaryKeys {
 
   public void setIncidentManagementMaximum(UsageBillableSummaryBody incidentManagementMaximum) {
     this.incidentManagementMaximum = incidentManagementMaximum;
+    if (incidentManagementMaximum != null) {
+      this.unparsed |= incidentManagementMaximum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys incidentManagementSum(
@@ -1233,6 +1341,9 @@ public class UsageBillableSummaryKeys {
 
   public void setIncidentManagementSum(UsageBillableSummaryBody incidentManagementSum) {
     this.incidentManagementSum = incidentManagementSum;
+    if (incidentManagementSum != null) {
+      this.unparsed |= incidentManagementSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys infraAndApmHostSum(UsageBillableSummaryBody infraAndApmHostSum) {
@@ -1255,6 +1366,9 @@ public class UsageBillableSummaryKeys {
 
   public void setInfraAndApmHostSum(UsageBillableSummaryBody infraAndApmHostSum) {
     this.infraAndApmHostSum = infraAndApmHostSum;
+    if (infraAndApmHostSum != null) {
+      this.unparsed |= infraAndApmHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys infraAndApmHostTop99p(
@@ -1278,6 +1392,9 @@ public class UsageBillableSummaryKeys {
 
   public void setInfraAndApmHostTop99p(UsageBillableSummaryBody infraAndApmHostTop99p) {
     this.infraAndApmHostTop99p = infraAndApmHostTop99p;
+    if (infraAndApmHostTop99p != null) {
+      this.unparsed |= infraAndApmHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys infraContainerSum(UsageBillableSummaryBody infraContainerSum) {
@@ -1300,6 +1417,9 @@ public class UsageBillableSummaryKeys {
 
   public void setInfraContainerSum(UsageBillableSummaryBody infraContainerSum) {
     this.infraContainerSum = infraContainerSum;
+    if (infraContainerSum != null) {
+      this.unparsed |= infraContainerSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys infraHostSum(UsageBillableSummaryBody infraHostSum) {
@@ -1322,6 +1442,9 @@ public class UsageBillableSummaryKeys {
 
   public void setInfraHostSum(UsageBillableSummaryBody infraHostSum) {
     this.infraHostSum = infraHostSum;
+    if (infraHostSum != null) {
+      this.unparsed |= infraHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys infraHostTop99p(UsageBillableSummaryBody infraHostTop99p) {
@@ -1344,6 +1467,9 @@ public class UsageBillableSummaryKeys {
 
   public void setInfraHostTop99p(UsageBillableSummaryBody infraHostTop99p) {
     this.infraHostTop99p = infraHostTop99p;
+    if (infraHostTop99p != null) {
+      this.unparsed |= infraHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys ingestedSpansSum(UsageBillableSummaryBody ingestedSpansSum) {
@@ -1366,6 +1492,9 @@ public class UsageBillableSummaryKeys {
 
   public void setIngestedSpansSum(UsageBillableSummaryBody ingestedSpansSum) {
     this.ingestedSpansSum = ingestedSpansSum;
+    if (ingestedSpansSum != null) {
+      this.unparsed |= ingestedSpansSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys ingestedTimeseriesAverage(
@@ -1389,6 +1518,9 @@ public class UsageBillableSummaryKeys {
 
   public void setIngestedTimeseriesAverage(UsageBillableSummaryBody ingestedTimeseriesAverage) {
     this.ingestedTimeseriesAverage = ingestedTimeseriesAverage;
+    if (ingestedTimeseriesAverage != null) {
+      this.unparsed |= ingestedTimeseriesAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys ingestedTimeseriesSum(
@@ -1412,6 +1544,9 @@ public class UsageBillableSummaryKeys {
 
   public void setIngestedTimeseriesSum(UsageBillableSummaryBody ingestedTimeseriesSum) {
     this.ingestedTimeseriesSum = ingestedTimeseriesSum;
+    if (ingestedTimeseriesSum != null) {
+      this.unparsed |= ingestedTimeseriesSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys iotSum(UsageBillableSummaryBody iotSum) {
@@ -1434,6 +1569,9 @@ public class UsageBillableSummaryKeys {
 
   public void setIotSum(UsageBillableSummaryBody iotSum) {
     this.iotSum = iotSum;
+    if (iotSum != null) {
+      this.unparsed |= iotSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys iotTop99p(UsageBillableSummaryBody iotTop99p) {
@@ -1456,6 +1594,9 @@ public class UsageBillableSummaryKeys {
 
   public void setIotTop99p(UsageBillableSummaryBody iotTop99p) {
     this.iotTop99p = iotTop99p;
+    if (iotTop99p != null) {
+      this.unparsed |= iotTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys lambdaFunctionAverage(
@@ -1479,6 +1620,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLambdaFunctionAverage(UsageBillableSummaryBody lambdaFunctionAverage) {
     this.lambdaFunctionAverage = lambdaFunctionAverage;
+    if (lambdaFunctionAverage != null) {
+      this.unparsed |= lambdaFunctionAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys lambdaFunctionSum(UsageBillableSummaryBody lambdaFunctionSum) {
@@ -1501,6 +1645,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLambdaFunctionSum(UsageBillableSummaryBody lambdaFunctionSum) {
     this.lambdaFunctionSum = lambdaFunctionSum;
+    if (lambdaFunctionSum != null) {
+      this.unparsed |= lambdaFunctionSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsForwardingSum(UsageBillableSummaryBody logsForwardingSum) {
@@ -1523,6 +1670,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsForwardingSum(UsageBillableSummaryBody logsForwardingSum) {
     this.logsForwardingSum = logsForwardingSum;
+    if (logsForwardingSum != null) {
+      this.unparsed |= logsForwardingSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed15daySum(
@@ -1546,6 +1696,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed15daySum(UsageBillableSummaryBody logsIndexed15daySum) {
     this.logsIndexed15daySum = logsIndexed15daySum;
+    if (logsIndexed15daySum != null) {
+      this.unparsed |= logsIndexed15daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed180daySum(
@@ -1569,6 +1722,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed180daySum(UsageBillableSummaryBody logsIndexed180daySum) {
     this.logsIndexed180daySum = logsIndexed180daySum;
+    if (logsIndexed180daySum != null) {
+      this.unparsed |= logsIndexed180daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed1daySum(UsageBillableSummaryBody logsIndexed1daySum) {
@@ -1591,6 +1747,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed1daySum(UsageBillableSummaryBody logsIndexed1daySum) {
     this.logsIndexed1daySum = logsIndexed1daySum;
+    if (logsIndexed1daySum != null) {
+      this.unparsed |= logsIndexed1daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed30daySum(
@@ -1614,6 +1773,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed30daySum(UsageBillableSummaryBody logsIndexed30daySum) {
     this.logsIndexed30daySum = logsIndexed30daySum;
+    if (logsIndexed30daySum != null) {
+      this.unparsed |= logsIndexed30daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed360daySum(
@@ -1637,6 +1799,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed360daySum(UsageBillableSummaryBody logsIndexed360daySum) {
     this.logsIndexed360daySum = logsIndexed360daySum;
+    if (logsIndexed360daySum != null) {
+      this.unparsed |= logsIndexed360daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed3daySum(UsageBillableSummaryBody logsIndexed3daySum) {
@@ -1659,6 +1824,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed3daySum(UsageBillableSummaryBody logsIndexed3daySum) {
     this.logsIndexed3daySum = logsIndexed3daySum;
+    if (logsIndexed3daySum != null) {
+      this.unparsed |= logsIndexed3daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed45daySum(
@@ -1682,6 +1850,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed45daySum(UsageBillableSummaryBody logsIndexed45daySum) {
     this.logsIndexed45daySum = logsIndexed45daySum;
+    if (logsIndexed45daySum != null) {
+      this.unparsed |= logsIndexed45daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed60daySum(
@@ -1705,6 +1876,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed60daySum(UsageBillableSummaryBody logsIndexed60daySum) {
     this.logsIndexed60daySum = logsIndexed60daySum;
+    if (logsIndexed60daySum != null) {
+      this.unparsed |= logsIndexed60daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed7daySum(UsageBillableSummaryBody logsIndexed7daySum) {
@@ -1727,6 +1901,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed7daySum(UsageBillableSummaryBody logsIndexed7daySum) {
     this.logsIndexed7daySum = logsIndexed7daySum;
+    if (logsIndexed7daySum != null) {
+      this.unparsed |= logsIndexed7daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexed90daySum(
@@ -1750,6 +1927,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexed90daySum(UsageBillableSummaryBody logsIndexed90daySum) {
     this.logsIndexed90daySum = logsIndexed90daySum;
+    if (logsIndexed90daySum != null) {
+      this.unparsed |= logsIndexed90daySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexedCustomRetentionSum(
@@ -1774,6 +1954,9 @@ public class UsageBillableSummaryKeys {
   public void setLogsIndexedCustomRetentionSum(
       UsageBillableSummaryBody logsIndexedCustomRetentionSum) {
     this.logsIndexedCustomRetentionSum = logsIndexedCustomRetentionSum;
+    if (logsIndexedCustomRetentionSum != null) {
+      this.unparsed |= logsIndexedCustomRetentionSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIndexedSum(UsageBillableSummaryBody logsIndexedSum) {
@@ -1796,6 +1979,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIndexedSum(UsageBillableSummaryBody logsIndexedSum) {
     this.logsIndexedSum = logsIndexedSum;
+    if (logsIndexedSum != null) {
+      this.unparsed |= logsIndexedSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys logsIngestedSum(UsageBillableSummaryBody logsIngestedSum) {
@@ -1818,6 +2004,9 @@ public class UsageBillableSummaryKeys {
 
   public void setLogsIngestedSum(UsageBillableSummaryBody logsIngestedSum) {
     this.logsIngestedSum = logsIngestedSum;
+    if (logsIngestedSum != null) {
+      this.unparsed |= logsIngestedSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys networkDeviceSum(UsageBillableSummaryBody networkDeviceSum) {
@@ -1840,6 +2029,9 @@ public class UsageBillableSummaryKeys {
 
   public void setNetworkDeviceSum(UsageBillableSummaryBody networkDeviceSum) {
     this.networkDeviceSum = networkDeviceSum;
+    if (networkDeviceSum != null) {
+      this.unparsed |= networkDeviceSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys networkDeviceTop99p(
@@ -1863,6 +2055,9 @@ public class UsageBillableSummaryKeys {
 
   public void setNetworkDeviceTop99p(UsageBillableSummaryBody networkDeviceTop99p) {
     this.networkDeviceTop99p = networkDeviceTop99p;
+    if (networkDeviceTop99p != null) {
+      this.unparsed |= networkDeviceTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys npmFlowSum(UsageBillableSummaryBody npmFlowSum) {
@@ -1885,6 +2080,9 @@ public class UsageBillableSummaryKeys {
 
   public void setNpmFlowSum(UsageBillableSummaryBody npmFlowSum) {
     this.npmFlowSum = npmFlowSum;
+    if (npmFlowSum != null) {
+      this.unparsed |= npmFlowSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys npmHostSum(UsageBillableSummaryBody npmHostSum) {
@@ -1907,6 +2105,9 @@ public class UsageBillableSummaryKeys {
 
   public void setNpmHostSum(UsageBillableSummaryBody npmHostSum) {
     this.npmHostSum = npmHostSum;
+    if (npmHostSum != null) {
+      this.unparsed |= npmHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys npmHostTop99p(UsageBillableSummaryBody npmHostTop99p) {
@@ -1929,6 +2130,9 @@ public class UsageBillableSummaryKeys {
 
   public void setNpmHostTop99p(UsageBillableSummaryBody npmHostTop99p) {
     this.npmHostTop99p = npmHostTop99p;
+    if (npmHostTop99p != null) {
+      this.unparsed |= npmHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys observabilityPipelineSum(
@@ -1952,6 +2156,9 @@ public class UsageBillableSummaryKeys {
 
   public void setObservabilityPipelineSum(UsageBillableSummaryBody observabilityPipelineSum) {
     this.observabilityPipelineSum = observabilityPipelineSum;
+    if (observabilityPipelineSum != null) {
+      this.unparsed |= observabilityPipelineSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys onlineArchiveSum(UsageBillableSummaryBody onlineArchiveSum) {
@@ -1974,6 +2181,9 @@ public class UsageBillableSummaryKeys {
 
   public void setOnlineArchiveSum(UsageBillableSummaryBody onlineArchiveSum) {
     this.onlineArchiveSum = onlineArchiveSum;
+    if (onlineArchiveSum != null) {
+      this.unparsed |= onlineArchiveSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys profContainerSum(UsageBillableSummaryBody profContainerSum) {
@@ -1996,6 +2206,9 @@ public class UsageBillableSummaryKeys {
 
   public void setProfContainerSum(UsageBillableSummaryBody profContainerSum) {
     this.profContainerSum = profContainerSum;
+    if (profContainerSum != null) {
+      this.unparsed |= profContainerSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys profHostSum(UsageBillableSummaryBody profHostSum) {
@@ -2018,6 +2231,9 @@ public class UsageBillableSummaryKeys {
 
   public void setProfHostSum(UsageBillableSummaryBody profHostSum) {
     this.profHostSum = profHostSum;
+    if (profHostSum != null) {
+      this.unparsed |= profHostSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys profHostTop99p(UsageBillableSummaryBody profHostTop99p) {
@@ -2040,6 +2256,9 @@ public class UsageBillableSummaryKeys {
 
   public void setProfHostTop99p(UsageBillableSummaryBody profHostTop99p) {
     this.profHostTop99p = profHostTop99p;
+    if (profHostTop99p != null) {
+      this.unparsed |= profHostTop99p.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys rumLiteSum(UsageBillableSummaryBody rumLiteSum) {
@@ -2062,6 +2281,9 @@ public class UsageBillableSummaryKeys {
 
   public void setRumLiteSum(UsageBillableSummaryBody rumLiteSum) {
     this.rumLiteSum = rumLiteSum;
+    if (rumLiteSum != null) {
+      this.unparsed |= rumLiteSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys rumReplaySum(UsageBillableSummaryBody rumReplaySum) {
@@ -2084,6 +2306,9 @@ public class UsageBillableSummaryKeys {
 
   public void setRumReplaySum(UsageBillableSummaryBody rumReplaySum) {
     this.rumReplaySum = rumReplaySum;
+    if (rumReplaySum != null) {
+      this.unparsed |= rumReplaySum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys rumSum(UsageBillableSummaryBody rumSum) {
@@ -2106,6 +2331,9 @@ public class UsageBillableSummaryKeys {
 
   public void setRumSum(UsageBillableSummaryBody rumSum) {
     this.rumSum = rumSum;
+    if (rumSum != null) {
+      this.unparsed |= rumSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys rumUnitsSum(UsageBillableSummaryBody rumUnitsSum) {
@@ -2128,6 +2356,9 @@ public class UsageBillableSummaryKeys {
 
   public void setRumUnitsSum(UsageBillableSummaryBody rumUnitsSum) {
     this.rumUnitsSum = rumUnitsSum;
+    if (rumUnitsSum != null) {
+      this.unparsed |= rumUnitsSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys sensitiveDataScannerSum(
@@ -2151,6 +2382,9 @@ public class UsageBillableSummaryKeys {
 
   public void setSensitiveDataScannerSum(UsageBillableSummaryBody sensitiveDataScannerSum) {
     this.sensitiveDataScannerSum = sensitiveDataScannerSum;
+    if (sensitiveDataScannerSum != null) {
+      this.unparsed |= sensitiveDataScannerSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys serverlessApmSum(UsageBillableSummaryBody serverlessApmSum) {
@@ -2173,6 +2407,9 @@ public class UsageBillableSummaryKeys {
 
   public void setServerlessApmSum(UsageBillableSummaryBody serverlessApmSum) {
     this.serverlessApmSum = serverlessApmSum;
+    if (serverlessApmSum != null) {
+      this.unparsed |= serverlessApmSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys serverlessInfraAverage(
@@ -2196,6 +2433,9 @@ public class UsageBillableSummaryKeys {
 
   public void setServerlessInfraAverage(UsageBillableSummaryBody serverlessInfraAverage) {
     this.serverlessInfraAverage = serverlessInfraAverage;
+    if (serverlessInfraAverage != null) {
+      this.unparsed |= serverlessInfraAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys serverlessInfraSum(UsageBillableSummaryBody serverlessInfraSum) {
@@ -2218,6 +2458,9 @@ public class UsageBillableSummaryKeys {
 
   public void setServerlessInfraSum(UsageBillableSummaryBody serverlessInfraSum) {
     this.serverlessInfraSum = serverlessInfraSum;
+    if (serverlessInfraSum != null) {
+      this.unparsed |= serverlessInfraSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys serverlessInvocationSum(
@@ -2241,6 +2484,9 @@ public class UsageBillableSummaryKeys {
 
   public void setServerlessInvocationSum(UsageBillableSummaryBody serverlessInvocationSum) {
     this.serverlessInvocationSum = serverlessInvocationSum;
+    if (serverlessInvocationSum != null) {
+      this.unparsed |= serverlessInvocationSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys siemSum(UsageBillableSummaryBody siemSum) {
@@ -2263,6 +2509,9 @@ public class UsageBillableSummaryKeys {
 
   public void setSiemSum(UsageBillableSummaryBody siemSum) {
     this.siemSum = siemSum;
+    if (siemSum != null) {
+      this.unparsed |= siemSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys standardTimeseriesAverage(
@@ -2286,6 +2535,9 @@ public class UsageBillableSummaryKeys {
 
   public void setStandardTimeseriesAverage(UsageBillableSummaryBody standardTimeseriesAverage) {
     this.standardTimeseriesAverage = standardTimeseriesAverage;
+    if (standardTimeseriesAverage != null) {
+      this.unparsed |= standardTimeseriesAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys syntheticsApiTestsSum(
@@ -2309,6 +2561,9 @@ public class UsageBillableSummaryKeys {
 
   public void setSyntheticsApiTestsSum(UsageBillableSummaryBody syntheticsApiTestsSum) {
     this.syntheticsApiTestsSum = syntheticsApiTestsSum;
+    if (syntheticsApiTestsSum != null) {
+      this.unparsed |= syntheticsApiTestsSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys syntheticsAppTestingMaximum(
@@ -2332,6 +2587,9 @@ public class UsageBillableSummaryKeys {
 
   public void setSyntheticsAppTestingMaximum(UsageBillableSummaryBody syntheticsAppTestingMaximum) {
     this.syntheticsAppTestingMaximum = syntheticsAppTestingMaximum;
+    if (syntheticsAppTestingMaximum != null) {
+      this.unparsed |= syntheticsAppTestingMaximum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys syntheticsBrowserChecksSum(
@@ -2355,6 +2613,9 @@ public class UsageBillableSummaryKeys {
 
   public void setSyntheticsBrowserChecksSum(UsageBillableSummaryBody syntheticsBrowserChecksSum) {
     this.syntheticsBrowserChecksSum = syntheticsBrowserChecksSum;
+    if (syntheticsBrowserChecksSum != null) {
+      this.unparsed |= syntheticsBrowserChecksSum.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys timeseriesAverage(UsageBillableSummaryBody timeseriesAverage) {
@@ -2377,6 +2638,9 @@ public class UsageBillableSummaryKeys {
 
   public void setTimeseriesAverage(UsageBillableSummaryBody timeseriesAverage) {
     this.timeseriesAverage = timeseriesAverage;
+    if (timeseriesAverage != null) {
+      this.unparsed |= timeseriesAverage.unparsed;
+    }
   }
 
   public UsageBillableSummaryKeys timeseriesSum(UsageBillableSummaryBody timeseriesSum) {
@@ -2399,6 +2663,9 @@ public class UsageBillableSummaryKeys {
 
   public void setTimeseriesSum(UsageBillableSummaryBody timeseriesSum) {
     this.timeseriesSum = timeseriesSum;
+    if (timeseriesSum != null) {
+      this.unparsed |= timeseriesSum.unparsed;
+    }
   }
 
   /**

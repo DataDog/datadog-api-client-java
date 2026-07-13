@@ -58,6 +58,11 @@ public class DataRelationshipsTeams {
 
   public void setData(List<DataRelationshipsTeamsDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (DataRelationshipsTeamsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

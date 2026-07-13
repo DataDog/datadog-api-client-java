@@ -54,6 +54,9 @@ public class JiraAccountRelationship {
 
   public void setData(JiraAccountData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

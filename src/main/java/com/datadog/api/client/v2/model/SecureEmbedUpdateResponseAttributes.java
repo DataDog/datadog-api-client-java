@@ -133,6 +133,9 @@ public class SecureEmbedUpdateResponseAttributes {
 
   public void setGlobalTime(SecureEmbedGlobalTime globalTime) {
     this.globalTime = globalTime;
+    if (globalTime != null) {
+      this.unparsed |= globalTime.unparsed;
+    }
   }
 
   public SecureEmbedUpdateResponseAttributes globalTimeSelectable(Boolean globalTimeSelectable) {
@@ -202,6 +205,11 @@ public class SecureEmbedUpdateResponseAttributes {
   public void setSelectableTemplateVars(
       List<SecureEmbedSelectableTemplateVariable> selectableTemplateVars) {
     this.selectableTemplateVars = selectableTemplateVars;
+    if (selectableTemplateVars != null) {
+      for (SecureEmbedSelectableTemplateVariable item : selectableTemplateVars) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecureEmbedUpdateResponseAttributes shareType(SecureEmbedShareType shareType) {
@@ -321,6 +329,9 @@ public class SecureEmbedUpdateResponseAttributes {
 
   public void setViewingPreferences(SecureEmbedViewingPreferences viewingPreferences) {
     this.viewingPreferences = viewingPreferences;
+    if (viewingPreferences != null) {
+      this.unparsed |= viewingPreferences.unparsed;
+    }
   }
 
   /**

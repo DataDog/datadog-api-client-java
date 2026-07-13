@@ -73,6 +73,11 @@ public class ScaRequestDataAttributesVulnerabilitiesItems {
 
   public void setAffects(List<ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems> affects) {
     this.affects = affects;
+    if (affects != null) {
+      for (ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems item : affects) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScaRequestDataAttributesVulnerabilitiesItems bomRef(String bomRef) {

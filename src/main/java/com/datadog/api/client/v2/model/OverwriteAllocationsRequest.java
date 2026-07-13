@@ -34,6 +34,9 @@ public class OverwriteAllocationsRequest {
   public OverwriteAllocationsRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AllocationDataRequest> data) {
     this.data = data;
+    for (AllocationDataRequest item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OverwriteAllocationsRequest data(List<AllocationDataRequest> data) {
@@ -63,6 +66,11 @@ public class OverwriteAllocationsRequest {
 
   public void setData(List<AllocationDataRequest> data) {
     this.data = data;
+    if (data != null) {
+      for (AllocationDataRequest item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

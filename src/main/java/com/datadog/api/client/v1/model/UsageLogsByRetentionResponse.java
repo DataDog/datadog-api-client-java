@@ -61,6 +61,11 @@ public class UsageLogsByRetentionResponse {
 
   public void setUsage(List<UsageLogsByRetentionHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageLogsByRetentionHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

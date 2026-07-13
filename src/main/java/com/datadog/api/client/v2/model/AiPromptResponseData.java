@@ -70,6 +70,9 @@ public class AiPromptResponseData {
 
   public void setAttributes(AiPromptResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AiPromptResponseData id(String id) {

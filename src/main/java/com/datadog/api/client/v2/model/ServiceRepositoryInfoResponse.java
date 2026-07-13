@@ -55,6 +55,9 @@ public class ServiceRepositoryInfoResponse {
 
   public void setData(ServiceRepositoryInfoResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

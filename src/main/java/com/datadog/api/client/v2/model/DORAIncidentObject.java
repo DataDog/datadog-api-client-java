@@ -55,6 +55,9 @@ public class DORAIncidentObject {
 
   public void setAttributes(DORAIncidentObjectAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DORAIncidentObject id(String id) {

@@ -59,6 +59,9 @@ public class SankeyNetworkQueryCompute {
 
   public void setAggregation(EventsAggregation aggregation) {
     this.aggregation = aggregation;
+    if (aggregation != null) {
+      this.unparsed |= aggregation.unparsed;
+    }
   }
 
   public SankeyNetworkQueryCompute metric(String metric) {

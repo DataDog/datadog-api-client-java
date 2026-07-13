@@ -54,6 +54,9 @@ public class NodeTypesResponse {
 
   public void setData(NodeTypesResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

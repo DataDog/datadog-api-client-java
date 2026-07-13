@@ -70,6 +70,9 @@ public class ReportScheduleAuthor {
 
   public void setAttributes(ReportScheduleAuthorAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ReportScheduleAuthor id(String id) {

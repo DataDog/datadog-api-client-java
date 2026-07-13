@@ -45,6 +45,9 @@ public class GcpUcConfigResponse {
 
   public void setData(GcpUcConfigResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

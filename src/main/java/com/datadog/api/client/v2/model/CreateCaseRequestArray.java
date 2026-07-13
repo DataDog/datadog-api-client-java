@@ -34,6 +34,9 @@ public class CreateCaseRequestArray {
   public CreateCaseRequestArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CreateCaseRequestData> data) {
     this.data = data;
+    for (CreateCaseRequestData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CreateCaseRequestArray data(List<CreateCaseRequestData> data) {
@@ -63,6 +66,11 @@ public class CreateCaseRequestArray {
 
   public void setData(List<CreateCaseRequestData> data) {
     this.data = data;
+    if (data != null) {
+      for (CreateCaseRequestData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -58,6 +58,11 @@ public class CustomAttributeConfigsResponse {
 
   public void setData(List<CustomAttributeConfig> data) {
     this.data = data;
+    if (data != null) {
+      for (CustomAttributeConfig item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

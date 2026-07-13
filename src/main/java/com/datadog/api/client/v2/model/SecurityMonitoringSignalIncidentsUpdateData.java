@@ -56,6 +56,9 @@ public class SecurityMonitoringSignalIncidentsUpdateData {
 
   public void setAttributes(SecurityMonitoringSignalIncidentsUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

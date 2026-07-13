@@ -187,6 +187,9 @@ public class CustomDestinationResponseAttributes {
   public void setForwarderDestination(
       CustomDestinationResponseForwardDestination forwarderDestination) {
     this.forwarderDestination = forwarderDestination;
+    if (forwarderDestination != null) {
+      this.unparsed |= forwarderDestination.unparsed;
+    }
   }
 
   public CustomDestinationResponseAttributes name(String name) {

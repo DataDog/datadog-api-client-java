@@ -64,6 +64,11 @@ public class RelationshipToTeamLinks {
 
   public void setData(List<RelationshipToTeamLinkData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToTeamLinkData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RelationshipToTeamLinks links(TeamRelationshipsLinks links) {
@@ -86,6 +91,9 @@ public class RelationshipToTeamLinks {
 
   public void setLinks(TeamRelationshipsLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   /**

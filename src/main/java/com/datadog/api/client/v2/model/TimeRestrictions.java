@@ -46,6 +46,9 @@ public class TimeRestrictions {
           List<TimeRestriction> restrictions,
       @JsonProperty(required = true, value = JSON_PROPERTY_TIME_ZONE) String timeZone) {
     this.restrictions = restrictions;
+    for (TimeRestriction item : restrictions) {
+      this.unparsed |= item.unparsed;
+    }
     this.timeZone = timeZone;
   }
 
@@ -76,6 +79,11 @@ public class TimeRestrictions {
 
   public void setRestrictions(List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
+    if (restrictions != null) {
+      for (TimeRestriction item : restrictions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeRestrictions timeZone(String timeZone) {

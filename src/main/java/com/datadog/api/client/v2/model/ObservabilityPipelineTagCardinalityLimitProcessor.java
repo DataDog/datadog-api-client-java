@@ -231,6 +231,11 @@ public class ObservabilityPipelineTagCardinalityLimitProcessor {
   public void setPerMetricLimits(
       List<ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit> perMetricLimits) {
     this.perMetricLimits = perMetricLimits;
+    if (perMetricLimits != null) {
+      for (ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit item : perMetricLimits) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineTagCardinalityLimitProcessor type(

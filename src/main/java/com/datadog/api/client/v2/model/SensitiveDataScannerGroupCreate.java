@@ -71,6 +71,9 @@ public class SensitiveDataScannerGroupCreate {
 
   public void setAttributes(SensitiveDataScannerGroupAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SensitiveDataScannerGroupCreate relationships(
@@ -94,6 +97,9 @@ public class SensitiveDataScannerGroupCreate {
 
   public void setRelationships(SensitiveDataScannerGroupRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SensitiveDataScannerGroupCreate type(SensitiveDataScannerGroupType type) {

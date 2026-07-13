@@ -58,6 +58,11 @@ public class Findings {
 
   public void setData(List<FindingData> data) {
     this.data = data;
+    if (data != null) {
+      for (FindingData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

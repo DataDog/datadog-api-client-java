@@ -50,6 +50,9 @@ public class McpScanRequestDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_NAME) String resourceName) {
     this.commitHash = commitHash;
     this.libraries = libraries;
+    for (McpScanRequestDataAttributesLibrariesItems item : libraries) {
+      this.unparsed |= item.unparsed;
+    }
     this.resourceName = resourceName;
   }
 
@@ -102,6 +105,11 @@ public class McpScanRequestDataAttributes {
 
   public void setLibraries(List<McpScanRequestDataAttributesLibrariesItems> libraries) {
     this.libraries = libraries;
+    if (libraries != null) {
+      for (McpScanRequestDataAttributesLibrariesItems item : libraries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public McpScanRequestDataAttributes resourceName(String resourceName) {

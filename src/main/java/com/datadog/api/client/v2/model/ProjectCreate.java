@@ -61,6 +61,9 @@ public class ProjectCreate {
 
   public void setAttributes(ProjectCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ProjectCreate type(ProjectResourceType type) {

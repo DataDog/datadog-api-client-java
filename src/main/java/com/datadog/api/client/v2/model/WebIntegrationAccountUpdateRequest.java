@@ -55,6 +55,9 @@ public class WebIntegrationAccountUpdateRequest {
 
   public void setData(WebIntegrationAccountUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

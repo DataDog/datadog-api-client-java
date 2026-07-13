@@ -70,6 +70,9 @@ public class MetricBulkTagConfigStatus {
 
   public void setAttributes(MetricBulkTagConfigStatusAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricBulkTagConfigStatus id(String id) {

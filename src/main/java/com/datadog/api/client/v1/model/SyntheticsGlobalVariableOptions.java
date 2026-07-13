@@ -46,6 +46,9 @@ public class SyntheticsGlobalVariableOptions {
 
   public void setTotpParameters(SyntheticsGlobalVariableTOTPParameters totpParameters) {
     this.totpParameters = totpParameters;
+    if (totpParameters != null) {
+      this.unparsed |= totpParameters.unparsed;
+    }
   }
 
   /**

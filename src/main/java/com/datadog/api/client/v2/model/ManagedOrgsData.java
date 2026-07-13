@@ -91,6 +91,9 @@ public class ManagedOrgsData {
 
   public void setRelationships(ManagedOrgsRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ManagedOrgsData type(ManagedOrgsType type) {

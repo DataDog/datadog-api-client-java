@@ -106,6 +106,11 @@ public class ServiceMapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ServiceMapWidgetDefinition description(String description) {

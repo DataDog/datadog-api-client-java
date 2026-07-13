@@ -55,6 +55,9 @@ public class MonitorNotificationRuleUpdateRequest {
 
   public void setData(MonitorNotificationRuleUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -64,6 +64,11 @@ public class ListWorkflowsResponse {
 
   public void setData(List<WorkflowListItem> data) {
     this.data = data;
+    if (data != null) {
+      for (WorkflowListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListWorkflowsResponse meta(ListWorkflowsResponseMeta meta) {
@@ -86,6 +91,9 @@ public class ListWorkflowsResponse {
 
   public void setMeta(ListWorkflowsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

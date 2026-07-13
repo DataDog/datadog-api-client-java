@@ -34,6 +34,9 @@ public class MuteRuleReorderRequest {
   public MuteRuleReorderRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<MuteRuleReorderItem> data) {
     this.data = data;
+    for (MuteRuleReorderItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MuteRuleReorderRequest data(List<MuteRuleReorderItem> data) {
@@ -63,6 +66,11 @@ public class MuteRuleReorderRequest {
 
   public void setData(List<MuteRuleReorderItem> data) {
     this.data = data;
+    if (data != null) {
+      for (MuteRuleReorderItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

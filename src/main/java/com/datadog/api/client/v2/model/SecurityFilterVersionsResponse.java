@@ -34,6 +34,9 @@ public class SecurityFilterVersionsResponse {
   public SecurityFilterVersionsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SecurityFilterVersion> data) {
     this.data = data;
+    for (SecurityFilterVersion item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecurityFilterVersionsResponse data(List<SecurityFilterVersion> data) {
@@ -64,6 +67,11 @@ public class SecurityFilterVersionsResponse {
 
   public void setData(List<SecurityFilterVersion> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityFilterVersion item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

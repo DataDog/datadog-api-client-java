@@ -43,6 +43,9 @@ public class SecurityMonitoringDatasetVersionEntry {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATASET)
           SecurityMonitoringDatasetAttributesResponse dataset) {
     this.changes = changes;
+    for (SecurityMonitoringDatasetVersionFieldChange item : changes) {
+      this.unparsed |= item.unparsed;
+    }
     this.dataset = dataset;
     this.unparsed |= dataset.unparsed;
   }
@@ -76,6 +79,11 @@ public class SecurityMonitoringDatasetVersionEntry {
 
   public void setChanges(List<SecurityMonitoringDatasetVersionFieldChange> changes) {
     this.changes = changes;
+    if (changes != null) {
+      for (SecurityMonitoringDatasetVersionFieldChange item : changes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringDatasetVersionEntry dataset(
@@ -98,6 +106,9 @@ public class SecurityMonitoringDatasetVersionEntry {
 
   public void setDataset(SecurityMonitoringDatasetAttributesResponse dataset) {
     this.dataset = dataset;
+    if (dataset != null) {
+      this.unparsed |= dataset.unparsed;
+    }
   }
 
   /**

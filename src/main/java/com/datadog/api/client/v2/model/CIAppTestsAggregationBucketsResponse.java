@@ -58,6 +58,11 @@ public class CIAppTestsAggregationBucketsResponse {
 
   public void setBuckets(List<CIAppTestsBucketResponse> buckets) {
     this.buckets = buckets;
+    if (buckets != null) {
+      for (CIAppTestsBucketResponse item : buckets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

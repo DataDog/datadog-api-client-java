@@ -60,6 +60,9 @@ public class AnalysisRequestDataAttributes {
     this.filename = filename;
     this.language = language;
     this.rules = rules;
+    for (AnalysisRequestRule item : rules) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AnalysisRequestDataAttributes code(String code) {
@@ -169,6 +172,11 @@ public class AnalysisRequestDataAttributes {
 
   public void setRules(List<AnalysisRequestRule> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (AnalysisRequestRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -51,6 +51,9 @@ public class ItemApiPayloadMeta {
 
   public void setPage(ItemApiPayloadMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public ItemApiPayloadMeta schema(ItemApiPayloadMetaSchema schema) {
@@ -73,6 +76,9 @@ public class ItemApiPayloadMeta {
 
   public void setSchema(ItemApiPayloadMetaSchema schema) {
     this.schema = schema;
+    if (schema != null) {
+      this.unparsed |= schema.unparsed;
+    }
   }
 
   /**

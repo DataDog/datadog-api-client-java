@@ -70,6 +70,9 @@ public class CreateServiceNowTicketRequestData {
 
   public void setAttributes(CreateServiceNowTicketRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateServiceNowTicketRequestData relationships(
@@ -92,6 +95,9 @@ public class CreateServiceNowTicketRequestData {
 
   public void setRelationships(CreateServiceNowTicketRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public CreateServiceNowTicketRequestData type(ServiceNowTicketsDataType type) {

@@ -35,6 +35,9 @@ public class LicensesListResponseDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_LICENSES)
           List<LicensesListResponseDataAttributesLicensesItems> licenses) {
     this.licenses = licenses;
+    for (LicensesListResponseDataAttributesLicensesItems item : licenses) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LicensesListResponseDataAttributes licenses(
@@ -66,6 +69,11 @@ public class LicensesListResponseDataAttributes {
 
   public void setLicenses(List<LicensesListResponseDataAttributesLicensesItems> licenses) {
     this.licenses = licenses;
+    if (licenses != null) {
+      for (LicensesListResponseDataAttributesLicensesItems item : licenses) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

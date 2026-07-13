@@ -58,6 +58,11 @@ public class RestrictionQueryListResponse {
 
   public void setData(List<RestrictionQueryWithoutRelationships> data) {
     this.data = data;
+    if (data != null) {
+      for (RestrictionQueryWithoutRelationships item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

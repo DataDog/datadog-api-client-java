@@ -52,6 +52,9 @@ public class FastlyAccountUpdateRequestData {
 
   public void setAttributes(FastlyAccountUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FastlyAccountUpdateRequestData type(FastlyAccountType type) {

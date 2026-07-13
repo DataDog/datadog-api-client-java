@@ -62,6 +62,11 @@ public class DashboardListDeleteItemsResponse {
   public void setDeletedDashboardsFromList(
       List<DashboardListItemResponse> deletedDashboardsFromList) {
     this.deletedDashboardsFromList = deletedDashboardsFromList;
+    if (deletedDashboardsFromList != null) {
+      for (DashboardListItemResponse item : deletedDashboardsFromList) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

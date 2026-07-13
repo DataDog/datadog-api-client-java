@@ -35,6 +35,9 @@ public class ListScorecardsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<ScorecardListResponseData> data) {
     this.data = data;
+    for (ScorecardListResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListScorecardsResponse data(List<ScorecardListResponseData> data) {
@@ -64,6 +67,11 @@ public class ListScorecardsResponse {
 
   public void setData(List<ScorecardListResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (ScorecardListResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

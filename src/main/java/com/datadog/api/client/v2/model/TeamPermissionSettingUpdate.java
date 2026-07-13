@@ -61,6 +61,9 @@ public class TeamPermissionSettingUpdate {
 
   public void setAttributes(TeamPermissionSettingUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamPermissionSettingUpdate type(TeamPermissionSettingType type) {

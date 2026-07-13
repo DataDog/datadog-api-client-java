@@ -70,6 +70,9 @@ public class DeploymentGateResponseData {
 
   public void setAttributes(DeploymentGateResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeploymentGateResponseData id(String id) {

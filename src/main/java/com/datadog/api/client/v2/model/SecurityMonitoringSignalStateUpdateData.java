@@ -67,6 +67,9 @@ public class SecurityMonitoringSignalStateUpdateData {
 
   public void setAttributes(SecurityMonitoringSignalStateUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalStateUpdateData id(Object id) {

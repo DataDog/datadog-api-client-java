@@ -58,6 +58,11 @@ public class AWSAccountListResponse {
 
   public void setAccounts(List<AWSAccount> accounts) {
     this.accounts = accounts;
+    if (accounts != null) {
+      for (AWSAccount item : accounts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

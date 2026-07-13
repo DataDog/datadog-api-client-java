@@ -58,6 +58,11 @@ public class ProjectsResponse {
 
   public void setData(List<Project> data) {
     this.data = data;
+    if (data != null) {
+      for (Project item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

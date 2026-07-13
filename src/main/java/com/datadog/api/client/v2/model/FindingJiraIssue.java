@@ -76,6 +76,9 @@ public class FindingJiraIssue {
 
   public void setResult(FindingJiraIssueResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public FindingJiraIssue status(String status) {

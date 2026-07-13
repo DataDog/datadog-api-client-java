@@ -106,6 +106,11 @@ public class SyntheticsTriggerCITestsResponse {
 
   public void setLocations(List<SyntheticsTriggerCITestLocation> locations) {
     this.locations = locations;
+    if (locations != null) {
+      for (SyntheticsTriggerCITestLocation item : locations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTriggerCITestsResponse results(List<SyntheticsTriggerCITestRunResult> results) {
@@ -140,6 +145,11 @@ public class SyntheticsTriggerCITestsResponse {
 
   public void setResults(List<SyntheticsTriggerCITestRunResult> results) {
     this.results = results;
+    if (results != null) {
+      for (SyntheticsTriggerCITestRunResult item : results) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTriggerCITestsResponse triggeredCheckIds(List<String> triggeredCheckIds) {

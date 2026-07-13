@@ -60,6 +60,11 @@ public class SensitiveDataScannerStandardPatternsResponseData {
 
   public void setData(List<SensitiveDataScannerStandardPatternsResponseItem> data) {
     this.data = data;
+    if (data != null) {
+      for (SensitiveDataScannerStandardPatternsResponseItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

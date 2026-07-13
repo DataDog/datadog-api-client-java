@@ -67,6 +67,9 @@ public class SecurityMonitoringIntegrationConfigUpdateData {
 
   public void setAttributes(SecurityMonitoringIntegrationConfigUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringIntegrationConfigUpdateData type(

@@ -45,6 +45,9 @@ public class LogsAPILimitReachedResponse {
 
   public void setError(LogsAPIError error) {
     this.error = error;
+    if (error != null) {
+      this.unparsed |= error.unparsed;
+    }
   }
 
   /**

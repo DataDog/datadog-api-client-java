@@ -158,6 +158,9 @@ public class SecretRuleDataAttributes {
 
   public void setMatchValidation(SecretRuleDataAttributesMatchValidation matchValidation) {
     this.matchValidation = matchValidation;
+    if (matchValidation != null) {
+      this.unparsed |= matchValidation.unparsed;
+    }
   }
 
   public SecretRuleDataAttributes name(String name) {

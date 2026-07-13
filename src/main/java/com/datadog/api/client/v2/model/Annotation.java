@@ -70,6 +70,9 @@ public class Annotation {
 
   public void setDisplay(AnnotationDisplay display) {
     this.display = display;
+    if (display != null) {
+      this.unparsed |= display.unparsed;
+    }
   }
 
   public Annotation id(String id) {
@@ -112,6 +115,9 @@ public class Annotation {
 
   public void setMarkdownTextAnnotation(AnnotationMarkdownTextAnnotation markdownTextAnnotation) {
     this.markdownTextAnnotation = markdownTextAnnotation;
+    if (markdownTextAnnotation != null) {
+      this.unparsed |= markdownTextAnnotation.unparsed;
+    }
   }
 
   /**

@@ -35,6 +35,9 @@ public class LLMObsAnnotationSchema {
       @JsonProperty(required = true, value = JSON_PROPERTY_LABEL_SCHEMAS)
           List<LLMObsLabelSchema> labelSchemas) {
     this.labelSchemas = labelSchemas;
+    for (LLMObsLabelSchema item : labelSchemas) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsAnnotationSchema labelSchemas(List<LLMObsLabelSchema> labelSchemas) {
@@ -64,6 +67,11 @@ public class LLMObsAnnotationSchema {
 
   public void setLabelSchemas(List<LLMObsLabelSchema> labelSchemas) {
     this.labelSchemas = labelSchemas;
+    if (labelSchemas != null) {
+      for (LLMObsLabelSchema item : labelSchemas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -106,6 +106,9 @@ public class ObservabilityPipelineDedupeProcessor {
 
   public void setCache(ObservabilityPipelineDedupeProcessorCache cache) {
     this.cache = cache;
+    if (cache != null) {
+      this.unparsed |= cache.unparsed;
+    }
   }
 
   public ObservabilityPipelineDedupeProcessor displayName(String displayName) {

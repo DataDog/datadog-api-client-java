@@ -55,6 +55,9 @@ public class OrgGroupRelationshipToOne {
 
   public void setData(OrgGroupRelationshipToOneData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

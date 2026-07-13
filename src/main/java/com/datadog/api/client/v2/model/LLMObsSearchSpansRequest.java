@@ -55,6 +55,9 @@ public class LLMObsSearchSpansRequest {
 
   public void setData(LLMObsSearchSpansRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

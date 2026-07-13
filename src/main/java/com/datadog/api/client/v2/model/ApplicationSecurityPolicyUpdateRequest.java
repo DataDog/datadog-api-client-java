@@ -55,6 +55,9 @@ public class ApplicationSecurityPolicyUpdateRequest {
 
   public void setData(ApplicationSecurityPolicyUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

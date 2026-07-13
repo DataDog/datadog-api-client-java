@@ -90,6 +90,9 @@ public class CreateSnapshotDataAttributesRequest {
 
   public void setAdditionalConfig(CreateSnapshotAdditionalConfig additionalConfig) {
     this.additionalConfig = additionalConfig;
+    if (additionalConfig != null) {
+      this.unparsed |= additionalConfig.unparsed;
+    }
   }
 
   public CreateSnapshotDataAttributesRequest end(Long end) {

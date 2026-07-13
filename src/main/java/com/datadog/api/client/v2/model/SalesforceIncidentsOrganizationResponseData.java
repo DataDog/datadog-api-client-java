@@ -73,6 +73,9 @@ public class SalesforceIncidentsOrganizationResponseData {
 
   public void setAttributes(SalesforceIncidentsOrganizationResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SalesforceIncidentsOrganizationResponseData id(String id) {

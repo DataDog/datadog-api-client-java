@@ -57,6 +57,9 @@ public class AssigneeResponse {
 
   public void setData(AssigneeResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public AssigneeResponse meta(AssigneeResponseMeta meta) {
@@ -79,6 +82,9 @@ public class AssigneeResponse {
 
   public void setMeta(AssigneeResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

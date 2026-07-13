@@ -195,6 +195,9 @@ public class DatasetListQuery {
 
   public void setSort(DatasetListQuerySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   /**

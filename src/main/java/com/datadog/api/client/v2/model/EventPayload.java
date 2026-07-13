@@ -116,6 +116,9 @@ public class EventPayload {
 
   public void setAttributes(EventPayloadAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EventPayload category(EventCategory category) {

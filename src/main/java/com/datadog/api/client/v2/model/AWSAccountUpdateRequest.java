@@ -54,6 +54,9 @@ public class AWSAccountUpdateRequest {
 
   public void setData(AWSAccountUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

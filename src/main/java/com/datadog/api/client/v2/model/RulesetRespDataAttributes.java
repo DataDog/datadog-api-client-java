@@ -87,6 +87,9 @@ public class RulesetRespDataAttributes {
     this.name = name;
     this.position = position;
     this.rules = rules;
+    for (RulesetRespDataAttributesRulesItems item : rules) {
+      this.unparsed |= item.unparsed;
+    }
     this.version = version;
   }
 
@@ -109,6 +112,9 @@ public class RulesetRespDataAttributes {
 
   public void setCreated(RulesetRespDataAttributesCreated created) {
     this.created = created;
+    if (created != null) {
+      this.unparsed |= created.unparsed;
+    }
   }
 
   public RulesetRespDataAttributes enabled(Boolean enabled) {
@@ -170,6 +176,9 @@ public class RulesetRespDataAttributes {
 
   public void setModified(RulesetRespDataAttributesModified modified) {
     this.modified = modified;
+    if (modified != null) {
+      this.unparsed |= modified.unparsed;
+    }
   }
 
   public RulesetRespDataAttributes name(String name) {
@@ -260,6 +269,11 @@ public class RulesetRespDataAttributes {
 
   public void setRules(List<RulesetRespDataAttributesRulesItems> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (RulesetRespDataAttributesRulesItems item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RulesetRespDataAttributes version(Long version) {

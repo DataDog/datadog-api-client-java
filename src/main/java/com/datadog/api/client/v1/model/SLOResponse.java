@@ -52,6 +52,9 @@ public class SLOResponse {
 
   public void setData(SLOResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SLOResponse errors(List<String> errors) {

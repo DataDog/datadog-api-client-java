@@ -61,6 +61,9 @@ public class RoleClone {
 
   public void setAttributes(RoleCloneAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RoleClone type(RolesType type) {

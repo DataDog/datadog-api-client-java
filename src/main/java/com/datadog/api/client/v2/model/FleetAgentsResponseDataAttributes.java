@@ -58,6 +58,11 @@ public class FleetAgentsResponseDataAttributes {
 
   public void setAgents(List<FleetAgentAttributes> agents) {
     this.agents = agents;
+    if (agents != null) {
+      for (FleetAgentAttributes item : agents) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

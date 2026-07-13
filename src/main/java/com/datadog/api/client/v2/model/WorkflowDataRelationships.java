@@ -51,6 +51,9 @@ public class WorkflowDataRelationships {
 
   public void setCreator(WorkflowUserRelationship creator) {
     this.creator = creator;
+    if (creator != null) {
+      this.unparsed |= creator.unparsed;
+    }
   }
 
   public WorkflowDataRelationships owner(WorkflowUserRelationship owner) {
@@ -73,6 +76,9 @@ public class WorkflowDataRelationships {
 
   public void setOwner(WorkflowUserRelationship owner) {
     this.owner = owner;
+    if (owner != null) {
+      this.unparsed |= owner.unparsed;
+    }
   }
 
   /**

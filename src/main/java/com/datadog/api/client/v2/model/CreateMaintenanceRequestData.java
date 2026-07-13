@@ -66,6 +66,9 @@ public class CreateMaintenanceRequestData {
 
   public void setAttributes(CreateMaintenanceRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateMaintenanceRequestData type(PatchMaintenanceRequestDataType type) {

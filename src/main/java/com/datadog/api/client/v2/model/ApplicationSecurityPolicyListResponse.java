@@ -58,6 +58,11 @@ public class ApplicationSecurityPolicyListResponse {
 
   public void setData(List<ApplicationSecurityPolicyData> data) {
     this.data = data;
+    if (data != null) {
+      for (ApplicationSecurityPolicyData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

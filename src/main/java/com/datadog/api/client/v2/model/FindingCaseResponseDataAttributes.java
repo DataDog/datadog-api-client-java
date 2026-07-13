@@ -147,6 +147,9 @@ public class FindingCaseResponseDataAttributes {
 
   public void setAssignedTo(RelationshipToUser assignedTo) {
     this.assignedTo = assignedTo;
+    if (assignedTo != null) {
+      this.unparsed |= assignedTo.unparsed;
+    }
   }
 
   public FindingCaseResponseDataAttributes attributes(Map<String, List<String>> attributes) {
@@ -315,6 +318,11 @@ public class FindingCaseResponseDataAttributes {
 
   public void setInsights(List<CaseInsightsItems> insights) {
     this.insights = insights;
+    if (insights != null) {
+      for (CaseInsightsItems item : insights) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FindingCaseResponseDataAttributes jiraIssue(FindingJiraIssue jiraIssue) {
@@ -337,6 +345,9 @@ public class FindingCaseResponseDataAttributes {
 
   public void setJiraIssue(FindingJiraIssue jiraIssue) {
     this.jiraIssue = jiraIssue;
+    if (jiraIssue != null) {
+      this.unparsed |= jiraIssue.unparsed;
+    }
   }
 
   public FindingCaseResponseDataAttributes key(String key) {
@@ -380,6 +391,9 @@ public class FindingCaseResponseDataAttributes {
 
   public void setLinearIssue(FindingLinearIssue linearIssue) {
     this.linearIssue = linearIssue;
+    if (linearIssue != null) {
+      this.unparsed |= linearIssue.unparsed;
+    }
   }
 
   public FindingCaseResponseDataAttributes modifiedAt(OffsetDateTime modifiedAt) {
@@ -445,6 +459,9 @@ public class FindingCaseResponseDataAttributes {
 
   public void setServicenowTicket(FindingServiceNowTicket servicenowTicket) {
     this.servicenowTicket = servicenowTicket;
+    if (servicenowTicket != null) {
+      this.unparsed |= servicenowTicket.unparsed;
+    }
   }
 
   public FindingCaseResponseDataAttributes status(String status) {

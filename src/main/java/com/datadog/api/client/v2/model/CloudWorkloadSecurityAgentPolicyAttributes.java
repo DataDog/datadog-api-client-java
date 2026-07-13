@@ -474,6 +474,9 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
 
   public void setUpdater(CloudWorkloadSecurityAgentPolicyUpdaterAttributes updater) {
     this.updater = updater;
+    if (updater != null) {
+      this.unparsed |= updater.unparsed;
+    }
   }
 
   public CloudWorkloadSecurityAgentPolicyAttributes versions(
@@ -509,6 +512,11 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
 
   public void setVersions(List<CloudWorkloadSecurityAgentPolicyVersion> versions) {
     this.versions = versions;
+    if (versions != null) {
+      for (CloudWorkloadSecurityAgentPolicyVersion item : versions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

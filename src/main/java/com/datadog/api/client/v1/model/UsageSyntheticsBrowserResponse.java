@@ -61,6 +61,11 @@ public class UsageSyntheticsBrowserResponse {
 
   public void setUsage(List<UsageSyntheticsBrowserHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageSyntheticsBrowserHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

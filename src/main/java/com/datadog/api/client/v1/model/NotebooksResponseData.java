@@ -70,6 +70,9 @@ public class NotebooksResponseData {
 
   public void setAttributes(NotebooksResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

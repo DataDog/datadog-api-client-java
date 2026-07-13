@@ -91,6 +91,12 @@ public class CreateBackfilledDegradationRequestDataAttributesUpdatesItems {
   public void setComponentsAffected(
       List<CreateDegradationRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (CreateDegradationRequestDataAttributesComponentsAffectedItems item :
+          componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateBackfilledDegradationRequestDataAttributesUpdatesItems description(

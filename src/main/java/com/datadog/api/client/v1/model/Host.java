@@ -265,6 +265,9 @@ public class Host {
 
   public void setMeta(HostMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public Host metrics(HostMetrics metrics) {
@@ -287,6 +290,9 @@ public class Host {
 
   public void setMetrics(HostMetrics metrics) {
     this.metrics = metrics;
+    if (metrics != null) {
+      this.unparsed |= metrics.unparsed;
+    }
   }
 
   public Host muteTimeout(Long muteTimeout) {

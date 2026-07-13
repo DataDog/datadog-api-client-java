@@ -51,6 +51,9 @@ public class RelationRelationships {
 
   public void setFromEntity(RelationToEntity fromEntity) {
     this.fromEntity = fromEntity;
+    if (fromEntity != null) {
+      this.unparsed |= fromEntity.unparsed;
+    }
   }
 
   public RelationRelationships toEntity(RelationToEntity toEntity) {
@@ -73,6 +76,9 @@ public class RelationRelationships {
 
   public void setToEntity(RelationToEntity toEntity) {
     this.toEntity = toEntity;
+    if (toEntity != null) {
+      this.unparsed |= toEntity.unparsed;
+    }
   }
 
   /**

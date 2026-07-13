@@ -55,6 +55,9 @@ public class TagIndexingRuleData {
 
   public void setAttributes(TagIndexingRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TagIndexingRuleData id(String id) {

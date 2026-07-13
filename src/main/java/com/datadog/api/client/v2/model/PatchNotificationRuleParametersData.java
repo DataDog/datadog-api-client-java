@@ -75,6 +75,9 @@ public class PatchNotificationRuleParametersData {
 
   public void setAttributes(PatchNotificationRuleParametersDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PatchNotificationRuleParametersData id(String id) {

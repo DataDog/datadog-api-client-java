@@ -67,6 +67,9 @@ public class GCPUsageCostConfigPatchData {
 
   public void setAttributes(GCPUsageCostConfigPatchRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GCPUsageCostConfigPatchData type(GCPUsageCostConfigPatchRequestType type) {

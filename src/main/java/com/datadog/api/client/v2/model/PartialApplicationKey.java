@@ -59,6 +59,9 @@ public class PartialApplicationKey {
 
   public void setAttributes(PartialApplicationKeyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PartialApplicationKey id(String id) {
@@ -102,6 +105,9 @@ public class PartialApplicationKey {
 
   public void setRelationships(ApplicationKeyRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public PartialApplicationKey type(ApplicationKeysType type) {

@@ -56,6 +56,9 @@ public class LLMObsAnnotatedInteractionsByTraceResponse {
 
   public void setData(LLMObsAnnotatedInteractionsByTraceDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

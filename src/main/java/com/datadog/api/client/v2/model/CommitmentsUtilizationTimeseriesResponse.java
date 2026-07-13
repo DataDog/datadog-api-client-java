@@ -119,6 +119,9 @@ public class CommitmentsUtilizationTimeseriesResponse {
 
   public void setUnit(CommitmentsUnit unit) {
     this.unit = unit;
+    if (unit != null) {
+      this.unparsed |= unit.unparsed;
+    }
   }
 
   /**

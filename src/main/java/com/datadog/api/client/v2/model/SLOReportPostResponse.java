@@ -45,6 +45,9 @@ public class SLOReportPostResponse {
 
   public void setData(SLOReportPostResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -61,6 +61,11 @@ public class UsageSyntheticsAPIResponse {
 
   public void setUsage(List<UsageSyntheticsAPIHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageSyntheticsAPIHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

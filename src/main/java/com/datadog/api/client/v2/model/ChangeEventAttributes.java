@@ -110,6 +110,9 @@ public class ChangeEventAttributes {
 
   public void setAuthor(ChangeEventAttributesAuthor author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   public ChangeEventAttributes changeMetadata(Object changeMetadata) {
@@ -154,6 +157,9 @@ public class ChangeEventAttributes {
 
   public void setChangedResource(ChangeEventAttributesChangedResource changedResource) {
     this.changedResource = changedResource;
+    if (changedResource != null) {
+      this.unparsed |= changedResource.unparsed;
+    }
   }
 
   public ChangeEventAttributes evt(EventSystemAttributes evt) {
@@ -176,6 +182,9 @@ public class ChangeEventAttributes {
 
   public void setEvt(EventSystemAttributes evt) {
     this.evt = evt;
+    if (evt != null) {
+      this.unparsed |= evt.unparsed;
+    }
   }
 
   public ChangeEventAttributes impactedResources(
@@ -212,6 +221,11 @@ public class ChangeEventAttributes {
   public void setImpactedResources(
       List<ChangeEventAttributesImpactedResourcesItem> impactedResources) {
     this.impactedResources = impactedResources;
+    if (impactedResources != null) {
+      for (ChangeEventAttributesImpactedResourcesItem item : impactedResources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ChangeEventAttributes newValue(Object newValue) {

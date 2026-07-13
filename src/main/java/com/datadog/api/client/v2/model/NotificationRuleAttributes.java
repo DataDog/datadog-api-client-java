@@ -132,6 +132,9 @@ public class NotificationRuleAttributes {
 
   public void setCreatedBy(RuleUser createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public NotificationRuleAttributes enabled(Boolean enabled) {
@@ -193,6 +196,9 @@ public class NotificationRuleAttributes {
 
   public void setModifiedBy(RuleUser modifiedBy) {
     this.modifiedBy = modifiedBy;
+    if (modifiedBy != null) {
+      this.unparsed |= modifiedBy.unparsed;
+    }
   }
 
   public NotificationRuleAttributes name(String name) {
@@ -236,6 +242,9 @@ public class NotificationRuleAttributes {
 
   public void setSelectors(Selectors selectors) {
     this.selectors = selectors;
+    if (selectors != null) {
+      this.unparsed |= selectors.unparsed;
+    }
   }
 
   public NotificationRuleAttributes targets(List<String> targets) {

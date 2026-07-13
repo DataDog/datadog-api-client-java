@@ -66,6 +66,9 @@ public class CreateDataDeletionRequestBodyData {
 
   public void setAttributes(CreateDataDeletionRequestBodyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateDataDeletionRequestBodyData type(CreateDataDeletionRequestBodyDataType type) {

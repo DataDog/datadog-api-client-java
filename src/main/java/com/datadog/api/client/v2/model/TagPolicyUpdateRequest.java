@@ -54,6 +54,9 @@ public class TagPolicyUpdateRequest {
 
   public void setData(TagPolicyUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

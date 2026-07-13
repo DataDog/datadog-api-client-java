@@ -71,6 +71,9 @@ public class AWSEventBridgeListResponseData {
 
   public void setAttributes(AWSEventBridgeListResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSEventBridgeListResponseData id(String id) {

@@ -72,6 +72,9 @@ public class WidgetData {
 
   public void setAttributes(WidgetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WidgetData id(String id) {
@@ -114,6 +117,9 @@ public class WidgetData {
 
   public void setRelationships(WidgetRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public WidgetData type(String type) {

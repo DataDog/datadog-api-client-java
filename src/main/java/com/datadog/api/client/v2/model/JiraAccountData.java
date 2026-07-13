@@ -70,6 +70,9 @@ public class JiraAccountData {
 
   public void setAttributes(JiraAccountAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public JiraAccountData id(String id) {

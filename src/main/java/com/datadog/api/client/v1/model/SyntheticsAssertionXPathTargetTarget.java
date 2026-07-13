@@ -77,6 +77,9 @@ public class SyntheticsAssertionXPathTargetTarget {
 
   public void setTargetValue(SyntheticsAssertionTargetValue targetValue) {
     this.targetValue = targetValue;
+    if (targetValue != null) {
+      this.unparsed |= targetValue.unparsed;
+    }
   }
 
   public SyntheticsAssertionXPathTargetTarget xPath(String xPath) {

@@ -68,6 +68,9 @@ public class AwsCURConfig {
 
   public void setAttributes(AwsCURConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AwsCURConfig id(String id) {

@@ -74,6 +74,11 @@ public class MetricsAndMetricTagConfigurationsResponse {
 
   public void setData(List<MetricsAndMetricTagConfigurations> data) {
     this.data = data;
+    if (data != null) {
+      for (MetricsAndMetricTagConfigurations item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MetricsAndMetricTagConfigurationsResponse included(
@@ -110,6 +115,11 @@ public class MetricsAndMetricTagConfigurationsResponse {
 
   public void setIncluded(List<MetricIngestedIndexedVolume> included) {
     this.included = included;
+    if (included != null) {
+      for (MetricIngestedIndexedVolume item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MetricsAndMetricTagConfigurationsResponse links(MetricsListResponseLinks links) {
@@ -132,6 +142,9 @@ public class MetricsAndMetricTagConfigurationsResponse {
 
   public void setLinks(MetricsListResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public MetricsAndMetricTagConfigurationsResponse meta(MetricPaginationMeta meta) {
@@ -154,6 +167,9 @@ public class MetricsAndMetricTagConfigurationsResponse {
 
   public void setMeta(MetricPaginationMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

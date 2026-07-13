@@ -70,6 +70,9 @@ public class RetentionFilterAll {
 
   public void setAttributes(RetentionFilterAllAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RetentionFilterAll id(String id) {

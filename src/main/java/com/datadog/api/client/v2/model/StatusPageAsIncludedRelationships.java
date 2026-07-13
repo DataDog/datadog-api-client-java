@@ -52,6 +52,9 @@ public class StatusPageAsIncludedRelationships {
 
   public void setCreatedByUser(StatusPageAsIncludedRelationshipsCreatedByUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public StatusPageAsIncludedRelationships lastModifiedByUser(
@@ -76,6 +79,9 @@ public class StatusPageAsIncludedRelationships {
   public void setLastModifiedByUser(
       StatusPageAsIncludedRelationshipsLastModifiedByUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   /**

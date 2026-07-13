@@ -55,6 +55,9 @@ public class RelationshipToUserTeamTeam {
 
   public void setData(RelationshipToUserTeamTeamData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

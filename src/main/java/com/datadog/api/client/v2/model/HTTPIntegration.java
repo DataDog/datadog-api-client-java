@@ -89,6 +89,9 @@ public class HTTPIntegration {
 
   public void setCredentials(HTTPCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public HTTPIntegration type(HTTPIntegrationType type) {

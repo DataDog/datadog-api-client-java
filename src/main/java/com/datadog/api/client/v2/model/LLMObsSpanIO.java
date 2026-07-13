@@ -61,6 +61,11 @@ public class LLMObsSpanIO {
 
   public void setMessages(List<LLMObsSpanMessage> messages) {
     this.messages = messages;
+    if (messages != null) {
+      for (LLMObsSpanMessage item : messages) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsSpanIO value(String value) {

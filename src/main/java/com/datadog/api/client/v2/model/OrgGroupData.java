@@ -71,6 +71,9 @@ public class OrgGroupData {
 
   public void setAttributes(OrgGroupAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupData id(UUID id) {

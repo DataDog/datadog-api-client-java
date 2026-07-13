@@ -70,6 +70,9 @@ public class TeamLink {
 
   public void setAttributes(TeamLinkAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamLink id(String id) {

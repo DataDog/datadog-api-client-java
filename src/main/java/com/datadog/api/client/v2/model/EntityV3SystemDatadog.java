@@ -68,6 +68,11 @@ public class EntityV3SystemDatadog {
 
   public void setEvents(List<EntityV3DatadogEventItem> events) {
     this.events = events;
+    if (events != null) {
+      for (EntityV3DatadogEventItem item : events) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EntityV3SystemDatadog logs(List<EntityV3DatadogLogItem> logs) {
@@ -101,6 +106,11 @@ public class EntityV3SystemDatadog {
 
   public void setLogs(List<EntityV3DatadogLogItem> logs) {
     this.logs = logs;
+    if (logs != null) {
+      for (EntityV3DatadogLogItem item : logs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EntityV3SystemDatadog performanceData(EntityV3DatadogPerformance performanceData) {
@@ -123,6 +133,9 @@ public class EntityV3SystemDatadog {
 
   public void setPerformanceData(EntityV3DatadogPerformance performanceData) {
     this.performanceData = performanceData;
+    if (performanceData != null) {
+      this.unparsed |= performanceData.unparsed;
+    }
   }
 
   public EntityV3SystemDatadog pipelines(EntityV3DatadogPipelines pipelines) {
@@ -145,6 +158,9 @@ public class EntityV3SystemDatadog {
 
   public void setPipelines(EntityV3DatadogPipelines pipelines) {
     this.pipelines = pipelines;
+    if (pipelines != null) {
+      this.unparsed |= pipelines.unparsed;
+    }
   }
 
   /** Return true if this EntityV3SystemDatadog object is equal to o. */

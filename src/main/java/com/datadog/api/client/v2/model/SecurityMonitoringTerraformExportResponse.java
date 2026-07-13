@@ -46,6 +46,9 @@ public class SecurityMonitoringTerraformExportResponse {
 
   public void setData(SecurityMonitoringTerraformExportData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

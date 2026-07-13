@@ -69,6 +69,9 @@ public class ObservabilityPipelineData {
 
   public void setAttributes(ObservabilityPipelineDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ObservabilityPipelineData id(String id) {

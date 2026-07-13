@@ -58,6 +58,11 @@ public class DashboardSummary {
 
   public void setDashboards(List<DashboardSummaryDefinition> dashboards) {
     this.dashboards = dashboards;
+    if (dashboards != null) {
+      for (DashboardSummaryDefinition item : dashboards) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

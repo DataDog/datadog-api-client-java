@@ -54,6 +54,9 @@ public class EventCreateRequestPayload {
 
   public void setData(EventCreateRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -68,6 +68,9 @@ public class OrgSAMLPreferencesData {
 
   public void setAttributes(OrgSAMLPreferencesAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgSAMLPreferencesData id(String id) {

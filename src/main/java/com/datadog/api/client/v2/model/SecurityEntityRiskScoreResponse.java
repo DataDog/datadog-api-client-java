@@ -54,6 +54,9 @@ public class SecurityEntityRiskScoreResponse {
 
   public void setData(SecurityEntityRiskScore data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

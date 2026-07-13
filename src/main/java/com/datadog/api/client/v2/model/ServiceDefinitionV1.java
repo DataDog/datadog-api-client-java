@@ -96,6 +96,9 @@ public class ServiceDefinitionV1 {
 
   public void setContact(ServiceDefinitionV1Contact contact) {
     this.contact = contact;
+    if (contact != null) {
+      this.unparsed |= contact.unparsed;
+    }
   }
 
   public ServiceDefinitionV1 extensions(Map<String, Object> extensions) {
@@ -160,6 +163,11 @@ public class ServiceDefinitionV1 {
 
   public void setExternalResources(List<ServiceDefinitionV1Resource> externalResources) {
     this.externalResources = externalResources;
+    if (externalResources != null) {
+      for (ServiceDefinitionV1Resource item : externalResources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ServiceDefinitionV1 info(ServiceDefinitionV1Info info) {
@@ -181,6 +189,9 @@ public class ServiceDefinitionV1 {
 
   public void setInfo(ServiceDefinitionV1Info info) {
     this.info = info;
+    if (info != null) {
+      this.unparsed |= info.unparsed;
+    }
   }
 
   public ServiceDefinitionV1 integrations(ServiceDefinitionV1Integrations integrations) {
@@ -203,6 +214,9 @@ public class ServiceDefinitionV1 {
 
   public void setIntegrations(ServiceDefinitionV1Integrations integrations) {
     this.integrations = integrations;
+    if (integrations != null) {
+      this.unparsed |= integrations.unparsed;
+    }
   }
 
   public ServiceDefinitionV1 org(ServiceDefinitionV1Org org) {
@@ -225,6 +239,9 @@ public class ServiceDefinitionV1 {
 
   public void setOrg(ServiceDefinitionV1Org org) {
     this.org = org;
+    if (org != null) {
+      this.unparsed |= org.unparsed;
+    }
   }
 
   public ServiceDefinitionV1 schemaVersion(ServiceDefinitionV1Version schemaVersion) {

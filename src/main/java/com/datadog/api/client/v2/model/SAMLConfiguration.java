@@ -71,6 +71,9 @@ public class SAMLConfiguration {
 
   public void setAttributes(SAMLConfigurationAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SAMLConfiguration id(String id) {
@@ -113,6 +116,9 @@ public class SAMLConfiguration {
 
   public void setRelationships(SAMLConfigurationRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SAMLConfiguration type(SAMLConfigurationsType type) {

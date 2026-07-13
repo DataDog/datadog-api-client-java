@@ -64,6 +64,9 @@ public class OpsgenieAccountCreateData {
 
   public void setAttributes(OpsgenieAccountCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OpsgenieAccountCreateData type(OpsgenieAccountType type) {

@@ -54,6 +54,9 @@ public class MonitorConfigPolicyEditRequest {
 
   public void setData(MonitorConfigPolicyEditData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

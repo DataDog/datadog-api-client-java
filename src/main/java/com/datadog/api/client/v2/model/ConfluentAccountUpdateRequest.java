@@ -55,6 +55,9 @@ public class ConfluentAccountUpdateRequest {
 
   public void setData(ConfluentAccountUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -35,6 +35,9 @@ public class ListAllocationsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<AllocationDataResponse> data) {
     this.data = data;
+    for (AllocationDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListAllocationsResponse data(List<AllocationDataResponse> data) {
@@ -64,6 +67,11 @@ public class ListAllocationsResponse {
 
   public void setData(List<AllocationDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (AllocationDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

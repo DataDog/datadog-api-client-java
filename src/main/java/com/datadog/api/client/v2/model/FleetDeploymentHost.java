@@ -135,6 +135,11 @@ public class FleetDeploymentHost {
 
   public void setVersions(List<FleetDeploymentHostPackage> versions) {
     this.versions = versions;
+    if (versions != null) {
+      for (FleetDeploymentHostPackage item : versions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

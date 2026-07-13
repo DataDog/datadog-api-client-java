@@ -46,6 +46,9 @@ public class ResolveVulnerableSymbolsRequest {
 
   public void setData(ResolveVulnerableSymbolsRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

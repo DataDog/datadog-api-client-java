@@ -64,6 +64,9 @@ public class SecureEmbedCreateRequestData {
 
   public void setAttributes(SecureEmbedCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecureEmbedCreateRequestData type(SecureEmbedRequestType type) {

@@ -101,6 +101,9 @@ public class PlaylistDataAttributes {
 
   public void setCreatedBy(PlaylistDataAttributesCreatedBy createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public PlaylistDataAttributes description(String description) {

@@ -75,6 +75,9 @@ public class OrgGroupPolicyOverrideData {
 
   public void setAttributes(OrgGroupPolicyOverrideAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupPolicyOverrideData id(UUID id) {
@@ -118,6 +121,9 @@ public class OrgGroupPolicyOverrideData {
 
   public void setRelationships(OrgGroupPolicyOverrideRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgGroupPolicyOverrideData type(OrgGroupPolicyOverrideType type) {

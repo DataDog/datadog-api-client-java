@@ -81,6 +81,11 @@ public class UpdateAppRequestDataAttributes {
 
   public void setComponents(List<ComponentGrid> components) {
     this.components = components;
+    if (components != null) {
+      for (ComponentGrid item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpdateAppRequestDataAttributes description(String description) {
@@ -157,6 +162,11 @@ public class UpdateAppRequestDataAttributes {
 
   public void setQueries(List<Query> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (Query item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpdateAppRequestDataAttributes rootInstanceName(String rootInstanceName) {

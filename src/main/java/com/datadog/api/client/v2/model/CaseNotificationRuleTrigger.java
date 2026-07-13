@@ -51,6 +51,9 @@ public class CaseNotificationRuleTrigger {
 
   public void setData(CaseNotificationRuleTriggerData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public CaseNotificationRuleTrigger type(String type) {

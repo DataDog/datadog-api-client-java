@@ -82,6 +82,9 @@ public class CreateRulesetRequestDataAttributesRulesItemsQuery {
 
   public void setAddition(CreateRulesetRequestDataAttributesRulesItemsQueryAddition addition) {
     this.addition = addition;
+    if (addition != null) {
+      this.unparsed |= addition.unparsed;
+    }
   }
 
   public CreateRulesetRequestDataAttributesRulesItemsQuery caseInsensitivity(

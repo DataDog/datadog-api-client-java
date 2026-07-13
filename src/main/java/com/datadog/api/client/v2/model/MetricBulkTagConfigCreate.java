@@ -67,6 +67,9 @@ public class MetricBulkTagConfigCreate {
 
   public void setAttributes(MetricBulkTagConfigCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricBulkTagConfigCreate id(String id) {

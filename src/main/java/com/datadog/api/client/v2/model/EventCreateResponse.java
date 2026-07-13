@@ -51,6 +51,9 @@ public class EventCreateResponse {
 
   public void setAttributes(EventCreateResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EventCreateResponse type(String type) {

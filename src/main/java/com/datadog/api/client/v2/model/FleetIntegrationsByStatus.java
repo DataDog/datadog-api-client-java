@@ -82,6 +82,11 @@ public class FleetIntegrationsByStatus {
 
   public void setConfigurationFiles(List<FleetConfigurationFile> configurationFiles) {
     this.configurationFiles = configurationFiles;
+    if (configurationFiles != null) {
+      for (FleetConfigurationFile item : configurationFiles) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetIntegrationsByStatus datadogAgentKey(String datadogAgentKey) {
@@ -138,6 +143,11 @@ public class FleetIntegrationsByStatus {
 
   public void setErrorIntegrations(List<FleetIntegrationDetails> errorIntegrations) {
     this.errorIntegrations = errorIntegrations;
+    if (errorIntegrations != null) {
+      for (FleetIntegrationDetails item : errorIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetIntegrationsByStatus missingIntegrations(
@@ -173,6 +183,11 @@ public class FleetIntegrationsByStatus {
 
   public void setMissingIntegrations(List<FleetDetectedIntegration> missingIntegrations) {
     this.missingIntegrations = missingIntegrations;
+    if (missingIntegrations != null) {
+      for (FleetDetectedIntegration item : missingIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetIntegrationsByStatus warningIntegrations(
@@ -208,6 +223,11 @@ public class FleetIntegrationsByStatus {
 
   public void setWarningIntegrations(List<FleetIntegrationDetails> warningIntegrations) {
     this.warningIntegrations = warningIntegrations;
+    if (warningIntegrations != null) {
+      for (FleetIntegrationDetails item : warningIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetIntegrationsByStatus workingIntegrations(
@@ -243,6 +263,11 @@ public class FleetIntegrationsByStatus {
 
   public void setWorkingIntegrations(List<FleetIntegrationDetails> workingIntegrations) {
     this.workingIntegrations = workingIntegrations;
+    if (workingIntegrations != null) {
+      for (FleetIntegrationDetails item : workingIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -62,6 +62,9 @@ public class EntityContextResponseMeta {
 
   public void setPage(EntityContextPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public EntityContextResponseMeta totalCount(Integer totalCount) {

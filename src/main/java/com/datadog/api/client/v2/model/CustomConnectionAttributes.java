@@ -74,6 +74,9 @@ public class CustomConnectionAttributes {
 
   public void setOnPremRunner(CustomConnectionAttributesOnPremRunner onPremRunner) {
     this.onPremRunner = onPremRunner;
+    if (onPremRunner != null) {
+      this.unparsed |= onPremRunner.unparsed;
+    }
   }
 
   /**

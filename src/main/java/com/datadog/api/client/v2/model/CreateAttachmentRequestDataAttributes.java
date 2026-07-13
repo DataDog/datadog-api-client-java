@@ -52,6 +52,9 @@ public class CreateAttachmentRequestDataAttributes {
 
   public void setAttachment(CreateAttachmentRequestDataAttributesAttachment attachment) {
     this.attachment = attachment;
+    if (attachment != null) {
+      this.unparsed |= attachment.unparsed;
+    }
   }
 
   public CreateAttachmentRequestDataAttributes attachmentType(

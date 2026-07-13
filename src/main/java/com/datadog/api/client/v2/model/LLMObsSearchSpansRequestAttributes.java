@@ -59,6 +59,9 @@ public class LLMObsSearchSpansRequestAttributes {
 
   public void setFilter(LLMObsSpanFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LLMObsSearchSpansRequestAttributes options(LLMObsSpanSearchOptions options) {
@@ -81,6 +84,9 @@ public class LLMObsSearchSpansRequestAttributes {
 
   public void setOptions(LLMObsSpanSearchOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public LLMObsSearchSpansRequestAttributes page(LLMObsSpanPageQuery page) {
@@ -103,6 +109,9 @@ public class LLMObsSearchSpansRequestAttributes {
 
   public void setPage(LLMObsSpanPageQuery page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public LLMObsSearchSpansRequestAttributes sort(String sort) {

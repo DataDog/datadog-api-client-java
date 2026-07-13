@@ -56,6 +56,9 @@ public class SecurityMonitoringDatasetVersionHistoryResponse {
 
   public void setData(SecurityMonitoringDatasetVersionHistoryData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

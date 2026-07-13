@@ -174,6 +174,11 @@ public class ObservabilityPipelineKafkaSource {
   public void setLibrdkafkaOptions(
       List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions) {
     this.librdkafkaOptions = librdkafkaOptions;
+    if (librdkafkaOptions != null) {
+      for (ObservabilityPipelineKafkaLibrdkafkaOption item : librdkafkaOptions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineKafkaSource sasl(ObservabilityPipelineKafkaSasl sasl) {
@@ -196,6 +201,9 @@ public class ObservabilityPipelineKafkaSource {
 
   public void setSasl(ObservabilityPipelineKafkaSasl sasl) {
     this.sasl = sasl;
+    if (sasl != null) {
+      this.unparsed |= sasl.unparsed;
+    }
   }
 
   public ObservabilityPipelineKafkaSource tls(ObservabilityPipelineTls tls) {
@@ -218,6 +226,9 @@ public class ObservabilityPipelineKafkaSource {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineKafkaSource topics(List<String> topics) {

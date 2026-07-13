@@ -45,6 +45,9 @@ public class SensitiveDataScannerStandardPatternData {
 
   public void setData(SensitiveDataScannerStandardPattern data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

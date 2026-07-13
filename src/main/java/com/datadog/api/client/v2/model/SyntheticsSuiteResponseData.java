@@ -55,6 +55,9 @@ public class SyntheticsSuiteResponseData {
 
   public void setAttributes(SyntheticsSuite attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

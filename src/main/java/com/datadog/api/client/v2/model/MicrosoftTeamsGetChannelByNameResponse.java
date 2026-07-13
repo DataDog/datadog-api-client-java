@@ -45,6 +45,9 @@ public class MicrosoftTeamsGetChannelByNameResponse {
 
   public void setData(MicrosoftTeamsChannelInfoResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

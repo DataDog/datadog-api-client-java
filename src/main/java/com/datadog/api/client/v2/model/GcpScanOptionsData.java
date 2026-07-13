@@ -67,6 +67,9 @@ public class GcpScanOptionsData {
 
   public void setAttributes(GcpScanOptionsDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GcpScanOptionsData id(String id) {

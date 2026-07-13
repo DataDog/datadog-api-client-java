@@ -62,6 +62,9 @@ public class JiraIssueTemplateResponse {
 
   public void setData(JiraIssueTemplateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public JiraIssueTemplateResponse included(List<JiraAccountData> included) {
@@ -95,6 +98,11 @@ public class JiraIssueTemplateResponse {
 
   public void setIncluded(List<JiraAccountData> included) {
     this.included = included;
+    if (included != null) {
+      for (JiraAccountData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

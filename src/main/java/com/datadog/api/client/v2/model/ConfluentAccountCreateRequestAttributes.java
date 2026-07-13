@@ -125,6 +125,11 @@ public class ConfluentAccountCreateRequestAttributes {
 
   public void setResources(List<ConfluentAccountResourceAttributes> resources) {
     this.resources = resources;
+    if (resources != null) {
+      for (ConfluentAccountResourceAttributes item : resources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ConfluentAccountCreateRequestAttributes tags(List<String> tags) {

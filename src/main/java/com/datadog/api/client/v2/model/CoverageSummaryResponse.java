@@ -45,6 +45,9 @@ public class CoverageSummaryResponse {
 
   public void setData(CoverageSummaryData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

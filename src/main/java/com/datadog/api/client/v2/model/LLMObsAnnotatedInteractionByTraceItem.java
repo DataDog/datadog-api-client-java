@@ -79,6 +79,9 @@ public class LLMObsAnnotatedInteractionByTraceItem {
       @JsonProperty(required = true, value = JSON_PROPERTY_QUEUE_NAME) String queueName,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsAnyInteractionType type) {
     this.annotations = annotations;
+    for (LLMObsAnnotationItem item : annotations) {
+      this.unparsed |= item.unparsed;
+    }
     this.contentId = contentId;
     this.createdAt = createdAt;
     this.id = id;
@@ -117,6 +120,11 @@ public class LLMObsAnnotatedInteractionByTraceItem {
 
   public void setAnnotations(List<LLMObsAnnotationItem> annotations) {
     this.annotations = annotations;
+    if (annotations != null) {
+      for (LLMObsAnnotationItem item : annotations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsAnnotatedInteractionByTraceItem contentId(String contentId) {
@@ -192,6 +200,11 @@ public class LLMObsAnnotatedInteractionByTraceItem {
 
   public void setDisplayBlock(List<LLMObsContentBlock> displayBlock) {
     this.displayBlock = displayBlock;
+    if (displayBlock != null) {
+      for (LLMObsContentBlock item : displayBlock) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsAnnotatedInteractionByTraceItem id(String id) {

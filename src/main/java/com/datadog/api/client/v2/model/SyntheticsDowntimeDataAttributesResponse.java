@@ -101,6 +101,9 @@ public class SyntheticsDowntimeDataAttributesResponse {
     this.tags = tags;
     this.testIds = testIds;
     this.timeSlots = timeSlots;
+    for (SyntheticsDowntimeTimeSlotResponse item : timeSlots) {
+      this.unparsed |= item.unparsed;
+    }
     this.updatedAt = updatedAt;
     this.updatedBy = updatedBy;
     this.updatedByName = updatedByName;
@@ -305,6 +308,11 @@ public class SyntheticsDowntimeDataAttributesResponse {
 
   public void setTimeSlots(List<SyntheticsDowntimeTimeSlotResponse> timeSlots) {
     this.timeSlots = timeSlots;
+    if (timeSlots != null) {
+      for (SyntheticsDowntimeTimeSlotResponse item : timeSlots) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsDowntimeDataAttributesResponse updatedAt(OffsetDateTime updatedAt) {

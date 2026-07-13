@@ -96,6 +96,9 @@ public class IPRanges {
 
   public void setAgents(IPPrefixesAgents agents) {
     this.agents = agents;
+    if (agents != null) {
+      this.unparsed |= agents.unparsed;
+    }
   }
 
   public IPRanges api(IPPrefixesAPI api) {
@@ -118,6 +121,9 @@ public class IPRanges {
 
   public void setApi(IPPrefixesAPI api) {
     this.api = api;
+    if (api != null) {
+      this.unparsed |= api.unparsed;
+    }
   }
 
   public IPRanges apm(IPPrefixesAPM apm) {
@@ -140,6 +146,9 @@ public class IPRanges {
 
   public void setApm(IPPrefixesAPM apm) {
     this.apm = apm;
+    if (apm != null) {
+      this.unparsed |= apm.unparsed;
+    }
   }
 
   public IPRanges global(IPPrefixesGlobal global) {
@@ -162,6 +171,9 @@ public class IPRanges {
 
   public void setGlobal(IPPrefixesGlobal global) {
     this.global = global;
+    if (global != null) {
+      this.unparsed |= global.unparsed;
+    }
   }
 
   public IPRanges logs(IPPrefixesLogs logs) {
@@ -184,6 +196,9 @@ public class IPRanges {
 
   public void setLogs(IPPrefixesLogs logs) {
     this.logs = logs;
+    if (logs != null) {
+      this.unparsed |= logs.unparsed;
+    }
   }
 
   public IPRanges modified(String modified) {
@@ -227,6 +242,9 @@ public class IPRanges {
 
   public void setOrchestrator(IPPrefixesOrchestrator orchestrator) {
     this.orchestrator = orchestrator;
+    if (orchestrator != null) {
+      this.unparsed |= orchestrator.unparsed;
+    }
   }
 
   public IPRanges process(IPPrefixesProcess process) {
@@ -249,6 +267,9 @@ public class IPRanges {
 
   public void setProcess(IPPrefixesProcess process) {
     this.process = process;
+    if (process != null) {
+      this.unparsed |= process.unparsed;
+    }
   }
 
   public IPRanges remoteConfiguration(IPPrefixesRemoteConfiguration remoteConfiguration) {
@@ -271,6 +292,9 @@ public class IPRanges {
 
   public void setRemoteConfiguration(IPPrefixesRemoteConfiguration remoteConfiguration) {
     this.remoteConfiguration = remoteConfiguration;
+    if (remoteConfiguration != null) {
+      this.unparsed |= remoteConfiguration.unparsed;
+    }
   }
 
   public IPRanges synthetics(IPPrefixesSynthetics synthetics) {
@@ -293,6 +317,9 @@ public class IPRanges {
 
   public void setSynthetics(IPPrefixesSynthetics synthetics) {
     this.synthetics = synthetics;
+    if (synthetics != null) {
+      this.unparsed |= synthetics.unparsed;
+    }
   }
 
   public IPRanges syntheticsPrivateLocations(
@@ -317,6 +344,9 @@ public class IPRanges {
   public void setSyntheticsPrivateLocations(
       IPPrefixesSyntheticsPrivateLocations syntheticsPrivateLocations) {
     this.syntheticsPrivateLocations = syntheticsPrivateLocations;
+    if (syntheticsPrivateLocations != null) {
+      this.unparsed |= syntheticsPrivateLocations.unparsed;
+    }
   }
 
   public IPRanges version(Long version) {
@@ -360,6 +390,9 @@ public class IPRanges {
 
   public void setWebhooks(IPPrefixesWebhooks webhooks) {
     this.webhooks = webhooks;
+    if (webhooks != null) {
+      this.unparsed |= webhooks.unparsed;
+    }
   }
 
   /**

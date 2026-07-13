@@ -210,6 +210,11 @@ public class ServiceDefinitionMeta {
 
   public void setWarnings(List<ServiceDefinitionMetaWarnings> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (ServiceDefinitionMetaWarnings item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

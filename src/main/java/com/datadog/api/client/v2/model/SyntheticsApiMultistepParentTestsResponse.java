@@ -60,6 +60,11 @@ public class SyntheticsApiMultistepParentTestsResponse {
 
   public void setData(List<SyntheticsApiMultistepParentTestData> data) {
     this.data = data;
+    if (data != null) {
+      for (SyntheticsApiMultistepParentTestData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

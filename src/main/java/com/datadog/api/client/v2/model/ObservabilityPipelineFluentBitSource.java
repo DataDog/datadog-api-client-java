@@ -121,6 +121,9 @@ public class ObservabilityPipelineFluentBitSource {
 
   public void setTls(ObservabilityPipelineMtlsServerTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineFluentBitSource type(ObservabilityPipelineFluentBitSourceType type) {

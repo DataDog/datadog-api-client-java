@@ -74,6 +74,9 @@ public class DefaultRulesetsPerLanguageData {
 
   public void setAttributes(DefaultRulesetsPerLanguageDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DefaultRulesetsPerLanguageData id(String id) {

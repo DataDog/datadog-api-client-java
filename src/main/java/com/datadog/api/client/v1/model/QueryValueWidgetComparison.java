@@ -94,6 +94,9 @@ public class QueryValueWidgetComparison {
 
   public void setDuration(ComparisonDuration duration) {
     this.duration = duration;
+    if (duration != null) {
+      this.unparsed |= duration.unparsed;
+    }
   }
 
   public QueryValueWidgetComparison type(QueryValueWidgetComparisonType type) {

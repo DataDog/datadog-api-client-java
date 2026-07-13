@@ -59,6 +59,9 @@ public class UserResponseRelationships {
 
   public void setOrg(RelationshipToOrganization org) {
     this.org = org;
+    if (org != null) {
+      this.unparsed |= org.unparsed;
+    }
   }
 
   public UserResponseRelationships otherOrgs(RelationshipToOrganizations otherOrgs) {
@@ -81,6 +84,9 @@ public class UserResponseRelationships {
 
   public void setOtherOrgs(RelationshipToOrganizations otherOrgs) {
     this.otherOrgs = otherOrgs;
+    if (otherOrgs != null) {
+      this.unparsed |= otherOrgs.unparsed;
+    }
   }
 
   public UserResponseRelationships otherUsers(RelationshipToUsers otherUsers) {
@@ -103,6 +109,9 @@ public class UserResponseRelationships {
 
   public void setOtherUsers(RelationshipToUsers otherUsers) {
     this.otherUsers = otherUsers;
+    if (otherUsers != null) {
+      this.unparsed |= otherUsers.unparsed;
+    }
   }
 
   public UserResponseRelationships roles(RelationshipToRoles roles) {
@@ -125,6 +134,9 @@ public class UserResponseRelationships {
 
   public void setRoles(RelationshipToRoles roles) {
     this.roles = roles;
+    if (roles != null) {
+      this.unparsed |= roles.unparsed;
+    }
   }
 
   /**

@@ -61,6 +61,9 @@ public class LaunchDarklyIntegrationUpdate {
 
   public void setCredentials(LaunchDarklyCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public LaunchDarklyIntegrationUpdate type(LaunchDarklyIntegrationType type) {

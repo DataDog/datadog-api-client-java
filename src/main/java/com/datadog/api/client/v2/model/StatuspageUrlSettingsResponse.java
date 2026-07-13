@@ -35,6 +35,9 @@ public class StatuspageUrlSettingsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<StatuspageUrlSettingResponseData> data) {
     this.data = data;
+    for (StatuspageUrlSettingResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public StatuspageUrlSettingsResponse data(List<StatuspageUrlSettingResponseData> data) {
@@ -64,6 +67,11 @@ public class StatuspageUrlSettingsResponse {
 
   public void setData(List<StatuspageUrlSettingResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (StatuspageUrlSettingResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

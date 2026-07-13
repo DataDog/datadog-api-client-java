@@ -120,6 +120,9 @@ public class ObservabilityPipelineDatadogAgentSource {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineDatadogAgentSource type(

@@ -64,6 +64,9 @@ public class IncidentSearchResponseNumericFacetData {
 
   public void setAggregates(IncidentSearchResponseNumericFacetDataAggregates aggregates) {
     this.aggregates = aggregates;
+    if (aggregates != null) {
+      this.unparsed |= aggregates.unparsed;
+    }
   }
 
   public IncidentSearchResponseNumericFacetData name(String name) {

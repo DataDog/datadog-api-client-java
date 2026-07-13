@@ -45,6 +45,9 @@ public class UsageCustomReportsMeta {
 
   public void setPage(UsageCustomReportsPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

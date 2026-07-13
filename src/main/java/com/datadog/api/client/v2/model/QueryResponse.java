@@ -45,6 +45,9 @@ public class QueryResponse {
 
   public void setData(QueryResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

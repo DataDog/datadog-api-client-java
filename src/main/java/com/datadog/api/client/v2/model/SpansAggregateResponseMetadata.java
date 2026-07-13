@@ -140,6 +140,11 @@ public class SpansAggregateResponseMetadata {
 
   public void setWarnings(List<SpansWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (SpansWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

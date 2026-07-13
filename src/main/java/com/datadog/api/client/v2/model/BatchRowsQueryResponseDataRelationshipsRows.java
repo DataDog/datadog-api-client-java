@@ -59,6 +59,11 @@ public class BatchRowsQueryResponseDataRelationshipsRows {
 
   public void setData(List<TableRowResourceIdentifier> data) {
     this.data = data;
+    if (data != null) {
+      for (TableRowResourceIdentifier item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -51,6 +51,9 @@ public class TagIndexingRuleOptions {
 
   public void setData(TagIndexingRuleOptionsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public TagIndexingRuleOptions version(Long version) {

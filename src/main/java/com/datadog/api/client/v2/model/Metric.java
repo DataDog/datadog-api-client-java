@@ -76,6 +76,9 @@ public class Metric {
 
   public void setRelationships(MetricRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public Metric type(MetricType type) {

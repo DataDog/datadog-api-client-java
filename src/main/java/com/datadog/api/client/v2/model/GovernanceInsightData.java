@@ -71,6 +71,9 @@ public class GovernanceInsightData {
 
   public void setAttributes(GovernanceInsightAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GovernanceInsightData id(String id) {

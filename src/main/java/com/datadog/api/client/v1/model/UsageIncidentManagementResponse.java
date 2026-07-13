@@ -58,6 +58,11 @@ public class UsageIncidentManagementResponse {
 
   public void setUsage(List<UsageIncidentManagementHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageIncidentManagementHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

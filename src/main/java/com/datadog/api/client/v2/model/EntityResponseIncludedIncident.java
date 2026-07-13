@@ -56,6 +56,9 @@ public class EntityResponseIncludedIncident {
 
   public void setAttributes(EntityResponseIncludedRelatedIncidentAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EntityResponseIncludedIncident id(String id) {

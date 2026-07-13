@@ -75,6 +75,9 @@ public class OrgGroupPolicyData {
 
   public void setAttributes(OrgGroupPolicyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupPolicyData id(UUID id) {
@@ -117,6 +120,9 @@ public class OrgGroupPolicyData {
 
   public void setRelationships(OrgGroupPolicyRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgGroupPolicyData type(OrgGroupPolicyType type) {

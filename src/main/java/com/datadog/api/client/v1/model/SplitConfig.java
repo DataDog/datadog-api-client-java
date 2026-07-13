@@ -54,6 +54,9 @@ public class SplitConfig {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
     this.splitDimensions = splitDimensions;
+    for (SplitDimension item : splitDimensions) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SplitConfig limit(Long limit) {
@@ -95,6 +98,9 @@ public class SplitConfig {
 
   public void setSort(SplitSort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public SplitConfig splitDimensions(List<SplitDimension> splitDimensions) {
@@ -124,6 +130,11 @@ public class SplitConfig {
 
   public void setSplitDimensions(List<SplitDimension> splitDimensions) {
     this.splitDimensions = splitDimensions;
+    if (splitDimensions != null) {
+      for (SplitDimension item : splitDimensions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SplitConfig staticSplits(List<List<SplitVectorEntryItem>> staticSplits) {

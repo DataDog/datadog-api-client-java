@@ -51,6 +51,9 @@ public class EventCreateResponse {
 
   public void setEvent(Event event) {
     this.event = event;
+    if (event != null) {
+      this.unparsed |= event.unparsed;
+    }
   }
 
   public EventCreateResponse status(String status) {

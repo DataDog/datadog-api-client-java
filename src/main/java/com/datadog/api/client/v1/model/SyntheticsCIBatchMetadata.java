@@ -51,6 +51,9 @@ public class SyntheticsCIBatchMetadata {
 
   public void setCi(SyntheticsCIBatchMetadataCI ci) {
     this.ci = ci;
+    if (ci != null) {
+      this.unparsed |= ci.unparsed;
+    }
   }
 
   public SyntheticsCIBatchMetadata git(SyntheticsCIBatchMetadataGit git) {
@@ -73,6 +76,9 @@ public class SyntheticsCIBatchMetadata {
 
   public void setGit(SyntheticsCIBatchMetadataGit git) {
     this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
   }
 
   /**

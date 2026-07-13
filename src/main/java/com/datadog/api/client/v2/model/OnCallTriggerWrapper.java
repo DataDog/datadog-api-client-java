@@ -64,6 +64,9 @@ public class OnCallTriggerWrapper {
 
   public void setOnCallTrigger(OnCallTrigger onCallTrigger) {
     this.onCallTrigger = onCallTrigger;
+    if (onCallTrigger != null) {
+      this.unparsed |= onCallTrigger.unparsed;
+    }
   }
 
   public OnCallTriggerWrapper startStepNames(List<String> startStepNames) {

@@ -211,6 +211,11 @@ public class MonitorUserTemplate {
   public void setTemplateVariables(
       List<MonitorUserTemplateTemplateVariablesItems> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (MonitorUserTemplateTemplateVariablesItems item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorUserTemplate title(String title) {
@@ -291,6 +296,11 @@ public class MonitorUserTemplate {
 
   public void setVersions(List<SimpleMonitorUserTemplate> versions) {
     this.versions = versions;
+    if (versions != null) {
+      for (SimpleMonitorUserTemplate item : versions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

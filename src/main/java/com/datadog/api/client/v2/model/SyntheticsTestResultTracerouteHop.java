@@ -98,6 +98,9 @@ public class SyntheticsTestResultTracerouteHop {
 
   public void setLatency(SyntheticsTestResultNetworkLatency latency) {
     this.latency = latency;
+    if (latency != null) {
+      this.unparsed |= latency.unparsed;
+    }
   }
 
   public SyntheticsTestResultTracerouteHop packetLossPercentage(Double packetLossPercentage) {
@@ -236,6 +239,11 @@ public class SyntheticsTestResultTracerouteHop {
 
   public void setRouters(List<SyntheticsTestResultRouter> routers) {
     this.routers = routers;
+    if (routers != null) {
+      for (SyntheticsTestResultRouter item : routers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

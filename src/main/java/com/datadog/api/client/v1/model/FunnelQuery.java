@@ -49,6 +49,9 @@ public class FunnelQuery {
     this.unparsed |= !dataSource.isValid();
     this.queryString = queryString;
     this.steps = steps;
+    for (FunnelStep item : steps) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FunnelQuery dataSource(FunnelSource dataSource) {
@@ -122,6 +125,11 @@ public class FunnelQuery {
 
   public void setSteps(List<FunnelStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (FunnelStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

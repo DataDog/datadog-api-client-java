@@ -86,6 +86,9 @@ public class Escalation {
 
   public void setRelationships(EscalationRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public Escalation type(EscalationType type) {

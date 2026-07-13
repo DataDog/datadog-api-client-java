@@ -64,6 +64,9 @@ public class StatuspageAccountCreateData {
 
   public void setAttributes(StatuspageAccountCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public StatuspageAccountCreateData type(StatuspageAccountType type) {

@@ -90,6 +90,9 @@ public class EventsScalarQuery {
 
   public void setCompute(EventsCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public EventsScalarQuery crossOrgUuids(List<String> crossOrgUuids) {
@@ -178,6 +181,11 @@ public class EventsScalarQuery {
 
   public void setGroupBy(List<EventsGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (EventsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EventsScalarQuery indexes(List<String> indexes) {
@@ -250,6 +258,9 @@ public class EventsScalarQuery {
 
   public void setSearch(EventsSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /**

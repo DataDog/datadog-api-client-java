@@ -58,6 +58,11 @@ public class LayerRelationshipsMembers {
 
   public void setData(List<LayerRelationshipsMembersDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (LayerRelationshipsMembersDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

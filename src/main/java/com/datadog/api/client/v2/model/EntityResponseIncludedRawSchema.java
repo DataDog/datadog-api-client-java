@@ -56,6 +56,9 @@ public class EntityResponseIncludedRawSchema {
 
   public void setAttributes(EntityResponseIncludedRawSchemaAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EntityResponseIncludedRawSchema id(String id) {

@@ -68,6 +68,9 @@ public class GetAstResponseData {
 
   public void setAttributes(GetAstResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetAstResponseData id(String id) {

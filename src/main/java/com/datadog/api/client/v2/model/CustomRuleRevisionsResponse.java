@@ -58,6 +58,11 @@ public class CustomRuleRevisionsResponse {
 
   public void setData(List<CustomRuleRevision> data) {
     this.data = data;
+    if (data != null) {
+      for (CustomRuleRevision item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

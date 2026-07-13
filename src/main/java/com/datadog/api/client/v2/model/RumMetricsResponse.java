@@ -58,6 +58,11 @@ public class RumMetricsResponse {
 
   public void setData(List<RumMetricResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (RumMetricResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

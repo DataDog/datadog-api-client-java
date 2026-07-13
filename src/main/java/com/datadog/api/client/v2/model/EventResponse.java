@@ -55,6 +55,9 @@ public class EventResponse {
 
   public void setAttributes(EventResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EventResponse id(String id) {

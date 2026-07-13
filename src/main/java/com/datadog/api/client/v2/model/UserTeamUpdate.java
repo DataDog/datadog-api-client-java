@@ -58,6 +58,9 @@ public class UserTeamUpdate {
 
   public void setAttributes(UserTeamAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UserTeamUpdate type(UserTeamType type) {

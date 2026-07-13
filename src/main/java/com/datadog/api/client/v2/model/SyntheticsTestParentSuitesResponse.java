@@ -58,6 +58,11 @@ public class SyntheticsTestParentSuitesResponse {
 
   public void setData(List<SyntheticsTestParentSuiteData> data) {
     this.data = data;
+    if (data != null) {
+      for (SyntheticsTestParentSuiteData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

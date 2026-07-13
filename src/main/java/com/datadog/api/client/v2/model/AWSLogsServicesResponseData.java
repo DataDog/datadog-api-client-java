@@ -68,6 +68,9 @@ public class AWSLogsServicesResponseData {
 
   public void setAttributes(AWSLogsServicesResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSLogsServicesResponseData id(String id) {

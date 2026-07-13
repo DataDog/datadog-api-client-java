@@ -82,6 +82,9 @@ public class RetryStrategy {
 
   public void setLinear(RetryStrategyLinear linear) {
     this.linear = linear;
+    if (linear != null) {
+      this.unparsed |= linear.unparsed;
+    }
   }
 
   /**

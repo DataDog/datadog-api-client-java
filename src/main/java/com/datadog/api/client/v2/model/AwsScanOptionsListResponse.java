@@ -58,6 +58,11 @@ public class AwsScanOptionsListResponse {
 
   public void setData(List<AwsScanOptionsData> data) {
     this.data = data;
+    if (data != null) {
+      for (AwsScanOptionsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -61,6 +61,9 @@ public class CaseViewCreate {
 
   public void setAttributes(CaseViewCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseViewCreate type(CaseViewResourceType type) {

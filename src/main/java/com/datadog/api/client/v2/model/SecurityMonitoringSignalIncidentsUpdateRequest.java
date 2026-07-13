@@ -56,6 +56,9 @@ public class SecurityMonitoringSignalIncidentsUpdateRequest {
 
   public void setData(SecurityMonitoringSignalIncidentsUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

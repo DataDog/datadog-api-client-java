@@ -59,6 +59,9 @@ public class PartialAPIKey {
 
   public void setAttributes(PartialAPIKeyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PartialAPIKey id(String id) {
@@ -102,6 +105,9 @@ public class PartialAPIKey {
 
   public void setRelationships(APIKeyRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public PartialAPIKey type(APIKeysType type) {

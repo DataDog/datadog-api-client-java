@@ -58,6 +58,11 @@ public class EscalationTargets {
 
   public void setData(List<EscalationTarget> data) {
     this.data = data;
+    if (data != null) {
+      for (EscalationTarget item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

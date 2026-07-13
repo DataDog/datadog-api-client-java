@@ -58,6 +58,11 @@ public class DORADeploymentsListResponse {
 
   public void setData(List<DORADeploymentObject> data) {
     this.data = data;
+    if (data != null) {
+      for (DORADeploymentObject item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

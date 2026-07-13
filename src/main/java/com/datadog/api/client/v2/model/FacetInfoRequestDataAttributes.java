@@ -114,6 +114,9 @@ public class FacetInfoRequestDataAttributes {
 
   public void setSearch(FacetInfoRequestDataAttributesSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   public FacetInfoRequestDataAttributes termSearch(
@@ -137,6 +140,9 @@ public class FacetInfoRequestDataAttributes {
 
   public void setTermSearch(FacetInfoRequestDataAttributesTermSearch termSearch) {
     this.termSearch = termSearch;
+    if (termSearch != null) {
+      this.unparsed |= termSearch.unparsed;
+    }
   }
 
   /**

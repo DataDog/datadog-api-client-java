@@ -73,6 +73,9 @@ public class MonitorNotificationRuleResponseAttributes {
   public void setConditionalRecipients(
       MonitorNotificationRuleConditionalRecipients conditionalRecipients) {
     this.conditionalRecipients = conditionalRecipients;
+    if (conditionalRecipients != null) {
+      this.unparsed |= conditionalRecipients.unparsed;
+    }
   }
 
   public MonitorNotificationRuleResponseAttributes created(OffsetDateTime created) {
@@ -116,6 +119,9 @@ public class MonitorNotificationRuleResponseAttributes {
 
   public void setFilter(MonitorNotificationRuleFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public MonitorNotificationRuleResponseAttributes modified(OffsetDateTime modified) {

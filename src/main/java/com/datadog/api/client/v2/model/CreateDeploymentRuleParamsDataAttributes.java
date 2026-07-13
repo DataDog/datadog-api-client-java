@@ -114,6 +114,9 @@ public class CreateDeploymentRuleParamsDataAttributes {
 
   public void setOptions(DeploymentRulesOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public CreateDeploymentRuleParamsDataAttributes type(String type) {

@@ -111,6 +111,9 @@ public class SyntheticsNetworkTest {
 
   public void setConfig(SyntheticsNetworkTestConfig config) {
     this.config = config;
+    if (config != null) {
+      this.unparsed |= config.unparsed;
+    }
   }
 
   public SyntheticsNetworkTest locations(List<String> locations) {
@@ -212,6 +215,9 @@ public class SyntheticsNetworkTest {
 
   public void setOptions(SyntheticsTestOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

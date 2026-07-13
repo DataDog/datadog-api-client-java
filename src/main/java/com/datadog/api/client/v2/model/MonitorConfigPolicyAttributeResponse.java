@@ -51,6 +51,9 @@ public class MonitorConfigPolicyAttributeResponse {
 
   public void setPolicy(MonitorConfigPolicyPolicy policy) {
     this.policy = policy;
+    if (policy != null) {
+      this.unparsed |= policy.unparsed;
+    }
   }
 
   public MonitorConfigPolicyAttributeResponse policyType(MonitorConfigPolicyType policyType) {

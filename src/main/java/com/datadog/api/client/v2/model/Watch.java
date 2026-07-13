@@ -54,6 +54,9 @@ public class Watch {
 
   public void setData(WatchData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -89,6 +89,11 @@ public class AWSLogsListResponse {
 
   public void setLambdas(List<AWSLogsLambda> lambdas) {
     this.lambdas = lambdas;
+    if (lambdas != null) {
+      for (AWSLogsLambda item : lambdas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AWSLogsListResponse services(List<String> services) {

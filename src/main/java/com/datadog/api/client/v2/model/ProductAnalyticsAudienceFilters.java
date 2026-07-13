@@ -74,6 +74,11 @@ public class ProductAnalyticsAudienceFilters {
 
   public void setAccounts(List<ProductAnalyticsAudienceAccountSubquery> accounts) {
     this.accounts = accounts;
+    if (accounts != null) {
+      for (ProductAnalyticsAudienceAccountSubquery item : accounts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProductAnalyticsAudienceFilters formula(String formula) {
@@ -130,6 +135,11 @@ public class ProductAnalyticsAudienceFilters {
 
   public void setSegments(List<ProductAnalyticsAudienceSegmentSubquery> segments) {
     this.segments = segments;
+    if (segments != null) {
+      for (ProductAnalyticsAudienceSegmentSubquery item : segments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProductAnalyticsAudienceFilters users(List<ProductAnalyticsAudienceUserSubquery> users) {
@@ -164,6 +174,11 @@ public class ProductAnalyticsAudienceFilters {
 
   public void setUsers(List<ProductAnalyticsAudienceUserSubquery> users) {
     this.users = users;
+    if (users != null) {
+      for (ProductAnalyticsAudienceUserSubquery item : users) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

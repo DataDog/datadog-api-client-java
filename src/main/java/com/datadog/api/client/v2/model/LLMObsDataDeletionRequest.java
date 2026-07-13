@@ -55,6 +55,9 @@ public class LLMObsDataDeletionRequest {
 
   public void setData(LLMObsDataDeletionRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

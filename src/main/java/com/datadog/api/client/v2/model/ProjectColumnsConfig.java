@@ -58,6 +58,11 @@ public class ProjectColumnsConfig {
 
   public void setColumns(List<ProjectColumnsConfigColumnsItems> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (ProjectColumnsConfigColumnsItems item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -41,6 +41,9 @@ public class ListPipelinesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<ObservabilityPipelineData> data) {
     this.data = data;
+    for (ObservabilityPipelineData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListPipelinesResponse data(List<ObservabilityPipelineData> data) {
@@ -70,6 +73,11 @@ public class ListPipelinesResponse {
 
   public void setData(List<ObservabilityPipelineData> data) {
     this.data = data;
+    if (data != null) {
+      for (ObservabilityPipelineData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListPipelinesResponse meta(ListPipelinesResponseMeta meta) {
@@ -92,6 +100,9 @@ public class ListPipelinesResponse {
 
   public void setMeta(ListPipelinesResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

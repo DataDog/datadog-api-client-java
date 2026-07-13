@@ -57,6 +57,9 @@ public class SyntheticsApiMultistepParentTestData {
 
   public void setAttributes(SyntheticsApiMultistepParentTestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsApiMultistepParentTestData id(String id) {

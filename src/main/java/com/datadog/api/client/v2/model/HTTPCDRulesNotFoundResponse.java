@@ -58,6 +58,11 @@ public class HTTPCDRulesNotFoundResponse {
 
   public void setErrors(List<HTTPCIAppError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (HTTPCIAppError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

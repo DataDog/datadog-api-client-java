@@ -45,6 +45,9 @@ public class WorkflowInstanceCreateRequest {
 
   public void setMeta(WorkflowInstanceCreateMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

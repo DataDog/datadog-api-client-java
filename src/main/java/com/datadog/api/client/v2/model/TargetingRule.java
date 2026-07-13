@@ -53,6 +53,9 @@ public class TargetingRule {
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt) {
     this.conditions = conditions;
+    for (Condition item : conditions) {
+      this.unparsed |= item.unparsed;
+    }
     this.createdAt = createdAt;
     this.id = id;
     this.updatedAt = updatedAt;
@@ -85,6 +88,11 @@ public class TargetingRule {
 
   public void setConditions(List<Condition> conditions) {
     this.conditions = conditions;
+    if (conditions != null) {
+      for (Condition item : conditions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TargetingRule createdAt(OffsetDateTime createdAt) {

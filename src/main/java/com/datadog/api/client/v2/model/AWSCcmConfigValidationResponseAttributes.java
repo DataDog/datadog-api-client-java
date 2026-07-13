@@ -43,6 +43,9 @@ public class AWSCcmConfigValidationResponseAttributes {
           List<AWSCcmConfigValidationIssue> issues) {
     this.accountId = accountId;
     this.issues = issues;
+    for (AWSCcmConfigValidationIssue item : issues) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AWSCcmConfigValidationResponseAttributes accountId(String accountId) {
@@ -94,6 +97,11 @@ public class AWSCcmConfigValidationResponseAttributes {
 
   public void setIssues(List<AWSCcmConfigValidationIssue> issues) {
     this.issues = issues;
+    if (issues != null) {
+      for (AWSCcmConfigValidationIssue item : issues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

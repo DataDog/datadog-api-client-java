@@ -67,6 +67,9 @@ public class ApplicationSecurityWafCustomRuleCreateData {
 
   public void setAttributes(ApplicationSecurityWafCustomRuleCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ApplicationSecurityWafCustomRuleCreateData type(

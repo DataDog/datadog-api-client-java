@@ -55,6 +55,9 @@ public class DORADeploymentRequestData {
 
   public void setAttributes(DORADeploymentRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

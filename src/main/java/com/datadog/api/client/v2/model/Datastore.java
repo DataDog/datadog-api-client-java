@@ -45,6 +45,9 @@ public class Datastore {
 
   public void setData(DatastoreData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class RunHistoricalJobRequestAttributes {
 
   public void setFromRule(JobDefinitionFromRule fromRule) {
     this.fromRule = fromRule;
+    if (fromRule != null) {
+      this.unparsed |= fromRule.unparsed;
+    }
   }
 
   public RunHistoricalJobRequestAttributes jobDefinition(JobDefinition jobDefinition) {
@@ -77,6 +80,9 @@ public class RunHistoricalJobRequestAttributes {
 
   public void setJobDefinition(JobDefinition jobDefinition) {
     this.jobDefinition = jobDefinition;
+    if (jobDefinition != null) {
+      this.unparsed |= jobDefinition.unparsed;
+    }
   }
 
   public RunHistoricalJobRequestAttributes signalOutput(Boolean signalOutput) {

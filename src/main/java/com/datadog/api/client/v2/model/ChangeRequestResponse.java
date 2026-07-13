@@ -62,6 +62,9 @@ public class ChangeRequestResponse {
 
   public void setData(ChangeRequestResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public ChangeRequestResponse included(List<ChangeRequestIncludedItem> included) {
@@ -95,6 +98,11 @@ public class ChangeRequestResponse {
 
   public void setIncluded(List<ChangeRequestIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (ChangeRequestIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

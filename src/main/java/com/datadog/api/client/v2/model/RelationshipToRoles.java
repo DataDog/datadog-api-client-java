@@ -58,6 +58,11 @@ public class RelationshipToRoles {
 
   public void setData(List<RelationshipToRoleData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToRoleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -58,6 +58,11 @@ public class TimelineResponse {
 
   public void setData(List<TimelineCellResource> data) {
     this.data = data;
+    if (data != null) {
+      for (TimelineCellResource item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

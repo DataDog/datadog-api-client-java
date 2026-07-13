@@ -55,6 +55,9 @@ public class MaxSessionDurationUpdateRequest {
 
   public void setData(MaxSessionDurationUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

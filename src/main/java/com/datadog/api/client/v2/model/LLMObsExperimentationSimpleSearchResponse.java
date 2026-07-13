@@ -62,6 +62,9 @@ public class LLMObsExperimentationSimpleSearchResponse {
 
   public void setData(LLMObsExperimentationSimpleSearchDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public LLMObsExperimentationSimpleSearchResponse meta(
@@ -85,6 +88,9 @@ public class LLMObsExperimentationSimpleSearchResponse {
 
   public void setMeta(LLMObsExperimentationSimpleSearchMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

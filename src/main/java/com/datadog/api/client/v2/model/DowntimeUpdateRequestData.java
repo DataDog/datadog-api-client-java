@@ -70,6 +70,9 @@ public class DowntimeUpdateRequestData {
 
   public void setAttributes(DowntimeUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DowntimeUpdateRequestData id(String id) {

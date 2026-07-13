@@ -34,6 +34,9 @@ public class SastRulesetsResponse {
   public SastRulesetsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SastRulesetData> data) {
     this.data = data;
+    for (SastRulesetData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SastRulesetsResponse data(List<SastRulesetData> data) {
@@ -63,6 +66,11 @@ public class SastRulesetsResponse {
 
   public void setData(List<SastRulesetData> data) {
     this.data = data;
+    if (data != null) {
+      for (SastRulesetData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

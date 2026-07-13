@@ -58,6 +58,9 @@ public class SecurityFilterCreateAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
     this.exclusionFilters = exclusionFilters;
+    for (SecurityFilterExclusionFilter item : exclusionFilters) {
+      this.unparsed |= item.unparsed;
+    }
     this.filteredDataType = filteredDataType;
     this.unparsed |= !filteredDataType.isValid();
     this.isEnabled = isEnabled;
@@ -94,6 +97,11 @@ public class SecurityFilterCreateAttributes {
 
   public void setExclusionFilters(List<SecurityFilterExclusionFilter> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
+    if (exclusionFilters != null) {
+      for (SecurityFilterExclusionFilter item : exclusionFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityFilterCreateAttributes filteredDataType(

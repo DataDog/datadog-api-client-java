@@ -72,6 +72,9 @@ public class WorkflowDataUpdate {
 
   public void setAttributes(WorkflowDataUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WorkflowDataUpdate id(String id) {

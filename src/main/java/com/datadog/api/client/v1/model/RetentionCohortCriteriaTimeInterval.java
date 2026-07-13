@@ -84,6 +84,9 @@ public class RetentionCohortCriteriaTimeInterval {
 
   public void setValue(CalendarInterval value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /** Return true if this RetentionCohortCriteriaTimeInterval object is equal to o. */

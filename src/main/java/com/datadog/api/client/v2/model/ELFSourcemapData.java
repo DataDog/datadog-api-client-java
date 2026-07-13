@@ -70,6 +70,9 @@ public class ELFSourcemapData {
 
   public void setAttributes(ELFSourcemapAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ELFSourcemapData id(String id) {

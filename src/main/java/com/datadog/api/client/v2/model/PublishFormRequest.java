@@ -54,6 +54,9 @@ public class PublishFormRequest {
 
   public void setData(PublishFormData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

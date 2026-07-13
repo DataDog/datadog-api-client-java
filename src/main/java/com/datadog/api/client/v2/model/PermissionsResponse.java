@@ -58,6 +58,11 @@ public class PermissionsResponse {
 
   public void setData(List<Permission> data) {
     this.data = data;
+    if (data != null) {
+      for (Permission item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

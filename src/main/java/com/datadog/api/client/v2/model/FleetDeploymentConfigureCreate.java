@@ -64,6 +64,9 @@ public class FleetDeploymentConfigureCreate {
 
   public void setAttributes(FleetDeploymentConfigureAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FleetDeploymentConfigureCreate type(FleetDeploymentResourceType type) {

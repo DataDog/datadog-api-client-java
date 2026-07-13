@@ -129,6 +129,11 @@ public class HostMapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetDefinition description(String description) {
@@ -305,6 +310,9 @@ public class HostMapWidgetDefinition {
 
   public void setRequests(HostMapWidgetDefinitionRequests requests) {
     this.requests = requests;
+    if (requests != null) {
+      this.unparsed |= requests.unparsed;
+    }
   }
 
   public HostMapWidgetDefinition scope(List<String> scope) {
@@ -364,6 +372,9 @@ public class HostMapWidgetDefinition {
   @Deprecated
   public void setStyle(HostMapWidgetDefinitionStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   public HostMapWidgetDefinition title(String title) {

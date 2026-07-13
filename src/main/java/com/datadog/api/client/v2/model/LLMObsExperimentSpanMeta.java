@@ -60,6 +60,9 @@ public class LLMObsExperimentSpanMeta {
 
   public void setError(LLMObsExperimentSpanError error) {
     this.error = error;
+    if (error != null) {
+      this.unparsed |= error.unparsed;
+    }
   }
 
   public LLMObsExperimentSpanMeta expectedOutput(Map<String, Object> expectedOutput) {

@@ -70,6 +70,9 @@ public class RumSdkConfigUpdateData {
 
   public void setAttributes(RumSdkConfigUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RumSdkConfigUpdateData id(String id) {

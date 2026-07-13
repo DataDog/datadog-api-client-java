@@ -54,6 +54,9 @@ public class OrgGroupPolicyUpdateRequest {
 
   public void setData(OrgGroupPolicyUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

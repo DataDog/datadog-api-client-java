@@ -239,6 +239,9 @@ public class IoCIndicatorDetailed {
 
   public void setAsGeo(IoCGeoLocation asGeo) {
     this.asGeo = asGeo;
+    if (asGeo != null) {
+      this.unparsed |= asGeo.unparsed;
+    }
   }
 
   public IoCIndicatorDetailed asNumber(String asNumber) {
@@ -859,6 +862,11 @@ public class IoCIndicatorDetailed {
 
   public void setSignalSeverity(List<IoCSignalSeverityCount> signalSeverity) {
     this.signalSeverity = signalSeverity;
+    if (signalSeverity != null) {
+      for (IoCSignalSeverityCount item : signalSeverity) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IoCIndicatorDetailed signalTier(Long signalTier) {
@@ -985,6 +993,11 @@ public class IoCIndicatorDetailed {
 
   public void setTriageHistory(List<IoCTriageEvent> triageHistory) {
     this.triageHistory = triageHistory;
+    if (triageHistory != null) {
+      for (IoCTriageEvent item : triageHistory) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IoCIndicatorDetailed triageState(IoCTriageState triageState) {

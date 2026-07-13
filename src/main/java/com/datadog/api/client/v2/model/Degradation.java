@@ -50,6 +50,9 @@ public class Degradation {
 
   public void setData(DegradationData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public Degradation included(List<DegradationIncluded> included) {
@@ -84,6 +87,11 @@ public class Degradation {
 
   public void setIncluded(List<DegradationIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (DegradationIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

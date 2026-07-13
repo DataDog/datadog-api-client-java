@@ -96,11 +96,17 @@ public class JobDefinition {
           List<HistoricalJobQuery> queries,
       @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to) {
     this.cases = cases;
+    for (SecurityMonitoringRuleCaseCreate item : cases) {
+      this.unparsed |= item.unparsed;
+    }
     this.from = from;
     this.index = index;
     this.message = message;
     this.name = name;
     this.queries = queries;
+    for (HistoricalJobQuery item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     this.to = to;
   }
 
@@ -135,6 +141,11 @@ public class JobDefinition {
 
   public void setCalculatedFields(List<CalculatedField> calculatedFields) {
     this.calculatedFields = calculatedFields;
+    if (calculatedFields != null) {
+      for (CalculatedField item : calculatedFields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public JobDefinition cases(List<SecurityMonitoringRuleCaseCreate> cases) {
@@ -164,6 +175,11 @@ public class JobDefinition {
 
   public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
+    if (cases != null) {
+      for (SecurityMonitoringRuleCaseCreate item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public JobDefinition from(Long from) {
@@ -296,6 +312,9 @@ public class JobDefinition {
 
   public void setOptions(HistoricalJobOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public JobDefinition queries(List<HistoricalJobQuery> queries) {
@@ -325,6 +344,11 @@ public class JobDefinition {
 
   public void setQueries(List<HistoricalJobQuery> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (HistoricalJobQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public JobDefinition referenceTables(List<SecurityMonitoringReferenceTable> referenceTables) {
@@ -359,6 +383,11 @@ public class JobDefinition {
 
   public void setReferenceTables(List<SecurityMonitoringReferenceTable> referenceTables) {
     this.referenceTables = referenceTables;
+    if (referenceTables != null) {
+      for (SecurityMonitoringReferenceTable item : referenceTables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public JobDefinition tags(List<String> tags) {
@@ -424,6 +453,11 @@ public class JobDefinition {
 
   public void setThirdPartyCases(List<SecurityMonitoringThirdPartyRuleCaseCreate> thirdPartyCases) {
     this.thirdPartyCases = thirdPartyCases;
+    if (thirdPartyCases != null) {
+      for (SecurityMonitoringThirdPartyRuleCaseCreate item : thirdPartyCases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public JobDefinition to(Long to) {

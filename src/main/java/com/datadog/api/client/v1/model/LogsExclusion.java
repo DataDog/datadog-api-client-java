@@ -63,6 +63,9 @@ public class LogsExclusion {
 
   public void setFilter(LogsExclusionFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LogsExclusion isEnabled(Boolean isEnabled) {

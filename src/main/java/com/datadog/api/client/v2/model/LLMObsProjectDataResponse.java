@@ -70,6 +70,9 @@ public class LLMObsProjectDataResponse {
 
   public void setAttributes(LLMObsProjectDataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsProjectDataResponse id(String id) {

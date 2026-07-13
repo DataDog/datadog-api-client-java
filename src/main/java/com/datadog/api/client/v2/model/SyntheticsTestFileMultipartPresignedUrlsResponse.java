@@ -75,6 +75,9 @@ public class SyntheticsTestFileMultipartPresignedUrlsResponse {
   public void setMultipartPresignedUrlsParams(
       SyntheticsTestFileMultipartPresignedUrlsParams multipartPresignedUrlsParams) {
     this.multipartPresignedUrlsParams = multipartPresignedUrlsParams;
+    if (multipartPresignedUrlsParams != null) {
+      this.unparsed |= multipartPresignedUrlsParams.unparsed;
+    }
   }
 
   /**

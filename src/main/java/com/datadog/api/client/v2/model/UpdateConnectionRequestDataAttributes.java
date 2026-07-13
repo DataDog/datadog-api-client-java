@@ -70,6 +70,11 @@ public class UpdateConnectionRequestDataAttributes {
 
   public void setFieldsToAdd(List<CreateConnectionRequestDataAttributesFieldsItems> fieldsToAdd) {
     this.fieldsToAdd = fieldsToAdd;
+    if (fieldsToAdd != null) {
+      for (CreateConnectionRequestDataAttributesFieldsItems item : fieldsToAdd) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpdateConnectionRequestDataAttributes fieldsToDelete(List<String> fieldsToDelete) {
@@ -135,6 +140,11 @@ public class UpdateConnectionRequestDataAttributes {
   public void setFieldsToUpdate(
       List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> fieldsToUpdate) {
     this.fieldsToUpdate = fieldsToUpdate;
+    if (fieldsToUpdate != null) {
+      for (UpdateConnectionRequestDataAttributesFieldsToUpdateItems item : fieldsToUpdate) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

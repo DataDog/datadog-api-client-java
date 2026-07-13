@@ -65,6 +65,9 @@ public class LLMObsAnnotationQueueDataRequest {
 
   public void setAttributes(LLMObsAnnotationQueueDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsAnnotationQueueDataRequest type(LLMObsAnnotationQueueType type) {

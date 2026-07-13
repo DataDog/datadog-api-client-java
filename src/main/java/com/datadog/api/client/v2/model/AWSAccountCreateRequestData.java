@@ -64,6 +64,9 @@ public class AWSAccountCreateRequestData {
 
   public void setAttributes(AWSAccountCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSAccountCreateRequestData type(AWSAccountType type) {

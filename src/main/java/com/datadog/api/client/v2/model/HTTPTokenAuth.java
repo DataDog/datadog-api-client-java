@@ -75,6 +75,9 @@ public class HTTPTokenAuth {
 
   public void setBody(HTTPBody body) {
     this.body = body;
+    if (body != null) {
+      this.unparsed |= body.unparsed;
+    }
   }
 
   public HTTPTokenAuth headers(List<HTTPHeader> headers) {
@@ -108,6 +111,11 @@ public class HTTPTokenAuth {
 
   public void setHeaders(List<HTTPHeader> headers) {
     this.headers = headers;
+    if (headers != null) {
+      for (HTTPHeader item : headers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HTTPTokenAuth tokens(List<HTTPToken> tokens) {
@@ -141,6 +149,11 @@ public class HTTPTokenAuth {
 
   public void setTokens(List<HTTPToken> tokens) {
     this.tokens = tokens;
+    if (tokens != null) {
+      for (HTTPToken item : tokens) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HTTPTokenAuth type(HTTPTokenAuthType type) {
@@ -198,6 +211,11 @@ public class HTTPTokenAuth {
 
   public void setUrlParameters(List<UrlParam> urlParameters) {
     this.urlParameters = urlParameters;
+    if (urlParameters != null) {
+      for (UrlParam item : urlParameters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

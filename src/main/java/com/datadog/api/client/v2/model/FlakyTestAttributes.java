@@ -339,6 +339,11 @@ public class FlakyTestAttributes {
 
   public void setHistory(List<FlakyTestHistory> history) {
     this.history = history;
+    if (history != null) {
+      for (FlakyTestHistory item : history) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FlakyTestAttributes lastFlakedBranch(String lastFlakedBranch) {
@@ -485,6 +490,9 @@ public class FlakyTestAttributes {
 
   public void setPipelineStats(FlakyTestPipelineStats pipelineStats) {
     this.pipelineStats = pipelineStats;
+    if (pipelineStats != null) {
+      this.unparsed |= pipelineStats.unparsed;
+    }
   }
 
   public FlakyTestAttributes services(List<String> services) {
@@ -562,6 +570,9 @@ public class FlakyTestAttributes {
 
   public void setTestRunMetadata(FlakyTestRunMetadata testRunMetadata) {
     this.testRunMetadata = testRunMetadata;
+    if (testRunMetadata != null) {
+      this.unparsed |= testRunMetadata.unparsed;
+    }
   }
 
   public FlakyTestAttributes testStats(FlakyTestStats testStats) {
@@ -584,6 +595,9 @@ public class FlakyTestAttributes {
 
   public void setTestStats(FlakyTestStats testStats) {
     this.testStats = testStats;
+    if (testStats != null) {
+      this.unparsed |= testStats.unparsed;
+    }
   }
 
   /**

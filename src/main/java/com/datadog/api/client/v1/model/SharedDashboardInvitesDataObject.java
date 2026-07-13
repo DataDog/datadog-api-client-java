@@ -65,6 +65,9 @@ public class SharedDashboardInvitesDataObject {
 
   public void setAttributes(SharedDashboardInvitesDataObjectAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SharedDashboardInvitesDataObject type(DashboardInviteType type) {

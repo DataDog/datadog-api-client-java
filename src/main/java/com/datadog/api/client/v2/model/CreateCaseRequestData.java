@@ -65,6 +65,9 @@ public class CreateCaseRequestData {
 
   public void setAttributes(CreateCaseRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateCaseRequestData relationships(CreateCaseRequestDataRelationships relationships) {
@@ -87,6 +90,9 @@ public class CreateCaseRequestData {
 
   public void setRelationships(CreateCaseRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public CreateCaseRequestData type(CaseDataType type) {

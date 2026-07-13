@@ -61,6 +61,9 @@ public class AWSIntegrationUpdate {
 
   public void setCredentials(AWSCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public AWSIntegrationUpdate type(AWSIntegrationType type) {

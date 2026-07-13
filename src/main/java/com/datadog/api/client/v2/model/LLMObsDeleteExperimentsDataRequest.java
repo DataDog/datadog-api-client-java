@@ -65,6 +65,9 @@ public class LLMObsDeleteExperimentsDataRequest {
 
   public void setAttributes(LLMObsDeleteExperimentsDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDeleteExperimentsDataRequest type(LLMObsExperimentType type) {

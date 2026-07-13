@@ -58,6 +58,11 @@ public class GetBlueprintsResponse {
 
   public void setData(List<BlueprintData> data) {
     this.data = data;
+    if (data != null) {
+      for (BlueprintData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

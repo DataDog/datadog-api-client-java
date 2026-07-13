@@ -60,6 +60,11 @@ public class UsageLogsByIndexResponse {
 
   public void setUsage(List<UsageLogsByIndexHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageLogsByIndexHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

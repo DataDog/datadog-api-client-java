@@ -34,6 +34,9 @@ public class CaseViewsResponse {
   public CaseViewsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CaseView> data) {
     this.data = data;
+    for (CaseView item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CaseViewsResponse data(List<CaseView> data) {
@@ -63,6 +66,11 @@ public class CaseViewsResponse {
 
   public void setData(List<CaseView> data) {
     this.data = data;
+    if (data != null) {
+      for (CaseView item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -76,6 +76,9 @@ public class ChangeRequestIncludedDecision {
 
   public void setAttributes(ChangeRequestDecisionResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ChangeRequestIncludedDecision id(String id) {
@@ -119,6 +122,9 @@ public class ChangeRequestIncludedDecision {
 
   public void setRelationships(ChangeRequestDecisionRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ChangeRequestIncludedDecision type(ChangeRequestDecisionResourceType type) {

@@ -55,6 +55,9 @@ public class GoogleChatAppNamedSpaceResponse {
 
   public void setData(GoogleChatAppNamedSpaceResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

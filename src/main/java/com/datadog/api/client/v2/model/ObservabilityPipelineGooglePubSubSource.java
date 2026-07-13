@@ -97,6 +97,9 @@ public class ObservabilityPipelineGooglePubSubSource {
 
   public void setAuth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineGooglePubSubSource decoding(ObservabilityPipelineDecoding decoding) {
@@ -204,6 +207,9 @@ public class ObservabilityPipelineGooglePubSubSource {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineGooglePubSubSource type(

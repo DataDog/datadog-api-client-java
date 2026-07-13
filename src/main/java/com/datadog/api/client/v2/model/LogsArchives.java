@@ -58,6 +58,11 @@ public class LogsArchives {
 
   public void setData(List<LogsArchiveDefinition> data) {
     this.data = data;
+    if (data != null) {
+      for (LogsArchiveDefinition item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

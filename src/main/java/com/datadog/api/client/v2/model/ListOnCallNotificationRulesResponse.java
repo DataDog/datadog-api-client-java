@@ -64,6 +64,11 @@ public class ListOnCallNotificationRulesResponse {
 
   public void setData(List<OnCallNotificationRuleData> data) {
     this.data = data;
+    if (data != null) {
+      for (OnCallNotificationRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListOnCallNotificationRulesResponse included(
@@ -99,6 +104,11 @@ public class ListOnCallNotificationRulesResponse {
 
   public void setIncluded(List<OnCallNotificationRulesIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (OnCallNotificationRulesIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

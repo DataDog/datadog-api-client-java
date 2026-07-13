@@ -85,6 +85,9 @@ public class DeploymentGatesEvaluationRequestAttributes {
 
   public void setConfiguration(DeploymentGatesEvaluationConfiguration configuration) {
     this.configuration = configuration;
+    if (configuration != null) {
+      this.unparsed |= configuration.unparsed;
+    }
   }
 
   public DeploymentGatesEvaluationRequestAttributes env(String env) {

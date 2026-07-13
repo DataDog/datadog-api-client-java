@@ -60,6 +60,11 @@ public class TeamOnCallRespondersDataRelationshipsEscalations {
 
   public void setData(List<TeamOnCallRespondersDataRelationshipsEscalationsDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamOnCallRespondersDataRelationshipsEscalationsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

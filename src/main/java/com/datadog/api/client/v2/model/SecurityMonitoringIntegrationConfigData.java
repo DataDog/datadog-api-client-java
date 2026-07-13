@@ -73,6 +73,9 @@ public class SecurityMonitoringIntegrationConfigData {
 
   public void setAttributes(SecurityMonitoringIntegrationConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringIntegrationConfigData id(String id) {

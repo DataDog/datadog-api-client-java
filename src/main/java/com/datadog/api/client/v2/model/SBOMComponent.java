@@ -126,6 +126,11 @@ public class SBOMComponent {
 
   public void setLicenses(List<SBOMComponentLicense> licenses) {
     this.licenses = licenses;
+    if (licenses != null) {
+      for (SBOMComponentLicense item : licenses) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SBOMComponent name(String name) {
@@ -179,6 +184,11 @@ public class SBOMComponent {
 
   public void setProperties(List<SBOMComponentProperty> properties) {
     this.properties = properties;
+    if (properties != null) {
+      for (SBOMComponentProperty item : properties) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SBOMComponent purl(String purl) {
@@ -222,6 +232,9 @@ public class SBOMComponent {
 
   public void setSupplier(SBOMComponentSupplier supplier) {
     this.supplier = supplier;
+    if (supplier != null) {
+      this.unparsed |= supplier.unparsed;
+    }
   }
 
   public SBOMComponent type(SBOMComponentType type) {

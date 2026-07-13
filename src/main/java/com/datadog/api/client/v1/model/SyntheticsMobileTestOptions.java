@@ -162,6 +162,11 @@ public class SyntheticsMobileTestOptions {
 
   public void setBindings(List<SyntheticsTestRestrictionPolicyBinding> bindings) {
     this.bindings = bindings;
+    if (bindings != null) {
+      for (SyntheticsTestRestrictionPolicyBinding item : bindings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsMobileTestOptions ci(SyntheticsTestCiOptions ci) {
@@ -184,6 +189,9 @@ public class SyntheticsMobileTestOptions {
 
   public void setCi(SyntheticsTestCiOptions ci) {
     this.ci = ci;
+    if (ci != null) {
+      this.unparsed |= ci.unparsed;
+    }
   }
 
   public SyntheticsMobileTestOptions defaultStepTimeout(Integer defaultStepTimeout) {
@@ -294,6 +302,9 @@ public class SyntheticsMobileTestOptions {
 
   public void setMobileApplication(SyntheticsMobileTestsMobileApplication mobileApplication) {
     this.mobileApplication = mobileApplication;
+    if (mobileApplication != null) {
+      this.unparsed |= mobileApplication.unparsed;
+    }
   }
 
   public SyntheticsMobileTestOptions monitorName(String monitorName) {
@@ -339,6 +350,9 @@ public class SyntheticsMobileTestOptions {
 
   public void setMonitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
+    if (monitorOptions != null) {
+      this.unparsed |= monitorOptions.unparsed;
+    }
   }
 
   public SyntheticsMobileTestOptions monitorPriority(Integer monitorPriority) {
@@ -436,6 +450,9 @@ public class SyntheticsMobileTestOptions {
 
   public void setRetry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
+    if (retry != null) {
+      this.unparsed |= retry.unparsed;
+    }
   }
 
   public SyntheticsMobileTestOptions scheduling(SyntheticsTestOptionsScheduling scheduling) {
@@ -458,6 +475,9 @@ public class SyntheticsMobileTestOptions {
 
   public void setScheduling(SyntheticsTestOptionsScheduling scheduling) {
     this.scheduling = scheduling;
+    if (scheduling != null) {
+      this.unparsed |= scheduling.unparsed;
+    }
   }
 
   public SyntheticsMobileTestOptions tickEvery(Long tickEvery) {

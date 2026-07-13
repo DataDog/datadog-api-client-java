@@ -46,6 +46,9 @@ public class OnCallNotificationRuleRelationships {
 
   public void setChannel(OnCallNotificationRuleChannelRelationship channel) {
     this.channel = channel;
+    if (channel != null) {
+      this.unparsed |= channel.unparsed;
+    }
   }
 
   /**

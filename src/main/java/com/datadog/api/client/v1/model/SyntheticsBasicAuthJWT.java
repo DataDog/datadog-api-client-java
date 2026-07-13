@@ -93,6 +93,9 @@ public class SyntheticsBasicAuthJWT {
 
   public void setAddClaims(SyntheticsBasicAuthJWTAddClaims addClaims) {
     this.addClaims = addClaims;
+    if (addClaims != null) {
+      this.unparsed |= addClaims.unparsed;
+    }
   }
 
   public SyntheticsBasicAuthJWT algorithm(SyntheticsBasicAuthJWTAlgorithm algorithm) {

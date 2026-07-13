@@ -57,6 +57,9 @@ public class RumPermanentRetentionFilterData {
 
   public void setAttributes(RumPermanentRetentionFilterAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RumPermanentRetentionFilterData id(RumPermanentRetentionFilterID id) {

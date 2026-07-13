@@ -58,6 +58,11 @@ public class MonitorUserTemplateListResponse {
 
   public void setData(List<MonitorUserTemplateResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (MonitorUserTemplateResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -67,7 +67,11 @@ public class CustomRulesetAttributes {
     this.description = description;
     this.name = name;
     this.rules = rules;
-    if (rules != null) {}
+    if (rules != null) {
+      for (CustomRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
     this.shortDescription = shortDescription;
   }
 
@@ -179,6 +183,11 @@ public class CustomRulesetAttributes {
 
   public void setRules(List<CustomRule> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (CustomRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CustomRulesetAttributes shortDescription(String shortDescription) {

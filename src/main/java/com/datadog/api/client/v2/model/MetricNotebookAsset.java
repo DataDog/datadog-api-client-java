@@ -67,6 +67,9 @@ public class MetricNotebookAsset {
 
   public void setAttributes(MetricAssetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricNotebookAsset id(String id) {

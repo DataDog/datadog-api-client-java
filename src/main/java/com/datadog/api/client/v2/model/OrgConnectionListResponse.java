@@ -40,6 +40,9 @@ public class OrgConnectionListResponse {
   public OrgConnectionListResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<OrgConnection> data) {
     this.data = data;
+    for (OrgConnection item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OrgConnectionListResponse data(List<OrgConnection> data) {
@@ -69,6 +72,11 @@ public class OrgConnectionListResponse {
 
   public void setData(List<OrgConnection> data) {
     this.data = data;
+    if (data != null) {
+      for (OrgConnection item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public OrgConnectionListResponse meta(OrgConnectionListResponseMeta meta) {
@@ -91,6 +99,9 @@ public class OrgConnectionListResponse {
 
   public void setMeta(OrgConnectionListResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

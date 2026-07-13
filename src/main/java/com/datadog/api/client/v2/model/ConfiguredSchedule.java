@@ -82,6 +82,9 @@ public class ConfiguredSchedule {
 
   public void setAttributes(ConfiguredScheduleTargetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ConfiguredSchedule id(String id) {
@@ -123,6 +126,9 @@ public class ConfiguredSchedule {
 
   public void setRelationships(ConfiguredScheduleTargetRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ConfiguredSchedule type(ConfiguredScheduleTargetType type) {

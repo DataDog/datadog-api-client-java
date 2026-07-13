@@ -55,6 +55,9 @@ public class WebIntegrationAccountCreateRequest {
 
   public void setData(WebIntegrationAccountCreateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

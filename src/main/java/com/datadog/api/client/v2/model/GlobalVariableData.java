@@ -55,6 +55,9 @@ public class GlobalVariableData {
 
   public void setAttributes(SyntheticsGlobalVariable attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GlobalVariableData id(String id) {

@@ -70,6 +70,9 @@ public class APIKeyUpdateData {
 
   public void setAttributes(APIKeyUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public APIKeyUpdateData id(String id) {

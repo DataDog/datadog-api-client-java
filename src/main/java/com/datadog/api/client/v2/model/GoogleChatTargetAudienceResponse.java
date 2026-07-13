@@ -55,6 +55,9 @@ public class GoogleChatTargetAudienceResponse {
 
   public void setData(GoogleChatTargetAudienceData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class RumMetricResponse {
 
   public void setData(RumMetricResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

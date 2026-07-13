@@ -44,6 +44,9 @@ public class MonitorNotificationRuleConditionalRecipients {
       @JsonProperty(required = true, value = JSON_PROPERTY_CONDITIONS)
           List<MonitorNotificationRuleCondition> conditions) {
     this.conditions = conditions;
+    for (MonitorNotificationRuleCondition item : conditions) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MonitorNotificationRuleConditionalRecipients conditions(
@@ -75,6 +78,11 @@ public class MonitorNotificationRuleConditionalRecipients {
 
   public void setConditions(List<MonitorNotificationRuleCondition> conditions) {
     this.conditions = conditions;
+    if (conditions != null) {
+      for (MonitorNotificationRuleCondition item : conditions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorNotificationRuleConditionalRecipients fallbackRecipients(

@@ -45,6 +45,9 @@ public class DowntimeMeta {
 
   public void setPage(DowntimeMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

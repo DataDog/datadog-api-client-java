@@ -51,6 +51,9 @@ public class SensitiveDataScannerGroupCreateRequest {
 
   public void setData(SensitiveDataScannerGroupCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SensitiveDataScannerGroupCreateRequest meta(SensitiveDataScannerMetaVersionOnly meta) {
@@ -73,6 +76,9 @@ public class SensitiveDataScannerGroupCreateRequest {
 
   public void setMeta(SensitiveDataScannerMetaVersionOnly meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class EscalationPolicy {
 
   public void setData(EscalationPolicyData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public EscalationPolicy included(List<EscalationPolicyIncluded> included) {
@@ -87,6 +90,11 @@ public class EscalationPolicy {
 
   public void setIncluded(List<EscalationPolicyIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (EscalationPolicyIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

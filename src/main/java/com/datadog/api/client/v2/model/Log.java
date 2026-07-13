@@ -51,6 +51,9 @@ public class Log {
 
   public void setAttributes(LogAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Log id(String id) {

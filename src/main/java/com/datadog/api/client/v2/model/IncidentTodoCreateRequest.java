@@ -54,6 +54,9 @@ public class IncidentTodoCreateRequest {
 
   public void setData(IncidentTodoCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

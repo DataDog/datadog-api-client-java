@@ -54,6 +54,9 @@ public class AssigneeRequest {
 
   public void setData(AssigneeRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

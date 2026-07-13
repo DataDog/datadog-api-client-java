@@ -125,6 +125,9 @@ public class LogsArchiveCreateRequestAttributes {
 
   public void setDestination(LogsArchiveCreateRequestDestination destination) {
     this.destination = destination;
+    if (destination != null) {
+      this.unparsed |= destination.unparsed;
+    }
   }
 
   public LogsArchiveCreateRequestAttributes includeTags(Boolean includeTags) {

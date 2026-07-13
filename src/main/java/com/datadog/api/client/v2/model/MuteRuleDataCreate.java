@@ -64,6 +64,9 @@ public class MuteRuleDataCreate {
 
   public void setAttributes(MuteRuleAttributesCreate attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MuteRuleDataCreate type(MuteRuleType type) {

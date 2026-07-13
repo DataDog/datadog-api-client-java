@@ -176,6 +176,11 @@ public class MonitorUserTemplateRequestAttributes {
   public void setTemplateVariables(
       List<MonitorUserTemplateTemplateVariablesItems> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (MonitorUserTemplateTemplateVariablesItems item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorUserTemplateRequestAttributes title(String title) {

@@ -53,6 +53,9 @@ public class MetricAssetsResponse {
 
   public void setData(MetricAssetResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public MetricAssetsResponse included(List<MetricAssetResponseIncluded> included) {
@@ -86,6 +89,11 @@ public class MetricAssetsResponse {
 
   public void setIncluded(List<MetricAssetResponseIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (MetricAssetResponseIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

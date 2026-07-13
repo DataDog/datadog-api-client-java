@@ -196,6 +196,9 @@ public class LLMObsAnnotationLabelValueResponse {
 
   public void setValue(LLMObsAnnotationLabelValueValue value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /**

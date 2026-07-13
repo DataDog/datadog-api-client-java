@@ -37,6 +37,9 @@ public class CsmHostFacetInfoAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_ITEMS)
           List<CsmHostFacetInfoItem> items) {
     this.items = items;
+    for (CsmHostFacetInfoItem item : items) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CsmHostFacetInfoAttributes items(List<CsmHostFacetInfoItem> items) {
@@ -66,6 +69,11 @@ public class CsmHostFacetInfoAttributes {
 
   public void setItems(List<CsmHostFacetInfoItem> items) {
     this.items = items;
+    if (items != null) {
+      for (CsmHostFacetInfoItem item : items) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

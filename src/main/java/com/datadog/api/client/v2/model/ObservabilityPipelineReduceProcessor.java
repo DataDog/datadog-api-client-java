@@ -78,6 +78,9 @@ public class ObservabilityPipelineReduceProcessor {
     this.id = id;
     this.include = include;
     this.mergeStrategies = mergeStrategies;
+    for (ObservabilityPipelineReduceProcessorMergeStrategy item : mergeStrategies) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -218,6 +221,11 @@ public class ObservabilityPipelineReduceProcessor {
   public void setMergeStrategies(
       List<ObservabilityPipelineReduceProcessorMergeStrategy> mergeStrategies) {
     this.mergeStrategies = mergeStrategies;
+    if (mergeStrategies != null) {
+      for (ObservabilityPipelineReduceProcessorMergeStrategy item : mergeStrategies) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineReduceProcessor type(ObservabilityPipelineReduceProcessorType type) {

@@ -87,6 +87,9 @@ public class ProductAnalyticsServerSideEventItem {
 
   public void setAccount(ProductAnalyticsServerSideEventItemAccount account) {
     this.account = account;
+    if (account != null) {
+      this.unparsed |= account.unparsed;
+    }
   }
 
   public ProductAnalyticsServerSideEventItem application(
@@ -109,6 +112,9 @@ public class ProductAnalyticsServerSideEventItem {
 
   public void setApplication(ProductAnalyticsServerSideEventItemApplication application) {
     this.application = application;
+    if (application != null) {
+      this.unparsed |= application.unparsed;
+    }
   }
 
   public ProductAnalyticsServerSideEventItem event(ProductAnalyticsServerSideEventItemEvent event) {
@@ -130,6 +136,9 @@ public class ProductAnalyticsServerSideEventItem {
 
   public void setEvent(ProductAnalyticsServerSideEventItemEvent event) {
     this.event = event;
+    if (event != null) {
+      this.unparsed |= event.unparsed;
+    }
   }
 
   public ProductAnalyticsServerSideEventItem session(
@@ -153,6 +162,9 @@ public class ProductAnalyticsServerSideEventItem {
 
   public void setSession(ProductAnalyticsServerSideEventItemSession session) {
     this.session = session;
+    if (session != null) {
+      this.unparsed |= session.unparsed;
+    }
   }
 
   public ProductAnalyticsServerSideEventItem type(ProductAnalyticsServerSideEventItemType type) {
@@ -199,6 +211,9 @@ public class ProductAnalyticsServerSideEventItem {
 
   public void setUsr(ProductAnalyticsServerSideEventItemUsr usr) {
     this.usr = usr;
+    if (usr != null) {
+      this.unparsed |= usr.unparsed;
+    }
   }
 
   /**

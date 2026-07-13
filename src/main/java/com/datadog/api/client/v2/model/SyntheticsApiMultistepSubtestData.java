@@ -56,6 +56,9 @@ public class SyntheticsApiMultistepSubtestData {
 
   public void setAttributes(SyntheticsApiMultistepSubtestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsApiMultistepSubtestData id(String id) {

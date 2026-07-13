@@ -54,6 +54,9 @@ public class CustomForecastResponse {
 
   public void setData(CustomForecastResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

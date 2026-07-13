@@ -50,6 +50,9 @@ public class UserResponse {
 
   public void setData(User data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public UserResponse included(List<UserResponseIncludedItem> included) {
@@ -83,6 +86,11 @@ public class UserResponse {
 
   public void setIncluded(List<UserResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (UserResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

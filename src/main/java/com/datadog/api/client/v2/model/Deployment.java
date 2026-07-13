@@ -60,6 +60,9 @@ public class Deployment {
 
   public void setAttributes(DeploymentAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Deployment id(UUID id) {
@@ -103,6 +106,9 @@ public class Deployment {
 
   public void setMeta(DeploymentMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public Deployment type(AppDeploymentType type) {

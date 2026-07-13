@@ -109,6 +109,9 @@ public class LLMObsPatternsRunSummary {
 
   public void setConfigSnapshot(LLMObsPatternsConfigSnapshot configSnapshot) {
     this.configSnapshot = configSnapshot;
+    if (configSnapshot != null) {
+      this.unparsed |= configSnapshot.unparsed;
+    }
   }
 
   public LLMObsPatternsRunSummary createdAt(OffsetDateTime createdAt) {

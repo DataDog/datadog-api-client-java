@@ -77,6 +77,11 @@ public class SyntheticsTestVersionDiffPatches {
 
   public void setDiffs(List<SyntheticsTestVersionDiffPatchDiff> diffs) {
     this.diffs = diffs;
+    if (diffs != null) {
+      for (SyntheticsTestVersionDiffPatchDiff item : diffs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestVersionDiffPatches length1(Long length1) {

@@ -64,6 +64,9 @@ public class TagPolicyCreateData {
 
   public void setAttributes(TagPolicyCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TagPolicyCreateData type(TagPolicyResourceType type) {

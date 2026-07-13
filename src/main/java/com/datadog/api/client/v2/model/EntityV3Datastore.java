@@ -112,6 +112,9 @@ public class EntityV3Datastore {
 
   public void setDatadog(EntityV3DatastoreDatadog datadog) {
     this.datadog = datadog;
+    if (datadog != null) {
+      this.unparsed |= datadog.unparsed;
+    }
   }
 
   public EntityV3Datastore extensions(Map<String, Object> extensions) {
@@ -164,6 +167,9 @@ public class EntityV3Datastore {
 
   public void setIntegrations(EntityV3Integrations integrations) {
     this.integrations = integrations;
+    if (integrations != null) {
+      this.unparsed |= integrations.unparsed;
+    }
   }
 
   public EntityV3Datastore kind(EntityV3DatastoreKind kind) {
@@ -209,6 +215,9 @@ public class EntityV3Datastore {
 
   public void setMetadata(EntityV3Metadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public EntityV3Datastore spec(EntityV3DatastoreSpec spec) {
@@ -231,6 +240,9 @@ public class EntityV3Datastore {
 
   public void setSpec(EntityV3DatastoreSpec spec) {
     this.spec = spec;
+    if (spec != null) {
+      this.unparsed |= spec.unparsed;
+    }
   }
 
   /** Return true if this EntityV3Datastore object is equal to o. */

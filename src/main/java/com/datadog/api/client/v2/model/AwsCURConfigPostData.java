@@ -62,6 +62,9 @@ public class AwsCURConfigPostData {
 
   public void setAttributes(AwsCURConfigPostRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AwsCURConfigPostData type(AwsCURConfigPostRequestType type) {

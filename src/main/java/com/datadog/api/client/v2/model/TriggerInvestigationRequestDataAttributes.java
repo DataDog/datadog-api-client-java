@@ -54,6 +54,9 @@ public class TriggerInvestigationRequestDataAttributes {
 
   public void setTrigger(TriggerAttributes trigger) {
     this.trigger = trigger;
+    if (trigger != null) {
+      this.unparsed |= trigger.unparsed;
+    }
   }
 
   /**

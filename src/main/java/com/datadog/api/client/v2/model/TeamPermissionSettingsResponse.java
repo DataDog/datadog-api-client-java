@@ -58,6 +58,11 @@ public class TeamPermissionSettingsResponse {
 
   public void setData(List<TeamPermissionSetting> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamPermissionSetting item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

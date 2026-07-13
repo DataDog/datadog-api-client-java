@@ -45,6 +45,9 @@ public class TagIndexingRuleResponse {
 
   public void setData(TagIndexingRuleData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -51,6 +51,9 @@ public class SyntheticsTestResultHandshake {
 
   public void setRequest(SyntheticsTestResultRequestInfo request) {
     this.request = request;
+    if (request != null) {
+      this.unparsed |= request.unparsed;
+    }
   }
 
   public SyntheticsTestResultHandshake response(SyntheticsTestResultResponseInfo response) {
@@ -73,6 +76,9 @@ public class SyntheticsTestResultHandshake {
 
   public void setResponse(SyntheticsTestResultResponseInfo response) {
     this.response = response;
+    if (response != null) {
+      this.unparsed |= response.unparsed;
+    }
   }
 
   /**

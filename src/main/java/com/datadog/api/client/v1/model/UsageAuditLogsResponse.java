@@ -58,6 +58,11 @@ public class UsageAuditLogsResponse {
 
   public void setUsage(List<UsageAuditLogsHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageAuditLogsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

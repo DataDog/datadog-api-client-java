@@ -54,6 +54,9 @@ public class OrgConnectionUpdateRequest {
 
   public void setData(OrgConnectionUpdate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

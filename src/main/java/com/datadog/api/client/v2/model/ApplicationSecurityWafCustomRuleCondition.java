@@ -91,6 +91,9 @@ public class ApplicationSecurityWafCustomRuleCondition {
 
   public void setParameters(ApplicationSecurityWafCustomRuleConditionParameters parameters) {
     this.parameters = parameters;
+    if (parameters != null) {
+      this.unparsed |= parameters.unparsed;
+    }
   }
 
   /**

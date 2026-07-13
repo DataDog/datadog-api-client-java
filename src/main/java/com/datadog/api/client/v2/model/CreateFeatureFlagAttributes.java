@@ -70,6 +70,9 @@ public class CreateFeatureFlagAttributes {
     this.valueType = valueType;
     this.unparsed |= !valueType.isValid();
     this.variants = variants;
+    for (CreateVariant item : variants) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CreateFeatureFlagAttributes defaultVariantKey(String defaultVariantKey) {
@@ -245,6 +248,11 @@ public class CreateFeatureFlagAttributes {
 
   public void setVariants(List<CreateVariant> variants) {
     this.variants = variants;
+    if (variants != null) {
+      for (CreateVariant item : variants) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

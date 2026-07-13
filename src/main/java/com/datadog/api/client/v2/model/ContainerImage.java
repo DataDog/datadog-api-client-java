@@ -55,6 +55,9 @@ public class ContainerImage {
 
   public void setAttributes(ContainerImageAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ContainerImage id(String id) {

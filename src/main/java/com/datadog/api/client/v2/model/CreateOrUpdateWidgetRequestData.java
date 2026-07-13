@@ -64,6 +64,9 @@ public class CreateOrUpdateWidgetRequestData {
 
   public void setAttributes(CreateOrUpdateWidgetRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateOrUpdateWidgetRequestData type(String type) {

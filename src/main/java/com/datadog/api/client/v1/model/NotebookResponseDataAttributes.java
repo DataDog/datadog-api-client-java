@@ -73,6 +73,9 @@ public class NotebookResponseDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TIME) NotebookGlobalTime time) {
     this.cells = cells;
+    for (NotebookCellResponse item : cells) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -98,6 +101,9 @@ public class NotebookResponseDataAttributes {
 
   public void setAuthor(NotebookAuthor author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   public NotebookResponseDataAttributes cells(List<NotebookCellResponse> cells) {
@@ -127,6 +133,11 @@ public class NotebookResponseDataAttributes {
 
   public void setCells(List<NotebookCellResponse> cells) {
     this.cells = cells;
+    if (cells != null) {
+      for (NotebookCellResponse item : cells) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -161,6 +172,9 @@ public class NotebookResponseDataAttributes {
 
   public void setMetadata(NotebookMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   /**
@@ -285,6 +299,9 @@ public class NotebookResponseDataAttributes {
 
   public void setTime(NotebookGlobalTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   /**

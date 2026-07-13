@@ -74,6 +74,9 @@ public class IncidentNotificationTemplateResponseData {
 
   public void setAttributes(IncidentNotificationTemplateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentNotificationTemplateResponseData id(UUID id) {
@@ -117,6 +120,9 @@ public class IncidentNotificationTemplateResponseData {
 
   public void setRelationships(IncidentNotificationTemplateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentNotificationTemplateResponseData type(IncidentNotificationTemplateType type) {

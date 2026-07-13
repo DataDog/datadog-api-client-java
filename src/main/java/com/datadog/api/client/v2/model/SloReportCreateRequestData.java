@@ -55,6 +55,9 @@ public class SloReportCreateRequestData {
 
   public void setAttributes(SloReportCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

@@ -64,6 +64,11 @@ public class SpansAggregateResponse {
 
   public void setData(List<SpansAggregateBucket> data) {
     this.data = data;
+    if (data != null) {
+      for (SpansAggregateBucket item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SpansAggregateResponse meta(SpansAggregateResponseMetadata meta) {
@@ -86,6 +91,9 @@ public class SpansAggregateResponse {
 
   public void setMeta(SpansAggregateResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

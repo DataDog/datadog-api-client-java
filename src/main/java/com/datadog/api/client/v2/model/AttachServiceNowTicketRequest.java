@@ -55,6 +55,9 @@ public class AttachServiceNowTicketRequest {
 
   public void setData(AttachServiceNowTicketRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

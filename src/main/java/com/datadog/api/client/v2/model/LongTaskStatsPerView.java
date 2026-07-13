@@ -85,6 +85,9 @@ public class LongTaskStatsPerView {
 
   public void setFcpBlockingTimeMs(LongTaskMetricStats fcpBlockingTimeMs) {
     this.fcpBlockingTimeMs = fcpBlockingTimeMs;
+    if (fcpBlockingTimeMs != null) {
+      this.unparsed |= fcpBlockingTimeMs.unparsed;
+    }
   }
 
   public LongTaskStatsPerView fcpCount(LongTaskMetricStats fcpCount) {
@@ -107,6 +110,9 @@ public class LongTaskStatsPerView {
 
   public void setFcpCount(LongTaskMetricStats fcpCount) {
     this.fcpCount = fcpCount;
+    if (fcpCount != null) {
+      this.unparsed |= fcpCount.unparsed;
+    }
   }
 
   public LongTaskStatsPerView inpOverlapBlockingTimeMs(
@@ -130,6 +136,9 @@ public class LongTaskStatsPerView {
 
   public void setInpOverlapBlockingTimeMs(LongTaskMetricStats inpOverlapBlockingTimeMs) {
     this.inpOverlapBlockingTimeMs = inpOverlapBlockingTimeMs;
+    if (inpOverlapBlockingTimeMs != null) {
+      this.unparsed |= inpOverlapBlockingTimeMs.unparsed;
+    }
   }
 
   public LongTaskStatsPerView inpOverlapCount(LongTaskMetricStats inpOverlapCount) {
@@ -152,6 +161,9 @@ public class LongTaskStatsPerView {
 
   public void setInpOverlapCount(LongTaskMetricStats inpOverlapCount) {
     this.inpOverlapCount = inpOverlapCount;
+    if (inpOverlapCount != null) {
+      this.unparsed |= inpOverlapCount.unparsed;
+    }
   }
 
   public LongTaskStatsPerView lcpBlockingTimeMs(LongTaskMetricStats lcpBlockingTimeMs) {
@@ -174,6 +186,9 @@ public class LongTaskStatsPerView {
 
   public void setLcpBlockingTimeMs(LongTaskMetricStats lcpBlockingTimeMs) {
     this.lcpBlockingTimeMs = lcpBlockingTimeMs;
+    if (lcpBlockingTimeMs != null) {
+      this.unparsed |= lcpBlockingTimeMs.unparsed;
+    }
   }
 
   public LongTaskStatsPerView lcpCount(LongTaskMetricStats lcpCount) {
@@ -196,6 +211,9 @@ public class LongTaskStatsPerView {
 
   public void setLcpCount(LongTaskMetricStats lcpCount) {
     this.lcpCount = lcpCount;
+    if (lcpCount != null) {
+      this.unparsed |= lcpCount.unparsed;
+    }
   }
 
   public LongTaskStatsPerView loadingTimeBlockingTimeMs(
@@ -219,6 +237,9 @@ public class LongTaskStatsPerView {
 
   public void setLoadingTimeBlockingTimeMs(LongTaskMetricStats loadingTimeBlockingTimeMs) {
     this.loadingTimeBlockingTimeMs = loadingTimeBlockingTimeMs;
+    if (loadingTimeBlockingTimeMs != null) {
+      this.unparsed |= loadingTimeBlockingTimeMs.unparsed;
+    }
   }
 
   public LongTaskStatsPerView loadingTimeCount(LongTaskMetricStats loadingTimeCount) {
@@ -241,6 +262,9 @@ public class LongTaskStatsPerView {
 
   public void setLoadingTimeCount(LongTaskMetricStats loadingTimeCount) {
     this.loadingTimeCount = loadingTimeCount;
+    if (loadingTimeCount != null) {
+      this.unparsed |= loadingTimeCount.unparsed;
+    }
   }
 
   public LongTaskStatsPerView totalBlockingTimeMs(LongTaskMetricStats totalBlockingTimeMs) {
@@ -263,6 +287,9 @@ public class LongTaskStatsPerView {
 
   public void setTotalBlockingTimeMs(LongTaskMetricStats totalBlockingTimeMs) {
     this.totalBlockingTimeMs = totalBlockingTimeMs;
+    if (totalBlockingTimeMs != null) {
+      this.unparsed |= totalBlockingTimeMs.unparsed;
+    }
   }
 
   public LongTaskStatsPerView totalCount(LongTaskMetricStats totalCount) {
@@ -285,6 +312,9 @@ public class LongTaskStatsPerView {
 
   public void setTotalCount(LongTaskMetricStats totalCount) {
     this.totalCount = totalCount;
+    if (totalCount != null) {
+      this.unparsed |= totalCount.unparsed;
+    }
   }
 
   /**

@@ -78,6 +78,9 @@ public class SyntheticsTestResultNetpath {
 
   public void setDestination(SyntheticsTestResultNetpathDestination destination) {
     this.destination = destination;
+    if (destination != null) {
+      this.unparsed |= destination.unparsed;
+    }
   }
 
   public SyntheticsTestResultNetpath hops(List<SyntheticsTestResultNetpathHop> hops) {
@@ -111,6 +114,11 @@ public class SyntheticsTestResultNetpath {
 
   public void setHops(List<SyntheticsTestResultNetpathHop> hops) {
     this.hops = hops;
+    if (hops != null) {
+      for (SyntheticsTestResultNetpathHop item : hops) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultNetpath origin(String origin) {
@@ -197,6 +205,9 @@ public class SyntheticsTestResultNetpath {
 
   public void setSource(SyntheticsTestResultNetpathEndpoint source) {
     this.source = source;
+    if (source != null) {
+      this.unparsed |= source.unparsed;
+    }
   }
 
   public SyntheticsTestResultNetpath tags(List<String> tags) {

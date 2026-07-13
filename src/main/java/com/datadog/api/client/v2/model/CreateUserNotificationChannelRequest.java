@@ -55,6 +55,9 @@ public class CreateUserNotificationChannelRequest {
 
   public void setData(CreateNotificationChannelData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

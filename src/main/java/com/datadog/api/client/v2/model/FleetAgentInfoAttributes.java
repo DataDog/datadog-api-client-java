@@ -61,6 +61,9 @@ public class FleetAgentInfoAttributes {
 
   public void setAgentInfos(FleetAgentInfoDetails agentInfos) {
     this.agentInfos = agentInfos;
+    if (agentInfos != null) {
+      this.unparsed |= agentInfos.unparsed;
+    }
   }
 
   public FleetAgentInfoAttributes configurationFiles(FleetConfigurationLayer configurationFiles) {
@@ -83,6 +86,9 @@ public class FleetAgentInfoAttributes {
 
   public void setConfigurationFiles(FleetConfigurationLayer configurationFiles) {
     this.configurationFiles = configurationFiles;
+    if (configurationFiles != null) {
+      this.unparsed |= configurationFiles.unparsed;
+    }
   }
 
   public FleetAgentInfoAttributes detectedIntegrations(
@@ -118,6 +124,11 @@ public class FleetAgentInfoAttributes {
 
   public void setDetectedIntegrations(List<FleetDetectedIntegration> detectedIntegrations) {
     this.detectedIntegrations = detectedIntegrations;
+    if (detectedIntegrations != null) {
+      for (FleetDetectedIntegration item : detectedIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetAgentInfoAttributes integrations(FleetIntegrationsByStatus integrations) {
@@ -140,6 +151,9 @@ public class FleetAgentInfoAttributes {
 
   public void setIntegrations(FleetIntegrationsByStatus integrations) {
     this.integrations = integrations;
+    if (integrations != null) {
+      this.unparsed |= integrations.unparsed;
+    }
   }
 
   /**

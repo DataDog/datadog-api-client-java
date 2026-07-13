@@ -50,6 +50,9 @@ public class Maintenance {
 
   public void setData(MaintenanceData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public Maintenance included(List<DegradationIncluded> included) {
@@ -84,6 +87,11 @@ public class Maintenance {
 
   public void setIncluded(List<DegradationIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (DegradationIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

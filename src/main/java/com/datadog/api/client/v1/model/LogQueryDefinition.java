@@ -65,6 +65,9 @@ public class LogQueryDefinition {
 
   public void setCompute(LogsQueryCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public LogQueryDefinition groupBy(List<LogQueryDefinitionGroupBy> groupBy) {
@@ -98,6 +101,11 @@ public class LogQueryDefinition {
 
   public void setGroupBy(List<LogQueryDefinitionGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (LogQueryDefinitionGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogQueryDefinition index(String index) {
@@ -153,6 +161,11 @@ public class LogQueryDefinition {
 
   public void setMultiCompute(List<LogsQueryCompute> multiCompute) {
     this.multiCompute = multiCompute;
+    if (multiCompute != null) {
+      for (LogsQueryCompute item : multiCompute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogQueryDefinition search(LogQueryDefinitionSearch search) {
@@ -175,6 +188,9 @@ public class LogQueryDefinition {
 
   public void setSearch(LogQueryDefinitionSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /**

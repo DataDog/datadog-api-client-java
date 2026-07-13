@@ -58,6 +58,11 @@ public class ListNotificationChannelsResponse {
 
   public void setData(List<NotificationChannelData> data) {
     this.data = data;
+    if (data != null) {
+      for (NotificationChannelData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

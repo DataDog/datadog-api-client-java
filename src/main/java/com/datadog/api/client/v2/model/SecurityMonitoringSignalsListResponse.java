@@ -70,6 +70,11 @@ public class SecurityMonitoringSignalsListResponse {
 
   public void setData(List<SecurityMonitoringSignal> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringSignal item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalsListResponse links(
@@ -93,6 +98,9 @@ public class SecurityMonitoringSignalsListResponse {
 
   public void setLinks(SecurityMonitoringSignalsListResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalsListResponse meta(
@@ -116,6 +124,9 @@ public class SecurityMonitoringSignalsListResponse {
 
   public void setMeta(SecurityMonitoringSignalsListResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

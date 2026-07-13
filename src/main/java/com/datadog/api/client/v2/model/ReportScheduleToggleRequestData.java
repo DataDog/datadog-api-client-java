@@ -65,6 +65,9 @@ public class ReportScheduleToggleRequestData {
 
   public void setAttributes(ReportScheduleToggleRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ReportScheduleToggleRequestData type(ReportScheduleType type) {

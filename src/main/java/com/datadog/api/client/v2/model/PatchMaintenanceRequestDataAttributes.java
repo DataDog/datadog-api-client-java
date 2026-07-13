@@ -136,6 +136,11 @@ public class PatchMaintenanceRequestDataAttributes {
   public void setComponentsAffected(
       List<PatchMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (PatchMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PatchMaintenanceRequestDataAttributes inProgressDescription(String inProgressDescription) {

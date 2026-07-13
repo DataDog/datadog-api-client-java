@@ -45,6 +45,9 @@ public class ApplicationSecurityPolicyResponse {
 
   public void setData(ApplicationSecurityPolicyData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

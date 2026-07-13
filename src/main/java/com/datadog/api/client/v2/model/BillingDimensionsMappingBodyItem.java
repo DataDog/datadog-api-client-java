@@ -56,6 +56,9 @@ public class BillingDimensionsMappingBodyItem {
 
   public void setAttributes(BillingDimensionsMappingBodyItemAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BillingDimensionsMappingBodyItem id(String id) {

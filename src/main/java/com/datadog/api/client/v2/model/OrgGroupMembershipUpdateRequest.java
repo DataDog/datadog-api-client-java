@@ -55,6 +55,9 @@ public class OrgGroupMembershipUpdateRequest {
 
   public void setData(OrgGroupMembershipUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

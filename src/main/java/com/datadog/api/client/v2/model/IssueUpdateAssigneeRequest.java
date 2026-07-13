@@ -55,6 +55,9 @@ public class IssueUpdateAssigneeRequest {
 
   public void setData(IssueUpdateAssigneeRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

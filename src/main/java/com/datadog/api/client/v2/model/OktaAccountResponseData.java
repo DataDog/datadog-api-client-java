@@ -70,6 +70,9 @@ public class OktaAccountResponseData {
 
   public void setAttributes(OktaAccountAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OktaAccountResponseData id(String id) {

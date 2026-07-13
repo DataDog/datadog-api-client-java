@@ -45,6 +45,9 @@ public class GcpScanOptions {
 
   public void setData(GcpScanOptionsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

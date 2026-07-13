@@ -68,6 +68,9 @@ public class AzureUCConfigPair {
 
   public void setAttributes(AzureUCConfigPairAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AzureUCConfigPair id(String id) {

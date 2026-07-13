@@ -72,6 +72,9 @@ public class SecurityMonitoringContentPackStateData {
 
   public void setAttributes(SecurityMonitoringContentPackStateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringContentPackStateData id(String id) {

@@ -54,6 +54,9 @@ public class TeamUpdateRequest {
 
   public void setData(TeamUpdate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

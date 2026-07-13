@@ -56,6 +56,9 @@ public class UpdateResourceEvaluationFiltersRequest {
 
   public void setData(UpdateResourceEvaluationFiltersRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

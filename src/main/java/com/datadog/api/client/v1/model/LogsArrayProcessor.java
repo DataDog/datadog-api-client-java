@@ -118,6 +118,9 @@ public class LogsArrayProcessor {
 
   public void setOperation(LogsArrayProcessorOperation operation) {
     this.operation = operation;
+    if (operation != null) {
+      this.unparsed |= operation.unparsed;
+    }
   }
 
   public LogsArrayProcessor type(LogsArrayProcessorType type) {

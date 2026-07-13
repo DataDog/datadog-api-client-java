@@ -70,6 +70,9 @@ public class TimelineCellResource {
 
   public void setAttributes(TimelineCell attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TimelineCellResource id(String id) {

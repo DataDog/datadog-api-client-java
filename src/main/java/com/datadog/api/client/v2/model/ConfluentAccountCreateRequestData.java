@@ -65,6 +65,9 @@ public class ConfluentAccountCreateRequestData {
 
   public void setAttributes(ConfluentAccountCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ConfluentAccountCreateRequestData type(ConfluentAccountType type) {

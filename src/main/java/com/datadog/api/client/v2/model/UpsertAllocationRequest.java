@@ -128,6 +128,9 @@ public class UpsertAllocationRequest {
 
   public void setExposureSchedule(ExposureScheduleRequest exposureSchedule) {
     this.exposureSchedule = exposureSchedule;
+    if (exposureSchedule != null) {
+      this.unparsed |= exposureSchedule.unparsed;
+    }
   }
 
   public UpsertAllocationRequest guardrailMetrics(List<GuardrailMetricRequest> guardrailMetrics) {
@@ -162,6 +165,11 @@ public class UpsertAllocationRequest {
 
   public void setGuardrailMetrics(List<GuardrailMetricRequest> guardrailMetrics) {
     this.guardrailMetrics = guardrailMetrics;
+    if (guardrailMetrics != null) {
+      for (GuardrailMetricRequest item : guardrailMetrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpsertAllocationRequest id(UUID id) {
@@ -256,6 +264,11 @@ public class UpsertAllocationRequest {
 
   public void setTargetingRules(List<TargetingRuleRequest> targetingRules) {
     this.targetingRules = targetingRules;
+    if (targetingRules != null) {
+      for (TargetingRuleRequest item : targetingRules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpsertAllocationRequest type(AllocationType type) {
@@ -313,6 +326,11 @@ public class UpsertAllocationRequest {
 
   public void setVariantWeights(List<VariantWeightRequest> variantWeights) {
     this.variantWeights = variantWeights;
+    if (variantWeights != null) {
+      for (VariantWeightRequest item : variantWeights) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class JiraIssueTemplateCreateRequest {
 
   public void setData(JiraIssueTemplateCreateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

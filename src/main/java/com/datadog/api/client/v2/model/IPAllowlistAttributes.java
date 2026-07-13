@@ -85,6 +85,11 @@ public class IPAllowlistAttributes {
 
   public void setEntries(List<IPAllowlistEntry> entries) {
     this.entries = entries;
+    if (entries != null) {
+      for (IPAllowlistEntry item : entries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

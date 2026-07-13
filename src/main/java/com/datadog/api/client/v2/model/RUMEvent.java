@@ -55,6 +55,9 @@ public class RUMEvent {
 
   public void setAttributes(RUMEventAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RUMEvent id(String id) {

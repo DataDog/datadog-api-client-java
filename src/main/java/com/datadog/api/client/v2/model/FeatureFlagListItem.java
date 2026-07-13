@@ -71,6 +71,9 @@ public class FeatureFlagListItem {
 
   public void setAttributes(FeatureFlagListItemAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FeatureFlagListItem id(UUID id) {

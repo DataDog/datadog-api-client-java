@@ -72,6 +72,11 @@ public class TeamsResponse {
 
   public void setData(List<Team> data) {
     this.data = data;
+    if (data != null) {
+      for (Team item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamsResponse included(List<TeamIncluded> included) {
@@ -105,6 +110,11 @@ public class TeamsResponse {
 
   public void setIncluded(List<TeamIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (TeamIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamsResponse links(TeamsResponseLinks links) {
@@ -127,6 +137,9 @@ public class TeamsResponse {
 
   public void setLinks(TeamsResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public TeamsResponse meta(TeamsResponseMeta meta) {
@@ -149,6 +162,9 @@ public class TeamsResponse {
 
   public void setMeta(TeamsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

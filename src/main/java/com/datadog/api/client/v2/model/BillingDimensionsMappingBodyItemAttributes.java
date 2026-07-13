@@ -72,6 +72,11 @@ public class BillingDimensionsMappingBodyItemAttributes {
   public void setEndpoints(
       List<BillingDimensionsMappingBodyItemAttributesEndpointsItems> endpoints) {
     this.endpoints = endpoints;
+    if (endpoints != null) {
+      for (BillingDimensionsMappingBodyItemAttributesEndpointsItems item : endpoints) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public BillingDimensionsMappingBodyItemAttributes inAppLabel(String inAppLabel) {

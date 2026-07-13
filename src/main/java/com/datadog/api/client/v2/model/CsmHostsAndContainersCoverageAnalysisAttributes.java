@@ -64,6 +64,9 @@ public class CsmHostsAndContainersCoverageAnalysisAttributes {
 
   public void setCspmCoverage(CsmCoverageAnalysis cspmCoverage) {
     this.cspmCoverage = cspmCoverage;
+    if (cspmCoverage != null) {
+      this.unparsed |= cspmCoverage.unparsed;
+    }
   }
 
   public CsmHostsAndContainersCoverageAnalysisAttributes cwsCoverage(
@@ -87,6 +90,9 @@ public class CsmHostsAndContainersCoverageAnalysisAttributes {
 
   public void setCwsCoverage(CsmCoverageAnalysis cwsCoverage) {
     this.cwsCoverage = cwsCoverage;
+    if (cwsCoverage != null) {
+      this.unparsed |= cwsCoverage.unparsed;
+    }
   }
 
   public CsmHostsAndContainersCoverageAnalysisAttributes orgId(Long orgId) {
@@ -131,6 +137,9 @@ public class CsmHostsAndContainersCoverageAnalysisAttributes {
 
   public void setTotalCoverage(CsmCoverageAnalysis totalCoverage) {
     this.totalCoverage = totalCoverage;
+    if (totalCoverage != null) {
+      this.unparsed |= totalCoverage.unparsed;
+    }
   }
 
   public CsmHostsAndContainersCoverageAnalysisAttributes vmCoverage(
@@ -154,6 +163,9 @@ public class CsmHostsAndContainersCoverageAnalysisAttributes {
 
   public void setVmCoverage(CsmCoverageAnalysis vmCoverage) {
     this.vmCoverage = vmCoverage;
+    if (vmCoverage != null) {
+      this.unparsed |= vmCoverage.unparsed;
+    }
   }
 
   /**

@@ -140,6 +140,11 @@ public class SLOHistoryMonitor {
 
   public void setErrors(List<SLOHistoryResponseErrorWithType> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (SLOHistoryResponseErrorWithType item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SLOHistoryMonitor group(String group) {

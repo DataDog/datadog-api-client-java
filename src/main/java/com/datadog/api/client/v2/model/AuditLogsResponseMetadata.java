@@ -86,6 +86,9 @@ public class AuditLogsResponseMetadata {
 
   public void setPage(AuditLogsResponsePage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public AuditLogsResponseMetadata requestId(String requestId) {
@@ -166,6 +169,11 @@ public class AuditLogsResponseMetadata {
 
   public void setWarnings(List<AuditLogsWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (AuditLogsWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

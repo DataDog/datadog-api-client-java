@@ -99,6 +99,9 @@ public class SankeyRumQuery {
 
   public void setAudienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
+    if (audienceFilters != null) {
+      this.unparsed |= audienceFilters.unparsed;
+    }
   }
 
   public SankeyRumQuery dataSource(SankeyRumDataSource dataSource) {
@@ -166,6 +169,9 @@ public class SankeyRumQuery {
 
   public void setJoinKeys(SankeyJoinKeys joinKeys) {
     this.joinKeys = joinKeys;
+    if (joinKeys != null) {
+      this.unparsed |= joinKeys.unparsed;
+    }
   }
 
   public SankeyRumQuery mode(SankeyRumQueryMode mode) {
@@ -233,6 +239,9 @@ public class SankeyRumQuery {
 
   public void setOccurrences(ProductAnalyticsAudienceOccurrenceFilter occurrences) {
     this.occurrences = occurrences;
+    if (occurrences != null) {
+      this.unparsed |= occurrences.unparsed;
+    }
   }
 
   public SankeyRumQuery queryString(String queryString) {

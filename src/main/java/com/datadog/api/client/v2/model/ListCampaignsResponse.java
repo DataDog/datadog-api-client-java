@@ -41,6 +41,9 @@ public class ListCampaignsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CampaignResponseData> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) PaginatedResponseMeta meta) {
     this.data = data;
+    for (CampaignResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -72,6 +75,11 @@ public class ListCampaignsResponse {
 
   public void setData(List<CampaignResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (CampaignResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListCampaignsResponse meta(PaginatedResponseMeta meta) {
@@ -93,6 +101,9 @@ public class ListCampaignsResponse {
 
   public void setMeta(PaginatedResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

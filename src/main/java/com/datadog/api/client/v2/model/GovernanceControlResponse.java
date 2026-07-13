@@ -54,6 +54,9 @@ public class GovernanceControlResponse {
 
   public void setData(GovernanceControlData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

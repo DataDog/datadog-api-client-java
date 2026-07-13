@@ -50,6 +50,9 @@ public class UserTeamResponse {
 
   public void setData(UserTeam data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public UserTeamResponse included(List<UserTeamIncluded> included) {
@@ -83,6 +86,11 @@ public class UserTeamResponse {
 
   public void setIncluded(List<UserTeamIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (UserTeamIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

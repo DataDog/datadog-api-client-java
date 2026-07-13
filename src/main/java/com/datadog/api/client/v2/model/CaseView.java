@@ -77,6 +77,9 @@ public class CaseView {
 
   public void setAttributes(CaseViewAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseView id(String id) {
@@ -120,6 +123,9 @@ public class CaseView {
 
   public void setRelationships(CaseViewRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public CaseView type(CaseViewResourceType type) {

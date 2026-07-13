@@ -55,6 +55,9 @@ public class CustomCostsFileMetadataHighLevel {
 
   public void setAttributes(CustomCostsFileMetadata attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomCostsFileMetadataHighLevel id(String id) {

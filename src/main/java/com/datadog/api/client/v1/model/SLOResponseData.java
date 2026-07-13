@@ -359,6 +359,9 @@ public class SLOResponseData {
 
   public void setQuery(ServiceLevelObjectiveQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public SLOResponseData sliSpecification(SLOSliSpec sliSpecification) {
@@ -381,6 +384,9 @@ public class SLOResponseData {
 
   public void setSliSpecification(SLOSliSpec sliSpecification) {
     this.sliSpecification = sliSpecification;
+    if (sliSpecification != null) {
+      this.unparsed |= sliSpecification.unparsed;
+    }
   }
 
   public SLOResponseData tags(List<String> tags) {
@@ -466,6 +472,11 @@ public class SLOResponseData {
 
   public void setThresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
+    if (thresholds != null) {
+      for (SLOThreshold item : thresholds) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SLOResponseData timeframe(SLOTimeframe timeframe) {

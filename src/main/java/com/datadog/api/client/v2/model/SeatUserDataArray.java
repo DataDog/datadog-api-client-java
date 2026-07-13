@@ -61,6 +61,11 @@ public class SeatUserDataArray {
 
   public void setData(List<SeatUserData> data) {
     this.data = data;
+    if (data != null) {
+      for (SeatUserData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SeatUserDataArray meta(SeatUserMeta meta) {
@@ -83,6 +88,9 @@ public class SeatUserDataArray {
 
   public void setMeta(SeatUserMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

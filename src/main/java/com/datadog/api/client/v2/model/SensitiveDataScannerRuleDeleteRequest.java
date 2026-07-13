@@ -55,6 +55,9 @@ public class SensitiveDataScannerRuleDeleteRequest {
 
   public void setMeta(SensitiveDataScannerMetaVersionOnly meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

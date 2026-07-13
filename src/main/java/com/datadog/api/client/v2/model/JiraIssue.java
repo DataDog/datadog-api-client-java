@@ -48,6 +48,9 @@ public class JiraIssue {
 
   public void setResult(JiraIssueResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   /**

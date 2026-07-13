@@ -64,6 +64,9 @@ public class SecurityMonitoringTerraformBulkExportData {
 
   public void setAttributes(SecurityMonitoringTerraformBulkExportAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringTerraformBulkExportData type(String type) {

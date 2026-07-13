@@ -74,6 +74,9 @@ public class GlobalOrgAttributes {
 
   public void setOrg(GlobalOrg org) {
     this.org = org;
+    if (org != null) {
+      this.unparsed |= org.unparsed;
+    }
   }
 
   public GlobalOrgAttributes redirectUrl(String redirectUrl) {
@@ -146,6 +149,9 @@ public class GlobalOrgAttributes {
 
   public void setUser(GlobalOrgUser user) {
     this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**

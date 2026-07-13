@@ -68,6 +68,11 @@ public class ListScorecardScoresResponse {
 
   public void setData(List<ScorecardScoreData> data) {
     this.data = data;
+    if (data != null) {
+      for (ScorecardScoreData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListScorecardScoresResponse links(ListRulesResponseLinks links) {
@@ -90,6 +95,9 @@ public class ListScorecardScoresResponse {
 
   public void setLinks(ListRulesResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListScorecardScoresResponse meta(ListScorecardScoresMeta meta) {
@@ -112,6 +120,9 @@ public class ListScorecardScoresResponse {
 
   public void setMeta(ListScorecardScoresMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

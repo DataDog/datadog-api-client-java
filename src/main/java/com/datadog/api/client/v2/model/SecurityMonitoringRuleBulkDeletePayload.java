@@ -55,6 +55,9 @@ public class SecurityMonitoringRuleBulkDeletePayload {
 
   public void setData(SecurityMonitoringRuleBulkDeleteData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

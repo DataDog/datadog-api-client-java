@@ -53,6 +53,9 @@ public class AuthNMappingResponse {
 
   public void setData(AuthNMapping data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public AuthNMappingResponse included(List<AuthNMappingIncluded> included) {
@@ -86,6 +89,11 @@ public class AuthNMappingResponse {
 
   public void setIncluded(List<AuthNMappingIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (AuthNMappingIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

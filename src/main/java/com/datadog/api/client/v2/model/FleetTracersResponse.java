@@ -60,6 +60,9 @@ public class FleetTracersResponse {
 
   public void setData(FleetTracersResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public FleetTracersResponse meta(FleetTracersResponseMeta meta) {
@@ -82,6 +85,9 @@ public class FleetTracersResponse {
 
   public void setMeta(FleetTracersResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

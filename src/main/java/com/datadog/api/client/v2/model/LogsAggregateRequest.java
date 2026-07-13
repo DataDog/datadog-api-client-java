@@ -76,6 +76,11 @@ public class LogsAggregateRequest {
 
   public void setCompute(List<LogsCompute> compute) {
     this.compute = compute;
+    if (compute != null) {
+      for (LogsCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsAggregateRequest filter(LogsQueryFilter filter) {
@@ -98,6 +103,9 @@ public class LogsAggregateRequest {
 
   public void setFilter(LogsQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LogsAggregateRequest groupBy(List<LogsGroupBy> groupBy) {
@@ -131,6 +139,11 @@ public class LogsAggregateRequest {
 
   public void setGroupBy(List<LogsGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (LogsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsAggregateRequest options(LogsQueryOptions options) {
@@ -157,6 +170,9 @@ public class LogsAggregateRequest {
   @Deprecated
   public void setOptions(LogsQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public LogsAggregateRequest page(LogsAggregateRequestPage page) {
@@ -179,6 +195,9 @@ public class LogsAggregateRequest {
 
   public void setPage(LogsAggregateRequestPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

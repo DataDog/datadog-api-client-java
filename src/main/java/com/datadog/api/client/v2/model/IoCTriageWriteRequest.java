@@ -54,6 +54,9 @@ public class IoCTriageWriteRequest {
 
   public void setData(IoCTriageWriteRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

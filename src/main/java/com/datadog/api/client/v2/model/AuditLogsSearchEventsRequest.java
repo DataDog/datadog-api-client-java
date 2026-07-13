@@ -59,6 +59,9 @@ public class AuditLogsSearchEventsRequest {
 
   public void setFilter(AuditLogsQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public AuditLogsSearchEventsRequest options(AuditLogsQueryOptions options) {
@@ -82,6 +85,9 @@ public class AuditLogsSearchEventsRequest {
 
   public void setOptions(AuditLogsQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public AuditLogsSearchEventsRequest page(AuditLogsQueryPageOptions page) {
@@ -104,6 +110,9 @@ public class AuditLogsSearchEventsRequest {
 
   public void setPage(AuditLogsQueryPageOptions page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public AuditLogsSearchEventsRequest sort(AuditLogsSort sort) {

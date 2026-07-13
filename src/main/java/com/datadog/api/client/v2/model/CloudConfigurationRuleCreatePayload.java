@@ -76,6 +76,9 @@ public class CloudConfigurationRuleCreatePayload {
       @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
           CloudConfigurationRuleOptions options) {
     this.cases = cases;
+    for (CloudConfigurationRuleCaseCreate item : cases) {
+      this.unparsed |= item.unparsed;
+    }
     this.complianceSignalOptions = complianceSignalOptions;
     this.unparsed |= complianceSignalOptions.unparsed;
     this.isEnabled = isEnabled;
@@ -114,6 +117,11 @@ public class CloudConfigurationRuleCreatePayload {
 
   public void setCases(List<CloudConfigurationRuleCaseCreate> cases) {
     this.cases = cases;
+    if (cases != null) {
+      for (CloudConfigurationRuleCaseCreate item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CloudConfigurationRuleCreatePayload complianceSignalOptions(
@@ -137,6 +145,9 @@ public class CloudConfigurationRuleCreatePayload {
   public void setComplianceSignalOptions(
       CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
     this.complianceSignalOptions = complianceSignalOptions;
+    if (complianceSignalOptions != null) {
+      this.unparsed |= complianceSignalOptions.unparsed;
+    }
   }
 
   public CloudConfigurationRuleCreatePayload filters(List<SecurityMonitoringFilter> filters) {
@@ -170,6 +181,11 @@ public class CloudConfigurationRuleCreatePayload {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CloudConfigurationRuleCreatePayload isEnabled(Boolean isEnabled) {
@@ -251,6 +267,9 @@ public class CloudConfigurationRuleCreatePayload {
 
   public void setOptions(CloudConfigurationRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public CloudConfigurationRuleCreatePayload tags(List<String> tags) {

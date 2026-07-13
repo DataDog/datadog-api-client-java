@@ -54,6 +54,9 @@ public class DORADeploymentResponse {
 
   public void setData(DORADeploymentResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

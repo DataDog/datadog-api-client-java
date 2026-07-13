@@ -47,6 +47,9 @@ public class ListFindingsMeta {
 
   public void setPage(ListFindingsPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public ListFindingsMeta snapshotTimestamp(Long snapshotTimestamp) {

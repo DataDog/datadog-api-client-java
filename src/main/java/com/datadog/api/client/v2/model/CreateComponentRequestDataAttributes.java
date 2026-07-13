@@ -89,6 +89,11 @@ public class CreateComponentRequestDataAttributes {
 
   public void setComponents(List<CreateComponentRequestDataAttributesComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (CreateComponentRequestDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateComponentRequestDataAttributes name(String name) {

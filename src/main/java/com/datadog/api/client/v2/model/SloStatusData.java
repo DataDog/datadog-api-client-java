@@ -70,6 +70,9 @@ public class SloStatusData {
 
   public void setAttributes(SloStatusDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SloStatusData id(String id) {

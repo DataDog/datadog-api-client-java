@@ -39,6 +39,9 @@ public class AnalysisFix {
       @JsonProperty(required = true, value = JSON_PROPERTY_EDITS) List<AnalysisEdit> edits) {
     this.description = description;
     this.edits = edits;
+    for (AnalysisEdit item : edits) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AnalysisFix description(String description) {
@@ -88,6 +91,11 @@ public class AnalysisFix {
 
   public void setEdits(List<AnalysisEdit> edits) {
     this.edits = edits;
+    if (edits != null) {
+      for (AnalysisEdit item : edits) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

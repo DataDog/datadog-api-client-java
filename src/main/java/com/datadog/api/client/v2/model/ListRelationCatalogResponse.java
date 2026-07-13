@@ -72,6 +72,11 @@ public class ListRelationCatalogResponse {
 
   public void setData(List<RelationResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListRelationCatalogResponse included(List<EntityData> included) {
@@ -105,6 +110,11 @@ public class ListRelationCatalogResponse {
 
   public void setIncluded(List<EntityData> included) {
     this.included = included;
+    if (included != null) {
+      for (EntityData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListRelationCatalogResponse links(ListRelationCatalogResponseLinks links) {
@@ -127,6 +137,9 @@ public class ListRelationCatalogResponse {
 
   public void setLinks(ListRelationCatalogResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListRelationCatalogResponse meta(RelationResponseMeta meta) {
@@ -149,6 +162,9 @@ public class ListRelationCatalogResponse {
 
   public void setMeta(RelationResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

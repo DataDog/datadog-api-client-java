@@ -65,6 +65,11 @@ public class SyntheticsTestVersionHistoryResponse {
 
   public void setData(List<SyntheticsTestVersionChangeData> data) {
     this.data = data;
+    if (data != null) {
+      for (SyntheticsTestVersionChangeData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestVersionHistoryResponse meta(SyntheticsTestVersionHistoryMeta meta) {
@@ -87,6 +92,9 @@ public class SyntheticsTestVersionHistoryResponse {
 
   public void setMeta(SyntheticsTestVersionHistoryMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

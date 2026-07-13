@@ -119,6 +119,11 @@ public class FastlyAccountCreateRequestAttributes {
 
   public void setServices(List<FastlyService> services) {
     this.services = services;
+    if (services != null) {
+      for (FastlyService item : services) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

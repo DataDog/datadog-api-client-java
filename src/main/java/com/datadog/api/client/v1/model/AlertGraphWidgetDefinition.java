@@ -135,6 +135,9 @@ public class AlertGraphWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public AlertGraphWidgetDefinition title(String title) {

@@ -65,6 +65,9 @@ public class SecureEmbedUpdateRequestData {
 
   public void setAttributes(SecureEmbedUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecureEmbedUpdateRequestData type(SecureEmbedUpdateRequestType type) {

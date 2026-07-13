@@ -112,6 +112,11 @@ public class AlertEventCustomAttributes {
 
   public void setLinks(List<AlertEventCustomAttributesLinksItems> links) {
     this.links = links;
+    if (links != null) {
+      for (AlertEventCustomAttributesLinksItems item : links) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AlertEventCustomAttributes priority(AlertEventCustomAttributesPriority priority) {

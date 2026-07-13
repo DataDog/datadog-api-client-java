@@ -45,6 +45,9 @@ public class PersonalAccessTokenResponse {
 
   public void setData(PersonalAccessToken data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

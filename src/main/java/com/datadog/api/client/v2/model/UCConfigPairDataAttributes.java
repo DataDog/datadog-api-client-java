@@ -59,6 +59,11 @@ public class UCConfigPairDataAttributes {
 
   public void setConfigs(List<UCConfigPairDataAttributesConfigsItems> configs) {
     this.configs = configs;
+    if (configs != null) {
+      for (UCConfigPairDataAttributesConfigsItems item : configs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

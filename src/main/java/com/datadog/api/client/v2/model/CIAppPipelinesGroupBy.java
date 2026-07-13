@@ -97,6 +97,9 @@ public class CIAppPipelinesGroupBy {
 
   public void setHistogram(CIAppGroupByHistogram histogram) {
     this.histogram = histogram;
+    if (histogram != null) {
+      this.unparsed |= histogram.unparsed;
+    }
   }
 
   public CIAppPipelinesGroupBy limit(Long limit) {
@@ -140,6 +143,9 @@ public class CIAppPipelinesGroupBy {
 
   public void setMissing(CIAppGroupByMissing missing) {
     this.missing = missing;
+    if (missing != null) {
+      this.unparsed |= missing.unparsed;
+    }
   }
 
   public CIAppPipelinesGroupBy sort(CIAppAggregateSort sort) {
@@ -163,6 +169,9 @@ public class CIAppPipelinesGroupBy {
 
   public void setSort(CIAppAggregateSort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public CIAppPipelinesGroupBy total(CIAppGroupByTotal total) {
@@ -185,6 +194,9 @@ public class CIAppPipelinesGroupBy {
 
   public void setTotal(CIAppGroupByTotal total) {
     this.total = total;
+    if (total != null) {
+      this.unparsed |= total.unparsed;
+    }
   }
 
   /**

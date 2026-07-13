@@ -45,6 +45,9 @@ public class GCPUsageCostConfigResponse {
 
   public void setData(GCPUsageCostConfig data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -60,6 +60,11 @@ public class EntityResponseDataRelationshipsIncidents {
 
   public void setData(List<EntityResponseDataRelationshipsIncidentsDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (EntityResponseDataRelationshipsIncidentsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

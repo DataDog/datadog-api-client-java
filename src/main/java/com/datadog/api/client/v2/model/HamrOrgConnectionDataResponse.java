@@ -70,6 +70,9 @@ public class HamrOrgConnectionDataResponse {
 
   public void setAttributes(HamrOrgConnectionAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public HamrOrgConnectionDataResponse id(String id) {

@@ -63,6 +63,9 @@ public class SLOCorrectionCreateData {
 
   public void setAttributes(SLOCorrectionCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SLOCorrectionCreateData type(SLOCorrectionType type) {

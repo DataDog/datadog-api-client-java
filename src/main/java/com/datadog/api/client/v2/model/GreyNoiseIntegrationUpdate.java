@@ -61,6 +61,9 @@ public class GreyNoiseIntegrationUpdate {
 
   public void setCredentials(GreyNoiseCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public GreyNoiseIntegrationUpdate type(GreyNoiseIntegrationType type) {

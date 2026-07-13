@@ -71,6 +71,9 @@ public class MaintenanceData {
 
   public void setAttributes(MaintenanceDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MaintenanceData id(UUID id) {
@@ -114,6 +117,9 @@ public class MaintenanceData {
 
   public void setRelationships(MaintenanceDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public MaintenanceData type(PatchMaintenanceRequestDataType type) {

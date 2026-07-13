@@ -45,6 +45,9 @@ public class SharedDashboardInvitesMeta {
 
   public void setPage(SharedDashboardInvitesMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

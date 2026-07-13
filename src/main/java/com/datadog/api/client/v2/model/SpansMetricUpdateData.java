@@ -64,6 +64,9 @@ public class SpansMetricUpdateData {
 
   public void setAttributes(SpansMetricUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SpansMetricUpdateData type(SpansMetricType type) {

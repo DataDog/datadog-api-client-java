@@ -94,6 +94,9 @@ public class RecommendationAttributes {
 
   public void setDriver(ComponentRecommendation driver) {
     this.driver = driver;
+    if (driver != null) {
+      this.unparsed |= driver.unparsed;
+    }
   }
 
   public RecommendationAttributes executor(ComponentRecommendation executor) {
@@ -116,6 +119,9 @@ public class RecommendationAttributes {
 
   public void setExecutor(ComponentRecommendation executor) {
     this.executor = executor;
+    if (executor != null) {
+      this.unparsed |= executor.unparsed;
+    }
   }
 
   /**

@@ -59,6 +59,9 @@ public class PowerpackData {
 
   public void setAttributes(PowerpackAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PowerpackData id(String id) {
@@ -102,6 +105,9 @@ public class PowerpackData {
 
   public void setRelationships(PowerpackRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public PowerpackData type(String type) {

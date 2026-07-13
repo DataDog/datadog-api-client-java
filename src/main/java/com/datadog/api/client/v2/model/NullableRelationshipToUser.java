@@ -60,6 +60,9 @@ public class NullableRelationshipToUser {
 
   public void setData(NullableRelationshipToUserData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

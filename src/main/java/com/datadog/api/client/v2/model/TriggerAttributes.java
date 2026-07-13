@@ -64,6 +64,9 @@ public class TriggerAttributes {
 
   public void setMonitorAlertTrigger(MonitorAlertTriggerAttributes monitorAlertTrigger) {
     this.monitorAlertTrigger = monitorAlertTrigger;
+    if (monitorAlertTrigger != null) {
+      this.unparsed |= monitorAlertTrigger.unparsed;
+    }
   }
 
   public TriggerAttributes type(TriggerType type) {

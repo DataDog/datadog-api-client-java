@@ -74,6 +74,9 @@ public class AutomationRuleCreateAttributes {
 
   public void setAction(AutomationRuleAction action) {
     this.action = action;
+    if (action != null) {
+      this.unparsed |= action.unparsed;
+    }
   }
 
   public AutomationRuleCreateAttributes name(String name) {
@@ -142,6 +145,9 @@ public class AutomationRuleCreateAttributes {
 
   public void setTrigger(AutomationRuleTrigger trigger) {
     this.trigger = trigger;
+    if (trigger != null) {
+      this.unparsed |= trigger.unparsed;
+    }
   }
 
   /**

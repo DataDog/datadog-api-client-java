@@ -45,6 +45,9 @@ public class FeatureFlagsPaginationMeta {
 
   public void setPage(FeatureFlagsPaginationMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

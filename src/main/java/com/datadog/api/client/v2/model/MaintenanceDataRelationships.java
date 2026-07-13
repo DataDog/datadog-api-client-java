@@ -56,6 +56,9 @@ public class MaintenanceDataRelationships {
 
   public void setCreatedByUser(MaintenanceDataRelationshipsCreatedByUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public MaintenanceDataRelationships lastModifiedByUser(
@@ -80,6 +83,9 @@ public class MaintenanceDataRelationships {
   public void setLastModifiedByUser(
       MaintenanceDataRelationshipsLastModifiedByUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   public MaintenanceDataRelationships statusPage(
@@ -103,6 +109,9 @@ public class MaintenanceDataRelationships {
 
   public void setStatusPage(MaintenanceDataRelationshipsStatusPage statusPage) {
     this.statusPage = statusPage;
+    if (statusPage != null) {
+      this.unparsed |= statusPage.unparsed;
+    }
   }
 
   /**

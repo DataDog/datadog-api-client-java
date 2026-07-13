@@ -63,6 +63,9 @@ public class IncidentHandleRelationshipsRequest {
 
   public void setCommanderUser(IncidentHandleRelationship commanderUser) {
     this.commanderUser = commanderUser;
+    if (commanderUser != null) {
+      this.unparsed |= commanderUser.unparsed;
+    }
   }
 
   public IncidentHandleRelationshipsRequest incidentType(IncidentHandleRelationship incidentType) {
@@ -84,6 +87,9 @@ public class IncidentHandleRelationshipsRequest {
 
   public void setIncidentType(IncidentHandleRelationship incidentType) {
     this.incidentType = incidentType;
+    if (incidentType != null) {
+      this.unparsed |= incidentType.unparsed;
+    }
   }
 
   /**

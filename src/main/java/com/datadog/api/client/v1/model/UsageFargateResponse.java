@@ -58,6 +58,11 @@ public class UsageFargateResponse {
 
   public void setUsage(List<UsageFargateHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageFargateHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

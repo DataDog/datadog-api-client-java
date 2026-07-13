@@ -146,6 +146,9 @@ public class SyntheticsDowntimeTimeSlotResponse {
 
   public void setRecurrence(SyntheticsDowntimeTimeSlotRecurrenceResponse recurrence) {
     this.recurrence = recurrence;
+    if (recurrence != null) {
+      this.unparsed |= recurrence.unparsed;
+    }
   }
 
   public SyntheticsDowntimeTimeSlotResponse start(SyntheticsDowntimeTimeSlotDate start) {
@@ -167,6 +170,9 @@ public class SyntheticsDowntimeTimeSlotResponse {
 
   public void setStart(SyntheticsDowntimeTimeSlotDate start) {
     this.start = start;
+    if (start != null) {
+      this.unparsed |= start.unparsed;
+    }
   }
 
   public SyntheticsDowntimeTimeSlotResponse timezone(String timezone) {

@@ -45,6 +45,9 @@ public class PublishAppResponse {
 
   public void setData(Deployment data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

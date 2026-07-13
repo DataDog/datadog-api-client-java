@@ -105,6 +105,9 @@ public class HeatMapWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public HeatMapWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
@@ -127,6 +130,9 @@ public class HeatMapWidgetRequest {
 
   public void setEventQuery(EventQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public HeatMapWidgetRequest formulas(List<WidgetFormula> formulas) {
@@ -160,6 +166,11 @@ public class HeatMapWidgetRequest {
 
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HeatMapWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -182,6 +193,9 @@ public class HeatMapWidgetRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public HeatMapWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -204,6 +218,9 @@ public class HeatMapWidgetRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public HeatMapWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
@@ -226,6 +243,9 @@ public class HeatMapWidgetRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public HeatMapWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -248,6 +268,9 @@ public class HeatMapWidgetRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public HeatMapWidgetRequest q(String q) {
@@ -305,6 +328,11 @@ public class HeatMapWidgetRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HeatMapWidgetRequest query(FormulaAndFunctionMetricQueryDefinition query) {
@@ -327,6 +355,9 @@ public class HeatMapWidgetRequest {
 
   public void setQuery(FormulaAndFunctionMetricQueryDefinition query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public HeatMapWidgetRequest requestType(WidgetHistogramRequestType requestType) {
@@ -401,6 +432,9 @@ public class HeatMapWidgetRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public HeatMapWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -423,6 +457,9 @@ public class HeatMapWidgetRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   public HeatMapWidgetRequest style(WidgetStyle style) {
@@ -445,6 +482,9 @@ public class HeatMapWidgetRequest {
 
   public void setStyle(WidgetStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /**

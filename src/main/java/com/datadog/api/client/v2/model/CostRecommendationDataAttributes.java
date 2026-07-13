@@ -92,6 +92,9 @@ public class CostRecommendationDataAttributes {
   public void setPotentialDailySavings(
       CostRecommendationDataAttributesPotentialDailySavings potentialDailySavings) {
     this.potentialDailySavings = potentialDailySavings;
+    if (potentialDailySavings != null) {
+      this.unparsed |= potentialDailySavings.unparsed;
+    }
   }
 
   public CostRecommendationDataAttributes recommendationType(String recommendationType) {

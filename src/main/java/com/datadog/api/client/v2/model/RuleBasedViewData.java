@@ -70,6 +70,9 @@ public class RuleBasedViewData {
 
   public void setAttributes(RuleBasedViewAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RuleBasedViewData id(String id) {

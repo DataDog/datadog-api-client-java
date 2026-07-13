@@ -70,6 +70,9 @@ public class PersonalAccessTokenUpdateData {
 
   public void setAttributes(PersonalAccessTokenUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PersonalAccessTokenUpdateData id(String id) {

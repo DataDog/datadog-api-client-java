@@ -69,7 +69,13 @@ public class SBOMAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Long version) {
     this.bomFormat = bomFormat;
     this.components = components;
+    for (SBOMComponent item : components) {
+      this.unparsed |= item.unparsed;
+    }
     this.dependencies = dependencies;
+    for (SBOMComponentDependency item : dependencies) {
+      this.unparsed |= item.unparsed;
+    }
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
     this.serialNumber = serialNumber;
@@ -127,6 +133,11 @@ public class SBOMAttributes {
 
   public void setComponents(List<SBOMComponent> components) {
     this.components = components;
+    if (components != null) {
+      for (SBOMComponent item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SBOMAttributes dependencies(List<SBOMComponentDependency> dependencies) {
@@ -156,6 +167,11 @@ public class SBOMAttributes {
 
   public void setDependencies(List<SBOMComponentDependency> dependencies) {
     this.dependencies = dependencies;
+    if (dependencies != null) {
+      for (SBOMComponentDependency item : dependencies) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SBOMAttributes metadata(SBOMMetadata metadata) {
@@ -177,6 +193,9 @@ public class SBOMAttributes {
 
   public void setMetadata(SBOMMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public SBOMAttributes serialNumber(String serialNumber) {

@@ -41,6 +41,9 @@ public class CsmUnifiedHostsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CsmUnifiedHostData> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) CsmUnifiedHostsMeta meta) {
     this.data = data;
+    for (CsmUnifiedHostData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -72,6 +75,11 @@ public class CsmUnifiedHostsResponse {
 
   public void setData(List<CsmUnifiedHostData> data) {
     this.data = data;
+    if (data != null) {
+      for (CsmUnifiedHostData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CsmUnifiedHostsResponse meta(CsmUnifiedHostsMeta meta) {
@@ -93,6 +101,9 @@ public class CsmUnifiedHostsResponse {
 
   public void setMeta(CsmUnifiedHostsMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

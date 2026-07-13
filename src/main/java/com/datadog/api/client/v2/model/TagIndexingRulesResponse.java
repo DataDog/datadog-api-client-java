@@ -68,6 +68,11 @@ public class TagIndexingRulesResponse {
 
   public void setData(List<TagIndexingRuleData> data) {
     this.data = data;
+    if (data != null) {
+      for (TagIndexingRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TagIndexingRulesResponse links(MetricsListResponseLinks links) {
@@ -90,6 +95,9 @@ public class TagIndexingRulesResponse {
 
   public void setLinks(MetricsListResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public TagIndexingRulesResponse meta(TagIndexingRulesResponseMeta meta) {
@@ -112,6 +120,9 @@ public class TagIndexingRulesResponse {
 
   public void setMeta(TagIndexingRulesResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

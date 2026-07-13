@@ -55,6 +55,9 @@ public class ReportScheduleResponseRelationships {
 
   public void setAuthor(ReportScheduleAuthorRelationship author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   /**

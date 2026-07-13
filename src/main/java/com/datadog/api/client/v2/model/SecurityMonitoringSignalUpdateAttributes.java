@@ -110,6 +110,9 @@ public class SecurityMonitoringSignalUpdateAttributes {
 
   public void setAssignee(SecurityMonitoringTriageUser assignee) {
     this.assignee = assignee;
+    if (assignee != null) {
+      this.unparsed |= assignee.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalUpdateAttributes state(SecurityMonitoringSignalState state) {

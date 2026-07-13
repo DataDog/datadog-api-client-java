@@ -60,6 +60,11 @@ public class TeamRoutingRulesDataRelationshipsRules {
 
   public void setData(List<TeamRoutingRulesDataRelationshipsRulesDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamRoutingRulesDataRelationshipsRulesDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

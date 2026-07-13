@@ -97,6 +97,9 @@ public class SLOHistoryMetricsSeries {
 
   public void setMetadata(SLOHistoryMetricsSeriesMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public SLOHistoryMetricsSeries sum(Double sum) {

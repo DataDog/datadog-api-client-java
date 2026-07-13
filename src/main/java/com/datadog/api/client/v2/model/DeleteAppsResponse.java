@@ -58,6 +58,11 @@ public class DeleteAppsResponse {
 
   public void setData(List<DeleteAppsResponseDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (DeleteAppsResponseDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

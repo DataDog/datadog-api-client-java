@@ -56,6 +56,9 @@ public class SecurityMonitoringEntraIdAzureAppRegistrationsAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_HAS_VALID_PREREQUISITE)
           Boolean hasValidPrerequisite) {
     this.azureAppRegistrations = azureAppRegistrations;
+    for (SecurityMonitoringAzureAppRegistration item : azureAppRegistrations) {
+      this.unparsed |= item.unparsed;
+    }
     this.hasValidPrerequisite = hasValidPrerequisite;
   }
 
@@ -89,6 +92,11 @@ public class SecurityMonitoringEntraIdAzureAppRegistrationsAttributes {
   public void setAzureAppRegistrations(
       List<SecurityMonitoringAzureAppRegistration> azureAppRegistrations) {
     this.azureAppRegistrations = azureAppRegistrations;
+    if (azureAppRegistrations != null) {
+      for (SecurityMonitoringAzureAppRegistration item : azureAppRegistrations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringEntraIdAzureAppRegistrationsAttributes hasValidPrerequisite(

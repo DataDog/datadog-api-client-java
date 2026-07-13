@@ -118,6 +118,11 @@ public class ProductAnalyticsSerie {
 
   public void setUnit(List<ProductAnalyticsUnit> unit) {
     this.unit = unit;
+    if (unit != null) {
+      for (ProductAnalyticsUnit item : unit) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

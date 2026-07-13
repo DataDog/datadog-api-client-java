@@ -54,6 +54,9 @@ public class TeamPermissionSettingUpdateRequest {
 
   public void setData(TeamPermissionSettingUpdate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

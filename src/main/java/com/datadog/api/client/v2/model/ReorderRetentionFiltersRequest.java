@@ -35,6 +35,9 @@ public class ReorderRetentionFiltersRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<RetentionFilterWithoutAttributes> data) {
     this.data = data;
+    for (RetentionFilterWithoutAttributes item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ReorderRetentionFiltersRequest data(List<RetentionFilterWithoutAttributes> data) {
@@ -64,6 +67,11 @@ public class ReorderRetentionFiltersRequest {
 
   public void setData(List<RetentionFilterWithoutAttributes> data) {
     this.data = data;
+    if (data != null) {
+      for (RetentionFilterWithoutAttributes item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

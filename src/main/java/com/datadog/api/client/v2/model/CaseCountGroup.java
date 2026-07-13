@@ -43,6 +43,9 @@ public class CaseCountGroup {
           List<CaseCountGroupValue> groupValues) {
     this.group = group;
     this.groupValues = groupValues;
+    for (CaseCountGroupValue item : groupValues) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CaseCountGroup group(String group) {
@@ -93,6 +96,11 @@ public class CaseCountGroup {
 
   public void setGroupValues(List<CaseCountGroupValue> groupValues) {
     this.groupValues = groupValues;
+    if (groupValues != null) {
+      for (CaseCountGroupValue item : groupValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

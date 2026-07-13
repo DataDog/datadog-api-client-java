@@ -105,6 +105,9 @@ public class LogsArchiveDestinationAzure {
 
   public void setIntegration(LogsArchiveIntegrationAzure integration) {
     this.integration = integration;
+    if (integration != null) {
+      this.unparsed |= integration.unparsed;
+    }
   }
 
   public LogsArchiveDestinationAzure path(String path) {

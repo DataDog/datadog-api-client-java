@@ -50,6 +50,9 @@ public class APIKeyResponse {
 
   public void setData(FullAPIKey data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public APIKeyResponse included(List<APIKeyResponseIncludedItem> included) {
@@ -83,6 +86,11 @@ public class APIKeyResponse {
 
   public void setIncluded(List<APIKeyResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (APIKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

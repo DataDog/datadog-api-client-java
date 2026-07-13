@@ -61,6 +61,9 @@ public class GCPIntegrationUpdate {
 
   public void setCredentials(GCPCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public GCPIntegrationUpdate type(GCPIntegrationType type) {

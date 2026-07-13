@@ -108,6 +108,9 @@ public class FeatureFlagAttributes {
     this.valueType = valueType;
     this.unparsed |= !valueType.isValid();
     this.variants = variants;
+    for (Variant item : variants) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FeatureFlagAttributes archivedAt(OffsetDateTime archivedAt) {
@@ -257,6 +260,11 @@ public class FeatureFlagAttributes {
 
   public void setFeatureFlagEnvironments(List<FeatureFlagEnvironment> featureFlagEnvironments) {
     this.featureFlagEnvironments = featureFlagEnvironments;
+    if (featureFlagEnvironments != null) {
+      for (FeatureFlagEnvironment item : featureFlagEnvironments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FeatureFlagAttributes jsonSchema(String jsonSchema) {
@@ -494,6 +502,11 @@ public class FeatureFlagAttributes {
 
   public void setVariants(List<Variant> variants) {
     this.variants = variants;
+    if (variants != null) {
+      for (Variant item : variants) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

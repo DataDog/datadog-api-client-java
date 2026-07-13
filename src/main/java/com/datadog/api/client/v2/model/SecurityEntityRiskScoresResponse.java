@@ -42,6 +42,9 @@ public class SecurityEntityRiskScoresResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_META)
           SecurityEntityRiskScoresMeta meta) {
     this.data = data;
+    for (SecurityEntityRiskScore item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -73,6 +76,11 @@ public class SecurityEntityRiskScoresResponse {
 
   public void setData(List<SecurityEntityRiskScore> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityEntityRiskScore item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityEntityRiskScoresResponse meta(SecurityEntityRiskScoresMeta meta) {
@@ -94,6 +102,9 @@ public class SecurityEntityRiskScoresResponse {
 
   public void setMeta(SecurityEntityRiskScoresMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class TriggerInvestigationResponse {
 
   public void setData(TriggerInvestigationResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

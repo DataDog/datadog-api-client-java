@@ -60,6 +60,11 @@ public class ProductAnalyticsScalarResponseAttributes {
 
   public void setColumns(List<ProductAnalyticsScalarColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (ProductAnalyticsScalarColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

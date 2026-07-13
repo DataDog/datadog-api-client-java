@@ -54,6 +54,9 @@ public class ApplicationKeyUpdateRequest {
 
   public void setData(ApplicationKeyUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -64,6 +64,9 @@ public class MonitorConfigPolicyAttributeEditRequest {
 
   public void setPolicy(MonitorConfigPolicyPolicy policy) {
     this.policy = policy;
+    if (policy != null) {
+      this.unparsed |= policy.unparsed;
+    }
   }
 
   public MonitorConfigPolicyAttributeEditRequest policyType(MonitorConfigPolicyType policyType) {

@@ -6645,6 +6645,11 @@ public class UsageSummaryDate {
 
   public void setOrgs(List<UsageSummaryDateOrg> orgs) {
     this.orgs = orgs;
+    if (orgs != null) {
+      for (UsageSummaryDateOrg item : orgs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
     putAdditionalProperty(JSON_PROPERTY_ORGS, orgs);
   }
 

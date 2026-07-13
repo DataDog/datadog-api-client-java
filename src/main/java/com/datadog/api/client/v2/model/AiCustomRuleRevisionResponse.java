@@ -55,6 +55,9 @@ public class AiCustomRuleRevisionResponse {
 
   public void setData(AiCustomRuleRevisionResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

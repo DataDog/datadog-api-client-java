@@ -34,6 +34,9 @@ public class CustomRulesetListResponse {
   public CustomRulesetListResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CustomRuleset> data) {
     this.data = data;
+    for (CustomRuleset item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CustomRulesetListResponse data(List<CustomRuleset> data) {
@@ -63,6 +66,11 @@ public class CustomRulesetListResponse {
 
   public void setData(List<CustomRuleset> data) {
     this.data = data;
+    if (data != null) {
+      for (CustomRuleset item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

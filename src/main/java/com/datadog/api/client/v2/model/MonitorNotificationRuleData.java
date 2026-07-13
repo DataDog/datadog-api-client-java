@@ -61,6 +61,9 @@ public class MonitorNotificationRuleData {
 
   public void setAttributes(MonitorNotificationRuleResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorNotificationRuleData id(String id) {
@@ -105,6 +108,9 @@ public class MonitorNotificationRuleData {
 
   public void setRelationships(MonitorNotificationRuleRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public MonitorNotificationRuleData type(MonitorNotificationRuleResourceType type) {

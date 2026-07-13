@@ -63,6 +63,9 @@ public class ScorecardScoreRelationships {
 
   public void setEntity(ScorecardScoreRelationshipItem entity) {
     this.entity = entity;
+    if (entity != null) {
+      this.unparsed |= entity.unparsed;
+    }
   }
 
   public ScorecardScoreRelationships rule(ScorecardScoreRelationshipItem rule) {
@@ -85,6 +88,9 @@ public class ScorecardScoreRelationships {
 
   public void setRule(ScorecardScoreRelationshipItem rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   public ScorecardScoreRelationships scorecard(ScorecardScoreRelationshipItem scorecard) {
@@ -107,6 +113,9 @@ public class ScorecardScoreRelationships {
 
   public void setScorecard(ScorecardScoreRelationshipItem scorecard) {
     this.scorecard = scorecard;
+    if (scorecard != null) {
+      this.unparsed |= scorecard.unparsed;
+    }
   }
 
   public ScorecardScoreRelationships service(ScorecardScoreRelationshipItem service) {
@@ -129,6 +138,9 @@ public class ScorecardScoreRelationships {
 
   public void setService(ScorecardScoreRelationshipItem service) {
     this.service = service;
+    if (service != null) {
+      this.unparsed |= service.unparsed;
+    }
   }
 
   public ScorecardScoreRelationships team(ScorecardScoreRelationshipItem team) {
@@ -151,6 +163,9 @@ public class ScorecardScoreRelationships {
 
   public void setTeam(ScorecardScoreRelationshipItem team) {
     this.team = team;
+    if (team != null) {
+      this.unparsed |= team.unparsed;
+    }
   }
 
   /**

@@ -120,6 +120,9 @@ public class LayerAttributes {
 
   public void setInterval(LayerAttributesInterval interval) {
     this.interval = interval;
+    if (interval != null) {
+      this.unparsed |= interval.unparsed;
+    }
   }
 
   public LayerAttributes name(String name) {
@@ -174,6 +177,11 @@ public class LayerAttributes {
 
   public void setRestrictions(List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
+    if (restrictions != null) {
+      for (TimeRestriction item : restrictions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LayerAttributes rotationStart(OffsetDateTime rotationStart) {

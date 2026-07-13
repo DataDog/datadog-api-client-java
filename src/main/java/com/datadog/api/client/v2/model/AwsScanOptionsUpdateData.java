@@ -70,6 +70,9 @@ public class AwsScanOptionsUpdateData {
 
   public void setAttributes(AwsScanOptionsUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AwsScanOptionsUpdateData id(String id) {

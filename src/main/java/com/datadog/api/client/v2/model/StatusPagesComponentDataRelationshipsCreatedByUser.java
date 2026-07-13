@@ -56,6 +56,9 @@ public class StatusPagesComponentDataRelationshipsCreatedByUser {
 
   public void setData(StatusPagesComponentDataRelationshipsCreatedByUserData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

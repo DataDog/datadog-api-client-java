@@ -55,6 +55,9 @@ public class TeamOnCallRespondersDataRelationships {
 
   public void setEscalations(TeamOnCallRespondersDataRelationshipsEscalations escalations) {
     this.escalations = escalations;
+    if (escalations != null) {
+      this.unparsed |= escalations.unparsed;
+    }
   }
 
   public TeamOnCallRespondersDataRelationships responders(
@@ -78,6 +81,9 @@ public class TeamOnCallRespondersDataRelationships {
 
   public void setResponders(TeamOnCallRespondersDataRelationshipsResponders responders) {
     this.responders = responders;
+    if (responders != null) {
+      this.unparsed |= responders.unparsed;
+    }
   }
 
   /**

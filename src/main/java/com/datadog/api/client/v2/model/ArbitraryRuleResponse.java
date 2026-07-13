@@ -45,6 +45,9 @@ public class ArbitraryRuleResponse {
 
   public void setData(ArbitraryRuleResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

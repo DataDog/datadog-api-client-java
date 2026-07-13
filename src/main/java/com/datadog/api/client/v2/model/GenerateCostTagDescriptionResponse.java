@@ -55,6 +55,9 @@ public class GenerateCostTagDescriptionResponse {
 
   public void setData(GeneratedCostTagDescription data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

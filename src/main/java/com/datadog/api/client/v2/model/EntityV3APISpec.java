@@ -90,6 +90,9 @@ public class EntityV3APISpec {
 
   public void setInterface(EntityV3APISpecInterface _interface) {
     this._interface = _interface;
+    if (_interface != null) {
+      this.unparsed |= _interface.unparsed;
+    }
   }
 
   public EntityV3APISpec lifecycle(String lifecycle) {

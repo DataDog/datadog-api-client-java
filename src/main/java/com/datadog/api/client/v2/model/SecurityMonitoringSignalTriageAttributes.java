@@ -142,6 +142,9 @@ public class SecurityMonitoringSignalTriageAttributes {
 
   public void setArchiveCommentUser(SecurityMonitoringTriageUser archiveCommentUser) {
     this.archiveCommentUser = archiveCommentUser;
+    if (archiveCommentUser != null) {
+      this.unparsed |= archiveCommentUser.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalTriageAttributes archiveReason(
@@ -189,6 +192,9 @@ public class SecurityMonitoringSignalTriageAttributes {
 
   public void setAssignee(SecurityMonitoringTriageUser assignee) {
     this.assignee = assignee;
+    if (assignee != null) {
+      this.unparsed |= assignee.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalTriageAttributes incidentIds(List<Long> incidentIds) {
@@ -282,6 +288,9 @@ public class SecurityMonitoringSignalTriageAttributes {
 
   public void setStateUpdateUser(SecurityMonitoringTriageUser stateUpdateUser) {
     this.stateUpdateUser = stateUpdateUser;
+    if (stateUpdateUser != null) {
+      this.unparsed |= stateUpdateUser.unparsed;
+    }
   }
 
   /**

@@ -89,6 +89,11 @@ public class LogsAPIError {
 
   public void setDetails(List<LogsAPIError> details) {
     this.details = details;
+    if (details != null) {
+      for (LogsAPIError item : details) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsAPIError message(String message) {

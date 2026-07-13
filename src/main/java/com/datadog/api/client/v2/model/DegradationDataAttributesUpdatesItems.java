@@ -104,6 +104,11 @@ public class DegradationDataAttributesUpdatesItems {
   public void setComponentsAffected(
       List<DegradationDataAttributesUpdatesItemsComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (DegradationDataAttributesUpdatesItemsComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

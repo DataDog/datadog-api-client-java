@@ -45,6 +45,9 @@ public class CustomDestinationResponse {
 
   public void setData(CustomDestinationResponseDefinition data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

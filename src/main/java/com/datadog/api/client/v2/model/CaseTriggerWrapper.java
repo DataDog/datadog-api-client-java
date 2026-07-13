@@ -63,6 +63,9 @@ public class CaseTriggerWrapper {
 
   public void setCaseTrigger(CaseTrigger caseTrigger) {
     this.caseTrigger = caseTrigger;
+    if (caseTrigger != null) {
+      this.unparsed |= caseTrigger.unparsed;
+    }
   }
 
   public CaseTriggerWrapper startStepNames(List<String> startStepNames) {

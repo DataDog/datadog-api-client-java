@@ -132,6 +132,11 @@ public class RumSdkConfigRumUpdateAttributes {
 
   public void setAllowedTracingUrls(List<RumSdkConfigTracingUrlConfig> allowedTracingUrls) {
     this.allowedTracingUrls = allowedTracingUrls;
+    if (allowedTracingUrls != null) {
+      for (RumSdkConfigTracingUrlConfig item : allowedTracingUrls) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumSdkConfigRumUpdateAttributes allowedTrackingOrigins(
@@ -167,6 +172,11 @@ public class RumSdkConfigRumUpdateAttributes {
 
   public void setAllowedTrackingOrigins(List<RumSdkConfigMatchOption> allowedTrackingOrigins) {
     this.allowedTrackingOrigins = allowedTrackingOrigins;
+    if (allowedTrackingOrigins != null) {
+      for (RumSdkConfigMatchOption item : allowedTrackingOrigins) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumSdkConfigRumUpdateAttributes context(List<RumSdkConfigDynamicOptionPair> context) {
@@ -200,6 +210,11 @@ public class RumSdkConfigRumUpdateAttributes {
 
   public void setContext(List<RumSdkConfigDynamicOptionPair> context) {
     this.context = context;
+    if (context != null) {
+      for (RumSdkConfigDynamicOptionPair item : context) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumSdkConfigRumUpdateAttributes defaultPrivacyLevel(String defaultPrivacyLevel) {
@@ -400,6 +415,11 @@ public class RumSdkConfigRumUpdateAttributes {
 
   public void setUser(List<RumSdkConfigDynamicOptionPair> user) {
     this.user = user;
+    if (user != null) {
+      for (RumSdkConfigDynamicOptionPair item : user) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumSdkConfigRumUpdateAttributes version(RumSdkConfigDynamicOption version) {
@@ -422,6 +442,9 @@ public class RumSdkConfigRumUpdateAttributes {
 
   public void setVersion(RumSdkConfigDynamicOption version) {
     this.version = version;
+    if (version != null) {
+      this.unparsed |= version.unparsed;
+    }
   }
 
   /**

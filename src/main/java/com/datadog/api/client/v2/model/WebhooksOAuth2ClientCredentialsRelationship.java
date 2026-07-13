@@ -46,6 +46,9 @@ public class WebhooksOAuth2ClientCredentialsRelationship {
 
   public void setData(WebhooksOAuth2ClientCredentialsRelationshipData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

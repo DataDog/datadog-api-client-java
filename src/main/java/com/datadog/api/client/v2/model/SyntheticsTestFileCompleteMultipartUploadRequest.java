@@ -48,6 +48,9 @@ public class SyntheticsTestFileCompleteMultipartUploadRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_UPLOAD_ID) String uploadId) {
     this.key = key;
     this.parts = parts;
+    for (SyntheticsTestFileCompleteMultipartUploadPart item : parts) {
+      this.unparsed |= item.unparsed;
+    }
     this.uploadId = uploadId;
   }
 
@@ -100,6 +103,11 @@ public class SyntheticsTestFileCompleteMultipartUploadRequest {
 
   public void setParts(List<SyntheticsTestFileCompleteMultipartUploadPart> parts) {
     this.parts = parts;
+    if (parts != null) {
+      for (SyntheticsTestFileCompleteMultipartUploadPart item : parts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestFileCompleteMultipartUploadRequest uploadId(String uploadId) {

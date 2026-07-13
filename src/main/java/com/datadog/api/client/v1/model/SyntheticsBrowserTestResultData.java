@@ -135,6 +135,9 @@ public class SyntheticsBrowserTestResultData {
 
   public void setDevice(SyntheticsDevice device) {
     this.device = device;
+    if (device != null) {
+      this.unparsed |= device.unparsed;
+    }
   }
 
   public SyntheticsBrowserTestResultData duration(Double duration) {
@@ -199,6 +202,9 @@ public class SyntheticsBrowserTestResultData {
 
   public void setFailure(SyntheticsBrowserTestResultFailure failure) {
     this.failure = failure;
+    if (failure != null) {
+      this.unparsed |= failure.unparsed;
+    }
   }
 
   public SyntheticsBrowserTestResultData passed(Boolean passed) {
@@ -295,6 +301,11 @@ public class SyntheticsBrowserTestResultData {
 
   public void setStepDetails(List<SyntheticsStepDetail> stepDetails) {
     this.stepDetails = stepDetails;
+    if (stepDetails != null) {
+      for (SyntheticsStepDetail item : stepDetails) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsBrowserTestResultData thumbnailsBucketKey(Boolean thumbnailsBucketKey) {

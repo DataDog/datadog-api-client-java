@@ -70,6 +70,9 @@ public class CsmUnifiedHostData {
 
   public void setAttributes(CsmUnifiedHostAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CsmUnifiedHostData id(String id) {

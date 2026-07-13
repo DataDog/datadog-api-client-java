@@ -86,6 +86,9 @@ public class AwsCURConfigPostRequestAttributes {
 
   public void setAccountFilters(AccountFilteringConfig accountFilters) {
     this.accountFilters = accountFilters;
+    if (accountFilters != null) {
+      this.unparsed |= accountFilters.unparsed;
+    }
   }
 
   public AwsCURConfigPostRequestAttributes accountId(String accountId) {

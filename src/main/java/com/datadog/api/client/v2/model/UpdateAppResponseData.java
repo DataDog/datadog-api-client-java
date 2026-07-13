@@ -71,6 +71,9 @@ public class UpdateAppResponseData {
 
   public void setAttributes(UpdateAppResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateAppResponseData id(UUID id) {

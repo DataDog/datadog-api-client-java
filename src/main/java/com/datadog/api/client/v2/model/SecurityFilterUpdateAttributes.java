@@ -82,6 +82,11 @@ public class SecurityFilterUpdateAttributes {
 
   public void setExclusionFilters(List<SecurityFilterExclusionFilter> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
+    if (exclusionFilters != null) {
+      for (SecurityFilterExclusionFilter item : exclusionFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityFilterUpdateAttributes filteredDataType(

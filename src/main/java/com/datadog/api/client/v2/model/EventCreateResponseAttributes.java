@@ -46,6 +46,9 @@ public class EventCreateResponseAttributes {
 
   public void setAttributes(EventCreateResponseAttributesAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

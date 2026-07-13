@@ -59,6 +59,9 @@ public class SLOBulkDeleteResponse {
 
   public void setData(SLOBulkDeleteResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SLOBulkDeleteResponse errors(List<SLOBulkDeleteError> errors) {
@@ -92,6 +95,11 @@ public class SLOBulkDeleteResponse {
 
   public void setErrors(List<SLOBulkDeleteError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (SLOBulkDeleteError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

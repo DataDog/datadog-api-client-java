@@ -76,6 +76,9 @@ public class MaintenanceWindow {
 
   public void setAttributes(MaintenanceWindowAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MaintenanceWindow id(String id) {

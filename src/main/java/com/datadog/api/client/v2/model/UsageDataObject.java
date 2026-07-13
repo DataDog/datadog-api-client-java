@@ -55,6 +55,9 @@ public class UsageDataObject {
 
   public void setAttributes(UsageAttributesObject attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UsageDataObject id(String id) {

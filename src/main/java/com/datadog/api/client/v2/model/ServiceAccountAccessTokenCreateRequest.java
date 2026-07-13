@@ -55,6 +55,9 @@ public class ServiceAccountAccessTokenCreateRequest {
 
   public void setData(ServiceAccountAccessTokenCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

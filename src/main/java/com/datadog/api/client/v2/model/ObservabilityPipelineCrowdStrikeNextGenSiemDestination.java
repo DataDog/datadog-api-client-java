@@ -107,6 +107,9 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineCrowdStrikeNextGenSiemDestination compression(
@@ -131,6 +134,9 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
   public void setCompression(
       ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression compression) {
     this.compression = compression;
+    if (compression != null) {
+      this.unparsed |= compression.unparsed;
+    }
   }
 
   public ObservabilityPipelineCrowdStrikeNextGenSiemDestination encoding(
@@ -245,6 +251,9 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineCrowdStrikeNextGenSiemDestination tokenKey(String tokenKey) {

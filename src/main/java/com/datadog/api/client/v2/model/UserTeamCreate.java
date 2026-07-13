@@ -65,6 +65,9 @@ public class UserTeamCreate {
 
   public void setAttributes(UserTeamAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UserTeamCreate relationships(UserTeamRelationships relationships) {
@@ -87,6 +90,9 @@ public class UserTeamCreate {
 
   public void setRelationships(UserTeamRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public UserTeamCreate type(UserTeamType type) {

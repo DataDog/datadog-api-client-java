@@ -61,6 +61,9 @@ public class CreatePageRequestData {
 
   public void setAttributes(CreatePageRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreatePageRequestData type(CreatePageRequestDataType type) {

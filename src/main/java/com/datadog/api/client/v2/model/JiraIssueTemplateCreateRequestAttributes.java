@@ -114,6 +114,9 @@ public class JiraIssueTemplateCreateRequestAttributes {
 
   public void setJiraAccount(JiraIssueTemplateCreateRequestAttributesJiraAccount jiraAccount) {
     this.jiraAccount = jiraAccount;
+    if (jiraAccount != null) {
+      this.unparsed |= jiraAccount.unparsed;
+    }
   }
 
   public JiraIssueTemplateCreateRequestAttributes name(String name) {

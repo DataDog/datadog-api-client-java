@@ -288,6 +288,11 @@ public class SyntheticsTestResultRequestInfo {
 
   public void setFiles(List<SyntheticsTestResultFileRef> files) {
     this.files = files;
+    if (files != null) {
+      for (SyntheticsTestResultFileRef item : files) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultRequestInfo headers(Map<String, Object> headers) {

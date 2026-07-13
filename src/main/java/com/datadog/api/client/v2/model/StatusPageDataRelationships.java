@@ -52,6 +52,9 @@ public class StatusPageDataRelationships {
 
   public void setCreatedByUser(StatusPageDataRelationshipsCreatedByUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public StatusPageDataRelationships lastModifiedByUser(
@@ -76,6 +79,9 @@ public class StatusPageDataRelationships {
   public void setLastModifiedByUser(
       StatusPageDataRelationshipsLastModifiedByUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   /**

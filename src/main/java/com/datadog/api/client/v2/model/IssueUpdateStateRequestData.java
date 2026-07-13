@@ -71,6 +71,9 @@ public class IssueUpdateStateRequestData {
 
   public void setAttributes(IssueUpdateStateRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IssueUpdateStateRequestData id(String id) {

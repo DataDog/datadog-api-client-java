@@ -86,9 +86,15 @@ public class AllocationExposureSchedule {
     this.allocationId = allocationId;
     this.createdAt = createdAt;
     this.guardrailTriggers = guardrailTriggers;
+    for (AllocationExposureGuardrailTrigger item : guardrailTriggers) {
+      this.unparsed |= item.unparsed;
+    }
     this.rolloutOptions = rolloutOptions;
     this.unparsed |= rolloutOptions.unparsed;
     this.rolloutSteps = rolloutSteps;
+    for (AllocationExposureRolloutStep item : rolloutSteps) {
+      this.unparsed |= item.unparsed;
+    }
     this.updatedAt = updatedAt;
   }
 
@@ -255,6 +261,11 @@ public class AllocationExposureSchedule {
 
   public void setGuardrailTriggers(List<AllocationExposureGuardrailTrigger> guardrailTriggers) {
     this.guardrailTriggers = guardrailTriggers;
+    if (guardrailTriggers != null) {
+      for (AllocationExposureGuardrailTrigger item : guardrailTriggers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AllocationExposureSchedule id(UUID id) {
@@ -297,6 +308,9 @@ public class AllocationExposureSchedule {
 
   public void setRolloutOptions(RolloutOptions rolloutOptions) {
     this.rolloutOptions = rolloutOptions;
+    if (rolloutOptions != null) {
+      this.unparsed |= rolloutOptions.unparsed;
+    }
   }
 
   public AllocationExposureSchedule rolloutSteps(List<AllocationExposureRolloutStep> rolloutSteps) {
@@ -327,6 +341,11 @@ public class AllocationExposureSchedule {
 
   public void setRolloutSteps(List<AllocationExposureRolloutStep> rolloutSteps) {
     this.rolloutSteps = rolloutSteps;
+    if (rolloutSteps != null) {
+      for (AllocationExposureRolloutStep item : rolloutSteps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AllocationExposureSchedule updatedAt(OffsetDateTime updatedAt) {

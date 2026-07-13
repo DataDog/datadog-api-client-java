@@ -67,6 +67,9 @@ public class WatchData {
 
   public void setAttributes(WatchDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WatchData id(String id) {

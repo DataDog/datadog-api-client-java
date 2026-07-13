@@ -70,6 +70,9 @@ public class LLMObsDatasetVersionData {
 
   public void setAttributes(LLMObsDatasetVersionDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDatasetVersionData id(String id) {

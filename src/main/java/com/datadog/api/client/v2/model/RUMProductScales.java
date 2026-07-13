@@ -55,6 +55,9 @@ public class RUMProductScales {
   public void setProductAnalyticsRetentionScale(
       RUMProductAnalyticsRetentionScale productAnalyticsRetentionScale) {
     this.productAnalyticsRetentionScale = productAnalyticsRetentionScale;
+    if (productAnalyticsRetentionScale != null) {
+      this.unparsed |= productAnalyticsRetentionScale.unparsed;
+    }
   }
 
   public RUMProductScales rumEventProcessingScale(RUMEventProcessingScale rumEventProcessingScale) {
@@ -77,6 +80,9 @@ public class RUMProductScales {
 
   public void setRumEventProcessingScale(RUMEventProcessingScale rumEventProcessingScale) {
     this.rumEventProcessingScale = rumEventProcessingScale;
+    if (rumEventProcessingScale != null) {
+      this.unparsed |= rumEventProcessingScale.unparsed;
+    }
   }
 
   /**

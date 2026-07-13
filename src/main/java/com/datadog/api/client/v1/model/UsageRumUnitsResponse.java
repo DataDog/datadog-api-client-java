@@ -58,6 +58,11 @@ public class UsageRumUnitsResponse {
 
   public void setUsage(List<UsageRumUnitsHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageRumUnitsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

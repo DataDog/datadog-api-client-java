@@ -71,6 +71,9 @@ public class LicensesListResponseData {
 
   public void setAttributes(LicensesListResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LicensesListResponseData id(String id) {

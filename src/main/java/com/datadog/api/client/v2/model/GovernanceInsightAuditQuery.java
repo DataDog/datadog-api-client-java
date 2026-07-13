@@ -77,6 +77,9 @@ public class GovernanceInsightAuditQuery {
 
   public void setCompute(GovernanceInsightAuditCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public GovernanceInsightAuditQuery indexes(List<String> indexes) {

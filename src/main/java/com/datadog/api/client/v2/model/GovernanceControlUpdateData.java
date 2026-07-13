@@ -67,6 +67,9 @@ public class GovernanceControlUpdateData {
 
   public void setAttributes(GovernanceControlUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GovernanceControlUpdateData id(String id) {

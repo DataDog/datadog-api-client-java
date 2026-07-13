@@ -254,6 +254,9 @@ public class RUMApplicationListAttributes {
 
   public void setProductScales(RUMProductScales productScales) {
     this.productScales = productScales;
+    if (productScales != null) {
+      this.unparsed |= productScales.unparsed;
+    }
   }
 
   public RUMApplicationListAttributes type(String type) {

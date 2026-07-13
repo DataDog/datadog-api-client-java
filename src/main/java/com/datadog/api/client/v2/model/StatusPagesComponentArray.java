@@ -41,6 +41,9 @@ public class StatusPagesComponentArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<StatusPagesComponentData> data) {
     this.data = data;
+    for (StatusPagesComponentData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public StatusPagesComponentArray data(List<StatusPagesComponentData> data) {
@@ -70,6 +73,11 @@ public class StatusPagesComponentArray {
 
   public void setData(List<StatusPagesComponentData> data) {
     this.data = data;
+    if (data != null) {
+      for (StatusPagesComponentData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public StatusPagesComponentArray included(List<StatusPagesComponentArrayIncluded> included) {
@@ -104,6 +112,11 @@ public class StatusPagesComponentArray {
 
   public void setIncluded(List<StatusPagesComponentArrayIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (StatusPagesComponentArrayIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

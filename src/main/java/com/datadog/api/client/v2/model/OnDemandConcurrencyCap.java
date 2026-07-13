@@ -51,6 +51,9 @@ public class OnDemandConcurrencyCap {
 
   public void setAttributes(OnDemandConcurrencyCapAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OnDemandConcurrencyCap type(OnDemandConcurrencyCapType type) {

@@ -86,6 +86,9 @@ public class EventsResponseMetadata {
 
   public void setPage(EventsResponseMetadataPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public EventsResponseMetadata requestId(String requestId) {
@@ -162,6 +165,11 @@ public class EventsResponseMetadata {
 
   public void setWarnings(List<EventsWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (EventsWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

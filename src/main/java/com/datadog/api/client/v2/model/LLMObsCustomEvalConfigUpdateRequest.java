@@ -55,6 +55,9 @@ public class LLMObsCustomEvalConfigUpdateRequest {
 
   public void setData(LLMObsCustomEvalConfigUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

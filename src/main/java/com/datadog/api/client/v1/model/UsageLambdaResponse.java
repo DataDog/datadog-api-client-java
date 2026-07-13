@@ -61,6 +61,11 @@ public class UsageLambdaResponse {
 
   public void setUsage(List<UsageLambdaHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageLambdaHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

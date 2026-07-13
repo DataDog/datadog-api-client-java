@@ -64,6 +64,9 @@ public class AnnotationRequestData {
 
   public void setAttributes(AnnotationCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AnnotationRequestData type(AnnotationType type) {

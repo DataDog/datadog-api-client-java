@@ -64,6 +64,9 @@ public class UserInvitationData {
 
   public void setRelationships(UserInvitationRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public UserInvitationData type(UserInvitationsType type) {

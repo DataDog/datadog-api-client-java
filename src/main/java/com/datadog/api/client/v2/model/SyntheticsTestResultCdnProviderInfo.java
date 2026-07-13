@@ -51,6 +51,9 @@ public class SyntheticsTestResultCdnProviderInfo {
 
   public void setCache(SyntheticsTestResultCdnCacheStatus cache) {
     this.cache = cache;
+    if (cache != null) {
+      this.unparsed |= cache.unparsed;
+    }
   }
 
   public SyntheticsTestResultCdnProviderInfo provider(String provider) {

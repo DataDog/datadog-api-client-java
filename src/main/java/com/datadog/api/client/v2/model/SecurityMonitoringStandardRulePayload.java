@@ -110,12 +110,18 @@ public class SecurityMonitoringStandardRulePayload {
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
           List<SecurityMonitoringStandardRuleQuery> queries) {
     this.cases = cases;
+    for (SecurityMonitoringRuleCaseCreate item : cases) {
+      this.unparsed |= item.unparsed;
+    }
     this.isEnabled = isEnabled;
     this.message = message;
     this.name = name;
     this.options = options;
     this.unparsed |= options.unparsed;
     this.queries = queries;
+    for (SecurityMonitoringStandardRuleQuery item : queries) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecurityMonitoringStandardRulePayload calculatedFields(
@@ -152,6 +158,11 @@ public class SecurityMonitoringStandardRulePayload {
 
   public void setCalculatedFields(List<CalculatedField> calculatedFields) {
     this.calculatedFields = calculatedFields;
+    if (calculatedFields != null) {
+      for (CalculatedField item : calculatedFields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRulePayload cases(List<SecurityMonitoringRuleCaseCreate> cases) {
@@ -182,6 +193,11 @@ public class SecurityMonitoringStandardRulePayload {
 
   public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
+    if (cases != null) {
+      for (SecurityMonitoringRuleCaseCreate item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRulePayload customMessage(String customMessage) {
@@ -259,6 +275,11 @@ public class SecurityMonitoringStandardRulePayload {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRulePayload groupSignalsBy(List<String> groupSignalsBy) {
@@ -391,6 +412,9 @@ public class SecurityMonitoringStandardRulePayload {
 
   public void setOptions(SecurityMonitoringRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public SecurityMonitoringStandardRulePayload queries(
@@ -422,6 +446,11 @@ public class SecurityMonitoringStandardRulePayload {
 
   public void setQueries(List<SecurityMonitoringStandardRuleQuery> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (SecurityMonitoringStandardRuleQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRulePayload referenceTables(
@@ -457,6 +486,11 @@ public class SecurityMonitoringStandardRulePayload {
 
   public void setReferenceTables(List<SecurityMonitoringReferenceTable> referenceTables) {
     this.referenceTables = referenceTables;
+    if (referenceTables != null) {
+      for (SecurityMonitoringReferenceTable item : referenceTables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRulePayload schedulingOptions(
@@ -557,6 +591,11 @@ public class SecurityMonitoringStandardRulePayload {
 
   public void setThirdPartyCases(List<SecurityMonitoringThirdPartyRuleCaseCreate> thirdPartyCases) {
     this.thirdPartyCases = thirdPartyCases;
+    if (thirdPartyCases != null) {
+      for (SecurityMonitoringThirdPartyRuleCaseCreate item : thirdPartyCases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRulePayload type(SecurityMonitoringRuleTypeCreate type) {

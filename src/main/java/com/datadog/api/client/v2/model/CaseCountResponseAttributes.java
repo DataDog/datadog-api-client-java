@@ -34,6 +34,9 @@ public class CaseCountResponseAttributes {
   public CaseCountResponseAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_GROUPS) List<CaseCountGroup> groups) {
     this.groups = groups;
+    for (CaseCountGroup item : groups) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CaseCountResponseAttributes groups(List<CaseCountGroup> groups) {
@@ -63,6 +66,11 @@ public class CaseCountResponseAttributes {
 
   public void setGroups(List<CaseCountGroup> groups) {
     this.groups = groups;
+    if (groups != null) {
+      for (CaseCountGroup item : groups) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

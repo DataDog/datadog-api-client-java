@@ -61,6 +61,9 @@ public class BatchRowsQueryRequestData {
 
   public void setAttributes(BatchRowsQueryRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BatchRowsQueryRequestData type(BatchRowsQueryDataType type) {

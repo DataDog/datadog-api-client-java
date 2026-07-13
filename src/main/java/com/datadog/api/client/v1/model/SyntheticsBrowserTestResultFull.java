@@ -71,6 +71,9 @@ public class SyntheticsBrowserTestResultFull {
 
   public void setCheck(SyntheticsBrowserTestResultFullCheck check) {
     this.check = check;
+    if (check != null) {
+      this.unparsed |= check.unparsed;
+    }
   }
 
   public SyntheticsBrowserTestResultFull checkTime(Double checkTime) {
@@ -156,6 +159,9 @@ public class SyntheticsBrowserTestResultFull {
 
   public void setResult(SyntheticsBrowserTestResultData result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public SyntheticsBrowserTestResultFull resultId(String resultId) {

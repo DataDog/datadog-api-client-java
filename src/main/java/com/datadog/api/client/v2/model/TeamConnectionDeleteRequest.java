@@ -35,6 +35,9 @@ public class TeamConnectionDeleteRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<TeamConnectionDeleteRequestDataItem> data) {
     this.data = data;
+    for (TeamConnectionDeleteRequestDataItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public TeamConnectionDeleteRequest data(List<TeamConnectionDeleteRequestDataItem> data) {
@@ -64,6 +67,11 @@ public class TeamConnectionDeleteRequest {
 
   public void setData(List<TeamConnectionDeleteRequestDataItem> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamConnectionDeleteRequestDataItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

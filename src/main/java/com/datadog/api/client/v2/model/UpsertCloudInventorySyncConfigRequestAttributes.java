@@ -59,6 +59,9 @@ public class UpsertCloudInventorySyncConfigRequestAttributes {
 
   public void setAws(CloudInventorySyncConfigAWSRequestAttributes aws) {
     this.aws = aws;
+    if (aws != null) {
+      this.unparsed |= aws.unparsed;
+    }
   }
 
   public UpsertCloudInventorySyncConfigRequestAttributes azure(
@@ -82,6 +85,9 @@ public class UpsertCloudInventorySyncConfigRequestAttributes {
 
   public void setAzure(CloudInventorySyncConfigAzureRequestAttributes azure) {
     this.azure = azure;
+    if (azure != null) {
+      this.unparsed |= azure.unparsed;
+    }
   }
 
   public UpsertCloudInventorySyncConfigRequestAttributes gcp(
@@ -105,6 +111,9 @@ public class UpsertCloudInventorySyncConfigRequestAttributes {
 
   public void setGcp(CloudInventorySyncConfigGCPRequestAttributes gcp) {
     this.gcp = gcp;
+    if (gcp != null) {
+      this.unparsed |= gcp.unparsed;
+    }
   }
 
   /**

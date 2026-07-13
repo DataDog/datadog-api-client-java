@@ -262,6 +262,9 @@ public class SharedDashboard {
 
   public void setGlobalTime(DashboardGlobalTime globalTime) {
     this.globalTime = globalTime;
+    if (globalTime != null) {
+      this.unparsed |= globalTime.unparsed;
+    }
   }
 
   public SharedDashboard globalTimeSelectableEnabled(Boolean globalTimeSelectableEnabled) {
@@ -327,6 +330,11 @@ public class SharedDashboard {
 
   public void setInvitees(List<SharedDashboardInviteesItems> invitees) {
     this.invitees = invitees;
+    if (invitees != null) {
+      for (SharedDashboardInviteesItems item : invitees) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -578,6 +586,9 @@ public class SharedDashboard {
 
   public void setViewingPreferences(ViewingPreferences viewingPreferences) {
     this.viewingPreferences = viewingPreferences;
+    if (viewingPreferences != null) {
+      this.unparsed |= viewingPreferences.unparsed;
+    }
   }
 
   /**

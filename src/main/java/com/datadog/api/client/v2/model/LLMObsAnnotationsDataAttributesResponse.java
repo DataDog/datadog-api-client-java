@@ -41,6 +41,9 @@ public class LLMObsAnnotationsDataAttributesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
           List<LLMObsAnnotationItemResponse> annotations) {
     this.annotations = annotations;
+    for (LLMObsAnnotationItemResponse item : annotations) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsAnnotationsDataAttributesResponse annotations(
@@ -72,6 +75,11 @@ public class LLMObsAnnotationsDataAttributesResponse {
 
   public void setAnnotations(List<LLMObsAnnotationItemResponse> annotations) {
     this.annotations = annotations;
+    if (annotations != null) {
+      for (LLMObsAnnotationItemResponse item : annotations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsAnnotationsDataAttributesResponse errors(List<LLMObsAnnotationError> errors) {
@@ -105,6 +113,11 @@ public class LLMObsAnnotationsDataAttributesResponse {
 
   public void setErrors(List<LLMObsAnnotationError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (LLMObsAnnotationError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

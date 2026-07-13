@@ -137,6 +137,9 @@ public class LLMObsDatasetBatchUpdateInsertRecord {
 
   public void setInput(AnyValue input) {
     this.input = input;
+    if (input != null) {
+      this.unparsed |= input.unparsed;
+    }
   }
 
   public LLMObsDatasetBatchUpdateInsertRecord metadata(Map<String, Object> metadata) {
@@ -191,6 +194,9 @@ public class LLMObsDatasetBatchUpdateInsertRecord {
 
   public void setTagOperations(LLMObsDatasetRecordTagOperations tagOperations) {
     this.tagOperations = tagOperations;
+    if (tagOperations != null) {
+      this.unparsed |= tagOperations.unparsed;
+    }
   }
 
   public LLMObsDatasetBatchUpdateInsertRecord tags(List<String> tags) {

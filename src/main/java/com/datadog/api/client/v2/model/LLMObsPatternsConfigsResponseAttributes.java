@@ -35,6 +35,9 @@ public class LLMObsPatternsConfigsResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_CONFIGS)
           List<LLMObsPatternsConfigItem> configs) {
     this.configs = configs;
+    for (LLMObsPatternsConfigItem item : configs) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsPatternsConfigsResponseAttributes configs(List<LLMObsPatternsConfigItem> configs) {
@@ -65,6 +68,11 @@ public class LLMObsPatternsConfigsResponseAttributes {
 
   public void setConfigs(List<LLMObsPatternsConfigItem> configs) {
     this.configs = configs;
+    if (configs != null) {
+      for (LLMObsPatternsConfigItem item : configs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

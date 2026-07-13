@@ -145,6 +145,9 @@ public class SyntheticsTestOptions {
 
   public void setMonitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
+    if (monitorOptions != null) {
+      this.unparsed |= monitorOptions.unparsed;
+    }
   }
 
   public SyntheticsTestOptions monitorPriority(Integer monitorPriority) {
@@ -221,6 +224,9 @@ public class SyntheticsTestOptions {
 
   public void setRetry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
+    if (retry != null) {
+      this.unparsed |= retry.unparsed;
+    }
   }
 
   public SyntheticsTestOptions scheduling(SyntheticsTestOptionsScheduling scheduling) {
@@ -243,6 +249,9 @@ public class SyntheticsTestOptions {
 
   public void setScheduling(SyntheticsTestOptionsScheduling scheduling) {
     this.scheduling = scheduling;
+    if (scheduling != null) {
+      this.unparsed |= scheduling.unparsed;
+    }
   }
 
   public SyntheticsTestOptions tickEvery(Long tickEvery) {

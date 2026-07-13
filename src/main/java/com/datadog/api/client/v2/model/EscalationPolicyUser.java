@@ -68,6 +68,9 @@ public class EscalationPolicyUser {
 
   public void setAttributes(EscalationPolicyUserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EscalationPolicyUser id(String id) {

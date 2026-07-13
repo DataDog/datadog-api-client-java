@@ -67,6 +67,9 @@ public class AutomationRuleTrigger {
 
   public void setData(AutomationRuleTriggerData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public AutomationRuleTrigger type(AutomationRuleTriggerType type) {

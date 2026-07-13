@@ -58,6 +58,11 @@ public class SyntheticsListTestsResponse {
 
   public void setTests(List<SyntheticsTestDetailsWithoutSteps> tests) {
     this.tests = tests;
+    if (tests != null) {
+      for (SyntheticsTestDetailsWithoutSteps item : tests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

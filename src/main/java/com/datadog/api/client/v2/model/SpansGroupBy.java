@@ -96,6 +96,9 @@ public class SpansGroupBy {
 
   public void setHistogram(SpansGroupByHistogram histogram) {
     this.histogram = histogram;
+    if (histogram != null) {
+      this.unparsed |= histogram.unparsed;
+    }
   }
 
   public SpansGroupBy limit(Long limit) {
@@ -139,6 +142,9 @@ public class SpansGroupBy {
 
   public void setMissing(SpansGroupByMissing missing) {
     this.missing = missing;
+    if (missing != null) {
+      this.unparsed |= missing.unparsed;
+    }
   }
 
   public SpansGroupBy sort(SpansAggregateSort sort) {
@@ -161,6 +167,9 @@ public class SpansGroupBy {
 
   public void setSort(SpansAggregateSort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public SpansGroupBy total(SpansGroupByTotal total) {
@@ -183,6 +192,9 @@ public class SpansGroupBy {
 
   public void setTotal(SpansGroupByTotal total) {
     this.total = total;
+    if (total != null) {
+      this.unparsed |= total.unparsed;
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class RelationshipToPermission {
 
   public void setData(RelationshipToPermissionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

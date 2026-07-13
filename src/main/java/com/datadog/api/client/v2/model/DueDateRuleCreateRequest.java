@@ -54,6 +54,9 @@ public class DueDateRuleCreateRequest {
 
   public void setData(DueDateRuleDataCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

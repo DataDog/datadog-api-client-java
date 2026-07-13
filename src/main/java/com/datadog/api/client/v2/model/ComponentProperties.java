@@ -69,6 +69,11 @@ public class ComponentProperties {
 
   public void setChildren(List<Component> children) {
     this.children = children;
+    if (children != null) {
+      for (Component item : children) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ComponentProperties isVisible(ComponentPropertiesIsVisible isVisible) {
@@ -92,6 +97,9 @@ public class ComponentProperties {
 
   public void setIsVisible(ComponentPropertiesIsVisible isVisible) {
     this.isVisible = isVisible;
+    if (isVisible != null) {
+      this.unparsed |= isVisible.unparsed;
+    }
   }
 
   /**

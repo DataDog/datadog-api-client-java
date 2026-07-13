@@ -45,6 +45,9 @@ public class RetentionFilterResponse {
 
   public void setData(RetentionFilterAll data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

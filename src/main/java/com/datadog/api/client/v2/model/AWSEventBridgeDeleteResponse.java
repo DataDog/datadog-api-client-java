@@ -55,6 +55,9 @@ public class AWSEventBridgeDeleteResponse {
 
   public void setData(AWSEventBridgeDeleteResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

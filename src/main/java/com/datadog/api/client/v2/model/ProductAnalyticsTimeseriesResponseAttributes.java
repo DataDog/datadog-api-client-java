@@ -77,6 +77,11 @@ public class ProductAnalyticsTimeseriesResponseAttributes {
 
   public void setIntervals(List<ProductAnalyticsInterval> intervals) {
     this.intervals = intervals;
+    if (intervals != null) {
+      for (ProductAnalyticsInterval item : intervals) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProductAnalyticsTimeseriesResponseAttributes series(List<ProductAnalyticsSerie> series) {
@@ -111,6 +116,11 @@ public class ProductAnalyticsTimeseriesResponseAttributes {
 
   public void setSeries(List<ProductAnalyticsSerie> series) {
     this.series = series;
+    if (series != null) {
+      for (ProductAnalyticsSerie item : series) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProductAnalyticsTimeseriesResponseAttributes times(List<Long> times) {

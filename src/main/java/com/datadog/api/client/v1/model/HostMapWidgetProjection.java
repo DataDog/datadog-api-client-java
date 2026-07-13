@@ -46,6 +46,9 @@ public class HostMapWidgetProjection {
           List<HostMapWidgetProjectionDimensionMapping> dimensions,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HostMapWidgetProjectionType type) {
     this.dimensions = dimensions;
+    for (HostMapWidgetProjectionDimensionMapping item : dimensions) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -79,6 +82,11 @@ public class HostMapWidgetProjection {
 
   public void setDimensions(List<HostMapWidgetProjectionDimensionMapping> dimensions) {
     this.dimensions = dimensions;
+    if (dimensions != null) {
+      for (HostMapWidgetProjectionDimensionMapping item : dimensions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetProjection type(HostMapWidgetProjectionType type) {

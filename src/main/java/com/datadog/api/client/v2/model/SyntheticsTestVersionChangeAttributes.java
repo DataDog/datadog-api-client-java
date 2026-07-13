@@ -97,6 +97,11 @@ public class SyntheticsTestVersionChangeAttributes {
 
   public void setChangeMetadata(List<SyntheticsTestVersionChangeMetadataItem> changeMetadata) {
     this.changeMetadata = changeMetadata;
+    if (changeMetadata != null) {
+      for (SyntheticsTestVersionChangeMetadataItem item : changeMetadata) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestVersionChangeAttributes versionNumber(Long versionNumber) {

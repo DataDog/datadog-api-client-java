@@ -34,6 +34,9 @@ public class RetentionFiltersResponse {
   public RetentionFiltersResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<RetentionFilterAll> data) {
     this.data = data;
+    for (RetentionFilterAll item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RetentionFiltersResponse data(List<RetentionFilterAll> data) {
@@ -63,6 +66,11 @@ public class RetentionFiltersResponse {
 
   public void setData(List<RetentionFilterAll> data) {
     this.data = data;
+    if (data != null) {
+      for (RetentionFilterAll item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

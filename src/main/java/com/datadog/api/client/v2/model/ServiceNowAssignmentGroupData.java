@@ -72,6 +72,9 @@ public class ServiceNowAssignmentGroupData {
 
   public void setAttributes(ServiceNowAssignmentGroupAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceNowAssignmentGroupData id(UUID id) {

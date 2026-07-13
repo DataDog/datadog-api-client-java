@@ -78,6 +78,11 @@ public class ConnectionEnv {
 
   public void setConnectionGroups(List<ConnectionGroup> connectionGroups) {
     this.connectionGroups = connectionGroups;
+    if (connectionGroups != null) {
+      for (ConnectionGroup item : connectionGroups) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ConnectionEnv connections(List<Connection> connections) {
@@ -111,6 +116,11 @@ public class ConnectionEnv {
 
   public void setConnections(List<Connection> connections) {
     this.connections = connections;
+    if (connections != null) {
+      for (Connection item : connections) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ConnectionEnv env(ConnectionEnvEnv env) {

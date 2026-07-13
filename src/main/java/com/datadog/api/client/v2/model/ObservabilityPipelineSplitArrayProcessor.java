@@ -68,6 +68,9 @@ public class ObservabilityPipelineSplitArrayProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineSplitArrayProcessorType type) {
     this.arrays = arrays;
+    for (ObservabilityPipelineSplitArrayProcessorArrayConfig item : arrays) {
+      this.unparsed |= item.unparsed;
+    }
     this.enabled = enabled;
     this.id = id;
     this.include = include;
@@ -104,6 +107,11 @@ public class ObservabilityPipelineSplitArrayProcessor {
 
   public void setArrays(List<ObservabilityPipelineSplitArrayProcessorArrayConfig> arrays) {
     this.arrays = arrays;
+    if (arrays != null) {
+      for (ObservabilityPipelineSplitArrayProcessorArrayConfig item : arrays) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineSplitArrayProcessor displayName(String displayName) {

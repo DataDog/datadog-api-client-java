@@ -45,6 +45,9 @@ public class GCPSTSServiceAccountResponse {
 
   public void setData(GCPSTSServiceAccount data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

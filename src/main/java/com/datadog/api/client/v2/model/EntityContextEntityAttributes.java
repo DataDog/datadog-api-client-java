@@ -37,6 +37,9 @@ public class EntityContextEntityAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_REVISIONS)
           List<EntityContextRevision> revisions) {
     this.revisions = revisions;
+    for (EntityContextRevision item : revisions) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public EntityContextEntityAttributes revisions(List<EntityContextRevision> revisions) {
@@ -66,6 +69,11 @@ public class EntityContextEntityAttributes {
 
   public void setRevisions(List<EntityContextRevision> revisions) {
     this.revisions = revisions;
+    if (revisions != null) {
+      for (EntityContextRevision item : revisions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

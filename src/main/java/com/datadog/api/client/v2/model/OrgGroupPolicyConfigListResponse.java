@@ -35,6 +35,9 @@ public class OrgGroupPolicyConfigListResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<OrgGroupPolicyConfigData> data) {
     this.data = data;
+    for (OrgGroupPolicyConfigData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OrgGroupPolicyConfigListResponse data(List<OrgGroupPolicyConfigData> data) {
@@ -64,6 +67,11 @@ public class OrgGroupPolicyConfigListResponse {
 
   public void setData(List<OrgGroupPolicyConfigData> data) {
     this.data = data;
+    if (data != null) {
+      for (OrgGroupPolicyConfigData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

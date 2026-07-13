@@ -61,6 +61,9 @@ public class CircleCIIntegrationUpdate {
 
   public void setCredentials(CircleCICredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public CircleCIIntegrationUpdate type(CircleCIIntegrationType type) {

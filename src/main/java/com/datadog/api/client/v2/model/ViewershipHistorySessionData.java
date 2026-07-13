@@ -72,6 +72,9 @@ public class ViewershipHistorySessionData {
 
   public void setAttributes(ViewershipHistorySessionDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ViewershipHistorySessionData id(String id) {

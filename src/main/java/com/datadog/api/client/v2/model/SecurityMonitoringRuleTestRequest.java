@@ -53,6 +53,9 @@ public class SecurityMonitoringRuleTestRequest {
 
   public void setRule(SecurityMonitoringRuleTestPayload rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleTestRequest ruleQueryPayloads(
@@ -88,6 +91,11 @@ public class SecurityMonitoringRuleTestRequest {
 
   public void setRuleQueryPayloads(List<SecurityMonitoringRuleQueryPayload> ruleQueryPayloads) {
     this.ruleQueryPayloads = ruleQueryPayloads;
+    if (ruleQueryPayloads != null) {
+      for (SecurityMonitoringRuleQueryPayload item : ruleQueryPayloads) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

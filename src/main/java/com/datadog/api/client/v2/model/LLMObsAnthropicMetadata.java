@@ -87,6 +87,9 @@ public class LLMObsAnthropicMetadata {
 
   public void setThinking(LLMObsAnthropicThinkingConfig thinking) {
     this.thinking = thinking;
+    if (thinking != null) {
+      this.unparsed |= thinking.unparsed;
+    }
   }
 
   /**

@@ -57,6 +57,9 @@ public class PowerpackGroupWidgetDefinition {
     this.layoutType = layoutType;
     this.type = type;
     this.widgets = widgets;
+    for (PowerpackInnerWidgets item : widgets) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public PowerpackGroupWidgetDefinition layoutType(String layoutType) {
@@ -168,6 +171,11 @@ public class PowerpackGroupWidgetDefinition {
 
   public void setWidgets(List<PowerpackInnerWidgets> widgets) {
     this.widgets = widgets;
+    if (widgets != null) {
+      for (PowerpackInnerWidgets item : widgets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

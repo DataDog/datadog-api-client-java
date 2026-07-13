@@ -64,6 +64,9 @@ public class EntityResponseDataRelationships {
 
   public void setIncidents(EntityResponseDataRelationshipsIncidents incidents) {
     this.incidents = incidents;
+    if (incidents != null) {
+      this.unparsed |= incidents.unparsed;
+    }
   }
 
   public EntityResponseDataRelationships oncalls(EntityResponseDataRelationshipsOncalls oncalls) {
@@ -86,6 +89,9 @@ public class EntityResponseDataRelationships {
 
   public void setOncalls(EntityResponseDataRelationshipsOncalls oncalls) {
     this.oncalls = oncalls;
+    if (oncalls != null) {
+      this.unparsed |= oncalls.unparsed;
+    }
   }
 
   public EntityResponseDataRelationships rawSchema(
@@ -109,6 +115,9 @@ public class EntityResponseDataRelationships {
 
   public void setRawSchema(EntityResponseDataRelationshipsRawSchema rawSchema) {
     this.rawSchema = rawSchema;
+    if (rawSchema != null) {
+      this.unparsed |= rawSchema.unparsed;
+    }
   }
 
   public EntityResponseDataRelationships relatedEntities(
@@ -132,6 +141,9 @@ public class EntityResponseDataRelationships {
 
   public void setRelatedEntities(EntityResponseDataRelationshipsRelatedEntities relatedEntities) {
     this.relatedEntities = relatedEntities;
+    if (relatedEntities != null) {
+      this.unparsed |= relatedEntities.unparsed;
+    }
   }
 
   public EntityResponseDataRelationships schema(EntityResponseDataRelationshipsSchema schema) {
@@ -154,6 +166,9 @@ public class EntityResponseDataRelationships {
 
   public void setSchema(EntityResponseDataRelationshipsSchema schema) {
     this.schema = schema;
+    if (schema != null) {
+      this.unparsed |= schema.unparsed;
+    }
   }
 
   /**

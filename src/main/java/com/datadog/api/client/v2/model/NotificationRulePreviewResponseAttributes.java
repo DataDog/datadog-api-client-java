@@ -35,6 +35,9 @@ public class NotificationRulePreviewResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_PREVIEW_RESULTS)
           List<NotificationRulePreviewResult> previewResults) {
     this.previewResults = previewResults;
+    for (NotificationRulePreviewResult item : previewResults) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public NotificationRulePreviewResponseAttributes previewResults(
@@ -66,6 +69,11 @@ public class NotificationRulePreviewResponseAttributes {
 
   public void setPreviewResults(List<NotificationRulePreviewResult> previewResults) {
     this.previewResults = previewResults;
+    if (previewResults != null) {
+      for (NotificationRulePreviewResult item : previewResults) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

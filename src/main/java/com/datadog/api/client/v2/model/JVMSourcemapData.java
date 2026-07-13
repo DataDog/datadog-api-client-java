@@ -70,6 +70,9 @@ public class JVMSourcemapData {
 
   public void setAttributes(JVMSourcemapAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public JVMSourcemapData id(String id) {

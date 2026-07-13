@@ -44,6 +44,9 @@ public class EntityContextResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<EntityContextEntity> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) EntityContextResponseMeta meta) {
     this.data = data;
+    for (EntityContextEntity item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -75,6 +78,11 @@ public class EntityContextResponse {
 
   public void setData(List<EntityContextEntity> data) {
     this.data = data;
+    if (data != null) {
+      for (EntityContextEntity item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EntityContextResponse meta(EntityContextResponseMeta meta) {
@@ -96,6 +104,9 @@ public class EntityContextResponse {
 
   public void setMeta(EntityContextResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

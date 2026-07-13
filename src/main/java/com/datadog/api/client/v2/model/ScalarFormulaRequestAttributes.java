@@ -51,6 +51,9 @@ public class ScalarFormulaRequestAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to) {
     this.from = from;
     this.queries = queries;
+    for (ScalarQuery item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     this.to = to;
   }
 
@@ -85,6 +88,11 @@ public class ScalarFormulaRequestAttributes {
 
   public void setFormulas(List<QueryFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (QueryFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScalarFormulaRequestAttributes from(Long from) {
@@ -134,6 +142,11 @@ public class ScalarFormulaRequestAttributes {
 
   public void setQueries(List<ScalarQuery> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (ScalarQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScalarFormulaRequestAttributes to(Long to) {

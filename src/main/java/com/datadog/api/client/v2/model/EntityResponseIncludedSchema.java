@@ -56,6 +56,9 @@ public class EntityResponseIncludedSchema {
 
   public void setAttributes(EntityResponseIncludedSchemaAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EntityResponseIncludedSchema id(String id) {

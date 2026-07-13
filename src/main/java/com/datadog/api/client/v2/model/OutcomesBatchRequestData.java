@@ -51,6 +51,9 @@ public class OutcomesBatchRequestData {
 
   public void setAttributes(OutcomesBatchAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OutcomesBatchRequestData type(OutcomesBatchType type) {

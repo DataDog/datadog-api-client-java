@@ -65,6 +65,9 @@ public class RumMetricResponseAttributes {
 
   public void setCompute(RumMetricResponseCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public RumMetricResponseAttributes eventType(RumMetricEventType eventType) {
@@ -112,6 +115,9 @@ public class RumMetricResponseAttributes {
 
   public void setFilter(RumMetricResponseFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public RumMetricResponseAttributes groupBy(List<RumMetricResponseGroupBy> groupBy) {
@@ -145,6 +151,11 @@ public class RumMetricResponseAttributes {
 
   public void setGroupBy(List<RumMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (RumMetricResponseGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumMetricResponseAttributes uniqueness(RumMetricResponseUniqueness uniqueness) {
@@ -168,6 +179,9 @@ public class RumMetricResponseAttributes {
 
   public void setUniqueness(RumMetricResponseUniqueness uniqueness) {
     this.uniqueness = uniqueness;
+    if (uniqueness != null) {
+      this.unparsed |= uniqueness.unparsed;
+    }
   }
 
   /**

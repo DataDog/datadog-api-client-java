@@ -71,6 +71,9 @@ public class NotebookHeatMapCellAttributes {
 
   public void setDefinition(HeatMapWidgetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public NotebookHeatMapCellAttributes graphSize(NotebookGraphSize graphSize) {
@@ -118,6 +121,9 @@ public class NotebookHeatMapCellAttributes {
 
   public void setSplitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
+    if (splitBy != null) {
+      this.unparsed |= splitBy.unparsed;
+    }
   }
 
   public NotebookHeatMapCellAttributes time(NotebookCellTime time) {

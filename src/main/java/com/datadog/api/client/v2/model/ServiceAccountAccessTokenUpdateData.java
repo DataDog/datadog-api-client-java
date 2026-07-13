@@ -71,6 +71,9 @@ public class ServiceAccountAccessTokenUpdateData {
 
   public void setAttributes(ServiceAccountAccessTokenUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceAccountAccessTokenUpdateData id(String id) {

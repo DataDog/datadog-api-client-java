@@ -58,6 +58,11 @@ public class RestrictionQueryRolesResponse {
 
   public void setData(List<RestrictionQueryRole> data) {
     this.data = data;
+    if (data != null) {
+      for (RestrictionQueryRole item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

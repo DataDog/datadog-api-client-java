@@ -56,6 +56,9 @@ public class SecurityMonitoringSuppression {
 
   public void setAttributes(SecurityMonitoringSuppressionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringSuppression id(String id) {

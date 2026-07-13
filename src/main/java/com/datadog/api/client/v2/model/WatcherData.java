@@ -66,6 +66,9 @@ public class WatcherData {
 
   public void setAttributes(WatcherDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WatcherData id(String id) {

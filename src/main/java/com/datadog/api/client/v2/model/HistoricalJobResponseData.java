@@ -55,6 +55,9 @@ public class HistoricalJobResponseData {
 
   public void setAttributes(HistoricalJobResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public HistoricalJobResponseData id(String id) {

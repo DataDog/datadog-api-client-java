@@ -68,6 +68,9 @@ public class RumMetricUpdateData {
 
   public void setAttributes(RumMetricUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RumMetricUpdateData id(String id) {

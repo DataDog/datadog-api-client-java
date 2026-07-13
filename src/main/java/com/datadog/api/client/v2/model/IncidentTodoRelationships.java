@@ -51,6 +51,9 @@ public class IncidentTodoRelationships {
 
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public IncidentTodoRelationships lastModifiedByUser(RelationshipToUser lastModifiedByUser) {
@@ -73,6 +76,9 @@ public class IncidentTodoRelationships {
 
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   /**

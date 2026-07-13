@@ -72,6 +72,9 @@ public class ApplicationSecurityServiceResource {
 
   public void setAttributes(ApplicationSecurityServiceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ApplicationSecurityServiceResource id(String id) {

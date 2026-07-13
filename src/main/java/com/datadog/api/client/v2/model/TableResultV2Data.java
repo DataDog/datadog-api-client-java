@@ -61,6 +61,9 @@ public class TableResultV2Data {
 
   public void setAttributes(TableResultV2DataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TableResultV2Data id(String id) {

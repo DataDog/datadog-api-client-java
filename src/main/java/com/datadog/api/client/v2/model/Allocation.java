@@ -102,14 +102,23 @@ public class Allocation {
     this.createdAt = createdAt;
     this.environmentIds = environmentIds;
     this.guardrailMetrics = guardrailMetrics;
+    for (GuardrailMetric item : guardrailMetrics) {
+      this.unparsed |= item.unparsed;
+    }
     this.key = key;
     this.name = name;
     this.orderPosition = orderPosition;
     this.targetingRules = targetingRules;
+    for (TargetingRule item : targetingRules) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
     this.updatedAt = updatedAt;
     this.variantWeights = variantWeights;
+    for (VariantWeight item : variantWeights) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public Allocation createdAt(OffsetDateTime createdAt) {
@@ -208,6 +217,9 @@ public class Allocation {
 
   public void setExposureSchedule(AllocationExposureSchedule exposureSchedule) {
     this.exposureSchedule = exposureSchedule;
+    if (exposureSchedule != null) {
+      this.unparsed |= exposureSchedule.unparsed;
+    }
   }
 
   public Allocation guardrailMetrics(List<GuardrailMetric> guardrailMetrics) {
@@ -237,6 +249,11 @@ public class Allocation {
 
   public void setGuardrailMetrics(List<GuardrailMetric> guardrailMetrics) {
     this.guardrailMetrics = guardrailMetrics;
+    if (guardrailMetrics != null) {
+      for (GuardrailMetric item : guardrailMetrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Allocation id(UUID id) {
@@ -347,6 +364,11 @@ public class Allocation {
 
   public void setTargetingRules(List<TargetingRule> targetingRules) {
     this.targetingRules = targetingRules;
+    if (targetingRules != null) {
+      for (TargetingRule item : targetingRules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Allocation type(AllocationType type) {
@@ -420,6 +442,11 @@ public class Allocation {
 
   public void setVariantWeights(List<VariantWeight> variantWeights) {
     this.variantWeights = variantWeights;
+    if (variantWeights != null) {
+      for (VariantWeight item : variantWeights) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

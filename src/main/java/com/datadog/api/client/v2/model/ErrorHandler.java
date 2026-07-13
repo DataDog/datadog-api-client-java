@@ -84,6 +84,9 @@ public class ErrorHandler {
 
   public void setRetryStrategy(RetryStrategy retryStrategy) {
     this.retryStrategy = retryStrategy;
+    if (retryStrategy != null) {
+      this.unparsed |= retryStrategy.unparsed;
+    }
   }
 
   /**

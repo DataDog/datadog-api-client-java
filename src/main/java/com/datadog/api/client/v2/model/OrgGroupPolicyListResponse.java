@@ -44,6 +44,9 @@ public class OrgGroupPolicyListResponse {
   public OrgGroupPolicyListResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<OrgGroupPolicyData> data) {
     this.data = data;
+    for (OrgGroupPolicyData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OrgGroupPolicyListResponse data(List<OrgGroupPolicyData> data) {
@@ -73,6 +76,11 @@ public class OrgGroupPolicyListResponse {
 
   public void setData(List<OrgGroupPolicyData> data) {
     this.data = data;
+    if (data != null) {
+      for (OrgGroupPolicyData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public OrgGroupPolicyListResponse links(OrgGroupPaginationLinks links) {
@@ -95,6 +103,9 @@ public class OrgGroupPolicyListResponse {
 
   public void setLinks(OrgGroupPaginationLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public OrgGroupPolicyListResponse meta(OrgGroupPaginationMeta meta) {
@@ -117,6 +128,9 @@ public class OrgGroupPolicyListResponse {
 
   public void setMeta(OrgGroupPaginationMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

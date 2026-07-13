@@ -45,6 +45,9 @@ public class CsmServerlessCoverageAnalysisResponse {
 
   public void setData(CsmServerlessCoverageAnalysisData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

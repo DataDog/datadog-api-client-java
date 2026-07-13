@@ -60,6 +60,9 @@ public class SyntheticsTestResultSummaryData {
 
   public void setAttributes(SyntheticsTestResultSummaryAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsTestResultSummaryData id(String id) {
@@ -104,6 +107,9 @@ public class SyntheticsTestResultSummaryData {
 
   public void setRelationships(SyntheticsTestResultRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SyntheticsTestResultSummaryData type(SyntheticsTestResultSummaryType type) {

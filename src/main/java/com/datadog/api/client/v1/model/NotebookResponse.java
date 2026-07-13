@@ -45,6 +45,9 @@ public class NotebookResponse {
 
   public void setData(NotebookResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -70,6 +70,9 @@ public class RestrictionPolicy {
 
   public void setAttributes(RestrictionPolicyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RestrictionPolicy id(String id) {

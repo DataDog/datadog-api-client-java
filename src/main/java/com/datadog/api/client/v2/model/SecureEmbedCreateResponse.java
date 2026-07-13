@@ -55,6 +55,9 @@ public class SecureEmbedCreateResponse {
 
   public void setData(SecureEmbedCreateResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

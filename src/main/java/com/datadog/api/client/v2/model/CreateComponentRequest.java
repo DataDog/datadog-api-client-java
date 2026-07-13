@@ -45,6 +45,9 @@ public class CreateComponentRequest {
 
   public void setData(CreateComponentRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

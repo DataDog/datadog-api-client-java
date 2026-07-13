@@ -86,6 +86,9 @@ public class SpansListResponseMetadata {
 
   public void setPage(SpansResponseMetadataPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public SpansListResponseMetadata requestId(String requestId) {
@@ -166,6 +169,11 @@ public class SpansListResponseMetadata {
 
   public void setWarnings(List<SpansWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (SpansWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class RelationshipToRule {
 
   public void setScorecard(RelationshipToRuleData scorecard) {
     this.scorecard = scorecard;
+    if (scorecard != null) {
+      this.unparsed |= scorecard.unparsed;
+    }
   }
 
   /**

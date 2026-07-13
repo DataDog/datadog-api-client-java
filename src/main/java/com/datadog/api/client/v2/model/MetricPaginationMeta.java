@@ -45,6 +45,9 @@ public class MetricPaginationMeta {
 
   public void setPagination(MetricMetaPage pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

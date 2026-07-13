@@ -54,6 +54,9 @@ public class OrgAuthorizedClientResponse {
 
   public void setData(OrgAuthorizedClientData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

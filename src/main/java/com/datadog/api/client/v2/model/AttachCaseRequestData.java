@@ -87,6 +87,9 @@ public class AttachCaseRequestData {
 
   public void setRelationships(AttachCaseRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public AttachCaseRequestData type(CaseDataType type) {

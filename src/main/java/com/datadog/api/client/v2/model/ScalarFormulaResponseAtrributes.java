@@ -59,6 +59,11 @@ public class ScalarFormulaResponseAtrributes {
 
   public void setColumns(List<ScalarColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (ScalarColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -64,6 +64,9 @@ public class MonitorTriggerWrapper {
 
   public void setMonitorTrigger(MonitorTrigger monitorTrigger) {
     this.monitorTrigger = monitorTrigger;
+    if (monitorTrigger != null) {
+      this.unparsed |= monitorTrigger.unparsed;
+    }
   }
 
   public MonitorTriggerWrapper startStepNames(List<String> startStepNames) {

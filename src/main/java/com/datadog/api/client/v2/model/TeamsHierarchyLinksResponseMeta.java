@@ -46,6 +46,9 @@ public class TeamsHierarchyLinksResponseMeta {
 
   public void setPage(TeamsHierarchyLinksResponseMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

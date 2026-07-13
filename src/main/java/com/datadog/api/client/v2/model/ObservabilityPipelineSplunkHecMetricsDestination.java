@@ -116,6 +116,9 @@ public class ObservabilityPipelineSplunkHecMetricsDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineSplunkHecMetricsDestination compression(
@@ -317,6 +320,9 @@ public class ObservabilityPipelineSplunkHecMetricsDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineSplunkHecMetricsDestination tokenKey(String tokenKey) {

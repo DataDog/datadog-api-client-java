@@ -80,6 +80,9 @@ public class IncidentUserDefinedFieldResponseData {
 
   public void setAttributes(IncidentUserDefinedFieldAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentUserDefinedFieldResponseData id(String id) {
@@ -122,6 +125,9 @@ public class IncidentUserDefinedFieldResponseData {
 
   public void setRelationships(IncidentUserDefinedFieldRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentUserDefinedFieldResponseData type(IncidentUserDefinedFieldType type) {

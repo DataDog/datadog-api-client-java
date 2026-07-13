@@ -58,6 +58,11 @@ public class RelationshipToPermissions {
 
   public void setData(List<RelationshipToPermissionData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToPermissionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

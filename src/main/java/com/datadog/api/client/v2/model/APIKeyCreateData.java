@@ -61,6 +61,9 @@ public class APIKeyCreateData {
 
   public void setAttributes(APIKeyCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public APIKeyCreateData type(APIKeysType type) {

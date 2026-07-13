@@ -58,6 +58,11 @@ public class UsageSDSResponse {
 
   public void setUsage(List<UsageSDSHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageSDSHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

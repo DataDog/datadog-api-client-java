@@ -71,6 +71,9 @@ public class DueDateRuleDataResponse {
 
   public void setAttributes(DueDateRuleAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DueDateRuleDataResponse id(UUID id) {

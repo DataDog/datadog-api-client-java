@@ -274,6 +274,9 @@ public class SyntheticsTestOptions {
 
   public void setCi(SyntheticsTestCiOptions ci) {
     this.ci = ci;
+    if (ci != null) {
+      this.unparsed |= ci.unparsed;
+    }
   }
 
   public SyntheticsTestOptions deviceIds(List<String> deviceIds) {
@@ -609,6 +612,9 @@ public class SyntheticsTestOptions {
 
   public void setMonitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
+    if (monitorOptions != null) {
+      this.unparsed |= monitorOptions.unparsed;
+    }
   }
 
   public SyntheticsTestOptions monitorPriority(Integer monitorPriority) {
@@ -706,6 +712,9 @@ public class SyntheticsTestOptions {
 
   public void setRetry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
+    if (retry != null) {
+      this.unparsed |= retry.unparsed;
+    }
   }
 
   public SyntheticsTestOptions rumSettings(SyntheticsBrowserTestRumSettings rumSettings) {
@@ -738,6 +747,9 @@ public class SyntheticsTestOptions {
 
   public void setRumSettings(SyntheticsBrowserTestRumSettings rumSettings) {
     this.rumSettings = rumSettings;
+    if (rumSettings != null) {
+      this.unparsed |= rumSettings.unparsed;
+    }
   }
 
   public SyntheticsTestOptions scheduling(SyntheticsTestOptionsScheduling scheduling) {
@@ -760,6 +772,9 @@ public class SyntheticsTestOptions {
 
   public void setScheduling(SyntheticsTestOptionsScheduling scheduling) {
     this.scheduling = scheduling;
+    if (scheduling != null) {
+      this.unparsed |= scheduling.unparsed;
+    }
   }
 
   public SyntheticsTestOptions tickEvery(Long tickEvery) {

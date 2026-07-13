@@ -55,6 +55,9 @@ public class RumRetentionFilterCreateRequest {
 
   public void setData(RumRetentionFilterCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

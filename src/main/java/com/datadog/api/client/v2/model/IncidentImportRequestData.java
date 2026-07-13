@@ -68,6 +68,9 @@ public class IncidentImportRequestData {
 
   public void setAttributes(IncidentImportRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentImportRequestData relationships(IncidentImportRelationships relationships) {
@@ -90,6 +93,9 @@ public class IncidentImportRequestData {
 
   public void setRelationships(IncidentImportRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentImportRequestData type(IncidentType type) {

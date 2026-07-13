@@ -80,12 +80,18 @@ public class SecurityMonitoringSignalRuleCreatePayload {
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
           List<SecurityMonitoringSignalRuleQuery> queries) {
     this.cases = cases;
+    for (SecurityMonitoringRuleCaseCreate item : cases) {
+      this.unparsed |= item.unparsed;
+    }
     this.isEnabled = isEnabled;
     this.message = message;
     this.name = name;
     this.options = options;
     this.unparsed |= options.unparsed;
     this.queries = queries;
+    for (SecurityMonitoringSignalRuleQuery item : queries) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalRuleCreatePayload cases(
@@ -117,6 +123,11 @@ public class SecurityMonitoringSignalRuleCreatePayload {
 
   public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
+    if (cases != null) {
+      for (SecurityMonitoringRuleCaseCreate item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalRuleCreatePayload filters(List<SecurityMonitoringFilter> filters) {
@@ -152,6 +163,11 @@ public class SecurityMonitoringSignalRuleCreatePayload {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalRuleCreatePayload hasExtendedTitle(Boolean hasExtendedTitle) {
@@ -254,6 +270,9 @@ public class SecurityMonitoringSignalRuleCreatePayload {
 
   public void setOptions(SecurityMonitoringRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalRuleCreatePayload queries(
@@ -285,6 +304,11 @@ public class SecurityMonitoringSignalRuleCreatePayload {
 
   public void setQueries(List<SecurityMonitoringSignalRuleQuery> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (SecurityMonitoringSignalRuleQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalRuleCreatePayload tags(List<String> tags) {

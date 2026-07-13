@@ -61,6 +61,9 @@ public class SensitiveDataScannerGroupResponse {
 
   public void setAttributes(SensitiveDataScannerGroupAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SensitiveDataScannerGroupResponse id(String id) {
@@ -105,6 +108,9 @@ public class SensitiveDataScannerGroupResponse {
 
   public void setRelationships(SensitiveDataScannerGroupRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SensitiveDataScannerGroupResponse type(SensitiveDataScannerGroupType type) {

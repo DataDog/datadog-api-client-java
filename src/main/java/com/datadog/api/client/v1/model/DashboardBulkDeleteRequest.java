@@ -35,6 +35,9 @@ public class DashboardBulkDeleteRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<DashboardBulkActionData> data) {
     this.data = data;
+    for (DashboardBulkActionData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DashboardBulkDeleteRequest data(List<DashboardBulkActionData> data) {
@@ -64,6 +67,11 @@ public class DashboardBulkDeleteRequest {
 
   public void setData(List<DashboardBulkActionData> data) {
     this.data = data;
+    if (data != null) {
+      for (DashboardBulkActionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class DashboardUsageResponse {
 
   public void setData(DashboardUsage data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

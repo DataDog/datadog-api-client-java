@@ -51,6 +51,9 @@ public class SpansListRequestData {
 
   public void setAttributes(SpansListRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SpansListRequestData type(SpansListRequestType type) {

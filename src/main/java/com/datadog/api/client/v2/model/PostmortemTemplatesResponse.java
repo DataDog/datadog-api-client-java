@@ -35,6 +35,9 @@ public class PostmortemTemplatesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<PostmortemTemplateDataResponse> data) {
     this.data = data;
+    for (PostmortemTemplateDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public PostmortemTemplatesResponse data(List<PostmortemTemplateDataResponse> data) {
@@ -64,6 +67,11 @@ public class PostmortemTemplatesResponse {
 
   public void setData(List<PostmortemTemplateDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (PostmortemTemplateDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

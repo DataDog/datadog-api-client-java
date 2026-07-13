@@ -250,6 +250,11 @@ public class ApplicationSecurityWafExclusionFilterCreateAttributes {
 
   public void setRulesTarget(List<ApplicationSecurityWafExclusionFilterRulesTarget> rulesTarget) {
     this.rulesTarget = rulesTarget;
+    if (rulesTarget != null) {
+      for (ApplicationSecurityWafExclusionFilterRulesTarget item : rulesTarget) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityWafExclusionFilterCreateAttributes scope(
@@ -285,6 +290,11 @@ public class ApplicationSecurityWafExclusionFilterCreateAttributes {
 
   public void setScope(List<ApplicationSecurityWafExclusionFilterScope> scope) {
     this.scope = scope;
+    if (scope != null) {
+      for (ApplicationSecurityWafExclusionFilterScope item : scope) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

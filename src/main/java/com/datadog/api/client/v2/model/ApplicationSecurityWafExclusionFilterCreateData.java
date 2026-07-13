@@ -67,6 +67,9 @@ public class ApplicationSecurityWafExclusionFilterCreateData {
 
   public void setAttributes(ApplicationSecurityWafExclusionFilterCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ApplicationSecurityWafExclusionFilterCreateData type(

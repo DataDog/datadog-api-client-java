@@ -55,6 +55,9 @@ public class FleetDeploymentPackageUpgradeCreateRequest {
 
   public void setData(FleetDeploymentPackageUpgradeCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

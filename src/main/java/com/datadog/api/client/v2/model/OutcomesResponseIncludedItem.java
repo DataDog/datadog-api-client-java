@@ -56,6 +56,9 @@ public class OutcomesResponseIncludedItem {
 
   public void setAttributes(OutcomesResponseIncludedRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OutcomesResponseIncludedItem id(String id) {

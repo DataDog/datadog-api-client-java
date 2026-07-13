@@ -67,6 +67,9 @@ public class LLMObsDeleteAnnotationQueueInteractionsDataRequest {
   public void setAttributes(
       LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDeleteAnnotationQueueInteractionsDataRequest type(

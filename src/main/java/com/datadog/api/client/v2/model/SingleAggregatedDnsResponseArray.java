@@ -58,6 +58,11 @@ public class SingleAggregatedDnsResponseArray {
 
   public void setData(List<SingleAggregatedDnsResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (SingleAggregatedDnsResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

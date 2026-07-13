@@ -56,6 +56,9 @@ public class MicrosoftTeamsWorkflowsWebhookHandleResponse {
 
   public void setData(MicrosoftTeamsWorkflowsWebhookHandleResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

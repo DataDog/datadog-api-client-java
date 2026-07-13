@@ -72,6 +72,9 @@ public class ObservabilityPipelineCustomProcessor {
     this.id = id;
     this.include = include;
     this.remaps = remaps;
+    for (ObservabilityPipelineCustomProcessorRemap item : remaps) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -187,6 +190,11 @@ public class ObservabilityPipelineCustomProcessor {
 
   public void setRemaps(List<ObservabilityPipelineCustomProcessorRemap> remaps) {
     this.remaps = remaps;
+    if (remaps != null) {
+      for (ObservabilityPipelineCustomProcessorRemap item : remaps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineCustomProcessor type(ObservabilityPipelineCustomProcessorType type) {

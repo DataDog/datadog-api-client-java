@@ -246,6 +246,9 @@ public class ObservabilityPipelineHttpServerSource {
 
   public void setTls(ObservabilityPipelineMtlsServerTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineHttpServerSource type(
@@ -330,6 +333,11 @@ public class ObservabilityPipelineHttpServerSource {
 
   public void setValidTokens(List<ObservabilityPipelineHttpServerSourceValidToken> validTokens) {
     this.validTokens = validTokens;
+    if (validTokens != null) {
+      for (ObservabilityPipelineHttpServerSourceValidToken item : validTokens) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

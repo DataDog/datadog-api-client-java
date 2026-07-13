@@ -48,6 +48,9 @@ public class ServiceNowTicket {
 
   public void setResult(ServiceNowTicketResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   /**

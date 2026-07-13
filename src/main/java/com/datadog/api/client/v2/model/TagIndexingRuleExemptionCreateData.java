@@ -67,6 +67,9 @@ public class TagIndexingRuleExemptionCreateData {
 
   public void setAttributes(TagIndexingRuleExemptionCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TagIndexingRuleExemptionCreateData type(TagIndexingRuleExemptionType type) {

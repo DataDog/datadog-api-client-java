@@ -54,6 +54,9 @@ public class ApplicationKeyCreateRequest {
 
   public void setData(ApplicationKeyCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

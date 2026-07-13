@@ -369,6 +369,11 @@ public class IncidentUserDefinedFieldAttributesCreateRequest {
 
   public void setValidValues(List<IncidentUserDefinedFieldValidValue> validValues) {
     this.validValues = validValues;
+    if (validValues != null) {
+      for (IncidentUserDefinedFieldValidValue item : validValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

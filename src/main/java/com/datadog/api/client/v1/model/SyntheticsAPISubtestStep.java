@@ -238,6 +238,9 @@ public class SyntheticsAPISubtestStep {
 
   public void setRetry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
+    if (retry != null) {
+      this.unparsed |= retry.unparsed;
+    }
   }
 
   public SyntheticsAPISubtestStep subtestPublicId(String subtestPublicId) {

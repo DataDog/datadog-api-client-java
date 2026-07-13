@@ -56,6 +56,9 @@ public class LLMObsAnnotationQueueInteractionsResponse {
 
   public void setData(LLMObsAnnotationQueueInteractionsDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

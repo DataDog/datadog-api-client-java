@@ -58,6 +58,11 @@ public class DatasetResponseMulti {
 
   public void setData(List<DatasetResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (DatasetResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

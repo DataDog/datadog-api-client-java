@@ -61,6 +61,9 @@ public class ActionQueryMockedOutputsObject {
 
   public void setEnabled(ActionQueryMockedOutputsEnabled enabled) {
     this.enabled = enabled;
+    if (enabled != null) {
+      this.unparsed |= enabled.unparsed;
+    }
   }
 
   public ActionQueryMockedOutputsObject outputs(String outputs) {

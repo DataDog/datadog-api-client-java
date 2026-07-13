@@ -45,6 +45,9 @@ public class UserResponse {
 
   public void setUser(User user) {
     this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**

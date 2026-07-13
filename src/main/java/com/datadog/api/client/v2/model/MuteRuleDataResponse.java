@@ -71,6 +71,9 @@ public class MuteRuleDataResponse {
 
   public void setAttributes(MuteRuleAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MuteRuleDataResponse id(UUID id) {

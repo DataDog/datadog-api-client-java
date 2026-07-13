@@ -71,6 +71,9 @@ public class GetInvestigationResponseData {
 
   public void setAttributes(GetInvestigationResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetInvestigationResponseData id(String id) {

@@ -100,6 +100,9 @@ public class ProductAnalyticsFunnelRequest {
 
   public void setComparisonTime(FunnelComparisonDuration comparisonTime) {
     this.comparisonTime = comparisonTime;
+    if (comparisonTime != null) {
+      this.unparsed |= comparisonTime.unparsed;
+    }
   }
 
   public ProductAnalyticsFunnelRequest query(ProductAnalyticsFunnelQuery query) {
@@ -121,6 +124,9 @@ public class ProductAnalyticsFunnelRequest {
 
   public void setQuery(ProductAnalyticsFunnelQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public ProductAnalyticsFunnelRequest requestType(ProductAnalyticsFunnelRequestType requestType) {

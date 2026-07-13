@@ -42,7 +42,13 @@ public class SLOTimeSliceQuery {
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
           List<SLODataSourceQueryDefinition> queries) {
     this.formulas = formulas;
+    for (SLOFormula item : formulas) {
+      this.unparsed |= item.unparsed;
+    }
     this.queries = queries;
+    for (SLODataSourceQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SLOTimeSliceQuery formulas(List<SLOFormula> formulas) {
@@ -73,6 +79,11 @@ public class SLOTimeSliceQuery {
 
   public void setFormulas(List<SLOFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (SLOFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SLOTimeSliceQuery queries(List<SLODataSourceQueryDefinition> queries) {
@@ -102,6 +113,11 @@ public class SLOTimeSliceQuery {
 
   public void setQueries(List<SLODataSourceQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (SLODataSourceQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

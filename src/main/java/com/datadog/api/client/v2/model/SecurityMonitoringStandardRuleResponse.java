@@ -173,6 +173,11 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setCalculatedFields(List<CalculatedField> calculatedFields) {
     this.calculatedFields = calculatedFields;
+    if (calculatedFields != null) {
+      for (CalculatedField item : calculatedFields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRuleResponse cases(List<SecurityMonitoringRuleCase> cases) {
@@ -206,6 +211,11 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setCases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
+    if (cases != null) {
+      for (SecurityMonitoringRuleCase item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRuleResponse complianceSignalOptions(
@@ -230,6 +240,9 @@ public class SecurityMonitoringStandardRuleResponse {
   public void setComplianceSignalOptions(
       CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
     this.complianceSignalOptions = complianceSignalOptions;
+    if (complianceSignalOptions != null) {
+      this.unparsed |= complianceSignalOptions.unparsed;
+    }
   }
 
   public SecurityMonitoringStandardRuleResponse createdAt(Long createdAt) {
@@ -399,6 +412,11 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRuleResponse groupSignalsBy(List<String> groupSignalsBy) {
@@ -598,6 +616,9 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setOptions(SecurityMonitoringRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public SecurityMonitoringStandardRuleResponse queries(
@@ -633,6 +654,11 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setQueries(List<SecurityMonitoringStandardRuleQuery> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (SecurityMonitoringStandardRuleQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRuleResponse referenceTables(
@@ -668,6 +694,11 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setReferenceTables(List<SecurityMonitoringReferenceTable> referenceTables) {
     this.referenceTables = referenceTables;
+    if (referenceTables != null) {
+      for (SecurityMonitoringReferenceTable item : referenceTables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRuleResponse schedulingOptions(
@@ -768,6 +799,11 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setThirdPartyCases(List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
     this.thirdPartyCases = thirdPartyCases;
+    if (thirdPartyCases != null) {
+      for (SecurityMonitoringThirdPartyRuleCase item : thirdPartyCases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringStandardRuleResponse type(SecurityMonitoringRuleTypeRead type) {

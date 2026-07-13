@@ -58,6 +58,11 @@ public class CloudflareAccountsResponse {
 
   public void setData(List<CloudflareAccountResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (CloudflareAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

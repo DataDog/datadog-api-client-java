@@ -66,6 +66,9 @@ public class CustomerOrgDisableRequestData {
 
   public void setAttributes(CustomerOrgDisableRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomerOrgDisableRequestData id(String id) {

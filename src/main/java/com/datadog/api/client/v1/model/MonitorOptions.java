@@ -842,6 +842,9 @@ public class MonitorOptions {
 
   public void setSchedulingOptions(MonitorOptionsSchedulingOptions schedulingOptions) {
     this.schedulingOptions = schedulingOptions;
+    if (schedulingOptions != null) {
+      this.unparsed |= schedulingOptions.unparsed;
+    }
   }
 
   public MonitorOptions silenced(Map<String, Long> silenced) {
@@ -930,6 +933,9 @@ public class MonitorOptions {
 
   public void setThresholdWindows(MonitorThresholdWindowOptions thresholdWindows) {
     this.thresholdWindows = thresholdWindows;
+    if (thresholdWindows != null) {
+      this.unparsed |= thresholdWindows.unparsed;
+    }
   }
 
   public MonitorOptions thresholds(MonitorThresholds thresholds) {
@@ -952,6 +958,9 @@ public class MonitorOptions {
 
   public void setThresholds(MonitorThresholds thresholds) {
     this.thresholds = thresholds;
+    if (thresholds != null) {
+      this.unparsed |= thresholds.unparsed;
+    }
   }
 
   public MonitorOptions timeoutH(Long timeoutH) {
@@ -1018,6 +1027,11 @@ public class MonitorOptions {
 
   public void setVariables(List<MonitorFormulaAndFunctionQueryDefinition> variables) {
     this.variables = variables;
+    if (variables != null) {
+      for (MonitorFormulaAndFunctionQueryDefinition item : variables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

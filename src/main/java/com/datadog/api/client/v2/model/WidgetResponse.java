@@ -59,6 +59,9 @@ public class WidgetResponse {
 
   public void setData(WidgetData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public WidgetResponse included(List<WidgetIncludedUser> included) {
@@ -92,6 +95,11 @@ public class WidgetResponse {
 
   public void setIncluded(List<WidgetIncludedUser> included) {
     this.included = included;
+    if (included != null) {
+      for (WidgetIncludedUser item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

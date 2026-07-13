@@ -42,6 +42,9 @@ public class TraceAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_SPANS) List<APMTraceSpan> spans) {
     this.isTruncated = isTruncated;
     this.spans = spans;
+    for (APMTraceSpan item : spans) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public TraceAttributes isTruncated(Boolean isTruncated) {
@@ -92,6 +95,11 @@ public class TraceAttributes {
 
   public void setSpans(List<APMTraceSpan> spans) {
     this.spans = spans;
+    if (spans != null) {
+      for (APMTraceSpan item : spans) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

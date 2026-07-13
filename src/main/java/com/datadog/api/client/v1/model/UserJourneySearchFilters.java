@@ -57,6 +57,9 @@ public class UserJourneySearchFilters {
 
   public void setAudienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
+    if (audienceFilters != null) {
+      this.unparsed |= audienceFilters.unparsed;
+    }
   }
 
   public UserJourneySearchFilters graphFilters(List<UserJourneySearchGraphFilter> graphFilters) {
@@ -91,6 +94,11 @@ public class UserJourneySearchFilters {
 
   public void setGraphFilters(List<UserJourneySearchGraphFilter> graphFilters) {
     this.graphFilters = graphFilters;
+    if (graphFilters != null) {
+      for (UserJourneySearchGraphFilter item : graphFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UserJourneySearchFilters stringFilter(String stringFilter) {

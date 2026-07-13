@@ -51,6 +51,9 @@ public class SpansAggregateData {
 
   public void setAttributes(SpansAggregateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SpansAggregateData type(SpansAggregateRequestType type) {

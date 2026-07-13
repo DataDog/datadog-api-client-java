@@ -58,6 +58,11 @@ public class CaseTypesResponse {
 
   public void setData(List<CaseTypeResource> data) {
     this.data = data;
+    if (data != null) {
+      for (CaseTypeResource item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

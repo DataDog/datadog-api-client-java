@@ -59,6 +59,9 @@ public class SecurityMonitoringIntegrationCredentialsValidateRequest {
 
   public void setData(SecurityMonitoringIntegrationCredentialsValidateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

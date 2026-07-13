@@ -58,6 +58,11 @@ public class UsageIngestedSpansResponse {
 
   public void setUsage(List<UsageIngestedSpansHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageIngestedSpansHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

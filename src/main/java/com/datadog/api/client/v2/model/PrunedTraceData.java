@@ -70,6 +70,9 @@ public class PrunedTraceData {
 
   public void setAttributes(PrunedTraceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PrunedTraceData id(String id) {

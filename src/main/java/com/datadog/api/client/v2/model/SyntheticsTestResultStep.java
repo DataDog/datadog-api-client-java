@@ -270,6 +270,9 @@ public class SyntheticsTestResultStep {
 
   public void setAssertionResult(SyntheticsTestResultStepAssertionResult assertionResult) {
     this.assertionResult = assertionResult;
+    if (assertionResult != null) {
+      this.unparsed |= assertionResult.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep assertions(List<SyntheticsTestResultAssertionResult> assertions) {
@@ -304,6 +307,11 @@ public class SyntheticsTestResultStep {
 
   public void setAssertions(List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
+    if (assertions != null) {
+      for (SyntheticsTestResultAssertionResult item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultStep blockedRequestsUrls(List<String> blockedRequestsUrls) {
@@ -355,6 +363,9 @@ public class SyntheticsTestResultStep {
 
   public void setBounds(SyntheticsTestResultBounds bounds) {
     this.bounds = bounds;
+    if (bounds != null) {
+      this.unparsed |= bounds.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep browserErrors(
@@ -390,6 +401,11 @@ public class SyntheticsTestResultStep {
 
   public void setBrowserErrors(List<SyntheticsTestResultBrowserError> browserErrors) {
     this.browserErrors = browserErrors;
+    if (browserErrors != null) {
+      for (SyntheticsTestResultBrowserError item : browserErrors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultStep bucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
@@ -412,6 +428,9 @@ public class SyntheticsTestResultStep {
 
   public void setBucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
     this.bucketKeys = bucketKeys;
+    if (bucketKeys != null) {
+      this.unparsed |= bucketKeys.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep cdnResources(List<SyntheticsTestResultCdnResource> cdnResources) {
@@ -446,6 +465,11 @@ public class SyntheticsTestResultStep {
 
   public void setCdnResources(List<SyntheticsTestResultCdnResource> cdnResources) {
     this.cdnResources = cdnResources;
+    if (cdnResources != null) {
+      for (SyntheticsTestResultCdnResource item : cdnResources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultStep clickType(String clickType) {
@@ -603,6 +627,9 @@ public class SyntheticsTestResultStep {
 
   public void setElementUpdates(SyntheticsTestResultStepElementUpdates elementUpdates) {
     this.elementUpdates = elementUpdates;
+    if (elementUpdates != null) {
+      this.unparsed |= elementUpdates.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep extractedValue(SyntheticsTestResultVariable extractedValue) {
@@ -625,6 +652,9 @@ public class SyntheticsTestResultStep {
 
   public void setExtractedValue(SyntheticsTestResultVariable extractedValue) {
     this.extractedValue = extractedValue;
+    if (extractedValue != null) {
+      this.unparsed |= extractedValue.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep failure(SyntheticsTestResultFailure failure) {
@@ -647,6 +677,9 @@ public class SyntheticsTestResultStep {
 
   public void setFailure(SyntheticsTestResultFailure failure) {
     this.failure = failure;
+    if (failure != null) {
+      this.unparsed |= failure.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep httpResults(
@@ -682,6 +715,11 @@ public class SyntheticsTestResultStep {
 
   public void setHttpResults(List<SyntheticsTestResultAssertionResult> httpResults) {
     this.httpResults = httpResults;
+    if (httpResults != null) {
+      for (SyntheticsTestResultAssertionResult item : httpResults) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultStep id(String id) {
@@ -810,6 +848,9 @@ public class SyntheticsTestResultStep {
 
   public void setRequest(SyntheticsTestResultRequestInfo request) {
     this.request = request;
+    if (request != null) {
+      this.unparsed |= request.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep response(SyntheticsTestResultResponseInfo response) {
@@ -832,6 +873,9 @@ public class SyntheticsTestResultStep {
 
   public void setResponse(SyntheticsTestResultResponseInfo response) {
     this.response = response;
+    if (response != null) {
+      this.unparsed |= response.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep retries(List<SyntheticsTestResultStep> retries) {
@@ -865,6 +909,11 @@ public class SyntheticsTestResultStep {
 
   public void setRetries(List<SyntheticsTestResultStep> retries) {
     this.retries = retries;
+    if (retries != null) {
+      for (SyntheticsTestResultStep item : retries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultStep retryCount(Long retryCount) {
@@ -908,6 +957,9 @@ public class SyntheticsTestResultStep {
 
   public void setRumContext(SyntheticsTestResultRumContext rumContext) {
     this.rumContext = rumContext;
+    if (rumContext != null) {
+      this.unparsed |= rumContext.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep startedAt(Long startedAt) {
@@ -972,6 +1024,9 @@ public class SyntheticsTestResultStep {
 
   public void setSubStep(SyntheticsTestResultSubStep subStep) {
     this.subStep = subStep;
+    if (subStep != null) {
+      this.unparsed |= subStep.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep subTest(SyntheticsTestResultSubTest subTest) {
@@ -994,6 +1049,9 @@ public class SyntheticsTestResultStep {
 
   public void setSubTest(SyntheticsTestResultSubTest subTest) {
     this.subTest = subTest;
+    if (subTest != null) {
+      this.unparsed |= subTest.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep subtype(String subtype) {
@@ -1048,6 +1106,11 @@ public class SyntheticsTestResultStep {
 
   public void setTabs(List<SyntheticsTestResultTab> tabs) {
     this.tabs = tabs;
+    if (tabs != null) {
+      for (SyntheticsTestResultTab item : tabs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultStep timings(Map<String, Object> timings) {
@@ -1184,6 +1247,9 @@ public class SyntheticsTestResultStep {
 
   public void setVariables(SyntheticsTestResultVariables variables) {
     this.variables = variables;
+    if (variables != null) {
+      this.unparsed |= variables.unparsed;
+    }
   }
 
   public SyntheticsTestResultStep vitalsMetrics(
@@ -1219,6 +1285,11 @@ public class SyntheticsTestResultStep {
 
   public void setVitalsMetrics(List<SyntheticsTestResultVitalsMetrics> vitalsMetrics) {
     this.vitalsMetrics = vitalsMetrics;
+    if (vitalsMetrics != null) {
+      for (SyntheticsTestResultVitalsMetrics item : vitalsMetrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultStep warnings(List<SyntheticsTestResultWarning> warnings) {
@@ -1252,6 +1323,11 @@ public class SyntheticsTestResultStep {
 
   public void setWarnings(List<SyntheticsTestResultWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (SyntheticsTestResultWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

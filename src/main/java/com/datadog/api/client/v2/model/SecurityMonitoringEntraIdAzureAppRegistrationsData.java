@@ -73,6 +73,9 @@ public class SecurityMonitoringEntraIdAzureAppRegistrationsData {
 
   public void setAttributes(SecurityMonitoringEntraIdAzureAppRegistrationsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringEntraIdAzureAppRegistrationsData id(String id) {

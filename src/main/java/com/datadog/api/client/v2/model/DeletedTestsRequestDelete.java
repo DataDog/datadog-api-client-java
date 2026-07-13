@@ -65,6 +65,9 @@ public class DeletedTestsRequestDelete {
 
   public void setAttributes(DeletedTestsRequestDeleteAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeletedTestsRequestDelete id(String id) {

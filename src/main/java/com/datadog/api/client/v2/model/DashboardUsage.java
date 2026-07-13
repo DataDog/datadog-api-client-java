@@ -72,6 +72,9 @@ public class DashboardUsage {
 
   public void setAttributes(DashboardUsageAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DashboardUsage id(String id) {

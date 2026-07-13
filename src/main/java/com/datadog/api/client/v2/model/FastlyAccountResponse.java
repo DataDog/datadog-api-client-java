@@ -45,6 +45,9 @@ public class FastlyAccountResponse {
 
   public void setData(FastlyAccountResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

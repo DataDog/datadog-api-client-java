@@ -74,6 +74,9 @@ public class Integration {
 
   public void setAttributes(IntegrationAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Integration id(String id) {
@@ -116,6 +119,9 @@ public class Integration {
 
   public void setLinks(IntegrationLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public Integration type(IntegrationType type) {

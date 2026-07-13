@@ -72,6 +72,9 @@ public class LLMObsDataDeletionResponseData {
 
   public void setAttributes(LLMObsDataDeletionResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDataDeletionResponseData id(String id) {

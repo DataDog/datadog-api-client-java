@@ -93,6 +93,9 @@ public class NotebooksResponseDataAttributes {
 
   public void setAuthor(NotebookAuthor author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   public NotebooksResponseDataAttributes cells(List<NotebookCellResponse> cells) {
@@ -126,6 +129,11 @@ public class NotebooksResponseDataAttributes {
 
   public void setCells(List<NotebookCellResponse> cells) {
     this.cells = cells;
+    if (cells != null) {
+      for (NotebookCellResponse item : cells) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -160,6 +168,9 @@ public class NotebooksResponseDataAttributes {
 
   public void setMetadata(NotebookMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   /**
@@ -285,6 +296,9 @@ public class NotebooksResponseDataAttributes {
 
   public void setTime(NotebookGlobalTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   /**

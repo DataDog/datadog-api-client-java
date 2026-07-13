@@ -88,6 +88,11 @@ public class DegradationUpdateDataAttributes {
   public void setComponentsAffected(
       List<DegradationUpdateDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (DegradationUpdateDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DegradationUpdateDataAttributes createdAt(OffsetDateTime createdAt) {

@@ -50,6 +50,9 @@ public class Attachment {
 
   public void setData(AttachmentData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public Attachment included(List<AttachmentIncluded> included) {
@@ -83,6 +86,11 @@ public class Attachment {
 
   public void setIncluded(List<AttachmentIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (AttachmentIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

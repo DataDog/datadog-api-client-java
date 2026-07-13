@@ -135,6 +135,9 @@ public class WidgetFormula {
   public void setCellDisplayModeOptions(
       WidgetFormulaCellDisplayModeOptions cellDisplayModeOptions) {
     this.cellDisplayModeOptions = cellDisplayModeOptions;
+    if (cellDisplayModeOptions != null) {
+      this.unparsed |= cellDisplayModeOptions.unparsed;
+    }
   }
 
   public WidgetFormula conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
@@ -168,6 +171,11 @@ public class WidgetFormula {
 
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public WidgetFormula formula(String formula) {
@@ -210,6 +218,9 @@ public class WidgetFormula {
 
   public void setLimit(WidgetFormulaLimit limit) {
     this.limit = limit;
+    if (limit != null) {
+      this.unparsed |= limit.unparsed;
+    }
   }
 
   public WidgetFormula numberFormat(WidgetNumberFormat numberFormat) {
@@ -232,6 +243,9 @@ public class WidgetFormula {
 
   public void setNumberFormat(WidgetNumberFormat numberFormat) {
     this.numberFormat = numberFormat;
+    if (numberFormat != null) {
+      this.unparsed |= numberFormat.unparsed;
+    }
   }
 
   public WidgetFormula style(WidgetFormulaStyle style) {
@@ -254,6 +268,9 @@ public class WidgetFormula {
 
   public void setStyle(WidgetFormulaStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /**

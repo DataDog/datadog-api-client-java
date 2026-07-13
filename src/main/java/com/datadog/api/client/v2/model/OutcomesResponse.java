@@ -68,6 +68,11 @@ public class OutcomesResponse {
 
   public void setData(List<OutcomesResponseDataItem> data) {
     this.data = data;
+    if (data != null) {
+      for (OutcomesResponseDataItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public OutcomesResponse included(List<OutcomesResponseIncludedItem> included) {
@@ -101,6 +106,11 @@ public class OutcomesResponse {
 
   public void setIncluded(List<OutcomesResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (OutcomesResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public OutcomesResponse links(OutcomesResponseLinks links) {
@@ -123,6 +133,9 @@ public class OutcomesResponse {
 
   public void setLinks(OutcomesResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   /**

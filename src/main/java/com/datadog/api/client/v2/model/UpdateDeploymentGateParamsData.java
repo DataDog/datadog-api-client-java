@@ -71,6 +71,9 @@ public class UpdateDeploymentGateParamsData {
 
   public void setAttributes(UpdateDeploymentGateParamsDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateDeploymentGateParamsData id(String id) {

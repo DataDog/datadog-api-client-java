@@ -54,6 +54,9 @@ public class TagIndexingRuleOrderRequest {
 
   public void setData(TagIndexingRuleOrderData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

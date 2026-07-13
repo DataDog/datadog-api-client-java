@@ -58,6 +58,11 @@ public class UsageObservabilityPipelinesResponse {
 
   public void setData(List<UsageDataObject> data) {
     this.data = data;
+    if (data != null) {
+      for (UsageDataObject item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -75,6 +75,9 @@ public class ApplicationSecurityWafCustomRuleAttributes {
           ApplicationSecurityWafCustomRuleTags tags) {
     this.blocking = blocking;
     this.conditions = conditions;
+    for (ApplicationSecurityWafCustomRuleCondition item : conditions) {
+      this.unparsed |= item.unparsed;
+    }
     this.enabled = enabled;
     this.name = name;
     this.tags = tags;
@@ -102,6 +105,9 @@ public class ApplicationSecurityWafCustomRuleAttributes {
 
   public void setAction(ApplicationSecurityWafCustomRuleAction action) {
     this.action = action;
+    if (action != null) {
+      this.unparsed |= action.unparsed;
+    }
   }
 
   public ApplicationSecurityWafCustomRuleAttributes blocking(Boolean blocking) {
@@ -154,6 +160,11 @@ public class ApplicationSecurityWafCustomRuleAttributes {
 
   public void setConditions(List<ApplicationSecurityWafCustomRuleCondition> conditions) {
     this.conditions = conditions;
+    if (conditions != null) {
+      for (ApplicationSecurityWafCustomRuleCondition item : conditions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityWafCustomRuleAttributes enabled(Boolean enabled) {
@@ -262,6 +273,11 @@ public class ApplicationSecurityWafCustomRuleAttributes {
 
   public void setScope(List<ApplicationSecurityWafCustomRuleScope> scope) {
     this.scope = scope;
+    if (scope != null) {
+      for (ApplicationSecurityWafCustomRuleScope item : scope) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityWafCustomRuleAttributes tags(
@@ -285,6 +301,9 @@ public class ApplicationSecurityWafCustomRuleAttributes {
 
   public void setTags(ApplicationSecurityWafCustomRuleTags tags) {
     this.tags = tags;
+    if (tags != null) {
+      this.unparsed |= tags.unparsed;
+    }
   }
 
   /**

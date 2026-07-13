@@ -65,6 +65,9 @@ public class CustomDestinationCreateRequestDefinition {
 
   public void setAttributes(CustomDestinationCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomDestinationCreateRequestDefinition type(CustomDestinationType type) {

@@ -68,6 +68,9 @@ public class OktaAccount {
 
   public void setAttributes(OktaAccountAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OktaAccount id(String id) {

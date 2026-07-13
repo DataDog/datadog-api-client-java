@@ -64,6 +64,9 @@ public class StatuspageAccountResponseData {
 
   public void setAttributes(StatuspageAccountResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public StatuspageAccountResponseData type(StatuspageAccountType type) {

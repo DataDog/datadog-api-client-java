@@ -72,6 +72,9 @@ public class LLMObsPatternsTriggerResponseData {
 
   public void setAttributes(LLMObsPatternsTriggerResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsPatternsTriggerResponseData id(String id) {

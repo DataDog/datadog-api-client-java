@@ -58,6 +58,9 @@ public class LogsSchemaProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_SCHEMA) LogsSchemaData schema,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsSchemaProcessorType type) {
     this.mappers = mappers;
+    for (LogsSchemaMapper item : mappers) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
     this.schema = schema;
     this.unparsed |= schema.unparsed;
@@ -113,6 +116,11 @@ public class LogsSchemaProcessor {
 
   public void setMappers(List<LogsSchemaMapper> mappers) {
     this.mappers = mappers;
+    if (mappers != null) {
+      for (LogsSchemaMapper item : mappers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsSchemaProcessor name(String name) {
@@ -154,6 +162,9 @@ public class LogsSchemaProcessor {
 
   public void setSchema(LogsSchemaData schema) {
     this.schema = schema;
+    if (schema != null) {
+      this.unparsed |= schema.unparsed;
+    }
   }
 
   public LogsSchemaProcessor type(LogsSchemaProcessorType type) {

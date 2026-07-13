@@ -58,6 +58,11 @@ public class GetInterfacesResponse {
 
   public void setData(List<GetInterfacesData> data) {
     this.data = data;
+    if (data != null) {
+      for (GetInterfacesData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

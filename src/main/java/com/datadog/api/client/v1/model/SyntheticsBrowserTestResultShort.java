@@ -105,6 +105,9 @@ public class SyntheticsBrowserTestResultShort {
 
   public void setResult(SyntheticsBrowserTestResultShortResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public SyntheticsBrowserTestResultShort resultId(String resultId) {

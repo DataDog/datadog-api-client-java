@@ -61,6 +61,9 @@ public class ProductAnalyticsScalarColumn {
 
   public void setMeta(ProductAnalyticsScalarColumnMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public ProductAnalyticsScalarColumn name(String name) {

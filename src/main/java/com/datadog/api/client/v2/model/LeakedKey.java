@@ -70,6 +70,9 @@ public class LeakedKey {
 
   public void setAttributes(LeakedKeyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LeakedKey id(String id) {

@@ -57,6 +57,9 @@ public class MonitorDowntimeMatchResponseData {
 
   public void setAttributes(MonitorDowntimeMatchResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorDowntimeMatchResponseData id(String id) {

@@ -70,6 +70,9 @@ public class IssueUser {
 
   public void setAttributes(IssueUserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IssueUser id(String id) {

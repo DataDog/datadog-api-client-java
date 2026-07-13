@@ -80,6 +80,11 @@ public class SecurityMonitoringRuleCase {
 
   public void setActions(List<SecurityMonitoringRuleCaseAction> actions) {
     this.actions = actions;
+    if (actions != null) {
+      for (SecurityMonitoringRuleCaseAction item : actions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleCase condition(String condition) {

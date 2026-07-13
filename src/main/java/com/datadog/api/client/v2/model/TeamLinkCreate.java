@@ -61,6 +61,9 @@ public class TeamLinkCreate {
 
   public void setAttributes(TeamLinkAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamLinkCreate type(TeamLinkType type) {

@@ -160,6 +160,11 @@ public class StatusPageDataAttributes {
 
   public void setComponents(List<StatusPageDataAttributesComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (StatusPageDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public StatusPageDataAttributes createdAt(OffsetDateTime createdAt) {

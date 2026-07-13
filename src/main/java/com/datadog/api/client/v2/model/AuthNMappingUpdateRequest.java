@@ -54,6 +54,9 @@ public class AuthNMappingUpdateRequest {
 
   public void setData(AuthNMappingUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

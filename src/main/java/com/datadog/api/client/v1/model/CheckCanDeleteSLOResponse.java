@@ -51,6 +51,9 @@ public class CheckCanDeleteSLOResponse {
 
   public void setData(CheckCanDeleteSLOResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public CheckCanDeleteSLOResponse errors(Map<String, String> errors) {

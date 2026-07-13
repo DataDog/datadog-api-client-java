@@ -76,6 +76,9 @@ public class SyntheticsDowntimeTimeSlotRecurrenceRequest {
 
   public void setEnd(SyntheticsDowntimeTimeSlotDate end) {
     this.end = end;
+    if (end != null) {
+      this.unparsed |= end.unparsed;
+    }
   }
 
   public SyntheticsDowntimeTimeSlotRecurrenceRequest frequency(

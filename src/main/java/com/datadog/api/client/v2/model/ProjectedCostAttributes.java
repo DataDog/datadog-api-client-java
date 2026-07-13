@@ -131,6 +131,11 @@ public class ProjectedCostAttributes {
 
   public void setCharges(List<ChargebackBreakdown> charges) {
     this.charges = charges;
+    if (charges != null) {
+      for (ChargebackBreakdown item : charges) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProjectedCostAttributes date(OffsetDateTime date) {

@@ -72,6 +72,9 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
     this.type = type;
     this.unparsed |= !type.isValid();
     this.variables = variables;
+    for (ObservabilityPipelineAddEnvVarsProcessorVariable item : variables) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ObservabilityPipelineAddEnvVarsProcessor displayName(String displayName) {
@@ -209,6 +212,11 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
 
   public void setVariables(List<ObservabilityPipelineAddEnvVarsProcessorVariable> variables) {
     this.variables = variables;
+    if (variables != null) {
+      for (ObservabilityPipelineAddEnvVarsProcessorVariable item : variables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

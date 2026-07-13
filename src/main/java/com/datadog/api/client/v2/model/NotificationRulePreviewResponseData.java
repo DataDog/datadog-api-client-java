@@ -70,6 +70,9 @@ public class NotificationRulePreviewResponseData {
 
   public void setAttributes(NotificationRulePreviewResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NotificationRulePreviewResponseData id(String id) {

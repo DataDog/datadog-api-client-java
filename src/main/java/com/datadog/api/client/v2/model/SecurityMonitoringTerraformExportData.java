@@ -70,6 +70,9 @@ public class SecurityMonitoringTerraformExportData {
 
   public void setAttributes(SecurityMonitoringTerraformExportAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringTerraformExportData id(String id) {

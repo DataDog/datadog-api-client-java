@@ -55,6 +55,9 @@ public class RUMAnalyticsAggregateResponse {
 
   public void setData(RUMAggregationBucketsResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public RUMAnalyticsAggregateResponse links(RUMResponseLinks links) {
@@ -77,6 +80,9 @@ public class RUMAnalyticsAggregateResponse {
 
   public void setLinks(RUMResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public RUMAnalyticsAggregateResponse meta(RUMResponseMetadata meta) {
@@ -99,6 +105,9 @@ public class RUMAnalyticsAggregateResponse {
 
   public void setMeta(RUMResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

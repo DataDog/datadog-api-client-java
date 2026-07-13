@@ -55,6 +55,9 @@ public class SecurityMonitoringRuleBulkExportPayload {
 
   public void setData(SecurityMonitoringRuleBulkExportData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

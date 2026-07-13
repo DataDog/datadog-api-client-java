@@ -45,6 +45,9 @@ public class TeamNotificationRuleResponse {
 
   public void setData(TeamNotificationRule data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

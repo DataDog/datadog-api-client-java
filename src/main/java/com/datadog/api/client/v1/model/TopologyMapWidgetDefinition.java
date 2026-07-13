@@ -65,6 +65,9 @@ public class TopologyMapWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           TopologyMapWidgetDefinitionType type) {
     this.requests = requests;
+    for (TopologyRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -100,6 +103,11 @@ public class TopologyMapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TopologyMapWidgetDefinition description(String description) {
@@ -150,6 +158,11 @@ public class TopologyMapWidgetDefinition {
 
   public void setRequests(List<TopologyRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (TopologyRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TopologyMapWidgetDefinition title(String title) {

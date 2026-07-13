@@ -74,6 +74,9 @@ public class CostTagDescription {
 
   public void setAttributes(CostTagDescriptionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CostTagDescription id(String id) {

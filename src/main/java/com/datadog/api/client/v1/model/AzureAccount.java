@@ -440,6 +440,11 @@ public class AzureAccount {
 
   public void setResourceProviderConfigs(List<ResourceProviderConfig> resourceProviderConfigs) {
     this.resourceProviderConfigs = resourceProviderConfigs;
+    if (resourceProviderConfigs != null) {
+      for (ResourceProviderConfig item : resourceProviderConfigs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AzureAccount secretlessAuthEnabled(Boolean secretlessAuthEnabled) {

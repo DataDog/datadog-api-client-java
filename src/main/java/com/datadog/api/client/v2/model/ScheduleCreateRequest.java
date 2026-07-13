@@ -55,6 +55,9 @@ public class ScheduleCreateRequest {
 
   public void setData(ScheduleCreateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

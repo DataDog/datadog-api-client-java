@@ -136,6 +136,11 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public void setCases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
+    if (cases != null) {
+      for (SecurityMonitoringRuleCase item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalRuleResponse createdAt(Long createdAt) {
@@ -275,6 +280,11 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalRuleResponse hasExtendedTitle(Boolean hasExtendedTitle) {
@@ -444,6 +454,9 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public void setOptions(SecurityMonitoringRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalRuleResponse queries(
@@ -479,6 +492,11 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public void setQueries(List<SecurityMonitoringSignalRuleResponseQuery> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (SecurityMonitoringSignalRuleResponseQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalRuleResponse tags(List<String> tags) {

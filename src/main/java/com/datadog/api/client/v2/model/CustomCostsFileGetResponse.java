@@ -51,6 +51,9 @@ public class CustomCostsFileGetResponse {
 
   public void setData(CustomCostsFileMetadataWithContentHighLevel data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public CustomCostsFileGetResponse meta(CustomCostGetResponseMeta meta) {
@@ -73,6 +76,9 @@ public class CustomCostsFileGetResponse {
 
   public void setMeta(CustomCostGetResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

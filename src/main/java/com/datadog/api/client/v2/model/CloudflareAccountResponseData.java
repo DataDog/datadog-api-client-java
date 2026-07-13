@@ -70,6 +70,9 @@ public class CloudflareAccountResponseData {
 
   public void setAttributes(CloudflareAccountResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CloudflareAccountResponseData id(String id) {

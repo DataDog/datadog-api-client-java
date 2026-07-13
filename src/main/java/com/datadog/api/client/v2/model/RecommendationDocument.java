@@ -58,6 +58,9 @@ public class RecommendationDocument {
 
   public void setData(RecommendationData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

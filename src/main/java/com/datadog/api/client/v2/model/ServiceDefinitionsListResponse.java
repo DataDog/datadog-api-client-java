@@ -58,6 +58,11 @@ public class ServiceDefinitionsListResponse {
 
   public void setData(List<ServiceDefinitionData> data) {
     this.data = data;
+    if (data != null) {
+      for (ServiceDefinitionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

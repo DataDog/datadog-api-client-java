@@ -81,6 +81,9 @@ public class RetentionQuery {
 
   public void setCompute(RetentionCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public RetentionQuery dataSource(RetentionDataSource dataSource) {
@@ -127,6 +130,9 @@ public class RetentionQuery {
 
   public void setFilters(RetentionFilters filters) {
     this.filters = filters;
+    if (filters != null) {
+      this.unparsed |= filters.unparsed;
+    }
   }
 
   public RetentionQuery groupBy(List<RetentionGroupBy> groupBy) {
@@ -160,6 +166,11 @@ public class RetentionQuery {
 
   public void setGroupBy(List<RetentionGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (RetentionGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RetentionQuery name(String name) {
@@ -202,6 +213,9 @@ public class RetentionQuery {
 
   public void setSearch(RetentionSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /** Return true if this RetentionQuery object is equal to o. */

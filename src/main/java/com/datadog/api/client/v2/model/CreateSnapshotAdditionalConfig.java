@@ -70,6 +70,11 @@ public class CreateSnapshotAdditionalConfig {
 
   public void setTemplateVariables(List<CreateSnapshotTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (CreateSnapshotTemplateVariable item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateSnapshotAdditionalConfig timeseriesLegendType(

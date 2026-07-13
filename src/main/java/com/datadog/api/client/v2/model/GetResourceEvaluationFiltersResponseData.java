@@ -55,6 +55,9 @@ public class GetResourceEvaluationFiltersResponseData {
 
   public void setAttributes(ResourceFilterAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetResourceEvaluationFiltersResponseData id(String id) {

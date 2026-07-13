@@ -249,6 +249,9 @@ public class CheckStatusWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public CheckStatusWidgetDefinition title(String title) {

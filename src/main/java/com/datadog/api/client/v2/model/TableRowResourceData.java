@@ -61,6 +61,9 @@ public class TableRowResourceData {
 
   public void setAttributes(TableRowResourceDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TableRowResourceData id(String id) {

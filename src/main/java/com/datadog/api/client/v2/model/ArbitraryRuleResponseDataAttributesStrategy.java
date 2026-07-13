@@ -108,6 +108,11 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
   public void setAllocatedBy(
       List<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems> allocatedBy) {
     this.allocatedBy = allocatedBy;
+    if (allocatedBy != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems item : allocatedBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ArbitraryRuleResponseDataAttributesStrategy allocatedByFilters(
@@ -146,6 +151,12 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
   public void setAllocatedByFilters(
       List<ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems> allocatedByFilters) {
     this.allocatedByFilters = allocatedByFilters;
+    if (allocatedByFilters != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems item :
+          allocatedByFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ArbitraryRuleResponseDataAttributesStrategy allocatedByTagKeys(
@@ -213,6 +224,11 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
   public void setBasedOnCosts(
       List<ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems> basedOnCosts) {
     this.basedOnCosts = basedOnCosts;
+    if (basedOnCosts != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems item : basedOnCosts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ArbitraryRuleResponseDataAttributesStrategy basedOnTimeseries(
@@ -285,6 +301,12 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
       List<ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems>
           evaluateGroupedByFilters) {
     this.evaluateGroupedByFilters = evaluateGroupedByFilters;
+    if (evaluateGroupedByFilters != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems item :
+          evaluateGroupedByFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ArbitraryRuleResponseDataAttributesStrategy evaluateGroupedByTagKeys(

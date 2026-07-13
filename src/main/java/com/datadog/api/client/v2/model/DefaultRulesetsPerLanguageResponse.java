@@ -55,6 +55,9 @@ public class DefaultRulesetsPerLanguageResponse {
 
   public void setData(DefaultRulesetsPerLanguageData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

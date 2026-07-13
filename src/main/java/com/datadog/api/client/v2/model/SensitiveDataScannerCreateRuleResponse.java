@@ -51,6 +51,9 @@ public class SensitiveDataScannerCreateRuleResponse {
 
   public void setData(SensitiveDataScannerRuleResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SensitiveDataScannerCreateRuleResponse meta(SensitiveDataScannerMetaVersionOnly meta) {
@@ -73,6 +76,9 @@ public class SensitiveDataScannerCreateRuleResponse {
 
   public void setMeta(SensitiveDataScannerMetaVersionOnly meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

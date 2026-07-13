@@ -71,6 +71,9 @@ public class IncidentImportResponseData {
 
   public void setAttributes(IncidentImportResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentImportResponseData id(String id) {
@@ -114,6 +117,9 @@ public class IncidentImportResponseData {
 
   public void setRelationships(IncidentImportResponseRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentImportResponseData type(IncidentType type) {

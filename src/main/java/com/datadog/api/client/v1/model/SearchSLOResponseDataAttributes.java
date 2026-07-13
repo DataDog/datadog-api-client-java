@@ -53,6 +53,9 @@ public class SearchSLOResponseDataAttributes {
 
   public void setFacets(SearchSLOResponseDataAttributesFacets facets) {
     this.facets = facets;
+    if (facets != null) {
+      this.unparsed |= facets.unparsed;
+    }
   }
 
   public SearchSLOResponseDataAttributes slos(List<SearchServiceLevelObjective> slos) {
@@ -86,6 +89,11 @@ public class SearchSLOResponseDataAttributes {
 
   public void setSlos(List<SearchServiceLevelObjective> slos) {
     this.slos = slos;
+    if (slos != null) {
+      for (SearchServiceLevelObjective item : slos) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

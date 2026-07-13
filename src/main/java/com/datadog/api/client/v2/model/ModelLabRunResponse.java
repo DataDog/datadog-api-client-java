@@ -54,6 +54,9 @@ public class ModelLabRunResponse {
 
   public void setData(ModelLabRunData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

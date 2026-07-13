@@ -35,6 +35,9 @@ public class OpsgenieServicesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<OpsgenieServiceResponseData> data) {
     this.data = data;
+    for (OpsgenieServiceResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OpsgenieServicesResponse data(List<OpsgenieServiceResponseData> data) {
@@ -64,6 +67,11 @@ public class OpsgenieServicesResponse {
 
   public void setData(List<OpsgenieServiceResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (OpsgenieServiceResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

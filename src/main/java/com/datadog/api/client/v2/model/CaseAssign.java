@@ -61,6 +61,9 @@ public class CaseAssign {
 
   public void setAttributes(CaseAssignAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseAssign type(CaseResourceType type) {

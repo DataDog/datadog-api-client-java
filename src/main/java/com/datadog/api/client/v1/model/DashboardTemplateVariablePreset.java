@@ -87,6 +87,11 @@ public class DashboardTemplateVariablePreset {
 
   public void setTemplateVariables(List<DashboardTemplateVariablePresetValue> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (DashboardTemplateVariablePresetValue item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

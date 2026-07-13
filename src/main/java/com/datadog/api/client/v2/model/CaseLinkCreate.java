@@ -62,6 +62,9 @@ public class CaseLinkCreate {
 
   public void setAttributes(CaseLinkAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseLinkCreate type(CaseLinkResourceType type) {

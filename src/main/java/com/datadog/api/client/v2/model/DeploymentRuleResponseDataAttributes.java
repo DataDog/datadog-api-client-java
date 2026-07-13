@@ -126,6 +126,9 @@ public class DeploymentRuleResponseDataAttributes {
 
   public void setCreatedBy(DeploymentRuleResponseDataAttributesCreatedBy createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public DeploymentRuleResponseDataAttributes dryRun(Boolean dryRun) {
@@ -208,6 +211,9 @@ public class DeploymentRuleResponseDataAttributes {
 
   public void setOptions(DeploymentRulesOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public DeploymentRuleResponseDataAttributes type(DeploymentRuleResponseDataAttributesType type) {
@@ -276,6 +282,9 @@ public class DeploymentRuleResponseDataAttributes {
 
   public void setUpdatedBy(DeploymentRuleResponseDataAttributesUpdatedBy updatedBy) {
     this.updatedBy = updatedBy;
+    if (updatedBy != null) {
+      this.unparsed |= updatedBy.unparsed;
+    }
   }
 
   /**

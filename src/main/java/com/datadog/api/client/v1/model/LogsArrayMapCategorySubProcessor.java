@@ -54,6 +54,9 @@ public class LogsArrayMapCategorySubProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsCategoryProcessorType type) {
     this.categories = categories;
+    for (LogsCategoryProcessorCategory item : categories) {
+      this.unparsed |= item.unparsed;
+    }
     this.target = target;
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -88,6 +91,11 @@ public class LogsArrayMapCategorySubProcessor {
 
   public void setCategories(List<LogsCategoryProcessorCategory> categories) {
     this.categories = categories;
+    if (categories != null) {
+      for (LogsCategoryProcessorCategory item : categories) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsArrayMapCategorySubProcessor name(String name) {

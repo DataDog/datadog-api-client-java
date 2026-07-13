@@ -35,6 +35,9 @@ public class AWSAccountsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<AWSAccountResponseData> data) {
     this.data = data;
+    for (AWSAccountResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AWSAccountsResponse data(List<AWSAccountResponseData> data) {
@@ -64,6 +67,11 @@ public class AWSAccountsResponse {
 
   public void setData(List<AWSAccountResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (AWSAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

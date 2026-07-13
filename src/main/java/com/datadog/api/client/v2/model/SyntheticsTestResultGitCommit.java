@@ -63,6 +63,9 @@ public class SyntheticsTestResultGitCommit {
 
   public void setAuthor(SyntheticsTestResultGitUser author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   public SyntheticsTestResultGitCommit committer(SyntheticsTestResultGitUser committer) {
@@ -85,6 +88,9 @@ public class SyntheticsTestResultGitCommit {
 
   public void setCommitter(SyntheticsTestResultGitUser committer) {
     this.committer = committer;
+    if (committer != null) {
+      this.unparsed |= committer.unparsed;
+    }
   }
 
   public SyntheticsTestResultGitCommit message(String message) {

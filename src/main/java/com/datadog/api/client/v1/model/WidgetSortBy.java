@@ -82,6 +82,11 @@ public class WidgetSortBy {
 
   public void setOrderBy(List<WidgetSortOrderBy> orderBy) {
     this.orderBy = orderBy;
+    if (orderBy != null) {
+      for (WidgetSortOrderBy item : orderBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

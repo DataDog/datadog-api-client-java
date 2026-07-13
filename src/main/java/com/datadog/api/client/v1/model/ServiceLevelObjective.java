@@ -108,6 +108,9 @@ public class ServiceLevelObjective {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOType type) {
     this.name = name;
     this.thresholds = thresholds;
+    for (SLOThreshold item : thresholds) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -340,6 +343,9 @@ public class ServiceLevelObjective {
 
   public void setQuery(ServiceLevelObjectiveQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public ServiceLevelObjective sliSpecification(SLOSliSpec sliSpecification) {
@@ -362,6 +368,9 @@ public class ServiceLevelObjective {
 
   public void setSliSpecification(SLOSliSpec sliSpecification) {
     this.sliSpecification = sliSpecification;
+    if (sliSpecification != null) {
+      this.unparsed |= sliSpecification.unparsed;
+    }
   }
 
   public ServiceLevelObjective tags(List<String> tags) {
@@ -443,6 +452,11 @@ public class ServiceLevelObjective {
 
   public void setThresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
+    if (thresholds != null) {
+      for (SLOThreshold item : thresholds) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ServiceLevelObjective timeframe(SLOTimeframe timeframe) {

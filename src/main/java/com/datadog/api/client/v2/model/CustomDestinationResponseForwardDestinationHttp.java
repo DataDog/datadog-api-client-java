@@ -73,6 +73,9 @@ public class CustomDestinationResponseForwardDestinationHttp {
 
   public void setAuth(CustomDestinationResponseHttpDestinationAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public CustomDestinationResponseForwardDestinationHttp endpoint(String endpoint) {

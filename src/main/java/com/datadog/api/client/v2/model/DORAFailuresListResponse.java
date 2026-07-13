@@ -58,6 +58,11 @@ public class DORAFailuresListResponse {
 
   public void setData(List<DORAIncidentObject> data) {
     this.data = data;
+    if (data != null) {
+      for (DORAIncidentObject item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

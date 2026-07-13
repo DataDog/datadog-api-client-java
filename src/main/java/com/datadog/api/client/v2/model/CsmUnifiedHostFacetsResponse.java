@@ -35,6 +35,9 @@ public class CsmUnifiedHostFacetsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<CsmUnifiedHostFacetData> data) {
     this.data = data;
+    for (CsmUnifiedHostFacetData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CsmUnifiedHostFacetsResponse data(List<CsmUnifiedHostFacetData> data) {
@@ -64,6 +67,11 @@ public class CsmUnifiedHostFacetsResponse {
 
   public void setData(List<CsmUnifiedHostFacetData> data) {
     this.data = data;
+    if (data != null) {
+      for (CsmUnifiedHostFacetData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

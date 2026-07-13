@@ -35,6 +35,9 @@ public class RelationshipToOrganizations {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<RelationshipToOrganizationData> data) {
     this.data = data;
+    for (RelationshipToOrganizationData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RelationshipToOrganizations data(List<RelationshipToOrganizationData> data) {
@@ -64,6 +67,11 @@ public class RelationshipToOrganizations {
 
   public void setData(List<RelationshipToOrganizationData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToOrganizationData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

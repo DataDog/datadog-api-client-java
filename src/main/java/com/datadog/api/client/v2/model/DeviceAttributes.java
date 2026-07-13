@@ -188,6 +188,9 @@ public class DeviceAttributes {
 
   public void setInterfaceStatuses(DeviceAttributesInterfaceStatuses interfaceStatuses) {
     this.interfaceStatuses = interfaceStatuses;
+    if (interfaceStatuses != null) {
+      this.unparsed |= interfaceStatuses.unparsed;
+    }
   }
 
   public DeviceAttributes ipAddress(String ipAddress) {

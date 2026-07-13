@@ -54,6 +54,9 @@ public class CaseUpdatePriorityRequest {
 
   public void setData(CaseUpdatePriority data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

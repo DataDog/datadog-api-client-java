@@ -53,6 +53,9 @@ public class UsageTopAvgMetricsResponse {
 
   public void setMetadata(UsageTopAvgMetricsMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public UsageTopAvgMetricsResponse usage(List<UsageTopAvgMetricsHour> usage) {
@@ -86,6 +89,11 @@ public class UsageTopAvgMetricsResponse {
 
   public void setUsage(List<UsageTopAvgMetricsHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageTopAvgMetricsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

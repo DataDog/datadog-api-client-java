@@ -72,6 +72,9 @@ public class CostTagDescriptionUpsertRequestData {
 
   public void setAttributes(CostTagDescriptionUpsertRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CostTagDescriptionUpsertRequestData id(String id) {

@@ -52,6 +52,9 @@ public class CreateOpenAPIResponseData {
 
   public void setAttributes(CreateOpenAPIResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateOpenAPIResponseData id(UUID id) {

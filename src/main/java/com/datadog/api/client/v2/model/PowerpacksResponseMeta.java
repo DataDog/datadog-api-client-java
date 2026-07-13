@@ -45,6 +45,9 @@ public class PowerpacksResponseMeta {
 
   public void setPagination(PowerpacksResponseMetaPagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

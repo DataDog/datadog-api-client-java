@@ -64,6 +64,9 @@ public class UpdateCampaignRequestData {
 
   public void setAttributes(UpdateCampaignRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateCampaignRequestData type(CampaignType type) {

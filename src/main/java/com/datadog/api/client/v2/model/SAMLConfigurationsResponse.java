@@ -64,6 +64,11 @@ public class SAMLConfigurationsResponse {
 
   public void setData(List<SAMLConfiguration> data) {
     this.data = data;
+    if (data != null) {
+      for (SAMLConfiguration item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SAMLConfigurationsResponse included(List<Role> included) {
@@ -97,6 +102,11 @@ public class SAMLConfigurationsResponse {
 
   public void setIncluded(List<Role> included) {
     this.included = included;
+    if (included != null) {
+      for (Role item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

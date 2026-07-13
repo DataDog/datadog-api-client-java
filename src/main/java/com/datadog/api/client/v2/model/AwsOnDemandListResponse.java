@@ -58,6 +58,11 @@ public class AwsOnDemandListResponse {
 
   public void setData(List<AwsOnDemandData> data) {
     this.data = data;
+    if (data != null) {
+      for (AwsOnDemandData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

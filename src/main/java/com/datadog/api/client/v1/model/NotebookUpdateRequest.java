@@ -54,6 +54,9 @@ public class NotebookUpdateRequest {
 
   public void setData(NotebookUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

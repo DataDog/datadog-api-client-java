@@ -70,6 +70,9 @@ public class OpsgenieServiceResponseData {
 
   public void setAttributes(OpsgenieServiceResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OpsgenieServiceResponseData id(String id) {

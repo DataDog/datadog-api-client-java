@@ -74,6 +74,9 @@ public class UpsertCloudInventorySyncConfigRequestData {
 
   public void setAttributes(UpsertCloudInventorySyncConfigRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpsertCloudInventorySyncConfigRequestData id(CloudInventoryCloudProviderId id) {

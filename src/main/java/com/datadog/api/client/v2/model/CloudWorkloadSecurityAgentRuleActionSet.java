@@ -273,6 +273,9 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
 
   public void setValue(CloudWorkloadSecurityAgentRuleActionSetValue value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /**

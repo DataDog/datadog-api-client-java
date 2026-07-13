@@ -116,6 +116,9 @@ public class CustomRule {
 
   public void setLastRevision(CustomRuleRevision lastRevision) {
     this.lastRevision = lastRevision;
+    if (lastRevision != null) {
+      this.unparsed |= lastRevision.unparsed;
+    }
   }
 
   public CustomRule name(String name) {

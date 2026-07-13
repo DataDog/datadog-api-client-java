@@ -55,6 +55,9 @@ public class TeamHierarchyLinkTeamRelationship {
 
   public void setData(TeamHierarchyLinkTeam data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

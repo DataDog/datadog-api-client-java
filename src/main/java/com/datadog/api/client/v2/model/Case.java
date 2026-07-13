@@ -73,6 +73,9 @@ public class Case {
 
   public void setAttributes(CaseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Case id(String id) {
@@ -115,6 +118,9 @@ public class Case {
 
   public void setRelationships(CaseRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public Case type(CaseResourceType type) {

@@ -54,6 +54,9 @@ public class SAMLConfigurationUpdateRequest {
 
   public void setData(SAMLConfigurationUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

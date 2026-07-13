@@ -66,6 +66,9 @@ public class AutomationRuleAction {
 
   public void setData(AutomationRuleActionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public AutomationRuleAction type(AutomationRuleActionType type) {

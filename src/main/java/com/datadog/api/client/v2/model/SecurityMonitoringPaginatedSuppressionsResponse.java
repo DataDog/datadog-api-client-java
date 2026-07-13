@@ -66,6 +66,11 @@ public class SecurityMonitoringPaginatedSuppressionsResponse {
 
   public void setData(List<SecurityMonitoringSuppression> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringSuppression item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringPaginatedSuppressionsResponse meta(
@@ -89,6 +94,9 @@ public class SecurityMonitoringPaginatedSuppressionsResponse {
 
   public void setMeta(SecurityMonitoringSuppressionsMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

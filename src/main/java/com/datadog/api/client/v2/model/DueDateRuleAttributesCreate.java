@@ -73,6 +73,9 @@ public class DueDateRuleAttributesCreate {
 
   public void setAction(DueDateRuleAction action) {
     this.action = action;
+    if (action != null) {
+      this.unparsed |= action.unparsed;
+    }
   }
 
   public DueDateRuleAttributesCreate enabled(Boolean enabled) {
@@ -135,6 +138,9 @@ public class DueDateRuleAttributesCreate {
 
   public void setRule(AutomationRuleScope rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   /**

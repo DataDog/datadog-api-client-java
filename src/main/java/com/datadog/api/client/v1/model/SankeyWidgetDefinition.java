@@ -62,6 +62,9 @@ public class SankeyWidgetDefinition {
           List<SankeyWidgetRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SankeyWidgetDefinitionType type) {
     this.requests = requests;
+    for (SankeyWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -93,6 +96,11 @@ public class SankeyWidgetDefinition {
 
   public void setRequests(List<SankeyWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (SankeyWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SankeyWidgetDefinition showOtherLinks(Boolean showOtherLinks) {
@@ -157,6 +165,9 @@ public class SankeyWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public SankeyWidgetDefinition title(String title) {

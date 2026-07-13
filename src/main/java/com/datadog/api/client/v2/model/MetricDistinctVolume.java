@@ -55,6 +55,9 @@ public class MetricDistinctVolume {
 
   public void setAttributes(MetricDistinctVolumeAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricDistinctVolume id(String id) {

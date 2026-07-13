@@ -105,6 +105,11 @@ public class RunWorkflowWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RunWorkflowWidgetDefinition description(String description) {
@@ -159,6 +164,11 @@ public class RunWorkflowWidgetDefinition {
 
   public void setInputs(List<RunWorkflowWidgetInput> inputs) {
     this.inputs = inputs;
+    if (inputs != null) {
+      for (RunWorkflowWidgetInput item : inputs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RunWorkflowWidgetDefinition time(WidgetTime time) {
@@ -181,6 +191,9 @@ public class RunWorkflowWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public RunWorkflowWidgetDefinition title(String title) {

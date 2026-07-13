@@ -54,6 +54,9 @@ public class RUMApplicationUpdateRequest {
 
   public void setData(RUMApplicationUpdate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

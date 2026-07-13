@@ -45,6 +45,9 @@ public class AttachCaseRequest {
 
   public void setData(AttachCaseRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

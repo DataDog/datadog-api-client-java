@@ -74,6 +74,9 @@ public class IncidentHandleDataRequest {
 
   public void setAttributes(IncidentHandleAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentHandleDataRequest id(String id) {

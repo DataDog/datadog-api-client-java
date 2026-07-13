@@ -51,6 +51,9 @@ public class SensitiveDataScannerRuleRelationships {
 
   public void setGroup(SensitiveDataScannerGroupData group) {
     this.group = group;
+    if (group != null) {
+      this.unparsed |= group.unparsed;
+    }
   }
 
   public SensitiveDataScannerRuleRelationships standardPattern(
@@ -74,6 +77,9 @@ public class SensitiveDataScannerRuleRelationships {
 
   public void setStandardPattern(SensitiveDataScannerStandardPatternData standardPattern) {
     this.standardPattern = standardPattern;
+    if (standardPattern != null) {
+      this.unparsed |= standardPattern.unparsed;
+    }
   }
 
   /**

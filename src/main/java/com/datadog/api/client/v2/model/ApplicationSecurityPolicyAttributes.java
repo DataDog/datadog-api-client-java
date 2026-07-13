@@ -193,6 +193,11 @@ public class ApplicationSecurityPolicyAttributes {
 
   public void setRules(List<ApplicationSecurityPolicyRuleOverride> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (ApplicationSecurityPolicyRuleOverride item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityPolicyAttributes rulesets(
@@ -231,6 +236,11 @@ public class ApplicationSecurityPolicyAttributes {
   @Deprecated
   public void setRulesets(List<ApplicationSecurityPolicyRulesetOverride> rulesets) {
     this.rulesets = rulesets;
+    if (rulesets != null) {
+      for (ApplicationSecurityPolicyRulesetOverride item : rulesets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityPolicyAttributes scope(List<ApplicationSecurityPolicyScope> scope) {
@@ -265,6 +275,11 @@ public class ApplicationSecurityPolicyAttributes {
 
   public void setScope(List<ApplicationSecurityPolicyScope> scope) {
     this.scope = scope;
+    if (scope != null) {
+      for (ApplicationSecurityPolicyScope item : scope) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityPolicyAttributes version(Long version) {

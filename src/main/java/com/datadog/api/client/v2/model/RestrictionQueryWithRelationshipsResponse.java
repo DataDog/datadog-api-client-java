@@ -53,6 +53,9 @@ public class RestrictionQueryWithRelationshipsResponse {
 
   public void setData(RestrictionQueryWithRelationships data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public RestrictionQueryWithRelationshipsResponse included(
@@ -88,6 +91,11 @@ public class RestrictionQueryWithRelationshipsResponse {
 
   public void setIncluded(List<RestrictionQueryResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (RestrictionQueryResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

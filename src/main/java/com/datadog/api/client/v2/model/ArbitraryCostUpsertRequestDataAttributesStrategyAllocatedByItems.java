@@ -47,6 +47,10 @@ public class ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems {
               allocatedTags,
       @JsonProperty(required = true, value = JSON_PROPERTY_PERCENTAGE) Double percentage) {
     this.allocatedTags = allocatedTags;
+    for (ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems item :
+        allocatedTags) {
+      this.unparsed |= item.unparsed;
+    }
     this.percentage = percentage;
   }
 
@@ -85,6 +89,12 @@ public class ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems {
       List<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>
           allocatedTags) {
     this.allocatedTags = allocatedTags;
+    if (allocatedTags != null) {
+      for (ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems item :
+          allocatedTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems percentage(

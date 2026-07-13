@@ -46,6 +46,9 @@ public class CIAppCreatePipelineEventRequest {
 
   public void setData(CIAppCreatePipelineEventRequestDataSingleOrArray data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

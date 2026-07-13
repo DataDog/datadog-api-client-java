@@ -45,6 +45,9 @@ public class IoCExplorerListResponse {
 
   public void setData(IoCExplorerListResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

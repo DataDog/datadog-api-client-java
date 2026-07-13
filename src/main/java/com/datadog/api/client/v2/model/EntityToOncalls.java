@@ -58,6 +58,11 @@ public class EntityToOncalls {
 
   public void setData(List<RelationshipItem> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

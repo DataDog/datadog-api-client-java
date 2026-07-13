@@ -65,6 +65,9 @@ public class TeamSyncSelectionStateItem {
 
   public void setExternalId(TeamSyncSelectionStateExternalId externalId) {
     this.externalId = externalId;
+    if (externalId != null) {
+      this.unparsed |= externalId.unparsed;
+    }
   }
 
   public TeamSyncSelectionStateItem operation(TeamSyncSelectionStateOperation operation) {

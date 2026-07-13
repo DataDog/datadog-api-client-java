@@ -83,6 +83,9 @@ public class LLMObsInferenceContent {
 
   public void setValue(LLMObsInferenceContentValue value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class RestrictionQueryCreatePayload {
 
   public void setData(RestrictionQueryCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

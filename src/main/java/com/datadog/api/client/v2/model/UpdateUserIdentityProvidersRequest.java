@@ -35,6 +35,9 @@ public class UpdateUserIdentityProvidersRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<UserRelationshipIdentityProviderData> data) {
     this.data = data;
+    for (UserRelationshipIdentityProviderData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public UpdateUserIdentityProvidersRequest data(List<UserRelationshipIdentityProviderData> data) {
@@ -65,6 +68,11 @@ public class UpdateUserIdentityProvidersRequest {
 
   public void setData(List<UserRelationshipIdentityProviderData> data) {
     this.data = data;
+    if (data != null) {
+      for (UserRelationshipIdentityProviderData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class AWSAccountCreateRequest {
 
   public void setData(AWSAccountCreateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

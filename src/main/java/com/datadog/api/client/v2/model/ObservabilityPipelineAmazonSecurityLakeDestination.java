@@ -110,6 +110,9 @@ public class ObservabilityPipelineAmazonSecurityLakeDestination {
 
   public void setAuth(ObservabilityPipelineAwsAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonSecurityLakeDestination bucket(String bucket) {
@@ -153,6 +156,9 @@ public class ObservabilityPipelineAmazonSecurityLakeDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonSecurityLakeDestination customSourceName(
@@ -261,6 +267,9 @@ public class ObservabilityPipelineAmazonSecurityLakeDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonSecurityLakeDestination type(

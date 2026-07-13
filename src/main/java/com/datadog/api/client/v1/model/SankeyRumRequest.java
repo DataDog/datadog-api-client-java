@@ -60,6 +60,9 @@ public class SankeyRumRequest {
 
   public void setQuery(SankeyRumQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public SankeyRumRequest requestType(SankeyWidgetDefinitionType requestType) {

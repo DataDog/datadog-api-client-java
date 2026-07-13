@@ -64,6 +64,11 @@ public class ItemApiPayloadMetaSchema {
 
   public void setFields(List<ItemApiPayloadMetaSchemaField> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (ItemApiPayloadMetaSchemaField item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ItemApiPayloadMetaSchema primaryKey(String primaryKey) {

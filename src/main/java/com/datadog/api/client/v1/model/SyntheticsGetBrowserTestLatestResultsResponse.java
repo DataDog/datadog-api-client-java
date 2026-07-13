@@ -88,6 +88,11 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
 
   public void setResults(List<SyntheticsBrowserTestResultShort> results) {
     this.results = results;
+    if (results != null) {
+      for (SyntheticsBrowserTestResultShort item : results) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

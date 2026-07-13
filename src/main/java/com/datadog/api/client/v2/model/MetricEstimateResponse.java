@@ -45,6 +45,9 @@ public class MetricEstimateResponse {
 
   public void setData(MetricEstimate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

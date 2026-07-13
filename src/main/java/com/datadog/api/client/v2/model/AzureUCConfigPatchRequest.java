@@ -54,6 +54,9 @@ public class AzureUCConfigPatchRequest {
 
   public void setData(AzureUCConfigPatchData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

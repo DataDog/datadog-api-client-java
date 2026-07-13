@@ -46,6 +46,9 @@ public class ListDashboardsUsageResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_META)
           ListDashboardsUsageResponseMeta meta) {
     this.data = data;
+    for (DashboardUsage item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -77,6 +80,11 @@ public class ListDashboardsUsageResponse {
 
   public void setData(List<DashboardUsage> data) {
     this.data = data;
+    if (data != null) {
+      for (DashboardUsage item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListDashboardsUsageResponse links(ListDashboardsUsageResponseLinks links) {
@@ -99,6 +107,9 @@ public class ListDashboardsUsageResponse {
 
   public void setLinks(ListDashboardsUsageResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListDashboardsUsageResponse meta(ListDashboardsUsageResponseMeta meta) {
@@ -120,6 +131,9 @@ public class ListDashboardsUsageResponse {
 
   public void setMeta(ListDashboardsUsageResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

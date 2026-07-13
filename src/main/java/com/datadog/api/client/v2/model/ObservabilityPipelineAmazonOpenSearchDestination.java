@@ -94,6 +94,9 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
 
   public void setAuth(ObservabilityPipelineAmazonOpenSearchDestinationAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonOpenSearchDestination buffer(
@@ -117,6 +120,9 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonOpenSearchDestination bulkIndex(String bulkIndex) {

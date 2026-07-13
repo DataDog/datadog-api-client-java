@@ -70,6 +70,9 @@ public class NetworkHealthInsight {
 
   public void setAttributes(NetworkHealthInsightAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NetworkHealthInsight id(String id) {

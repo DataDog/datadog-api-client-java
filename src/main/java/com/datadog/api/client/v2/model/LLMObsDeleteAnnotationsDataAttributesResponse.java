@@ -44,6 +44,9 @@ public class LLMObsDeleteAnnotationsDataAttributesResponse {
           List<LLMObsDeleteAnnotationError> errors) {
     this.annotationIds = annotationIds;
     this.errors = errors;
+    for (LLMObsDeleteAnnotationError item : errors) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsDeleteAnnotationsDataAttributesResponse annotationIds(List<String> annotationIds) {
@@ -101,6 +104,11 @@ public class LLMObsDeleteAnnotationsDataAttributesResponse {
 
   public void setErrors(List<LLMObsDeleteAnnotationError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (LLMObsDeleteAnnotationError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

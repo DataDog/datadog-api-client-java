@@ -57,6 +57,9 @@ public class AWSIntegrationIamPermissionsResponseData {
 
   public void setAttributes(AWSIntegrationIamPermissionsResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSIntegrationIamPermissionsResponseData id(String id) {

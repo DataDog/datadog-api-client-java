@@ -61,6 +61,9 @@ public class CaseComment {
 
   public void setAttributes(CaseCommentAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseComment type(CaseResourceType type) {

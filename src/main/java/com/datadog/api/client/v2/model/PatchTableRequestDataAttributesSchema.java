@@ -45,6 +45,9 @@ public class PatchTableRequestDataAttributesSchema {
           List<PatchTableRequestDataAttributesSchemaFieldsItems> fields,
       @JsonProperty(required = true, value = JSON_PROPERTY_PRIMARY_KEYS) List<String> primaryKeys) {
     this.fields = fields;
+    for (PatchTableRequestDataAttributesSchemaFieldsItems item : fields) {
+      this.unparsed |= item.unparsed;
+    }
     this.primaryKeys = primaryKeys;
   }
 
@@ -77,6 +80,11 @@ public class PatchTableRequestDataAttributesSchema {
 
   public void setFields(List<PatchTableRequestDataAttributesSchemaFieldsItems> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (PatchTableRequestDataAttributesSchemaFieldsItems item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PatchTableRequestDataAttributesSchema primaryKeys(List<String> primaryKeys) {

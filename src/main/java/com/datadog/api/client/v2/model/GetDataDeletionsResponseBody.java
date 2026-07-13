@@ -64,6 +64,11 @@ public class GetDataDeletionsResponseBody {
 
   public void setData(List<DataDeletionResponseItem> data) {
     this.data = data;
+    if (data != null) {
+      for (DataDeletionResponseItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GetDataDeletionsResponseBody meta(DataDeletionResponseMeta meta) {
@@ -86,6 +91,9 @@ public class GetDataDeletionsResponseBody {
 
   public void setMeta(DataDeletionResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

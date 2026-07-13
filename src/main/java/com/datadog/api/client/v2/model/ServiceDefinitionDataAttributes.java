@@ -51,6 +51,9 @@ public class ServiceDefinitionDataAttributes {
 
   public void setMeta(ServiceDefinitionMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public ServiceDefinitionDataAttributes schema(ServiceDefinitionSchema schema) {
@@ -73,6 +76,9 @@ public class ServiceDefinitionDataAttributes {
 
   public void setSchema(ServiceDefinitionSchema schema) {
     this.schema = schema;
+    if (schema != null) {
+      this.unparsed |= schema.unparsed;
+    }
   }
 
   /**

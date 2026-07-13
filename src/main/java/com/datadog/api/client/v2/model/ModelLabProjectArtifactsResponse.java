@@ -55,6 +55,9 @@ public class ModelLabProjectArtifactsResponse {
 
   public void setData(ModelLabProjectArtifactsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

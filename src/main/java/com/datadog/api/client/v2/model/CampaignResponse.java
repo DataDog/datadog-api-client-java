@@ -54,6 +54,9 @@ public class CampaignResponse {
 
   public void setData(CampaignResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

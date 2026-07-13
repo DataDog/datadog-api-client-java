@@ -68,6 +68,11 @@ public class LogsListResponse {
 
   public void setData(List<Log> data) {
     this.data = data;
+    if (data != null) {
+      for (Log item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsListResponse links(LogsListResponseLinks links) {
@@ -90,6 +95,9 @@ public class LogsListResponse {
 
   public void setLinks(LogsListResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public LogsListResponse meta(LogsResponseMetadata meta) {
@@ -112,6 +120,9 @@ public class LogsListResponse {
 
   public void setMeta(LogsResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

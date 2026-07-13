@@ -51,6 +51,9 @@ public class UpdateAppTagsRequestData {
 
   public void setAttributes(UpdateAppTagsRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateAppTagsRequestData type(AppTagsType type) {

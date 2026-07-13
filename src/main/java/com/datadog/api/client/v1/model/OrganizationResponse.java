@@ -45,6 +45,9 @@ public class OrganizationResponse {
 
   public void setOrg(Organization org) {
     this.org = org;
+    if (org != null) {
+      this.unparsed |= org.unparsed;
+    }
   }
 
   /**

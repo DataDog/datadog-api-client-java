@@ -58,6 +58,11 @@ public class LogsByRetentionOrgs {
 
   public void setUsage(List<LogsByRetentionOrgUsage> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (LogsByRetentionOrgUsage item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

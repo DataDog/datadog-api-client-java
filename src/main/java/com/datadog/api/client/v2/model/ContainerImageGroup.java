@@ -59,6 +59,9 @@ public class ContainerImageGroup {
 
   public void setAttributes(ContainerImageGroupAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ContainerImageGroup id(String id) {
@@ -102,6 +105,9 @@ public class ContainerImageGroup {
 
   public void setRelationships(ContainerImageGroupRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ContainerImageGroup type(ContainerImageGroupType type) {

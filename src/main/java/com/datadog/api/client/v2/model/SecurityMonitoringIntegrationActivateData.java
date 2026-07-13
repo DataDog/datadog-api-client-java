@@ -53,6 +53,9 @@ public class SecurityMonitoringIntegrationActivateData {
 
   public void setAttributes(SecurityMonitoringIntegrationActivateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringIntegrationActivateData type(

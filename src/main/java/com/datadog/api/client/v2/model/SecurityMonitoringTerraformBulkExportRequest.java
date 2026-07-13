@@ -56,6 +56,9 @@ public class SecurityMonitoringTerraformBulkExportRequest {
 
   public void setData(SecurityMonitoringTerraformBulkExportData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

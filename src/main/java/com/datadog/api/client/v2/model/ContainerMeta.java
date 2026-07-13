@@ -45,6 +45,9 @@ public class ContainerMeta {
 
   public void setPagination(ContainerMetaPage pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

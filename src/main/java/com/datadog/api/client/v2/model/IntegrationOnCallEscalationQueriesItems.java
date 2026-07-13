@@ -123,6 +123,9 @@ public class IntegrationOnCallEscalationQueriesItems {
 
   public void setTarget(IntegrationOnCallEscalationQueriesItemsTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   /**

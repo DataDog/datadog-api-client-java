@@ -131,6 +131,11 @@ public class HourlyUsageAttributes {
 
   public void setMeasurements(List<HourlyUsageMeasurement> measurements) {
     this.measurements = measurements;
+    if (measurements != null) {
+      for (HourlyUsageMeasurement item : measurements) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HourlyUsageAttributes orgName(String orgName) {

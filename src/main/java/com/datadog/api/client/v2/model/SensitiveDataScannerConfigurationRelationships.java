@@ -46,6 +46,9 @@ public class SensitiveDataScannerConfigurationRelationships {
 
   public void setGroups(SensitiveDataScannerGroupList groups) {
     this.groups = groups;
+    if (groups != null) {
+      this.unparsed |= groups.unparsed;
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class AnnotationDisplay {
 
   public void setBounds(AnnotationDisplayBounds bounds) {
     this.bounds = bounds;
+    if (bounds != null) {
+      this.unparsed |= bounds.unparsed;
+    }
   }
 
   /**

@@ -72,6 +72,9 @@ public class TicketCreationRuleDataResponse {
 
   public void setAttributes(TicketCreationRuleAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TicketCreationRuleDataResponse id(UUID id) {

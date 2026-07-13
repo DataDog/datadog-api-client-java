@@ -45,6 +45,9 @@ public class SyntheticsTestResultRelationshipTest {
 
   public void setData(SyntheticsTestResultRelationshipTestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

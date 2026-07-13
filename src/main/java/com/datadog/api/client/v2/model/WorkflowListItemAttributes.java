@@ -158,6 +158,9 @@ public class WorkflowListItemAttributes {
 
   public void setSpec(Spec spec) {
     this.spec = spec;
+    if (spec != null) {
+      this.unparsed |= spec.unparsed;
+    }
   }
 
   public WorkflowListItemAttributes tags(List<String> tags) {

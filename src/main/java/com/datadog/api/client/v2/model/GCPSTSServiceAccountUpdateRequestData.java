@@ -56,6 +56,9 @@ public class GCPSTSServiceAccountUpdateRequestData {
 
   public void setAttributes(GCPSTSServiceAccountAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GCPSTSServiceAccountUpdateRequestData id(String id) {

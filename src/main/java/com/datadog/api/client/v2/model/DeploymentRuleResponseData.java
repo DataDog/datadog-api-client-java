@@ -70,6 +70,9 @@ public class DeploymentRuleResponseData {
 
   public void setAttributes(DeploymentRuleResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeploymentRuleResponseData id(String id) {

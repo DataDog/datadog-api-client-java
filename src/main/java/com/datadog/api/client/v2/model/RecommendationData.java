@@ -72,6 +72,9 @@ public class RecommendationData {
 
   public void setAttributes(RecommendationAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RecommendationData id(String id) {

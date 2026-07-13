@@ -80,6 +80,9 @@ public class UpsertFormVersionDataAttributes {
 
   public void setDataDefinition(FormDataDefinition dataDefinition) {
     this.dataDefinition = dataDefinition;
+    if (dataDefinition != null) {
+      this.unparsed |= dataDefinition.unparsed;
+    }
   }
 
   public UpsertFormVersionDataAttributes state(FormVersionState state) {
@@ -126,6 +129,9 @@ public class UpsertFormVersionDataAttributes {
 
   public void setUiDefinition(FormUiDefinition uiDefinition) {
     this.uiDefinition = uiDefinition;
+    if (uiDefinition != null) {
+      this.unparsed |= uiDefinition.unparsed;
+    }
   }
 
   public UpsertFormVersionDataAttributes upsertParams(UpsertFormVersionUpsertParams upsertParams) {
@@ -147,6 +153,9 @@ public class UpsertFormVersionDataAttributes {
 
   public void setUpsertParams(UpsertFormVersionUpsertParams upsertParams) {
     this.upsertParams = upsertParams;
+    if (upsertParams != null) {
+      this.unparsed |= upsertParams.unparsed;
+    }
   }
 
   /**

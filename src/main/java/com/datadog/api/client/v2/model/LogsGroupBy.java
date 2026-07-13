@@ -96,6 +96,9 @@ public class LogsGroupBy {
 
   public void setHistogram(LogsGroupByHistogram histogram) {
     this.histogram = histogram;
+    if (histogram != null) {
+      this.unparsed |= histogram.unparsed;
+    }
   }
 
   public LogsGroupBy limit(Long limit) {
@@ -140,6 +143,9 @@ public class LogsGroupBy {
 
   public void setMissing(LogsGroupByMissing missing) {
     this.missing = missing;
+    if (missing != null) {
+      this.unparsed |= missing.unparsed;
+    }
   }
 
   public LogsGroupBy sort(LogsAggregateSort sort) {
@@ -162,6 +168,9 @@ public class LogsGroupBy {
 
   public void setSort(LogsAggregateSort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public LogsGroupBy total(LogsGroupByTotal total) {
@@ -184,6 +193,9 @@ public class LogsGroupBy {
 
   public void setTotal(LogsGroupByTotal total) {
     this.total = total;
+    if (total != null) {
+      this.unparsed |= total.unparsed;
+    }
   }
 
   /**

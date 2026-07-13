@@ -59,6 +59,9 @@ public class TeamNotificationRuleAttributes {
 
   public void setEmail(TeamNotificationRuleAttributesEmail email) {
     this.email = email;
+    if (email != null) {
+      this.unparsed |= email.unparsed;
+    }
   }
 
   public TeamNotificationRuleAttributes msTeams(TeamNotificationRuleAttributesMsTeams msTeams) {
@@ -81,6 +84,9 @@ public class TeamNotificationRuleAttributes {
 
   public void setMsTeams(TeamNotificationRuleAttributesMsTeams msTeams) {
     this.msTeams = msTeams;
+    if (msTeams != null) {
+      this.unparsed |= msTeams.unparsed;
+    }
   }
 
   public TeamNotificationRuleAttributes pagerduty(
@@ -104,6 +110,9 @@ public class TeamNotificationRuleAttributes {
 
   public void setPagerduty(TeamNotificationRuleAttributesPagerduty pagerduty) {
     this.pagerduty = pagerduty;
+    if (pagerduty != null) {
+      this.unparsed |= pagerduty.unparsed;
+    }
   }
 
   public TeamNotificationRuleAttributes slack(TeamNotificationRuleAttributesSlack slack) {
@@ -126,6 +135,9 @@ public class TeamNotificationRuleAttributes {
 
   public void setSlack(TeamNotificationRuleAttributesSlack slack) {
     this.slack = slack;
+    if (slack != null) {
+      this.unparsed |= slack.unparsed;
+    }
   }
 
   /**

@@ -47,7 +47,13 @@ public class CommitmentsOnDemandHotspotsScalarResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL)
           List<CommitmentsScalarColumn> total) {
     this.columns = columns;
+    for (CommitmentsScalarColumn item : columns) {
+      this.unparsed |= item.unparsed;
+    }
     this.total = total;
+    for (CommitmentsScalarColumn item : total) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CommitmentsOnDemandHotspotsScalarResponse columns(List<CommitmentsScalarColumn> columns) {
@@ -78,6 +84,11 @@ public class CommitmentsOnDemandHotspotsScalarResponse {
 
   public void setColumns(List<CommitmentsScalarColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (CommitmentsScalarColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CommitmentsOnDemandHotspotsScalarResponse meta(
@@ -101,6 +112,9 @@ public class CommitmentsOnDemandHotspotsScalarResponse {
 
   public void setMeta(CommitmentsOnDemandHotspotsScalarMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public CommitmentsOnDemandHotspotsScalarResponse total(List<CommitmentsScalarColumn> total) {
@@ -130,6 +144,11 @@ public class CommitmentsOnDemandHotspotsScalarResponse {
 
   public void setTotal(List<CommitmentsScalarColumn> total) {
     this.total = total;
+    if (total != null) {
+      for (CommitmentsScalarColumn item : total) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

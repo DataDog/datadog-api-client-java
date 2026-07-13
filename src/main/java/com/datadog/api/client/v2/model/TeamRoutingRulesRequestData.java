@@ -69,6 +69,9 @@ public class TeamRoutingRulesRequestData {
 
   public void setAttributes(TeamRoutingRulesRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamRoutingRulesRequestData id(String id) {

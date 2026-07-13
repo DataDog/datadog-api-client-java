@@ -60,6 +60,11 @@ public class EscalationRelationshipsResponders {
 
   public void setData(List<EscalationRelationshipsRespondersDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (EscalationRelationshipsRespondersDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

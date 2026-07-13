@@ -55,6 +55,9 @@ public class PostmortemTemplateResponse {
 
   public void setData(PostmortemTemplateDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

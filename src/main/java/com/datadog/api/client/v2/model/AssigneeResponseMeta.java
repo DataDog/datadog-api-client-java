@@ -64,6 +64,11 @@ public class AssigneeResponseMeta {
 
   public void setFailures(List<AssignmentResult> failures) {
     this.failures = failures;
+    if (failures != null) {
+      for (AssignmentResult item : failures) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AssigneeResponseMeta warnings(List<AssignmentResult> warnings) {
@@ -98,6 +103,11 @@ public class AssigneeResponseMeta {
 
   public void setWarnings(List<AssignmentResult> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (AssignmentResult item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

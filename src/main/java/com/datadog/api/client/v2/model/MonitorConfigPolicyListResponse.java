@@ -58,6 +58,11 @@ public class MonitorConfigPolicyListResponse {
 
   public void setData(List<MonitorConfigPolicyResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (MonitorConfigPolicyResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -71,6 +71,9 @@ public class ServiceNowInstanceData {
 
   public void setAttributes(ServiceNowInstanceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceNowInstanceData id(UUID id) {

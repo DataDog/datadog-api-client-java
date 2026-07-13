@@ -134,6 +134,9 @@ public class ObservabilityPipelineSocketDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineSocketDestination encoding(
@@ -181,6 +184,9 @@ public class ObservabilityPipelineSocketDestination {
 
   public void setFraming(ObservabilityPipelineSocketDestinationFraming framing) {
     this.framing = framing;
+    if (framing != null) {
+      this.unparsed |= framing.unparsed;
+    }
   }
 
   public ObservabilityPipelineSocketDestination id(String id) {
@@ -273,6 +279,9 @@ public class ObservabilityPipelineSocketDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineSocketDestination type(

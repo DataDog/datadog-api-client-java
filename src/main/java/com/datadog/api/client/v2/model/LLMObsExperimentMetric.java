@@ -181,6 +181,9 @@ public class LLMObsExperimentMetric {
 
   public void setError(LLMObsExperimentMetricError error) {
     this.error = error;
+    if (error != null) {
+      this.unparsed |= error.unparsed;
+    }
   }
 
   public LLMObsExperimentMetric jsonValue(Map<String, Object> jsonValue) {

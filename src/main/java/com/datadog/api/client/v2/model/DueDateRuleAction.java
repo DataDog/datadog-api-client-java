@@ -46,6 +46,9 @@ public class DueDateRuleAction {
           List<DueDatePerSeverityItem> dueDaysPerSeverity,
       @JsonProperty(required = true, value = JSON_PROPERTY_DUE_FROM) DueDateFrom dueFrom) {
     this.dueDaysPerSeverity = dueDaysPerSeverity;
+    for (DueDatePerSeverityItem item : dueDaysPerSeverity) {
+      this.unparsed |= item.unparsed;
+    }
     this.dueFrom = dueFrom;
     this.unparsed |= !dueFrom.isValid();
   }
@@ -78,6 +81,11 @@ public class DueDateRuleAction {
 
   public void setDueDaysPerSeverity(List<DueDatePerSeverityItem> dueDaysPerSeverity) {
     this.dueDaysPerSeverity = dueDaysPerSeverity;
+    if (dueDaysPerSeverity != null) {
+      for (DueDatePerSeverityItem item : dueDaysPerSeverity) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DueDateRuleAction dueFrom(DueDateFrom dueFrom) {

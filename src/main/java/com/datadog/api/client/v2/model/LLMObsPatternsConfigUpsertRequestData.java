@@ -65,6 +65,9 @@ public class LLMObsPatternsConfigUpsertRequestData {
 
   public void setAttributes(LLMObsPatternsConfigUpsertRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsPatternsConfigUpsertRequestData type(LLMObsPatternsConfigType type) {

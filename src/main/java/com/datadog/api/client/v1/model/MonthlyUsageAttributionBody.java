@@ -257,6 +257,9 @@ public class MonthlyUsageAttributionBody {
 
   public void setValues(MonthlyUsageAttributionValues values) {
     this.values = values;
+    if (values != null) {
+      this.unparsed |= values.unparsed;
+    }
   }
 
   /**

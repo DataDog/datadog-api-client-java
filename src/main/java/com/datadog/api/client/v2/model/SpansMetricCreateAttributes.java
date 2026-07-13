@@ -66,6 +66,9 @@ public class SpansMetricCreateAttributes {
 
   public void setCompute(SpansMetricCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public SpansMetricCreateAttributes filter(SpansMetricFilter filter) {
@@ -88,6 +91,9 @@ public class SpansMetricCreateAttributes {
 
   public void setFilter(SpansMetricFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public SpansMetricCreateAttributes groupBy(List<SpansMetricGroupBy> groupBy) {
@@ -121,6 +127,11 @@ public class SpansMetricCreateAttributes {
 
   public void setGroupBy(List<SpansMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (SpansMetricGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

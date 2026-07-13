@@ -63,6 +63,9 @@ public class CaseTypeCreate {
 
   public void setAttributes(CaseTypeResourceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseTypeCreate type(CaseTypeResourceType type) {

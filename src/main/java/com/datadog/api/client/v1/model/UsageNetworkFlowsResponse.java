@@ -60,6 +60,11 @@ public class UsageNetworkFlowsResponse {
 
   public void setUsage(List<UsageNetworkFlowsHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageNetworkFlowsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

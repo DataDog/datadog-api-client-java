@@ -56,6 +56,9 @@ public class DegradationDataRelationships {
 
   public void setCreatedByUser(DegradationDataRelationshipsCreatedByUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public DegradationDataRelationships lastModifiedByUser(
@@ -80,6 +83,9 @@ public class DegradationDataRelationships {
   public void setLastModifiedByUser(
       DegradationDataRelationshipsLastModifiedByUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   public DegradationDataRelationships statusPage(
@@ -103,6 +109,9 @@ public class DegradationDataRelationships {
 
   public void setStatusPage(DegradationDataRelationshipsStatusPage statusPage) {
     this.statusPage = statusPage;
+    if (statusPage != null) {
+      this.unparsed |= statusPage.unparsed;
+    }
   }
 
   /**

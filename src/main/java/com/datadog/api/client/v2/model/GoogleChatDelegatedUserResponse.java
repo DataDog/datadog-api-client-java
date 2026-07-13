@@ -54,6 +54,9 @@ public class GoogleChatDelegatedUserResponse {
 
   public void setData(GoogleChatDelegatedUserData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

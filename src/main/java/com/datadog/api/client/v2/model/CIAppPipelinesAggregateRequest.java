@@ -75,6 +75,11 @@ public class CIAppPipelinesAggregateRequest {
 
   public void setCompute(List<CIAppCompute> compute) {
     this.compute = compute;
+    if (compute != null) {
+      for (CIAppCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CIAppPipelinesAggregateRequest filter(CIAppPipelinesQueryFilter filter) {
@@ -97,6 +102,9 @@ public class CIAppPipelinesAggregateRequest {
 
   public void setFilter(CIAppPipelinesQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public CIAppPipelinesAggregateRequest groupBy(List<CIAppPipelinesGroupBy> groupBy) {
@@ -130,6 +138,11 @@ public class CIAppPipelinesAggregateRequest {
 
   public void setGroupBy(List<CIAppPipelinesGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (CIAppPipelinesGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CIAppPipelinesAggregateRequest options(CIAppQueryOptions options) {
@@ -153,6 +166,9 @@ public class CIAppPipelinesAggregateRequest {
 
   public void setOptions(CIAppQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class AWSCcmConfigRequestAttributes {
 
   public void setCcmConfig(AWSCcmConfig ccmConfig) {
     this.ccmConfig = ccmConfig;
+    if (ccmConfig != null) {
+      this.unparsed |= ccmConfig.unparsed;
+    }
   }
 
   /**

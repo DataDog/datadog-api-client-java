@@ -90,6 +90,11 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setAllTags(List<SearchSLOResponseDataAttributesFacetsObjectString> allTags) {
     this.allTags = allTags;
+    if (allTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : allTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets creatorName(
@@ -125,6 +130,11 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setCreatorName(List<SearchSLOResponseDataAttributesFacetsObjectString> creatorName) {
     this.creatorName = creatorName;
+    if (creatorName != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : creatorName) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets envTags(
@@ -160,6 +170,11 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setEnvTags(List<SearchSLOResponseDataAttributesFacetsObjectString> envTags) {
     this.envTags = envTags;
+    if (envTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : envTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets serviceTags(
@@ -195,6 +210,11 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setServiceTags(List<SearchSLOResponseDataAttributesFacetsObjectString> serviceTags) {
     this.serviceTags = serviceTags;
+    if (serviceTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : serviceTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets sloType(
@@ -230,6 +250,11 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setSloType(List<SearchSLOResponseDataAttributesFacetsObjectInt> sloType) {
     this.sloType = sloType;
+    if (sloType != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectInt item : sloType) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets target(
@@ -265,6 +290,11 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setTarget(List<SearchSLOResponseDataAttributesFacetsObjectInt> target) {
     this.target = target;
+    if (target != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectInt item : target) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets teamTags(
@@ -300,6 +330,11 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setTeamTags(List<SearchSLOResponseDataAttributesFacetsObjectString> teamTags) {
     this.teamTags = teamTags;
+    if (teamTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : teamTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets timeframe(
@@ -335,6 +370,11 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setTimeframe(List<SearchSLOResponseDataAttributesFacetsObjectString> timeframe) {
     this.timeframe = timeframe;
+    if (timeframe != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : timeframe) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

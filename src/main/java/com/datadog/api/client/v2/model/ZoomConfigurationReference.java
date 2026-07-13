@@ -60,6 +60,9 @@ public class ZoomConfigurationReference {
 
   public void setData(ZoomConfigurationReferenceData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

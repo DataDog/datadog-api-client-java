@@ -105,6 +105,9 @@ public class SyntheticsAPITestResultShort {
 
   public void setResult(SyntheticsAPITestResultShortResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public SyntheticsAPITestResultShort resultId(String resultId) {

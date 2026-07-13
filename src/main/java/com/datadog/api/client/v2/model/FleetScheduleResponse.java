@@ -45,6 +45,9 @@ public class FleetScheduleResponse {
 
   public void setData(FleetSchedule data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

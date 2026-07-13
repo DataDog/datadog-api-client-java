@@ -34,6 +34,9 @@ public class IncidentTypeListResponse {
   public IncidentTypeListResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<IncidentTypeObject> data) {
     this.data = data;
+    for (IncidentTypeObject item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public IncidentTypeListResponse data(List<IncidentTypeObject> data) {
@@ -63,6 +66,11 @@ public class IncidentTypeListResponse {
 
   public void setData(List<IncidentTypeObject> data) {
     this.data = data;
+    if (data != null) {
+      for (IncidentTypeObject item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

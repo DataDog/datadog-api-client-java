@@ -55,6 +55,9 @@ public class LLMObsDeleteDatasetsRequest {
 
   public void setData(LLMObsDeleteDatasetsDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

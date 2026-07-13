@@ -45,6 +45,9 @@ public class ModelLabRunsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<ModelLabRunData> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) ModelLabPageMeta meta) {
     this.data = data;
+    for (ModelLabRunData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -76,6 +79,11 @@ public class ModelLabRunsResponse {
 
   public void setData(List<ModelLabRunData> data) {
     this.data = data;
+    if (data != null) {
+      for (ModelLabRunData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ModelLabRunsResponse links(ModelLabPaginationLinks links) {
@@ -98,6 +106,9 @@ public class ModelLabRunsResponse {
 
   public void setLinks(ModelLabPaginationLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ModelLabRunsResponse meta(ModelLabPageMeta meta) {
@@ -119,6 +130,9 @@ public class ModelLabRunsResponse {
 
   public void setMeta(ModelLabPageMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

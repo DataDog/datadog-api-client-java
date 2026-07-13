@@ -64,6 +64,11 @@ public class TeamConnectionsResponse {
 
   public void setData(List<TeamConnection> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamConnection item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamConnectionsResponse meta(ConnectionsResponseMeta meta) {
@@ -86,6 +91,9 @@ public class TeamConnectionsResponse {
 
   public void setMeta(ConnectionsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

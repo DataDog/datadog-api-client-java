@@ -64,6 +64,11 @@ public class MonitorNotificationRuleListResponse {
 
   public void setData(List<MonitorNotificationRuleData> data) {
     this.data = data;
+    if (data != null) {
+      for (MonitorNotificationRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorNotificationRuleListResponse included(
@@ -99,6 +104,11 @@ public class MonitorNotificationRuleListResponse {
 
   public void setIncluded(List<MonitorNotificationRuleResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (MonitorNotificationRuleResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

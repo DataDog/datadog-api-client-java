@@ -54,6 +54,9 @@ public class SecurityFilterCreateRequest {
 
   public void setData(SecurityFilterCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -86,6 +86,9 @@ public class RUMResponseMetadata {
 
   public void setPage(RUMResponsePage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public RUMResponseMetadata requestId(String requestId) {
@@ -166,6 +169,11 @@ public class RUMResponseMetadata {
 
   public void setWarnings(List<RUMWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (RUMWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

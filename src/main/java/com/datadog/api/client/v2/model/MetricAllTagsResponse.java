@@ -45,6 +45,9 @@ public class MetricAllTagsResponse {
 
   public void setData(MetricAllTags data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

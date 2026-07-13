@@ -78,6 +78,9 @@ public class UserAuthorizedClientData {
 
   public void setAttributes(UserAuthorizedClientAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UserAuthorizedClientData id(String id) {
@@ -119,6 +122,9 @@ public class UserAuthorizedClientData {
 
   public void setRelationships(UserAuthorizedClientRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public UserAuthorizedClientData type(UserAuthorizedClientType type) {

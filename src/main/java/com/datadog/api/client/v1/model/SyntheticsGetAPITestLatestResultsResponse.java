@@ -87,6 +87,11 @@ public class SyntheticsGetAPITestLatestResultsResponse {
 
   public void setResults(List<SyntheticsAPITestResultShort> results) {
     this.results = results;
+    if (results != null) {
+      for (SyntheticsAPITestResultShort item : results) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

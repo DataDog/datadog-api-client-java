@@ -65,6 +65,9 @@ public class IPAllowlistEntryData {
 
   public void setAttributes(IPAllowlistEntryAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IPAllowlistEntryData id(String id) {

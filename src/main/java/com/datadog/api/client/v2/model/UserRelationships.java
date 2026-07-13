@@ -45,6 +45,9 @@ public class UserRelationships {
 
   public void setRoles(RelationshipToRoles roles) {
     this.roles = roles;
+    if (roles != null) {
+      this.unparsed |= roles.unparsed;
+    }
   }
 
   /**

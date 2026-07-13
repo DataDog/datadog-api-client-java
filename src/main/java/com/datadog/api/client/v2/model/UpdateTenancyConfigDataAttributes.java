@@ -81,6 +81,9 @@ public class UpdateTenancyConfigDataAttributes {
 
   public void setAuthCredentials(UpdateTenancyConfigDataAttributesAuthCredentials authCredentials) {
     this.authCredentials = authCredentials;
+    if (authCredentials != null) {
+      this.unparsed |= authCredentials.unparsed;
+    }
   }
 
   public UpdateTenancyConfigDataAttributes costCollectionEnabled(Boolean costCollectionEnabled) {
@@ -147,6 +150,9 @@ public class UpdateTenancyConfigDataAttributes {
 
   public void setLogsConfig(UpdateTenancyConfigDataAttributesLogsConfig logsConfig) {
     this.logsConfig = logsConfig;
+    if (logsConfig != null) {
+      this.unparsed |= logsConfig.unparsed;
+    }
   }
 
   public UpdateTenancyConfigDataAttributes metricsConfig(
@@ -171,6 +177,9 @@ public class UpdateTenancyConfigDataAttributes {
 
   public void setMetricsConfig(UpdateTenancyConfigDataAttributesMetricsConfig metricsConfig) {
     this.metricsConfig = metricsConfig;
+    if (metricsConfig != null) {
+      this.unparsed |= metricsConfig.unparsed;
+    }
   }
 
   public UpdateTenancyConfigDataAttributes regionsConfig(
@@ -195,6 +204,9 @@ public class UpdateTenancyConfigDataAttributes {
 
   public void setRegionsConfig(UpdateTenancyConfigDataAttributesRegionsConfig regionsConfig) {
     this.regionsConfig = regionsConfig;
+    if (regionsConfig != null) {
+      this.unparsed |= regionsConfig.unparsed;
+    }
   }
 
   public UpdateTenancyConfigDataAttributes resourceCollectionEnabled(

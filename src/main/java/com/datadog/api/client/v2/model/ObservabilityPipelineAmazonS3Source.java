@@ -93,6 +93,9 @@ public class ObservabilityPipelineAmazonS3Source {
 
   public void setAuth(ObservabilityPipelineAwsAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3Source compression(
@@ -183,6 +186,9 @@ public class ObservabilityPipelineAmazonS3Source {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3Source type(ObservabilityPipelineAmazonS3SourceType type) {

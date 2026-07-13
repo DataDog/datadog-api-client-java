@@ -46,6 +46,9 @@ public class LLMObsExperimentationSimpleSearchMeta {
 
   public void setPage(LLMObsExperimentationSimpleSearchMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

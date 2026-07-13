@@ -54,6 +54,9 @@ public class FleetAgentInfoResponse {
 
   public void setData(FleetAgentInfo data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

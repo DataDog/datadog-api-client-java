@@ -51,6 +51,9 @@ public class CaseNotificationRuleRecipient {
 
   public void setData(CaseNotificationRuleRecipientData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public CaseNotificationRuleRecipient type(String type) {

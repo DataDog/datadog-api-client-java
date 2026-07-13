@@ -42,6 +42,9 @@ public class CreateTableRequestDataAttributesSchema {
           List<CreateTableRequestDataAttributesSchemaFieldsItems> fields,
       @JsonProperty(required = true, value = JSON_PROPERTY_PRIMARY_KEYS) List<String> primaryKeys) {
     this.fields = fields;
+    for (CreateTableRequestDataAttributesSchemaFieldsItems item : fields) {
+      this.unparsed |= item.unparsed;
+    }
     this.primaryKeys = primaryKeys;
   }
 
@@ -74,6 +77,11 @@ public class CreateTableRequestDataAttributesSchema {
 
   public void setFields(List<CreateTableRequestDataAttributesSchemaFieldsItems> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (CreateTableRequestDataAttributesSchemaFieldsItems item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateTableRequestDataAttributesSchema primaryKeys(List<String> primaryKeys) {

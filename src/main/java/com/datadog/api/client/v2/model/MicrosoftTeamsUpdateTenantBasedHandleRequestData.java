@@ -67,6 +67,9 @@ public class MicrosoftTeamsUpdateTenantBasedHandleRequestData {
 
   public void setAttributes(MicrosoftTeamsTenantBasedHandleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MicrosoftTeamsUpdateTenantBasedHandleRequestData type(

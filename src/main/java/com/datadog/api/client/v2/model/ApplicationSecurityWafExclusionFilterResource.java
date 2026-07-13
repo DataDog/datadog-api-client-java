@@ -57,6 +57,9 @@ public class ApplicationSecurityWafExclusionFilterResource {
 
   public void setAttributes(ApplicationSecurityWafExclusionFilterAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

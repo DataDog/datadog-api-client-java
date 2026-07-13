@@ -65,6 +65,9 @@ public class AuthNMappingCreateData {
 
   public void setAttributes(AuthNMappingCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AuthNMappingCreateData relationships(AuthNMappingCreateRelationships relationships) {
@@ -87,6 +90,9 @@ public class AuthNMappingCreateData {
 
   public void setRelationships(AuthNMappingCreateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public AuthNMappingCreateData type(AuthNMappingsType type) {

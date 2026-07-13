@@ -71,6 +71,9 @@ public class FrameworkHandleAndVersionResponseData {
 
   public void setAttributes(CustomFrameworkDataHandleAndVersion attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FrameworkHandleAndVersionResponseData id(String id) {

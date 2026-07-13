@@ -46,6 +46,9 @@ public class ContainerImageGroupRelationships {
 
   public void setContainerImages(ContainerImageGroupImagesRelationshipsLink containerImages) {
     this.containerImages = containerImages;
+    if (containerImages != null) {
+      this.unparsed |= containerImages.unparsed;
+    }
   }
 
   /**

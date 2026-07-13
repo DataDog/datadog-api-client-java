@@ -58,6 +58,11 @@ public class RumRetentionFiltersResponse {
 
   public void setData(List<RumRetentionFilterData> data) {
     this.data = data;
+    if (data != null) {
+      for (RumRetentionFilterData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

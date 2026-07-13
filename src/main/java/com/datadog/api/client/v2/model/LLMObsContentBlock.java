@@ -275,6 +275,9 @@ public class LLMObsContentBlock {
 
   public void setTimeFrame(LLMObsContentBlockTimeFrame timeFrame) {
     this.timeFrame = timeFrame;
+    if (timeFrame != null) {
+      this.unparsed |= timeFrame.unparsed;
+    }
   }
 
   public LLMObsContentBlock traceId(String traceId) {

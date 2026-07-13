@@ -84,6 +84,11 @@ public class UpdateAppResponseDataAttributes {
 
   public void setComponents(List<ComponentGrid> components) {
     this.components = components;
+    if (components != null) {
+      for (ComponentGrid item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpdateAppResponseDataAttributes description(String description) {
@@ -180,6 +185,11 @@ public class UpdateAppResponseDataAttributes {
 
   public void setQueries(List<Query> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (Query item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpdateAppResponseDataAttributes rootInstanceName(String rootInstanceName) {

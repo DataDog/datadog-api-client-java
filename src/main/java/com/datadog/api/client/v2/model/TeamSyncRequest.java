@@ -54,6 +54,9 @@ public class TeamSyncRequest {
 
   public void setData(TeamSyncData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

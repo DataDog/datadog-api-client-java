@@ -51,6 +51,9 @@ public class LogsAggregateResponse {
 
   public void setData(LogsAggregateResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public LogsAggregateResponse meta(LogsResponseMetadata meta) {
@@ -73,6 +76,9 @@ public class LogsAggregateResponse {
 
   public void setMeta(LogsResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

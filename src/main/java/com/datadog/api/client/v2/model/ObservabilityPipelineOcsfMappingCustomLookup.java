@@ -87,6 +87,11 @@ public class ObservabilityPipelineOcsfMappingCustomLookup {
 
   public void setTable(List<ObservabilityPipelineOcsfMappingCustomLookupTableEntry> table) {
     this.table = table;
+    if (table != null) {
+      for (ObservabilityPipelineOcsfMappingCustomLookupTableEntry item : table) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

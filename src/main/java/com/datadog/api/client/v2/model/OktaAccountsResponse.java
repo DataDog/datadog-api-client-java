@@ -58,6 +58,11 @@ public class OktaAccountsResponse {
 
   public void setData(List<OktaAccountResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (OktaAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -72,6 +72,9 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
     this.filterQuery = filterQuery;
     this.unparsed |= filterQuery.unparsed;
     this.filters = filters;
+    for (MonitorFormulaAndFunctionAggregateQueryFilter item : filters) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition baseQuery(
@@ -94,6 +97,9 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
 
   public void setBaseQuery(MonitorFormulaAndFunctionAggregateBaseQuery baseQuery) {
     this.baseQuery = baseQuery;
+    if (baseQuery != null) {
+      this.unparsed |= baseQuery.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition compute(
@@ -129,6 +135,11 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
 
   public void setCompute(List<MonitorFormulaAndFunctionEventQueryDefinitionCompute> compute) {
     this.compute = compute;
+    if (compute != null) {
+      for (MonitorFormulaAndFunctionEventQueryDefinitionCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition dataSource(
@@ -176,6 +187,9 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
 
   public void setFilterQuery(MonitorFormulaAndFunctionAggregateFilterQuery filterQuery) {
     this.filterQuery = filterQuery;
+    if (filterQuery != null) {
+      this.unparsed |= filterQuery.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition filters(
@@ -207,6 +221,11 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
 
   public void setFilters(List<MonitorFormulaAndFunctionAggregateQueryFilter> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (MonitorFormulaAndFunctionAggregateQueryFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition groupBy(
@@ -242,6 +261,11 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
 
   public void setGroupBy(List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition name(String name) {

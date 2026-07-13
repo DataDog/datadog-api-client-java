@@ -309,6 +309,9 @@ public class RUMApplicationAttributes {
 
   public void setProductScales(RUMProductScales productScales) {
     this.productScales = productScales;
+    if (productScales != null) {
+      this.unparsed |= productScales.unparsed;
+    }
   }
 
   public RUMApplicationAttributes remoteConfigId(String remoteConfigId) {

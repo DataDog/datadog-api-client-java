@@ -70,6 +70,9 @@ public class ObservabilityPipelineAddMetricTagsProcessor {
     this.id = id;
     this.include = include;
     this.tags = tags;
+    for (ObservabilityPipelineFieldValue item : tags) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -185,6 +188,11 @@ public class ObservabilityPipelineAddMetricTagsProcessor {
 
   public void setTags(List<ObservabilityPipelineFieldValue> tags) {
     this.tags = tags;
+    if (tags != null) {
+      for (ObservabilityPipelineFieldValue item : tags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineAddMetricTagsProcessor type(

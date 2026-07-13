@@ -64,6 +64,11 @@ public class IssuesSearchResponse {
 
   public void setData(List<IssuesSearchResult> data) {
     this.data = data;
+    if (data != null) {
+      for (IssuesSearchResult item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IssuesSearchResponse included(List<IssuesSearchResultIncluded> included) {
@@ -97,6 +102,11 @@ public class IssuesSearchResponse {
 
   public void setIncluded(List<IssuesSearchResultIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (IssuesSearchResultIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

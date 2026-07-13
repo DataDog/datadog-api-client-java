@@ -59,6 +59,11 @@ public class SyntheticsListGlobalVariablesResponse {
 
   public void setVariables(List<SyntheticsGlobalVariable> variables) {
     this.variables = variables;
+    if (variables != null) {
+      for (SyntheticsGlobalVariable item : variables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

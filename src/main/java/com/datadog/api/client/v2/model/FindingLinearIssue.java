@@ -76,6 +76,9 @@ public class FindingLinearIssue {
 
   public void setResult(FindingLinearIssueResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public FindingLinearIssue status(String status) {

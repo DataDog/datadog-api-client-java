@@ -51,6 +51,9 @@ public class LogsCategoryProcessorCategory {
 
   public void setFilter(LogsFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LogsCategoryProcessorCategory name(String name) {

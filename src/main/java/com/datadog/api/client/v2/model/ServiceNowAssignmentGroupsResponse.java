@@ -35,6 +35,9 @@ public class ServiceNowAssignmentGroupsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<ServiceNowAssignmentGroupData> data) {
     this.data = data;
+    for (ServiceNowAssignmentGroupData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ServiceNowAssignmentGroupsResponse data(List<ServiceNowAssignmentGroupData> data) {
@@ -64,6 +67,11 @@ public class ServiceNowAssignmentGroupsResponse {
 
   public void setData(List<ServiceNowAssignmentGroupData> data) {
     this.data = data;
+    if (data != null) {
+      for (ServiceNowAssignmentGroupData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

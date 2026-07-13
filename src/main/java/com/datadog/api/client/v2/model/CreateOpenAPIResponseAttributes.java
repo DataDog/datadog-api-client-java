@@ -59,6 +59,11 @@ public class CreateOpenAPIResponseAttributes {
 
   public void setFailedEndpoints(List<OpenAPIEndpoint> failedEndpoints) {
     this.failedEndpoints = failedEndpoints;
+    if (failedEndpoints != null) {
+      for (OpenAPIEndpoint item : failedEndpoints) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

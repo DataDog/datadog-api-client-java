@@ -34,6 +34,9 @@ public class FormsResponse {
   public FormsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<FormData> data) {
     this.data = data;
+    for (FormData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FormsResponse data(List<FormData> data) {
@@ -63,6 +66,11 @@ public class FormsResponse {
 
   public void setData(List<FormData> data) {
     this.data = data;
+    if (data != null) {
+      for (FormData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

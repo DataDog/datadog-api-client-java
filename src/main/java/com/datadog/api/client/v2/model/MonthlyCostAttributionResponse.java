@@ -64,6 +64,11 @@ public class MonthlyCostAttributionResponse {
 
   public void setData(List<MonthlyCostAttributionBody> data) {
     this.data = data;
+    if (data != null) {
+      for (MonthlyCostAttributionBody item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonthlyCostAttributionResponse meta(MonthlyCostAttributionMeta meta) {
@@ -86,6 +91,9 @@ public class MonthlyCostAttributionResponse {
 
   public void setMeta(MonthlyCostAttributionMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -70,6 +70,9 @@ public class ConfluentAccountResponseData {
 
   public void setAttributes(ConfluentAccountResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ConfluentAccountResponseData id(String id) {

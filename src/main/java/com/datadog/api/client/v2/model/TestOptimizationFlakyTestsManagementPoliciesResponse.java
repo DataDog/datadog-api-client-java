@@ -46,6 +46,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesResponse {
 
   public void setData(TestOptimizationFlakyTestsManagementPoliciesData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

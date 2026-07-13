@@ -55,6 +55,9 @@ public class SecurityFilter {
 
   public void setAttributes(SecurityFilterAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityFilter id(String id) {

@@ -90,6 +90,9 @@ public class ProductAnalyticsOccurrenceQuery {
 
   public void setSearch(ProductAnalyticsOccurrenceSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /**

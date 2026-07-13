@@ -51,6 +51,9 @@ public class IncidentSearchResponseData {
 
   public void setAttributes(IncidentSearchResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentSearchResponseData type(IncidentSearchResultsType type) {

@@ -45,6 +45,9 @@ public class IncidentResponseMeta {
 
   public void setPagination(IncidentResponseMetaPagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class SyntheticsTestFileMultipartPresignedUrlsRequest {
     this.bucketKeyPrefix = bucketKeyPrefix;
     this.unparsed |= !bucketKeyPrefix.isValid();
     this.parts = parts;
+    for (SyntheticsTestFileMultipartPresignedUrlsPart item : parts) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SyntheticsTestFileMultipartPresignedUrlsRequest bucketKeyPrefix(
@@ -102,6 +105,11 @@ public class SyntheticsTestFileMultipartPresignedUrlsRequest {
 
   public void setParts(List<SyntheticsTestFileMultipartPresignedUrlsPart> parts) {
     this.parts = parts;
+    if (parts != null) {
+      for (SyntheticsTestFileMultipartPresignedUrlsPart item : parts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

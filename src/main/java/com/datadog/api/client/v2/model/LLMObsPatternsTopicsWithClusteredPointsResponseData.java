@@ -72,6 +72,9 @@ public class LLMObsPatternsTopicsWithClusteredPointsResponseData {
 
   public void setAttributes(LLMObsPatternsTopicsWithClusteredPointsResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsPatternsTopicsWithClusteredPointsResponseData id(String id) {

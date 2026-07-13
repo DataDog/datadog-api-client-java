@@ -61,6 +61,11 @@ public class ListDevicesResponse {
 
   public void setData(List<DevicesListData> data) {
     this.data = data;
+    if (data != null) {
+      for (DevicesListData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListDevicesResponse meta(ListDevicesResponseMetadata meta) {
@@ -83,6 +88,9 @@ public class ListDevicesResponse {
 
   public void setMeta(ListDevicesResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

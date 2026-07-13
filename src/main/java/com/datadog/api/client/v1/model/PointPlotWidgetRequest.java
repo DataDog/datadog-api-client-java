@@ -97,6 +97,9 @@ public class PointPlotWidgetRequest {
 
   public void setProjection(PointPlotProjection projection) {
     this.projection = projection;
+    if (projection != null) {
+      this.unparsed |= projection.unparsed;
+    }
   }
 
   public PointPlotWidgetRequest query(DataProjectionQuery query) {
@@ -118,6 +121,9 @@ public class PointPlotWidgetRequest {
 
   public void setQuery(DataProjectionQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public PointPlotWidgetRequest requestType(DataProjectionRequestType requestType) {

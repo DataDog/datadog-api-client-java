@@ -54,6 +54,9 @@ public class FeatureFlagResponse {
 
   public void setData(FeatureFlag data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

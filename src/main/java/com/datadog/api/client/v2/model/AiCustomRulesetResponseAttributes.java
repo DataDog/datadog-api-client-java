@@ -67,7 +67,11 @@ public class AiCustomRulesetResponseAttributes {
     this.description = description;
     this.name = name;
     this.rules = rules;
-    if (rules != null) {}
+    if (rules != null) {
+      for (AiCustomRuleItem item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
     this.shortDescription = shortDescription;
   }
 
@@ -179,6 +183,11 @@ public class AiCustomRulesetResponseAttributes {
 
   public void setRules(List<AiCustomRuleItem> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (AiCustomRuleItem item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AiCustomRulesetResponseAttributes shortDescription(String shortDescription) {

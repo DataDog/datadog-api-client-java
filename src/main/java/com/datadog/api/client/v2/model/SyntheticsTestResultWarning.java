@@ -69,6 +69,11 @@ public class SyntheticsTestResultWarning {
 
   public void setElementBounds(List<SyntheticsTestResultBounds> elementBounds) {
     this.elementBounds = elementBounds;
+    if (elementBounds != null) {
+      for (SyntheticsTestResultBounds item : elementBounds) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultWarning message(String message) {

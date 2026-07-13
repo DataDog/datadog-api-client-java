@@ -45,6 +45,9 @@ public class CreateNotificationChannelAttributes {
 
   public void setConfig(CreateNotificationChannelConfig config) {
     this.config = config;
+    if (config != null) {
+      this.unparsed |= config.unparsed;
+    }
   }
 
   /**

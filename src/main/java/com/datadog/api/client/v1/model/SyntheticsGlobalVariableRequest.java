@@ -98,6 +98,9 @@ public class SyntheticsGlobalVariableRequest {
 
   public void setAttributes(SyntheticsGlobalVariableAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsGlobalVariableRequest description(String description) {
@@ -216,6 +219,9 @@ public class SyntheticsGlobalVariableRequest {
 
   public void setParseTestOptions(SyntheticsGlobalVariableParseTestOptions parseTestOptions) {
     this.parseTestOptions = parseTestOptions;
+    if (parseTestOptions != null) {
+      this.unparsed |= parseTestOptions.unparsed;
+    }
   }
 
   public SyntheticsGlobalVariableRequest parseTestPublicId(String parseTestPublicId) {
@@ -284,6 +290,9 @@ public class SyntheticsGlobalVariableRequest {
 
   public void setValue(SyntheticsGlobalVariableValue value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /**

@@ -60,6 +60,9 @@ public class RetentionGridRequest {
 
   public void setQuery(RetentionQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public RetentionGridRequest requestType(RetentionGridRequestType requestType) {

@@ -51,6 +51,9 @@ public class OktaAccountUpdateRequestData {
 
   public void setAttributes(OktaAccountUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OktaAccountUpdateRequestData type(OktaAccountType type) {

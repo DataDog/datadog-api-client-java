@@ -70,6 +70,9 @@ public class IncidentNotificationRuleCreateData {
 
   public void setAttributes(IncidentNotificationRuleCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentNotificationRuleCreateData relationships(
@@ -93,6 +96,9 @@ public class IncidentNotificationRuleCreateData {
 
   public void setRelationships(IncidentNotificationRuleCreateDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentNotificationRuleCreateData type(IncidentNotificationRuleType type) {

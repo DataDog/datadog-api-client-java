@@ -65,6 +65,9 @@ public class ProductAnalyticsFunnelWidgetDefinition {
           List<ProductAnalyticsFunnelRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FunnelWidgetDefinitionType type) {
     this.requests = requests;
+    for (ProductAnalyticsFunnelRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -145,6 +148,11 @@ public class ProductAnalyticsFunnelWidgetDefinition {
 
   public void setRequests(List<ProductAnalyticsFunnelRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (ProductAnalyticsFunnelRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProductAnalyticsFunnelWidgetDefinition time(WidgetTime time) {
@@ -167,6 +175,9 @@ public class ProductAnalyticsFunnelWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public ProductAnalyticsFunnelWidgetDefinition title(String title) {

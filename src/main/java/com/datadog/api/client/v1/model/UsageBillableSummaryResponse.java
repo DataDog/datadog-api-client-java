@@ -58,6 +58,11 @@ public class UsageBillableSummaryResponse {
 
   public void setUsage(List<UsageBillableSummaryHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageBillableSummaryHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

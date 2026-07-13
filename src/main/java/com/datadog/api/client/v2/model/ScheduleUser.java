@@ -68,6 +68,9 @@ public class ScheduleUser {
 
   public void setAttributes(ScheduleUserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScheduleUser id(String id) {

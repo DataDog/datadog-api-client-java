@@ -57,6 +57,9 @@ public class RumMetricUpdateAttributes {
 
   public void setCompute(RumMetricUpdateCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public RumMetricUpdateAttributes filter(RumMetricFilter filter) {
@@ -79,6 +82,9 @@ public class RumMetricUpdateAttributes {
 
   public void setFilter(RumMetricFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public RumMetricUpdateAttributes groupBy(List<RumMetricGroupBy> groupBy) {
@@ -112,6 +118,11 @@ public class RumMetricUpdateAttributes {
 
   public void setGroupBy(List<RumMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (RumMetricGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

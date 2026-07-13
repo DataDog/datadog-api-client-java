@@ -58,6 +58,11 @@ public class LogsIndexListResponse {
 
   public void setIndexes(List<LogsIndex> indexes) {
     this.indexes = indexes;
+    if (indexes != null) {
+      for (LogsIndex item : indexes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

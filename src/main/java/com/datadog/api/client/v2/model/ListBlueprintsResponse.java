@@ -58,6 +58,11 @@ public class ListBlueprintsResponse {
 
   public void setData(List<BlueprintMetadataData> data) {
     this.data = data;
+    if (data != null) {
+      for (BlueprintMetadataData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

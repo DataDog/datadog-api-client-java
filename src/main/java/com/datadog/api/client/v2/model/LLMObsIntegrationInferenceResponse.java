@@ -109,6 +109,9 @@ public class LLMObsIntegrationInferenceResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_RESPONSE)
           LLMObsInferenceRunResult response) {
     this.messages = messages;
+    for (LLMObsInferenceMessage item : messages) {
+      this.unparsed |= item.unparsed;
+    }
     this.modelId = modelId;
     this.response = response;
     this.unparsed |= response.unparsed;
@@ -135,6 +138,9 @@ public class LLMObsIntegrationInferenceResponse {
 
   public void setAnthropicMetadata(LLMObsAnthropicMetadata anthropicMetadata) {
     this.anthropicMetadata = anthropicMetadata;
+    if (anthropicMetadata != null) {
+      this.unparsed |= anthropicMetadata.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceResponse azureOpenaiMetadata(
@@ -158,6 +164,9 @@ public class LLMObsIntegrationInferenceResponse {
 
   public void setAzureOpenaiMetadata(LLMObsAzureOpenAIMetadata azureOpenaiMetadata) {
     this.azureOpenaiMetadata = azureOpenaiMetadata;
+    if (azureOpenaiMetadata != null) {
+      this.unparsed |= azureOpenaiMetadata.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceResponse bedrockMetadata(LLMObsBedrockMetadata bedrockMetadata) {
@@ -180,6 +189,9 @@ public class LLMObsIntegrationInferenceResponse {
 
   public void setBedrockMetadata(LLMObsBedrockMetadata bedrockMetadata) {
     this.bedrockMetadata = bedrockMetadata;
+    if (bedrockMetadata != null) {
+      this.unparsed |= bedrockMetadata.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceResponse errorResponse(
@@ -203,6 +215,9 @@ public class LLMObsIntegrationInferenceResponse {
 
   public void setErrorResponse(LLMObsInferenceErrorResponse errorResponse) {
     this.errorResponse = errorResponse;
+    if (errorResponse != null) {
+      this.unparsed |= errorResponse.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceResponse frequencyPenalty(Double frequencyPenalty) {
@@ -356,6 +371,11 @@ public class LLMObsIntegrationInferenceResponse {
 
   public void setMessages(List<LLMObsInferenceMessage> messages) {
     this.messages = messages;
+    if (messages != null) {
+      for (LLMObsInferenceMessage item : messages) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsIntegrationInferenceResponse modelId(String modelId) {
@@ -398,6 +418,9 @@ public class LLMObsIntegrationInferenceResponse {
 
   public void setOpenaiMetadata(LLMObsOpenAIMetadata openaiMetadata) {
     this.openaiMetadata = openaiMetadata;
+    if (openaiMetadata != null) {
+      this.unparsed |= openaiMetadata.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceResponse presencePenalty(Double presencePenalty) {
@@ -450,6 +473,9 @@ public class LLMObsIntegrationInferenceResponse {
 
   public void setResponse(LLMObsInferenceRunResult response) {
     this.response = response;
+    if (response != null) {
+      this.unparsed |= response.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceResponse temperature(Double temperature) {
@@ -514,6 +540,11 @@ public class LLMObsIntegrationInferenceResponse {
 
   public void setTools(List<LLMObsInferenceTool> tools) {
     this.tools = tools;
+    if (tools != null) {
+      for (LLMObsInferenceTool item : tools) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsIntegrationInferenceResponse topK(Long topK) {
@@ -599,6 +630,9 @@ public class LLMObsIntegrationInferenceResponse {
 
   public void setVertexAiMetadata(LLMObsVertexAIMetadata vertexAiMetadata) {
     this.vertexAiMetadata = vertexAiMetadata;
+    if (vertexAiMetadata != null) {
+      this.unparsed |= vertexAiMetadata.unparsed;
+    }
   }
 
   /**

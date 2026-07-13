@@ -72,6 +72,9 @@ public class SastRulesetData {
 
   public void setAttributes(SastRulesetDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SastRulesetData id(String id) {

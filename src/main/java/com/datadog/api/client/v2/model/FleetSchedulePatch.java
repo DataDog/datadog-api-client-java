@@ -61,6 +61,9 @@ public class FleetSchedulePatch {
 
   public void setAttributes(FleetSchedulePatchAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FleetSchedulePatch type(FleetScheduleResourceType type) {

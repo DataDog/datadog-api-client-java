@@ -60,6 +60,9 @@ public class SuiteCreateEdit {
 
   public void setAttributes(SyntheticsSuite attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SuiteCreateEdit type(SyntheticsSuiteTypes type) {

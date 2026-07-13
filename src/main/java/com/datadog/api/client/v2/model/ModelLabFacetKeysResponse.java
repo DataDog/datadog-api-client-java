@@ -54,6 +54,9 @@ public class ModelLabFacetKeysResponse {
 
   public void setData(ModelLabFacetKeysData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

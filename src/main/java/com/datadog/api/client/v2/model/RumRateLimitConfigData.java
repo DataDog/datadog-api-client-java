@@ -70,6 +70,9 @@ public class RumRateLimitConfigData {
 
   public void setAttributes(RumRateLimitConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RumRateLimitConfigData id(String id) {

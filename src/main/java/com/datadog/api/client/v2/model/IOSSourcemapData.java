@@ -70,6 +70,9 @@ public class IOSSourcemapData {
 
   public void setAttributes(IOSSourcemapAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IOSSourcemapData id(String id) {

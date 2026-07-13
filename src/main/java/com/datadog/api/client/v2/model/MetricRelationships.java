@@ -45,6 +45,9 @@ public class MetricRelationships {
 
   public void setMetricVolumes(MetricVolumesRelationship metricVolumes) {
     this.metricVolumes = metricVolumes;
+    if (metricVolumes != null) {
+      this.unparsed |= metricVolumes.unparsed;
+    }
   }
 
   /**

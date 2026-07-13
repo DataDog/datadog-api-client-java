@@ -45,6 +45,9 @@ public class OrgConnectionListResponseMeta {
 
   public void setPage(OrgConnectionListResponseMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class AttachmentDataAttributes {
 
   public void setAttachment(AttachmentDataAttributesAttachment attachment) {
     this.attachment = attachment;
+    if (attachment != null) {
+      this.unparsed |= attachment.unparsed;
+    }
   }
 
   public AttachmentDataAttributes attachmentType(

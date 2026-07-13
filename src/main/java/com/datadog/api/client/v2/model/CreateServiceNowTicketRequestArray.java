@@ -35,6 +35,9 @@ public class CreateServiceNowTicketRequestArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<CreateServiceNowTicketRequestData> data) {
     this.data = data;
+    for (CreateServiceNowTicketRequestData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CreateServiceNowTicketRequestArray data(List<CreateServiceNowTicketRequestData> data) {
@@ -65,6 +68,11 @@ public class CreateServiceNowTicketRequestArray {
 
   public void setData(List<CreateServiceNowTicketRequestData> data) {
     this.data = data;
+    if (data != null) {
+      for (CreateServiceNowTicketRequestData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

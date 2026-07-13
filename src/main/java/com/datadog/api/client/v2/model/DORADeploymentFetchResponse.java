@@ -45,6 +45,9 @@ public class DORADeploymentFetchResponse {
 
   public void setData(DORADeploymentObject data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

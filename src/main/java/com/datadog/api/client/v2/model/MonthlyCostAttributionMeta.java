@@ -65,6 +65,11 @@ public class MonthlyCostAttributionMeta {
 
   public void setAggregates(List<CostAttributionAggregatesBody> aggregates) {
     this.aggregates = aggregates;
+    if (aggregates != null) {
+      for (CostAttributionAggregatesBody item : aggregates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonthlyCostAttributionMeta pagination(MonthlyCostAttributionPagination pagination) {
@@ -87,6 +92,9 @@ public class MonthlyCostAttributionMeta {
 
   public void setPagination(MonthlyCostAttributionPagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

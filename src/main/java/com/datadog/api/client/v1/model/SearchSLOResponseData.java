@@ -51,6 +51,9 @@ public class SearchSLOResponseData {
 
   public void setAttributes(SearchSLOResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SearchSLOResponseData type(String type) {

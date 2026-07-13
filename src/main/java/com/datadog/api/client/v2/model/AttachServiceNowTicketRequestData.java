@@ -73,6 +73,9 @@ public class AttachServiceNowTicketRequestData {
 
   public void setAttributes(AttachServiceNowTicketRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AttachServiceNowTicketRequestData relationships(
@@ -95,6 +98,9 @@ public class AttachServiceNowTicketRequestData {
 
   public void setRelationships(AttachServiceNowTicketRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public AttachServiceNowTicketRequestData type(ServiceNowTicketsDataType type) {

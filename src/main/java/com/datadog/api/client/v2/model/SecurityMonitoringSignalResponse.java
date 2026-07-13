@@ -45,6 +45,9 @@ public class SecurityMonitoringSignalResponse {
 
   public void setData(SecurityMonitoringSignal data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

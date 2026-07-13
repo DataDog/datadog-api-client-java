@@ -71,6 +71,9 @@ public class ScorecardScoreData {
 
   public void setAttributes(ScorecardScoreAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScorecardScoreData id(String id) {
@@ -113,6 +116,9 @@ public class ScorecardScoreData {
 
   public void setRelationships(ScorecardScoreRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ScorecardScoreData type(ScorecardScoreDataType type) {

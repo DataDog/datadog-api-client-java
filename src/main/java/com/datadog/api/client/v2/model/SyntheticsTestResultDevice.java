@@ -67,6 +67,9 @@ public class SyntheticsTestResultDevice {
 
   public void setBrowser(SyntheticsTestResultDeviceBrowser browser) {
     this.browser = browser;
+    if (browser != null) {
+      this.unparsed |= browser.unparsed;
+    }
   }
 
   public SyntheticsTestResultDevice id(String id) {
@@ -131,6 +134,9 @@ public class SyntheticsTestResultDevice {
 
   public void setPlatform(SyntheticsTestResultDevicePlatform platform) {
     this.platform = platform;
+    if (platform != null) {
+      this.unparsed |= platform.unparsed;
+    }
   }
 
   public SyntheticsTestResultDevice resolution(SyntheticsTestResultDeviceResolution resolution) {
@@ -153,6 +159,9 @@ public class SyntheticsTestResultDevice {
 
   public void setResolution(SyntheticsTestResultDeviceResolution resolution) {
     this.resolution = resolution;
+    if (resolution != null) {
+      this.unparsed |= resolution.unparsed;
+    }
   }
 
   public SyntheticsTestResultDevice type(String type) {

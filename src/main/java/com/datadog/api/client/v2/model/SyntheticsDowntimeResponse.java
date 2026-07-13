@@ -54,6 +54,9 @@ public class SyntheticsDowntimeResponse {
 
   public void setData(SyntheticsDowntimeData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

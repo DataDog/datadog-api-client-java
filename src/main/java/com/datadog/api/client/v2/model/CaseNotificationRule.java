@@ -72,6 +72,9 @@ public class CaseNotificationRule {
 
   public void setAttributes(CaseNotificationRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseNotificationRule id(String id) {

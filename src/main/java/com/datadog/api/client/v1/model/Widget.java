@@ -73,6 +73,9 @@ public class Widget {
 
   public void setDefinition(WidgetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public Widget id(Long id) {
@@ -117,6 +120,9 @@ public class Widget {
 
   public void setLayout(WidgetLayout layout) {
     this.layout = layout;
+    if (layout != null) {
+      this.unparsed |= layout.unparsed;
+    }
   }
 
   /**

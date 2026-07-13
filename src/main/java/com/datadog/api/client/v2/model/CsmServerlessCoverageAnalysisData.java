@@ -56,6 +56,9 @@ public class CsmServerlessCoverageAnalysisData {
 
   public void setAttributes(CsmServerlessCoverageAnalysisAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CsmServerlessCoverageAnalysisData id(String id) {

@@ -64,6 +64,9 @@ public class CaseUpdateResolvedReason {
 
   public void setAttributes(CaseUpdateResolvedReasonAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseUpdateResolvedReason type(CaseResourceType type) {

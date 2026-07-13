@@ -54,6 +54,9 @@ public class RUMApplicationCreateRequest {
 
   public void setData(RUMApplicationCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

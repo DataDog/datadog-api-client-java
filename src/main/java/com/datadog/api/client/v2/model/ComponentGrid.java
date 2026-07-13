@@ -95,6 +95,11 @@ public class ComponentGrid {
 
   public void setEvents(List<AppBuilderEvent> events) {
     this.events = events;
+    if (events != null) {
+      for (AppBuilderEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ComponentGrid id(String id) {
@@ -158,6 +163,9 @@ public class ComponentGrid {
 
   public void setProperties(ComponentGridProperties properties) {
     this.properties = properties;
+    if (properties != null) {
+      this.unparsed |= properties.unparsed;
+    }
   }
 
   public ComponentGrid type(ComponentGridType type) {

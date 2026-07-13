@@ -64,6 +64,9 @@ public class CaseUpdatePriority {
 
   public void setAttributes(CaseUpdatePriorityAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseUpdatePriority type(CaseResourceType type) {

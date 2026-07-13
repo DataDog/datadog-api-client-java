@@ -54,6 +54,9 @@ public class TeamLinkCreateRequest {
 
   public void setData(TeamLinkCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

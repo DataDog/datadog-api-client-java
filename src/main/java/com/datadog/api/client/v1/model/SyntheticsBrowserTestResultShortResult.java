@@ -63,6 +63,9 @@ public class SyntheticsBrowserTestResultShortResult {
 
   public void setDevice(SyntheticsDevice device) {
     this.device = device;
+    if (device != null) {
+      this.unparsed |= device.unparsed;
+    }
   }
 
   public SyntheticsBrowserTestResultShortResult duration(Double duration) {

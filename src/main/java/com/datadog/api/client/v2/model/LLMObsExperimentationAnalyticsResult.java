@@ -35,6 +35,9 @@ public class LLMObsExperimentationAnalyticsResult {
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUES)
           List<LLMObsExperimentationAnalyticsValue> values) {
     this.values = values;
+    for (LLMObsExperimentationAnalyticsValue item : values) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsExperimentationAnalyticsResult values(
@@ -66,6 +69,11 @@ public class LLMObsExperimentationAnalyticsResult {
 
   public void setValues(List<LLMObsExperimentationAnalyticsValue> values) {
     this.values = values;
+    if (values != null) {
+      for (LLMObsExperimentationAnalyticsValue item : values) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

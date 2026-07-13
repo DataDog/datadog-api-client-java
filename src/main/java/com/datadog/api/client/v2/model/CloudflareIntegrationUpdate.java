@@ -61,6 +61,9 @@ public class CloudflareIntegrationUpdate {
 
   public void setCredentials(CloudflareCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public CloudflareIntegrationUpdate type(CloudflareIntegrationType type) {

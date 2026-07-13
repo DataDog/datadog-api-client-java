@@ -54,6 +54,9 @@ public class SuiteJsonPatchRequest {
 
   public void setData(SuiteJsonPatchRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

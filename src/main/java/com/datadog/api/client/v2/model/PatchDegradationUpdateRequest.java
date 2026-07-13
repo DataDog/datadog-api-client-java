@@ -45,6 +45,9 @@ public class PatchDegradationUpdateRequest {
 
   public void setData(PatchDegradationUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -35,6 +35,9 @@ public class UserOverrideIdentityProvidersResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<UserOverrideIdentityProviderData> data) {
     this.data = data;
+    for (UserOverrideIdentityProviderData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public UserOverrideIdentityProvidersResponse data(List<UserOverrideIdentityProviderData> data) {
@@ -65,6 +68,11 @@ public class UserOverrideIdentityProvidersResponse {
 
   public void setData(List<UserOverrideIdentityProviderData> data) {
     this.data = data;
+    if (data != null) {
+      for (UserOverrideIdentityProviderData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

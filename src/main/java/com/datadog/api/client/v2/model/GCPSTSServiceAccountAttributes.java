@@ -376,6 +376,11 @@ public class GCPSTSServiceAccountAttributes {
 
   public void setMetricNamespaceConfigs(List<GCPMetricNamespaceConfig> metricNamespaceConfigs) {
     this.metricNamespaceConfigs = metricNamespaceConfigs;
+    if (metricNamespaceConfigs != null) {
+      for (GCPMetricNamespaceConfig item : metricNamespaceConfigs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GCPSTSServiceAccountAttributes monitoredResourceConfigs(
@@ -412,6 +417,11 @@ public class GCPSTSServiceAccountAttributes {
   public void setMonitoredResourceConfigs(
       List<GCPMonitoredResourceConfig> monitoredResourceConfigs) {
     this.monitoredResourceConfigs = monitoredResourceConfigs;
+    if (monitoredResourceConfigs != null) {
+      for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GCPSTSServiceAccountAttributes regionFilterConfigs(List<String> regionFilterConfigs) {

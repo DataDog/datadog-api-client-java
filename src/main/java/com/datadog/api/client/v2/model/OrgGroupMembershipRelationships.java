@@ -45,6 +45,9 @@ public class OrgGroupMembershipRelationships {
 
   public void setOrgGroup(OrgGroupRelationshipToOne orgGroup) {
     this.orgGroup = orgGroup;
+    if (orgGroup != null) {
+      this.unparsed |= orgGroup.unparsed;
+    }
   }
 
   /**

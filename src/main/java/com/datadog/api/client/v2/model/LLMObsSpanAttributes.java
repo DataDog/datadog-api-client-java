@@ -194,6 +194,9 @@ public class LLMObsSpanAttributes {
 
   public void setInput(LLMObsSpanIO input) {
     this.input = input;
+    if (input != null) {
+      this.unparsed |= input.unparsed;
+    }
   }
 
   public LLMObsSpanAttributes intent(String intent) {
@@ -377,6 +380,9 @@ public class LLMObsSpanAttributes {
 
   public void setOutput(LLMObsSpanIO output) {
     this.output = output;
+    if (output != null) {
+      this.unparsed |= output.unparsed;
+    }
   }
 
   public LLMObsSpanAttributes parentId(String parentId) {
@@ -540,6 +546,11 @@ public class LLMObsSpanAttributes {
 
   public void setToolDefinitions(List<LLMObsSpanToolDefinition> toolDefinitions) {
     this.toolDefinitions = toolDefinitions;
+    if (toolDefinitions != null) {
+      for (LLMObsSpanToolDefinition item : toolDefinitions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsSpanAttributes traceId(String traceId) {

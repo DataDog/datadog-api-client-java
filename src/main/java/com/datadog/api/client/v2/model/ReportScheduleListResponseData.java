@@ -79,6 +79,9 @@ public class ReportScheduleListResponseData {
 
   public void setAttributes(ReportScheduleListResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ReportScheduleListResponseData id(String id) {
@@ -121,6 +124,9 @@ public class ReportScheduleListResponseData {
 
   public void setRelationships(ReportScheduleListResponseRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ReportScheduleListResponseData type(ReportScheduleType type) {

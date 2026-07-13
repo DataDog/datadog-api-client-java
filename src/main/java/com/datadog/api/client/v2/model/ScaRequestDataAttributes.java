@@ -85,6 +85,9 @@ public class ScaRequestDataAttributes {
 
   public void setCommit(ScaRequestDataAttributesCommit commit) {
     this.commit = commit;
+    if (commit != null) {
+      this.unparsed |= commit.unparsed;
+    }
   }
 
   public ScaRequestDataAttributes dependencies(
@@ -120,6 +123,11 @@ public class ScaRequestDataAttributes {
 
   public void setDependencies(List<ScaRequestDataAttributesDependenciesItems> dependencies) {
     this.dependencies = dependencies;
+    if (dependencies != null) {
+      for (ScaRequestDataAttributesDependenciesItems item : dependencies) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScaRequestDataAttributes env(String env) {
@@ -174,6 +182,11 @@ public class ScaRequestDataAttributes {
 
   public void setFiles(List<ScaRequestDataAttributesFilesItems> files) {
     this.files = files;
+    if (files != null) {
+      for (ScaRequestDataAttributesFilesItems item : files) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScaRequestDataAttributes relations(
@@ -209,6 +222,11 @@ public class ScaRequestDataAttributes {
 
   public void setRelations(List<ScaRequestDataAttributesRelationsItems> relations) {
     this.relations = relations;
+    if (relations != null) {
+      for (ScaRequestDataAttributesRelationsItems item : relations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScaRequestDataAttributes repository(ScaRequestDataAttributesRepository repository) {
@@ -231,6 +249,9 @@ public class ScaRequestDataAttributes {
 
   public void setRepository(ScaRequestDataAttributesRepository repository) {
     this.repository = repository;
+    if (repository != null) {
+      this.unparsed |= repository.unparsed;
+    }
   }
 
   public ScaRequestDataAttributes service(String service) {
@@ -317,6 +338,11 @@ public class ScaRequestDataAttributes {
   public void setVulnerabilities(
       List<ScaRequestDataAttributesVulnerabilitiesItems> vulnerabilities) {
     this.vulnerabilities = vulnerabilities;
+    if (vulnerabilities != null) {
+      for (ScaRequestDataAttributesVulnerabilitiesItems item : vulnerabilities) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

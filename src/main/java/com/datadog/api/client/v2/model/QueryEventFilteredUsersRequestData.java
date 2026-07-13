@@ -70,6 +70,9 @@ public class QueryEventFilteredUsersRequestData {
 
   public void setAttributes(QueryEventFilteredUsersRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public QueryEventFilteredUsersRequestData id(String id) {

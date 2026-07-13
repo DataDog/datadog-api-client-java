@@ -55,6 +55,9 @@ public class IssueRelationships {
 
   public void setAssignee(IssueAssigneeRelationship assignee) {
     this.assignee = assignee;
+    if (assignee != null) {
+      this.unparsed |= assignee.unparsed;
+    }
   }
 
   public IssueRelationships _case(IssueCaseRelationship _case) {
@@ -77,6 +80,9 @@ public class IssueRelationships {
 
   public void setCase(IssueCaseRelationship _case) {
     this._case = _case;
+    if (_case != null) {
+      this.unparsed |= _case.unparsed;
+    }
   }
 
   public IssueRelationships teamOwners(IssueTeamOwnersRelationship teamOwners) {
@@ -99,6 +105,9 @@ public class IssueRelationships {
 
   public void setTeamOwners(IssueTeamOwnersRelationship teamOwners) {
     this.teamOwners = teamOwners;
+    if (teamOwners != null) {
+      this.unparsed |= teamOwners.unparsed;
+    }
   }
 
   /**

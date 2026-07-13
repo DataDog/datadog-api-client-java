@@ -45,6 +45,9 @@ public class IssuesSearchResultRelationships {
 
   public void setIssue(IssuesSearchResultIssueRelationship issue) {
     this.issue = issue;
+    if (issue != null) {
+      this.unparsed |= issue.unparsed;
+    }
   }
 
   /**

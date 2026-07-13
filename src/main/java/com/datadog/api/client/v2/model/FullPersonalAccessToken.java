@@ -59,6 +59,9 @@ public class FullPersonalAccessToken {
 
   public void setAttributes(FullPersonalAccessTokenAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FullPersonalAccessToken id(String id) {
@@ -102,6 +105,9 @@ public class FullPersonalAccessToken {
 
   public void setRelationships(PersonalAccessTokenRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public FullPersonalAccessToken type(PersonalAccessTokensType type) {

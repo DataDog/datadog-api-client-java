@@ -55,6 +55,9 @@ public class OrgGroupMembershipBulkUpdateRequest {
 
   public void setData(OrgGroupMembershipBulkUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

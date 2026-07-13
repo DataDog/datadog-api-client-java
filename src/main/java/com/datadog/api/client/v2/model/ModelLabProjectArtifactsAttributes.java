@@ -35,6 +35,9 @@ public class ModelLabProjectArtifactsAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_FILES)
           List<ModelLabArtifactInfo> files) {
     this.files = files;
+    for (ModelLabArtifactInfo item : files) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ModelLabProjectArtifactsAttributes files(List<ModelLabArtifactInfo> files) {
@@ -64,6 +67,11 @@ public class ModelLabProjectArtifactsAttributes {
 
   public void setFiles(List<ModelLabArtifactInfo> files) {
     this.files = files;
+    if (files != null) {
+      for (ModelLabArtifactInfo item : files) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

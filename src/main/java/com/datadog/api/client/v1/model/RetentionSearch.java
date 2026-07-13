@@ -77,6 +77,9 @@ public class RetentionSearch {
 
   public void setCohortCriteria(RetentionCohortCriteria cohortCriteria) {
     this.cohortCriteria = cohortCriteria;
+    if (cohortCriteria != null) {
+      this.unparsed |= cohortCriteria.unparsed;
+    }
   }
 
   public RetentionSearch filters(RetentionFilters filters) {
@@ -99,6 +102,9 @@ public class RetentionSearch {
 
   public void setFilters(RetentionFilters filters) {
     this.filters = filters;
+    if (filters != null) {
+      this.unparsed |= filters.unparsed;
+    }
   }
 
   public RetentionSearch retentionEntity(RetentionEntity retentionEntity) {
@@ -169,6 +175,9 @@ public class RetentionSearch {
 
   public void setReturnCriteria(RetentionReturnCriteria returnCriteria) {
     this.returnCriteria = returnCriteria;
+    if (returnCriteria != null) {
+      this.unparsed |= returnCriteria.unparsed;
+    }
   }
 
   /** Return true if this RetentionSearch object is equal to o. */

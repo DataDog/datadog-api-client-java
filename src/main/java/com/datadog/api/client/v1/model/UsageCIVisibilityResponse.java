@@ -58,6 +58,11 @@ public class UsageCIVisibilityResponse {
 
   public void setUsage(List<UsageCIVisibilityHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageCIVisibilityHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

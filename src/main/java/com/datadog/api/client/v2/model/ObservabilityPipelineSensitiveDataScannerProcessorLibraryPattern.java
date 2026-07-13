@@ -70,6 +70,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern {
   public void setOptions(
       ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern type(

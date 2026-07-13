@@ -71,6 +71,9 @@ public class WebIntegrationAccountResponseData {
 
   public void setAttributes(WebIntegrationAccountResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WebIntegrationAccountResponseData id(String id) {

@@ -45,6 +45,9 @@ public class FlakyTestsSearchRequest {
 
   public void setData(FlakyTestsSearchRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

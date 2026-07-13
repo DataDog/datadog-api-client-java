@@ -77,6 +77,9 @@ public class CsmHostFacetInfoData {
 
   public void setAttributes(CsmHostFacetInfoAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CsmHostFacetInfoData id(String id) {
@@ -118,6 +121,9 @@ public class CsmHostFacetInfoData {
 
   public void setMeta(CsmHostFacetInfoMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public CsmHostFacetInfoData type(CsmFacetInfoType type) {

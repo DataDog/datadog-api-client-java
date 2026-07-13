@@ -79,6 +79,9 @@ public class AutomationRule {
 
   public void setAttributes(AutomationRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AutomationRule id(String id) {
@@ -122,6 +125,9 @@ public class AutomationRule {
 
   public void setRelationships(AutomationRuleRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public AutomationRule type(CaseAutomationRuleResourceType type) {

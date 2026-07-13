@@ -45,6 +45,9 @@ public class SpansMetricResponse {
 
   public void setData(SpansMetricResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

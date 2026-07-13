@@ -54,6 +54,9 @@ public class StatuspageAccountCreateRequest {
 
   public void setData(StatuspageAccountCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

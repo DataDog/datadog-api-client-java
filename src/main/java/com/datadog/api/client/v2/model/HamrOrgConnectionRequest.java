@@ -55,6 +55,9 @@ public class HamrOrgConnectionRequest {
 
   public void setData(HamrOrgConnectionDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

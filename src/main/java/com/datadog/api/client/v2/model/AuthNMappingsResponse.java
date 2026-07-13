@@ -68,6 +68,11 @@ public class AuthNMappingsResponse {
 
   public void setData(List<AuthNMapping> data) {
     this.data = data;
+    if (data != null) {
+      for (AuthNMapping item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AuthNMappingsResponse included(List<AuthNMappingIncluded> included) {
@@ -101,6 +106,11 @@ public class AuthNMappingsResponse {
 
   public void setIncluded(List<AuthNMappingIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (AuthNMappingIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AuthNMappingsResponse meta(ResponseMetaAttributes meta) {
@@ -123,6 +133,9 @@ public class AuthNMappingsResponse {
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

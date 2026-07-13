@@ -63,6 +63,9 @@ public class SecurityMonitoringSignalUpdateData {
 
   public void setAttributes(SecurityMonitoringSignalUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalUpdateData type(SecurityMonitoringSignalMetadataType type) {

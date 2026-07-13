@@ -42,6 +42,9 @@ public class OutcomesBatchResponse {
           List<OutcomesResponseDataItem> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) OutcomesBatchResponseMeta meta) {
     this.data = data;
+    for (OutcomesResponseDataItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -73,6 +76,11 @@ public class OutcomesBatchResponse {
 
   public void setData(List<OutcomesResponseDataItem> data) {
     this.data = data;
+    if (data != null) {
+      for (OutcomesResponseDataItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public OutcomesBatchResponse meta(OutcomesBatchResponseMeta meta) {
@@ -94,6 +102,9 @@ public class OutcomesBatchResponse {
 
   public void setMeta(OutcomesBatchResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

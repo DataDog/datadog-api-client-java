@@ -58,6 +58,9 @@ public class CohortWidgetDefinition {
           List<RetentionGridRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CohortWidgetDefinitionType type) {
     this.requests = requests;
+    for (RetentionGridRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -110,6 +113,11 @@ public class CohortWidgetDefinition {
 
   public void setRequests(List<RetentionGridRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (RetentionGridRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CohortWidgetDefinition time(WidgetTime time) {
@@ -132,6 +140,9 @@ public class CohortWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public CohortWidgetDefinition title(String title) {

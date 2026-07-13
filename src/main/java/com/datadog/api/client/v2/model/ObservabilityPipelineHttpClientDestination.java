@@ -148,6 +148,9 @@ public class ObservabilityPipelineHttpClientDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineHttpClientDestination compression(
@@ -171,6 +174,9 @@ public class ObservabilityPipelineHttpClientDestination {
 
   public void setCompression(ObservabilityPipelineHttpClientDestinationCompression compression) {
     this.compression = compression;
+    if (compression != null) {
+      this.unparsed |= compression.unparsed;
+    }
   }
 
   public ObservabilityPipelineHttpClientDestination customKey(String customKey) {
@@ -307,6 +313,9 @@ public class ObservabilityPipelineHttpClientDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineHttpClientDestination tokenKey(String tokenKey) {

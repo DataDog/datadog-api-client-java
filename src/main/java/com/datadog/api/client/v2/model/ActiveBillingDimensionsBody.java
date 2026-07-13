@@ -55,6 +55,9 @@ public class ActiveBillingDimensionsBody {
 
   public void setAttributes(ActiveBillingDimensionsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ActiveBillingDimensionsBody id(String id) {

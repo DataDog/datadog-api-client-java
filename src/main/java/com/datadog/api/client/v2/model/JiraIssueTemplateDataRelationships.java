@@ -55,6 +55,9 @@ public class JiraIssueTemplateDataRelationships {
 
   public void setJiraAccount(JiraAccountRelationship jiraAccount) {
     this.jiraAccount = jiraAccount;
+    if (jiraAccount != null) {
+      this.unparsed |= jiraAccount.unparsed;
+    }
   }
 
   /**

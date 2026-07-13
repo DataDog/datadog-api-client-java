@@ -65,6 +65,11 @@ public class ServiceListDataAttributes {
 
   public void setMetadata(List<ServiceListDataAttributesMetadataItems> metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      for (ServiceListDataAttributesMetadataItems item : metadata) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ServiceListDataAttributes services(List<String> services) {

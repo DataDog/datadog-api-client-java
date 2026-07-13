@@ -117,6 +117,9 @@ public class Dashboard {
     this.unparsed |= !layoutType.isValid();
     this.title = title;
     this.widgets = widgets;
+    for (Widget item : widgets) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   /**
@@ -617,6 +620,11 @@ public class Dashboard {
 
   public void setWidgets(List<Widget> widgets) {
     this.widgets = widgets;
+    if (widgets != null) {
+      for (Widget item : widgets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

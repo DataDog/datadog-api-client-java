@@ -35,6 +35,9 @@ public class AiCustomRulesetsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<AiCustomRulesetResponseData> data) {
     this.data = data;
+    for (AiCustomRulesetResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AiCustomRulesetsResponse data(List<AiCustomRulesetResponseData> data) {
@@ -64,6 +67,11 @@ public class AiCustomRulesetsResponse {
 
   public void setData(List<AiCustomRulesetResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (AiCustomRulesetResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

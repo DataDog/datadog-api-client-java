@@ -64,6 +64,9 @@ public class AnalysisViolation {
     this.end = end;
     this.unparsed |= end.unparsed;
     this.fixes = fixes;
+    for (AnalysisFix item : fixes) {
+      this.unparsed |= item.unparsed;
+    }
     this.message = message;
     this.severity = severity;
     this.start = start;
@@ -109,6 +112,9 @@ public class AnalysisViolation {
 
   public void setEnd(AnalysisPosition end) {
     this.end = end;
+    if (end != null) {
+      this.unparsed |= end.unparsed;
+    }
   }
 
   public AnalysisViolation fixes(List<AnalysisFix> fixes) {
@@ -138,6 +144,11 @@ public class AnalysisViolation {
 
   public void setFixes(List<AnalysisFix> fixes) {
     this.fixes = fixes;
+    if (fixes != null) {
+      for (AnalysisFix item : fixes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AnalysisViolation message(String message) {
@@ -199,6 +210,9 @@ public class AnalysisViolation {
 
   public void setStart(AnalysisPosition start) {
     this.start = start;
+    if (start != null) {
+      this.unparsed |= start.unparsed;
+    }
   }
 
   /**

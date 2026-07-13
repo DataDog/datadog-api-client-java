@@ -56,6 +56,9 @@ public class MicrosoftTeamsChannelInfoResponseData {
 
   public void setAttributes(MicrosoftTeamsChannelInfoResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MicrosoftTeamsChannelInfoResponseData id(String id) {

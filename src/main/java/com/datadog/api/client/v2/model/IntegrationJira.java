@@ -59,6 +59,9 @@ public class IntegrationJira {
 
   public void setAutoCreation(IntegrationJiraAutoCreation autoCreation) {
     this.autoCreation = autoCreation;
+    if (autoCreation != null) {
+      this.unparsed |= autoCreation.unparsed;
+    }
   }
 
   public IntegrationJira enabled(Boolean enabled) {
@@ -102,6 +105,9 @@ public class IntegrationJira {
 
   public void setMetadata(IntegrationJiraMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public IntegrationJira sync(IntegrationJiraSync sync) {
@@ -124,6 +130,9 @@ public class IntegrationJira {
 
   public void setSync(IntegrationJiraSync sync) {
     this.sync = sync;
+    if (sync != null) {
+      this.unparsed |= sync.unparsed;
+    }
   }
 
   /**

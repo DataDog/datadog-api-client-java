@@ -45,6 +45,9 @@ public class ListRowsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<TableRowResourceData> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_LINKS) ListRowsResponseLinks links) {
     this.data = data;
+    for (TableRowResourceData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.links = links;
     this.unparsed |= links.unparsed;
   }
@@ -76,6 +79,11 @@ public class ListRowsResponse {
 
   public void setData(List<TableRowResourceData> data) {
     this.data = data;
+    if (data != null) {
+      for (TableRowResourceData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListRowsResponse links(ListRowsResponseLinks links) {
@@ -97,6 +105,9 @@ public class ListRowsResponse {
 
   public void setLinks(ListRowsResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListRowsResponse meta(ListRowsResponseMeta meta) {
@@ -119,6 +130,9 @@ public class ListRowsResponse {
 
   public void setMeta(ListRowsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

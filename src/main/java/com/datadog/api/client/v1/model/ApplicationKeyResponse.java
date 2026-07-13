@@ -45,6 +45,9 @@ public class ApplicationKeyResponse {
 
   public void setApplicationKey(ApplicationKey applicationKey) {
     this.applicationKey = applicationKey;
+    if (applicationKey != null) {
+      this.unparsed |= applicationKey.unparsed;
+    }
   }
 
   /**

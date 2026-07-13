@@ -40,6 +40,9 @@ public class AzureUCConfigPairAttributes {
   public AzureUCConfigPairAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CONFIGS) List<AzureUCConfig> configs) {
     this.configs = configs;
+    for (AzureUCConfig item : configs) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AzureUCConfigPairAttributes configs(List<AzureUCConfig> configs) {
@@ -69,6 +72,11 @@ public class AzureUCConfigPairAttributes {
 
   public void setConfigs(List<AzureUCConfig> configs) {
     this.configs = configs;
+    if (configs != null) {
+      for (AzureUCConfig item : configs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AzureUCConfigPairAttributes id(String id) {

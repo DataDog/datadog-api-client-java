@@ -64,6 +64,9 @@ public class LLMObsProjectDataRequest {
 
   public void setAttributes(LLMObsProjectDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsProjectDataRequest type(LLMObsProjectType type) {

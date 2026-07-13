@@ -70,6 +70,9 @@ public class RoutingRule {
 
   public void setAttributes(RoutingRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RoutingRule id(String id) {
@@ -113,6 +116,9 @@ public class RoutingRule {
 
   public void setRelationships(RoutingRuleRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public RoutingRule type(RoutingRuleType type) {

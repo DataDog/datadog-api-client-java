@@ -45,6 +45,9 @@ public class PatchMaintenanceRequest {
 
   public void setData(PatchMaintenanceRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

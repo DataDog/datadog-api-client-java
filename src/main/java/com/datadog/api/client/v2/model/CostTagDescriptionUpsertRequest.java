@@ -56,6 +56,9 @@ public class CostTagDescriptionUpsertRequest {
 
   public void setData(CostTagDescriptionUpsertRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

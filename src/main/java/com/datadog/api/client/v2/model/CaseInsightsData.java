@@ -61,6 +61,9 @@ public class CaseInsightsData {
 
   public void setAttributes(CaseInsightsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseInsightsData type(CaseResourceType type) {

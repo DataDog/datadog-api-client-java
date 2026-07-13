@@ -55,6 +55,9 @@ public class RumRateLimitConfigUpdateRequest {
 
   public void setData(RumRateLimitConfigUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

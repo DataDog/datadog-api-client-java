@@ -55,6 +55,9 @@ public class AggregatedSignalsProblemsResponse {
 
   public void setData(AggregatedSignalsProblemsResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

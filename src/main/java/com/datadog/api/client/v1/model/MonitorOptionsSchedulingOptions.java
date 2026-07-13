@@ -53,6 +53,9 @@ public class MonitorOptionsSchedulingOptions {
 
   public void setCustomSchedule(MonitorOptionsCustomSchedule customSchedule) {
     this.customSchedule = customSchedule;
+    if (customSchedule != null) {
+      this.unparsed |= customSchedule.unparsed;
+    }
   }
 
   public MonitorOptionsSchedulingOptions evaluationWindow(
@@ -79,6 +82,9 @@ public class MonitorOptionsSchedulingOptions {
   public void setEvaluationWindow(
       MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
     this.evaluationWindow = evaluationWindow;
+    if (evaluationWindow != null) {
+      this.unparsed |= evaluationWindow.unparsed;
+    }
   }
 
   /**

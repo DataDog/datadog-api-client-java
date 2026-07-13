@@ -110,6 +110,11 @@ public class SecurityMonitoringDatasetDefinition {
 
   public void setColumns(List<SecurityMonitoringDatasetColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (SecurityMonitoringDatasetColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringDatasetDefinition dataSource(String dataSource) {
@@ -223,6 +228,9 @@ public class SecurityMonitoringDatasetDefinition {
 
   public void setSearch(SecurityMonitoringDatasetSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   public SecurityMonitoringDatasetDefinition storage(String storage) {
@@ -288,6 +296,9 @@ public class SecurityMonitoringDatasetDefinition {
 
   public void setTimeWindow(SecurityMonitoringDatasetTimeWindow timeWindow) {
     this.timeWindow = timeWindow;
+    if (timeWindow != null) {
+      this.unparsed |= timeWindow.unparsed;
+    }
   }
 
   /**

@@ -69,6 +69,11 @@ public class LogsListResponse {
 
   public void setLogs(List<Log> logs) {
     this.logs = logs;
+    if (logs != null) {
+      for (Log item : logs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsListResponse nextLogId(String nextLogId) {

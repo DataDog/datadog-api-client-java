@@ -89,6 +89,11 @@ public class AWSEventBridgeAccountConfiguration {
 
   public void setEventHubs(List<AWSEventBridgeSource> eventHubs) {
     this.eventHubs = eventHubs;
+    if (eventHubs != null) {
+      for (AWSEventBridgeSource item : eventHubs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AWSEventBridgeAccountConfiguration tags(List<String> tags) {

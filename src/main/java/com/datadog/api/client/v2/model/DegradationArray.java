@@ -44,6 +44,9 @@ public class DegradationArray {
   public DegradationArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<DegradationData> data) {
     this.data = data;
+    for (DegradationData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DegradationArray data(List<DegradationData> data) {
@@ -73,6 +76,11 @@ public class DegradationArray {
 
   public void setData(List<DegradationData> data) {
     this.data = data;
+    if (data != null) {
+      for (DegradationData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DegradationArray included(List<DegradationIncluded> included) {
@@ -107,6 +115,11 @@ public class DegradationArray {
 
   public void setIncluded(List<DegradationIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (DegradationIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

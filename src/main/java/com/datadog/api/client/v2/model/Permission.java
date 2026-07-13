@@ -65,6 +65,9 @@ public class Permission {
 
   public void setAttributes(PermissionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Permission id(String id) {

@@ -71,6 +71,9 @@ public class UpdateConnectionRequestData {
 
   public void setAttributes(UpdateConnectionRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateConnectionRequestData id(String id) {

@@ -55,6 +55,9 @@ public class SBOMComponentLicense {
 
   public void setLicense(SBOMComponentLicenseLicense license) {
     this.license = license;
+    if (license != null) {
+      this.unparsed |= license.unparsed;
+    }
   }
 
   /**

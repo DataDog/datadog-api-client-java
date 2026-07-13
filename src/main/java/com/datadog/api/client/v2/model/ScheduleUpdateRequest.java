@@ -58,6 +58,9 @@ public class ScheduleUpdateRequest {
 
   public void setData(ScheduleUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

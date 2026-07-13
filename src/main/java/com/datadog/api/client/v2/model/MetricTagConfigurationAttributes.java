@@ -87,6 +87,11 @@ public class MetricTagConfigurationAttributes {
 
   public void setAggregations(List<MetricCustomAggregation> aggregations) {
     this.aggregations = aggregations;
+    if (aggregations != null) {
+      for (MetricCustomAggregation item : aggregations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MetricTagConfigurationAttributes createdAt(OffsetDateTime createdAt) {

@@ -64,6 +64,9 @@ public class DatastoreTriggerWrapper {
 
   public void setDatastoreTrigger(DatastoreTrigger datastoreTrigger) {
     this.datastoreTrigger = datastoreTrigger;
+    if (datastoreTrigger != null) {
+      this.unparsed |= datastoreTrigger.unparsed;
+    }
   }
 
   public DatastoreTriggerWrapper startStepNames(List<String> startStepNames) {

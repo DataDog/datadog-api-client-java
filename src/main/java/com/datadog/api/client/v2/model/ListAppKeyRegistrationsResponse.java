@@ -64,6 +64,11 @@ public class ListAppKeyRegistrationsResponse {
 
   public void setData(List<AppKeyRegistrationData> data) {
     this.data = data;
+    if (data != null) {
+      for (AppKeyRegistrationData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListAppKeyRegistrationsResponse meta(ListAppKeyRegistrationsResponseMeta meta) {
@@ -86,6 +91,9 @@ public class ListAppKeyRegistrationsResponse {
 
   public void setMeta(ListAppKeyRegistrationsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

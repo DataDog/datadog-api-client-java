@@ -78,6 +78,9 @@ public class CommitmentsScalarColumn {
 
   public void setMeta(CommitmentsScalarColumnMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public CommitmentsScalarColumn name(String name) {

@@ -66,6 +66,11 @@ public class MonthlyUsageAttributionMetadata {
 
   public void setAggregates(List<UsageAttributionAggregatesBody> aggregates) {
     this.aggregates = aggregates;
+    if (aggregates != null) {
+      for (UsageAttributionAggregatesBody item : aggregates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonthlyUsageAttributionMetadata pagination(MonthlyUsageAttributionPagination pagination) {
@@ -88,6 +93,9 @@ public class MonthlyUsageAttributionMetadata {
 
   public void setPagination(MonthlyUsageAttributionPagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class RumMetricCreateRequest {
 
   public void setData(RumMetricCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

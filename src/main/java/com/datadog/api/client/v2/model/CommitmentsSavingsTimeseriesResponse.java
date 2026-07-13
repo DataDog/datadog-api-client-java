@@ -81,6 +81,9 @@ public class CommitmentsSavingsTimeseriesResponse {
 
   public void setActualCost(CommitmentsTimeseriesMetric actualCost) {
     this.actualCost = actualCost;
+    if (actualCost != null) {
+      this.unparsed |= actualCost.unparsed;
+    }
   }
 
   public CommitmentsSavingsTimeseriesResponse effectiveSavingsRate(
@@ -103,6 +106,9 @@ public class CommitmentsSavingsTimeseriesResponse {
 
   public void setEffectiveSavingsRate(CommitmentsTimeseriesMetric effectiveSavingsRate) {
     this.effectiveSavingsRate = effectiveSavingsRate;
+    if (effectiveSavingsRate != null) {
+      this.unparsed |= effectiveSavingsRate.unparsed;
+    }
   }
 
   public CommitmentsSavingsTimeseriesResponse onDemandEquivalentCost(
@@ -125,6 +131,9 @@ public class CommitmentsSavingsTimeseriesResponse {
 
   public void setOnDemandEquivalentCost(CommitmentsTimeseriesMetric onDemandEquivalentCost) {
     this.onDemandEquivalentCost = onDemandEquivalentCost;
+    if (onDemandEquivalentCost != null) {
+      this.unparsed |= onDemandEquivalentCost.unparsed;
+    }
   }
 
   public CommitmentsSavingsTimeseriesResponse realizedSavings(
@@ -147,6 +156,9 @@ public class CommitmentsSavingsTimeseriesResponse {
 
   public void setRealizedSavings(CommitmentsTimeseriesMetric realizedSavings) {
     this.realizedSavings = realizedSavings;
+    if (realizedSavings != null) {
+      this.unparsed |= realizedSavings.unparsed;
+    }
   }
 
   /**

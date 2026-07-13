@@ -64,6 +64,9 @@ public class IncidentTodoAttributes {
           List<IncidentTodoAssignee> assignees,
       @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT) String content) {
     this.assignees = assignees;
+    for (IncidentTodoAssignee item : assignees) {
+      this.unparsed |= item.unparsed;
+    }
     this.content = content;
   }
 
@@ -94,6 +97,11 @@ public class IncidentTodoAttributes {
 
   public void setAssignees(List<IncidentTodoAssignee> assignees) {
     this.assignees = assignees;
+    if (assignees != null) {
+      for (IncidentTodoAssignee item : assignees) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentTodoAttributes completed(String completed) {

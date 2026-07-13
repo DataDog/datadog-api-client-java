@@ -69,6 +69,9 @@ public class EntityContextEntity {
 
   public void setAttributes(EntityContextEntityAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EntityContextEntity id(String id) {

@@ -64,6 +64,9 @@ public class ApplicationKeyCreateData {
 
   public void setAttributes(ApplicationKeyCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ApplicationKeyCreateData type(ApplicationKeysType type) {

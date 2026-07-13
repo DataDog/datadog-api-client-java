@@ -44,6 +44,9 @@ public class ListAssetsSBOMsResponse {
   public ListAssetsSBOMsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SBOM> data) {
     this.data = data;
+    for (SBOM item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListAssetsSBOMsResponse data(List<SBOM> data) {
@@ -73,6 +76,11 @@ public class ListAssetsSBOMsResponse {
 
   public void setData(List<SBOM> data) {
     this.data = data;
+    if (data != null) {
+      for (SBOM item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListAssetsSBOMsResponse links(Links links) {
@@ -95,6 +103,9 @@ public class ListAssetsSBOMsResponse {
 
   public void setLinks(Links links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListAssetsSBOMsResponse meta(Metadata meta) {
@@ -117,6 +128,9 @@ public class ListAssetsSBOMsResponse {
 
   public void setMeta(Metadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

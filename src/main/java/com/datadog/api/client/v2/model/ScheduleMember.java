@@ -86,6 +86,9 @@ public class ScheduleMember {
 
   public void setRelationships(ScheduleMemberRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ScheduleMember type(ScheduleMemberType type) {

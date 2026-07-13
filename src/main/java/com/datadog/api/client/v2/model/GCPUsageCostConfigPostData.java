@@ -63,6 +63,9 @@ public class GCPUsageCostConfigPostData {
 
   public void setAttributes(GCPUsageCostConfigPostRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GCPUsageCostConfigPostData type(GCPUsageCostConfigPostRequestType type) {

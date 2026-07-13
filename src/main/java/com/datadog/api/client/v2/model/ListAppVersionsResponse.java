@@ -64,6 +64,11 @@ public class ListAppVersionsResponse {
 
   public void setData(List<AppVersion> data) {
     this.data = data;
+    if (data != null) {
+      for (AppVersion item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListAppVersionsResponse meta(ListAppsResponseMeta meta) {
@@ -86,6 +91,9 @@ public class ListAppVersionsResponse {
 
   public void setMeta(ListAppsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

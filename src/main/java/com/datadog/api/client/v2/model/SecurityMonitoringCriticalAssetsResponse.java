@@ -59,6 +59,11 @@ public class SecurityMonitoringCriticalAssetsResponse {
 
   public void setData(List<SecurityMonitoringCriticalAsset> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringCriticalAsset item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

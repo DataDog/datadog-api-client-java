@@ -55,6 +55,9 @@ public class MetricAllTags {
 
   public void setAttributes(MetricAllTagsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricAllTags id(String id) {

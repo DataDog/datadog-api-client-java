@@ -119,6 +119,9 @@ public class ObservabilityPipelineNewRelicDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineNewRelicDestination id(String id) {

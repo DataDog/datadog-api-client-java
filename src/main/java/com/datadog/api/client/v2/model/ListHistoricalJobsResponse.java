@@ -64,6 +64,11 @@ public class ListHistoricalJobsResponse {
 
   public void setData(List<HistoricalJobResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (HistoricalJobResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListHistoricalJobsResponse meta(HistoricalJobListMeta meta) {
@@ -86,6 +91,9 @@ public class ListHistoricalJobsResponse {
 
   public void setMeta(HistoricalJobListMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

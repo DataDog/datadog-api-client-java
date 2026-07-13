@@ -45,6 +45,9 @@ public class AWSTracesConfig {
 
   public void setXrayServices(XRayServicesList xrayServices) {
     this.xrayServices = xrayServices;
+    if (xrayServices != null) {
+      this.unparsed |= xrayServices.unparsed;
+    }
   }
 
   /**

@@ -35,6 +35,9 @@ public class AWSCcmConfig {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA_EXPORT_CONFIGS)
           List<DataExportConfig> dataExportConfigs) {
     this.dataExportConfigs = dataExportConfigs;
+    for (DataExportConfig item : dataExportConfigs) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AWSCcmConfig dataExportConfigs(List<DataExportConfig> dataExportConfigs) {
@@ -64,6 +67,11 @@ public class AWSCcmConfig {
 
   public void setDataExportConfigs(List<DataExportConfig> dataExportConfigs) {
     this.dataExportConfigs = dataExportConfigs;
+    if (dataExportConfigs != null) {
+      for (DataExportConfig item : dataExportConfigs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

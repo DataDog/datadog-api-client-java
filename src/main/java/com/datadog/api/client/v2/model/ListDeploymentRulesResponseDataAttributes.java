@@ -60,6 +60,11 @@ public class ListDeploymentRulesResponseDataAttributes {
 
   public void setRules(List<DeploymentRuleResponseDataAttributes> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (DeploymentRuleResponseDataAttributes item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

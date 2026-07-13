@@ -58,6 +58,11 @@ public class ValidationResponse {
 
   public void setErrors(List<ValidationError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (ValidationError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

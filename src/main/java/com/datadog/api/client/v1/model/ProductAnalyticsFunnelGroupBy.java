@@ -134,6 +134,9 @@ public class ProductAnalyticsFunnelGroupBy {
 
   public void setSort(ProductAnalyticsFunnelGroupBySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public ProductAnalyticsFunnelGroupBy target(UserJourneySearchTarget target) {
@@ -156,6 +159,9 @@ public class ProductAnalyticsFunnelGroupBy {
 
   public void setTarget(UserJourneySearchTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   /**

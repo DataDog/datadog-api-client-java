@@ -89,6 +89,11 @@ public class RecommendationsFilterRequest {
 
   public void setSort(List<RecommendationsFilterRequestSortItems> sort) {
     this.sort = sort;
+    if (sort != null) {
+      for (RecommendationsFilterRequestSortItems item : sort) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RecommendationsFilterRequest view(String view) {

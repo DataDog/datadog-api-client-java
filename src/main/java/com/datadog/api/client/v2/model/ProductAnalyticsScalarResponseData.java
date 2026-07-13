@@ -56,6 +56,9 @@ public class ProductAnalyticsScalarResponseData {
 
   public void setAttributes(ProductAnalyticsScalarResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ProductAnalyticsScalarResponseData id(String id) {

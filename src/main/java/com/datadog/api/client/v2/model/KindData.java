@@ -59,6 +59,9 @@ public class KindData {
 
   public void setAttributes(KindAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public KindData id(String id) {
@@ -103,6 +106,9 @@ public class KindData {
 
   public void setMeta(KindMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public KindData type(String type) {

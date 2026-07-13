@@ -58,6 +58,11 @@ public class LogsMetricsResponse {
 
   public void setData(List<LogsMetricResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (LogsMetricResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

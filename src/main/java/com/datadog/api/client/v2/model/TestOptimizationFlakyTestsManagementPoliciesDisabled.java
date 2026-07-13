@@ -61,6 +61,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesDisabled {
   public void setAutoDisableRule(
       TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule autoDisableRule) {
     this.autoDisableRule = autoDisableRule;
+    if (autoDisableRule != null) {
+      this.unparsed |= autoDisableRule.unparsed;
+    }
   }
 
   public TestOptimizationFlakyTestsManagementPoliciesDisabled branchRule(
@@ -84,6 +87,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesDisabled {
 
   public void setBranchRule(TestOptimizationFlakyTestsManagementPoliciesBranchRule branchRule) {
     this.branchRule = branchRule;
+    if (branchRule != null) {
+      this.unparsed |= branchRule.unparsed;
+    }
   }
 
   public TestOptimizationFlakyTestsManagementPoliciesDisabled enabled(Boolean enabled) {
@@ -129,6 +135,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesDisabled {
   public void setFailureRateRule(
       TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule failureRateRule) {
     this.failureRateRule = failureRateRule;
+    if (failureRateRule != null) {
+      this.unparsed |= failureRateRule.unparsed;
+    }
   }
 
   /**

@@ -34,6 +34,9 @@ public class UsersRelationship {
   public UsersRelationship(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<UserRelationshipData> data) {
     this.data = data;
+    for (UserRelationshipData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public UsersRelationship data(List<UserRelationshipData> data) {
@@ -63,6 +66,11 @@ public class UsersRelationship {
 
   public void setData(List<UserRelationshipData> data) {
     this.data = data;
+    if (data != null) {
+      for (UserRelationshipData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

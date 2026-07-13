@@ -121,6 +121,9 @@ public class ObservabilityPipelineFluentdSource {
 
   public void setTls(ObservabilityPipelineMtlsServerTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineFluentdSource type(ObservabilityPipelineFluentdSourceType type) {

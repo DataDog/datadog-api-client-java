@@ -70,6 +70,9 @@ public class IssueTeam {
 
   public void setAttributes(IssueTeamAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IssueTeam id(String id) {

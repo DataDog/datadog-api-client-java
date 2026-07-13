@@ -65,6 +65,9 @@ public class LLMObsDeleteProjectsDataRequest {
 
   public void setAttributes(LLMObsDeleteProjectsDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDeleteProjectsDataRequest type(LLMObsProjectType type) {

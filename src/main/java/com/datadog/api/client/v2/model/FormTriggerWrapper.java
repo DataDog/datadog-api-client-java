@@ -62,6 +62,9 @@ public class FormTriggerWrapper {
 
   public void setFormTrigger(FormTrigger formTrigger) {
     this.formTrigger = formTrigger;
+    if (formTrigger != null) {
+      this.unparsed |= formTrigger.unparsed;
+    }
   }
 
   public FormTriggerWrapper startStepNames(List<String> startStepNames) {

@@ -74,6 +74,9 @@ public class CaseLink {
 
   public void setAttributes(CaseLinkAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseLink id(String id) {

@@ -65,6 +65,9 @@ public class AWSCcmConfigValidationRequestData {
 
   public void setAttributes(AWSCcmConfigValidationRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSCcmConfigValidationRequestData type(AWSCcmConfigValidationType type) {

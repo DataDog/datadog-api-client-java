@@ -60,6 +60,11 @@ public class ApplicationSecurityWafExclusionFiltersResponse {
 
   public void setData(List<ApplicationSecurityWafExclusionFilterResource> data) {
     this.data = data;
+    if (data != null) {
+      for (ApplicationSecurityWafExclusionFilterResource item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

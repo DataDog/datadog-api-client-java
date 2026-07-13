@@ -55,6 +55,9 @@ public class MonthlyCostAttributionBody {
 
   public void setAttributes(MonthlyCostAttributionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonthlyCostAttributionBody id(String id) {

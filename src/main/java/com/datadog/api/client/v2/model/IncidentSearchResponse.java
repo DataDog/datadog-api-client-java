@@ -65,6 +65,9 @@ public class IncidentSearchResponse {
 
   public void setData(IncidentSearchResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -132,6 +132,11 @@ public class SecurityMonitoringRuleThirdPartyOptions {
 
   public void setRootQueries(List<SecurityMonitoringThirdPartyRootQuery> rootQueries) {
     this.rootQueries = rootQueries;
+    if (rootQueries != null) {
+      for (SecurityMonitoringThirdPartyRootQuery item : rootQueries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleThirdPartyOptions signalTitleTemplate(String signalTitleTemplate) {

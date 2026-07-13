@@ -44,6 +44,9 @@ public class ScannedAssetsMetadata {
   public ScannedAssetsMetadata(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<ScannedAssetMetadata> data) {
     this.data = data;
+    for (ScannedAssetMetadata item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ScannedAssetsMetadata data(List<ScannedAssetMetadata> data) {
@@ -73,6 +76,11 @@ public class ScannedAssetsMetadata {
 
   public void setData(List<ScannedAssetMetadata> data) {
     this.data = data;
+    if (data != null) {
+      for (ScannedAssetMetadata item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScannedAssetsMetadata links(Links links) {
@@ -95,6 +103,9 @@ public class ScannedAssetsMetadata {
 
   public void setLinks(Links links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ScannedAssetsMetadata meta(Metadata meta) {
@@ -117,6 +128,9 @@ public class ScannedAssetsMetadata {
 
   public void setMeta(Metadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

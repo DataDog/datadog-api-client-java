@@ -55,6 +55,9 @@ public class PersonalAccessTokenCreateRequest {
 
   public void setData(PersonalAccessTokenCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

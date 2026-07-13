@@ -64,6 +64,11 @@ public class AppRelationship {
 
   public void setConnections(List<CustomConnection> connections) {
     this.connections = connections;
+    if (connections != null) {
+      for (CustomConnection item : connections) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AppRelationship deployment(DeploymentRelationship deployment) {
@@ -86,6 +91,9 @@ public class AppRelationship {
 
   public void setDeployment(DeploymentRelationship deployment) {
     this.deployment = deployment;
+    if (deployment != null) {
+      this.unparsed |= deployment.unparsed;
+    }
   }
 
   /**

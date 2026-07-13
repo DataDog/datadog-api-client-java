@@ -45,6 +45,9 @@ public class CustomRuleRevisionRequest {
 
   public void setData(CustomRuleRevisionRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

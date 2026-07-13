@@ -55,6 +55,9 @@ public class SecurityMonitoringDatasetResponse {
 
   public void setData(SecurityMonitoringDatasetData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

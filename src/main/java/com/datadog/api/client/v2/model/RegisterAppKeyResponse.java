@@ -45,6 +45,9 @@ public class RegisterAppKeyResponse {
 
   public void setData(AppKeyRegistrationData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

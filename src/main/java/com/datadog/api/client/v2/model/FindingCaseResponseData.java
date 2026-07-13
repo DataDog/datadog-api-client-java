@@ -69,6 +69,9 @@ public class FindingCaseResponseData {
 
   public void setAttributes(FindingCaseResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FindingCaseResponseData id(String id) {
@@ -112,6 +115,9 @@ public class FindingCaseResponseData {
 
   public void setRelationships(FindingCaseResponseDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public FindingCaseResponseData type(CaseDataType type) {

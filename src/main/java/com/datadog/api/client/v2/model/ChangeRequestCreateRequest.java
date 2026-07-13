@@ -54,6 +54,9 @@ public class ChangeRequestCreateRequest {
 
   public void setData(ChangeRequestCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

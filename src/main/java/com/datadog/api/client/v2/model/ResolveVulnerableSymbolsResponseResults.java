@@ -89,6 +89,11 @@ public class ResolveVulnerableSymbolsResponseResults {
   public void setVulnerableSymbols(
       List<ResolveVulnerableSymbolsResponseResultsVulnerableSymbols> vulnerableSymbols) {
     this.vulnerableSymbols = vulnerableSymbols;
+    if (vulnerableSymbols != null) {
+      for (ResolveVulnerableSymbolsResponseResultsVulnerableSymbols item : vulnerableSymbols) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

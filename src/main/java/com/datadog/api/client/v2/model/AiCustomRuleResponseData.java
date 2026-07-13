@@ -69,6 +69,9 @@ public class AiCustomRuleResponseData {
 
   public void setAttributes(AiCustomRuleItem attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AiCustomRuleResponseData id(String id) {

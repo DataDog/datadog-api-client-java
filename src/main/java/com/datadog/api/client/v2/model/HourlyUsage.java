@@ -55,6 +55,9 @@ public class HourlyUsage {
 
   public void setAttributes(HourlyUsageAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public HourlyUsage id(String id) {

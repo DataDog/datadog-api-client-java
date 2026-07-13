@@ -65,6 +65,9 @@ public class CreateJiraIssueRequestData {
 
   public void setAttributes(CreateJiraIssueRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateJiraIssueRequestData relationships(
@@ -88,6 +91,9 @@ public class CreateJiraIssueRequestData {
 
   public void setRelationships(CreateJiraIssueRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public CreateJiraIssueRequestData type(JiraIssuesDataType type) {

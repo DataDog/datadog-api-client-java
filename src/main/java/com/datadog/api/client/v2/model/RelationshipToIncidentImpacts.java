@@ -35,6 +35,9 @@ public class RelationshipToIncidentImpacts {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<RelationshipToIncidentImpactData> data) {
     this.data = data;
+    for (RelationshipToIncidentImpactData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RelationshipToIncidentImpacts data(List<RelationshipToIncidentImpactData> data) {
@@ -64,6 +67,11 @@ public class RelationshipToIncidentImpacts {
 
   public void setData(List<RelationshipToIncidentImpactData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToIncidentImpactData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

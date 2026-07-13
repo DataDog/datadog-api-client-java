@@ -54,6 +54,9 @@ public class TimeseriesFormulaQueryRequest {
 
   public void setData(TimeseriesFormulaRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

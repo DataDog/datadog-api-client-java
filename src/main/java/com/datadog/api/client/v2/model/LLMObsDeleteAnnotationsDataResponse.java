@@ -71,6 +71,9 @@ public class LLMObsDeleteAnnotationsDataResponse {
 
   public void setAttributes(LLMObsDeleteAnnotationsDataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDeleteAnnotationsDataResponse id(String id) {

@@ -45,6 +45,9 @@ public class ListAppsResponseDataItemsRelationships {
 
   public void setDeployment(DeploymentRelationship deployment) {
     this.deployment = deployment;
+    if (deployment != null) {
+      this.unparsed |= deployment.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class MuteRuleUpdateRequest {
 
   public void setData(MuteRuleDataCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

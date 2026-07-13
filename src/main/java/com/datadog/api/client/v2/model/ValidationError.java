@@ -59,6 +59,9 @@ public class ValidationError {
 
   public void setMeta(ValidationErrorMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public ValidationError title(String title) {

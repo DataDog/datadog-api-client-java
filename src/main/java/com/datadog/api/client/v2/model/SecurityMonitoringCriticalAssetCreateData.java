@@ -67,6 +67,9 @@ public class SecurityMonitoringCriticalAssetCreateData {
 
   public void setAttributes(SecurityMonitoringCriticalAssetCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringCriticalAssetCreateData type(SecurityMonitoringCriticalAssetType type) {

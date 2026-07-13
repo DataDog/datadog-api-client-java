@@ -56,6 +56,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesData {
 
   public void setAttributes(TestOptimizationFlakyTestsManagementPoliciesAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TestOptimizationFlakyTestsManagementPoliciesData id(String id) {

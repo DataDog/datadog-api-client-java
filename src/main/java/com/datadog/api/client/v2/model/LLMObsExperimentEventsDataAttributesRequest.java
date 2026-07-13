@@ -65,6 +65,11 @@ public class LLMObsExperimentEventsDataAttributesRequest {
 
   public void setMetrics(List<LLMObsExperimentMetric> metrics) {
     this.metrics = metrics;
+    if (metrics != null) {
+      for (LLMObsExperimentMetric item : metrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsExperimentEventsDataAttributesRequest spans(List<LLMObsExperimentSpan> spans) {
@@ -98,6 +103,11 @@ public class LLMObsExperimentEventsDataAttributesRequest {
 
   public void setSpans(List<LLMObsExperimentSpan> spans) {
     this.spans = spans;
+    if (spans != null) {
+      for (LLMObsExperimentSpan item : spans) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

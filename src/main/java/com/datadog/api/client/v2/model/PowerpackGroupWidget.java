@@ -65,6 +65,9 @@ public class PowerpackGroupWidget {
 
   public void setDefinition(PowerpackGroupWidgetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public PowerpackGroupWidget layout(PowerpackGroupWidgetLayout layout) {
@@ -87,6 +90,9 @@ public class PowerpackGroupWidget {
 
   public void setLayout(PowerpackGroupWidgetLayout layout) {
     this.layout = layout;
+    if (layout != null) {
+      this.unparsed |= layout.unparsed;
+    }
   }
 
   public PowerpackGroupWidget liveSpan(WidgetLiveSpan liveSpan) {

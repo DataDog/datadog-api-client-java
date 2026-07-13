@@ -70,6 +70,9 @@ public class DeploymentGatesEvaluationResultResponseAttributes {
     this.gateStatus = gateStatus;
     this.unparsed |= !gateStatus.isValid();
     this.rules = rules;
+    for (DeploymentGatesRuleResponse item : rules) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DeploymentGatesEvaluationResultResponseAttributes dryRun(Boolean dryRun) {
@@ -210,6 +213,11 @@ public class DeploymentGatesEvaluationResultResponseAttributes {
 
   public void setRules(List<DeploymentGatesRuleResponse> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (DeploymentGatesRuleResponse item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

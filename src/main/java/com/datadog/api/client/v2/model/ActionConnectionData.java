@@ -68,6 +68,9 @@ public class ActionConnectionData {
 
   public void setAttributes(ActionConnectionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

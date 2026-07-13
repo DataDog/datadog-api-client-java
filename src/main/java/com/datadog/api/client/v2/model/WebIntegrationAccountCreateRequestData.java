@@ -65,6 +65,9 @@ public class WebIntegrationAccountCreateRequestData {
 
   public void setAttributes(WebIntegrationAccountCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WebIntegrationAccountCreateRequestData type(WebIntegrationAccountType type) {

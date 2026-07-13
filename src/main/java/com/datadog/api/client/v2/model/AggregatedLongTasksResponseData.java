@@ -72,6 +72,9 @@ public class AggregatedLongTasksResponseData {
 
   public void setAttributes(AggregatedLongTasksResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AggregatedLongTasksResponseData id(String id) {

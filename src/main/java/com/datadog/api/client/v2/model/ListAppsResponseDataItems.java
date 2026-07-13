@@ -82,6 +82,9 @@ public class ListAppsResponseDataItems {
 
   public void setAttributes(ListAppsResponseDataItemsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ListAppsResponseDataItems id(UUID id) {
@@ -124,6 +127,9 @@ public class ListAppsResponseDataItems {
 
   public void setMeta(AppMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public ListAppsResponseDataItems relationships(
@@ -147,6 +153,9 @@ public class ListAppsResponseDataItems {
 
   public void setRelationships(ListAppsResponseDataItemsRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ListAppsResponseDataItems type(AppDefinitionType type) {

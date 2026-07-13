@@ -45,6 +45,9 @@ public class RoleResponse {
 
   public void setData(Role data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

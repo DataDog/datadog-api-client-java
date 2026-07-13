@@ -45,6 +45,9 @@ public class CommitmentsListMeta {
 
   public void setCommittedSpendUnit(CommitmentsUnit committedSpendUnit) {
     this.committedSpendUnit = committedSpendUnit;
+    if (committedSpendUnit != null) {
+      this.unparsed |= committedSpendUnit.unparsed;
+    }
   }
 
   /**

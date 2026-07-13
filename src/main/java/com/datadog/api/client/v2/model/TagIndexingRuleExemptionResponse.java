@@ -45,6 +45,9 @@ public class TagIndexingRuleExemptionResponse {
 
   public void setData(TagIndexingRuleExemptionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

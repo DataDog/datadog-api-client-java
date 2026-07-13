@@ -45,6 +45,9 @@ public class EscalationRelationships {
 
   public void setResponders(EscalationRelationshipsResponders responders) {
     this.responders = responders;
+    if (responders != null) {
+      this.unparsed |= responders.unparsed;
+    }
   }
 
   /**

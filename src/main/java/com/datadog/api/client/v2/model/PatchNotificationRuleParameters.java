@@ -46,6 +46,9 @@ public class PatchNotificationRuleParameters {
 
   public void setData(PatchNotificationRuleParametersData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

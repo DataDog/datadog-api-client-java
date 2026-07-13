@@ -59,6 +59,11 @@ public class ScheduleDataRelationshipsLayers {
 
   public void setData(List<ScheduleDataRelationshipsLayersDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (ScheduleDataRelationshipsLayersDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

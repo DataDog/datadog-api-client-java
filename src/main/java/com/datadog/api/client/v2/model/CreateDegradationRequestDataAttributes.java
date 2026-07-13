@@ -53,6 +53,9 @@ public class CreateDegradationRequestDataAttributes {
           CreateDegradationRequestDataAttributesStatus status,
       @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
     this.componentsAffected = componentsAffected;
+    for (CreateDegradationRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
+      this.unparsed |= item.unparsed;
+    }
     this.status = status;
     this.unparsed |= !status.isValid();
     this.title = title;
@@ -89,6 +92,12 @@ public class CreateDegradationRequestDataAttributes {
   public void setComponentsAffected(
       List<CreateDegradationRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (CreateDegradationRequestDataAttributesComponentsAffectedItems item :
+          componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateDegradationRequestDataAttributes description(String description) {

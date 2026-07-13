@@ -64,6 +64,9 @@ public class CustomAttributeConfigUpdate {
 
   public void setAttributes(CustomAttributeConfigUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomAttributeConfigUpdate type(CustomAttributeConfigResourceType type) {

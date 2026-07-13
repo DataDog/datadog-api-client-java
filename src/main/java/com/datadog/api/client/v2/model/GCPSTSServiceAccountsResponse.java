@@ -58,6 +58,11 @@ public class GCPSTSServiceAccountsResponse {
 
   public void setData(List<GCPSTSServiceAccount> data) {
     this.data = data;
+    if (data != null) {
+      for (GCPSTSServiceAccount item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

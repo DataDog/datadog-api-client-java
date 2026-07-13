@@ -157,6 +157,9 @@ public class CustomAttributeConfigUpdateAttributes {
 
   public void setTypeData(CustomAttributeTypeData typeData) {
     this.typeData = typeData;
+    if (typeData != null) {
+      this.unparsed |= typeData.unparsed;
+    }
   }
 
   /**

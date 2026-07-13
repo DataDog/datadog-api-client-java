@@ -72,6 +72,9 @@ public class UserOverrideIdentityProviderData {
 
   public void setAttributes(UserOverrideIdentityProviderAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UserOverrideIdentityProviderData id(String id) {

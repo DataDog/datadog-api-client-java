@@ -167,6 +167,9 @@ public class GovernanceInsightAttributes {
 
   public void setAuditQuery(GovernanceInsightAuditQuery auditQuery) {
     this.auditQuery = auditQuery;
+    if (auditQuery != null) {
+      this.unparsed |= auditQuery.unparsed;
+    }
   }
 
   public GovernanceInsightAttributes bestPractice(GovernanceBestPracticeDefinition bestPractice) {
@@ -189,6 +192,9 @@ public class GovernanceInsightAttributes {
 
   public void setBestPractice(GovernanceBestPracticeDefinition bestPractice) {
     this.bestPractice = bestPractice;
+    if (bestPractice != null) {
+      this.unparsed |= bestPractice.unparsed;
+    }
   }
 
   public GovernanceInsightAttributes deepLink(String deepLink) {
@@ -270,6 +276,9 @@ public class GovernanceInsightAttributes {
 
   public void setEventQuery(GovernanceInsightEventQuery eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public GovernanceInsightAttributes metricQuery(GovernanceInsightMetricQuery metricQuery) {
@@ -291,6 +300,9 @@ public class GovernanceInsightAttributes {
 
   public void setMetricQuery(GovernanceInsightMetricQuery metricQuery) {
     this.metricQuery = metricQuery;
+    if (metricQuery != null) {
+      this.unparsed |= metricQuery.unparsed;
+    }
   }
 
   public GovernanceInsightAttributes oldValue(Double oldValue) {
@@ -336,6 +348,9 @@ public class GovernanceInsightAttributes {
 
   public void setPercentageQuery(GovernanceInsightPercentageQuery percentageQuery) {
     this.percentageQuery = percentageQuery;
+    if (percentageQuery != null) {
+      this.unparsed |= percentageQuery.unparsed;
+    }
   }
 
   public GovernanceInsightAttributes product(String product) {
@@ -378,6 +393,9 @@ public class GovernanceInsightAttributes {
 
   public void setQueryConfig(GovernanceInsightQueryConfig queryConfig) {
     this.queryConfig = queryConfig;
+    if (queryConfig != null) {
+      this.unparsed |= queryConfig.unparsed;
+    }
   }
 
   public GovernanceInsightAttributes sortOrder(Long sortOrder) {
@@ -501,6 +519,9 @@ public class GovernanceInsightAttributes {
 
   public void setUsageQuery(GovernanceInsightUsageQuery usageQuery) {
     this.usageQuery = usageQuery;
+    if (usageQuery != null) {
+      this.unparsed |= usageQuery.unparsed;
+    }
   }
 
   public GovernanceInsightAttributes value(Double value) {

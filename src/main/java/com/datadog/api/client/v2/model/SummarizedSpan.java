@@ -103,6 +103,9 @@ public class SummarizedSpan {
       @JsonProperty(required = true, value = JSON_PROPERTY_SPAN_KIND) String spanKind,
       @JsonProperty(required = true, value = JSON_PROPERTY_START_TIME) OffsetDateTime startTime) {
     this.children = children;
+    for (SummarizedSpan item : children) {
+      this.unparsed |= item.unparsed;
+    }
     this.durationSeconds = durationSeconds;
     this.endTime = endTime;
     this.error = error;
@@ -146,6 +149,11 @@ public class SummarizedSpan {
 
   public void setChildren(List<SummarizedSpan> children) {
     this.children = children;
+    if (children != null) {
+      for (SummarizedSpan item : children) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SummarizedSpan durationSeconds(Double durationSeconds) {

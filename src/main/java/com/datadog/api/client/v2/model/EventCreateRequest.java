@@ -63,6 +63,9 @@ public class EventCreateRequest {
 
   public void setAttributes(EventPayload attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EventCreateRequest type(EventCreateRequestType type) {

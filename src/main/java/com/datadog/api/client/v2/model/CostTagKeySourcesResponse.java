@@ -34,6 +34,9 @@ public class CostTagKeySourcesResponse {
   public CostTagKeySourcesResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CostTagKeySource> data) {
     this.data = data;
+    for (CostTagKeySource item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CostTagKeySourcesResponse data(List<CostTagKeySource> data) {
@@ -63,6 +66,11 @@ public class CostTagKeySourcesResponse {
 
   public void setData(List<CostTagKeySource> data) {
     this.data = data;
+    if (data != null) {
+      for (CostTagKeySource item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

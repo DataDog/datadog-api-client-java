@@ -167,6 +167,9 @@ public class HistoricalJobResponseAttributes {
 
   public void setJobDefinition(JobDefinition jobDefinition) {
     this.jobDefinition = jobDefinition;
+    if (jobDefinition != null) {
+      this.unparsed |= jobDefinition.unparsed;
+    }
   }
 
   public HistoricalJobResponseAttributes jobName(String jobName) {

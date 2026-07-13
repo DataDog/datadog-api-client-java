@@ -115,6 +115,9 @@ public class TableWidgetTextFormatRule {
 
   public void setMatch(TableWidgetTextFormatMatch match) {
     this.match = match;
+    if (match != null) {
+      this.unparsed |= match.unparsed;
+    }
   }
 
   public TableWidgetTextFormatRule palette(TableWidgetTextFormatPalette palette) {
@@ -162,6 +165,9 @@ public class TableWidgetTextFormatRule {
 
   public void setReplace(TableWidgetTextFormatReplace replace) {
     this.replace = replace;
+    if (replace != null) {
+      this.unparsed |= replace.unparsed;
+    }
   }
 
   /**

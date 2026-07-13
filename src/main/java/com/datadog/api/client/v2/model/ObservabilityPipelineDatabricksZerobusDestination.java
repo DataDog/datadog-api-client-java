@@ -105,6 +105,9 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
 
   public void setAuth(ObservabilityPipelineDatabricksZerobusDestinationAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineDatabricksZerobusDestination buffer(
@@ -128,6 +131,9 @@ public class ObservabilityPipelineDatabricksZerobusDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineDatabricksZerobusDestination id(String id) {

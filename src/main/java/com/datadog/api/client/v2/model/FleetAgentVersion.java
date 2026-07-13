@@ -68,6 +68,9 @@ public class FleetAgentVersion {
 
   public void setAttributes(FleetAgentVersionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FleetAgentVersion id(String id) {

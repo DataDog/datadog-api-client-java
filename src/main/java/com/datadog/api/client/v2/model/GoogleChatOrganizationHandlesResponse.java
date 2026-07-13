@@ -38,6 +38,9 @@ public class GoogleChatOrganizationHandlesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<GoogleChatOrganizationHandleResponseData> data) {
     this.data = data;
+    for (GoogleChatOrganizationHandleResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public GoogleChatOrganizationHandlesResponse data(
@@ -69,6 +72,11 @@ public class GoogleChatOrganizationHandlesResponse {
 
   public void setData(List<GoogleChatOrganizationHandleResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (GoogleChatOrganizationHandleResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

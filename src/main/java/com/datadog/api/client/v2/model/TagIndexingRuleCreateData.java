@@ -64,6 +64,9 @@ public class TagIndexingRuleCreateData {
 
   public void setAttributes(TagIndexingRuleCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TagIndexingRuleCreateData type(TagIndexingRuleType type) {

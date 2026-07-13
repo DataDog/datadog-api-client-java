@@ -45,6 +45,9 @@ public class ConfluentResourceResponse {
 
   public void setData(ConfluentResourceResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -116,6 +116,9 @@ public class SyntheticsGlobalVariableParseTestOptions {
 
   public void setParser(SyntheticsVariableParser parser) {
     this.parser = parser;
+    if (parser != null) {
+      this.unparsed |= parser.unparsed;
+    }
   }
 
   public SyntheticsGlobalVariableParseTestOptions type(

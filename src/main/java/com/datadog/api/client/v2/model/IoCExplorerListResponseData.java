@@ -55,6 +55,9 @@ public class IoCExplorerListResponseData {
 
   public void setAttributes(IoCExplorerListResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IoCExplorerListResponseData id(String id) {

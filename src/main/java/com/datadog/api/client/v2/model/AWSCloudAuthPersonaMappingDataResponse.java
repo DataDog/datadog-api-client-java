@@ -72,6 +72,9 @@ public class AWSCloudAuthPersonaMappingDataResponse {
 
   public void setAttributes(AWSCloudAuthPersonaMappingAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSCloudAuthPersonaMappingDataResponse id(String id) {

@@ -51,6 +51,9 @@ public class FlakyTestsSearchRequestData {
 
   public void setAttributes(FlakyTestsSearchRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FlakyTestsSearchRequestData type(FlakyTestsSearchRequestDataType type) {

@@ -72,6 +72,9 @@ public class PatchDegradationRequestData {
 
   public void setAttributes(PatchDegradationRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PatchDegradationRequestData id(UUID id) {

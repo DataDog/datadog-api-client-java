@@ -45,6 +45,9 @@ public class UpdateAppsDatastoreRequest {
 
   public void setData(UpdateAppsDatastoreRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

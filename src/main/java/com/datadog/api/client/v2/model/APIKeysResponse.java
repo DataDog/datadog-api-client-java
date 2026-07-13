@@ -68,6 +68,11 @@ public class APIKeysResponse {
 
   public void setData(List<PartialAPIKey> data) {
     this.data = data;
+    if (data != null) {
+      for (PartialAPIKey item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public APIKeysResponse included(List<APIKeyResponseIncludedItem> included) {
@@ -101,6 +106,11 @@ public class APIKeysResponse {
 
   public void setIncluded(List<APIKeyResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (APIKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public APIKeysResponse meta(APIKeysResponseMeta meta) {
@@ -123,6 +133,9 @@ public class APIKeysResponse {
 
   public void setMeta(APIKeysResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

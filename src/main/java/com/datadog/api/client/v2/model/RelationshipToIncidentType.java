@@ -55,6 +55,9 @@ public class RelationshipToIncidentType {
 
   public void setData(RelationshipToIncidentTypeData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

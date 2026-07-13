@@ -68,6 +68,9 @@ public class GithubWebhookTriggerWrapper {
 
   public void setGithubWebhookTrigger(GithubWebhookTrigger githubWebhookTrigger) {
     this.githubWebhookTrigger = githubWebhookTrigger;
+    if (githubWebhookTrigger != null) {
+      this.unparsed |= githubWebhookTrigger.unparsed;
+    }
   }
 
   public GithubWebhookTriggerWrapper startStepNames(List<String> startStepNames) {

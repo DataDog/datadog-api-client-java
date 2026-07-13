@@ -116,6 +116,9 @@ public class LogsPipeline {
 
   public void setFilter(LogsFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   /**
@@ -214,6 +217,11 @@ public class LogsPipeline {
 
   public void setProcessors(List<LogsProcessor> processors) {
     this.processors = processors;
+    if (processors != null) {
+      for (LogsProcessor item : processors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsPipeline tags(List<String> tags) {

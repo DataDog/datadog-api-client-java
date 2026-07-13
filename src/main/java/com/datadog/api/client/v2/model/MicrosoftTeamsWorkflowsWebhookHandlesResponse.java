@@ -35,6 +35,9 @@ public class MicrosoftTeamsWorkflowsWebhookHandlesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<MicrosoftTeamsWorkflowsWebhookHandleResponseData> data) {
     this.data = data;
+    for (MicrosoftTeamsWorkflowsWebhookHandleResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MicrosoftTeamsWorkflowsWebhookHandlesResponse data(
@@ -66,6 +69,11 @@ public class MicrosoftTeamsWorkflowsWebhookHandlesResponse {
 
   public void setData(List<MicrosoftTeamsWorkflowsWebhookHandleResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (MicrosoftTeamsWorkflowsWebhookHandleResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

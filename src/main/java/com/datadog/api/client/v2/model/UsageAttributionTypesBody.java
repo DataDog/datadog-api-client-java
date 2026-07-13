@@ -55,6 +55,9 @@ public class UsageAttributionTypesBody {
 
   public void setAttributes(UsageAttributionTypesAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UsageAttributionTypesBody id(String id) {

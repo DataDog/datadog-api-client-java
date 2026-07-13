@@ -64,6 +64,11 @@ public class ProcessSummariesResponse {
 
   public void setData(List<ProcessSummary> data) {
     this.data = data;
+    if (data != null) {
+      for (ProcessSummary item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProcessSummariesResponse meta(ProcessSummariesMeta meta) {
@@ -86,6 +91,9 @@ public class ProcessSummariesResponse {
 
   public void setMeta(ProcessSummariesMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

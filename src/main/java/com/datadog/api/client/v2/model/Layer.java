@@ -72,6 +72,9 @@ public class Layer {
 
   public void setAttributes(LayerAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Layer id(String id) {
@@ -115,6 +118,9 @@ public class Layer {
 
   public void setRelationships(LayerRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public Layer type(LayerType type) {

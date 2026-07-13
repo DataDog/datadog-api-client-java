@@ -61,6 +61,9 @@ public class GitlabIntegrationUpdate {
 
   public void setCredentials(GitlabCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public GitlabIntegrationUpdate type(GitlabIntegrationType type) {

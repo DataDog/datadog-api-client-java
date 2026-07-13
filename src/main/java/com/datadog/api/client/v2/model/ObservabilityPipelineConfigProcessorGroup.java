@@ -65,6 +65,9 @@ public class ObservabilityPipelineConfigProcessorGroup {
     this.include = include;
     this.inputs = inputs;
     this.processors = processors;
+    for (ObservabilityPipelineConfigProcessorItem item : processors) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ObservabilityPipelineConfigProcessorGroup displayName(String displayName) {
@@ -202,6 +205,11 @@ public class ObservabilityPipelineConfigProcessorGroup {
 
   public void setProcessors(List<ObservabilityPipelineConfigProcessorItem> processors) {
     this.processors = processors;
+    if (processors != null) {
+      for (ObservabilityPipelineConfigProcessorItem item : processors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

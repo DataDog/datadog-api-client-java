@@ -56,6 +56,9 @@ public class MaintenanceDataRelationshipsStatusPage {
 
   public void setData(MaintenanceDataRelationshipsStatusPageData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

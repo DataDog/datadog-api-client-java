@@ -48,6 +48,9 @@ public class RelationToEntity {
 
   public void setData(RelationshipItem data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public RelationToEntity meta(EntityMeta meta) {
@@ -70,6 +73,9 @@ public class RelationToEntity {
 
   public void setMeta(EntityMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

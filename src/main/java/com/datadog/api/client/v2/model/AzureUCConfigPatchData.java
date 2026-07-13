@@ -63,6 +63,9 @@ public class AzureUCConfigPatchData {
 
   public void setAttributes(AzureUCConfigPatchRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AzureUCConfigPatchData type(AzureUCConfigPatchRequestType type) {

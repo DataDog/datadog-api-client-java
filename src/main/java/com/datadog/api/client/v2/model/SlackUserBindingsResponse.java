@@ -34,6 +34,9 @@ public class SlackUserBindingsResponse {
   public SlackUserBindingsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SlackUserBindingData> data) {
     this.data = data;
+    for (SlackUserBindingData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SlackUserBindingsResponse data(List<SlackUserBindingData> data) {
@@ -63,6 +66,11 @@ public class SlackUserBindingsResponse {
 
   public void setData(List<SlackUserBindingData> data) {
     this.data = data;
+    if (data != null) {
+      for (SlackUserBindingData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

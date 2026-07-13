@@ -68,6 +68,9 @@ public class MetricTagConfigurationCreateData {
 
   public void setAttributes(MetricTagConfigurationCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricTagConfigurationCreateData id(String id) {

@@ -95,6 +95,9 @@ public class SyntheticsAssertionJSONSchemaTarget {
 
   public void setTarget(SyntheticsAssertionJSONSchemaTargetTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   public SyntheticsAssertionJSONSchemaTarget type(SyntheticsAssertionType type) {

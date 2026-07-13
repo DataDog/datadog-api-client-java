@@ -59,6 +59,9 @@ public class CaseViewUpdate {
 
   public void setAttributes(CaseViewUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseViewUpdate type(CaseViewResourceType type) {

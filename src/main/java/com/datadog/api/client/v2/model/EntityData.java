@@ -63,6 +63,9 @@ public class EntityData {
 
   public void setAttributes(EntityAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EntityData id(String id) {
@@ -106,6 +109,9 @@ public class EntityData {
 
   public void setMeta(EntityMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public EntityData relationships(EntityRelationships relationships) {
@@ -128,6 +134,9 @@ public class EntityData {
 
   public void setRelationships(EntityRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public EntityData type(String type) {

@@ -42,6 +42,9 @@ public class UserAuthorizedClientsResponse {
           List<UserAuthorizedClientData> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) ResponseMetaAttributes meta) {
     this.data = data;
+    for (UserAuthorizedClientData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -73,6 +76,11 @@ public class UserAuthorizedClientsResponse {
 
   public void setData(List<UserAuthorizedClientData> data) {
     this.data = data;
+    if (data != null) {
+      for (UserAuthorizedClientData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UserAuthorizedClientsResponse meta(ResponseMetaAttributes meta) {
@@ -94,6 +102,9 @@ public class UserAuthorizedClientsResponse {
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

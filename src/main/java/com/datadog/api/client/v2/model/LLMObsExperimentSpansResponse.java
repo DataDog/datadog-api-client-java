@@ -39,6 +39,9 @@ public class LLMObsExperimentSpansResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<LLMObsExperimentSpanDataResponse> data) {
     this.data = data;
+    for (LLMObsExperimentSpanDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsExperimentSpansResponse data(List<LLMObsExperimentSpanDataResponse> data) {
@@ -68,6 +71,11 @@ public class LLMObsExperimentSpansResponse {
 
   public void setData(List<LLMObsExperimentSpanDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (LLMObsExperimentSpanDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

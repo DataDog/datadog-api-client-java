@@ -47,6 +47,9 @@ public class AWSLogsConfig {
 
   public void setLambdaForwarder(AWSLambdaForwarderConfig lambdaForwarder) {
     this.lambdaForwarder = lambdaForwarder;
+    if (lambdaForwarder != null) {
+      this.unparsed |= lambdaForwarder.unparsed;
+    }
   }
 
   /**

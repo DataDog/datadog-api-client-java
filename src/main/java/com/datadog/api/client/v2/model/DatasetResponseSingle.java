@@ -59,6 +59,9 @@ public class DatasetResponseSingle {
 
   public void setData(DatasetResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -49,6 +49,9 @@ public class RumPermanentRetentionFilterUpdateAttributes {
 
   public void setCrossProductSampling(RumCrossProductSamplingUpdate crossProductSampling) {
     this.crossProductSampling = crossProductSampling;
+    if (crossProductSampling != null) {
+      this.unparsed |= crossProductSampling.unparsed;
+    }
   }
 
   /**

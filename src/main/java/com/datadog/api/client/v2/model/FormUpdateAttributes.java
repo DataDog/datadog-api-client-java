@@ -55,6 +55,9 @@ public class FormUpdateAttributes {
 
   public void setDatastoreConfig(FormDatastoreConfigAttributes datastoreConfig) {
     this.datastoreConfig = datastoreConfig;
+    if (datastoreConfig != null) {
+      this.unparsed |= datastoreConfig.unparsed;
+    }
   }
 
   public FormUpdateAttributes description(String description) {

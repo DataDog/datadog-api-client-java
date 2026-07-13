@@ -58,6 +58,11 @@ public class DashboardListListResponse {
 
   public void setDashboardLists(List<DashboardList> dashboardLists) {
     this.dashboardLists = dashboardLists;
+    if (dashboardLists != null) {
+      for (DashboardList item : dashboardLists) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

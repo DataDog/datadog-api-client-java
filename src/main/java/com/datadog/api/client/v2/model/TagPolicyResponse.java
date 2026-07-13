@@ -59,6 +59,9 @@ public class TagPolicyResponse {
 
   public void setData(TagPolicyData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public TagPolicyResponse included(List<TagPolicyScoreData> included) {
@@ -93,6 +96,11 @@ public class TagPolicyResponse {
 
   public void setIncluded(List<TagPolicyScoreData> included) {
     this.included = included;
+    if (included != null) {
+      for (TagPolicyScoreData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

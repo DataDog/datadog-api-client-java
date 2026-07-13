@@ -45,6 +45,9 @@ public class UsageAttributionTypesResponse {
 
   public void setData(UsageAttributionTypesBody data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

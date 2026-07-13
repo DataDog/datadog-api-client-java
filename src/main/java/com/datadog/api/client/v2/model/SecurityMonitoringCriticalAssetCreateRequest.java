@@ -56,6 +56,9 @@ public class SecurityMonitoringCriticalAssetCreateRequest {
 
   public void setData(SecurityMonitoringCriticalAssetCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

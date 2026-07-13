@@ -64,6 +64,11 @@ public class AWSLogsAsyncResponse {
 
   public void setErrors(List<AWSLogsAsyncError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (AWSLogsAsyncError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AWSLogsAsyncResponse status(String status) {

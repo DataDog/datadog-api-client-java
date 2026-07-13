@@ -58,6 +58,11 @@ public class DeletedSuitesResponse {
 
   public void setData(List<DeletedSuiteResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (DeletedSuiteResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

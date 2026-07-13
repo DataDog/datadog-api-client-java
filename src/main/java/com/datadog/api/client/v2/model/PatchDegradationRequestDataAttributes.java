@@ -77,6 +77,11 @@ public class PatchDegradationRequestDataAttributes {
   public void setComponentsAffected(
       List<PatchDegradationRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (PatchDegradationRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PatchDegradationRequestDataAttributes description(String description) {

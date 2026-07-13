@@ -69,6 +69,9 @@ public class OnCallNotificationRuleData {
 
   public void setAttributes(OnCallNotificationRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OnCallNotificationRuleData id(String id) {
@@ -113,6 +116,9 @@ public class OnCallNotificationRuleData {
 
   public void setRelationships(OnCallNotificationRuleRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OnCallNotificationRuleData type(OnCallNotificationRuleType type) {

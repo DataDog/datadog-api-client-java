@@ -55,6 +55,9 @@ public class PlaylistsSession {
 
   public void setData(PlaylistsSessionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

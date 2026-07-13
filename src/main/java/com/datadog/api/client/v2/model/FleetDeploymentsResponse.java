@@ -40,6 +40,9 @@ public class FleetDeploymentsResponse {
   public FleetDeploymentsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<FleetDeployment> data) {
     this.data = data;
+    for (FleetDeployment item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FleetDeploymentsResponse data(List<FleetDeployment> data) {
@@ -69,6 +72,11 @@ public class FleetDeploymentsResponse {
 
   public void setData(List<FleetDeployment> data) {
     this.data = data;
+    if (data != null) {
+      for (FleetDeployment item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetDeploymentsResponse meta(FleetDeploymentsResponseMeta meta) {
@@ -91,6 +99,9 @@ public class FleetDeploymentsResponse {
 
   public void setMeta(FleetDeploymentsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

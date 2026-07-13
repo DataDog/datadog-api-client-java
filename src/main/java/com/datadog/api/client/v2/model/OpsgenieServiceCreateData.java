@@ -64,6 +64,9 @@ public class OpsgenieServiceCreateData {
 
   public void setAttributes(OpsgenieServiceCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OpsgenieServiceCreateData type(OpsgenieServiceType type) {

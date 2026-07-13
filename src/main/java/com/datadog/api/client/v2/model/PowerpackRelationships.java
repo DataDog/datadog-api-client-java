@@ -45,6 +45,9 @@ public class PowerpackRelationships {
 
   public void setAuthor(RelationshipToUser author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   /**

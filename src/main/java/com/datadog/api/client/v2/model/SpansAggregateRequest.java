@@ -47,6 +47,9 @@ public class SpansAggregateRequest {
 
   public void setData(SpansAggregateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

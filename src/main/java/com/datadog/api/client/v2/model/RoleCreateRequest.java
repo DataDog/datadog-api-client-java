@@ -54,6 +54,9 @@ public class RoleCreateRequest {
 
   public void setData(RoleCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

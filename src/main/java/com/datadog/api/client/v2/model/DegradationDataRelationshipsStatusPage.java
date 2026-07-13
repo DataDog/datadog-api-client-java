@@ -56,6 +56,9 @@ public class DegradationDataRelationshipsStatusPage {
 
   public void setData(DegradationDataRelationshipsStatusPageData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

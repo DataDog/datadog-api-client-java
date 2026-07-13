@@ -48,6 +48,9 @@ public class FacetInfoResponse {
 
   public void setData(FacetInfoResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

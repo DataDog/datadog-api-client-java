@@ -134,6 +134,9 @@ public class LLMObsCustomEvalConfigAttributes {
 
   public void setCreatedBy(LLMObsCustomEvalConfigUser createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigAttributes evalName(String evalName) {
@@ -176,6 +179,9 @@ public class LLMObsCustomEvalConfigAttributes {
 
   public void setLastUpdatedBy(LLMObsCustomEvalConfigUser lastUpdatedBy) {
     this.lastUpdatedBy = lastUpdatedBy;
+    if (lastUpdatedBy != null) {
+      this.unparsed |= lastUpdatedBy.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigAttributes llmJudgeConfig(
@@ -199,6 +205,9 @@ public class LLMObsCustomEvalConfigAttributes {
 
   public void setLlmJudgeConfig(LLMObsCustomEvalConfigLLMJudgeConfig llmJudgeConfig) {
     this.llmJudgeConfig = llmJudgeConfig;
+    if (llmJudgeConfig != null) {
+      this.unparsed |= llmJudgeConfig.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigAttributes llmProvider(
@@ -222,6 +231,9 @@ public class LLMObsCustomEvalConfigAttributes {
 
   public void setLlmProvider(LLMObsCustomEvalConfigLLMProvider llmProvider) {
     this.llmProvider = llmProvider;
+    if (llmProvider != null) {
+      this.unparsed |= llmProvider.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigAttributes target(LLMObsCustomEvalConfigTarget target) {
@@ -244,6 +256,9 @@ public class LLMObsCustomEvalConfigAttributes {
 
   public void setTarget(LLMObsCustomEvalConfigTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigAttributes updatedAt(OffsetDateTime updatedAt) {

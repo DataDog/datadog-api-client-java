@@ -63,6 +63,11 @@ public class TenancyProductsDataAttributes {
 
   public void setProducts(List<TenancyProductsDataAttributesProductsItems> products) {
     this.products = products;
+    if (products != null) {
+      for (TenancyProductsDataAttributesProductsItems item : products) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

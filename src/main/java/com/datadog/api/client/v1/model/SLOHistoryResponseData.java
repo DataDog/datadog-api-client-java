@@ -151,6 +151,11 @@ public class SLOHistoryResponseData {
 
   public void setGroups(List<SLOHistoryMonitor> groups) {
     this.groups = groups;
+    if (groups != null) {
+      for (SLOHistoryMonitor item : groups) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SLOHistoryResponseData monitors(List<SLOHistoryMonitor> monitors) {
@@ -186,6 +191,11 @@ public class SLOHistoryResponseData {
 
   public void setMonitors(List<SLOHistoryMonitor> monitors) {
     this.monitors = monitors;
+    if (monitors != null) {
+      for (SLOHistoryMonitor item : monitors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SLOHistoryResponseData overall(SLOHistorySLIData overall) {
@@ -210,6 +220,9 @@ public class SLOHistoryResponseData {
 
   public void setOverall(SLOHistorySLIData overall) {
     this.overall = overall;
+    if (overall != null) {
+      this.unparsed |= overall.unparsed;
+    }
   }
 
   public SLOHistoryResponseData series(SLOHistoryMetrics series) {
@@ -234,6 +247,9 @@ public class SLOHistoryResponseData {
 
   public void setSeries(SLOHistoryMetrics series) {
     this.series = series;
+    if (series != null) {
+      this.unparsed |= series.unparsed;
+    }
   }
 
   public SLOHistoryResponseData thresholds(Map<String, SLOThreshold> thresholds) {

@@ -46,6 +46,9 @@ public class ReportScheduleListResponseMeta {
 
   public void setPagination(ReportScheduleListResponsePagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

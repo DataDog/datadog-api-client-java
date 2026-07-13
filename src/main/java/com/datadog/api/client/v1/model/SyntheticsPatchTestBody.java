@@ -61,6 +61,11 @@ public class SyntheticsPatchTestBody {
 
   public void setData(List<SyntheticsPatchTestOperation> data) {
     this.data = data;
+    if (data != null) {
+      for (SyntheticsPatchTestOperation item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -208,6 +208,9 @@ public class FormDataAttributes {
 
   public void setDatastoreConfig(FormDatastoreConfigAttributes datastoreConfig) {
     this.datastoreConfig = datastoreConfig;
+    if (datastoreConfig != null) {
+      this.unparsed |= datastoreConfig.unparsed;
+    }
   }
 
   public FormDataAttributes description(String description) {
@@ -393,6 +396,9 @@ public class FormDataAttributes {
 
   public void setPublication(FormPublicationAttributes publication) {
     this.publication = publication;
+    if (publication != null) {
+      this.unparsed |= publication.unparsed;
+    }
   }
 
   public FormDataAttributes selfService(Boolean selfService) {
@@ -495,6 +501,9 @@ public class FormDataAttributes {
 
   public void setVersion(FormVersionAttributes version) {
     this.version = version;
+    if (version != null) {
+      this.unparsed |= version.unparsed;
+    }
   }
 
   /**

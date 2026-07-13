@@ -104,6 +104,9 @@ public class LogsArchiveDestinationS3 {
 
   public void setEncryption(LogsArchiveEncryptionS3 encryption) {
     this.encryption = encryption;
+    if (encryption != null) {
+      this.unparsed |= encryption.unparsed;
+    }
   }
 
   public LogsArchiveDestinationS3 integration(LogsArchiveIntegrationS3 integration) {
@@ -127,6 +130,9 @@ public class LogsArchiveDestinationS3 {
 
   public void setIntegration(LogsArchiveIntegrationS3 integration) {
     this.integration = integration;
+    if (integration != null) {
+      this.unparsed |= integration.unparsed;
+    }
   }
 
   public LogsArchiveDestinationS3 path(String path) {

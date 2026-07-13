@@ -64,6 +64,9 @@ public class CycloneDXMetadata {
 
   public void setComponent(CycloneDXMetadataComponent component) {
     this.component = component;
+    if (component != null) {
+      this.unparsed |= component.unparsed;
+    }
   }
 
   public CycloneDXMetadata tools(CycloneDXMetadataTools tools) {
@@ -85,6 +88,9 @@ public class CycloneDXMetadata {
 
   public void setTools(CycloneDXMetadataTools tools) {
     this.tools = tools;
+    if (tools != null) {
+      this.unparsed |= tools.unparsed;
+    }
   }
 
   /**

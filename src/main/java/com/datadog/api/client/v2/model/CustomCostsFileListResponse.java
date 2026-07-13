@@ -64,6 +64,11 @@ public class CustomCostsFileListResponse {
 
   public void setData(List<CustomCostsFileMetadataHighLevel> data) {
     this.data = data;
+    if (data != null) {
+      for (CustomCostsFileMetadataHighLevel item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CustomCostsFileListResponse meta(CustomCostListResponseMeta meta) {
@@ -86,6 +91,9 @@ public class CustomCostsFileListResponse {
 
   public void setMeta(CustomCostListResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

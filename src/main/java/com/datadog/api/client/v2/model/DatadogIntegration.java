@@ -64,6 +64,9 @@ public class DatadogIntegration {
 
   public void setCredentials(DatadogCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public DatadogIntegration type(DatadogIntegrationType type) {

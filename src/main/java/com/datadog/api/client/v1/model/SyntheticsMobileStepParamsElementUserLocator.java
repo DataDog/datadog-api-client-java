@@ -88,6 +88,11 @@ public class SyntheticsMobileStepParamsElementUserLocator {
 
   public void setValues(List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> values) {
     this.values = values;
+    if (values != null) {
+      for (SyntheticsMobileStepParamsElementUserLocatorValuesItems item : values) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

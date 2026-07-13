@@ -113,6 +113,9 @@ public class DeploymentGatesFDDRule {
 
   public void setOptions(DeploymentGatesFDDRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public DeploymentGatesFDDRule type(DeploymentGatesFDDRuleType type) {

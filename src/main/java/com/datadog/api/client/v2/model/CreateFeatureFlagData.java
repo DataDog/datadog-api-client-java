@@ -64,6 +64,9 @@ public class CreateFeatureFlagData {
 
   public void setAttributes(CreateFeatureFlagAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateFeatureFlagData type(CreateFeatureFlagDataType type) {

@@ -55,6 +55,9 @@ public class BudgetWithEntriesData {
 
   public void setAttributes(BudgetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BudgetWithEntriesData id(String id) {

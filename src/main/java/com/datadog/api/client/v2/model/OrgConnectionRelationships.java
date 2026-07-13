@@ -55,6 +55,9 @@ public class OrgConnectionRelationships {
 
   public void setCreatedBy(OrgConnectionUserRelationship createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public OrgConnectionRelationships sinkOrg(OrgConnectionOrgRelationship sinkOrg) {
@@ -77,6 +80,9 @@ public class OrgConnectionRelationships {
 
   public void setSinkOrg(OrgConnectionOrgRelationship sinkOrg) {
     this.sinkOrg = sinkOrg;
+    if (sinkOrg != null) {
+      this.unparsed |= sinkOrg.unparsed;
+    }
   }
 
   public OrgConnectionRelationships sourceOrg(OrgConnectionOrgRelationship sourceOrg) {
@@ -99,6 +105,9 @@ public class OrgConnectionRelationships {
 
   public void setSourceOrg(OrgConnectionOrgRelationship sourceOrg) {
     this.sourceOrg = sourceOrg;
+    if (sourceOrg != null) {
+      this.unparsed |= sourceOrg.unparsed;
+    }
   }
 
   /**

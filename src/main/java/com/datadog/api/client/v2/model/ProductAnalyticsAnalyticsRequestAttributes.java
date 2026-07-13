@@ -123,6 +123,9 @@ public class ProductAnalyticsAnalyticsRequestAttributes {
 
   public void setQuery(ProductAnalyticsAnalyticsQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public ProductAnalyticsAnalyticsRequestAttributes requestId(String requestId) {

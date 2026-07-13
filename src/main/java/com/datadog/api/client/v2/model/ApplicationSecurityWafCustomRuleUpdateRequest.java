@@ -56,6 +56,9 @@ public class ApplicationSecurityWafCustomRuleUpdateRequest {
 
   public void setData(ApplicationSecurityWafCustomRuleUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

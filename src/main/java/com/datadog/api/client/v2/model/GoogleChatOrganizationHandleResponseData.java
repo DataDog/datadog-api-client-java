@@ -57,6 +57,9 @@ public class GoogleChatOrganizationHandleResponseData {
 
   public void setAttributes(GoogleChatOrganizationHandleResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GoogleChatOrganizationHandleResponseData id(String id) {

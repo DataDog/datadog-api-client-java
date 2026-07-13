@@ -45,6 +45,9 @@ public class FindingCaseResponse {
 
   public void setData(FindingCaseResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

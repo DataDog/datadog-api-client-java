@@ -58,6 +58,11 @@ public class SpansMetricsResponse {
 
   public void setData(List<SpansMetricResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (SpansMetricResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

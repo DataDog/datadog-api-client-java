@@ -51,6 +51,9 @@ public class FindingServiceNowTicket {
 
   public void setResult(FindingServiceNowTicketResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public FindingServiceNowTicket status(String status) {

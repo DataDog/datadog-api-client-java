@@ -64,6 +64,9 @@ public class NotebookUpdateData {
 
   public void setAttributes(NotebookUpdateDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NotebookUpdateData type(NotebookResourceType type) {

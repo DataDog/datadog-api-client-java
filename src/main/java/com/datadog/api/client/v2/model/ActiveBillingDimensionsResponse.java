@@ -45,6 +45,9 @@ public class ActiveBillingDimensionsResponse {
 
   public void setData(ActiveBillingDimensionsBody data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

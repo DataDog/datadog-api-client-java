@@ -72,6 +72,9 @@ public class APIKeysResponseMeta {
 
   public void setPage(APIKeysResponseMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

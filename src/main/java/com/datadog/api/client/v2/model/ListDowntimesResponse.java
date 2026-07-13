@@ -68,6 +68,11 @@ public class ListDowntimesResponse {
 
   public void setData(List<DowntimeResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (DowntimeResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListDowntimesResponse included(List<DowntimeResponseIncludedItem> included) {
@@ -101,6 +106,11 @@ public class ListDowntimesResponse {
 
   public void setIncluded(List<DowntimeResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (DowntimeResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListDowntimesResponse meta(DowntimeMeta meta) {
@@ -123,6 +133,9 @@ public class ListDowntimesResponse {
 
   public void setMeta(DowntimeMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

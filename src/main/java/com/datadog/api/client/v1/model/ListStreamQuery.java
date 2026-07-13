@@ -180,6 +180,11 @@ public class ListStreamQuery {
 
   public void setCompute(List<ListStreamComputeItems> compute) {
     this.compute = compute;
+    if (compute != null) {
+      for (ListStreamComputeItems item : compute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListStreamQuery dataSource(ListStreamSource dataSource) {
@@ -265,6 +270,11 @@ public class ListStreamQuery {
 
   public void setGroupBy(List<ListStreamGroupByItems> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (ListStreamGroupByItems item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListStreamQuery indexes(List<String> indexes) {
@@ -361,6 +371,9 @@ public class ListStreamQuery {
 
   public void setSort(WidgetFieldSort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public ListStreamQuery states(List<ListStreamIssueState> states) {

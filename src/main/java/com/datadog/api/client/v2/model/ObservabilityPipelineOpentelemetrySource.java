@@ -148,6 +148,9 @@ public class ObservabilityPipelineOpentelemetrySource {
 
   public void setTls(ObservabilityPipelineMtlsServerTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineOpentelemetrySource type(

@@ -63,6 +63,9 @@ public class ActionConnectionAttributes {
 
   public void setIntegration(ActionConnectionIntegration integration) {
     this.integration = integration;
+    if (integration != null) {
+      this.unparsed |= integration.unparsed;
+    }
   }
 
   public ActionConnectionAttributes name(String name) {

@@ -72,6 +72,9 @@ public class PatchComponentRequestData {
 
   public void setAttributes(PatchComponentRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PatchComponentRequestData id(UUID id) {

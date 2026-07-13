@@ -69,6 +69,9 @@ public class UpdateFormData {
 
   public void setAttributes(UpdateFormDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateFormData id(UUID id) {

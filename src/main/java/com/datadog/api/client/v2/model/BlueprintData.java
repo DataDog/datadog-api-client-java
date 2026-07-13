@@ -71,6 +71,9 @@ public class BlueprintData {
 
   public void setAttributes(BlueprintAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BlueprintData id(UUID id) {

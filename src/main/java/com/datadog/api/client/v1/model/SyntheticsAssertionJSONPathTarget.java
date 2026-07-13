@@ -118,6 +118,9 @@ public class SyntheticsAssertionJSONPathTarget {
 
   public void setTarget(SyntheticsAssertionJSONPathTargetTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   public SyntheticsAssertionJSONPathTarget type(SyntheticsAssertionType type) {

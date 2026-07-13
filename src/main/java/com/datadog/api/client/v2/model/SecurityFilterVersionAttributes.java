@@ -48,6 +48,9 @@ public class SecurityFilterVersionAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Integer version) {
     this.date = date;
     this.filters = filters;
+    for (SecurityFilterVersionEntry item : filters) {
+      this.unparsed |= item.unparsed;
+    }
     this.version = version;
   }
 
@@ -98,6 +101,11 @@ public class SecurityFilterVersionAttributes {
 
   public void setFilters(List<SecurityFilterVersionEntry> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (SecurityFilterVersionEntry item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityFilterVersionAttributes version(Integer version) {

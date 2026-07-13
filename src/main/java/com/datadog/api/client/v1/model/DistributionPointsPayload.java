@@ -35,6 +35,9 @@ public class DistributionPointsPayload {
       @JsonProperty(required = true, value = JSON_PROPERTY_SERIES)
           List<DistributionPointsSeries> series) {
     this.series = series;
+    for (DistributionPointsSeries item : series) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DistributionPointsPayload series(List<DistributionPointsSeries> series) {
@@ -64,6 +67,11 @@ public class DistributionPointsPayload {
 
   public void setSeries(List<DistributionPointsSeries> series) {
     this.series = series;
+    if (series != null) {
+      for (DistributionPointsSeries item : series) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

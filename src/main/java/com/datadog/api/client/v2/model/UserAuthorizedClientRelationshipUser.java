@@ -55,6 +55,9 @@ public class UserAuthorizedClientRelationshipUser {
 
   public void setData(UserAuthorizedClientRelationshipUserData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

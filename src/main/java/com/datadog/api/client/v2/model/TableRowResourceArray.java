@@ -34,6 +34,9 @@ public class TableRowResourceArray {
   public TableRowResourceArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<TableRowResourceData> data) {
     this.data = data;
+    for (TableRowResourceData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public TableRowResourceArray data(List<TableRowResourceData> data) {
@@ -63,6 +66,11 @@ public class TableRowResourceArray {
 
   public void setData(List<TableRowResourceData> data) {
     this.data = data;
+    if (data != null) {
+      for (TableRowResourceData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

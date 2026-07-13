@@ -102,6 +102,9 @@ public class TimeseriesWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           TimeseriesWidgetDefinitionType type) {
     this.requests = requests;
+    for (TimeseriesWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -137,6 +140,11 @@ public class TimeseriesWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesWidgetDefinition description(String description) {
@@ -194,6 +202,11 @@ public class TimeseriesWidgetDefinition {
   @Deprecated
   public void setEvents(List<WidgetEvent> events) {
     this.events = events;
+    if (events != null) {
+      for (WidgetEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesWidgetDefinition legendColumns(
@@ -305,6 +318,11 @@ public class TimeseriesWidgetDefinition {
 
   public void setMarkers(List<WidgetMarker> markers) {
     this.markers = markers;
+    if (markers != null) {
+      for (WidgetMarker item : markers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesWidgetDefinition requests(List<TimeseriesWidgetRequest> requests) {
@@ -334,6 +352,11 @@ public class TimeseriesWidgetDefinition {
 
   public void setRequests(List<TimeseriesWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (TimeseriesWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesWidgetDefinition rightYaxis(WidgetAxis rightYaxis) {
@@ -356,6 +379,9 @@ public class TimeseriesWidgetDefinition {
 
   public void setRightYaxis(WidgetAxis rightYaxis) {
     this.rightYaxis = rightYaxis;
+    if (rightYaxis != null) {
+      this.unparsed |= rightYaxis.unparsed;
+    }
   }
 
   public TimeseriesWidgetDefinition showLegend(Boolean showLegend) {
@@ -399,6 +425,9 @@ public class TimeseriesWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public TimeseriesWidgetDefinition title(String title) {
@@ -512,6 +541,9 @@ public class TimeseriesWidgetDefinition {
 
   public void setYaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
+    if (yaxis != null) {
+      this.unparsed |= yaxis.unparsed;
+    }
   }
 
   /**

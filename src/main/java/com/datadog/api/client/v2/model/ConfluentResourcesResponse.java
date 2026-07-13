@@ -58,6 +58,11 @@ public class ConfluentResourcesResponse {
 
   public void setData(List<ConfluentResourceResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (ConfluentResourceResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

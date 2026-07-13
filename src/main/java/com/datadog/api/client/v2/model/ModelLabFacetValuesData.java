@@ -70,6 +70,9 @@ public class ModelLabFacetValuesData {
 
   public void setAttributes(ModelLabFacetValuesAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ModelLabFacetValuesData id(String id) {

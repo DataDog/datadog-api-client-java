@@ -60,6 +60,9 @@ public class SankeyNetworkRequest {
 
   public void setQuery(SankeyNetworkQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public SankeyNetworkRequest requestType(SankeyNetworkRequestType requestType) {

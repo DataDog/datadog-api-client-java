@@ -70,6 +70,9 @@ public class OAuth2WellKnownSitesData {
 
   public void setAttributes(OAuth2WellKnownSitesAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OAuth2WellKnownSitesData id(String id) {

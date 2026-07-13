@@ -58,6 +58,11 @@ public class AppBuilderListTagsResponse {
 
   public void setData(List<TagData> data) {
     this.data = data;
+    if (data != null) {
+      for (TagData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -72,6 +72,9 @@ public class TriggerInvestigationResponseData {
 
   public void setAttributes(TriggerInvestigationResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TriggerInvestigationResponseData id(String id) {

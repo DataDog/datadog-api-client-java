@@ -35,6 +35,9 @@ public class ChangeRequestDecisionsRelationship {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<ChangeRequestDecisionRelationshipData> data) {
     this.data = data;
+    for (ChangeRequestDecisionRelationshipData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ChangeRequestDecisionsRelationship data(List<ChangeRequestDecisionRelationshipData> data) {
@@ -65,6 +68,11 @@ public class ChangeRequestDecisionsRelationship {
 
   public void setData(List<ChangeRequestDecisionRelationshipData> data) {
     this.data = data;
+    if (data != null) {
+      for (ChangeRequestDecisionRelationshipData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -81,6 +81,9 @@ public class OnCallNotificationRuleAttributes {
 
   public void setChannelSettings(OnCallNotificationRuleChannelSettings channelSettings) {
     this.channelSettings = channelSettings;
+    if (channelSettings != null) {
+      this.unparsed |= channelSettings.unparsed;
+    }
   }
 
   public OnCallNotificationRuleAttributes delayMinutes(Long delayMinutes) {

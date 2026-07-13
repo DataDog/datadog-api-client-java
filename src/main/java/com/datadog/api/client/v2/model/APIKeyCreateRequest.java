@@ -54,6 +54,9 @@ public class APIKeyCreateRequest {
 
   public void setData(APIKeyCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

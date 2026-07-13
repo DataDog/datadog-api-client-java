@@ -45,6 +45,9 @@ public class MonitorConfigPolicyResponse {
 
   public void setData(MonitorConfigPolicyResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

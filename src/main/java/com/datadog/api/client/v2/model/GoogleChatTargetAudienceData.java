@@ -56,6 +56,9 @@ public class GoogleChatTargetAudienceData {
 
   public void setAttributes(GoogleChatTargetAudienceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GoogleChatTargetAudienceData id(String id) {

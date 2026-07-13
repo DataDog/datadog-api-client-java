@@ -35,6 +35,9 @@ public class OwnershipInferenceListAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_ITEMS)
           List<OwnershipInferenceItem> items) {
     this.items = items;
+    for (OwnershipInferenceItem item : items) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OwnershipInferenceListAttributes items(List<OwnershipInferenceItem> items) {
@@ -64,6 +67,11 @@ public class OwnershipInferenceListAttributes {
 
   public void setItems(List<OwnershipInferenceItem> items) {
     this.items = items;
+    if (items != null) {
+      for (OwnershipInferenceItem item : items) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

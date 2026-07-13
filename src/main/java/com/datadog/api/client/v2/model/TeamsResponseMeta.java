@@ -45,6 +45,9 @@ public class TeamsResponseMeta {
 
   public void setPagination(TeamsResponseMetaPagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

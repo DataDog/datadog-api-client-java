@@ -74,6 +74,9 @@ public class DORADeploymentPatchRequestAttributes {
 
   public void setRemediation(DORADeploymentPatchRemediation remediation) {
     this.remediation = remediation;
+    if (remediation != null) {
+      this.unparsed |= remediation.unparsed;
+    }
   }
 
   /**

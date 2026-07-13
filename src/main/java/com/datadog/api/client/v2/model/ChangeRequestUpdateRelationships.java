@@ -46,6 +46,9 @@ public class ChangeRequestUpdateRelationships {
 
   public void setChangeRequestDecisions(ChangeRequestDecisionsRelationship changeRequestDecisions) {
     this.changeRequestDecisions = changeRequestDecisions;
+    if (changeRequestDecisions != null) {
+      this.unparsed |= changeRequestDecisions.unparsed;
+    }
   }
 
   /**

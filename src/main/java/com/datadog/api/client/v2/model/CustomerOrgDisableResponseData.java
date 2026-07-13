@@ -72,6 +72,9 @@ public class CustomerOrgDisableResponseData {
 
   public void setAttributes(CustomerOrgDisableResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomerOrgDisableResponseData id(String id) {

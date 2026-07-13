@@ -142,6 +142,9 @@ public class FormVersionAttributes {
 
   public void setDataDefinition(FormDataDefinition dataDefinition) {
     this.dataDefinition = dataDefinition;
+    if (dataDefinition != null) {
+      this.unparsed |= dataDefinition.unparsed;
+    }
   }
 
   public FormVersionAttributes definitionSignature(String definitionSignature) {
@@ -271,6 +274,9 @@ public class FormVersionAttributes {
 
   public void setUiDefinition(FormUiDefinition uiDefinition) {
     this.uiDefinition = uiDefinition;
+    if (uiDefinition != null) {
+      this.unparsed |= uiDefinition.unparsed;
+    }
   }
 
   public FormVersionAttributes userId(Long userId) {

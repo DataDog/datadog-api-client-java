@@ -40,6 +40,9 @@ public class ListSourcemapsResponse {
   public ListSourcemapsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SourcemapItem> data) {
     this.data = data;
+    for (SourcemapItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListSourcemapsResponse data(List<SourcemapItem> data) {
@@ -69,6 +72,11 @@ public class ListSourcemapsResponse {
 
   public void setData(List<SourcemapItem> data) {
     this.data = data;
+    if (data != null) {
+      for (SourcemapItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListSourcemapsResponse meta(SourcemapsListMeta meta) {
@@ -91,6 +99,9 @@ public class ListSourcemapsResponse {
 
   public void setMeta(SourcemapsListMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

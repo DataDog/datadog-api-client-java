@@ -51,6 +51,9 @@ public class WidgetRelationships {
 
   public void setCreatedBy(WidgetRelationshipItem createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public WidgetRelationships modifiedBy(WidgetRelationshipItem modifiedBy) {
@@ -73,6 +76,9 @@ public class WidgetRelationships {
 
   public void setModifiedBy(WidgetRelationshipItem modifiedBy) {
     this.modifiedBy = modifiedBy;
+    if (modifiedBy != null) {
+      this.unparsed |= modifiedBy.unparsed;
+    }
   }
 
   /**

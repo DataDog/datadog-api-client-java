@@ -69,6 +69,9 @@ public class CustomRuleResponseData {
 
   public void setAttributes(CustomRule attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomRuleResponseData id(String id) {

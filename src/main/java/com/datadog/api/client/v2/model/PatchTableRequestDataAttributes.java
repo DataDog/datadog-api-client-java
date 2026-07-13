@@ -83,6 +83,9 @@ public class PatchTableRequestDataAttributes {
 
   public void setFileMetadata(PatchTableRequestDataAttributesFileMetadata fileMetadata) {
     this.fileMetadata = fileMetadata;
+    if (fileMetadata != null) {
+      this.unparsed |= fileMetadata.unparsed;
+    }
   }
 
   public PatchTableRequestDataAttributes schema(PatchTableRequestDataAttributesSchema schema) {
@@ -106,6 +109,9 @@ public class PatchTableRequestDataAttributes {
 
   public void setSchema(PatchTableRequestDataAttributesSchema schema) {
     this.schema = schema;
+    if (schema != null) {
+      this.unparsed |= schema.unparsed;
+    }
   }
 
   public PatchTableRequestDataAttributes tags(List<String> tags) {

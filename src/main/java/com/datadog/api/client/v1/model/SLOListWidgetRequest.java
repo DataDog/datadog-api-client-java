@@ -64,6 +64,9 @@ public class SLOListWidgetRequest {
 
   public void setQuery(SLOListWidgetQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public SLOListWidgetRequest requestType(SLOListWidgetRequestType requestType) {

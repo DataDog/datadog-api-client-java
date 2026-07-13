@@ -68,6 +68,9 @@ public class ObservabilityPipelineAddFieldsProcessor {
           ObservabilityPipelineAddFieldsProcessorType type) {
     this.enabled = enabled;
     this.fields = fields;
+    for (ObservabilityPipelineFieldValue item : fields) {
+      this.unparsed |= item.unparsed;
+    }
     this.id = id;
     this.include = include;
     this.type = type;
@@ -145,6 +148,11 @@ public class ObservabilityPipelineAddFieldsProcessor {
 
   public void setFields(List<ObservabilityPipelineFieldValue> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (ObservabilityPipelineFieldValue item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineAddFieldsProcessor id(String id) {

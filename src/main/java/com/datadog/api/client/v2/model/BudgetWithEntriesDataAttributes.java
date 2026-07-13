@@ -165,6 +165,11 @@ public class BudgetWithEntriesDataAttributes {
 
   public void setEntries(List<BudgetWithEntriesDataAttributesEntriesItems> entries) {
     this.entries = entries;
+    if (entries != null) {
+      for (BudgetWithEntriesDataAttributesEntriesItems item : entries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public BudgetWithEntriesDataAttributes metricsQuery(String metricsQuery) {

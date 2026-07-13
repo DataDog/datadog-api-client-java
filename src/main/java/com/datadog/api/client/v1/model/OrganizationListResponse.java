@@ -58,6 +58,11 @@ public class OrganizationListResponse {
 
   public void setOrgs(List<Organization> orgs) {
     this.orgs = orgs;
+    if (orgs != null) {
+      for (Organization item : orgs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

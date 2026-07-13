@@ -55,6 +55,9 @@ public class CIAppTestsAnalyticsAggregateResponse {
 
   public void setData(CIAppTestsAggregationBucketsResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public CIAppTestsAnalyticsAggregateResponse links(CIAppResponseLinks links) {
@@ -77,6 +80,9 @@ public class CIAppTestsAnalyticsAggregateResponse {
 
   public void setLinks(CIAppResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public CIAppTestsAnalyticsAggregateResponse meta(CIAppResponseMetadataWithPagination meta) {
@@ -99,6 +105,9 @@ public class CIAppTestsAnalyticsAggregateResponse {
 
   public void setMeta(CIAppResponseMetadataWithPagination meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class ContainerImageMeta {
 
   public void setPagination(ContainerImageMetaPage pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

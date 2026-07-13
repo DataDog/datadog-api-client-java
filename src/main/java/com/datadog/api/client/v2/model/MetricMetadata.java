@@ -45,6 +45,9 @@ public class MetricMetadata {
 
   public void setOrigin(MetricOrigin origin) {
     this.origin = origin;
+    if (origin != null) {
+      this.unparsed |= origin.unparsed;
+    }
   }
 
   /**

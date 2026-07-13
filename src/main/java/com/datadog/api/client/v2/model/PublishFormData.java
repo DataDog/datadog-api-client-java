@@ -61,6 +61,9 @@ public class PublishFormData {
 
   public void setAttributes(PublishFormDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PublishFormData type(FormPublicationType type) {

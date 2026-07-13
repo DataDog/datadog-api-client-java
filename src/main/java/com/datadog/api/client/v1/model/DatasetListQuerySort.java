@@ -35,6 +35,9 @@ public class DatasetListQuerySort {
       @JsonProperty(required = true, value = JSON_PROPERTY_FIELDS)
           List<DatasetListQuerySortField> fields) {
     this.fields = fields;
+    for (DatasetListQuerySortField item : fields) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DatasetListQuerySort fields(List<DatasetListQuerySortField> fields) {
@@ -64,6 +67,11 @@ public class DatasetListQuerySort {
 
   public void setFields(List<DatasetListQuerySortField> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (DatasetListQuerySortField item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

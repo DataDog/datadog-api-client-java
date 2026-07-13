@@ -55,6 +55,9 @@ public class AiCustomRulesetUpdateData {
 
   public void setAttributes(AiCustomRulesetUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AiCustomRulesetUpdateData id(String id) {

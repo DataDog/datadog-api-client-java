@@ -47,6 +47,9 @@ public class EscalationPolicyCreateRequestDataRelationships {
 
   public void setTeams(DataRelationshipsTeams teams) {
     this.teams = teams;
+    if (teams != null) {
+      this.unparsed |= teams.unparsed;
+    }
   }
 
   /**

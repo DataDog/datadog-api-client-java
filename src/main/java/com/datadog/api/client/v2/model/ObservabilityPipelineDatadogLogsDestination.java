@@ -86,6 +86,9 @@ public class ObservabilityPipelineDatadogLogsDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineDatadogLogsDestination id(String id) {
@@ -166,6 +169,11 @@ public class ObservabilityPipelineDatadogLogsDestination {
 
   public void setRoutes(List<ObservabilityPipelineDatadogLogsDestinationRoute> routes) {
     this.routes = routes;
+    if (routes != null) {
+      for (ObservabilityPipelineDatadogLogsDestinationRoute item : routes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineDatadogLogsDestination type(

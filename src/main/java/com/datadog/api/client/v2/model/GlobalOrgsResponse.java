@@ -44,6 +44,9 @@ public class GlobalOrgsResponse {
   public GlobalOrgsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<GlobalOrgData> data) {
     this.data = data;
+    for (GlobalOrgData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public GlobalOrgsResponse data(List<GlobalOrgData> data) {
@@ -73,6 +76,11 @@ public class GlobalOrgsResponse {
 
   public void setData(List<GlobalOrgData> data) {
     this.data = data;
+    if (data != null) {
+      for (GlobalOrgData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GlobalOrgsResponse links(GlobalOrgsLinks links) {
@@ -95,6 +103,9 @@ public class GlobalOrgsResponse {
 
   public void setLinks(GlobalOrgsLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public GlobalOrgsResponse meta(GlobalOrgsMeta meta) {
@@ -117,6 +128,9 @@ public class GlobalOrgsResponse {
 
   public void setMeta(GlobalOrgsMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

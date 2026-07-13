@@ -62,6 +62,9 @@ public class DORAListFailuresRequestData {
 
   public void setAttributes(DORAListFailuresRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DORAListFailuresRequestData type(DORAListFailuresRequestDataType type) {

@@ -67,6 +67,9 @@ public class Estimation {
 
   public void setCpu(Cpu cpu) {
     this.cpu = cpu;
+    if (cpu != null) {
+      this.unparsed |= cpu.unparsed;
+    }
   }
 
   public Estimation ephemeralStorage(Long ephemeralStorage) {

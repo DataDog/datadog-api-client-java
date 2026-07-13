@@ -73,6 +73,9 @@ public class TableWidgetDefinition {
           List<TableWidgetRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TableWidgetDefinitionType type) {
     this.requests = requests;
+    for (TableWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -108,6 +111,11 @@ public class TableWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TableWidgetDefinition description(String description) {
@@ -183,6 +191,11 @@ public class TableWidgetDefinition {
 
   public void setRequests(List<TableWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (TableWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TableWidgetDefinition time(WidgetTime time) {
@@ -205,6 +218,9 @@ public class TableWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public TableWidgetDefinition title(String title) {

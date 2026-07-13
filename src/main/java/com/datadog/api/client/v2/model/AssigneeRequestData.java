@@ -73,6 +73,9 @@ public class AssigneeRequestData {
 
   public void setAttributes(AssigneeRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AssigneeRequestData id(String id) {
@@ -115,6 +118,9 @@ public class AssigneeRequestData {
 
   public void setRelationships(AssigneeRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public AssigneeRequestData type(AssigneeDataType type) {

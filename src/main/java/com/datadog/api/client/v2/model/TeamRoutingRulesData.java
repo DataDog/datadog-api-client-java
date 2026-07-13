@@ -89,6 +89,9 @@ public class TeamRoutingRulesData {
 
   public void setRelationships(TeamRoutingRulesDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public TeamRoutingRulesData type(TeamRoutingRulesDataType type) {

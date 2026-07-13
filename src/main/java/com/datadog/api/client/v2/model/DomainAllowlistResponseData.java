@@ -66,6 +66,9 @@ public class DomainAllowlistResponseData {
 
   public void setAttributes(DomainAllowlistResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DomainAllowlistResponseData id(String id) {

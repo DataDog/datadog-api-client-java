@@ -46,6 +46,9 @@ public class IncidentSearchResponsePropertyFieldFacetData {
           List<IncidentSearchResponseFieldFacetData> facets,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.facets = facets;
+    for (IncidentSearchResponseFieldFacetData item : facets) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
   }
 
@@ -70,6 +73,9 @@ public class IncidentSearchResponsePropertyFieldFacetData {
 
   public void setAggregates(IncidentSearchResponseNumericFacetDataAggregates aggregates) {
     this.aggregates = aggregates;
+    if (aggregates != null) {
+      this.unparsed |= aggregates.unparsed;
+    }
   }
 
   public IncidentSearchResponsePropertyFieldFacetData facets(
@@ -101,6 +107,11 @@ public class IncidentSearchResponsePropertyFieldFacetData {
 
   public void setFacets(List<IncidentSearchResponseFieldFacetData> facets) {
     this.facets = facets;
+    if (facets != null) {
+      for (IncidentSearchResponseFieldFacetData item : facets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponsePropertyFieldFacetData name(String name) {

@@ -35,6 +35,9 @@ public class SlackIntegrationMetadata {
       @JsonProperty(required = true, value = JSON_PROPERTY_CHANNELS)
           List<SlackIntegrationMetadataChannelItem> channels) {
     this.channels = channels;
+    for (SlackIntegrationMetadataChannelItem item : channels) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SlackIntegrationMetadata channels(List<SlackIntegrationMetadataChannelItem> channels) {
@@ -65,6 +68,11 @@ public class SlackIntegrationMetadata {
 
   public void setChannels(List<SlackIntegrationMetadataChannelItem> channels) {
     this.channels = channels;
+    if (channels != null) {
+      for (SlackIntegrationMetadataChannelItem item : channels) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

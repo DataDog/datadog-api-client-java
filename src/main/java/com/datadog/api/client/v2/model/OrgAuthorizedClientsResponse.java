@@ -41,6 +41,9 @@ public class OrgAuthorizedClientsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<OrgAuthorizedClientData> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) ResponseMetaAttributes meta) {
     this.data = data;
+    for (OrgAuthorizedClientData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -72,6 +75,11 @@ public class OrgAuthorizedClientsResponse {
 
   public void setData(List<OrgAuthorizedClientData> data) {
     this.data = data;
+    if (data != null) {
+      for (OrgAuthorizedClientData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public OrgAuthorizedClientsResponse meta(ResponseMetaAttributes meta) {
@@ -93,6 +101,9 @@ public class OrgAuthorizedClientsResponse {
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

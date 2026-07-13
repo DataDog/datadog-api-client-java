@@ -63,10 +63,16 @@ public class CycloneDXBom {
           List<CycloneDXVulnerability> vulnerabilities) {
     this.bomFormat = bomFormat;
     this.components = components;
+    for (CycloneDXComponent item : components) {
+      this.unparsed |= item.unparsed;
+    }
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
     this.specVersion = specVersion;
     this.vulnerabilities = vulnerabilities;
+    for (CycloneDXVulnerability item : vulnerabilities) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CycloneDXBom bomFormat(String bomFormat) {
@@ -116,6 +122,11 @@ public class CycloneDXBom {
 
   public void setComponents(List<CycloneDXComponent> components) {
     this.components = components;
+    if (components != null) {
+      for (CycloneDXComponent item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CycloneDXBom metadata(CycloneDXMetadata metadata) {
@@ -137,6 +148,9 @@ public class CycloneDXBom {
 
   public void setMetadata(CycloneDXMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public CycloneDXBom specVersion(String specVersion) {
@@ -207,6 +221,11 @@ public class CycloneDXBom {
 
   public void setVulnerabilities(List<CycloneDXVulnerability> vulnerabilities) {
     this.vulnerabilities = vulnerabilities;
+    if (vulnerabilities != null) {
+      for (CycloneDXVulnerability item : vulnerabilities) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

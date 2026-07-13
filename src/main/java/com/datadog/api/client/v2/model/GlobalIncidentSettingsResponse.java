@@ -55,6 +55,9 @@ public class GlobalIncidentSettingsResponse {
 
   public void setData(GlobalIncidentSettingsDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

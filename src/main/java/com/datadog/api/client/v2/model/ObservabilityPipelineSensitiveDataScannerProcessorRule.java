@@ -95,6 +95,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorRule {
   public void setKeywordOptions(
       ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions keywordOptions) {
     this.keywordOptions = keywordOptions;
+    if (keywordOptions != null) {
+      this.unparsed |= keywordOptions.unparsed;
+    }
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorRule name(String name) {
@@ -137,6 +140,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorRule {
 
   public void setOnMatch(ObservabilityPipelineSensitiveDataScannerProcessorAction onMatch) {
     this.onMatch = onMatch;
+    if (onMatch != null) {
+      this.unparsed |= onMatch.unparsed;
+    }
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorRule pattern(
@@ -160,6 +166,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorRule {
 
   public void setPattern(ObservabilityPipelineSensitiveDataScannerProcessorPattern pattern) {
     this.pattern = pattern;
+    if (pattern != null) {
+      this.unparsed |= pattern.unparsed;
+    }
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorRule scope(
@@ -182,6 +191,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorRule {
 
   public void setScope(ObservabilityPipelineSensitiveDataScannerProcessorScope scope) {
     this.scope = scope;
+    if (scope != null) {
+      this.unparsed |= scope.unparsed;
+    }
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorRule tags(List<String> tags) {

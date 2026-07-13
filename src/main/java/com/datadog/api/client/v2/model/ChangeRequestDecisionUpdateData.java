@@ -66,6 +66,9 @@ public class ChangeRequestDecisionUpdateData {
 
   public void setAttributes(ChangeRequestDecisionUpdateDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ChangeRequestDecisionUpdateData relationships(
@@ -89,6 +92,9 @@ public class ChangeRequestDecisionUpdateData {
 
   public void setRelationships(ChangeRequestDecisionUpdateDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ChangeRequestDecisionUpdateData type(ChangeRequestResourceType type) {

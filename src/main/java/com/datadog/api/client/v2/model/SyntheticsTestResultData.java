@@ -59,6 +59,9 @@ public class SyntheticsTestResultData {
 
   public void setAttributes(SyntheticsTestResultAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsTestResultData id(String id) {
@@ -102,6 +105,9 @@ public class SyntheticsTestResultData {
 
   public void setRelationships(SyntheticsTestResultRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SyntheticsTestResultData type(SyntheticsTestResultType type) {

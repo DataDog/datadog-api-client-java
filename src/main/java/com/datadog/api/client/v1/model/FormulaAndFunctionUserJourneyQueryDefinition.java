@@ -87,6 +87,9 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
 
   public void setCompute(UserJourneyFormulaCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public FormulaAndFunctionUserJourneyQueryDefinition dataSource(
@@ -147,6 +150,11 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
 
   public void setGroupBy(List<UserJourneyFormulaGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (UserJourneyFormulaGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FormulaAndFunctionUserJourneyQueryDefinition name(String name) {
@@ -188,6 +196,9 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
 
   public void setSearch(UserJourneySearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /**

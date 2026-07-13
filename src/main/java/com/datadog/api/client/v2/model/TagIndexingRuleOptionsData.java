@@ -60,6 +60,9 @@ public class TagIndexingRuleOptionsData {
 
   public void setDynamicTags(TagIndexingRuleDynamicTags dynamicTags) {
     this.dynamicTags = dynamicTags;
+    if (dynamicTags != null) {
+      this.unparsed |= dynamicTags.unparsed;
+    }
   }
 
   public TagIndexingRuleOptionsData managePreexistingMetrics(Boolean managePreexistingMetrics) {
@@ -103,6 +106,9 @@ public class TagIndexingRuleOptionsData {
 
   public void setMetricMatch(TagIndexingRuleMetricMatch metricMatch) {
     this.metricMatch = metricMatch;
+    if (metricMatch != null) {
+      this.unparsed |= metricMatch.unparsed;
+    }
   }
 
   public TagIndexingRuleOptionsData overridePreviousRules(Boolean overridePreviousRules) {

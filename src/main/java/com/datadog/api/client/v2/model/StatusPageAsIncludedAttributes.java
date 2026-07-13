@@ -149,6 +149,11 @@ public class StatusPageAsIncludedAttributes {
 
   public void setComponents(List<StatusPageAsIncludedAttributesComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (StatusPageAsIncludedAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public StatusPageAsIncludedAttributes createdAt(OffsetDateTime createdAt) {

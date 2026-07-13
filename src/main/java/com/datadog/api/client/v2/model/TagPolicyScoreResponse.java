@@ -54,6 +54,9 @@ public class TagPolicyScoreResponse {
 
   public void setData(TagPolicyScoreData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

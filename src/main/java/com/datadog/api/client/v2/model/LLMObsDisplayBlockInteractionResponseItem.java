@@ -60,6 +60,9 @@ public class LLMObsDisplayBlockInteractionResponseItem {
     this.alreadyExisted = alreadyExisted;
     this.contentId = contentId;
     this.displayBlock = displayBlock;
+    for (LLMObsContentBlock item : displayBlock) {
+      this.unparsed |= item.unparsed;
+    }
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -135,6 +138,11 @@ public class LLMObsDisplayBlockInteractionResponseItem {
 
   public void setDisplayBlock(List<LLMObsContentBlock> displayBlock) {
     this.displayBlock = displayBlock;
+    if (displayBlock != null) {
+      for (LLMObsContentBlock item : displayBlock) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsDisplayBlockInteractionResponseItem id(String id) {

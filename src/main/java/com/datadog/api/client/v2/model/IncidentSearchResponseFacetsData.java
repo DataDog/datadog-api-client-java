@@ -102,6 +102,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setCommander(List<IncidentSearchResponseUserFacetData> commander) {
     this.commander = commander;
+    if (commander != null) {
+      for (IncidentSearchResponseUserFacetData item : commander) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData createdBy(
@@ -137,6 +142,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setCreatedBy(List<IncidentSearchResponseUserFacetData> createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      for (IncidentSearchResponseUserFacetData item : createdBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData fields(
@@ -172,6 +182,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setFields(List<IncidentSearchResponsePropertyFieldFacetData> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (IncidentSearchResponsePropertyFieldFacetData item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData impact(
@@ -207,6 +222,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setImpact(List<IncidentSearchResponseFieldFacetData> impact) {
     this.impact = impact;
+    if (impact != null) {
+      for (IncidentSearchResponseFieldFacetData item : impact) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData lastModifiedBy(
@@ -242,6 +262,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setLastModifiedBy(List<IncidentSearchResponseUserFacetData> lastModifiedBy) {
     this.lastModifiedBy = lastModifiedBy;
+    if (lastModifiedBy != null) {
+      for (IncidentSearchResponseUserFacetData item : lastModifiedBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData postmortem(
@@ -277,6 +302,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setPostmortem(List<IncidentSearchResponseFieldFacetData> postmortem) {
     this.postmortem = postmortem;
+    if (postmortem != null) {
+      for (IncidentSearchResponseFieldFacetData item : postmortem) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData responder(
@@ -312,6 +342,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setResponder(List<IncidentSearchResponseUserFacetData> responder) {
     this.responder = responder;
+    if (responder != null) {
+      for (IncidentSearchResponseUserFacetData item : responder) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData severity(
@@ -347,6 +382,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setSeverity(List<IncidentSearchResponseFieldFacetData> severity) {
     this.severity = severity;
+    if (severity != null) {
+      for (IncidentSearchResponseFieldFacetData item : severity) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData state(List<IncidentSearchResponseFieldFacetData> state) {
@@ -381,6 +421,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setState(List<IncidentSearchResponseFieldFacetData> state) {
     this.state = state;
+    if (state != null) {
+      for (IncidentSearchResponseFieldFacetData item : state) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData timeToRepair(
@@ -416,6 +461,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setTimeToRepair(List<IncidentSearchResponseNumericFacetData> timeToRepair) {
     this.timeToRepair = timeToRepair;
+    if (timeToRepair != null) {
+      for (IncidentSearchResponseNumericFacetData item : timeToRepair) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData timeToResolve(
@@ -451,6 +501,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setTimeToResolve(List<IncidentSearchResponseNumericFacetData> timeToResolve) {
     this.timeToResolve = timeToResolve;
+    if (timeToResolve != null) {
+      for (IncidentSearchResponseNumericFacetData item : timeToResolve) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

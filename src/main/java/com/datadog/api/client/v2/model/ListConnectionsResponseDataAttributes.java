@@ -64,6 +64,11 @@ public class ListConnectionsResponseDataAttributes {
   public void setConnections(
       List<ListConnectionsResponseDataAttributesConnectionsItems> connections) {
     this.connections = connections;
+    if (connections != null) {
+      for (ListConnectionsResponseDataAttributesConnectionsItems item : connections) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -138,6 +138,9 @@ public class ObservabilityPipelineSplunkHecDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineSplunkHecDestination encoding(

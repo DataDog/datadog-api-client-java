@@ -60,6 +60,11 @@ public class DashboardListAddItemsResponse {
 
   public void setAddedDashboardsToList(List<DashboardListItemResponse> addedDashboardsToList) {
     this.addedDashboardsToList = addedDashboardsToList;
+    if (addedDashboardsToList != null) {
+      for (DashboardListItemResponse item : addedDashboardsToList) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

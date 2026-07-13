@@ -42,6 +42,9 @@ public class SyntheticsTestOptionsScheduling {
           List<SyntheticsTestOptionsSchedulingTimeframe> timeframes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TIMEZONE) String timezone) {
     this.timeframes = timeframes;
+    for (SyntheticsTestOptionsSchedulingTimeframe item : timeframes) {
+      this.unparsed |= item.unparsed;
+    }
     this.timezone = timezone;
   }
 
@@ -74,6 +77,11 @@ public class SyntheticsTestOptionsScheduling {
 
   public void setTimeframes(List<SyntheticsTestOptionsSchedulingTimeframe> timeframes) {
     this.timeframes = timeframes;
+    if (timeframes != null) {
+      for (SyntheticsTestOptionsSchedulingTimeframe item : timeframes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestOptionsScheduling timezone(String timezone) {

@@ -87,6 +87,9 @@ public class QueryValueWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           QueryValueWidgetDefinitionType type) {
     this.requests = requests;
+    for (QueryValueWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -143,6 +146,11 @@ public class QueryValueWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public QueryValueWidgetDefinition customUnit(String customUnit) {
@@ -235,6 +243,11 @@ public class QueryValueWidgetDefinition {
 
   public void setRequests(List<QueryValueWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (QueryValueWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public QueryValueWidgetDefinition textAlign(WidgetTextAlign textAlign) {
@@ -282,6 +295,9 @@ public class QueryValueWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public QueryValueWidgetDefinition timeseriesBackground(
@@ -305,6 +321,9 @@ public class QueryValueWidgetDefinition {
 
   public void setTimeseriesBackground(TimeseriesBackground timeseriesBackground) {
     this.timeseriesBackground = timeseriesBackground;
+    if (timeseriesBackground != null) {
+      this.unparsed |= timeseriesBackground.unparsed;
+    }
   }
 
   public QueryValueWidgetDefinition title(String title) {

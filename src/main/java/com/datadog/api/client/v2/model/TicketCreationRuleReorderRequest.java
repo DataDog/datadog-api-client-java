@@ -35,6 +35,9 @@ public class TicketCreationRuleReorderRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<TicketCreationRuleReorderItem> data) {
     this.data = data;
+    for (TicketCreationRuleReorderItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public TicketCreationRuleReorderRequest data(List<TicketCreationRuleReorderItem> data) {
@@ -64,6 +67,11 @@ public class TicketCreationRuleReorderRequest {
 
   public void setData(List<TicketCreationRuleReorderItem> data) {
     this.data = data;
+    if (data != null) {
+      for (TicketCreationRuleReorderItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -43,6 +43,9 @@ public class IncidentUserDefinedFieldListResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_META)
           IncidentUserDefinedFieldListMeta meta) {
     this.data = data;
+    for (IncidentUserDefinedFieldResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -76,6 +79,11 @@ public class IncidentUserDefinedFieldListResponse {
 
   public void setData(List<IncidentUserDefinedFieldResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (IncidentUserDefinedFieldResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentUserDefinedFieldListResponse meta(IncidentUserDefinedFieldListMeta meta) {
@@ -97,6 +105,9 @@ public class IncidentUserDefinedFieldListResponse {
 
   public void setMeta(IncidentUserDefinedFieldListMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

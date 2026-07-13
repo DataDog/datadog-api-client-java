@@ -58,6 +58,11 @@ public class UsageCWSResponse {
 
   public void setUsage(List<UsageCWSHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageCWSHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

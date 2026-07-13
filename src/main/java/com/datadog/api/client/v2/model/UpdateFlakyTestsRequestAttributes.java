@@ -35,6 +35,9 @@ public class UpdateFlakyTestsRequestAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_TESTS)
           List<UpdateFlakyTestsRequestTest> tests) {
     this.tests = tests;
+    for (UpdateFlakyTestsRequestTest item : tests) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public UpdateFlakyTestsRequestAttributes tests(List<UpdateFlakyTestsRequestTest> tests) {
@@ -64,6 +67,11 @@ public class UpdateFlakyTestsRequestAttributes {
 
   public void setTests(List<UpdateFlakyTestsRequestTest> tests) {
     this.tests = tests;
+    if (tests != null) {
+      for (UpdateFlakyTestsRequestTest item : tests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

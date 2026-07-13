@@ -72,6 +72,9 @@ public class AllocationExposureScheduleData {
 
   public void setAttributes(AllocationExposureSchedule attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AllocationExposureScheduleData id(UUID id) {

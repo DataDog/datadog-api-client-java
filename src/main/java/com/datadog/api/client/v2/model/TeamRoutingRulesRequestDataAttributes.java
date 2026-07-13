@@ -58,6 +58,11 @@ public class TeamRoutingRulesRequestDataAttributes {
 
   public void setRules(List<TeamRoutingRulesRequestRule> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (TeamRoutingRulesRequestRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

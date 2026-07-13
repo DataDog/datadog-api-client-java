@@ -85,10 +85,16 @@ public class LLMObsInferenceRunResult {
     this.content = content;
     this.finishReason = finishReason;
     this.inferenceCodes = inferenceCodes;
+    for (LLMObsInferenceCode item : inferenceCodes) {
+      this.unparsed |= item.unparsed;
+    }
     this.inputTokens = inputTokens;
     this.latency = latency;
     this.outputTokens = outputTokens;
     this.tools = tools;
+    for (LLMObsInferenceTool item : tools) {
+      this.unparsed |= item.unparsed;
+    }
     this.totalTokens = totalTokens;
   }
 
@@ -181,6 +187,11 @@ public class LLMObsInferenceRunResult {
 
   public void setInferenceCodes(List<LLMObsInferenceCode> inferenceCodes) {
     this.inferenceCodes = inferenceCodes;
+    if (inferenceCodes != null) {
+      for (LLMObsInferenceCode item : inferenceCodes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsInferenceRunResult inputTokens(Long inputTokens) {
@@ -223,6 +234,9 @@ public class LLMObsInferenceRunResult {
 
   public void setInternalReasoning(LLMObsInternalReasoning internalReasoning) {
     this.internalReasoning = internalReasoning;
+    if (internalReasoning != null) {
+      this.unparsed |= internalReasoning.unparsed;
+    }
   }
 
   public LLMObsInferenceRunResult latency(Long latency) {
@@ -292,6 +306,11 @@ public class LLMObsInferenceRunResult {
 
   public void setTools(List<LLMObsInferenceTool> tools) {
     this.tools = tools;
+    if (tools != null) {
+      for (LLMObsInferenceTool item : tools) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsInferenceRunResult totalTokens(Long totalTokens) {

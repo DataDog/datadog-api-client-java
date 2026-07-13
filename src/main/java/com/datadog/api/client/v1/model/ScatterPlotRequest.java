@@ -108,6 +108,9 @@ public class ScatterPlotRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public ScatterPlotRequest eventQuery(LogQueryDefinition eventQuery) {
@@ -130,6 +133,9 @@ public class ScatterPlotRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public ScatterPlotRequest logQuery(LogQueryDefinition logQuery) {
@@ -152,6 +158,9 @@ public class ScatterPlotRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public ScatterPlotRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -174,6 +183,9 @@ public class ScatterPlotRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public ScatterPlotRequest processQuery(ProcessQueryDefinition processQuery) {
@@ -196,6 +208,9 @@ public class ScatterPlotRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public ScatterPlotRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -218,6 +233,9 @@ public class ScatterPlotRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public ScatterPlotRequest q(String q) {
@@ -261,6 +279,9 @@ public class ScatterPlotRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public ScatterPlotRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -283,6 +304,9 @@ public class ScatterPlotRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   /**

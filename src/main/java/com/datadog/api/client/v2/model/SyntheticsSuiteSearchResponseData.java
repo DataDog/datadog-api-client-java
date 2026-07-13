@@ -57,6 +57,9 @@ public class SyntheticsSuiteSearchResponseData {
 
   public void setAttributes(SyntheticsSuiteSearchResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsSuiteSearchResponseData id(UUID id) {

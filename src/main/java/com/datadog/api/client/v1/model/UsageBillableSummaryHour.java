@@ -301,6 +301,9 @@ public class UsageBillableSummaryHour {
 
   public void setUsage(UsageBillableSummaryKeys usage) {
     this.usage = usage;
+    if (usage != null) {
+      this.unparsed |= usage.unparsed;
+    }
   }
 
   /**

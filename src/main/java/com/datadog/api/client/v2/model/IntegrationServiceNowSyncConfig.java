@@ -73,6 +73,9 @@ public class IntegrationServiceNowSyncConfig {
 
   public void setProperties(IntegrationServiceNowSyncConfig139772721534496 properties) {
     this.properties = properties;
+    if (properties != null) {
+      this.unparsed |= properties.unparsed;
+    }
   }
 
   /**

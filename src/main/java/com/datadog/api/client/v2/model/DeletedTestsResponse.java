@@ -58,6 +58,11 @@ public class DeletedTestsResponse {
 
   public void setData(List<DeletedTestResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (DeletedTestResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

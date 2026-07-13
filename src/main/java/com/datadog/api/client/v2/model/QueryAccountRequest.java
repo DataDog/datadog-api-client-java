@@ -45,6 +45,9 @@ public class QueryAccountRequest {
 
   public void setData(QueryAccountRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

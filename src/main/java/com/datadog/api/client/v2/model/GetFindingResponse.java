@@ -54,6 +54,9 @@ public class GetFindingResponse {
 
   public void setData(DetailedFinding data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class RelationAttributes {
 
   public void setFrom(RelationEntity from) {
     this.from = from;
+    if (from != null) {
+      this.unparsed |= from.unparsed;
+    }
   }
 
   public RelationAttributes to(RelationEntity to) {
@@ -77,6 +80,9 @@ public class RelationAttributes {
 
   public void setTo(RelationEntity to) {
     this.to = to;
+    if (to != null) {
+      this.unparsed |= to.unparsed;
+    }
   }
 
   public RelationAttributes type(RelationType type) {

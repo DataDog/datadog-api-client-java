@@ -60,6 +60,9 @@ public class RulesetRespDataAttributesRulesItemsReferenceTable {
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE_KEYS) List<String> sourceKeys,
       @JsonProperty(required = true, value = JSON_PROPERTY_TABLE_NAME) String tableName) {
     this.fieldPairs = fieldPairs;
+    for (RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems item : fieldPairs) {
+      this.unparsed |= item.unparsed;
+    }
     this.sourceKeys = sourceKeys;
     this.tableName = tableName;
   }
@@ -116,6 +119,11 @@ public class RulesetRespDataAttributesRulesItemsReferenceTable {
   public void setFieldPairs(
       List<RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems> fieldPairs) {
     this.fieldPairs = fieldPairs;
+    if (fieldPairs != null) {
+      for (RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems item : fieldPairs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RulesetRespDataAttributesRulesItemsReferenceTable ifNotExists(Boolean ifNotExists) {

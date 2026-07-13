@@ -62,6 +62,9 @@ public class EventResponseAttributes {
 
   public void setAttributes(EventAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EventResponseAttributes message(String message) {

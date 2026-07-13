@@ -55,6 +55,9 @@ public class FlakyTest {
 
   public void setAttributes(FlakyTestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FlakyTest id(String id) {

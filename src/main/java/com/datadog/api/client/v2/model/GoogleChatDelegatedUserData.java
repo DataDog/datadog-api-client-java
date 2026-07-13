@@ -56,6 +56,9 @@ public class GoogleChatDelegatedUserData {
 
   public void setAttributes(GoogleChatDelegatedUserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GoogleChatDelegatedUserData id(String id) {

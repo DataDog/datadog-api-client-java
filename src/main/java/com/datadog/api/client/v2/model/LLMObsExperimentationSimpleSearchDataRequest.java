@@ -65,6 +65,9 @@ public class LLMObsExperimentationSimpleSearchDataRequest {
 
   public void setAttributes(LLMObsExperimentationSimpleSearchDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsExperimentationSimpleSearchDataRequest type(LLMObsExperimentationType type) {

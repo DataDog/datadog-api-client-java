@@ -34,6 +34,9 @@ public class UserInvitationsRequest {
   public UserInvitationsRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<UserInvitationData> data) {
     this.data = data;
+    for (UserInvitationData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public UserInvitationsRequest data(List<UserInvitationData> data) {
@@ -63,6 +66,11 @@ public class UserInvitationsRequest {
 
   public void setData(List<UserInvitationData> data) {
     this.data = data;
+    if (data != null) {
+      for (UserInvitationData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -60,6 +60,11 @@ public class AWSCcmConfigResponseAttributes {
 
   public void setDataExportConfigs(List<DataExportConfig> dataExportConfigs) {
     this.dataExportConfigs = dataExportConfigs;
+    if (dataExportConfigs != null) {
+      for (DataExportConfig item : dataExportConfigs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class LogsMetricCreateRequest {
 
   public void setData(LogsMetricCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

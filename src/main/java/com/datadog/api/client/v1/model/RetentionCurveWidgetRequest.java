@@ -64,6 +64,9 @@ public class RetentionCurveWidgetRequest {
 
   public void setQuery(RetentionQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public RetentionCurveWidgetRequest requestType(RetentionCurveRequestType requestType) {
@@ -110,6 +113,9 @@ public class RetentionCurveWidgetRequest {
 
   public void setStyle(RetentionCurveStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /** Return true if this RetentionCurveWidgetRequest object is equal to o. */

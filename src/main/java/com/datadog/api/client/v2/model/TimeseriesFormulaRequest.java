@@ -65,6 +65,9 @@ public class TimeseriesFormulaRequest {
 
   public void setAttributes(TimeseriesFormulaRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TimeseriesFormulaRequest type(TimeseriesFormulaRequestType type) {

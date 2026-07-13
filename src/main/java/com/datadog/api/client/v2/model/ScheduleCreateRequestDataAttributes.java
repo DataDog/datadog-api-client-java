@@ -49,6 +49,9 @@ public class ScheduleCreateRequestDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TIME_ZONE) String timeZone) {
     this.layers = layers;
+    for (ScheduleCreateRequestDataAttributesLayersItems item : layers) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
     this.timeZone = timeZone;
   }
@@ -82,6 +85,11 @@ public class ScheduleCreateRequestDataAttributes {
 
   public void setLayers(List<ScheduleCreateRequestDataAttributesLayersItems> layers) {
     this.layers = layers;
+    if (layers != null) {
+      for (ScheduleCreateRequestDataAttributesLayersItems item : layers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScheduleCreateRequestDataAttributes name(String name) {

@@ -58,6 +58,11 @@ public class ConfluentAccountsResponse {
 
   public void setData(List<ConfluentAccountResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (ConfluentAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

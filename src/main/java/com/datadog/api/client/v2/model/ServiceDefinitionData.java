@@ -55,6 +55,9 @@ public class ServiceDefinitionData {
 
   public void setAttributes(ServiceDefinitionDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceDefinitionData id(String id) {

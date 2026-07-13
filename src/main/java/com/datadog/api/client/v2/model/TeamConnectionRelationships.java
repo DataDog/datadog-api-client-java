@@ -51,6 +51,9 @@ public class TeamConnectionRelationships {
 
   public void setConnectedTeam(ConnectedTeamRef connectedTeam) {
     this.connectedTeam = connectedTeam;
+    if (connectedTeam != null) {
+      this.unparsed |= connectedTeam.unparsed;
+    }
   }
 
   public TeamConnectionRelationships team(TeamRef team) {
@@ -73,6 +76,9 @@ public class TeamConnectionRelationships {
 
   public void setTeam(TeamRef team) {
     this.team = team;
+    if (team != null) {
+      this.unparsed |= team.unparsed;
+    }
   }
 
   /**

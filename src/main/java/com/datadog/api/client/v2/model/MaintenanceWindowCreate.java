@@ -65,6 +65,9 @@ public class MaintenanceWindowCreate {
 
   public void setAttributes(MaintenanceWindowCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MaintenanceWindowCreate type(MaintenanceWindowResourceType type) {

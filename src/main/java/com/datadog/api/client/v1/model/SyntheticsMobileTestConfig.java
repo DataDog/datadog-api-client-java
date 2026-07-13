@@ -96,6 +96,11 @@ public class SyntheticsMobileTestConfig {
 
   public void setVariables(List<SyntheticsConfigVariable> variables) {
     this.variables = variables;
+    if (variables != null) {
+      for (SyntheticsConfigVariable item : variables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

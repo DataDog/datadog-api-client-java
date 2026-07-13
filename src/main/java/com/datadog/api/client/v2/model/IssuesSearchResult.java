@@ -74,6 +74,9 @@ public class IssuesSearchResult {
 
   public void setAttributes(IssuesSearchResultAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IssuesSearchResult id(String id) {
@@ -116,6 +119,9 @@ public class IssuesSearchResult {
 
   public void setRelationships(IssuesSearchResultRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IssuesSearchResult type(IssuesSearchResultType type) {

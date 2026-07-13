@@ -34,6 +34,9 @@ public class FleetSchedulesResponse {
   public FleetSchedulesResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<FleetSchedule> data) {
     this.data = data;
+    for (FleetSchedule item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FleetSchedulesResponse data(List<FleetSchedule> data) {
@@ -63,6 +66,11 @@ public class FleetSchedulesResponse {
 
   public void setData(List<FleetSchedule> data) {
     this.data = data;
+    if (data != null) {
+      for (FleetSchedule item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

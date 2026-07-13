@@ -56,6 +56,9 @@ public class GoogleChatTargetAudienceUpdateRequest {
 
   public void setData(GoogleChatTargetAudienceUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

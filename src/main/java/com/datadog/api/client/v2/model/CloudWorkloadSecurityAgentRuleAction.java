@@ -84,6 +84,9 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   public void setHash(CloudWorkloadSecurityAgentRuleActionHash hash) {
     this.hash = hash;
+    if (hash != null) {
+      this.unparsed |= hash.unparsed;
+    }
   }
 
   public CloudWorkloadSecurityAgentRuleAction kill(CloudWorkloadSecurityAgentRuleKill kill) {
@@ -106,6 +109,9 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   public void setKill(CloudWorkloadSecurityAgentRuleKill kill) {
     this.kill = kill;
+    if (kill != null) {
+      this.unparsed |= kill.unparsed;
+    }
   }
 
   public CloudWorkloadSecurityAgentRuleAction metadata(
@@ -129,6 +135,9 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   public void setMetadata(CloudWorkloadSecurityAgentRuleActionMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public CloudWorkloadSecurityAgentRuleAction set(CloudWorkloadSecurityAgentRuleActionSet set) {
@@ -151,6 +160,9 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   public void setSet(CloudWorkloadSecurityAgentRuleActionSet set) {
     this.set = set;
+    if (set != null) {
+      this.unparsed |= set.unparsed;
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class McpScanRequestResponse {
 
   public void setData(McpScanRequestResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

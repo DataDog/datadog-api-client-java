@@ -170,6 +170,9 @@ public class PowerpackWidgetDefinition {
 
   public void setTemplateVariables(PowerpackTemplateVariables templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      this.unparsed |= templateVariables.unparsed;
+    }
   }
 
   public PowerpackWidgetDefinition title(String title) {

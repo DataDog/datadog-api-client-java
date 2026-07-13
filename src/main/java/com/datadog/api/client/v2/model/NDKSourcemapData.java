@@ -70,6 +70,9 @@ public class NDKSourcemapData {
 
   public void setAttributes(NDKSourcemapAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NDKSourcemapData id(String id) {

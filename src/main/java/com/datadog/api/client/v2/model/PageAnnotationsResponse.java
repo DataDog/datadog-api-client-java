@@ -54,6 +54,9 @@ public class PageAnnotationsResponse {
 
   public void setData(PageAnnotationsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

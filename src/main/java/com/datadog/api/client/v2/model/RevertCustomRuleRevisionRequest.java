@@ -45,6 +45,9 @@ public class RevertCustomRuleRevisionRequest {
 
   public void setData(RevertCustomRuleRevisionRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

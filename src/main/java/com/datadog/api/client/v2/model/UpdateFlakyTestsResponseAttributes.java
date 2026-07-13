@@ -43,6 +43,9 @@ public class UpdateFlakyTestsResponseAttributes {
           List<UpdateFlakyTestsResponseResult> results) {
     this.hasErrors = hasErrors;
     this.results = results;
+    for (UpdateFlakyTestsResponseResult item : results) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public UpdateFlakyTestsResponseAttributes hasErrors(Boolean hasErrors) {
@@ -94,6 +97,11 @@ public class UpdateFlakyTestsResponseAttributes {
 
   public void setResults(List<UpdateFlakyTestsResponseResult> results) {
     this.results = results;
+    if (results != null) {
+      for (UpdateFlakyTestsResponseResult item : results) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -71,6 +71,9 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
 
   public void setAnnotationSchema(LLMObsAnnotationSchema annotationSchema) {
     this.annotationSchema = annotationSchema;
+    if (annotationSchema != null) {
+      this.unparsed |= annotationSchema.unparsed;
+    }
   }
 
   public LLMObsAnnotationQueueDataAttributesRequest description(String description) {

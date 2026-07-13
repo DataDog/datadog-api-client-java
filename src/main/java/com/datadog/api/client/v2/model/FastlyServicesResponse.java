@@ -58,6 +58,11 @@ public class FastlyServicesResponse {
 
   public void setData(List<FastlyServiceData> data) {
     this.data = data;
+    if (data != null) {
+      for (FastlyServiceData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

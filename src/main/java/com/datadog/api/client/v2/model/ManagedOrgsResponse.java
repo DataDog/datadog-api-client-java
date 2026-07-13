@@ -43,6 +43,9 @@ public class ManagedOrgsResponse {
     this.data = data;
     this.unparsed |= data.unparsed;
     this.included = included;
+    for (OrgData item : included) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ManagedOrgsResponse data(ManagedOrgsData data) {
@@ -64,6 +67,9 @@ public class ManagedOrgsResponse {
 
   public void setData(ManagedOrgsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public ManagedOrgsResponse included(List<OrgData> included) {
@@ -93,6 +99,11 @@ public class ManagedOrgsResponse {
 
   public void setIncluded(List<OrgData> included) {
     this.included = included;
+    if (included != null) {
+      for (OrgData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

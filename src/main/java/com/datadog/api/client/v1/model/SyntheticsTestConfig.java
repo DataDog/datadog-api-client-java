@@ -72,6 +72,11 @@ public class SyntheticsTestConfig {
 
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+    if (assertions != null) {
+      for (SyntheticsAssertion item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestConfig configVariables(List<SyntheticsConfigVariable> configVariables) {
@@ -105,6 +110,11 @@ public class SyntheticsTestConfig {
 
   public void setConfigVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
+    if (configVariables != null) {
+      for (SyntheticsConfigVariable item : configVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestConfig request(SyntheticsTestRequest request) {
@@ -127,6 +137,9 @@ public class SyntheticsTestConfig {
 
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
+    if (request != null) {
+      this.unparsed |= request.unparsed;
+    }
   }
 
   public SyntheticsTestConfig variables(List<SyntheticsBrowserVariable> variables) {
@@ -160,6 +173,11 @@ public class SyntheticsTestConfig {
 
   public void setVariables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
+    if (variables != null) {
+      for (SyntheticsBrowserVariable item : variables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -73,6 +73,9 @@ public class DORADeploymentPatchRequestData {
 
   public void setAttributes(DORADeploymentPatchRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DORADeploymentPatchRequestData id(String id) {

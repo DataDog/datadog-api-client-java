@@ -42,6 +42,9 @@ public class ModelLabRunArtifactsAttributes {
           List<ModelLabArtifactObjectInfo> files,
       @JsonProperty(required = true, value = JSON_PROPERTY_PATH_IN_PROJECT) String pathInProject) {
     this.files = files;
+    for (ModelLabArtifactObjectInfo item : files) {
+      this.unparsed |= item.unparsed;
+    }
     this.pathInProject = pathInProject;
   }
 
@@ -72,6 +75,11 @@ public class ModelLabRunArtifactsAttributes {
 
   public void setFiles(List<ModelLabArtifactObjectInfo> files) {
     this.files = files;
+    if (files != null) {
+      for (ModelLabArtifactObjectInfo item : files) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ModelLabRunArtifactsAttributes pathInProject(String pathInProject) {

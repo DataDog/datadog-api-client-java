@@ -64,6 +64,9 @@ public class CaseAggregateRequestAttributes {
 
   public void setGroupBy(CaseAggregateGroupBy groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      this.unparsed |= groupBy.unparsed;
+    }
   }
 
   public CaseAggregateRequestAttributes queryFilter(String queryFilter) {

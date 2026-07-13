@@ -118,6 +118,9 @@ public class SyntheticsAssertionXPathTarget {
 
   public void setTarget(SyntheticsAssertionXPathTargetTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   public SyntheticsAssertionXPathTarget type(SyntheticsAssertionType type) {

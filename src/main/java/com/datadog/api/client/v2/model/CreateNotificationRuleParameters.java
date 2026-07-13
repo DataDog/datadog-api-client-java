@@ -46,6 +46,9 @@ public class CreateNotificationRuleParameters {
 
   public void setData(CreateNotificationRuleParametersData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

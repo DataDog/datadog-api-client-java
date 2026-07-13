@@ -65,6 +65,9 @@ public class LLMObsSearchSpansRequestData {
 
   public void setAttributes(LLMObsSearchSpansRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsSearchSpansRequestData type(LLMObsSearchSpansRequestType type) {

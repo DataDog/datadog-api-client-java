@@ -58,6 +58,11 @@ public class SyntheticsCITestBody {
 
   public void setTests(List<SyntheticsCITest> tests) {
     this.tests = tests;
+    if (tests != null) {
+      for (SyntheticsCITest item : tests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

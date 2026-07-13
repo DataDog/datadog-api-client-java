@@ -65,6 +65,9 @@ public class GcpUcConfigResponseData {
 
   public void setAttributes(GcpUcConfigResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GcpUcConfigResponseData id(String id) {

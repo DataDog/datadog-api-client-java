@@ -56,6 +56,9 @@ public class DegradationDataRelationshipsLastModifiedByUser {
 
   public void setData(DegradationDataRelationshipsLastModifiedByUserData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

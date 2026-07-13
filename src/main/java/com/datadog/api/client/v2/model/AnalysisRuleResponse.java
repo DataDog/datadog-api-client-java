@@ -68,6 +68,9 @@ public class AnalysisRuleResponse {
     this.identifier = identifier;
     this.output = output;
     this.violations = violations;
+    for (AnalysisViolation item : violations) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AnalysisRuleResponse errors(List<String> errors) {
@@ -204,6 +207,11 @@ public class AnalysisRuleResponse {
 
   public void setViolations(List<AnalysisViolation> violations) {
     this.violations = violations;
+    if (violations != null) {
+      for (AnalysisViolation item : violations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

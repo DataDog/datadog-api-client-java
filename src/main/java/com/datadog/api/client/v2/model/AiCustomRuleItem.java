@@ -116,6 +116,9 @@ public class AiCustomRuleItem {
 
   public void setLastRevision(AiCustomRuleRevisionResponseAttributes lastRevision) {
     this.lastRevision = lastRevision;
+    if (lastRevision != null) {
+      this.unparsed |= lastRevision.unparsed;
+    }
   }
 
   public AiCustomRuleItem name(String name) {

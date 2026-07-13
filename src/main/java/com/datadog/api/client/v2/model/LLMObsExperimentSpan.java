@@ -150,6 +150,9 @@ public class LLMObsExperimentSpan {
 
   public void setMeta(LLMObsExperimentSpanMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public LLMObsExperimentSpan name(String name) {

@@ -51,6 +51,9 @@ public class ScalarFormulaQueryResponse {
 
   public void setData(ScalarResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public ScalarFormulaQueryResponse errors(String errors) {

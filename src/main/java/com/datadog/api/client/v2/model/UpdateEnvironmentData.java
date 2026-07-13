@@ -64,6 +64,9 @@ public class UpdateEnvironmentData {
 
   public void setAttributes(UpdateEnvironmentAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateEnvironmentData type(UpdateEnvironmentDataType type) {

@@ -45,6 +45,9 @@ public class RelationshipToRole {
 
   public void setData(RelationshipToRoleData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

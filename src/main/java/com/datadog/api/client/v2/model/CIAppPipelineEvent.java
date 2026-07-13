@@ -55,6 +55,9 @@ public class CIAppPipelineEvent {
 
   public void setAttributes(CIAppPipelineEventAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CIAppPipelineEvent id(String id) {

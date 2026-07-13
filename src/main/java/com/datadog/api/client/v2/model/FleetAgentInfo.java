@@ -70,6 +70,9 @@ public class FleetAgentInfo {
 
   public void setAttributes(FleetAgentInfoAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FleetAgentInfo id(String id) {

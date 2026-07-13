@@ -45,6 +45,9 @@ public class CreateAppsDatastoreResponse {
 
   public void setData(CreateAppsDatastoreResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

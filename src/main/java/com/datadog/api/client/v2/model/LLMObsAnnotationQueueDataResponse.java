@@ -71,6 +71,9 @@ public class LLMObsAnnotationQueueDataResponse {
 
   public void setAttributes(LLMObsAnnotationQueueDataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsAnnotationQueueDataResponse id(String id) {

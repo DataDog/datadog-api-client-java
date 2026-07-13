@@ -59,6 +59,11 @@ public class SecurityMonitoringSuppressionsResponse {
 
   public void setData(List<SecurityMonitoringSuppression> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringSuppression item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

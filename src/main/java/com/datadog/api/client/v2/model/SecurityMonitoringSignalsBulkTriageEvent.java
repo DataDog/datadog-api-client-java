@@ -64,6 +64,9 @@ public class SecurityMonitoringSignalsBulkTriageEvent {
 
   public void setEvent(SecurityMonitoringSignalsBulkTriageEventAttributes event) {
     this.event = event;
+    if (event != null) {
+      this.unparsed |= event.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalsBulkTriageEvent id(String id) {

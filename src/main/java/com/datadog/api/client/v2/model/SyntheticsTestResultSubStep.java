@@ -76,6 +76,9 @@ public class SyntheticsTestResultSubStep {
 
   public void setParentStep(SyntheticsTestResultParentStep parentStep) {
     this.parentStep = parentStep;
+    if (parentStep != null) {
+      this.unparsed |= parentStep.unparsed;
+    }
   }
 
   public SyntheticsTestResultSubStep parentTest(SyntheticsTestResultParentTest parentTest) {
@@ -98,6 +101,9 @@ public class SyntheticsTestResultSubStep {
 
   public void setParentTest(SyntheticsTestResultParentTest parentTest) {
     this.parentTest = parentTest;
+    if (parentTest != null) {
+      this.unparsed |= parentTest.unparsed;
+    }
   }
 
   /**

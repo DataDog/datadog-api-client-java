@@ -56,6 +56,9 @@ public class CsmHostsAndContainersCoverageAnalysisData {
 
   public void setAttributes(CsmHostsAndContainersCoverageAnalysisAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CsmHostsAndContainersCoverageAnalysisData id(String id) {

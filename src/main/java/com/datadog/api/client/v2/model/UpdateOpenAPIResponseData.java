@@ -52,6 +52,9 @@ public class UpdateOpenAPIResponseData {
 
   public void setAttributes(UpdateOpenAPIResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateOpenAPIResponseData id(UUID id) {

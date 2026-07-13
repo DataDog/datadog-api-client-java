@@ -93,6 +93,9 @@ public class HeatMapWidgetDefinition {
           List<HeatMapWidgetRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HeatMapWidgetDefinitionType type) {
     this.requests = requests;
+    for (HeatMapWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -128,6 +131,11 @@ public class HeatMapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HeatMapWidgetDefinition description(String description) {
@@ -185,6 +193,11 @@ public class HeatMapWidgetDefinition {
   @Deprecated
   public void setEvents(List<WidgetEvent> events) {
     this.events = events;
+    if (events != null) {
+      for (WidgetEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HeatMapWidgetDefinition legendSize(String legendSize) {
@@ -239,6 +252,11 @@ public class HeatMapWidgetDefinition {
 
   public void setMarkers(List<WidgetMarker> markers) {
     this.markers = markers;
+    if (markers != null) {
+      for (WidgetMarker item : markers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HeatMapWidgetDefinition requests(List<HeatMapWidgetRequest> requests) {
@@ -268,6 +286,11 @@ public class HeatMapWidgetDefinition {
 
   public void setRequests(List<HeatMapWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (HeatMapWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HeatMapWidgetDefinition showLegend(Boolean showLegend) {
@@ -311,6 +334,9 @@ public class HeatMapWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public HeatMapWidgetDefinition title(String title) {
@@ -424,6 +450,9 @@ public class HeatMapWidgetDefinition {
 
   public void setXaxis(HeatMapWidgetXAxis xaxis) {
     this.xaxis = xaxis;
+    if (xaxis != null) {
+      this.unparsed |= xaxis.unparsed;
+    }
   }
 
   public HeatMapWidgetDefinition yaxis(WidgetAxis yaxis) {
@@ -446,6 +475,9 @@ public class HeatMapWidgetDefinition {
 
   public void setYaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
+    if (yaxis != null) {
+      this.unparsed |= yaxis.unparsed;
+    }
   }
 
   /**

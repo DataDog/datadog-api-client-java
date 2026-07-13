@@ -46,6 +46,9 @@ public class PatchAttachmentRequestDataAttributes {
 
   public void setAttachment(PatchAttachmentRequestDataAttributesAttachment attachment) {
     this.attachment = attachment;
+    if (attachment != null) {
+      this.unparsed |= attachment.unparsed;
+    }
   }
 
   /**

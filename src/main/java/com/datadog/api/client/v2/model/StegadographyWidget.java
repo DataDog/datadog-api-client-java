@@ -70,6 +70,9 @@ public class StegadographyWidget {
 
   public void setAttributes(StegadographyWidgetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public StegadographyWidget id(String id) {

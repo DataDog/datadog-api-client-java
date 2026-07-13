@@ -52,6 +52,9 @@ public class CreatePublishRequestRequestData {
 
   public void setAttributes(CreatePublishRequestRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreatePublishRequestRequestData type(PublishRequestType type) {

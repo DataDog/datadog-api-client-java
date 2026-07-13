@@ -55,6 +55,9 @@ public class UpdateFormDataAttributes {
 
   public void setFormUpdate(FormUpdateAttributes formUpdate) {
     this.formUpdate = formUpdate;
+    if (formUpdate != null) {
+      this.unparsed |= formUpdate.unparsed;
+    }
   }
 
   /**

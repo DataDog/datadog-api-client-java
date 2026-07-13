@@ -68,6 +68,11 @@ public class RUMEventsResponse {
 
   public void setData(List<RUMEvent> data) {
     this.data = data;
+    if (data != null) {
+      for (RUMEvent item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RUMEventsResponse links(RUMResponseLinks links) {
@@ -90,6 +95,9 @@ public class RUMEventsResponse {
 
   public void setLinks(RUMResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public RUMEventsResponse meta(RUMResponseMetadata meta) {
@@ -112,6 +120,9 @@ public class RUMEventsResponse {
 
   public void setMeta(RUMResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

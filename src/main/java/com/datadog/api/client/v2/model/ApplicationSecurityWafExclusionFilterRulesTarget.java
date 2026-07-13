@@ -73,6 +73,9 @@ public class ApplicationSecurityWafExclusionFilterRulesTarget {
 
   public void setTags(ApplicationSecurityWafExclusionFilterRulesTargetTags tags) {
     this.tags = tags;
+    if (tags != null) {
+      this.unparsed |= tags.unparsed;
+    }
   }
 
   /**

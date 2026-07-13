@@ -60,6 +60,11 @@ public class EntityResponseDataRelationshipsOncalls {
 
   public void setData(List<EntityResponseDataRelationshipsOncallsDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (EntityResponseDataRelationshipsOncallsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

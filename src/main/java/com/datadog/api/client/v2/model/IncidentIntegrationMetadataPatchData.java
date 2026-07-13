@@ -67,6 +67,9 @@ public class IncidentIntegrationMetadataPatchData {
 
   public void setAttributes(IncidentIntegrationMetadataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentIntegrationMetadataPatchData type(IncidentIntegrationMetadataType type) {

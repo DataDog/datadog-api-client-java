@@ -55,6 +55,9 @@ public class SLOCorrection {
 
   public void setAttributes(SLOCorrectionResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SLOCorrection id(String id) {

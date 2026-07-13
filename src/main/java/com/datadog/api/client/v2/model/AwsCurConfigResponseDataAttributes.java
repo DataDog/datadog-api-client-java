@@ -95,6 +95,9 @@ public class AwsCurConfigResponseDataAttributes {
 
   public void setAccountFilters(AwsCurConfigResponseDataAttributesAccountFilters accountFilters) {
     this.accountFilters = accountFilters;
+    if (accountFilters != null) {
+      this.unparsed |= accountFilters.unparsed;
+    }
   }
 
   public AwsCurConfigResponseDataAttributes accountId(String accountId) {

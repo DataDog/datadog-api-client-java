@@ -76,11 +76,23 @@ public class Remediation {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
     this.autoSolvable = autoSolvable;
     this.avoidedAdvisories = avoidedAdvisories;
+    for (Advisory item : avoidedAdvisories) {
+      this.unparsed |= item.unparsed;
+    }
     this.fixedAdvisories = fixedAdvisories;
+    for (Advisory item : fixedAdvisories) {
+      this.unparsed |= item.unparsed;
+    }
     this.libraryName = libraryName;
     this.libraryVersion = libraryVersion;
     this.newAdvisories = newAdvisories;
+    for (Advisory item : newAdvisories) {
+      this.unparsed |= item.unparsed;
+    }
     this.remainingAdvisories = remainingAdvisories;
+    for (Advisory item : remainingAdvisories) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
   }
 
@@ -131,6 +143,11 @@ public class Remediation {
 
   public void setAvoidedAdvisories(List<Advisory> avoidedAdvisories) {
     this.avoidedAdvisories = avoidedAdvisories;
+    if (avoidedAdvisories != null) {
+      for (Advisory item : avoidedAdvisories) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Remediation fixedAdvisories(List<Advisory> fixedAdvisories) {
@@ -160,6 +177,11 @@ public class Remediation {
 
   public void setFixedAdvisories(List<Advisory> fixedAdvisories) {
     this.fixedAdvisories = fixedAdvisories;
+    if (fixedAdvisories != null) {
+      for (Advisory item : fixedAdvisories) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Remediation libraryName(String libraryName) {
@@ -229,6 +251,11 @@ public class Remediation {
 
   public void setNewAdvisories(List<Advisory> newAdvisories) {
     this.newAdvisories = newAdvisories;
+    if (newAdvisories != null) {
+      for (Advisory item : newAdvisories) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Remediation remainingAdvisories(List<Advisory> remainingAdvisories) {
@@ -258,6 +285,11 @@ public class Remediation {
 
   public void setRemainingAdvisories(List<Advisory> remainingAdvisories) {
     this.remainingAdvisories = remainingAdvisories;
+    if (remainingAdvisories != null) {
+      for (Advisory item : remainingAdvisories) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Remediation type(String type) {

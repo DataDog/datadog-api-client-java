@@ -50,6 +50,9 @@ public class Shift {
 
   public void setData(ShiftData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public Shift included(List<ShiftIncluded> included) {
@@ -83,6 +86,11 @@ public class Shift {
 
   public void setIncluded(List<ShiftIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (ShiftIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

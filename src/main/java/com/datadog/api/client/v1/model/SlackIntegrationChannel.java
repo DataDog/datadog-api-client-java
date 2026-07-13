@@ -51,6 +51,9 @@ public class SlackIntegrationChannel {
 
   public void setDisplay(SlackIntegrationChannelDisplay display) {
     this.display = display;
+    if (display != null) {
+      this.unparsed |= display.unparsed;
+    }
   }
 
   public SlackIntegrationChannel name(String name) {

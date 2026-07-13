@@ -35,6 +35,9 @@ public class SalesforceIncidentsTemplatesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<SalesforceIncidentsTemplateResponseData> data) {
     this.data = data;
+    for (SalesforceIncidentsTemplateResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SalesforceIncidentsTemplatesResponse data(
@@ -66,6 +69,11 @@ public class SalesforceIncidentsTemplatesResponse {
 
   public void setData(List<SalesforceIncidentsTemplateResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (SalesforceIncidentsTemplateResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

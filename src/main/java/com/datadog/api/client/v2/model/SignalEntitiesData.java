@@ -70,6 +70,9 @@ public class SignalEntitiesData {
 
   public void setAttributes(SignalEntitiesAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SignalEntitiesData id(String id) {

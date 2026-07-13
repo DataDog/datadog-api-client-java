@@ -35,6 +35,9 @@ public class TargetingRuleRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_CONDITIONS)
           List<ConditionRequest> conditions) {
     this.conditions = conditions;
+    for (ConditionRequest item : conditions) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public TargetingRuleRequest conditions(List<ConditionRequest> conditions) {
@@ -64,6 +67,11 @@ public class TargetingRuleRequest {
 
   public void setConditions(List<ConditionRequest> conditions) {
     this.conditions = conditions;
+    if (conditions != null) {
+      for (ConditionRequest item : conditions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

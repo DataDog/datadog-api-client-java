@@ -64,6 +64,9 @@ public class TagIndexingRuleOrderData {
 
   public void setAttributes(TagIndexingRuleOrderAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TagIndexingRuleOrderData type(TagIndexingRuleType type) {

@@ -56,6 +56,9 @@ public class SastRulesetDataAttributes {
     this.description = description;
     this.name = name;
     this.rules = rules;
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
+      this.unparsed |= item.unparsed;
+    }
     this.shortDescription = shortDescription;
   }
 
@@ -129,6 +132,11 @@ public class SastRulesetDataAttributes {
   public void setRules(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SastRulesetDataAttributes shortDescription(String shortDescription) {

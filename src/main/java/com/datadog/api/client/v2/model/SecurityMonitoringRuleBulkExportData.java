@@ -70,6 +70,9 @@ public class SecurityMonitoringRuleBulkExportData {
 
   public void setAttributes(SecurityMonitoringRuleBulkExportAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleBulkExportData id(String id) {

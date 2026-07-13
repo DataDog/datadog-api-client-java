@@ -61,6 +61,9 @@ public class AzureIntegrationUpdate {
 
   public void setCredentials(AzureCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public AzureIntegrationUpdate type(AzureIntegrationType type) {

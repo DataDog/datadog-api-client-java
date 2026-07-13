@@ -65,6 +65,9 @@ public class AWSCcmConfigResponseData {
 
   public void setAttributes(AWSCcmConfigResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSCcmConfigResponseData id(String id) {

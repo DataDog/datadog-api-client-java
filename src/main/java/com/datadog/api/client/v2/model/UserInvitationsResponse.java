@@ -58,6 +58,11 @@ public class UserInvitationsResponse {
 
   public void setData(List<UserInvitationResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (UserInvitationResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

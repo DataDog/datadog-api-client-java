@@ -58,6 +58,11 @@ public class HTTPLogErrors {
 
   public void setErrors(List<HTTPLogError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (HTTPLogError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

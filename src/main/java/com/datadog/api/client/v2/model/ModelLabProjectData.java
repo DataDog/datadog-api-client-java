@@ -70,6 +70,9 @@ public class ModelLabProjectData {
 
   public void setAttributes(ModelLabProjectAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ModelLabProjectData id(String id) {

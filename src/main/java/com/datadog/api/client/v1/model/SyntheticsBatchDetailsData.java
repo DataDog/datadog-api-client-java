@@ -57,6 +57,9 @@ public class SyntheticsBatchDetailsData {
 
   public void setMetadata(SyntheticsCIBatchMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public SyntheticsBatchDetailsData results(List<SyntheticsBatchResult> results) {
@@ -90,6 +93,11 @@ public class SyntheticsBatchDetailsData {
 
   public void setResults(List<SyntheticsBatchResult> results) {
     this.results = results;
+    if (results != null) {
+      for (SyntheticsBatchResult item : results) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsBatchDetailsData status(SyntheticsBatchStatus status) {

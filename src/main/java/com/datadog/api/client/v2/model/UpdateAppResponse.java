@@ -61,6 +61,9 @@ public class UpdateAppResponse {
 
   public void setData(UpdateAppResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public UpdateAppResponse included(List<Deployment> included) {
@@ -94,6 +97,11 @@ public class UpdateAppResponse {
 
   public void setIncluded(List<Deployment> included) {
     this.included = included;
+    if (included != null) {
+      for (Deployment item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpdateAppResponse meta(AppMeta meta) {
@@ -116,6 +124,9 @@ public class UpdateAppResponse {
 
   public void setMeta(AppMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public UpdateAppResponse relationship(AppRelationship relationship) {
@@ -138,6 +149,9 @@ public class UpdateAppResponse {
 
   public void setRelationship(AppRelationship relationship) {
     this.relationship = relationship;
+    if (relationship != null) {
+      this.unparsed |= relationship.unparsed;
+    }
   }
 
   /**

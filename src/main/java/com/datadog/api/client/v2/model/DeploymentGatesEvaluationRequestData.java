@@ -69,6 +69,9 @@ public class DeploymentGatesEvaluationRequestData {
 
   public void setAttributes(DeploymentGatesEvaluationRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeploymentGatesEvaluationRequestData type(DeploymentGatesEvaluationRequestDataType type) {

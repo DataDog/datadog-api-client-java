@@ -45,6 +45,9 @@ public class AiMemoryViolationResultRequest {
 
   public void setData(AiMemoryViolationResultRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -63,6 +63,10 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTable {
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE_KEYS) List<String> sourceKeys,
       @JsonProperty(required = true, value = JSON_PROPERTY_TABLE_NAME) String tableName) {
     this.fieldPairs = fieldPairs;
+    for (CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems item :
+        fieldPairs) {
+      this.unparsed |= item.unparsed;
+    }
     this.sourceKeys = sourceKeys;
     this.tableName = tableName;
   }
@@ -121,6 +125,12 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTable {
   public void setFieldPairs(
       List<CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems> fieldPairs) {
     this.fieldPairs = fieldPairs;
+    if (fieldPairs != null) {
+      for (CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems item :
+          fieldPairs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateRulesetRequestDataAttributesRulesItemsReferenceTable ifNotExists(

@@ -69,6 +69,9 @@ public class RoleCreateResponseData {
 
   public void setAttributes(RoleCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RoleCreateResponseData id(String id) {
@@ -112,6 +115,9 @@ public class RoleCreateResponseData {
 
   public void setRelationships(RoleResponseRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public RoleCreateResponseData type(RolesType type) {

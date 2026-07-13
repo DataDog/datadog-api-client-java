@@ -54,6 +54,9 @@ public class AnnotationUpdateRequest {
 
   public void setData(AnnotationRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

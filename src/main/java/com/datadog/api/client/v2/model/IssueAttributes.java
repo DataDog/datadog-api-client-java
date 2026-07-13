@@ -345,6 +345,9 @@ public class IssueAttributes {
 
   public void setRegression(IssueRegression regression) {
     this.regression = regression;
+    if (regression != null) {
+      this.unparsed |= regression.unparsed;
+    }
   }
 
   public IssueAttributes service(String service) {

@@ -104,6 +104,9 @@ public class ReportScheduleListResponseAttributes {
     this.status = status;
     this.unparsed |= !status.isValid();
     this.templateVariables = templateVariables;
+    for (ReportScheduleTemplateVariable item : templateVariables) {
+      this.unparsed |= item.unparsed;
+    }
     this.timeframe = timeframe;
     if (timeframe != null) {}
     this.timezone = timezone;
@@ -337,6 +340,11 @@ public class ReportScheduleListResponseAttributes {
 
   public void setTemplateVariables(List<ReportScheduleTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (ReportScheduleTemplateVariable item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ReportScheduleListResponseAttributes timeframe(String timeframe) {

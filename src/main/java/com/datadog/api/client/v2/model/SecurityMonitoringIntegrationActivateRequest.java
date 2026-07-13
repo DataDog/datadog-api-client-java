@@ -49,6 +49,9 @@ public class SecurityMonitoringIntegrationActivateRequest {
 
   public void setData(SecurityMonitoringIntegrationActivateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

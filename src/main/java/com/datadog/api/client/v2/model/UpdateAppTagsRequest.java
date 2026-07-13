@@ -45,6 +45,9 @@ public class UpdateAppTagsRequest {
 
   public void setData(UpdateAppTagsRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

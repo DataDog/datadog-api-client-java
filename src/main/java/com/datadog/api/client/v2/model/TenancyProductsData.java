@@ -69,6 +69,9 @@ public class TenancyProductsData {
 
   public void setAttributes(TenancyProductsDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TenancyProductsData id(String id) {

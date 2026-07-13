@@ -34,6 +34,9 @@ public class SecretRuleArray {
   public SecretRuleArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SecretRuleData> data) {
     this.data = data;
+    for (SecretRuleData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecretRuleArray data(List<SecretRuleData> data) {
@@ -63,6 +66,11 @@ public class SecretRuleArray {
 
   public void setData(List<SecretRuleData> data) {
     this.data = data;
+    if (data != null) {
+      for (SecretRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

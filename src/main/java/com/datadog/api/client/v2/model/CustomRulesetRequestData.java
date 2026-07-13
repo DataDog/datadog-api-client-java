@@ -55,6 +55,9 @@ public class CustomRulesetRequestData {
 
   public void setAttributes(CustomRulesetRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomRulesetRequestData id(String id) {

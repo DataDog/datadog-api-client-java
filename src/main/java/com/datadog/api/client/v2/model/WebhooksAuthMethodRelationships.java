@@ -47,6 +47,9 @@ public class WebhooksAuthMethodRelationships {
   public void setOauth2ClientCredentials(
       WebhooksOAuth2ClientCredentialsRelationship oauth2ClientCredentials) {
     this.oauth2ClientCredentials = oauth2ClientCredentials;
+    if (oauth2ClientCredentials != null) {
+      this.unparsed |= oauth2ClientCredentials.unparsed;
+    }
   }
 
   /**

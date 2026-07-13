@@ -63,6 +63,9 @@ public class ObservabilityPipelineSpecData {
 
   public void setAttributes(ObservabilityPipelineDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ObservabilityPipelineSpecData type(String type) {

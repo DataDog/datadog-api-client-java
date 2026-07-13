@@ -79,6 +79,11 @@ public class RoutingRuleEscalationPolicyActionSupportHours {
 
   public void setRestrictions(List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
+    if (restrictions != null) {
+      for (TimeRestriction item : restrictions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RoutingRuleEscalationPolicyActionSupportHours timeZone(String timeZone) {

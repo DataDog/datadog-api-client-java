@@ -34,6 +34,9 @@ public class IssueTeamOwnersRelationship {
   public IssueTeamOwnersRelationship(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<IssueTeamReference> data) {
     this.data = data;
+    for (IssueTeamReference item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public IssueTeamOwnersRelationship data(List<IssueTeamReference> data) {
@@ -63,6 +66,11 @@ public class IssueTeamOwnersRelationship {
 
   public void setData(List<IssueTeamReference> data) {
     this.data = data;
+    if (data != null) {
+      for (IssueTeamReference item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

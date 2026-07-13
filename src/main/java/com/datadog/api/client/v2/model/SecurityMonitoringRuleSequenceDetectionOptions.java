@@ -67,6 +67,11 @@ public class SecurityMonitoringRuleSequenceDetectionOptions {
   public void setStepTransitions(
       List<SecurityMonitoringRuleSequenceDetectionStepTransition> stepTransitions) {
     this.stepTransitions = stepTransitions;
+    if (stepTransitions != null) {
+      for (SecurityMonitoringRuleSequenceDetectionStepTransition item : stepTransitions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleSequenceDetectionOptions steps(
@@ -102,6 +107,11 @@ public class SecurityMonitoringRuleSequenceDetectionOptions {
 
   public void setSteps(List<SecurityMonitoringRuleSequenceDetectionStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (SecurityMonitoringRuleSequenceDetectionStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

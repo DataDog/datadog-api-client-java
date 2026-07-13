@@ -64,6 +64,9 @@ public class LogsMetricUpdateData {
 
   public void setAttributes(LogsMetricUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LogsMetricUpdateData type(LogsMetricType type) {

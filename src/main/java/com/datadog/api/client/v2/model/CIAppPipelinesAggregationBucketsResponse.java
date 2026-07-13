@@ -60,6 +60,11 @@ public class CIAppPipelinesAggregationBucketsResponse {
 
   public void setBuckets(List<CIAppPipelinesBucketResponse> buckets) {
     this.buckets = buckets;
+    if (buckets != null) {
+      for (CIAppPipelinesBucketResponse item : buckets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

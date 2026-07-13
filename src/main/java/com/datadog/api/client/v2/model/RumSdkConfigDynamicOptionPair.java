@@ -82,6 +82,9 @@ public class RumSdkConfigDynamicOptionPair {
 
   public void setValue(RumSdkConfigDynamicOption value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /**

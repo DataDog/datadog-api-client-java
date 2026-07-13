@@ -61,6 +61,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesQuarantined {
   public void setAutoQuarantineRule(
       TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule autoQuarantineRule) {
     this.autoQuarantineRule = autoQuarantineRule;
+    if (autoQuarantineRule != null) {
+      this.unparsed |= autoQuarantineRule.unparsed;
+    }
   }
 
   public TestOptimizationFlakyTestsManagementPoliciesQuarantined branchRule(
@@ -84,6 +87,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesQuarantined {
 
   public void setBranchRule(TestOptimizationFlakyTestsManagementPoliciesBranchRule branchRule) {
     this.branchRule = branchRule;
+    if (branchRule != null) {
+      this.unparsed |= branchRule.unparsed;
+    }
   }
 
   public TestOptimizationFlakyTestsManagementPoliciesQuarantined enabled(Boolean enabled) {
@@ -130,6 +136,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesQuarantined {
   public void setFailureRateRule(
       TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule failureRateRule) {
     this.failureRateRule = failureRateRule;
+    if (failureRateRule != null) {
+      this.unparsed |= failureRateRule.unparsed;
+    }
   }
 
   /**

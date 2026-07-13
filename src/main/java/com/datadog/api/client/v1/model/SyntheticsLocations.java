@@ -58,6 +58,11 @@ public class SyntheticsLocations {
 
   public void setLocations(List<SyntheticsLocation> locations) {
     this.locations = locations;
+    if (locations != null) {
+      for (SyntheticsLocation item : locations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class APITrigger {
 
   public void setRateLimit(TriggerRateLimit rateLimit) {
     this.rateLimit = rateLimit;
+    if (rateLimit != null) {
+      this.unparsed |= rateLimit.unparsed;
+    }
   }
 
   /**

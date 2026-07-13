@@ -173,6 +173,9 @@ public class DORAIncidentObjectAttributes {
 
   public void setGit(DORAGitInfo git) {
     this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
   }
 
   public DORAIncidentObjectAttributes name(String name) {

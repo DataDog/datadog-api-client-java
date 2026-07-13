@@ -58,6 +58,11 @@ public class LogsAggregateResponseData {
 
   public void setBuckets(List<LogsAggregateBucket> buckets) {
     this.buckets = buckets;
+    if (buckets != null) {
+      for (LogsAggregateBucket item : buckets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

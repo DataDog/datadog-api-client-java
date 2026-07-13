@@ -67,6 +67,9 @@ public class QueryEventFilteredUsersRequestDataAttributes {
 
   public void setEventQuery(QueryEventFilteredUsersRequestDataAttributesEventQuery eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public QueryEventFilteredUsersRequestDataAttributes includeRowCount(Boolean includeRowCount) {

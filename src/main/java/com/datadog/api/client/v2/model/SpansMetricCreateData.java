@@ -70,6 +70,9 @@ public class SpansMetricCreateData {
 
   public void setAttributes(SpansMetricCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SpansMetricCreateData id(String id) {

@@ -76,6 +76,11 @@ public class SyntheticsAPITestConfig {
 
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+    if (assertions != null) {
+      for (SyntheticsAssertion item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsAPITestConfig configVariables(List<SyntheticsConfigVariable> configVariables) {
@@ -110,6 +115,11 @@ public class SyntheticsAPITestConfig {
 
   public void setConfigVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
+    if (configVariables != null) {
+      for (SyntheticsConfigVariable item : configVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsAPITestConfig request(SyntheticsTestRequest request) {
@@ -132,6 +142,9 @@ public class SyntheticsAPITestConfig {
 
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
+    if (request != null) {
+      this.unparsed |= request.unparsed;
+    }
   }
 
   public SyntheticsAPITestConfig steps(List<SyntheticsAPIStep> steps) {
@@ -165,6 +178,11 @@ public class SyntheticsAPITestConfig {
 
   public void setSteps(List<SyntheticsAPIStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (SyntheticsAPIStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsAPITestConfig variablesFromScript(String variablesFromScript) {

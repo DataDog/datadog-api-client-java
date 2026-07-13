@@ -63,6 +63,9 @@ public class LLMObsCustomEvalConfigLLMProvider {
 
   public void setBedrock(LLMObsCustomEvalConfigBedrockOptions bedrock) {
     this.bedrock = bedrock;
+    if (bedrock != null) {
+      this.unparsed |= bedrock.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigLLMProvider integrationAccountId(String integrationAccountId) {
@@ -155,6 +158,9 @@ public class LLMObsCustomEvalConfigLLMProvider {
 
   public void setVertexAi(LLMObsCustomEvalConfigVertexAIOptions vertexAi) {
     this.vertexAi = vertexAi;
+    if (vertexAi != null) {
+      this.unparsed |= vertexAi.unparsed;
+    }
   }
 
   /**

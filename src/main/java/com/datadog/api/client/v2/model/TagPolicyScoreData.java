@@ -70,6 +70,9 @@ public class TagPolicyScoreData {
 
   public void setAttributes(TagPolicyScoreAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TagPolicyScoreData id(String id) {

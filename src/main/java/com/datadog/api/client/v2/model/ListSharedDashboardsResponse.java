@@ -42,7 +42,13 @@ public class ListSharedDashboardsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDED)
           List<SharedDashboardIncluded> included) {
     this.data = data;
+    for (SharedDashboardResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.included = included;
+    for (SharedDashboardIncluded item : included) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListSharedDashboardsResponse data(List<SharedDashboardResponse> data) {
@@ -72,6 +78,11 @@ public class ListSharedDashboardsResponse {
 
   public void setData(List<SharedDashboardResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (SharedDashboardResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListSharedDashboardsResponse included(List<SharedDashboardIncluded> included) {
@@ -101,6 +112,11 @@ public class ListSharedDashboardsResponse {
 
   public void setIncluded(List<SharedDashboardIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (SharedDashboardIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -34,6 +34,9 @@ public class OrgConfigListResponse {
   public OrgConfigListResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<OrgConfigRead> data) {
     this.data = data;
+    for (OrgConfigRead item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OrgConfigListResponse data(List<OrgConfigRead> data) {
@@ -63,6 +66,11 @@ public class OrgConfigListResponse {
 
   public void setData(List<OrgConfigRead> data) {
     this.data = data;
+    if (data != null) {
+      for (OrgConfigRead item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

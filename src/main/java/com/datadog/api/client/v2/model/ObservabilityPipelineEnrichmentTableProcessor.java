@@ -147,6 +147,9 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
 
   public void setFile(ObservabilityPipelineEnrichmentTableFile file) {
     this.file = file;
+    if (file != null) {
+      this.unparsed |= file.unparsed;
+    }
   }
 
   public ObservabilityPipelineEnrichmentTableProcessor geoip(
@@ -170,6 +173,9 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
 
   public void setGeoip(ObservabilityPipelineEnrichmentTableGeoIp geoip) {
     this.geoip = geoip;
+    if (geoip != null) {
+      this.unparsed |= geoip.unparsed;
+    }
   }
 
   public ObservabilityPipelineEnrichmentTableProcessor id(String id) {
@@ -233,6 +239,9 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
 
   public void setReferenceTable(ObservabilityPipelineEnrichmentTableReferenceTable referenceTable) {
     this.referenceTable = referenceTable;
+    if (referenceTable != null) {
+      this.unparsed |= referenceTable.unparsed;
+    }
   }
 
   public ObservabilityPipelineEnrichmentTableProcessor target(String target) {

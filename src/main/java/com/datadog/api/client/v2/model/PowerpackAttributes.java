@@ -98,6 +98,9 @@ public class PowerpackAttributes {
 
   public void setGroupWidget(PowerpackGroupWidget groupWidget) {
     this.groupWidget = groupWidget;
+    if (groupWidget != null) {
+      this.unparsed |= groupWidget.unparsed;
+    }
   }
 
   public PowerpackAttributes name(String name) {
@@ -181,6 +184,11 @@ public class PowerpackAttributes {
 
   public void setTemplateVariables(List<PowerpackTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (PowerpackTemplateVariable item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -225,6 +225,9 @@ public class ObservabilityPipelineWebsocketSource {
 
   public void setTls(ObservabilityPipelineWebsocketSourceTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineWebsocketSource tokenKey(String tokenKey) {

@@ -55,6 +55,9 @@ public class SpansMetricResponseData {
 
   public void setAttributes(SpansMetricResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SpansMetricResponseData id(String id) {

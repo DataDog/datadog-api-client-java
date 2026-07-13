@@ -72,6 +72,9 @@ public class GetMultipleRulesetsResponseData {
 
   public void setAttributes(GetMultipleRulesetsResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetMultipleRulesetsResponseData id(String id) {

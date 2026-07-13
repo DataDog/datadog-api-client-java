@@ -54,6 +54,9 @@ public class SecurityFilterUpdateRequest {
 
   public void setData(SecurityFilterUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

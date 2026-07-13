@@ -199,6 +199,9 @@ public class SyntheticsMobileStep {
 
   public void setParams(SyntheticsMobileStepParams params) {
     this.params = params;
+    if (params != null) {
+      this.unparsed |= params.unparsed;
+    }
   }
 
   public SyntheticsMobileStep publicId(String publicId) {

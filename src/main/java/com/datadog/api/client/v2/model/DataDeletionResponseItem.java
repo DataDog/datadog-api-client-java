@@ -69,6 +69,9 @@ public class DataDeletionResponseItem {
 
   public void setAttributes(DataDeletionResponseItemAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DataDeletionResponseItem id(String id) {

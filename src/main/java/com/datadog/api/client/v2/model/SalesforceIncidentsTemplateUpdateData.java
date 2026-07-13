@@ -73,6 +73,9 @@ public class SalesforceIncidentsTemplateUpdateData {
 
   public void setAttributes(SalesforceIncidentsTemplateUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SalesforceIncidentsTemplateUpdateData id(String id) {

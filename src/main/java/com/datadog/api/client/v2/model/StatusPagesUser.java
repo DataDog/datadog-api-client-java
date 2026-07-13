@@ -66,6 +66,9 @@ public class StatusPagesUser {
 
   public void setAttributes(StatusPagesUserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public StatusPagesUser id(UUID id) {
