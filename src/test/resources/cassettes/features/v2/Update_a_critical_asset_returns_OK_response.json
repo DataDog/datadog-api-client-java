@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"8fb467ae-b5c8-4bb1-822d-7648fe10a912\",\"type\":\"critical_assets\",\"attributes\":{\"creation_author_id\":2320499,\"creation_date\":1768246897503,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":true,\"query\":\"security:monitoring\",\"rule_query\":\"source:k9\",\"severity\":\"medium\",\"tags\":[\"team:security\"],\"update_author_id\":2320499,\"update_date\":1768246897503,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"6ce994c9-312c-476a-b102-50f2fabec567\",\"type\":\"critical_assets\",\"attributes\":{\"creation_author_id\":2320499,\"creation_date\":1783698504272,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"editable\":true,\"enabled\":true,\"query\":\"security:monitoring\",\"rule_query\":\"source:k9\",\"severity\":\"medium\",\"tags\":[\"team:security\"],\"update_author_id\":2320499,\"update_date\":1783698504272,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/configuration/critical_assets/8fb467ae-b5c8-4bb1-822d-7648fe10a912",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets/6ce994c9-312c-476a-b102-50f2fabec567",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"8fb467ae-b5c8-4bb1-822d-7648fe10a912\",\"type\":\"critical_assets\",\"attributes\":{\"creation_author_id\":2320499,\"creation_date\":1768246897503,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":false,\"query\":\"no:alert\",\"rule_query\":\"type:(log_detection OR signal_correlation OR workload_security OR application_security) ruleId:djg-ktx-ipq\",\"severity\":\"decrease\",\"tags\":[\"env:production\"],\"update_author_id\":2320499,\"update_date\":1768246897863,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":2}}}",
+      "body": "{\"data\":{\"id\":\"6ce994c9-312c-476a-b102-50f2fabec567\",\"type\":\"critical_assets\",\"attributes\":{\"creation_author_id\":2320499,\"creation_date\":1783698504272,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"editable\":true,\"enabled\":false,\"query\":\"no:alert\",\"rule_query\":\"type:(log_detection OR signal_correlation OR workload_security OR application_security) ruleId:djg-ktx-ipq\",\"severity\":\"decrease\",\"tags\":[\"env:production\"],\"update_author_id\":2320499,\"update_date\":1783698504730,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":2}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "eda47158-957a-4f3c-bfe1-26bf417e8dc7"
+    "id": "b871b0ab-97b7-34e0-f8f8-c1dfbbac02f8"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/critical_assets/8fb467ae-b5c8-4bb1-822d-7648fe10a912",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets/6ce994c9-312c-476a-b102-50f2fabec567",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "19cc5ac4-f50f-5c17-be71-cd051fd0bc4d"
+    "id": "1623daec-54b3-8989-1780-a3f6f6f9b80d"
   }
 ]

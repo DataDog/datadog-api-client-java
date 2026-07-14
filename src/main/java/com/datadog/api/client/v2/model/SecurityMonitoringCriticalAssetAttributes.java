@@ -24,6 +24,7 @@ import java.util.Objects;
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_CREATION_DATE,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_CREATOR,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_DESCRIPTION,
+  SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_EDITABLE,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_ENABLED,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_QUERY,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_RULE_QUERY,
@@ -49,6 +50,9 @@ public class SecurityMonitoringCriticalAssetAttributes {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_EDITABLE = "editable";
+  private Boolean editable;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
@@ -160,6 +164,27 @@ public class SecurityMonitoringCriticalAssetAttributes {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public SecurityMonitoringCriticalAssetAttributes editable(Boolean editable) {
+    this.editable = editable;
+    return this;
+  }
+
+  /**
+   * Whether the critical asset is editable.
+   *
+   * @return editable
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EDITABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEditable() {
+    return editable;
+  }
+
+  public void setEditable(Boolean editable) {
+    this.editable = editable;
   }
 
   public SecurityMonitoringCriticalAssetAttributes enabled(Boolean enabled) {
@@ -431,6 +456,7 @@ public class SecurityMonitoringCriticalAssetAttributes {
         && Objects.equals(this.creationDate, securityMonitoringCriticalAssetAttributes.creationDate)
         && Objects.equals(this.creator, securityMonitoringCriticalAssetAttributes.creator)
         && Objects.equals(this.description, securityMonitoringCriticalAssetAttributes.description)
+        && Objects.equals(this.editable, securityMonitoringCriticalAssetAttributes.editable)
         && Objects.equals(this.enabled, securityMonitoringCriticalAssetAttributes.enabled)
         && Objects.equals(this.query, securityMonitoringCriticalAssetAttributes.query)
         && Objects.equals(this.ruleQuery, securityMonitoringCriticalAssetAttributes.ruleQuery)
@@ -453,6 +479,7 @@ public class SecurityMonitoringCriticalAssetAttributes {
         creationDate,
         creator,
         description,
+        editable,
         enabled,
         query,
         ruleQuery,
@@ -473,6 +500,7 @@ public class SecurityMonitoringCriticalAssetAttributes {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    ruleQuery: ").append(toIndentedString(ruleQuery)).append("\n");
