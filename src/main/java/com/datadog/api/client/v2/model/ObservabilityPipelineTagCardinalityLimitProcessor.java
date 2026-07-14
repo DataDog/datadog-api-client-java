@@ -32,6 +32,7 @@ import java.util.Objects;
   ObservabilityPipelineTagCardinalityLimitProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineTagCardinalityLimitProcessor.JSON_PROPERTY_LIMIT_EXCEEDED_ACTION,
   ObservabilityPipelineTagCardinalityLimitProcessor.JSON_PROPERTY_PER_METRIC_LIMITS,
+  ObservabilityPipelineTagCardinalityLimitProcessor.JSON_PROPERTY_TRACKING_MODE,
   ObservabilityPipelineTagCardinalityLimitProcessor.JSON_PROPERTY_TYPE,
   ObservabilityPipelineTagCardinalityLimitProcessor.JSON_PROPERTY_VALUE_LIMIT
 })
@@ -58,6 +59,9 @@ public class ObservabilityPipelineTagCardinalityLimitProcessor {
   private List<ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit> perMetricLimits =
       null;
 
+  public static final String JSON_PROPERTY_TRACKING_MODE = "tracking_mode";
+  private ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode trackingMode;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineTagCardinalityLimitProcessorType type =
       ObservabilityPipelineTagCardinalityLimitProcessorType.TAG_CARDINALITY_LIMIT;
@@ -74,6 +78,8 @@ public class ObservabilityPipelineTagCardinalityLimitProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
       @JsonProperty(required = true, value = JSON_PROPERTY_LIMIT_EXCEEDED_ACTION)
           ObservabilityPipelineTagCardinalityLimitProcessorAction limitExceededAction,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TRACKING_MODE)
+          ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode trackingMode,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineTagCardinalityLimitProcessorType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUE_LIMIT) Long valueLimit) {
@@ -82,6 +88,8 @@ public class ObservabilityPipelineTagCardinalityLimitProcessor {
     this.include = include;
     this.limitExceededAction = limitExceededAction;
     this.unparsed |= !limitExceededAction.isValid();
+    this.trackingMode = trackingMode;
+    this.unparsed |= trackingMode.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
     this.valueLimit = valueLimit;
@@ -233,6 +241,29 @@ public class ObservabilityPipelineTagCardinalityLimitProcessor {
     this.perMetricLimits = perMetricLimits;
   }
 
+  public ObservabilityPipelineTagCardinalityLimitProcessor trackingMode(
+      ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode trackingMode) {
+    this.trackingMode = trackingMode;
+    this.unparsed |= trackingMode.unparsed;
+    return this;
+  }
+
+  /**
+   * Controls whether the processor uses exact or probabilistic tag tracking.
+   *
+   * @return trackingMode
+   */
+  @JsonProperty(JSON_PROPERTY_TRACKING_MODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode getTrackingMode() {
+    return trackingMode;
+  }
+
+  public void setTrackingMode(
+      ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode trackingMode) {
+    this.trackingMode = trackingMode;
+  }
+
   public ObservabilityPipelineTagCardinalityLimitProcessor type(
       ObservabilityPipelineTagCardinalityLimitProcessorType type) {
     this.type = type;
@@ -348,6 +379,8 @@ public class ObservabilityPipelineTagCardinalityLimitProcessor {
             observabilityPipelineTagCardinalityLimitProcessor.limitExceededAction)
         && Objects.equals(
             this.perMetricLimits, observabilityPipelineTagCardinalityLimitProcessor.perMetricLimits)
+        && Objects.equals(
+            this.trackingMode, observabilityPipelineTagCardinalityLimitProcessor.trackingMode)
         && Objects.equals(this.type, observabilityPipelineTagCardinalityLimitProcessor.type)
         && Objects.equals(
             this.valueLimit, observabilityPipelineTagCardinalityLimitProcessor.valueLimit)
@@ -365,6 +398,7 @@ public class ObservabilityPipelineTagCardinalityLimitProcessor {
         include,
         limitExceededAction,
         perMetricLimits,
+        trackingMode,
         type,
         valueLimit,
         additionalProperties);
@@ -382,6 +416,7 @@ public class ObservabilityPipelineTagCardinalityLimitProcessor {
         .append(toIndentedString(limitExceededAction))
         .append("\n");
     sb.append("    perMetricLimits: ").append(toIndentedString(perMetricLimits)).append("\n");
+    sb.append("    trackingMode: ").append(toIndentedString(trackingMode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    valueLimit: ").append(toIndentedString(valueLimit)).append("\n");
     sb.append("    additionalProperties: ")

@@ -24,7 +24,7 @@ import java.util.Objects;
   ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit
       .JSON_PROPERTY_LIMIT_EXCEEDED_ACTION,
   ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit.JSON_PROPERTY_METRIC_NAME,
-  ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit.JSON_PROPERTY_MODE,
+  ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit.JSON_PROPERTY_OVERRIDE_TYPE,
   ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit.JSON_PROPERTY_PER_TAG_LIMITS,
   ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit.JSON_PROPERTY_VALUE_LIMIT
 })
@@ -38,8 +38,8 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
   public static final String JSON_PROPERTY_METRIC_NAME = "metric_name";
   private String metricName;
 
-  public static final String JSON_PROPERTY_MODE = "mode";
-  private ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode mode;
+  public static final String JSON_PROPERTY_OVERRIDE_TYPE = "override_type";
+  private ObservabilityPipelineTagCardinalityLimitProcessorOverrideType overrideType;
 
   public static final String JSON_PROPERTY_PER_TAG_LIMITS = "per_tag_limits";
   private List<ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit> perTagLimits = null;
@@ -52,11 +52,11 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
   @JsonCreator
   public ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit(
       @JsonProperty(required = true, value = JSON_PROPERTY_METRIC_NAME) String metricName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MODE)
-          ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode mode) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_OVERRIDE_TYPE)
+          ObservabilityPipelineTagCardinalityLimitProcessorOverrideType overrideType) {
     this.metricName = metricName;
-    this.mode = mode;
-    this.unparsed |= !mode.isValid();
+    this.overrideType = overrideType;
+    this.unparsed |= !overrideType.isValid();
   }
 
   public ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit limitExceededAction(
@@ -107,30 +107,31 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
     this.metricName = metricName;
   }
 
-  public ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit mode(
-      ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode mode) {
-    this.mode = mode;
-    this.unparsed |= !mode.isValid();
+  public ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit overrideType(
+      ObservabilityPipelineTagCardinalityLimitProcessorOverrideType overrideType) {
+    this.overrideType = overrideType;
+    this.unparsed |= !overrideType.isValid();
     return this;
   }
 
   /**
-   * How the per-metric override is applied. <code>tracked</code> enforces a custom limit; <code>
-   * excluded</code> skips the metric entirely.
+   * How the override is applied. <code>limit_override</code> enforces a custom limit; <code>
+   * excluded</code> omits the metric or tag from cardinality tracking.
    *
-   * @return mode
+   * @return overrideType
    */
-  @JsonProperty(JSON_PROPERTY_MODE)
+  @JsonProperty(JSON_PROPERTY_OVERRIDE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode getMode() {
-    return mode;
+  public ObservabilityPipelineTagCardinalityLimitProcessorOverrideType getOverrideType() {
+    return overrideType;
   }
 
-  public void setMode(ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode mode) {
-    if (!mode.isValid()) {
+  public void setOverrideType(
+      ObservabilityPipelineTagCardinalityLimitProcessorOverrideType overrideType) {
+    if (!overrideType.isValid()) {
       this.unparsed = true;
     }
-    this.mode = mode;
+    this.overrideType = overrideType;
   }
 
   public ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit perTagLimits(
@@ -154,7 +155,7 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
 
   /**
    * A list of per-tag cardinality overrides that apply within this metric. Must be omitted when
-   * <code>mode</code> is <code>excluded</code>.
+   * <code>override_type</code> is <code>excluded</code>.
    *
    * @return perTagLimits
    */
@@ -178,8 +179,8 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
 
   /**
    * The maximum number of distinct tag value combinations allowed for this metric. Required when
-   * <code>mode</code> is <code>tracked</code>. Must be omitted when <code>mode</code> is <code>
-   * excluded</code>. minimum: 0 maximum: 1000000
+   * <code>override_type</code> is <code>limit_override</code>. Must be omitted when <code>
+   * override_type</code> is <code>excluded</code>. minimum: 0 maximum: 1000000
    *
    * @return valueLimit
    */
@@ -263,7 +264,8 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
             this.metricName,
             observabilityPipelineTagCardinalityLimitProcessorPerMetricLimit.metricName)
         && Objects.equals(
-            this.mode, observabilityPipelineTagCardinalityLimitProcessorPerMetricLimit.mode)
+            this.overrideType,
+            observabilityPipelineTagCardinalityLimitProcessorPerMetricLimit.overrideType)
         && Objects.equals(
             this.perTagLimits,
             observabilityPipelineTagCardinalityLimitProcessorPerMetricLimit.perTagLimits)
@@ -278,7 +280,12 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
   @Override
   public int hashCode() {
     return Objects.hash(
-        limitExceededAction, metricName, mode, perTagLimits, valueLimit, additionalProperties);
+        limitExceededAction,
+        metricName,
+        overrideType,
+        perTagLimits,
+        valueLimit,
+        additionalProperties);
   }
 
   @Override
@@ -289,7 +296,7 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
         .append(toIndentedString(limitExceededAction))
         .append("\n");
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
-    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    overrideType: ").append(toIndentedString(overrideType)).append("\n");
     sb.append("    perTagLimits: ").append(toIndentedString(perTagLimits)).append("\n");
     sb.append("    valueLimit: ").append(toIndentedString(valueLimit)).append("\n");
     sb.append("    additionalProperties: ")
