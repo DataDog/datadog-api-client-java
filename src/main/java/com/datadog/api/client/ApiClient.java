@@ -1004,6 +1004,7 @@ public class ApiClient {
           put("v2.getCommitmentsUtilizationTimeseries", false);
           put("v2.getCostAnomaly", false);
           put("v2.getCostTagMetadataCurrency", false);
+          put("v2.getCustomForecast", false);
           put("v2.listCostAnomalies", false);
           put("v2.listCostTagKeySources", false);
           put("v2.listCostTagMetadata", false);

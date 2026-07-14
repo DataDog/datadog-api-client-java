@@ -6620,6 +6620,158 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * Get a budget&#39;s custom forecast.
+   *
+   * <p>See {@link #getCustomForecastWithHttpInfo}.
+   *
+   * @param budgetId Budget id. (required)
+   * @return CustomForecastResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomForecastResponse getCustomForecast(String budgetId) throws ApiException {
+    return getCustomForecastWithHttpInfo(budgetId).getData();
+  }
+
+  /**
+   * Get a budget&#39;s custom forecast.
+   *
+   * <p>See {@link #getCustomForecastWithHttpInfoAsync}.
+   *
+   * @param budgetId Budget id. (required)
+   * @return CompletableFuture&lt;CustomForecastResponse&gt;
+   */
+  public CompletableFuture<CustomForecastResponse> getCustomForecastAsync(String budgetId) {
+    return getCustomForecastWithHttpInfoAsync(budgetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the custom forecast for a budget.
+   *
+   * @param budgetId Budget id. (required)
+   * @return ApiResponse&lt;CustomForecastResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CustomForecastResponse> getCustomForecastWithHttpInfo(String budgetId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCustomForecast";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'budgetId' is set
+    if (budgetId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'budgetId' when calling getCustomForecast");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/budget/{budget_id}/custom-forecast"
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCustomForecast",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomForecastResponse>() {});
+  }
+
+  /**
+   * Get a budget&#39;s custom forecast.
+   *
+   * <p>See {@link #getCustomForecastWithHttpInfo}.
+   *
+   * @param budgetId Budget id. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CustomForecastResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CustomForecastResponse>> getCustomForecastWithHttpInfoAsync(
+      String budgetId) {
+    // Check if unstable operation is enabled
+    String operationId = "getCustomForecast";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CustomForecastResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'budgetId' is set
+    if (budgetId == null) {
+      CompletableFuture<ApiResponse<CustomForecastResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'budgetId' when calling getCustomForecast"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/budget/{budget_id}/custom-forecast"
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCustomForecast",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CustomForecastResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomForecastResponse>() {});
+  }
+
+  /**
    * Get a tag pipeline ruleset.
    *
    * <p>See {@link #getTagPipelinesRulesetWithHttpInfo}.
