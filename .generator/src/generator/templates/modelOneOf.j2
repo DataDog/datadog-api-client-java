@@ -68,6 +68,16 @@ public class {{ name }} extends AbstractOpenApiSchema {
             Object tmp = null;
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
+            {%- set ns = namespace(has_model_list=false) %}
+            {%- for oneOf in model.oneOf %}
+            {%- if "items" in oneOf and oneOf.get("items")|is_model and not oneOf|is_primitive %}
+            {%- set ns.has_model_list = true %}
+            {%- endif %}
+            {%- endfor %}
+            {%- if ns.has_model_list %}
+            Object deserializedUnparsed = null;
+            int matchUnparsed = 0;
+            {%- endif %}
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
             {%- for oneOf in model.oneOf %}
             {%- set parameterizedDataType = get_type(oneOf) %}
@@ -103,6 +113,20 @@ public class {{ name }} extends AbstractOpenApiSchema {
                         deserialized = tmp;
                         match++;
                     }
+                    {%- elif "items" in oneOf and oneOf.get("items")|is_model and not oneOf|is_primitive %}
+                    {%- set itemsDataType = get_type(oneOf.get("items")) %}
+                    // keep the matched list, but propagate 'unparsed' from any invalid item
+                    boolean itemsUnparsed = false;
+                    for ({{ itemsDataType }} item : ({{ parameterizedDataType }}) tmp) {
+                        itemsUnparsed |= item.unparsed;
+                    }
+                    if (itemsUnparsed) {
+                        deserializedUnparsed = tmp;
+                        matchUnparsed++;
+                    } else {
+                        deserialized = tmp;
+                        match++;
+                    }
                     {%- else %}
                     deserialized = tmp;
                     match++;
@@ -118,6 +142,11 @@ public class {{ name }} extends AbstractOpenApiSchema {
             {{ name }} ret = new {{ name }}();
             if (match == 1) {
                 ret.setActualInstance(deserialized);
+            {%- if ns.has_model_list %}
+            } else if (match == 0 && matchUnparsed == 1) {
+                ret.setActualInstance(deserializedUnparsed);
+                ret.unparsed = true;
+            {%- endif %}
             } else {
                 Map<String, Object> res = new ObjectMapper().readValue(tree.traverse(jp.getCodec()).readValueAsTree().toString(), new TypeReference<Map<String, Object>>() {});
                 ret.setActualInstance(new UnparsedObject(res));
