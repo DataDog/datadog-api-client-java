@@ -577,26 +577,6 @@ public class World {
       }
     }
 
-    try {
-      Object data = responseClass.getMethod("getData").invoke(response);
-      java.util.List<String> hits = new java.util.ArrayList<>();
-      findUnparsed(data, "$", new java.util.IdentityHashMap<>(), hits, 0);
-      if (!hits.isEmpty()) {
-        java.nio.file.Files.write(
-            java.nio.file.Paths.get("/tmp/unparsed_final.log"),
-            (getName()
-                    + " :: "
-                    + responseClass.getSimpleName()
-                    + " :: "
-                    + hits
-                    + System.lineSeparator())
-                .getBytes(),
-            java.nio.file.StandardOpenOption.CREATE,
-            java.nio.file.StandardOpenOption.APPEND);
-      }
-    } catch (Throwable ignore) {
-    }
-
     if (undoSettings != null) {
       Method dataMethod = responseClass.getMethod("getData");
       Object responseData;
@@ -608,71 +588,6 @@ public class World {
       undo.add(
           getRequestUndo(
               apiVersion, undoSettings, responseData, parametersArray.get(0), pathParameters));
-    }
-  }
-
-  private static void findUnparsed(
-      Object o,
-      String path,
-      java.util.IdentityHashMap<Object, Object> seen,
-      java.util.List<String> hits,
-      int depth) {
-    if (o == null || depth > 60) return;
-    if (o instanceof com.datadog.api.client.UnparsedObject) {
-      hits.add(path);
-      return;
-    }
-    if (o instanceof String
-        || o instanceof Number
-        || o instanceof Boolean
-        || o instanceof Character) return;
-    if (o instanceof java.time.temporal.Temporal || o instanceof java.util.UUID) return;
-    if (seen.containsKey(o)) return;
-    seen.put(o, o);
-    if (o instanceof org.openapitools.jackson.nullable.JsonNullable) {
-      findUnparsed(
-          ((org.openapitools.jackson.nullable.JsonNullable<?>) o).orElse(null),
-          path,
-          seen,
-          hits,
-          depth + 1);
-      return;
-    }
-    if (o instanceof java.util.Map) {
-      for (java.util.Map.Entry<?, ?> en : ((java.util.Map<?, ?>) o).entrySet()) {
-        findUnparsed(en.getValue(), path + "." + en.getKey(), seen, hits, depth + 1);
-      }
-      return;
-    }
-    if (o instanceof Iterable) {
-      int i = 0;
-      for (Object it : (Iterable<?>) o) {
-        findUnparsed(it, path + "[" + (i++) + "]", seen, hits, depth + 1);
-      }
-      return;
-    }
-    Class<?> c = o.getClass();
-    if (c.isArray()) {
-      int n = java.lang.reflect.Array.getLength(o);
-      for (int i = 0; i < n; i++)
-        findUnparsed(
-            java.lang.reflect.Array.get(o, i), path + "[" + i + "]", seen, hits, depth + 1);
-      return;
-    }
-    if (!c.getName().startsWith("com.datadog.api.client")) return;
-    try {
-      java.lang.reflect.Method m = c.getMethod("getActualInstance");
-      findUnparsed(m.invoke(o), path + "(actual)", seen, hits, depth + 1);
-      return;
-    } catch (Throwable ignore) {
-    }
-    for (java.lang.reflect.Field f : c.getDeclaredFields()) {
-      if (java.lang.reflect.Modifier.isStatic(f.getModifiers())) continue;
-      try {
-        f.setAccessible(true);
-        findUnparsed(f.get(o), path + "." + f.getName(), seen, hits, depth + 1);
-      } catch (Throwable ignore) {
-      }
     }
   }
 
