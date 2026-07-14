@@ -50,8 +50,10 @@ public class RUMAggregateRequest {
 
   public RUMAggregateRequest compute(List<RUMCompute> compute) {
     this.compute = compute;
-    for (RUMCompute item : compute) {
-      this.unparsed |= item.unparsed;
+    if (compute != null) {
+      for (RUMCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -113,8 +115,10 @@ public class RUMAggregateRequest {
 
   public RUMAggregateRequest groupBy(List<RUMGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (RUMGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (RUMGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

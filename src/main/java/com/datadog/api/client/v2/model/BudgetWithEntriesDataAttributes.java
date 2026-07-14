@@ -135,8 +135,10 @@ public class BudgetWithEntriesDataAttributes {
   public BudgetWithEntriesDataAttributes entries(
       List<BudgetWithEntriesDataAttributesEntriesItems> entries) {
     this.entries = entries;
-    for (BudgetWithEntriesDataAttributesEntriesItems item : entries) {
-      this.unparsed |= item.unparsed;
+    if (entries != null) {
+      for (BudgetWithEntriesDataAttributesEntriesItems item : entries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

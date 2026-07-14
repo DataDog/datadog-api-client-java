@@ -104,8 +104,10 @@ public class LLMObsPatternsTopicWithClusteredPoints {
   public LLMObsPatternsTopicWithClusteredPoints clusterPoints(
       List<LLMObsPatternsClusteredPointRef> clusterPoints) {
     this.clusterPoints = clusterPoints;
-    for (LLMObsPatternsClusteredPointRef item : clusterPoints) {
-      this.unparsed |= item.unparsed;
+    if (clusterPoints != null) {
+      for (LLMObsPatternsClusteredPointRef item : clusterPoints) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

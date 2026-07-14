@@ -40,8 +40,10 @@ public class ComponentProperties {
 
   public ComponentProperties children(List<Component> children) {
     this.children = children;
-    for (Component item : children) {
-      this.unparsed |= item.unparsed;
+    if (children != null) {
+      for (Component item : children) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

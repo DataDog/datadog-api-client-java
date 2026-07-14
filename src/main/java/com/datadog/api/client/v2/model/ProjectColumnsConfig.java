@@ -29,8 +29,10 @@ public class ProjectColumnsConfig {
 
   public ProjectColumnsConfig columns(List<ProjectColumnsConfigColumnsItems> columns) {
     this.columns = columns;
-    for (ProjectColumnsConfigColumnsItems item : columns) {
-      this.unparsed |= item.unparsed;
+    if (columns != null) {
+      for (ProjectColumnsConfigColumnsItems item : columns) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

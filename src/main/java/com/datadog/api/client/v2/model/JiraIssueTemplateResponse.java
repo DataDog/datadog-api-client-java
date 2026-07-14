@@ -69,8 +69,10 @@ public class JiraIssueTemplateResponse {
 
   public JiraIssueTemplateResponse included(List<JiraAccountData> included) {
     this.included = included;
-    for (JiraAccountData item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (JiraAccountData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

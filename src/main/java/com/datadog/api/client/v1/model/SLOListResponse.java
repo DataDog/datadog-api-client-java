@@ -39,8 +39,10 @@ public class SLOListResponse {
 
   public SLOListResponse data(List<ServiceLevelObjective> data) {
     this.data = data;
-    for (ServiceLevelObjective item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ServiceLevelObjective item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

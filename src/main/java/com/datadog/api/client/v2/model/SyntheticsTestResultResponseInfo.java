@@ -450,8 +450,10 @@ public class SyntheticsTestResultResponseInfo {
 
   public SyntheticsTestResultResponseInfo records(List<SyntheticsTestResultDnsRecord> records) {
     this.records = records;
-    for (SyntheticsTestResultDnsRecord item : records) {
-      this.unparsed |= item.unparsed;
+    if (records != null) {
+      for (SyntheticsTestResultDnsRecord item : records) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -489,8 +491,10 @@ public class SyntheticsTestResultResponseInfo {
 
   public SyntheticsTestResultResponseInfo redirects(List<SyntheticsTestResultRedirect> redirects) {
     this.redirects = redirects;
-    for (SyntheticsTestResultRedirect item : redirects) {
-      this.unparsed |= item.unparsed;
+    if (redirects != null) {
+      for (SyntheticsTestResultRedirect item : redirects) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

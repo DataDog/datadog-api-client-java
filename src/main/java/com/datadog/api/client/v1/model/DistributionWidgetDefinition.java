@@ -100,8 +100,10 @@ public class DistributionWidgetDefinition {
 
   public DistributionWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -183,8 +185,10 @@ public class DistributionWidgetDefinition {
 
   public DistributionWidgetDefinition markers(List<WidgetMarker> markers) {
     this.markers = markers;
-    for (WidgetMarker item : markers) {
-      this.unparsed |= item.unparsed;
+    if (markers != null) {
+      for (WidgetMarker item : markers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -43,8 +43,10 @@ public class TeamsResponse {
 
   public TeamsResponse data(List<Team> data) {
     this.data = data;
-    for (Team item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (Team item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -81,8 +83,10 @@ public class TeamsResponse {
 
   public TeamsResponse included(List<TeamIncluded> included) {
     this.included = included;
-    for (TeamIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TeamIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

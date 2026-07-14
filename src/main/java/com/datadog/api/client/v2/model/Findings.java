@@ -29,8 +29,10 @@ public class Findings {
 
   public Findings data(List<FindingData> data) {
     this.data = data;
-    for (FindingData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (FindingData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

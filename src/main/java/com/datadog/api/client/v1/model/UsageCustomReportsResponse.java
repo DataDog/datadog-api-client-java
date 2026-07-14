@@ -35,8 +35,10 @@ public class UsageCustomReportsResponse {
 
   public UsageCustomReportsResponse data(List<UsageCustomReportsData> data) {
     this.data = data;
-    for (UsageCustomReportsData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (UsageCustomReportsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

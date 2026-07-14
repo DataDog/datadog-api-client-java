@@ -60,8 +60,10 @@ public class StatusPagesComponent {
 
   public StatusPagesComponent included(List<StatusPagesComponentArrayIncluded> included) {
     this.included = included;
-    for (StatusPagesComponentArrayIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (StatusPagesComponentArrayIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

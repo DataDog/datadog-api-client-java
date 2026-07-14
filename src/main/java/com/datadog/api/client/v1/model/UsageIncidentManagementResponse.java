@@ -29,8 +29,10 @@ public class UsageIncidentManagementResponse {
 
   public UsageIncidentManagementResponse usage(List<UsageIncidentManagementHour> usage) {
     this.usage = usage;
-    for (UsageIncidentManagementHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageIncidentManagementHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

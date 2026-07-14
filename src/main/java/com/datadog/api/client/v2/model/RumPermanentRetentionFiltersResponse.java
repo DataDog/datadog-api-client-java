@@ -29,8 +29,10 @@ public class RumPermanentRetentionFiltersResponse {
 
   public RumPermanentRetentionFiltersResponse data(List<RumPermanentRetentionFilterData> data) {
     this.data = data;
-    for (RumPermanentRetentionFilterData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RumPermanentRetentionFilterData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

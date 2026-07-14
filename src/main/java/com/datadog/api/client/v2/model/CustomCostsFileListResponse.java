@@ -35,8 +35,10 @@ public class CustomCostsFileListResponse {
 
   public CustomCostsFileListResponse data(List<CustomCostsFileMetadataHighLevel> data) {
     this.data = data;
-    for (CustomCostsFileMetadataHighLevel item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CustomCostsFileMetadataHighLevel item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

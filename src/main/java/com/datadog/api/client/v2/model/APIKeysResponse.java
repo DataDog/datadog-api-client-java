@@ -39,8 +39,10 @@ public class APIKeysResponse {
 
   public APIKeysResponse data(List<PartialAPIKey> data) {
     this.data = data;
-    for (PartialAPIKey item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (PartialAPIKey item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -77,8 +79,10 @@ public class APIKeysResponse {
 
   public APIKeysResponse included(List<APIKeyResponseIncludedItem> included) {
     this.included = included;
-    for (APIKeyResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (APIKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

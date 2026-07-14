@@ -57,8 +57,10 @@ public class APIKeyResponse {
 
   public APIKeyResponse included(List<APIKeyResponseIncludedItem> included) {
     this.included = included;
-    for (APIKeyResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (APIKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

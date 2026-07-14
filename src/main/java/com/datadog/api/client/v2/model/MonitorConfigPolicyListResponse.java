@@ -29,8 +29,10 @@ public class MonitorConfigPolicyListResponse {
 
   public MonitorConfigPolicyListResponse data(List<MonitorConfigPolicyResponseData> data) {
     this.data = data;
-    for (MonitorConfigPolicyResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MonitorConfigPolicyResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

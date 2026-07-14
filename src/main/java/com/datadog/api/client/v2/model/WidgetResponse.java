@@ -66,8 +66,10 @@ public class WidgetResponse {
 
   public WidgetResponse included(List<WidgetIncludedUser> included) {
     this.included = included;
-    for (WidgetIncludedUser item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (WidgetIncludedUser item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

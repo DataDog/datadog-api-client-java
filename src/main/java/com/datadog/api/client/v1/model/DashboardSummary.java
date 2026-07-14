@@ -29,8 +29,10 @@ public class DashboardSummary {
 
   public DashboardSummary dashboards(List<DashboardSummaryDefinition> dashboards) {
     this.dashboards = dashboards;
-    for (DashboardSummaryDefinition item : dashboards) {
-      this.unparsed |= item.unparsed;
+    if (dashboards != null) {
+      for (DashboardSummaryDefinition item : dashboards) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

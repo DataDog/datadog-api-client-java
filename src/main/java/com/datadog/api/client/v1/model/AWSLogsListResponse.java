@@ -60,8 +60,10 @@ public class AWSLogsListResponse {
 
   public AWSLogsListResponse lambdas(List<AWSLogsLambda> lambdas) {
     this.lambdas = lambdas;
-    for (AWSLogsLambda item : lambdas) {
-      this.unparsed |= item.unparsed;
+    if (lambdas != null) {
+      for (AWSLogsLambda item : lambdas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

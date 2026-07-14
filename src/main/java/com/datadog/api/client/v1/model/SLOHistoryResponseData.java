@@ -120,8 +120,10 @@ public class SLOHistoryResponseData {
 
   public SLOHistoryResponseData groups(List<SLOHistoryMonitor> groups) {
     this.groups = groups;
-    for (SLOHistoryMonitor item : groups) {
-      this.unparsed |= item.unparsed;
+    if (groups != null) {
+      for (SLOHistoryMonitor item : groups) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -160,8 +162,10 @@ public class SLOHistoryResponseData {
 
   public SLOHistoryResponseData monitors(List<SLOHistoryMonitor> monitors) {
     this.monitors = monitors;
-    for (SLOHistoryMonitor item : monitors) {
-      this.unparsed |= item.unparsed;
+    if (monitors != null) {
+      for (SLOHistoryMonitor item : monitors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

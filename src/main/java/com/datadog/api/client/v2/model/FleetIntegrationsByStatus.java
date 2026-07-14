@@ -52,8 +52,10 @@ public class FleetIntegrationsByStatus {
   public FleetIntegrationsByStatus configurationFiles(
       List<FleetConfigurationFile> configurationFiles) {
     this.configurationFiles = configurationFiles;
-    for (FleetConfigurationFile item : configurationFiles) {
-      this.unparsed |= item.unparsed;
+    if (configurationFiles != null) {
+      for (FleetConfigurationFile item : configurationFiles) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -113,8 +115,10 @@ public class FleetIntegrationsByStatus {
   public FleetIntegrationsByStatus errorIntegrations(
       List<FleetIntegrationDetails> errorIntegrations) {
     this.errorIntegrations = errorIntegrations;
-    for (FleetIntegrationDetails item : errorIntegrations) {
-      this.unparsed |= item.unparsed;
+    if (errorIntegrations != null) {
+      for (FleetIntegrationDetails item : errorIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -153,8 +157,10 @@ public class FleetIntegrationsByStatus {
   public FleetIntegrationsByStatus missingIntegrations(
       List<FleetDetectedIntegration> missingIntegrations) {
     this.missingIntegrations = missingIntegrations;
-    for (FleetDetectedIntegration item : missingIntegrations) {
-      this.unparsed |= item.unparsed;
+    if (missingIntegrations != null) {
+      for (FleetDetectedIntegration item : missingIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -193,8 +199,10 @@ public class FleetIntegrationsByStatus {
   public FleetIntegrationsByStatus warningIntegrations(
       List<FleetIntegrationDetails> warningIntegrations) {
     this.warningIntegrations = warningIntegrations;
-    for (FleetIntegrationDetails item : warningIntegrations) {
-      this.unparsed |= item.unparsed;
+    if (warningIntegrations != null) {
+      for (FleetIntegrationDetails item : warningIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -233,8 +241,10 @@ public class FleetIntegrationsByStatus {
   public FleetIntegrationsByStatus workingIntegrations(
       List<FleetIntegrationDetails> workingIntegrations) {
     this.workingIntegrations = workingIntegrations;
-    for (FleetIntegrationDetails item : workingIntegrations) {
-      this.unparsed |= item.unparsed;
+    if (workingIntegrations != null) {
+      for (FleetIntegrationDetails item : workingIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

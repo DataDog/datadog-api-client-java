@@ -29,8 +29,10 @@ public class UsageSDSResponse {
 
   public UsageSDSResponse usage(List<UsageSDSHour> usage) {
     this.usage = usage;
-    for (UsageSDSHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageSDSHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

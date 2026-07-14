@@ -167,8 +167,10 @@ public class LogsIndexUpdateRequest {
 
   public LogsIndexUpdateRequest exclusionFilters(List<LogsExclusion> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
-    for (LogsExclusion item : exclusionFilters) {
-      this.unparsed |= item.unparsed;
+    if (exclusionFilters != null) {
+      for (LogsExclusion item : exclusionFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -185,8 +185,10 @@ public class ObservabilityPipelineSplunkHecSource {
   public ObservabilityPipelineSplunkHecSource validTokens(
       List<ObservabilityPipelineSplunkHecSourceValidToken> validTokens) {
     this.validTokens = validTokens;
-    for (ObservabilityPipelineSplunkHecSourceValidToken item : validTokens) {
-      this.unparsed |= item.unparsed;
+    if (validTokens != null) {
+      for (ObservabilityPipelineSplunkHecSourceValidToken item : validTokens) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

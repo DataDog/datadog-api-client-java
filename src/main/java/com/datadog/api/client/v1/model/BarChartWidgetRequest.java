@@ -142,8 +142,10 @@ public class BarChartWidgetRequest {
   public BarChartWidgetRequest conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -206,8 +208,10 @@ public class BarChartWidgetRequest {
 
   public BarChartWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -368,8 +372,10 @@ public class BarChartWidgetRequest {
 
   public BarChartWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

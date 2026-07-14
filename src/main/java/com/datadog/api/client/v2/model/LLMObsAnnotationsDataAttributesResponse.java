@@ -84,8 +84,10 @@ public class LLMObsAnnotationsDataAttributesResponse {
 
   public LLMObsAnnotationsDataAttributesResponse errors(List<LLMObsAnnotationError> errors) {
     this.errors = errors;
-    for (LLMObsAnnotationError item : errors) {
-      this.unparsed |= item.unparsed;
+    if (errors != null) {
+      for (LLMObsAnnotationError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

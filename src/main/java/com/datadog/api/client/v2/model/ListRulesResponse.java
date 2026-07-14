@@ -32,8 +32,10 @@ public class ListRulesResponse {
 
   public ListRulesResponse data(List<ListRulesResponseDataItem> data) {
     this.data = data;
-    for (ListRulesResponseDataItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ListRulesResponseDataItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

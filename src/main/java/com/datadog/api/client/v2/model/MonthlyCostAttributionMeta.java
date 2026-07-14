@@ -35,8 +35,10 @@ public class MonthlyCostAttributionMeta {
 
   public MonthlyCostAttributionMeta aggregates(List<CostAttributionAggregatesBody> aggregates) {
     this.aggregates = aggregates;
-    for (CostAttributionAggregatesBody item : aggregates) {
-      this.unparsed |= item.unparsed;
+    if (aggregates != null) {
+      for (CostAttributionAggregatesBody item : aggregates) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -35,8 +35,10 @@ public class SyntheticsTestVersionHistoryResponse {
 
   public SyntheticsTestVersionHistoryResponse data(List<SyntheticsTestVersionChangeData> data) {
     this.data = data;
-    for (SyntheticsTestVersionChangeData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SyntheticsTestVersionChangeData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

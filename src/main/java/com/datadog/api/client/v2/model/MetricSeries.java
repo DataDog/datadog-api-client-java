@@ -183,8 +183,10 @@ public class MetricSeries {
 
   public MetricSeries resources(List<MetricResource> resources) {
     this.resources = resources;
-    for (MetricResource item : resources) {
-      this.unparsed |= item.unparsed;
+    if (resources != null) {
+      for (MetricResource item : resources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

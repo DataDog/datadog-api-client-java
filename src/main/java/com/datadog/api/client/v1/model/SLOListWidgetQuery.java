@@ -89,8 +89,10 @@ public class SLOListWidgetQuery {
 
   public SLOListWidgetQuery sort(List<WidgetFieldSort> sort) {
     this.sort = sort;
-    for (WidgetFieldSort item : sort) {
-      this.unparsed |= item.unparsed;
+    if (sort != null) {
+      for (WidgetFieldSort item : sort) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

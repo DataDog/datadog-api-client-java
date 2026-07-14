@@ -170,8 +170,10 @@ public class SyntheticsAPITestStep {
 
   public SyntheticsAPITestStep extractedValues(List<SyntheticsParsingOptions> extractedValues) {
     this.extractedValues = extractedValues;
-    for (SyntheticsParsingOptions item : extractedValues) {
-      this.unparsed |= item.unparsed;
+    if (extractedValues != null) {
+      for (SyntheticsParsingOptions item : extractedValues) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

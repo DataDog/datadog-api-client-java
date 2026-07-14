@@ -122,8 +122,10 @@ public class RumMetricResponseAttributes {
 
   public RumMetricResponseAttributes groupBy(List<RumMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (RumMetricResponseGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (RumMetricResponseGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

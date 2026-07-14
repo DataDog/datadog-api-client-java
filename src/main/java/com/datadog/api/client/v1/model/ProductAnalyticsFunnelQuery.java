@@ -106,8 +106,10 @@ public class ProductAnalyticsFunnelQuery {
 
   public ProductAnalyticsFunnelQuery groupBy(List<ProductAnalyticsFunnelGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (ProductAnalyticsFunnelGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (ProductAnalyticsFunnelGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -72,8 +72,10 @@ public class LLMObsInferenceMessage {
 
   public LLMObsInferenceMessage contents(List<LLMObsInferenceContent> contents) {
     this.contents = contents;
-    for (LLMObsInferenceContent item : contents) {
-      this.unparsed |= item.unparsed;
+    if (contents != null) {
+      for (LLMObsInferenceContent item : contents) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -152,8 +154,10 @@ public class LLMObsInferenceMessage {
 
   public LLMObsInferenceMessage toolCalls(List<LLMObsInferenceToolCall> toolCalls) {
     this.toolCalls = toolCalls;
-    for (LLMObsInferenceToolCall item : toolCalls) {
-      this.unparsed |= item.unparsed;
+    if (toolCalls != null) {
+      for (LLMObsInferenceToolCall item : toolCalls) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -190,8 +194,10 @@ public class LLMObsInferenceMessage {
 
   public LLMObsInferenceMessage toolResults(List<LLMObsInferenceToolResult> toolResults) {
     this.toolResults = toolResults;
-    for (LLMObsInferenceToolResult item : toolResults) {
-      this.unparsed |= item.unparsed;
+    if (toolResults != null) {
+      for (LLMObsInferenceToolResult item : toolResults) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

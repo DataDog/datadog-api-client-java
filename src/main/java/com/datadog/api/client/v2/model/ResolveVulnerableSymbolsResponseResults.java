@@ -58,8 +58,10 @@ public class ResolveVulnerableSymbolsResponseResults {
   public ResolveVulnerableSymbolsResponseResults vulnerableSymbols(
       List<ResolveVulnerableSymbolsResponseResultsVulnerableSymbols> vulnerableSymbols) {
     this.vulnerableSymbols = vulnerableSymbols;
-    for (ResolveVulnerableSymbolsResponseResultsVulnerableSymbols item : vulnerableSymbols) {
-      this.unparsed |= item.unparsed;
+    if (vulnerableSymbols != null) {
+      for (ResolveVulnerableSymbolsResponseResultsVulnerableSymbols item : vulnerableSymbols) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

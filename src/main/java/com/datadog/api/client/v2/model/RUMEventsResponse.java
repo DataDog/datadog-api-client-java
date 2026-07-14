@@ -39,8 +39,10 @@ public class RUMEventsResponse {
 
   public RUMEventsResponse data(List<RUMEvent> data) {
     this.data = data;
-    for (RUMEvent item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RUMEvent item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

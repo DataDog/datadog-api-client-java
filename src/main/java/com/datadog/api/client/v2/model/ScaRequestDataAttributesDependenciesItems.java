@@ -190,8 +190,10 @@ public class ScaRequestDataAttributesDependenciesItems {
   public ScaRequestDataAttributesDependenciesItems locations(
       List<ScaRequestDataAttributesDependenciesItemsLocationsItems> locations) {
     this.locations = locations;
-    for (ScaRequestDataAttributesDependenciesItemsLocationsItems item : locations) {
-      this.unparsed |= item.unparsed;
+    if (locations != null) {
+      for (ScaRequestDataAttributesDependenciesItemsLocationsItems item : locations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -295,9 +297,11 @@ public class ScaRequestDataAttributesDependenciesItems {
       List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems>
           reachableSymbolProperties) {
     this.reachableSymbolProperties = reachableSymbolProperties;
-    for (ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems item :
-        reachableSymbolProperties) {
-      this.unparsed |= item.unparsed;
+    if (reachableSymbolProperties != null) {
+      for (ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems item :
+          reachableSymbolProperties) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

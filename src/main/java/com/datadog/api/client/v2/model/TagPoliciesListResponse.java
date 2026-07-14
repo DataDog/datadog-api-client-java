@@ -81,8 +81,10 @@ public class TagPoliciesListResponse {
 
   public TagPoliciesListResponse included(List<TagPolicyScoreData> included) {
     this.included = included;
-    for (TagPolicyScoreData item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TagPolicyScoreData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

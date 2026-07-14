@@ -29,8 +29,10 @@ public class HTTPCDGatesBadRequestResponse {
 
   public HTTPCDGatesBadRequestResponse errors(List<HTTPCIAppError> errors) {
     this.errors = errors;
-    for (HTTPCIAppError item : errors) {
-      this.unparsed |= item.unparsed;
+    if (errors != null) {
+      for (HTTPCIAppError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -39,8 +39,10 @@ public class AuthNMappingsResponse {
 
   public AuthNMappingsResponse data(List<AuthNMapping> data) {
     this.data = data;
-    for (AuthNMapping item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (AuthNMapping item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -77,8 +79,10 @@ public class AuthNMappingsResponse {
 
   public AuthNMappingsResponse included(List<AuthNMappingIncluded> included) {
     this.included = included;
-    for (AuthNMappingIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (AuthNMappingIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

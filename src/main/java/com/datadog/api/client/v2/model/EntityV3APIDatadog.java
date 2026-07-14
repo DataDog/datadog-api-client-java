@@ -43,8 +43,10 @@ public class EntityV3APIDatadog {
 
   public EntityV3APIDatadog codeLocations(List<EntityV3DatadogCodeLocationItem> codeLocations) {
     this.codeLocations = codeLocations;
-    for (EntityV3DatadogCodeLocationItem item : codeLocations) {
-      this.unparsed |= item.unparsed;
+    if (codeLocations != null) {
+      for (EntityV3DatadogCodeLocationItem item : codeLocations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -82,8 +84,10 @@ public class EntityV3APIDatadog {
 
   public EntityV3APIDatadog events(List<EntityV3DatadogEventItem> events) {
     this.events = events;
-    for (EntityV3DatadogEventItem item : events) {
-      this.unparsed |= item.unparsed;
+    if (events != null) {
+      for (EntityV3DatadogEventItem item : events) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -120,8 +124,10 @@ public class EntityV3APIDatadog {
 
   public EntityV3APIDatadog logs(List<EntityV3DatadogLogItem> logs) {
     this.logs = logs;
-    for (EntityV3DatadogLogItem item : logs) {
-      this.unparsed |= item.unparsed;
+    if (logs != null) {
+      for (EntityV3DatadogLogItem item : logs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

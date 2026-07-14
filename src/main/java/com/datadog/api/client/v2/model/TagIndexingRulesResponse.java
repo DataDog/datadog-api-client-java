@@ -39,8 +39,10 @@ public class TagIndexingRulesResponse {
 
   public TagIndexingRulesResponse data(List<TagIndexingRuleData> data) {
     this.data = data;
-    for (TagIndexingRuleData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TagIndexingRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

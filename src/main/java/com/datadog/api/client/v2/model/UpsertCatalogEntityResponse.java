@@ -39,8 +39,10 @@ public class UpsertCatalogEntityResponse {
 
   public UpsertCatalogEntityResponse data(List<EntityData> data) {
     this.data = data;
-    for (EntityData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EntityData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -78,8 +80,10 @@ public class UpsertCatalogEntityResponse {
   public UpsertCatalogEntityResponse included(
       List<UpsertCatalogEntityResponseIncludedItem> included) {
     this.included = included;
-    for (UpsertCatalogEntityResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (UpsertCatalogEntityResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

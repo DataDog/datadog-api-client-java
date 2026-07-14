@@ -35,8 +35,10 @@ public class GetDataDeletionsResponseBody {
 
   public GetDataDeletionsResponseBody data(List<DataDeletionResponseItem> data) {
     this.data = data;
-    for (DataDeletionResponseItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DataDeletionResponseItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

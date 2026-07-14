@@ -230,8 +230,10 @@ public class FeatureFlagListItemAttributes {
   public FeatureFlagListItemAttributes featureFlagEnvironments(
       List<FeatureFlagEnvironmentListItem> featureFlagEnvironments) {
     this.featureFlagEnvironments = featureFlagEnvironments;
-    for (FeatureFlagEnvironmentListItem item : featureFlagEnvironments) {
-      this.unparsed |= item.unparsed;
+    if (featureFlagEnvironments != null) {
+      for (FeatureFlagEnvironmentListItem item : featureFlagEnvironments) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

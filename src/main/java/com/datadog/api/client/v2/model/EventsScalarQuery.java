@@ -152,8 +152,10 @@ public class EventsScalarQuery {
 
   public EventsScalarQuery groupBy(List<EventsGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (EventsGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (EventsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

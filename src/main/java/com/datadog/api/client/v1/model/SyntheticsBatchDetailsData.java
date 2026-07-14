@@ -64,8 +64,10 @@ public class SyntheticsBatchDetailsData {
 
   public SyntheticsBatchDetailsData results(List<SyntheticsBatchResult> results) {
     this.results = results;
-    for (SyntheticsBatchResult item : results) {
-      this.unparsed |= item.unparsed;
+    if (results != null) {
+      for (SyntheticsBatchResult item : results) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

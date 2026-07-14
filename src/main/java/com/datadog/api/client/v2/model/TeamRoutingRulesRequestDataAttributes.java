@@ -29,8 +29,10 @@ public class TeamRoutingRulesRequestDataAttributes {
 
   public TeamRoutingRulesRequestDataAttributes rules(List<TeamRoutingRulesRequestRule> rules) {
     this.rules = rules;
-    for (TeamRoutingRulesRequestRule item : rules) {
-      this.unparsed |= item.unparsed;
+    if (rules != null) {
+      for (TeamRoutingRulesRequestRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

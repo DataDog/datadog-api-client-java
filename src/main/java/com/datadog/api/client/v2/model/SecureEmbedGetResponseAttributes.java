@@ -174,8 +174,10 @@ public class SecureEmbedGetResponseAttributes {
   public SecureEmbedGetResponseAttributes selectableTemplateVars(
       List<SecureEmbedSelectableTemplateVariable> selectableTemplateVars) {
     this.selectableTemplateVars = selectableTemplateVars;
-    for (SecureEmbedSelectableTemplateVariable item : selectableTemplateVars) {
-      this.unparsed |= item.unparsed;
+    if (selectableTemplateVars != null) {
+      for (SecureEmbedSelectableTemplateVariable item : selectableTemplateVars) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

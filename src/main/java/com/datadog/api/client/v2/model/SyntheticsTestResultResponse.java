@@ -60,8 +60,10 @@ public class SyntheticsTestResultResponse {
 
   public SyntheticsTestResultResponse included(List<SyntheticsTestResultIncludedItem> included) {
     this.included = included;
-    for (SyntheticsTestResultIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (SyntheticsTestResultIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

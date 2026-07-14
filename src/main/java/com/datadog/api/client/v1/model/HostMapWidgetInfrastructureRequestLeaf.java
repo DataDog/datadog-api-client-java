@@ -85,8 +85,10 @@ public class HostMapWidgetInfrastructureRequestLeaf {
   public HostMapWidgetInfrastructureRequestLeaf conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -181,8 +183,10 @@ public class HostMapWidgetInfrastructureRequestLeaf {
 
   public HostMapWidgetInfrastructureRequestLeaf groupBy(List<HostMapWidgetGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (HostMapWidgetGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (HostMapWidgetGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

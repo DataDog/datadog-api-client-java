@@ -30,8 +30,10 @@ public class TeamRoutingRulesDataRelationshipsRules {
   public TeamRoutingRulesDataRelationshipsRules data(
       List<TeamRoutingRulesDataRelationshipsRulesDataItems> data) {
     this.data = data;
-    for (TeamRoutingRulesDataRelationshipsRulesDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TeamRoutingRulesDataRelationshipsRulesDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

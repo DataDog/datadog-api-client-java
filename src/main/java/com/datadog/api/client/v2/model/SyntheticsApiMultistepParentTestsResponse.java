@@ -30,8 +30,10 @@ public class SyntheticsApiMultistepParentTestsResponse {
   public SyntheticsApiMultistepParentTestsResponse data(
       List<SyntheticsApiMultistepParentTestData> data) {
     this.data = data;
-    for (SyntheticsApiMultistepParentTestData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SyntheticsApiMultistepParentTestData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

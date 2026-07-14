@@ -44,8 +44,10 @@ public class MetricsAndMetricTagConfigurationsResponse {
   public MetricsAndMetricTagConfigurationsResponse data(
       List<MetricsAndMetricTagConfigurations> data) {
     this.data = data;
-    for (MetricsAndMetricTagConfigurations item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MetricsAndMetricTagConfigurations item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -84,8 +86,10 @@ public class MetricsAndMetricTagConfigurationsResponse {
   public MetricsAndMetricTagConfigurationsResponse included(
       List<MetricIngestedIndexedVolume> included) {
     this.included = included;
-    for (MetricIngestedIndexedVolume item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (MetricIngestedIndexedVolume item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

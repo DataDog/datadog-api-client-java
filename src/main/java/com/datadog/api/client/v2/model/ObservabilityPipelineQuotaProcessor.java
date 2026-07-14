@@ -312,8 +312,10 @@ public class ObservabilityPipelineQuotaProcessor {
   public ObservabilityPipelineQuotaProcessor overrides(
       List<ObservabilityPipelineQuotaProcessorOverride> overrides) {
     this.overrides = overrides;
-    for (ObservabilityPipelineQuotaProcessorOverride item : overrides) {
-      this.unparsed |= item.unparsed;
+    if (overrides != null) {
+      for (ObservabilityPipelineQuotaProcessorOverride item : overrides) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

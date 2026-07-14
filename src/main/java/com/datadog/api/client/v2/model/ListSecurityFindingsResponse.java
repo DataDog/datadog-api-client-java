@@ -39,8 +39,10 @@ public class ListSecurityFindingsResponse {
 
   public ListSecurityFindingsResponse data(List<SecurityFindingsData> data) {
     this.data = data;
-    for (SecurityFindingsData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityFindingsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

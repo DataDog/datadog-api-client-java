@@ -150,8 +150,10 @@ public class ListStreamQuery {
 
   public ListStreamQuery compute(List<ListStreamComputeItems> compute) {
     this.compute = compute;
-    for (ListStreamComputeItems item : compute) {
-      this.unparsed |= item.unparsed;
+    if (compute != null) {
+      for (ListStreamComputeItems item : compute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -239,8 +241,10 @@ public class ListStreamQuery {
 
   public ListStreamQuery groupBy(List<ListStreamGroupByItems> groupBy) {
     this.groupBy = groupBy;
-    for (ListStreamGroupByItems item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (ListStreamGroupByItems item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

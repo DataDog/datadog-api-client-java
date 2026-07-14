@@ -89,8 +89,10 @@ public class LogsMetricResponseAttributes {
 
   public LogsMetricResponseAttributes groupBy(List<LogsMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (LogsMetricResponseGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (LogsMetricResponseGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

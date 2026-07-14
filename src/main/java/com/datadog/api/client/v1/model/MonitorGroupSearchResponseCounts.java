@@ -35,8 +35,10 @@ public class MonitorGroupSearchResponseCounts {
 
   public MonitorGroupSearchResponseCounts status(List<MonitorSearchCountItem> status) {
     this.status = status;
-    for (MonitorSearchCountItem item : status) {
-      this.unparsed |= item.unparsed;
+    if (status != null) {
+      for (MonitorSearchCountItem item : status) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -73,8 +75,10 @@ public class MonitorGroupSearchResponseCounts {
 
   public MonitorGroupSearchResponseCounts type(List<MonitorSearchCountItem> type) {
     this.type = type;
-    for (MonitorSearchCountItem item : type) {
-      this.unparsed |= item.unparsed;
+    if (type != null) {
+      for (MonitorSearchCountItem item : type) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

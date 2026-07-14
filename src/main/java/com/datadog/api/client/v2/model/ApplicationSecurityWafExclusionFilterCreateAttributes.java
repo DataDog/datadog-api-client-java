@@ -220,8 +220,10 @@ public class ApplicationSecurityWafExclusionFilterCreateAttributes {
   public ApplicationSecurityWafExclusionFilterCreateAttributes rulesTarget(
       List<ApplicationSecurityWafExclusionFilterRulesTarget> rulesTarget) {
     this.rulesTarget = rulesTarget;
-    for (ApplicationSecurityWafExclusionFilterRulesTarget item : rulesTarget) {
-      this.unparsed |= item.unparsed;
+    if (rulesTarget != null) {
+      for (ApplicationSecurityWafExclusionFilterRulesTarget item : rulesTarget) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -260,8 +262,10 @@ public class ApplicationSecurityWafExclusionFilterCreateAttributes {
   public ApplicationSecurityWafExclusionFilterCreateAttributes scope(
       List<ApplicationSecurityWafExclusionFilterScope> scope) {
     this.scope = scope;
-    for (ApplicationSecurityWafExclusionFilterScope item : scope) {
-      this.unparsed |= item.unparsed;
+    if (scope != null) {
+      for (ApplicationSecurityWafExclusionFilterScope item : scope) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

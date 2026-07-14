@@ -117,8 +117,10 @@ public class CreateStatusPageRequestDataAttributes {
   public CreateStatusPageRequestDataAttributes components(
       List<CreateStatusPageRequestDataAttributesComponentsItems> components) {
     this.components = components;
-    for (CreateStatusPageRequestDataAttributesComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (CreateStatusPageRequestDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class RumMetricsResponse {
 
   public RumMetricsResponse data(List<RumMetricResponseData> data) {
     this.data = data;
-    for (RumMetricResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RumMetricResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

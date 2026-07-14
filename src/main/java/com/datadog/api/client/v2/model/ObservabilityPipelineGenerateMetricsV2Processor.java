@@ -158,8 +158,10 @@ public class ObservabilityPipelineGenerateMetricsV2Processor {
   public ObservabilityPipelineGenerateMetricsV2Processor metrics(
       List<ObservabilityPipelineGeneratedMetric> metrics) {
     this.metrics = metrics;
-    for (ObservabilityPipelineGeneratedMetric item : metrics) {
-      this.unparsed |= item.unparsed;
+    if (metrics != null) {
+      for (ObservabilityPipelineGeneratedMetric item : metrics) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

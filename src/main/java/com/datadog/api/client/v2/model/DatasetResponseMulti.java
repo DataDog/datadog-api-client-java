@@ -29,8 +29,10 @@ public class DatasetResponseMulti {
 
   public DatasetResponseMulti data(List<DatasetResponse> data) {
     this.data = data;
-    for (DatasetResponse item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DatasetResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

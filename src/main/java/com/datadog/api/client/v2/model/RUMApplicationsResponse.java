@@ -29,8 +29,10 @@ public class RUMApplicationsResponse {
 
   public RUMApplicationsResponse data(List<RUMApplicationList> data) {
     this.data = data;
-    for (RUMApplicationList item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RUMApplicationList item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

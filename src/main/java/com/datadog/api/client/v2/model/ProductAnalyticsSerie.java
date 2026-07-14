@@ -89,8 +89,10 @@ public class ProductAnalyticsSerie {
 
   public ProductAnalyticsSerie unit(List<ProductAnalyticsUnit> unit) {
     this.unit = unit;
-    for (ProductAnalyticsUnit item : unit) {
-      this.unparsed |= item.unparsed;
+    if (unit != null) {
+      for (ProductAnalyticsUnit item : unit) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -60,8 +60,10 @@ public class LogsAPIError {
 
   public LogsAPIError details(List<LogsAPIError> details) {
     this.details = details;
-    for (LogsAPIError item : details) {
-      this.unparsed |= item.unparsed;
+    if (details != null) {
+      for (LogsAPIError item : details) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

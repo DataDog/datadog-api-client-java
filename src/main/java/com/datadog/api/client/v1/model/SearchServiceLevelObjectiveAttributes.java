@@ -356,8 +356,10 @@ public class SearchServiceLevelObjectiveAttributes {
   public SearchServiceLevelObjectiveAttributes overallStatus(
       List<SLOOverallStatuses> overallStatus) {
     this.overallStatus = overallStatus;
-    for (SLOOverallStatuses item : overallStatus) {
-      this.unparsed |= item.unparsed;
+    if (overallStatus != null) {
+      for (SLOOverallStatuses item : overallStatus) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -536,8 +538,10 @@ public class SearchServiceLevelObjectiveAttributes {
 
   public SearchServiceLevelObjectiveAttributes thresholds(List<SearchSLOThreshold> thresholds) {
     this.thresholds = thresholds;
-    for (SearchSLOThreshold item : thresholds) {
-      this.unparsed |= item.unparsed;
+    if (thresholds != null) {
+      for (SearchSLOThreshold item : thresholds) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

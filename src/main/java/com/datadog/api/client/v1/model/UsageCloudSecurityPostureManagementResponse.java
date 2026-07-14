@@ -33,8 +33,10 @@ public class UsageCloudSecurityPostureManagementResponse {
   public UsageCloudSecurityPostureManagementResponse usage(
       List<UsageCloudSecurityPostureManagementHour> usage) {
     this.usage = usage;
-    for (UsageCloudSecurityPostureManagementHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageCloudSecurityPostureManagementHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

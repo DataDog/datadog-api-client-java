@@ -259,8 +259,10 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
   public ObservabilityPipelineGoogleCloudStorageDestination metadata(
       List<ObservabilityPipelineMetadataEntry> metadata) {
     this.metadata = metadata;
-    for (ObservabilityPipelineMetadataEntry item : metadata) {
-      this.unparsed |= item.unparsed;
+    if (metadata != null) {
+      for (ObservabilityPipelineMetadataEntry item : metadata) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

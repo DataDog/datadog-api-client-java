@@ -57,8 +57,10 @@ public class IssueResponse {
 
   public IssueResponse included(List<IssueIncluded> included) {
     this.included = included;
-    for (IssueIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IssueIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

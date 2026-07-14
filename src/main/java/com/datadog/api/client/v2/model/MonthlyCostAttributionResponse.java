@@ -35,8 +35,10 @@ public class MonthlyCostAttributionResponse {
 
   public MonthlyCostAttributionResponse data(List<MonthlyCostAttributionBody> data) {
     this.data = data;
-    for (MonthlyCostAttributionBody item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MonthlyCostAttributionBody item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

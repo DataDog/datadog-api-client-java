@@ -88,8 +88,10 @@ public class PointPlotWidgetDefinition {
 
   public PointPlotWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -172,8 +174,10 @@ public class PointPlotWidgetDefinition {
 
   public PointPlotWidgetDefinition markers(List<WidgetMarker> markers) {
     this.markers = markers;
-    for (WidgetMarker item : markers) {
-      this.unparsed |= item.unparsed;
+    if (markers != null) {
+      for (WidgetMarker item : markers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

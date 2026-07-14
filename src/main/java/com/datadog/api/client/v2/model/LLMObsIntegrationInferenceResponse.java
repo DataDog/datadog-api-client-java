@@ -511,8 +511,10 @@ public class LLMObsIntegrationInferenceResponse {
 
   public LLMObsIntegrationInferenceResponse tools(List<LLMObsInferenceTool> tools) {
     this.tools = tools;
-    for (LLMObsInferenceTool item : tools) {
-      this.unparsed |= item.unparsed;
+    if (tools != null) {
+      for (LLMObsInferenceTool item : tools) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

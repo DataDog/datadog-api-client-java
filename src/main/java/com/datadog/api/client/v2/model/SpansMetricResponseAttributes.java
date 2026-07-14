@@ -89,8 +89,10 @@ public class SpansMetricResponseAttributes {
 
   public SpansMetricResponseAttributes groupBy(List<SpansMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (SpansMetricResponseGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (SpansMetricResponseGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

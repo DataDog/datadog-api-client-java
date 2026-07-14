@@ -51,8 +51,10 @@ public class CreateAppRequestDataAttributes {
 
   public CreateAppRequestDataAttributes components(List<ComponentGrid> components) {
     this.components = components;
-    for (ComponentGrid item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (ComponentGrid item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -131,8 +133,10 @@ public class CreateAppRequestDataAttributes {
 
   public CreateAppRequestDataAttributes queries(List<Query> queries) {
     this.queries = queries;
-    for (Query item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (Query item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

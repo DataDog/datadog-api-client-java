@@ -46,8 +46,10 @@ public class CIAppPipelinesAggregateRequest {
 
   public CIAppPipelinesAggregateRequest compute(List<CIAppCompute> compute) {
     this.compute = compute;
-    for (CIAppCompute item : compute) {
-      this.unparsed |= item.unparsed;
+    if (compute != null) {
+      for (CIAppCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -109,8 +111,10 @@ public class CIAppPipelinesAggregateRequest {
 
   public CIAppPipelinesAggregateRequest groupBy(List<CIAppPipelinesGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (CIAppPipelinesGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (CIAppPipelinesGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

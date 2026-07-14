@@ -29,8 +29,10 @@ public class UsageAnalyzedLogsResponse {
 
   public UsageAnalyzedLogsResponse usage(List<UsageAnalyzedLogsHour> usage) {
     this.usage = usage;
-    for (UsageAnalyzedLogsHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageAnalyzedLogsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

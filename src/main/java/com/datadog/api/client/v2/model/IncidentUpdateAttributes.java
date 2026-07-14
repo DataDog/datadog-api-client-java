@@ -228,8 +228,10 @@ public class IncidentUpdateAttributes {
   public IncidentUpdateAttributes notificationHandles(
       List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
-    for (IncidentNotificationHandle item : notificationHandles) {
-      this.unparsed |= item.unparsed;
+    if (notificationHandles != null) {
+      for (IncidentNotificationHandle item : notificationHandles) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -106,8 +106,10 @@ public class FleetDeploymentHost {
 
   public FleetDeploymentHost versions(List<FleetDeploymentHostPackage> versions) {
     this.versions = versions;
-    for (FleetDeploymentHostPackage item : versions) {
-      this.unparsed |= item.unparsed;
+    if (versions != null) {
+      for (FleetDeploymentHostPackage item : versions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

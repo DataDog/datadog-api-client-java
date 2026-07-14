@@ -110,8 +110,10 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   public ListConnectionsResponseDataAttributesConnectionsItems fields(
       List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
-    for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
-      this.unparsed |= item.unparsed;
+    if (fields != null) {
+      for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

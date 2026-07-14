@@ -90,8 +90,10 @@ public class ReportScheduleListResponse {
 
   public ReportScheduleListResponse included(List<ReportScheduleIncludedResource> included) {
     this.included = included;
-    for (ReportScheduleIncludedResource item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ReportScheduleIncludedResource item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

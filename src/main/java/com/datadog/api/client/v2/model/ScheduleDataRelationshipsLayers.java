@@ -29,8 +29,10 @@ public class ScheduleDataRelationshipsLayers {
 
   public ScheduleDataRelationshipsLayers data(List<ScheduleDataRelationshipsLayersDataItems> data) {
     this.data = data;
-    for (ScheduleDataRelationshipsLayersDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ScheduleDataRelationshipsLayersDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

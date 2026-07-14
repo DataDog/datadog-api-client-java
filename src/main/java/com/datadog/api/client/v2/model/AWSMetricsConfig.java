@@ -160,8 +160,10 @@ public class AWSMetricsConfig {
 
   public AWSMetricsConfig tagFilters(List<AWSNamespaceTagFilter> tagFilters) {
     this.tagFilters = tagFilters;
-    for (AWSNamespaceTagFilter item : tagFilters) {
-      this.unparsed |= item.unparsed;
+    if (tagFilters != null) {
+      for (AWSNamespaceTagFilter item : tagFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

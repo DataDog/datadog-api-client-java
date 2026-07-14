@@ -111,8 +111,10 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -170,8 +172,10 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition events(List<WidgetEvent> events) {
     this.events = events;
-    for (WidgetEvent item : events) {
-      this.unparsed |= item.unparsed;
+    if (events != null) {
+      for (WidgetEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -289,8 +293,10 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition markers(List<WidgetMarker> markers) {
     this.markers = markers;
-    for (WidgetMarker item : markers) {
-      this.unparsed |= item.unparsed;
+    if (markers != null) {
+      for (WidgetMarker item : markers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

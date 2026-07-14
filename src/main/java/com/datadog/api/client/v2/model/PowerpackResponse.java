@@ -57,8 +57,10 @@ public class PowerpackResponse {
 
   public PowerpackResponse included(List<User> included) {
     this.included = included;
-    for (User item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (User item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

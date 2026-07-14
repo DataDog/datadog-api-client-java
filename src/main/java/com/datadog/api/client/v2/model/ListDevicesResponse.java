@@ -32,8 +32,10 @@ public class ListDevicesResponse {
 
   public ListDevicesResponse data(List<DevicesListData> data) {
     this.data = data;
-    for (DevicesListData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DevicesListData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

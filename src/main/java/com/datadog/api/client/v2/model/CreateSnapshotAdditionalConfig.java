@@ -40,8 +40,10 @@ public class CreateSnapshotAdditionalConfig {
   public CreateSnapshotAdditionalConfig templateVariables(
       List<CreateSnapshotTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
-    for (CreateSnapshotTemplateVariable item : templateVariables) {
-      this.unparsed |= item.unparsed;
+    if (templateVariables != null) {
+      for (CreateSnapshotTemplateVariable item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

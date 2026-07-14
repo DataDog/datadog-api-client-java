@@ -63,8 +63,10 @@ public class TimeseriesFormulaRequestAttributes {
 
   public TimeseriesFormulaRequestAttributes formulas(List<QueryFormula> formulas) {
     this.formulas = formulas;
-    for (QueryFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (QueryFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

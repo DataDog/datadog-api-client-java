@@ -277,8 +277,10 @@ public class SyntheticsTestResultStep {
 
   public SyntheticsTestResultStep assertions(List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
-    for (SyntheticsTestResultAssertionResult item : assertions) {
-      this.unparsed |= item.unparsed;
+    if (assertions != null) {
+      for (SyntheticsTestResultAssertionResult item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -371,8 +373,10 @@ public class SyntheticsTestResultStep {
   public SyntheticsTestResultStep browserErrors(
       List<SyntheticsTestResultBrowserError> browserErrors) {
     this.browserErrors = browserErrors;
-    for (SyntheticsTestResultBrowserError item : browserErrors) {
-      this.unparsed |= item.unparsed;
+    if (browserErrors != null) {
+      for (SyntheticsTestResultBrowserError item : browserErrors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -435,8 +439,10 @@ public class SyntheticsTestResultStep {
 
   public SyntheticsTestResultStep cdnResources(List<SyntheticsTestResultCdnResource> cdnResources) {
     this.cdnResources = cdnResources;
-    for (SyntheticsTestResultCdnResource item : cdnResources) {
-      this.unparsed |= item.unparsed;
+    if (cdnResources != null) {
+      for (SyntheticsTestResultCdnResource item : cdnResources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -685,8 +691,10 @@ public class SyntheticsTestResultStep {
   public SyntheticsTestResultStep httpResults(
       List<SyntheticsTestResultAssertionResult> httpResults) {
     this.httpResults = httpResults;
-    for (SyntheticsTestResultAssertionResult item : httpResults) {
-      this.unparsed |= item.unparsed;
+    if (httpResults != null) {
+      for (SyntheticsTestResultAssertionResult item : httpResults) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -880,8 +888,10 @@ public class SyntheticsTestResultStep {
 
   public SyntheticsTestResultStep retries(List<SyntheticsTestResultStep> retries) {
     this.retries = retries;
-    for (SyntheticsTestResultStep item : retries) {
-      this.unparsed |= item.unparsed;
+    if (retries != null) {
+      for (SyntheticsTestResultStep item : retries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -1077,8 +1087,10 @@ public class SyntheticsTestResultStep {
 
   public SyntheticsTestResultStep tabs(List<SyntheticsTestResultTab> tabs) {
     this.tabs = tabs;
-    for (SyntheticsTestResultTab item : tabs) {
-      this.unparsed |= item.unparsed;
+    if (tabs != null) {
+      for (SyntheticsTestResultTab item : tabs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -1255,8 +1267,10 @@ public class SyntheticsTestResultStep {
   public SyntheticsTestResultStep vitalsMetrics(
       List<SyntheticsTestResultVitalsMetrics> vitalsMetrics) {
     this.vitalsMetrics = vitalsMetrics;
-    for (SyntheticsTestResultVitalsMetrics item : vitalsMetrics) {
-      this.unparsed |= item.unparsed;
+    if (vitalsMetrics != null) {
+      for (SyntheticsTestResultVitalsMetrics item : vitalsMetrics) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -1294,8 +1308,10 @@ public class SyntheticsTestResultStep {
 
   public SyntheticsTestResultStep warnings(List<SyntheticsTestResultWarning> warnings) {
     this.warnings = warnings;
-    for (SyntheticsTestResultWarning item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (SyntheticsTestResultWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

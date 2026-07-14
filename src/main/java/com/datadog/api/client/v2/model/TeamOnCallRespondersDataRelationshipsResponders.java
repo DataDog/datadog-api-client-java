@@ -30,8 +30,10 @@ public class TeamOnCallRespondersDataRelationshipsResponders {
   public TeamOnCallRespondersDataRelationshipsResponders data(
       List<TeamOnCallRespondersDataRelationshipsRespondersDataItems> data) {
     this.data = data;
-    for (TeamOnCallRespondersDataRelationshipsRespondersDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TeamOnCallRespondersDataRelationshipsRespondersDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

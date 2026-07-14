@@ -210,8 +210,10 @@ public class SyntheticsTestResultTracerouteHop {
 
   public SyntheticsTestResultTracerouteHop routers(List<SyntheticsTestResultRouter> routers) {
     this.routers = routers;
-    for (SyntheticsTestResultRouter item : routers) {
-      this.unparsed |= item.unparsed;
+    if (routers != null) {
+      for (SyntheticsTestResultRouter item : routers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

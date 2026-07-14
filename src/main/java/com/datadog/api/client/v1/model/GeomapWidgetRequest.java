@@ -79,8 +79,10 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest columns(List<ListStreamColumn> columns) {
     this.columns = columns;
-    for (ListStreamColumn item : columns) {
-      this.unparsed |= item.unparsed;
+    if (columns != null) {
+      for (ListStreamColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -117,8 +119,10 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -156,8 +160,10 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -244,8 +250,10 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -433,8 +441,10 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest textFormats(List<TableWidgetTextFormatRule> textFormats) {
     this.textFormats = textFormats;
-    for (TableWidgetTextFormatRule item : textFormats) {
-      this.unparsed |= item.unparsed;
+    if (textFormats != null) {
+      for (TableWidgetTextFormatRule item : textFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

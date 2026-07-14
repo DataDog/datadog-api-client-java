@@ -410,8 +410,10 @@ public class AzureAccount {
   public AzureAccount resourceProviderConfigs(
       List<ResourceProviderConfig> resourceProviderConfigs) {
     this.resourceProviderConfigs = resourceProviderConfigs;
-    for (ResourceProviderConfig item : resourceProviderConfigs) {
-      this.unparsed |= item.unparsed;
+    if (resourceProviderConfigs != null) {
+      for (ResourceProviderConfig item : resourceProviderConfigs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

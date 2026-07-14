@@ -43,8 +43,10 @@ public class SpansAggregateRequestAttributes {
 
   public SpansAggregateRequestAttributes compute(List<SpansCompute> compute) {
     this.compute = compute;
-    for (SpansCompute item : compute) {
-      this.unparsed |= item.unparsed;
+    if (compute != null) {
+      for (SpansCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -106,8 +108,10 @@ public class SpansAggregateRequestAttributes {
 
   public SpansAggregateRequestAttributes groupBy(List<SpansGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (SpansGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (SpansGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

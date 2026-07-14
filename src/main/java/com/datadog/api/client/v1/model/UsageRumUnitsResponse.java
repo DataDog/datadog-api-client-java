@@ -29,8 +29,10 @@ public class UsageRumUnitsResponse {
 
   public UsageRumUnitsResponse usage(List<UsageRumUnitsHour> usage) {
     this.usage = usage;
-    for (UsageRumUnitsHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageRumUnitsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

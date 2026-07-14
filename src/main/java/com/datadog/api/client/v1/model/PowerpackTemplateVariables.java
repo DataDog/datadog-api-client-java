@@ -36,8 +36,10 @@ public class PowerpackTemplateVariables {
   public PowerpackTemplateVariables controlledByPowerpack(
       List<PowerpackTemplateVariableContents> controlledByPowerpack) {
     this.controlledByPowerpack = controlledByPowerpack;
-    for (PowerpackTemplateVariableContents item : controlledByPowerpack) {
-      this.unparsed |= item.unparsed;
+    if (controlledByPowerpack != null) {
+      for (PowerpackTemplateVariableContents item : controlledByPowerpack) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -77,8 +79,10 @@ public class PowerpackTemplateVariables {
   public PowerpackTemplateVariables controlledExternally(
       List<PowerpackTemplateVariableContents> controlledExternally) {
     this.controlledExternally = controlledExternally;
-    for (PowerpackTemplateVariableContents item : controlledExternally) {
-      this.unparsed |= item.unparsed;
+    if (controlledExternally != null) {
+      for (PowerpackTemplateVariableContents item : controlledExternally) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

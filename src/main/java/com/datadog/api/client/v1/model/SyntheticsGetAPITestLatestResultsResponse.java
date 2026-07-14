@@ -57,8 +57,10 @@ public class SyntheticsGetAPITestLatestResultsResponse {
   public SyntheticsGetAPITestLatestResultsResponse results(
       List<SyntheticsAPITestResultShort> results) {
     this.results = results;
-    for (SyntheticsAPITestResultShort item : results) {
-      this.unparsed |= item.unparsed;
+    if (results != null) {
+      for (SyntheticsAPITestResultShort item : results) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

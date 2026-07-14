@@ -29,8 +29,10 @@ public class AWSTagFilterListResponse {
 
   public AWSTagFilterListResponse filters(List<AWSTagFilter> filters) {
     this.filters = filters;
-    for (AWSTagFilter item : filters) {
-      this.unparsed |= item.unparsed;
+    if (filters != null) {
+      for (AWSTagFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

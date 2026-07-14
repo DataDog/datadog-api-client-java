@@ -60,8 +60,10 @@ public class RecommendationsFilterRequest {
 
   public RecommendationsFilterRequest sort(List<RecommendationsFilterRequestSortItems> sort) {
     this.sort = sort;
-    for (RecommendationsFilterRequestSortItems item : sort) {
-      this.unparsed |= item.unparsed;
+    if (sort != null) {
+      for (RecommendationsFilterRequestSortItems item : sort) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

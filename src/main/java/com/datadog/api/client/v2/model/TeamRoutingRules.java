@@ -61,8 +61,10 @@ public class TeamRoutingRules {
 
   public TeamRoutingRules included(List<TeamRoutingRulesIncluded> included) {
     this.included = included;
-    for (TeamRoutingRulesIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TeamRoutingRulesIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

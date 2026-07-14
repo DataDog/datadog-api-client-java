@@ -83,8 +83,10 @@ public class WebhooksAuthMethodsResponse {
   public WebhooksAuthMethodsResponse included(
       List<WebhooksOAuth2ClientCredentialsResponseData> included) {
     this.included = included;
-    for (WebhooksOAuth2ClientCredentialsResponseData item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (WebhooksOAuth2ClientCredentialsResponseData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -393,8 +393,10 @@ public class GCPAccount {
   public GCPAccount monitoredResourceConfigs(
       List<GCPMonitoredResourceConfig> monitoredResourceConfigs) {
     this.monitoredResourceConfigs = monitoredResourceConfigs;
-    for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
-      this.unparsed |= item.unparsed;
+    if (monitoredResourceConfigs != null) {
+      for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -39,8 +39,10 @@ public class ListScorecardScoresResponse {
 
   public ListScorecardScoresResponse data(List<ScorecardScoreData> data) {
     this.data = data;
-    for (ScorecardScoreData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ScorecardScoreData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

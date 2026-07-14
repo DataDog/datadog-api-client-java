@@ -201,8 +201,10 @@ public class CloudConfigurationRulePayload {
 
   public CloudConfigurationRulePayload filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
-    for (SecurityMonitoringFilter item : filters) {
-      this.unparsed |= item.unparsed;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

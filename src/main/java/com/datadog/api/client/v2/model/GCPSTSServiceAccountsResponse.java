@@ -29,8 +29,10 @@ public class GCPSTSServiceAccountsResponse {
 
   public GCPSTSServiceAccountsResponse data(List<GCPSTSServiceAccount> data) {
     this.data = data;
-    for (GCPSTSServiceAccount item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (GCPSTSServiceAccount item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

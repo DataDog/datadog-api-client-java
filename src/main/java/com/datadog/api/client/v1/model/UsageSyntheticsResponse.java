@@ -32,8 +32,10 @@ public class UsageSyntheticsResponse {
 
   public UsageSyntheticsResponse usage(List<UsageSyntheticsHour> usage) {
     this.usage = usage;
-    for (UsageSyntheticsHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageSyntheticsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

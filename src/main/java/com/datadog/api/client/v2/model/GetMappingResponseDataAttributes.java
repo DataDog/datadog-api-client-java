@@ -30,8 +30,10 @@ public class GetMappingResponseDataAttributes {
   public GetMappingResponseDataAttributes attributes(
       List<GetMappingResponseDataAttributesAttributesItems> attributes) {
     this.attributes = attributes;
-    for (GetMappingResponseDataAttributesAttributesItems item : attributes) {
-      this.unparsed |= item.unparsed;
+    if (attributes != null) {
+      for (GetMappingResponseDataAttributesAttributesItems item : attributes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

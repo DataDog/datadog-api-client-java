@@ -29,8 +29,10 @@ public class PermissionsResponse {
 
   public PermissionsResponse data(List<Permission> data) {
     this.data = data;
-    for (Permission item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (Permission item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

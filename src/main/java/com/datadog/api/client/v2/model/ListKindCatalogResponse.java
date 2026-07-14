@@ -35,8 +35,10 @@ public class ListKindCatalogResponse {
 
   public ListKindCatalogResponse data(List<KindData> data) {
     this.data = data;
-    for (KindData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (KindData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

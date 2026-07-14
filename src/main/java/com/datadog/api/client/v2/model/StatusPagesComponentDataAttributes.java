@@ -68,8 +68,10 @@ public class StatusPagesComponentDataAttributes {
   public StatusPagesComponentDataAttributes components(
       List<StatusPagesComponentDataAttributesComponentsItems> components) {
     this.components = components;
-    for (StatusPagesComponentDataAttributesComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (StatusPagesComponentDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

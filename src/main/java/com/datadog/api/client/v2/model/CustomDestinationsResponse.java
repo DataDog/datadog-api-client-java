@@ -29,8 +29,10 @@ public class CustomDestinationsResponse {
 
   public CustomDestinationsResponse data(List<CustomDestinationResponseDefinition> data) {
     this.data = data;
-    for (CustomDestinationResponseDefinition item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CustomDestinationResponseDefinition item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -32,8 +32,10 @@ public class ListAPIsResponse {
 
   public ListAPIsResponse data(List<ListAPIsResponseData> data) {
     this.data = data;
-    for (ListAPIsResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ListAPIsResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

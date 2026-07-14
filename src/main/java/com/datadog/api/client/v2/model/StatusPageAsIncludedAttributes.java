@@ -119,8 +119,10 @@ public class StatusPageAsIncludedAttributes {
   public StatusPageAsIncludedAttributes components(
       List<StatusPageAsIncludedAttributesComponentsItems> components) {
     this.components = components;
-    for (StatusPageAsIncludedAttributesComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (StatusPageAsIncludedAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

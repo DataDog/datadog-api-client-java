@@ -126,8 +126,10 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   public GetMultipleRulesetsResponseDataAttributesRulesetsItems rules(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems> rules) {
     this.rules = rules;
-    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
-      this.unparsed |= item.unparsed;
+    if (rules != null) {
+      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -35,8 +35,10 @@ public class EntityV3DatastoreDatadog {
 
   public EntityV3DatastoreDatadog events(List<EntityV3DatadogEventItem> events) {
     this.events = events;
-    for (EntityV3DatadogEventItem item : events) {
-      this.unparsed |= item.unparsed;
+    if (events != null) {
+      for (EntityV3DatadogEventItem item : events) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -73,8 +75,10 @@ public class EntityV3DatastoreDatadog {
 
   public EntityV3DatastoreDatadog logs(List<EntityV3DatadogLogItem> logs) {
     this.logs = logs;
-    for (EntityV3DatadogLogItem item : logs) {
-      this.unparsed |= item.unparsed;
+    if (logs != null) {
+      for (EntityV3DatadogLogItem item : logs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -162,8 +162,10 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
   public LLMObsExperimentationSimpleSearchDataAttributesRequest sort(
       List<LLMObsExperimentationSortField> sort) {
     this.sort = sort;
-    for (LLMObsExperimentationSortField item : sort) {
-      this.unparsed |= item.unparsed;
+    if (sort != null) {
+      for (LLMObsExperimentationSortField item : sort) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

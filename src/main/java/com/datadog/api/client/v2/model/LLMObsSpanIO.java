@@ -32,8 +32,10 @@ public class LLMObsSpanIO {
 
   public LLMObsSpanIO messages(List<LLMObsSpanMessage> messages) {
     this.messages = messages;
-    for (LLMObsSpanMessage item : messages) {
-      this.unparsed |= item.unparsed;
+    if (messages != null) {
+      for (LLMObsSpanMessage item : messages) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class CaseNotificationRulesResponse {
 
   public CaseNotificationRulesResponse data(List<CaseNotificationRule> data) {
     this.data = data;
-    for (CaseNotificationRule item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CaseNotificationRule item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

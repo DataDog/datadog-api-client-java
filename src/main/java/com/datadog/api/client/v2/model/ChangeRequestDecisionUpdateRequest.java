@@ -71,8 +71,10 @@ public class ChangeRequestDecisionUpdateRequest {
   public ChangeRequestDecisionUpdateRequest included(
       List<ChangeRequestDecisionCreateItem> included) {
     this.included = included;
-    for (ChangeRequestDecisionCreateItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ChangeRequestDecisionCreateItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class UserInvitationsResponse {
 
   public UserInvitationsResponse data(List<UserInvitationResponseData> data) {
     this.data = data;
-    for (UserInvitationResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (UserInvitationResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

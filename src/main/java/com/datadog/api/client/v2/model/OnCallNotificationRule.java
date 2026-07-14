@@ -69,8 +69,10 @@ public class OnCallNotificationRule {
 
   public OnCallNotificationRule included(List<OnCallNotificationRulesIncluded> included) {
     this.included = included;
-    for (OnCallNotificationRulesIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (OnCallNotificationRulesIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -32,8 +32,10 @@ public class MetricAssetNotebookRelationships {
 
   public MetricAssetNotebookRelationships data(List<MetricAssetNotebookRelationship> data) {
     this.data = data;
-    for (MetricAssetNotebookRelationship item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MetricAssetNotebookRelationship item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

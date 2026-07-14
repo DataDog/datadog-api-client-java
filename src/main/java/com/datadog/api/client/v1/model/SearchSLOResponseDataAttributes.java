@@ -60,8 +60,10 @@ public class SearchSLOResponseDataAttributes {
 
   public SearchSLOResponseDataAttributes slos(List<SearchServiceLevelObjective> slos) {
     this.slos = slos;
-    for (SearchServiceLevelObjective item : slos) {
-      this.unparsed |= item.unparsed;
+    if (slos != null) {
+      for (SearchServiceLevelObjective item : slos) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

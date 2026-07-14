@@ -95,8 +95,10 @@ public class ConfluentAccountCreateRequestAttributes {
   public ConfluentAccountCreateRequestAttributes resources(
       List<ConfluentAccountResourceAttributes> resources) {
     this.resources = resources;
-    for (ConfluentAccountResourceAttributes item : resources) {
-      this.unparsed |= item.unparsed;
+    if (resources != null) {
+      for (ConfluentAccountResourceAttributes item : resources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

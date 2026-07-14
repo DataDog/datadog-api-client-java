@@ -29,8 +29,10 @@ public class UsageLambdaTracedInvocationsResponse {
 
   public UsageLambdaTracedInvocationsResponse data(List<UsageDataObject> data) {
     this.data = data;
-    for (UsageDataObject item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (UsageDataObject item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

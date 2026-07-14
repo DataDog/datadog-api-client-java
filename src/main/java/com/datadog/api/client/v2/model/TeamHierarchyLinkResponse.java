@@ -64,8 +64,10 @@ public class TeamHierarchyLinkResponse {
 
   public TeamHierarchyLinkResponse included(List<TeamHierarchyLinkTeam> included) {
     this.included = included;
-    for (TeamHierarchyLinkTeam item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TeamHierarchyLinkTeam item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

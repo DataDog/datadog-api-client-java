@@ -116,8 +116,10 @@ public class IntegrationIncident {
   public IntegrationIncident fieldMappings(
       List<IntegrationIncidentFieldMappingsItems> fieldMappings) {
     this.fieldMappings = fieldMappings;
-    for (IntegrationIncidentFieldMappingsItems item : fieldMappings) {
-      this.unparsed |= item.unparsed;
+    if (fieldMappings != null) {
+      for (IntegrationIncidentFieldMappingsItems item : fieldMappings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

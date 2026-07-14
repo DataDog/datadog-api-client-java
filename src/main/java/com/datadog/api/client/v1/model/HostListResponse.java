@@ -39,8 +39,10 @@ public class HostListResponse {
 
   public HostListResponse hostList(List<Host> hostList) {
     this.hostList = hostList;
-    for (Host item : hostList) {
-      this.unparsed |= item.unparsed;
+    if (hostList != null) {
+      for (Host item : hostList) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

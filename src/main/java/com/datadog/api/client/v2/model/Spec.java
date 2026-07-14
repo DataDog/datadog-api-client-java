@@ -55,8 +55,10 @@ public class Spec {
 
   public Spec annotations(List<Annotation> annotations) {
     this.annotations = annotations;
-    for (Annotation item : annotations) {
-      this.unparsed |= item.unparsed;
+    if (annotations != null) {
+      for (Annotation item : annotations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -93,8 +95,10 @@ public class Spec {
 
   public Spec connectionEnvs(List<ConnectionEnv> connectionEnvs) {
     this.connectionEnvs = connectionEnvs;
-    for (ConnectionEnv item : connectionEnvs) {
-      this.unparsed |= item.unparsed;
+    if (connectionEnvs != null) {
+      for (ConnectionEnv item : connectionEnvs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -203,8 +207,10 @@ public class Spec {
 
   public Spec steps(List<Step> steps) {
     this.steps = steps;
-    for (Step item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (Step item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -242,8 +248,10 @@ public class Spec {
 
   public Spec triggers(List<Trigger> triggers) {
     this.triggers = triggers;
-    for (Trigger item : triggers) {
-      this.unparsed |= item.unparsed;
+    if (triggers != null) {
+      for (Trigger item : triggers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

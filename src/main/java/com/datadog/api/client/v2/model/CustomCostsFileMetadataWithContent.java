@@ -131,8 +131,10 @@ public class CustomCostsFileMetadataWithContent {
 
   public CustomCostsFileMetadataWithContent content(List<CustomCostsFileLineItem> content) {
     this.content = content;
-    for (CustomCostsFileLineItem item : content) {
-      this.unparsed |= item.unparsed;
+    if (content != null) {
+      for (CustomCostsFileLineItem item : content) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

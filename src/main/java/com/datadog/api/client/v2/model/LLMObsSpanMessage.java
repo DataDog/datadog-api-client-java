@@ -110,8 +110,10 @@ public class LLMObsSpanMessage {
 
   public LLMObsSpanMessage toolCalls(List<LLMObsSpanToolCall> toolCalls) {
     this.toolCalls = toolCalls;
-    for (LLMObsSpanToolCall item : toolCalls) {
-      this.unparsed |= item.unparsed;
+    if (toolCalls != null) {
+      for (LLMObsSpanToolCall item : toolCalls) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -148,8 +150,10 @@ public class LLMObsSpanMessage {
 
   public LLMObsSpanMessage toolResults(List<LLMObsSpanToolResult> toolResults) {
     this.toolResults = toolResults;
-    for (LLMObsSpanToolResult item : toolResults) {
-      this.unparsed |= item.unparsed;
+    if (toolResults != null) {
+      for (LLMObsSpanToolResult item : toolResults) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

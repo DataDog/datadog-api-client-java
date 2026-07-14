@@ -39,8 +39,10 @@ public class ListApplicationKeysResponse {
 
   public ListApplicationKeysResponse data(List<PartialApplicationKey> data) {
     this.data = data;
-    for (PartialApplicationKey item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (PartialApplicationKey item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -77,8 +79,10 @@ public class ListApplicationKeysResponse {
 
   public ListApplicationKeysResponse included(List<ApplicationKeyResponseIncludedItem> included) {
     this.included = included;
-    for (ApplicationKeyResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ApplicationKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

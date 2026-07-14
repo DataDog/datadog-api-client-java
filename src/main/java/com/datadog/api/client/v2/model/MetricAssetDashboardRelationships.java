@@ -32,8 +32,10 @@ public class MetricAssetDashboardRelationships {
 
   public MetricAssetDashboardRelationships data(List<MetricAssetDashboardRelationship> data) {
     this.data = data;
-    for (MetricAssetDashboardRelationship item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MetricAssetDashboardRelationship item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

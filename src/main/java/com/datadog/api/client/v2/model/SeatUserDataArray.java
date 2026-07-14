@@ -32,8 +32,10 @@ public class SeatUserDataArray {
 
   public SeatUserDataArray data(List<SeatUserData> data) {
     this.data = data;
-    for (SeatUserData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SeatUserData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

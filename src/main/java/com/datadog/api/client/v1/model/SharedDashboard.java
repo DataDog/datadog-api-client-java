@@ -301,8 +301,10 @@ public class SharedDashboard {
 
   public SharedDashboard invitees(List<SharedDashboardInviteesItems> invitees) {
     this.invitees = invitees;
-    for (SharedDashboardInviteesItems item : invitees) {
-      this.unparsed |= item.unparsed;
+    if (invitees != null) {
+      for (SharedDashboardInviteesItems item : invitees) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

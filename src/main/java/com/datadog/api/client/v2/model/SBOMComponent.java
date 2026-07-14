@@ -97,8 +97,10 @@ public class SBOMComponent {
 
   public SBOMComponent licenses(List<SBOMComponentLicense> licenses) {
     this.licenses = licenses;
-    for (SBOMComponentLicense item : licenses) {
-      this.unparsed |= item.unparsed;
+    if (licenses != null) {
+      for (SBOMComponentLicense item : licenses) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -155,8 +157,10 @@ public class SBOMComponent {
 
   public SBOMComponent properties(List<SBOMComponentProperty> properties) {
     this.properties = properties;
-    for (SBOMComponentProperty item : properties) {
-      this.unparsed |= item.unparsed;
+    if (properties != null) {
+      for (SBOMComponentProperty item : properties) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

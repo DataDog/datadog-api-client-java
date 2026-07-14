@@ -29,8 +29,10 @@ public class DashboardListDeleteItemsRequest {
 
   public DashboardListDeleteItemsRequest dashboards(List<DashboardListItemRequest> dashboards) {
     this.dashboards = dashboards;
-    for (DashboardListItemRequest item : dashboards) {
-      this.unparsed |= item.unparsed;
+    if (dashboards != null) {
+      for (DashboardListItemRequest item : dashboards) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

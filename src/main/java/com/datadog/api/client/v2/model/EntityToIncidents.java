@@ -29,8 +29,10 @@ public class EntityToIncidents {
 
   public EntityToIncidents data(List<RelationshipItem> data) {
     this.data = data;
-    for (RelationshipItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RelationshipItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

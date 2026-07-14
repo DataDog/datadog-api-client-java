@@ -39,8 +39,10 @@ public class CIAppTestEventsResponse {
 
   public CIAppTestEventsResponse data(List<CIAppTestEvent> data) {
     this.data = data;
-    for (CIAppTestEvent item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CIAppTestEvent item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

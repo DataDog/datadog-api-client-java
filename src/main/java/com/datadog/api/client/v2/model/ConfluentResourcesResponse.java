@@ -29,8 +29,10 @@ public class ConfluentResourcesResponse {
 
   public ConfluentResourcesResponse data(List<ConfluentResourceResponseData> data) {
     this.data = data;
-    for (ConfluentResourceResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ConfluentResourceResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

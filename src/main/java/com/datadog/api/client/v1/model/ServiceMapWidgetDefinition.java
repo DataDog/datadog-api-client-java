@@ -77,8 +77,10 @@ public class ServiceMapWidgetDefinition {
 
   public ServiceMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

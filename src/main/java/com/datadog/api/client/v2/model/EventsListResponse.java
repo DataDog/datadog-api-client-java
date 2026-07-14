@@ -39,8 +39,10 @@ public class EventsListResponse {
 
   public EventsListResponse data(List<EventResponse> data) {
     this.data = data;
-    for (EventResponse item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EventResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

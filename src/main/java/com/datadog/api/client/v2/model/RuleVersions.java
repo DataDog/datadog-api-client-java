@@ -32,8 +32,10 @@ public class RuleVersions {
 
   public RuleVersions changes(List<VersionHistoryUpdate> changes) {
     this.changes = changes;
-    for (VersionHistoryUpdate item : changes) {
-      this.unparsed |= item.unparsed;
+    if (changes != null) {
+      for (VersionHistoryUpdate item : changes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

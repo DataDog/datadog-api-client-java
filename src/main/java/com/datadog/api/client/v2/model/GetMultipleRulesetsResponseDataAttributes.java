@@ -32,8 +32,10 @@ public class GetMultipleRulesetsResponseDataAttributes {
   public GetMultipleRulesetsResponseDataAttributes rulesets(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItems> rulesets) {
     this.rulesets = rulesets;
-    for (GetMultipleRulesetsResponseDataAttributesRulesetsItems item : rulesets) {
-      this.unparsed |= item.unparsed;
+    if (rulesets != null) {
+      for (GetMultipleRulesetsResponseDataAttributesRulesetsItems item : rulesets) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

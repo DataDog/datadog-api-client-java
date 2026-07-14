@@ -60,8 +60,10 @@ public class UsageTopAvgMetricsResponse {
 
   public UsageTopAvgMetricsResponse usage(List<UsageTopAvgMetricsHour> usage) {
     this.usage = usage;
-    for (UsageTopAvgMetricsHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageTopAvgMetricsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

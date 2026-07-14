@@ -130,8 +130,10 @@ public class AlertEventAttributes {
 
   public AlertEventAttributes links(List<AlertEventAttributesLinksItem> links) {
     this.links = links;
-    for (AlertEventAttributesLinksItem item : links) {
-      this.unparsed |= item.unparsed;
+    if (links != null) {
+      for (AlertEventAttributesLinksItem item : links) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

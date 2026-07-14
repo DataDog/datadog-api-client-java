@@ -39,8 +39,10 @@ public class ContainersResponse {
 
   public ContainersResponse data(List<ContainerItem> data) {
     this.data = data;
-    for (ContainerItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ContainerItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

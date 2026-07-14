@@ -35,8 +35,10 @@ public class AWSEventBridgeListResponse {
 
   public AWSEventBridgeListResponse accounts(List<AWSEventBridgeAccountConfiguration> accounts) {
     this.accounts = accounts;
-    for (AWSEventBridgeAccountConfiguration item : accounts) {
-      this.unparsed |= item.unparsed;
+    if (accounts != null) {
+      for (AWSEventBridgeAccountConfiguration item : accounts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

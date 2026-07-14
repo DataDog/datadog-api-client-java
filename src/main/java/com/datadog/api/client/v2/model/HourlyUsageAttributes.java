@@ -102,8 +102,10 @@ public class HourlyUsageAttributes {
 
   public HourlyUsageAttributes measurements(List<HourlyUsageMeasurement> measurements) {
     this.measurements = measurements;
-    for (HourlyUsageMeasurement item : measurements) {
-      this.unparsed |= item.unparsed;
+    if (measurements != null) {
+      for (HourlyUsageMeasurement item : measurements) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

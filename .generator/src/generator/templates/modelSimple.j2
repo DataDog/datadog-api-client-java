@@ -120,12 +120,18 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- else %}
     {%- if schema.get("items")|is_model and not schema|is_primitive %}
     {%- set itemsDataType = get_type(schema.get("items")) %}
+    {%- if not isRequired %}
+    if ({{ variableName }} != null) {
+    {%- endif %}
     for ({{ itemsDataType }} item : {{ variableName }}) {
       {%- if schema.enum is defined %}
       this.unparsed |= !item.isValid();
       {%- endif %}
       this.unparsed |= item.unparsed;
     }
+    {%- if not isRequired %}
+    }
+    {%- endif %}
     {%- endif %}
     {%- endif %}
     {%- endif %}

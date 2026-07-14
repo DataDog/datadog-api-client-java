@@ -43,8 +43,10 @@ public class SyntheticsTestConfig {
 
   public SyntheticsTestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
-    for (SyntheticsAssertion item : assertions) {
-      this.unparsed |= item.unparsed;
+    if (assertions != null) {
+      for (SyntheticsAssertion item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -81,8 +83,10 @@ public class SyntheticsTestConfig {
 
   public SyntheticsTestConfig configVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
-    for (SyntheticsConfigVariable item : configVariables) {
-      this.unparsed |= item.unparsed;
+    if (configVariables != null) {
+      for (SyntheticsConfigVariable item : configVariables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -144,8 +148,10 @@ public class SyntheticsTestConfig {
 
   public SyntheticsTestConfig variables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
-    for (SyntheticsBrowserVariable item : variables) {
-      this.unparsed |= item.unparsed;
+    if (variables != null) {
+      for (SyntheticsBrowserVariable item : variables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

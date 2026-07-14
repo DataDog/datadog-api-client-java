@@ -39,8 +39,10 @@ public class OutcomesResponse {
 
   public OutcomesResponse data(List<OutcomesResponseDataItem> data) {
     this.data = data;
-    for (OutcomesResponseDataItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (OutcomesResponseDataItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -77,8 +79,10 @@ public class OutcomesResponse {
 
   public OutcomesResponse included(List<OutcomesResponseIncludedItem> included) {
     this.included = included;
-    for (OutcomesResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (OutcomesResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

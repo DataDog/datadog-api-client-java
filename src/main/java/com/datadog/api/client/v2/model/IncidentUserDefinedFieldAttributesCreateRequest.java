@@ -339,8 +339,10 @@ public class IncidentUserDefinedFieldAttributesCreateRequest {
   public IncidentUserDefinedFieldAttributesCreateRequest validValues(
       List<IncidentUserDefinedFieldValidValue> validValues) {
     this.validValues = validValues;
-    for (IncidentUserDefinedFieldValidValue item : validValues) {
-      this.unparsed |= item.unparsed;
+    if (validValues != null) {
+      for (IncidentUserDefinedFieldValidValue item : validValues) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

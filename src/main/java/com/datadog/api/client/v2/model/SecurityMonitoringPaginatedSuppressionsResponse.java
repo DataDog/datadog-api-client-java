@@ -36,8 +36,10 @@ public class SecurityMonitoringPaginatedSuppressionsResponse {
   public SecurityMonitoringPaginatedSuppressionsResponse data(
       List<SecurityMonitoringSuppression> data) {
     this.data = data;
-    for (SecurityMonitoringSuppression item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityMonitoringSuppression item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -107,8 +107,10 @@ public class SyntheticsFastTestResultDetail {
   public SyntheticsFastTestResultDetail assertions(
       List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
-    for (SyntheticsTestResultAssertionResult item : assertions) {
-      this.unparsed |= item.unparsed;
+    if (assertions != null) {
+      for (SyntheticsTestResultAssertionResult item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -440,8 +442,10 @@ public class SyntheticsFastTestResultDetail {
 
   public SyntheticsFastTestResultDetail steps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
-    for (SyntheticsTestResultStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SyntheticsTestResultStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -508,8 +512,10 @@ public class SyntheticsFastTestResultDetail {
   public SyntheticsFastTestResultDetail traceroute(
       List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
-    for (SyntheticsTestResultTracerouteHop item : traceroute) {
-      this.unparsed |= item.unparsed;
+    if (traceroute != null) {
+      for (SyntheticsTestResultTracerouteHop item : traceroute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

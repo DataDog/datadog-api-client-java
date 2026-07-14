@@ -35,8 +35,10 @@ public class SecurityFiltersResponse {
 
   public SecurityFiltersResponse data(List<SecurityFilter> data) {
     this.data = data;
-    for (SecurityFilter item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityFilter item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class DeletedSuitesResponse {
 
   public DeletedSuitesResponse data(List<DeletedSuiteResponseData> data) {
     this.data = data;
-    for (DeletedSuiteResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DeletedSuiteResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

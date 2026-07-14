@@ -272,8 +272,10 @@ public class SyntheticsBrowserTestResultData {
 
   public SyntheticsBrowserTestResultData stepDetails(List<SyntheticsStepDetail> stepDetails) {
     this.stepDetails = stepDetails;
-    for (SyntheticsStepDetail item : stepDetails) {
-      this.unparsed |= item.unparsed;
+    if (stepDetails != null) {
+      for (SyntheticsStepDetail item : stepDetails) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

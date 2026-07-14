@@ -32,8 +32,10 @@ public class HourlyUsageResponse {
 
   public HourlyUsageResponse data(List<HourlyUsage> data) {
     this.data = data;
-    for (HourlyUsage item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (HourlyUsage item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class HTTPLogErrors {
 
   public HTTPLogErrors errors(List<HTTPLogError> errors) {
     this.errors = errors;
-    for (HTTPLogError item : errors) {
-      this.unparsed |= item.unparsed;
+    if (errors != null) {
+      for (HTTPLogError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

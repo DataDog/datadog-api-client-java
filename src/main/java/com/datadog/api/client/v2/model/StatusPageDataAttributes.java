@@ -130,8 +130,10 @@ public class StatusPageDataAttributes {
   public StatusPageDataAttributes components(
       List<StatusPageDataAttributesComponentsItems> components) {
     this.components = components;
-    for (StatusPageDataAttributesComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (StatusPageDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

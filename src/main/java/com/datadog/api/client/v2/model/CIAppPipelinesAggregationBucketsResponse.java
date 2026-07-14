@@ -30,8 +30,10 @@ public class CIAppPipelinesAggregationBucketsResponse {
   public CIAppPipelinesAggregationBucketsResponse buckets(
       List<CIAppPipelinesBucketResponse> buckets) {
     this.buckets = buckets;
-    for (CIAppPipelinesBucketResponse item : buckets) {
-      this.unparsed |= item.unparsed;
+    if (buckets != null) {
+      for (CIAppPipelinesBucketResponse item : buckets) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -35,8 +35,10 @@ public class ListHistoricalJobsResponse {
 
   public ListHistoricalJobsResponse data(List<HistoricalJobResponseData> data) {
     this.data = data;
-    for (HistoricalJobResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (HistoricalJobResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -85,8 +85,10 @@ public class DegradationArray {
 
   public DegradationArray included(List<DegradationIncluded> included) {
     this.included = included;
-    for (DegradationIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (DegradationIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

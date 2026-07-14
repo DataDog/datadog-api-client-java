@@ -31,8 +31,10 @@ public class UsageNetworkFlowsResponse {
 
   public UsageNetworkFlowsResponse usage(List<UsageNetworkFlowsHour> usage) {
     this.usage = usage;
-    for (UsageNetworkFlowsHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageNetworkFlowsHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class FastlyServicesResponse {
 
   public FastlyServicesResponse data(List<FastlyServiceData> data) {
     this.data = data;
-    for (FastlyServiceData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (FastlyServiceData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

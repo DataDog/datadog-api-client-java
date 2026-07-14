@@ -32,8 +32,10 @@ public class RolesResponse {
 
   public RolesResponse data(List<Role> data) {
     this.data = data;
-    for (Role item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (Role item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

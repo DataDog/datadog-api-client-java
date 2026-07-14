@@ -127,8 +127,10 @@ public class SecurityMonitoringStandardRulePayload {
   public SecurityMonitoringStandardRulePayload calculatedFields(
       List<CalculatedField> calculatedFields) {
     this.calculatedFields = calculatedFields;
-    for (CalculatedField item : calculatedFields) {
-      this.unparsed |= item.unparsed;
+    if (calculatedFields != null) {
+      for (CalculatedField item : calculatedFields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -244,8 +246,10 @@ public class SecurityMonitoringStandardRulePayload {
 
   public SecurityMonitoringStandardRulePayload filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
-    for (SecurityMonitoringFilter item : filters) {
-      this.unparsed |= item.unparsed;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -456,8 +460,10 @@ public class SecurityMonitoringStandardRulePayload {
   public SecurityMonitoringStandardRulePayload referenceTables(
       List<SecurityMonitoringReferenceTable> referenceTables) {
     this.referenceTables = referenceTables;
-    for (SecurityMonitoringReferenceTable item : referenceTables) {
-      this.unparsed |= item.unparsed;
+    if (referenceTables != null) {
+      for (SecurityMonitoringReferenceTable item : referenceTables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -561,8 +567,10 @@ public class SecurityMonitoringStandardRulePayload {
   public SecurityMonitoringStandardRulePayload thirdPartyCases(
       List<SecurityMonitoringThirdPartyRuleCaseCreate> thirdPartyCases) {
     this.thirdPartyCases = thirdPartyCases;
-    for (SecurityMonitoringThirdPartyRuleCaseCreate item : thirdPartyCases) {
-      this.unparsed |= item.unparsed;
+    if (thirdPartyCases != null) {
+      for (SecurityMonitoringThirdPartyRuleCaseCreate item : thirdPartyCases) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -47,8 +47,10 @@ public class LogsAggregateRequest {
 
   public LogsAggregateRequest compute(List<LogsCompute> compute) {
     this.compute = compute;
-    for (LogsCompute item : compute) {
-      this.unparsed |= item.unparsed;
+    if (compute != null) {
+      for (LogsCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -110,8 +112,10 @@ public class LogsAggregateRequest {
 
   public LogsAggregateRequest groupBy(List<LogsGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (LogsGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (LogsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

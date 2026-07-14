@@ -133,8 +133,10 @@ public class ServiceDefinitionV1 {
   public ServiceDefinitionV1 externalResources(
       List<ServiceDefinitionV1Resource> externalResources) {
     this.externalResources = externalResources;
-    for (ServiceDefinitionV1Resource item : externalResources) {
-      this.unparsed |= item.unparsed;
+    if (externalResources != null) {
+      for (ServiceDefinitionV1Resource item : externalResources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

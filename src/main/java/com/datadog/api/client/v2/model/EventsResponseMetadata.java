@@ -135,8 +135,10 @@ public class EventsResponseMetadata {
 
   public EventsResponseMetadata warnings(List<EventsWarning> warnings) {
     this.warnings = warnings;
-    for (EventsWarning item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (EventsWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

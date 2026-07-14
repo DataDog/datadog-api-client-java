@@ -68,8 +68,10 @@ public class UpdateAppResponse {
 
   public UpdateAppResponse included(List<Deployment> included) {
     this.included = included;
-    for (Deployment item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (Deployment item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

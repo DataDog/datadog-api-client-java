@@ -35,8 +35,10 @@ public class ListOnCallNotificationRulesResponse {
 
   public ListOnCallNotificationRulesResponse data(List<OnCallNotificationRuleData> data) {
     this.data = data;
-    for (OnCallNotificationRuleData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (OnCallNotificationRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -74,8 +76,10 @@ public class ListOnCallNotificationRulesResponse {
   public ListOnCallNotificationRulesResponse included(
       List<OnCallNotificationRulesIncluded> included) {
     this.included = included;
-    for (OnCallNotificationRulesIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (OnCallNotificationRulesIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

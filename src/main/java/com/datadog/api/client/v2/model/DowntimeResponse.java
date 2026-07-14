@@ -61,8 +61,10 @@ public class DowntimeResponse {
 
   public DowntimeResponse included(List<DowntimeResponseIncludedItem> included) {
     this.included = included;
-    for (DowntimeResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (DowntimeResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

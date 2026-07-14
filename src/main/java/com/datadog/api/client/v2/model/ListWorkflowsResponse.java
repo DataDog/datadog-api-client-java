@@ -35,8 +35,10 @@ public class ListWorkflowsResponse {
 
   public ListWorkflowsResponse data(List<WorkflowListItem> data) {
     this.data = data;
-    for (WorkflowListItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (WorkflowListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -193,8 +193,10 @@ public class SyntheticsTestResultDetail {
   public SyntheticsTestResultDetail assertions(
       List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
-    for (SyntheticsTestResultAssertionResult item : assertions) {
-      this.unparsed |= item.unparsed;
+    if (assertions != null) {
+      for (SyntheticsTestResultAssertionResult item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -916,8 +918,10 @@ public class SyntheticsTestResultDetail {
 
   public SyntheticsTestResultDetail steps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
-    for (SyntheticsTestResultStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SyntheticsTestResultStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -1029,8 +1033,10 @@ public class SyntheticsTestResultDetail {
 
   public SyntheticsTestResultDetail traceroute(List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
-    for (SyntheticsTestResultTracerouteHop item : traceroute) {
-      this.unparsed |= item.unparsed;
+    if (traceroute != null) {
+      for (SyntheticsTestResultTracerouteHop item : traceroute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -1110,8 +1116,10 @@ public class SyntheticsTestResultDetail {
 
   public SyntheticsTestResultDetail turns(List<SyntheticsTestResultTurn> turns) {
     this.turns = turns;
-    for (SyntheticsTestResultTurn item : turns) {
-      this.unparsed |= item.unparsed;
+    if (turns != null) {
+      for (SyntheticsTestResultTurn item : turns) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

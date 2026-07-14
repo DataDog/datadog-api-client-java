@@ -100,8 +100,10 @@ public class NotebooksResponseDataAttributes {
 
   public NotebooksResponseDataAttributes cells(List<NotebookCellResponse> cells) {
     this.cells = cells;
-    for (NotebookCellResponse item : cells) {
-      this.unparsed |= item.unparsed;
+    if (cells != null) {
+      for (NotebookCellResponse item : cells) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

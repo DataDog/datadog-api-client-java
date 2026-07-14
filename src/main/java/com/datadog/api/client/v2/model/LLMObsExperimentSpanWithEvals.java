@@ -133,8 +133,10 @@ public class LLMObsExperimentSpanWithEvals {
   public LLMObsExperimentSpanWithEvals evalMetrics(
       List<LLMObsExperimentEvalMetricEvent> evalMetrics) {
     this.evalMetrics = evalMetrics;
-    for (LLMObsExperimentEvalMetricEvent item : evalMetrics) {
-      this.unparsed |= item.unparsed;
+    if (evalMetrics != null) {
+      for (LLMObsExperimentEvalMetricEvent item : evalMetrics) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

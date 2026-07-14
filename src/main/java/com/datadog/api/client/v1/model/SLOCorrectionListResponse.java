@@ -35,8 +35,10 @@ public class SLOCorrectionListResponse {
 
   public SLOCorrectionListResponse data(List<SLOCorrection> data) {
     this.data = data;
-    for (SLOCorrection item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SLOCorrection item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

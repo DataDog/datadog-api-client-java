@@ -29,8 +29,10 @@ public class MetricAssetSLORelationships {
 
   public MetricAssetSLORelationships data(List<MetricAssetSLORelationship> data) {
     this.data = data;
-    for (MetricAssetSLORelationship item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MetricAssetSLORelationship item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

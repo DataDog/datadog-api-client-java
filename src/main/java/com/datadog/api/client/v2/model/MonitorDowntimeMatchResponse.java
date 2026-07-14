@@ -35,8 +35,10 @@ public class MonitorDowntimeMatchResponse {
 
   public MonitorDowntimeMatchResponse data(List<MonitorDowntimeMatchResponseData> data) {
     this.data = data;
-    for (MonitorDowntimeMatchResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MonitorDowntimeMatchResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

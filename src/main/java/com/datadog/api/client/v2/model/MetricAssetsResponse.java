@@ -60,8 +60,10 @@ public class MetricAssetsResponse {
 
   public MetricAssetsResponse included(List<MetricAssetResponseIncluded> included) {
     this.included = included;
-    for (MetricAssetResponseIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (MetricAssetResponseIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

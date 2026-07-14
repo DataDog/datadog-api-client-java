@@ -69,8 +69,10 @@ public class ConfluentAccountResponseAttributes {
   public ConfluentAccountResponseAttributes resources(
       List<ConfluentResourceResponseAttributes> resources) {
     this.resources = resources;
-    for (ConfluentResourceResponseAttributes item : resources) {
-      this.unparsed |= item.unparsed;
+    if (resources != null) {
+      for (ConfluentResourceResponseAttributes item : resources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

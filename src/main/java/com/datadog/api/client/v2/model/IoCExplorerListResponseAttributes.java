@@ -39,8 +39,10 @@ public class IoCExplorerListResponseAttributes {
 
   public IoCExplorerListResponseAttributes data(List<IoCIndicator> data) {
     this.data = data;
-    for (IoCIndicator item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (IoCIndicator item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -32,8 +32,10 @@ public class CsmAgentsResponse {
 
   public CsmAgentsResponse data(List<CsmAgentData> data) {
     this.data = data;
-    for (CsmAgentData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CsmAgentData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

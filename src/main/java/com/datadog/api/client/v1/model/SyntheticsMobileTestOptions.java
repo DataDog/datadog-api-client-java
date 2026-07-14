@@ -132,8 +132,10 @@ public class SyntheticsMobileTestOptions {
   public SyntheticsMobileTestOptions bindings(
       List<SyntheticsTestRestrictionPolicyBinding> bindings) {
     this.bindings = bindings;
-    for (SyntheticsTestRestrictionPolicyBinding item : bindings) {
-      this.unparsed |= item.unparsed;
+    if (bindings != null) {
+      for (SyntheticsTestRestrictionPolicyBinding item : bindings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

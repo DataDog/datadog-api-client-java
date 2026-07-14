@@ -40,8 +40,10 @@ public class UpdateConnectionRequestDataAttributes {
   public UpdateConnectionRequestDataAttributes fieldsToAdd(
       List<CreateConnectionRequestDataAttributesFieldsItems> fieldsToAdd) {
     this.fieldsToAdd = fieldsToAdd;
-    for (CreateConnectionRequestDataAttributesFieldsItems item : fieldsToAdd) {
-      this.unparsed |= item.unparsed;
+    if (fieldsToAdd != null) {
+      for (CreateConnectionRequestDataAttributesFieldsItems item : fieldsToAdd) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -109,8 +111,10 @@ public class UpdateConnectionRequestDataAttributes {
   public UpdateConnectionRequestDataAttributes fieldsToUpdate(
       List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> fieldsToUpdate) {
     this.fieldsToUpdate = fieldsToUpdate;
-    for (UpdateConnectionRequestDataAttributesFieldsToUpdateItems item : fieldsToUpdate) {
-      this.unparsed |= item.unparsed;
+    if (fieldsToUpdate != null) {
+      for (UpdateConnectionRequestDataAttributesFieldsToUpdateItems item : fieldsToUpdate) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

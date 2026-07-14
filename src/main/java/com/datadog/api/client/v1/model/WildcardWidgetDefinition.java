@@ -83,8 +83,10 @@ public class WildcardWidgetDefinition {
 
   public WildcardWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

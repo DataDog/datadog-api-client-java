@@ -29,8 +29,10 @@ public class ServiceDefinitionCreateResponse {
 
   public ServiceDefinitionCreateResponse data(List<ServiceDefinitionData> data) {
     this.data = data;
-    for (ServiceDefinitionData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ServiceDefinitionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class UsageCWSResponse {
 
   public UsageCWSResponse usage(List<UsageCWSHour> usage) {
     this.usage = usage;
-    for (UsageCWSHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageCWSHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

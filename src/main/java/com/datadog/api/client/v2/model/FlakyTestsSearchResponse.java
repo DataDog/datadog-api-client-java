@@ -35,8 +35,10 @@ public class FlakyTestsSearchResponse {
 
   public FlakyTestsSearchResponse data(List<FlakyTest> data) {
     this.data = data;
-    for (FlakyTest item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (FlakyTest item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

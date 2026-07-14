@@ -29,8 +29,10 @@ public class SensitiveDataScannerRuleData {
 
   public SensitiveDataScannerRuleData data(List<SensitiveDataScannerRule> data) {
     this.data = data;
-    for (SensitiveDataScannerRule item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SensitiveDataScannerRule item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

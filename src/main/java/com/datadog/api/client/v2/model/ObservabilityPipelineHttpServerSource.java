@@ -301,8 +301,10 @@ public class ObservabilityPipelineHttpServerSource {
   public ObservabilityPipelineHttpServerSource validTokens(
       List<ObservabilityPipelineHttpServerSourceValidToken> validTokens) {
     this.validTokens = validTokens;
-    for (ObservabilityPipelineHttpServerSourceValidToken item : validTokens) {
-      this.unparsed |= item.unparsed;
+    if (validTokens != null) {
+      for (ObservabilityPipelineHttpServerSourceValidToken item : validTokens) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

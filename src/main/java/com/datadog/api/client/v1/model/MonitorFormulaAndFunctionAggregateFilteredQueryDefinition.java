@@ -105,8 +105,10 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition compute(
       List<MonitorFormulaAndFunctionEventQueryDefinitionCompute> compute) {
     this.compute = compute;
-    for (MonitorFormulaAndFunctionEventQueryDefinitionCompute item : compute) {
-      this.unparsed |= item.unparsed;
+    if (compute != null) {
+      for (MonitorFormulaAndFunctionEventQueryDefinitionCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -231,8 +233,10 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition groupBy(
       List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

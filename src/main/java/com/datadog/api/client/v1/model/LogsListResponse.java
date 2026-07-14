@@ -40,8 +40,10 @@ public class LogsListResponse {
 
   public LogsListResponse logs(List<Log> logs) {
     this.logs = logs;
-    for (Log item : logs) {
-      this.unparsed |= item.unparsed;
+    if (logs != null) {
+      for (Log item : logs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

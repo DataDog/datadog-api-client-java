@@ -47,8 +47,10 @@ public class SyntheticsTestVersionDiffPatches {
 
   public SyntheticsTestVersionDiffPatches diffs(List<SyntheticsTestVersionDiffPatchDiff> diffs) {
     this.diffs = diffs;
-    for (SyntheticsTestVersionDiffPatchDiff item : diffs) {
-      this.unparsed |= item.unparsed;
+    if (diffs != null) {
+      for (SyntheticsTestVersionDiffPatchDiff item : diffs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

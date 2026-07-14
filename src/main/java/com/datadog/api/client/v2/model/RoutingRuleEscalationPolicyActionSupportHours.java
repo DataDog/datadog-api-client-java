@@ -49,8 +49,10 @@ public class RoutingRuleEscalationPolicyActionSupportHours {
   public RoutingRuleEscalationPolicyActionSupportHours restrictions(
       List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
-    for (TimeRestriction item : restrictions) {
-      this.unparsed |= item.unparsed;
+    if (restrictions != null) {
+      for (TimeRestriction item : restrictions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class SyntheticsDeleteTestsResponse {
 
   public SyntheticsDeleteTestsResponse deletedTests(List<SyntheticsDeletedTest> deletedTests) {
     this.deletedTests = deletedTests;
-    for (SyntheticsDeletedTest item : deletedTests) {
-      this.unparsed |= item.unparsed;
+    if (deletedTests != null) {
+      for (SyntheticsDeletedTest item : deletedTests) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

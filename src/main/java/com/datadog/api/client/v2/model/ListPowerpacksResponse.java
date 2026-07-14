@@ -43,8 +43,10 @@ public class ListPowerpacksResponse {
 
   public ListPowerpacksResponse data(List<PowerpackData> data) {
     this.data = data;
-    for (PowerpackData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (PowerpackData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -81,8 +83,10 @@ public class ListPowerpacksResponse {
 
   public ListPowerpacksResponse included(List<User> included) {
     this.included = included;
-    for (User item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (User item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

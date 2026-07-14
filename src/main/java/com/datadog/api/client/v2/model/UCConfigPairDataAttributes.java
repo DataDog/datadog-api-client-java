@@ -29,8 +29,10 @@ public class UCConfigPairDataAttributes {
 
   public UCConfigPairDataAttributes configs(List<UCConfigPairDataAttributesConfigsItems> configs) {
     this.configs = configs;
-    for (UCConfigPairDataAttributesConfigsItems item : configs) {
-      this.unparsed |= item.unparsed;
+    if (configs != null) {
+      for (UCConfigPairDataAttributesConfigsItems item : configs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

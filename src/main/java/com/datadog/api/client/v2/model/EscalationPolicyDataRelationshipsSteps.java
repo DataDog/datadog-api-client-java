@@ -33,8 +33,10 @@ public class EscalationPolicyDataRelationshipsSteps {
   public EscalationPolicyDataRelationshipsSteps data(
       List<EscalationPolicyDataRelationshipsStepsDataItems> data) {
     this.data = data;
-    for (EscalationPolicyDataRelationshipsStepsDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EscalationPolicyDataRelationshipsStepsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

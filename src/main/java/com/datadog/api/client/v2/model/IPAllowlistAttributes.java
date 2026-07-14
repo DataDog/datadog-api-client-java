@@ -56,8 +56,10 @@ public class IPAllowlistAttributes {
 
   public IPAllowlistAttributes entries(List<IPAllowlistEntry> entries) {
     this.entries = entries;
-    for (IPAllowlistEntry item : entries) {
-      this.unparsed |= item.unparsed;
+    if (entries != null) {
+      for (IPAllowlistEntry item : entries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class RumRetentionFiltersOrderResponse {
 
   public RumRetentionFiltersOrderResponse data(List<RumRetentionFiltersOrderData> data) {
     this.data = data;
-    for (RumRetentionFiltersOrderData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RumRetentionFiltersOrderData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

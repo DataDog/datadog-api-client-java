@@ -29,8 +29,10 @@ public class UsageIngestedSpansResponse {
 
   public UsageIngestedSpansResponse usage(List<UsageIngestedSpansHour> usage) {
     this.usage = usage;
-    for (UsageIngestedSpansHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageIngestedSpansHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

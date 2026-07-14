@@ -29,8 +29,10 @@ public class UsageDBMResponse {
 
   public UsageDBMResponse usage(List<UsageDBMHour> usage) {
     this.usage = usage;
-    for (UsageDBMHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageDBMHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -35,8 +35,10 @@ public class ListPersonalAccessTokensResponse {
 
   public ListPersonalAccessTokensResponse data(List<AccessTokenListItem> data) {
     this.data = data;
-    for (AccessTokenListItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (AccessTokenListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

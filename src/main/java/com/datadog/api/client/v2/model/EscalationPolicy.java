@@ -61,8 +61,10 @@ public class EscalationPolicy {
 
   public EscalationPolicy included(List<EscalationPolicyIncluded> included) {
     this.included = included;
-    for (EscalationPolicyIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (EscalationPolicyIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

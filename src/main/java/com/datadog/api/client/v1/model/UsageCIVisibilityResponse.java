@@ -29,8 +29,10 @@ public class UsageCIVisibilityResponse {
 
   public UsageCIVisibilityResponse usage(List<UsageCIVisibilityHour> usage) {
     this.usage = usage;
-    for (UsageCIVisibilityHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageCIVisibilityHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

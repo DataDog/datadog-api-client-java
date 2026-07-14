@@ -833,8 +833,10 @@ public class IoCIndicatorDetailed {
 
   public IoCIndicatorDetailed signalSeverity(List<IoCSignalSeverityCount> signalSeverity) {
     this.signalSeverity = signalSeverity;
-    for (IoCSignalSeverityCount item : signalSeverity) {
-      this.unparsed |= item.unparsed;
+    if (signalSeverity != null) {
+      for (IoCSignalSeverityCount item : signalSeverity) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -964,8 +966,10 @@ public class IoCIndicatorDetailed {
 
   public IoCIndicatorDetailed triageHistory(List<IoCTriageEvent> triageHistory) {
     this.triageHistory = triageHistory;
-    for (IoCTriageEvent item : triageHistory) {
-      this.unparsed |= item.unparsed;
+    if (triageHistory != null) {
+      for (IoCTriageEvent item : triageHistory) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

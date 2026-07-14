@@ -32,8 +32,10 @@ public class NotebooksResponse {
 
   public NotebooksResponse data(List<NotebooksResponseData> data) {
     this.data = data;
-    for (NotebooksResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (NotebooksResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

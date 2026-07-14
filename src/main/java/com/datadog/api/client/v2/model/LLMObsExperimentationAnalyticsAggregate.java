@@ -143,8 +143,10 @@ public class LLMObsExperimentationAnalyticsAggregate {
   public LLMObsExperimentationAnalyticsAggregate groupBy(
       List<LLMObsExperimentationAnalyticsGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (LLMObsExperimentationAnalyticsGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (LLMObsExperimentationAnalyticsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

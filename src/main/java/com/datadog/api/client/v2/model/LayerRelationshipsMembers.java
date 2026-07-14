@@ -29,8 +29,10 @@ public class LayerRelationshipsMembers {
 
   public LayerRelationshipsMembers data(List<LayerRelationshipsMembersDataItems> data) {
     this.data = data;
-    for (LayerRelationshipsMembersDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (LayerRelationshipsMembersDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

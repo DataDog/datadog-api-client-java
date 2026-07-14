@@ -101,8 +101,10 @@ public class SecurityMonitoringRuleThirdPartyOptions {
   public SecurityMonitoringRuleThirdPartyOptions rootQueries(
       List<SecurityMonitoringThirdPartyRootQuery> rootQueries) {
     this.rootQueries = rootQueries;
-    for (SecurityMonitoringThirdPartyRootQuery item : rootQueries) {
-      this.unparsed |= item.unparsed;
+    if (rootQueries != null) {
+      for (SecurityMonitoringThirdPartyRootQuery item : rootQueries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

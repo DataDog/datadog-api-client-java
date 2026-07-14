@@ -35,8 +35,10 @@ public class ListAppKeyRegistrationsResponse {
 
   public ListAppKeyRegistrationsResponse data(List<AppKeyRegistrationData> data) {
     this.data = data;
-    for (AppKeyRegistrationData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (AppKeyRegistrationData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

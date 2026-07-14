@@ -35,8 +35,10 @@ public class SpansAggregateResponse {
 
   public SpansAggregateResponse data(List<SpansAggregateBucket> data) {
     this.data = data;
-    for (SpansAggregateBucket item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SpansAggregateBucket item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

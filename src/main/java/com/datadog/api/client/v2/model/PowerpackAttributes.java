@@ -154,8 +154,10 @@ public class PowerpackAttributes {
 
   public PowerpackAttributes templateVariables(List<PowerpackTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
-    for (PowerpackTemplateVariable item : templateVariables) {
-      this.unparsed |= item.unparsed;
+    if (templateVariables != null) {
+      for (PowerpackTemplateVariable item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

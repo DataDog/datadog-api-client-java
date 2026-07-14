@@ -66,8 +66,10 @@ public class SLOBulkDeleteResponse {
 
   public SLOBulkDeleteResponse errors(List<SLOBulkDeleteError> errors) {
     this.errors = errors;
-    for (SLOBulkDeleteError item : errors) {
-      this.unparsed |= item.unparsed;
+    if (errors != null) {
+      for (SLOBulkDeleteError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

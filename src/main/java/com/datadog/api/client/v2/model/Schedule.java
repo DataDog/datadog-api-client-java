@@ -60,8 +60,10 @@ public class Schedule {
 
   public Schedule included(List<ScheduleDataIncludedItem> included) {
     this.included = included;
-    for (ScheduleDataIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ScheduleDataIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

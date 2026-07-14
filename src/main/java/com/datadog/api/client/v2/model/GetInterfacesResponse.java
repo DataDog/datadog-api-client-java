@@ -29,8 +29,10 @@ public class GetInterfacesResponse {
 
   public GetInterfacesResponse data(List<GetInterfacesData> data) {
     this.data = data;
-    for (GetInterfacesData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (GetInterfacesData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -151,8 +151,10 @@ public class ServiceDefinitionV2Dot2 {
 
   public ServiceDefinitionV2Dot2 contacts(List<ServiceDefinitionV2Dot2Contact> contacts) {
     this.contacts = contacts;
-    for (ServiceDefinitionV2Dot2Contact item : contacts) {
-      this.unparsed |= item.unparsed;
+    if (contacts != null) {
+      for (ServiceDefinitionV2Dot2Contact item : contacts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -337,8 +339,10 @@ public class ServiceDefinitionV2Dot2 {
 
   public ServiceDefinitionV2Dot2 links(List<ServiceDefinitionV2Dot2Link> links) {
     this.links = links;
-    for (ServiceDefinitionV2Dot2Link item : links) {
-      this.unparsed |= item.unparsed;
+    if (links != null) {
+      for (ServiceDefinitionV2Dot2Link item : links) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

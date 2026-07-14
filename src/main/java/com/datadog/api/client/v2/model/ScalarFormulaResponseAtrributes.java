@@ -29,8 +29,10 @@ public class ScalarFormulaResponseAtrributes {
 
   public ScalarFormulaResponseAtrributes columns(List<ScalarColumn> columns) {
     this.columns = columns;
-    for (ScalarColumn item : columns) {
-      this.unparsed |= item.unparsed;
+    if (columns != null) {
+      for (ScalarColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

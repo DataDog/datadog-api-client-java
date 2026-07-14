@@ -29,8 +29,10 @@ public class SpansMetricsResponse {
 
   public SpansMetricsResponse data(List<SpansMetricResponseData> data) {
     this.data = data;
-    for (SpansMetricResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SpansMetricResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

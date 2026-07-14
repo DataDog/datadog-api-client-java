@@ -59,8 +59,10 @@ public class CreateComponentRequestDataAttributes {
   public CreateComponentRequestDataAttributes components(
       List<CreateComponentRequestDataAttributesComponentsItems> components) {
     this.components = components;
-    for (CreateComponentRequestDataAttributesComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (CreateComponentRequestDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

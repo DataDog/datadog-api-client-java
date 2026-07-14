@@ -29,8 +29,10 @@ public class SyntheticsListTestsResponse {
 
   public SyntheticsListTestsResponse tests(List<SyntheticsTestDetailsWithoutSteps> tests) {
     this.tests = tests;
-    for (SyntheticsTestDetailsWithoutSteps item : tests) {
-      this.unparsed |= item.unparsed;
+    if (tests != null) {
+      for (SyntheticsTestDetailsWithoutSteps item : tests) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

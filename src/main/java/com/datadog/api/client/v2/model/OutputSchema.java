@@ -29,8 +29,10 @@ public class OutputSchema {
 
   public OutputSchema parameters(List<OutputSchemaParameters> parameters) {
     this.parameters = parameters;
-    for (OutputSchemaParameters item : parameters) {
-      this.unparsed |= item.unparsed;
+    if (parameters != null) {
+      for (OutputSchemaParameters item : parameters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

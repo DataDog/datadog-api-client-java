@@ -29,8 +29,10 @@ public class UpdateOpenAPIResponseAttributes {
 
   public UpdateOpenAPIResponseAttributes failedEndpoints(List<OpenAPIEndpoint> failedEndpoints) {
     this.failedEndpoints = failedEndpoints;
-    for (OpenAPIEndpoint item : failedEndpoints) {
-      this.unparsed |= item.unparsed;
+    if (failedEndpoints != null) {
+      for (OpenAPIEndpoint item : failedEndpoints) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

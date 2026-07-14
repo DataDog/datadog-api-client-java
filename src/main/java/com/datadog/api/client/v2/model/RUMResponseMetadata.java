@@ -139,8 +139,10 @@ public class RUMResponseMetadata {
 
   public RUMResponseMetadata warnings(List<RUMWarning> warnings) {
     this.warnings = warnings;
-    for (RUMWarning item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (RUMWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

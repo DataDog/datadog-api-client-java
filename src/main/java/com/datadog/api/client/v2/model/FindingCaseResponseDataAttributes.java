@@ -289,8 +289,10 @@ public class FindingCaseResponseDataAttributes {
 
   public FindingCaseResponseDataAttributes insights(List<CaseInsightsItems> insights) {
     this.insights = insights;
-    for (CaseInsightsItems item : insights) {
-      this.unparsed |= item.unparsed;
+    if (insights != null) {
+      for (CaseInsightsItems item : insights) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

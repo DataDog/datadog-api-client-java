@@ -43,8 +43,10 @@ public class ScaRequestDataAttributesVulnerabilitiesItems {
   public ScaRequestDataAttributesVulnerabilitiesItems affects(
       List<ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems> affects) {
     this.affects = affects;
-    for (ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems item : affects) {
-      this.unparsed |= item.unparsed;
+    if (affects != null) {
+      for (ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems item : affects) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

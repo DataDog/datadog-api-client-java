@@ -35,8 +35,10 @@ public class SyntheticsSuiteSearchResponseDataAttributes {
 
   public SyntheticsSuiteSearchResponseDataAttributes suites(List<SyntheticsSuite> suites) {
     this.suites = suites;
-    for (SyntheticsSuite item : suites) {
-      this.unparsed |= item.unparsed;
+    if (suites != null) {
+      for (SyntheticsSuite item : suites) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

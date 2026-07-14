@@ -76,8 +76,10 @@ public class RunWorkflowWidgetDefinition {
 
   public RunWorkflowWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -135,8 +137,10 @@ public class RunWorkflowWidgetDefinition {
 
   public RunWorkflowWidgetDefinition inputs(List<RunWorkflowWidgetInput> inputs) {
     this.inputs = inputs;
-    for (RunWorkflowWidgetInput item : inputs) {
-      this.unparsed |= item.unparsed;
+    if (inputs != null) {
+      for (RunWorkflowWidgetInput item : inputs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

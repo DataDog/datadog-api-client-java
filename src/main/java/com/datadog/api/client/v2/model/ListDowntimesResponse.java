@@ -39,8 +39,10 @@ public class ListDowntimesResponse {
 
   public ListDowntimesResponse data(List<DowntimeResponseData> data) {
     this.data = data;
-    for (DowntimeResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DowntimeResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -77,8 +79,10 @@ public class ListDowntimesResponse {
 
   public ListDowntimesResponse included(List<DowntimeResponseIncludedItem> included) {
     this.included = included;
-    for (DowntimeResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (DowntimeResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

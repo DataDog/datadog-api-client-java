@@ -143,8 +143,10 @@ public class SyntheticsTestResultTurn {
 
   public SyntheticsTestResultTurn steps(List<SyntheticsTestResultTurnStep> steps) {
     this.steps = steps;
-    for (SyntheticsTestResultTurnStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SyntheticsTestResultTurnStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

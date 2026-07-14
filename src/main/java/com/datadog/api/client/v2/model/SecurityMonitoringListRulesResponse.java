@@ -35,8 +35,10 @@ public class SecurityMonitoringListRulesResponse {
 
   public SecurityMonitoringListRulesResponse data(List<SecurityMonitoringRuleResponse> data) {
     this.data = data;
-    for (SecurityMonitoringRuleResponse item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityMonitoringRuleResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

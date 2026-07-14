@@ -90,8 +90,10 @@ public class FastlyAccountCreateRequestAttributes {
 
   public FastlyAccountCreateRequestAttributes services(List<FastlyService> services) {
     this.services = services;
-    for (FastlyService item : services) {
-      this.unparsed |= item.unparsed;
+    if (services != null) {
+      for (FastlyService item : services) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

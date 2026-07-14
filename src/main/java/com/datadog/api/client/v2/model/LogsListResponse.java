@@ -39,8 +39,10 @@ public class LogsListResponse {
 
   public LogsListResponse data(List<Log> data) {
     this.data = data;
-    for (Log item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (Log item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

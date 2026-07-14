@@ -93,8 +93,10 @@ public class ScaRequestDataAttributes {
   public ScaRequestDataAttributes dependencies(
       List<ScaRequestDataAttributesDependenciesItems> dependencies) {
     this.dependencies = dependencies;
-    for (ScaRequestDataAttributesDependenciesItems item : dependencies) {
-      this.unparsed |= item.unparsed;
+    if (dependencies != null) {
+      for (ScaRequestDataAttributesDependenciesItems item : dependencies) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -153,8 +155,10 @@ public class ScaRequestDataAttributes {
 
   public ScaRequestDataAttributes files(List<ScaRequestDataAttributesFilesItems> files) {
     this.files = files;
-    for (ScaRequestDataAttributesFilesItems item : files) {
-      this.unparsed |= item.unparsed;
+    if (files != null) {
+      for (ScaRequestDataAttributesFilesItems item : files) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -192,8 +196,10 @@ public class ScaRequestDataAttributes {
   public ScaRequestDataAttributes relations(
       List<ScaRequestDataAttributesRelationsItems> relations) {
     this.relations = relations;
-    for (ScaRequestDataAttributesRelationsItems item : relations) {
-      this.unparsed |= item.unparsed;
+    if (relations != null) {
+      for (ScaRequestDataAttributesRelationsItems item : relations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -307,8 +313,10 @@ public class ScaRequestDataAttributes {
   public ScaRequestDataAttributes vulnerabilities(
       List<ScaRequestDataAttributesVulnerabilitiesItems> vulnerabilities) {
     this.vulnerabilities = vulnerabilities;
-    for (ScaRequestDataAttributesVulnerabilitiesItems item : vulnerabilities) {
-      this.unparsed |= item.unparsed;
+    if (vulnerabilities != null) {
+      for (ScaRequestDataAttributesVulnerabilitiesItems item : vulnerabilities) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

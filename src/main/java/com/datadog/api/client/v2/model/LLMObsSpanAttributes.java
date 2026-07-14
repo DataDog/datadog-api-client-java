@@ -517,8 +517,10 @@ public class LLMObsSpanAttributes {
 
   public LLMObsSpanAttributes toolDefinitions(List<LLMObsSpanToolDefinition> toolDefinitions) {
     this.toolDefinitions = toolDefinitions;
-    for (LLMObsSpanToolDefinition item : toolDefinitions) {
-      this.unparsed |= item.unparsed;
+    if (toolDefinitions != null) {
+      for (LLMObsSpanToolDefinition item : toolDefinitions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

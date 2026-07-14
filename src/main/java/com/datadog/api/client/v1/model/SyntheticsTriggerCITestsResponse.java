@@ -76,8 +76,10 @@ public class SyntheticsTriggerCITestsResponse {
   public SyntheticsTriggerCITestsResponse locations(
       List<SyntheticsTriggerCITestLocation> locations) {
     this.locations = locations;
-    for (SyntheticsTriggerCITestLocation item : locations) {
-      this.unparsed |= item.unparsed;
+    if (locations != null) {
+      for (SyntheticsTriggerCITestLocation item : locations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -115,8 +117,10 @@ public class SyntheticsTriggerCITestsResponse {
 
   public SyntheticsTriggerCITestsResponse results(List<SyntheticsTriggerCITestRunResult> results) {
     this.results = results;
-    for (SyntheticsTriggerCITestRunResult item : results) {
-      this.unparsed |= item.unparsed;
+    if (results != null) {
+      for (SyntheticsTriggerCITestRunResult item : results) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

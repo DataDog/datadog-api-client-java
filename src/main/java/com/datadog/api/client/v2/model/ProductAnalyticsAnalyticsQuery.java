@@ -110,8 +110,10 @@ public class ProductAnalyticsAnalyticsQuery {
 
   public ProductAnalyticsAnalyticsQuery groupBy(List<ProductAnalyticsGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (ProductAnalyticsGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (ProductAnalyticsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

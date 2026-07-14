@@ -35,8 +35,10 @@ public class ListAppVersionsResponse {
 
   public ListAppVersionsResponse data(List<AppVersion> data) {
     this.data = data;
-    for (AppVersion item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (AppVersion item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

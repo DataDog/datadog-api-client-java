@@ -32,8 +32,10 @@ public class DowntimeScheduleRecurrencesUpdateRequest {
   public DowntimeScheduleRecurrencesUpdateRequest recurrences(
       List<DowntimeScheduleRecurrenceCreateUpdateRequest> recurrences) {
     this.recurrences = recurrences;
-    for (DowntimeScheduleRecurrenceCreateUpdateRequest item : recurrences) {
-      this.unparsed |= item.unparsed;
+    if (recurrences != null) {
+      for (DowntimeScheduleRecurrenceCreateUpdateRequest item : recurrences) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

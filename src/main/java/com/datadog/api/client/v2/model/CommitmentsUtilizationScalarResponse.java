@@ -83,8 +83,10 @@ public class CommitmentsUtilizationScalarResponse {
   public CommitmentsUtilizationScalarResponse productBreakdown(
       List<CommitmentsUtilizationScalarProductBreakdownEntry> productBreakdown) {
     this.productBreakdown = productBreakdown;
-    for (CommitmentsUtilizationScalarProductBreakdownEntry item : productBreakdown) {
-      this.unparsed |= item.unparsed;
+    if (productBreakdown != null) {
+      for (CommitmentsUtilizationScalarProductBreakdownEntry item : productBreakdown) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

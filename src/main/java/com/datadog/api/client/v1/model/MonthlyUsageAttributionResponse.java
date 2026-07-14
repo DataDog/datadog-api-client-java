@@ -60,8 +60,10 @@ public class MonthlyUsageAttributionResponse {
 
   public MonthlyUsageAttributionResponse usage(List<MonthlyUsageAttributionBody> usage) {
     this.usage = usage;
-    for (MonthlyUsageAttributionBody item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (MonthlyUsageAttributionBody item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

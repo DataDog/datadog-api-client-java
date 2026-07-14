@@ -30,8 +30,10 @@ public class AWSLambdaForwarderConfigLogSourceConfig {
   public AWSLambdaForwarderConfigLogSourceConfig tagFilters(
       List<AWSLogSourceTagFilter> tagFilters) {
     this.tagFilters = tagFilters;
-    for (AWSLogSourceTagFilter item : tagFilters) {
-      this.unparsed |= item.unparsed;
+    if (tagFilters != null) {
+      for (AWSLogSourceTagFilter item : tagFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

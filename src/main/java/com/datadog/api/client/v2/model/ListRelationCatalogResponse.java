@@ -43,8 +43,10 @@ public class ListRelationCatalogResponse {
 
   public ListRelationCatalogResponse data(List<RelationResponse> data) {
     this.data = data;
-    for (RelationResponse item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RelationResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -81,8 +83,10 @@ public class ListRelationCatalogResponse {
 
   public ListRelationCatalogResponse included(List<EntityData> included) {
     this.included = included;
-    for (EntityData item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (EntityData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

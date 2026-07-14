@@ -80,8 +80,10 @@ public class SecurityMonitoringDatasetDefinition {
   public SecurityMonitoringDatasetDefinition columns(
       List<SecurityMonitoringDatasetColumn> columns) {
     this.columns = columns;
-    for (SecurityMonitoringDatasetColumn item : columns) {
-      this.unparsed |= item.unparsed;
+    if (columns != null) {
+      for (SecurityMonitoringDatasetColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

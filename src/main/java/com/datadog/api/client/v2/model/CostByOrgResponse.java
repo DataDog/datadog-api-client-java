@@ -29,8 +29,10 @@ public class CostByOrgResponse {
 
   public CostByOrgResponse data(List<CostByOrg> data) {
     this.data = data;
-    for (CostByOrg item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CostByOrg item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

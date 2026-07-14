@@ -44,8 +44,10 @@ public class ProductAnalyticsAudienceFilters {
   public ProductAnalyticsAudienceFilters accounts(
       List<ProductAnalyticsAudienceAccountSubquery> accounts) {
     this.accounts = accounts;
-    for (ProductAnalyticsAudienceAccountSubquery item : accounts) {
-      this.unparsed |= item.unparsed;
+    if (accounts != null) {
+      for (ProductAnalyticsAudienceAccountSubquery item : accounts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -105,8 +107,10 @@ public class ProductAnalyticsAudienceFilters {
   public ProductAnalyticsAudienceFilters segments(
       List<ProductAnalyticsAudienceSegmentSubquery> segments) {
     this.segments = segments;
-    for (ProductAnalyticsAudienceSegmentSubquery item : segments) {
-      this.unparsed |= item.unparsed;
+    if (segments != null) {
+      for (ProductAnalyticsAudienceSegmentSubquery item : segments) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -144,8 +148,10 @@ public class ProductAnalyticsAudienceFilters {
 
   public ProductAnalyticsAudienceFilters users(List<ProductAnalyticsAudienceUserSubquery> users) {
     this.users = users;
-    for (ProductAnalyticsAudienceUserSubquery item : users) {
-      this.unparsed |= item.unparsed;
+    if (users != null) {
+      for (ProductAnalyticsAudienceUserSubquery item : users) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

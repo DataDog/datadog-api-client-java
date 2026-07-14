@@ -35,8 +35,10 @@ public class DeploymentGatesListResponse {
 
   public DeploymentGatesListResponse data(List<DeploymentGateResponseData> data) {
     this.data = data;
-    for (DeploymentGateResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DeploymentGateResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

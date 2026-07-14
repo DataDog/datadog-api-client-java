@@ -60,8 +60,10 @@ public class HourlyUsageAttributionResponse {
 
   public HourlyUsageAttributionResponse usage(List<HourlyUsageAttributionBody> usage) {
     this.usage = usage;
-    for (HourlyUsageAttributionBody item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (HourlyUsageAttributionBody item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

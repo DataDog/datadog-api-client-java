@@ -45,8 +45,10 @@ public class PatchDegradationRequestDataAttributes {
   public PatchDegradationRequestDataAttributes componentsAffected(
       List<PatchDegradationRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
-    for (PatchDegradationRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
+    if (componentsAffected != null) {
+      for (PatchDegradationRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

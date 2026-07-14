@@ -70,8 +70,10 @@ public class LLMObsCustomEvalConfigPromptMessage {
   public LLMObsCustomEvalConfigPromptMessage contents(
       List<LLMObsCustomEvalConfigPromptContent> contents) {
     this.contents = contents;
-    for (LLMObsCustomEvalConfigPromptContent item : contents) {
-      this.unparsed |= item.unparsed;
+    if (contents != null) {
+      for (LLMObsCustomEvalConfigPromptContent item : contents) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -78,8 +78,10 @@ public class ArbitraryCostUpsertRequestDataAttributesStrategy {
   public ArbitraryCostUpsertRequestDataAttributesStrategy allocatedBy(
       List<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems> allocatedBy) {
     this.allocatedBy = allocatedBy;
-    for (ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems item : allocatedBy) {
-      this.unparsed |= item.unparsed;
+    if (allocatedBy != null) {
+      for (ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems item : allocatedBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -120,9 +122,11 @@ public class ArbitraryCostUpsertRequestDataAttributesStrategy {
       List<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems>
           allocatedByFilters) {
     this.allocatedByFilters = allocatedByFilters;
-    for (ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems item :
-        allocatedByFilters) {
-      this.unparsed |= item.unparsed;
+    if (allocatedByFilters != null) {
+      for (ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems item :
+          allocatedByFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -197,8 +201,10 @@ public class ArbitraryCostUpsertRequestDataAttributesStrategy {
   public ArbitraryCostUpsertRequestDataAttributesStrategy basedOnCosts(
       List<ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems> basedOnCosts) {
     this.basedOnCosts = basedOnCosts;
-    for (ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems item : basedOnCosts) {
-      this.unparsed |= item.unparsed;
+    if (basedOnCosts != null) {
+      for (ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems item : basedOnCosts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -270,9 +276,11 @@ public class ArbitraryCostUpsertRequestDataAttributesStrategy {
       List<ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems>
           evaluateGroupedByFilters) {
     this.evaluateGroupedByFilters = evaluateGroupedByFilters;
-    for (ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems item :
-        evaluateGroupedByFilters) {
-      this.unparsed |= item.unparsed;
+    if (evaluateGroupedByFilters != null) {
+      for (ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems item :
+          evaluateGroupedByFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

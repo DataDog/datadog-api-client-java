@@ -142,8 +142,10 @@ public class SecurityMonitoringStandardRuleResponse {
   public SecurityMonitoringStandardRuleResponse calculatedFields(
       List<CalculatedField> calculatedFields) {
     this.calculatedFields = calculatedFields;
-    for (CalculatedField item : calculatedFields) {
-      this.unparsed |= item.unparsed;
+    if (calculatedFields != null) {
+      for (CalculatedField item : calculatedFields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -182,8 +184,10 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public SecurityMonitoringStandardRuleResponse cases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
-    for (SecurityMonitoringRuleCase item : cases) {
-      this.unparsed |= item.unparsed;
+    if (cases != null) {
+      for (SecurityMonitoringRuleCase item : cases) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -381,8 +385,10 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public SecurityMonitoringStandardRuleResponse filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
-    for (SecurityMonitoringFilter item : filters) {
-      this.unparsed |= item.unparsed;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -624,8 +630,10 @@ public class SecurityMonitoringStandardRuleResponse {
   public SecurityMonitoringStandardRuleResponse queries(
       List<SecurityMonitoringStandardRuleQuery> queries) {
     this.queries = queries;
-    for (SecurityMonitoringStandardRuleQuery item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (SecurityMonitoringStandardRuleQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -664,8 +672,10 @@ public class SecurityMonitoringStandardRuleResponse {
   public SecurityMonitoringStandardRuleResponse referenceTables(
       List<SecurityMonitoringReferenceTable> referenceTables) {
     this.referenceTables = referenceTables;
-    for (SecurityMonitoringReferenceTable item : referenceTables) {
-      this.unparsed |= item.unparsed;
+    if (referenceTables != null) {
+      for (SecurityMonitoringReferenceTable item : referenceTables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -769,8 +779,10 @@ public class SecurityMonitoringStandardRuleResponse {
   public SecurityMonitoringStandardRuleResponse thirdPartyCases(
       List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
     this.thirdPartyCases = thirdPartyCases;
-    for (SecurityMonitoringThirdPartyRuleCase item : thirdPartyCases) {
-      this.unparsed |= item.unparsed;
+    if (thirdPartyCases != null) {
+      for (SecurityMonitoringThirdPartyRuleCase item : thirdPartyCases) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

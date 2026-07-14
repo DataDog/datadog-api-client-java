@@ -39,8 +39,10 @@ public class SBOMMetadata {
 
   public SBOMMetadata authors(List<SBOMMetadataAuthor> authors) {
     this.authors = authors;
-    for (SBOMMetadataAuthor item : authors) {
-      this.unparsed |= item.unparsed;
+    if (authors != null) {
+      for (SBOMMetadataAuthor item : authors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

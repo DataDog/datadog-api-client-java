@@ -57,8 +57,10 @@ public class Shift {
 
   public Shift included(List<ShiftIncluded> included) {
     this.included = included;
-    for (ShiftIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ShiftIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

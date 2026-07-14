@@ -61,8 +61,10 @@ public class SecurityMonitoringRuleTestRequest {
   public SecurityMonitoringRuleTestRequest ruleQueryPayloads(
       List<SecurityMonitoringRuleQueryPayload> ruleQueryPayloads) {
     this.ruleQueryPayloads = ruleQueryPayloads;
-    for (SecurityMonitoringRuleQueryPayload item : ruleQueryPayloads) {
-      this.unparsed |= item.unparsed;
+    if (ruleQueryPayloads != null) {
+      for (SecurityMonitoringRuleQueryPayload item : ruleQueryPayloads) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

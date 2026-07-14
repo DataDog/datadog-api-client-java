@@ -101,8 +101,10 @@ public class ModelLabFacetValuesAttributes {
   public ModelLabFacetValuesAttributes metricStatRanges(
       List<ModelLabMetricStatRange> metricStatRanges) {
     this.metricStatRanges = metricStatRanges;
-    for (ModelLabMetricStatRange item : metricStatRanges) {
-      this.unparsed |= item.unparsed;
+    if (metricStatRanges != null) {
+      for (ModelLabMetricStatRange item : metricStatRanges) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

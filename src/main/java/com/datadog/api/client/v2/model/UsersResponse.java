@@ -39,8 +39,10 @@ public class UsersResponse {
 
   public UsersResponse data(List<User> data) {
     this.data = data;
-    for (User item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (User item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -77,8 +79,10 @@ public class UsersResponse {
 
   public UsersResponse included(List<UserResponseIncludedItem> included) {
     this.included = included;
-    for (UserResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (UserResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

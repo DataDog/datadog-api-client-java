@@ -142,8 +142,10 @@ public class ChangeEventCustomAttributes {
   public ChangeEventCustomAttributes impactedResources(
       List<ChangeEventCustomAttributesImpactedResourcesItems> impactedResources) {
     this.impactedResources = impactedResources;
-    for (ChangeEventCustomAttributesImpactedResourcesItems item : impactedResources) {
-      this.unparsed |= item.unparsed;
+    if (impactedResources != null) {
+      for (ChangeEventCustomAttributesImpactedResourcesItems item : impactedResources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

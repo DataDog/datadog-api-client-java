@@ -58,8 +58,10 @@ public class SyntheticsMobileStepParamsElementUserLocator {
   public SyntheticsMobileStepParamsElementUserLocator values(
       List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> values) {
     this.values = values;
-    for (SyntheticsMobileStepParamsElementUserLocatorValuesItems item : values) {
-      this.unparsed |= item.unparsed;
+    if (values != null) {
+      for (SyntheticsMobileStepParamsElementUserLocatorValuesItems item : values) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

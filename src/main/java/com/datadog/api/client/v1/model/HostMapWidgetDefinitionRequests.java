@@ -120,8 +120,10 @@ public class HostMapWidgetDefinitionRequests {
   public HostMapWidgetDefinitionRequests conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -159,8 +161,10 @@ public class HostMapWidgetDefinitionRequests {
 
   public HostMapWidgetDefinitionRequests enrichments(List<HostMapWidgetScalarRequest> enrichments) {
     this.enrichments = enrichments;
-    for (HostMapWidgetScalarRequest item : enrichments) {
-      this.unparsed |= item.unparsed;
+    if (enrichments != null) {
+      for (HostMapWidgetScalarRequest item : enrichments) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -251,8 +255,10 @@ public class HostMapWidgetDefinitionRequests {
 
   public HostMapWidgetDefinitionRequests groupBy(List<HostMapWidgetGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (HostMapWidgetGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (HostMapWidgetGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

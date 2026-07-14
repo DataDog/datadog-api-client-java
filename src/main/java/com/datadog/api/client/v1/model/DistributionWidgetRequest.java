@@ -166,8 +166,10 @@ public class DistributionWidgetRequest {
 
   public DistributionWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -328,8 +330,10 @@ public class DistributionWidgetRequest {
 
   public DistributionWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

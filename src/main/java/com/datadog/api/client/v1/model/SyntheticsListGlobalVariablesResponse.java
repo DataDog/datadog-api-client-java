@@ -29,8 +29,10 @@ public class SyntheticsListGlobalVariablesResponse {
 
   public SyntheticsListGlobalVariablesResponse variables(List<SyntheticsGlobalVariable> variables) {
     this.variables = variables;
-    for (SyntheticsGlobalVariable item : variables) {
-      this.unparsed |= item.unparsed;
+    if (variables != null) {
+      for (SyntheticsGlobalVariable item : variables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

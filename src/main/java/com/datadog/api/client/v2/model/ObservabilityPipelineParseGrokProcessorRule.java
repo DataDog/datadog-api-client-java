@@ -115,8 +115,10 @@ public class ObservabilityPipelineParseGrokProcessorRule {
   public ObservabilityPipelineParseGrokProcessorRule supportRules(
       List<ObservabilityPipelineParseGrokProcessorRuleSupportRule> supportRules) {
     this.supportRules = supportRules;
-    for (ObservabilityPipelineParseGrokProcessorRuleSupportRule item : supportRules) {
-      this.unparsed |= item.unparsed;
+    if (supportRules != null) {
+      for (ObservabilityPipelineParseGrokProcessorRuleSupportRule item : supportRules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

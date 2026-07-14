@@ -60,8 +60,10 @@ public class BatchRowsQueryResponse {
 
   public BatchRowsQueryResponse included(List<TableRowResourceData> included) {
     this.included = included;
-    for (TableRowResourceData item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TableRowResourceData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

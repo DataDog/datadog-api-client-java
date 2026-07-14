@@ -135,8 +135,10 @@ public class UpsertAllocationRequest {
 
   public UpsertAllocationRequest guardrailMetrics(List<GuardrailMetricRequest> guardrailMetrics) {
     this.guardrailMetrics = guardrailMetrics;
-    for (GuardrailMetricRequest item : guardrailMetrics) {
-      this.unparsed |= item.unparsed;
+    if (guardrailMetrics != null) {
+      for (GuardrailMetricRequest item : guardrailMetrics) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -235,8 +237,10 @@ public class UpsertAllocationRequest {
 
   public UpsertAllocationRequest targetingRules(List<TargetingRuleRequest> targetingRules) {
     this.targetingRules = targetingRules;
-    for (TargetingRuleRequest item : targetingRules) {
-      this.unparsed |= item.unparsed;
+    if (targetingRules != null) {
+      for (TargetingRuleRequest item : targetingRules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -297,8 +301,10 @@ public class UpsertAllocationRequest {
 
   public UpsertAllocationRequest variantWeights(List<VariantWeightRequest> variantWeights) {
     this.variantWeights = variantWeights;
-    for (VariantWeightRequest item : variantWeights) {
-      this.unparsed |= item.unparsed;
+    if (variantWeights != null) {
+      for (VariantWeightRequest item : variantWeights) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

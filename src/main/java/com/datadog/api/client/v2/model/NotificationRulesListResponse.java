@@ -29,8 +29,10 @@ public class NotificationRulesListResponse {
 
   public NotificationRulesListResponse data(List<NotificationRule> data) {
     this.data = data;
-    for (NotificationRule item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (NotificationRule item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

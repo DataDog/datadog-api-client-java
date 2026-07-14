@@ -260,8 +260,10 @@ public class SyntheticsMobileTest {
 
   public SyntheticsMobileTest steps(List<SyntheticsMobileStep> steps) {
     this.steps = steps;
-    for (SyntheticsMobileStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SyntheticsMobileStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

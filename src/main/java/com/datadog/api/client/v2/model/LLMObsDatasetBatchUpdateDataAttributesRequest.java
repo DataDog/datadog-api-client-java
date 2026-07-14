@@ -100,8 +100,10 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
   public LLMObsDatasetBatchUpdateDataAttributesRequest insertRecords(
       List<LLMObsDatasetBatchUpdateInsertRecord> insertRecords) {
     this.insertRecords = insertRecords;
-    for (LLMObsDatasetBatchUpdateInsertRecord item : insertRecords) {
-      this.unparsed |= item.unparsed;
+    if (insertRecords != null) {
+      for (LLMObsDatasetBatchUpdateInsertRecord item : insertRecords) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -169,8 +171,10 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
   public LLMObsDatasetBatchUpdateDataAttributesRequest updateRecords(
       List<LLMObsDatasetBatchUpdateUpdateRecord> updateRecords) {
     this.updateRecords = updateRecords;
-    for (LLMObsDatasetBatchUpdateUpdateRecord item : updateRecords) {
-      this.unparsed |= item.unparsed;
+    if (updateRecords != null) {
+      for (LLMObsDatasetBatchUpdateUpdateRecord item : updateRecords) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

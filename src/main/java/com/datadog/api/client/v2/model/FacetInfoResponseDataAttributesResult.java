@@ -65,8 +65,10 @@ public class FacetInfoResponseDataAttributesResult {
   public FacetInfoResponseDataAttributesResult values(
       List<FacetInfoResponseDataAttributesResultValuesItems> values) {
     this.values = values;
-    for (FacetInfoResponseDataAttributesResultValuesItems item : values) {
-      this.unparsed |= item.unparsed;
+    if (values != null) {
+      for (FacetInfoResponseDataAttributesResultValuesItems item : values) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

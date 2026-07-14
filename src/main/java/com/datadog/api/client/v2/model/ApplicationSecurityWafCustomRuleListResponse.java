@@ -30,8 +30,10 @@ public class ApplicationSecurityWafCustomRuleListResponse {
   public ApplicationSecurityWafCustomRuleListResponse data(
       List<ApplicationSecurityWafCustomRuleData> data) {
     this.data = data;
-    for (ApplicationSecurityWafCustomRuleData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ApplicationSecurityWafCustomRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

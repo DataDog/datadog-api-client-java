@@ -35,8 +35,10 @@ public class TeamNotificationRulesResponse {
 
   public TeamNotificationRulesResponse data(List<TeamNotificationRule> data) {
     this.data = data;
-    for (TeamNotificationRule item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TeamNotificationRule item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -66,8 +66,10 @@ public class SensitiveDataScannerGetConfigResponse {
   public SensitiveDataScannerGetConfigResponse included(
       List<SensitiveDataScannerGetConfigIncludedItem> included) {
     this.included = included;
-    for (SensitiveDataScannerGetConfigIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (SensitiveDataScannerGetConfigIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

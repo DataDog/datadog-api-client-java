@@ -181,8 +181,10 @@ public class SecurityMonitoringSignalRulePayload {
 
   public SecurityMonitoringSignalRulePayload filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
-    for (SecurityMonitoringFilter item : filters) {
-      this.unparsed |= item.unparsed;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

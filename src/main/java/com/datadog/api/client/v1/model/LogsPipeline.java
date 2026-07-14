@@ -188,8 +188,10 @@ public class LogsPipeline {
 
   public LogsPipeline processors(List<LogsProcessor> processors) {
     this.processors = processors;
-    for (LogsProcessor item : processors) {
-      this.unparsed |= item.unparsed;
+    if (processors != null) {
+      for (LogsProcessor item : processors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

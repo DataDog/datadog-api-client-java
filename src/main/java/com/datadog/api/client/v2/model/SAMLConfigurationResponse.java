@@ -69,8 +69,10 @@ public class SAMLConfigurationResponse {
 
   public SAMLConfigurationResponse included(List<Role> included) {
     this.included = included;
-    for (Role item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (Role item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

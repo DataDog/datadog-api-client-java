@@ -29,8 +29,10 @@ public class SyntheticsTestParentSuitesResponse {
 
   public SyntheticsTestParentSuitesResponse data(List<SyntheticsTestParentSuiteData> data) {
     this.data = data;
-    for (SyntheticsTestParentSuiteData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SyntheticsTestParentSuiteData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

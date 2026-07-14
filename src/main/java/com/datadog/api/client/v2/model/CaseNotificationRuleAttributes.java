@@ -85,8 +85,10 @@ public class CaseNotificationRuleAttributes {
 
   public CaseNotificationRuleAttributes recipients(List<CaseNotificationRuleRecipient> recipients) {
     this.recipients = recipients;
-    for (CaseNotificationRuleRecipient item : recipients) {
-      this.unparsed |= item.unparsed;
+    if (recipients != null) {
+      for (CaseNotificationRuleRecipient item : recipients) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -124,8 +126,10 @@ public class CaseNotificationRuleAttributes {
 
   public CaseNotificationRuleAttributes triggers(List<CaseNotificationRuleTrigger> triggers) {
     this.triggers = triggers;
-    for (CaseNotificationRuleTrigger item : triggers) {
-      this.unparsed |= item.unparsed;
+    if (triggers != null) {
+      for (CaseNotificationRuleTrigger item : triggers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

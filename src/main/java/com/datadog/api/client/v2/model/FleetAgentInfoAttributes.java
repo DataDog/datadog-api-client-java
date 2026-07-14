@@ -94,8 +94,10 @@ public class FleetAgentInfoAttributes {
   public FleetAgentInfoAttributes detectedIntegrations(
       List<FleetDetectedIntegration> detectedIntegrations) {
     this.detectedIntegrations = detectedIntegrations;
-    for (FleetDetectedIntegration item : detectedIntegrations) {
-      this.unparsed |= item.unparsed;
+    if (detectedIntegrations != null) {
+      for (FleetDetectedIntegration item : detectedIntegrations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -43,8 +43,10 @@ public class ListEntityCatalogResponse {
 
   public ListEntityCatalogResponse data(List<EntityData> data) {
     this.data = data;
-    for (EntityData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EntityData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -81,8 +83,10 @@ public class ListEntityCatalogResponse {
 
   public ListEntityCatalogResponse included(List<ListEntityCatalogResponseIncludedItem> included) {
     this.included = included;
-    for (ListEntityCatalogResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ListEntityCatalogResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

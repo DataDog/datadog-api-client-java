@@ -60,8 +60,10 @@ public class AWSEventBridgeAccountConfiguration {
 
   public AWSEventBridgeAccountConfiguration eventHubs(List<AWSEventBridgeSource> eventHubs) {
     this.eventHubs = eventHubs;
-    for (AWSEventBridgeSource item : eventHubs) {
-      this.unparsed |= item.unparsed;
+    if (eventHubs != null) {
+      for (AWSEventBridgeSource item : eventHubs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

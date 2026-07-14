@@ -997,8 +997,10 @@ public class MonitorOptions {
 
   public MonitorOptions variables(List<MonitorFormulaAndFunctionQueryDefinition> variables) {
     this.variables = variables;
-    for (MonitorFormulaAndFunctionQueryDefinition item : variables) {
-      this.unparsed |= item.unparsed;
+    if (variables != null) {
+      for (MonitorFormulaAndFunctionQueryDefinition item : variables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

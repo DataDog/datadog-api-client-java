@@ -66,8 +66,10 @@ public class ComponentGrid {
 
   public ComponentGrid events(List<AppBuilderEvent> events) {
     this.events = events;
-    for (AppBuilderEvent item : events) {
-      this.unparsed |= item.unparsed;
+    if (events != null) {
+      for (AppBuilderEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

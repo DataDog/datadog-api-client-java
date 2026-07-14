@@ -104,8 +104,10 @@ public class PatchMaintenanceRequestDataAttributes {
   public PatchMaintenanceRequestDataAttributes componentsAffected(
       List<PatchMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
-    for (PatchMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
+    if (componentsAffected != null) {
+      for (PatchMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -112,8 +112,10 @@ public class JobDefinition {
 
   public JobDefinition calculatedFields(List<CalculatedField> calculatedFields) {
     this.calculatedFields = calculatedFields;
-    for (CalculatedField item : calculatedFields) {
-      this.unparsed |= item.unparsed;
+    if (calculatedFields != null) {
+      for (CalculatedField item : calculatedFields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -353,8 +355,10 @@ public class JobDefinition {
 
   public JobDefinition referenceTables(List<SecurityMonitoringReferenceTable> referenceTables) {
     this.referenceTables = referenceTables;
-    for (SecurityMonitoringReferenceTable item : referenceTables) {
-      this.unparsed |= item.unparsed;
+    if (referenceTables != null) {
+      for (SecurityMonitoringReferenceTable item : referenceTables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -422,8 +426,10 @@ public class JobDefinition {
   public JobDefinition thirdPartyCases(
       List<SecurityMonitoringThirdPartyRuleCaseCreate> thirdPartyCases) {
     this.thirdPartyCases = thirdPartyCases;
-    for (SecurityMonitoringThirdPartyRuleCaseCreate item : thirdPartyCases) {
-      this.unparsed |= item.unparsed;
+    if (thirdPartyCases != null) {
+      for (SecurityMonitoringThirdPartyRuleCaseCreate item : thirdPartyCases) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

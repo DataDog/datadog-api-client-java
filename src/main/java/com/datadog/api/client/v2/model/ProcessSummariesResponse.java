@@ -35,8 +35,10 @@ public class ProcessSummariesResponse {
 
   public ProcessSummariesResponse data(List<ProcessSummary> data) {
     this.data = data;
-    for (ProcessSummary item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ProcessSummary item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

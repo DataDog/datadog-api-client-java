@@ -29,8 +29,10 @@ public class UsageFargateResponse {
 
   public UsageFargateResponse usage(List<UsageFargateHour> usage) {
     this.usage = usage;
-    for (UsageFargateHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageFargateHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

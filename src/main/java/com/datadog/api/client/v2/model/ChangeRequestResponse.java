@@ -69,8 +69,10 @@ public class ChangeRequestResponse {
 
   public ChangeRequestResponse included(List<ChangeRequestIncludedItem> included) {
     this.included = included;
-    for (ChangeRequestIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ChangeRequestIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

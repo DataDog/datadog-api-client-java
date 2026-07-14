@@ -29,8 +29,10 @@ public class UsageIoTResponse {
 
   public UsageIoTResponse usage(List<UsageIoTHour> usage) {
     this.usage = usage;
-    for (UsageIoTHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageIoTHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

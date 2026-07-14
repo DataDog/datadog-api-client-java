@@ -30,8 +30,10 @@ public class GlobalVariableJsonPatchRequestDataAttributes {
   public GlobalVariableJsonPatchRequestDataAttributes jsonPatch(
       List<JsonPatchOperation> jsonPatch) {
     this.jsonPatch = jsonPatch;
-    for (JsonPatchOperation item : jsonPatch) {
-      this.unparsed |= item.unparsed;
+    if (jsonPatch != null) {
+      for (JsonPatchOperation item : jsonPatch) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

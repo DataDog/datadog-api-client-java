@@ -29,8 +29,10 @@ public class LogsByRetentionOrgUsage {
 
   public LogsByRetentionOrgUsage usage(List<LogsRetentionSumUsage> usage) {
     this.usage = usage;
-    for (LogsRetentionSumUsage item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (LogsRetentionSumUsage item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

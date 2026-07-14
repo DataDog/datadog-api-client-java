@@ -120,8 +120,10 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
   public FormulaAndFunctionUserJourneyQueryDefinition groupBy(
       List<UserJourneyFormulaGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (UserJourneyFormulaGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (UserJourneyFormulaGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

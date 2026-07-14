@@ -260,8 +260,10 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   public LLMObsCustomEvalConfigLLMJudgeConfig promptTemplate(
       List<LLMObsCustomEvalConfigPromptMessage> promptTemplate) {
     this.promptTemplate = promptTemplate;
-    for (LLMObsCustomEvalConfigPromptMessage item : promptTemplate) {
-      this.unparsed |= item.unparsed;
+    if (promptTemplate != null) {
+      for (LLMObsCustomEvalConfigPromptMessage item : promptTemplate) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

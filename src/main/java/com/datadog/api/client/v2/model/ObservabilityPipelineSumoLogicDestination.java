@@ -162,9 +162,11 @@ public class ObservabilityPipelineSumoLogicDestination {
   public ObservabilityPipelineSumoLogicDestination headerCustomFields(
       List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields) {
     this.headerCustomFields = headerCustomFields;
-    for (ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem item :
-        headerCustomFields) {
-      this.unparsed |= item.unparsed;
+    if (headerCustomFields != null) {
+      for (ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem item :
+          headerCustomFields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -49,8 +49,10 @@ public class ConnectionEnv {
 
   public ConnectionEnv connectionGroups(List<ConnectionGroup> connectionGroups) {
     this.connectionGroups = connectionGroups;
-    for (ConnectionGroup item : connectionGroups) {
-      this.unparsed |= item.unparsed;
+    if (connectionGroups != null) {
+      for (ConnectionGroup item : connectionGroups) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -87,8 +89,10 @@ public class ConnectionEnv {
 
   public ConnectionEnv connections(List<Connection> connections) {
     this.connections = connections;
-    for (Connection item : connections) {
-      this.unparsed |= item.unparsed;
+    if (connections != null) {
+      for (Connection item : connections) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

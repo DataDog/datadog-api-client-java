@@ -83,8 +83,10 @@ public class AlertEventCustomAttributes {
 
   public AlertEventCustomAttributes links(List<AlertEventCustomAttributesLinksItems> links) {
     this.links = links;
-    for (AlertEventCustomAttributesLinksItems item : links) {
-      this.unparsed |= item.unparsed;
+    if (links != null) {
+      for (AlertEventCustomAttributesLinksItems item : links) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

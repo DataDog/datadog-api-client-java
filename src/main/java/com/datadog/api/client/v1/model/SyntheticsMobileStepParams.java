@@ -219,8 +219,10 @@ public class SyntheticsMobileStepParams {
   public SyntheticsMobileStepParams positions(
       List<SyntheticsMobileStepParamsPositionsItems> positions) {
     this.positions = positions;
-    for (SyntheticsMobileStepParamsPositionsItems item : positions) {
-      this.unparsed |= item.unparsed;
+    if (positions != null) {
+      for (SyntheticsMobileStepParamsPositionsItems item : positions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -72,8 +72,10 @@ public class LogQueryDefinition {
 
   public LogQueryDefinition groupBy(List<LogQueryDefinitionGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (LogQueryDefinitionGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (LogQueryDefinitionGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -132,8 +134,10 @@ public class LogQueryDefinition {
 
   public LogQueryDefinition multiCompute(List<LogsQueryCompute> multiCompute) {
     this.multiCompute = multiCompute;
-    for (LogsQueryCompute item : multiCompute) {
-      this.unparsed |= item.unparsed;
+    if (multiCompute != null) {
+      for (LogsQueryCompute item : multiCompute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

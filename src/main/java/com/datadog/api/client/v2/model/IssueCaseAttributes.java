@@ -214,8 +214,10 @@ public class IssueCaseAttributes {
 
   public IssueCaseAttributes insights(List<IssueCaseInsight> insights) {
     this.insights = insights;
-    for (IssueCaseInsight item : insights) {
-      this.unparsed |= item.unparsed;
+    if (insights != null) {
+      for (IssueCaseInsight item : insights) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

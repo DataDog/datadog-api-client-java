@@ -172,8 +172,10 @@ public class SensitiveDataScannerGroupAttributes {
   public SensitiveDataScannerGroupAttributes samplings(
       List<SensitiveDataScannerSamplings> samplings) {
     this.samplings = samplings;
-    for (SensitiveDataScannerSamplings item : samplings) {
-      this.unparsed |= item.unparsed;
+    if (samplings != null) {
+      for (SensitiveDataScannerSamplings item : samplings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -85,8 +85,10 @@ public class StatusPageArray {
 
   public StatusPageArray included(List<StatusPageArrayIncluded> included) {
     this.included = included;
-    for (StatusPageArrayIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (StatusPageArrayIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

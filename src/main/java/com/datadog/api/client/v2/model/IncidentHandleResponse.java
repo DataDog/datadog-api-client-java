@@ -71,8 +71,10 @@ public class IncidentHandleResponse {
 
   public IncidentHandleResponse included(List<IncidentHandleIncludedItemResponse> included) {
     this.included = included;
-    for (IncidentHandleIncludedItemResponse item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentHandleIncludedItemResponse item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

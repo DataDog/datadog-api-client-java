@@ -39,8 +39,10 @@ public class ListAppsResponse {
 
   public ListAppsResponse data(List<ListAppsResponseDataItems> data) {
     this.data = data;
-    for (ListAppsResponseDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ListAppsResponseDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -77,8 +79,10 @@ public class ListAppsResponse {
 
   public ListAppsResponse included(List<Deployment> included) {
     this.included = included;
-    for (Deployment item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (Deployment item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

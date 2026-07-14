@@ -29,8 +29,10 @@ public class DataRelationshipsTeams {
 
   public DataRelationshipsTeams data(List<DataRelationshipsTeamsDataItems> data) {
     this.data = data;
-    for (DataRelationshipsTeamsDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DataRelationshipsTeamsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

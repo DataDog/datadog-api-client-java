@@ -64,8 +64,10 @@ public class UserJourneySearchFilters {
 
   public UserJourneySearchFilters graphFilters(List<UserJourneySearchGraphFilter> graphFilters) {
     this.graphFilters = graphFilters;
-    for (UserJourneySearchGraphFilter item : graphFilters) {
-      this.unparsed |= item.unparsed;
+    if (graphFilters != null) {
+      for (UserJourneySearchGraphFilter item : graphFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

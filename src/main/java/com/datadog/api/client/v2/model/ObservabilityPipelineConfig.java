@@ -134,8 +134,10 @@ public class ObservabilityPipelineConfig {
   public ObservabilityPipelineConfig processorGroups(
       List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
     this.processorGroups = processorGroups;
-    for (ObservabilityPipelineConfigProcessorGroup item : processorGroups) {
-      this.unparsed |= item.unparsed;
+    if (processorGroups != null) {
+      for (ObservabilityPipelineConfigProcessorGroup item : processorGroups) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -174,8 +176,10 @@ public class ObservabilityPipelineConfig {
   public ObservabilityPipelineConfig processors(
       List<ObservabilityPipelineConfigProcessorGroup> processors) {
     this.processors = processors;
-    for (ObservabilityPipelineConfigProcessorGroup item : processors) {
-      this.unparsed |= item.unparsed;
+    if (processors != null) {
+      for (ObservabilityPipelineConfigProcessorGroup item : processors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -243,8 +243,10 @@ public class ApplicationSecurityWafCustomRuleAttributes {
   public ApplicationSecurityWafCustomRuleAttributes scope(
       List<ApplicationSecurityWafCustomRuleScope> scope) {
     this.scope = scope;
-    for (ApplicationSecurityWafCustomRuleScope item : scope) {
-      this.unparsed |= item.unparsed;
+    if (scope != null) {
+      for (ApplicationSecurityWafCustomRuleScope item : scope) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

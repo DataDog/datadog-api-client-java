@@ -483,8 +483,10 @@ public class SyntheticsTestRequest {
 
   public SyntheticsTestRequest files(List<SyntheticsTestRequestBodyFile> files) {
     this.files = files;
-    for (SyntheticsTestRequestBodyFile item : files) {
-      this.unparsed |= item.unparsed;
+    if (files != null) {
+      for (SyntheticsTestRequestBodyFile item : files) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

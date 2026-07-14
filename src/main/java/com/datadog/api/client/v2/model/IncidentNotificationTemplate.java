@@ -71,8 +71,10 @@ public class IncidentNotificationTemplate {
   public IncidentNotificationTemplate included(
       List<IncidentNotificationTemplateIncludedItems> included) {
     this.included = included;
-    for (IncidentNotificationTemplateIncludedItems item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentNotificationTemplateIncludedItems item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

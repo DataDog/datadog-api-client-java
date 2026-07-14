@@ -84,8 +84,10 @@ public class ServiceDefinitionV2 {
 
   public ServiceDefinitionV2 contacts(List<ServiceDefinitionV2Contact> contacts) {
     this.contacts = contacts;
-    for (ServiceDefinitionV2Contact item : contacts) {
-      this.unparsed |= item.unparsed;
+    if (contacts != null) {
+      for (ServiceDefinitionV2Contact item : contacts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -164,8 +166,10 @@ public class ServiceDefinitionV2 {
 
   public ServiceDefinitionV2 docs(List<ServiceDefinitionV2Doc> docs) {
     this.docs = docs;
-    for (ServiceDefinitionV2Doc item : docs) {
-      this.unparsed |= item.unparsed;
+    if (docs != null) {
+      for (ServiceDefinitionV2Doc item : docs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -256,8 +260,10 @@ public class ServiceDefinitionV2 {
 
   public ServiceDefinitionV2 links(List<ServiceDefinitionV2Link> links) {
     this.links = links;
-    for (ServiceDefinitionV2Link item : links) {
-      this.unparsed |= item.unparsed;
+    if (links != null) {
+      for (ServiceDefinitionV2Link item : links) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -294,8 +300,10 @@ public class ServiceDefinitionV2 {
 
   public ServiceDefinitionV2 repos(List<ServiceDefinitionV2Repo> repos) {
     this.repos = repos;
-    for (ServiceDefinitionV2Repo item : repos) {
-      this.unparsed |= item.unparsed;
+    if (repos != null) {
+      for (ServiceDefinitionV2Repo item : repos) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

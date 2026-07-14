@@ -29,8 +29,10 @@ public class UsageBillableSummaryResponse {
 
   public UsageBillableSummaryResponse usage(List<UsageBillableSummaryHour> usage) {
     this.usage = usage;
-    for (UsageBillableSummaryHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageBillableSummaryHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

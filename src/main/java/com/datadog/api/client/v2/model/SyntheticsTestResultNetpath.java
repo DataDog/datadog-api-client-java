@@ -85,8 +85,10 @@ public class SyntheticsTestResultNetpath {
 
   public SyntheticsTestResultNetpath hops(List<SyntheticsTestResultNetpathHop> hops) {
     this.hops = hops;
-    for (SyntheticsTestResultNetpathHop item : hops) {
-      this.unparsed |= item.unparsed;
+    if (hops != null) {
+      for (SyntheticsTestResultNetpathHop item : hops) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

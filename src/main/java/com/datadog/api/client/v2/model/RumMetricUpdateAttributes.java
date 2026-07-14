@@ -89,8 +89,10 @@ public class RumMetricUpdateAttributes {
 
   public RumMetricUpdateAttributes groupBy(List<RumMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (RumMetricGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (RumMetricGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

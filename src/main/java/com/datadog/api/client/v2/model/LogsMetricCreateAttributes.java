@@ -98,8 +98,10 @@ public class LogsMetricCreateAttributes {
 
   public LogsMetricCreateAttributes groupBy(List<LogsMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (LogsMetricGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (LogsMetricGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

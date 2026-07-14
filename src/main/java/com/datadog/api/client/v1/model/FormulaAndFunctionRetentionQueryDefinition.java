@@ -114,8 +114,10 @@ public class FormulaAndFunctionRetentionQueryDefinition {
 
   public FormulaAndFunctionRetentionQueryDefinition groupBy(List<RetentionGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (RetentionGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (RetentionGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

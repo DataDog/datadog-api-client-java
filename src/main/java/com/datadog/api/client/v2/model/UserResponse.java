@@ -57,8 +57,10 @@ public class UserResponse {
 
   public UserResponse included(List<UserResponseIncludedItem> included) {
     this.included = included;
-    for (UserResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (UserResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

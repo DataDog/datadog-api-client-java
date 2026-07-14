@@ -35,8 +35,10 @@ public class SyntheticsNetworkTestConfig {
 
   public SyntheticsNetworkTestConfig assertions(List<SyntheticsNetworkAssertion> assertions) {
     this.assertions = assertions;
-    for (SyntheticsNetworkAssertion item : assertions) {
-      this.unparsed |= item.unparsed;
+    if (assertions != null) {
+      for (SyntheticsNetworkAssertion item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

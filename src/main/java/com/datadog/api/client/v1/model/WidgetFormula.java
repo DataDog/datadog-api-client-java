@@ -142,8 +142,10 @@ public class WidgetFormula {
 
   public WidgetFormula conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

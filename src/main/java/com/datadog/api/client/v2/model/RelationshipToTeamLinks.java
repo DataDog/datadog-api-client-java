@@ -35,8 +35,10 @@ public class RelationshipToTeamLinks {
 
   public RelationshipToTeamLinks data(List<RelationshipToTeamLinkData> data) {
     this.data = data;
-    for (RelationshipToTeamLinkData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RelationshipToTeamLinkData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

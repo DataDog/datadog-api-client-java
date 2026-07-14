@@ -61,8 +61,10 @@ public class MonitorNotificationRuleResponse {
   public MonitorNotificationRuleResponse included(
       List<MonitorNotificationRuleResponseIncludedItem> included) {
     this.included = included;
-    for (MonitorNotificationRuleResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (MonitorNotificationRuleResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -77,8 +77,10 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
   public ArbitraryRuleResponseDataAttributesStrategy allocatedBy(
       List<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems> allocatedBy) {
     this.allocatedBy = allocatedBy;
-    for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems item : allocatedBy) {
-      this.unparsed |= item.unparsed;
+    if (allocatedBy != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems item : allocatedBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -118,9 +120,11 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
   public ArbitraryRuleResponseDataAttributesStrategy allocatedByFilters(
       List<ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems> allocatedByFilters) {
     this.allocatedByFilters = allocatedByFilters;
-    for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems item :
-        allocatedByFilters) {
-      this.unparsed |= item.unparsed;
+    if (allocatedByFilters != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems item :
+          allocatedByFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -193,8 +197,10 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
   public ArbitraryRuleResponseDataAttributesStrategy basedOnCosts(
       List<ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems> basedOnCosts) {
     this.basedOnCosts = basedOnCosts;
-    for (ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems item : basedOnCosts) {
-      this.unparsed |= item.unparsed;
+    if (basedOnCosts != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems item : basedOnCosts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -266,9 +272,11 @@ public class ArbitraryRuleResponseDataAttributesStrategy {
       List<ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems>
           evaluateGroupedByFilters) {
     this.evaluateGroupedByFilters = evaluateGroupedByFilters;
-    for (ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems item :
-        evaluateGroupedByFilters) {
-      this.unparsed |= item.unparsed;
+    if (evaluateGroupedByFilters != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems item :
+          evaluateGroupedByFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

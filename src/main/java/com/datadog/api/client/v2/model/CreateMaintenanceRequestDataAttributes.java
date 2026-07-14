@@ -121,8 +121,11 @@ public class CreateMaintenanceRequestDataAttributes {
   public CreateMaintenanceRequestDataAttributes componentsAffected(
       List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
-    for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
+    if (componentsAffected != null) {
+      for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item :
+          componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

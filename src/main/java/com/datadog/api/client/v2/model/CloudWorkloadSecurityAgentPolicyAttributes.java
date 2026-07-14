@@ -482,8 +482,10 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
   public CloudWorkloadSecurityAgentPolicyAttributes versions(
       List<CloudWorkloadSecurityAgentPolicyVersion> versions) {
     this.versions = versions;
-    for (CloudWorkloadSecurityAgentPolicyVersion item : versions) {
-      this.unparsed |= item.unparsed;
+    if (versions != null) {
+      for (CloudWorkloadSecurityAgentPolicyVersion item : versions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

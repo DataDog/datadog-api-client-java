@@ -29,8 +29,10 @@ public class UpdateOutcomesAsyncAttributes {
 
   public UpdateOutcomesAsyncAttributes results(List<UpdateOutcomesAsyncRequestItem> results) {
     this.results = results;
-    for (UpdateOutcomesAsyncRequestItem item : results) {
-      this.unparsed |= item.unparsed;
+    if (results != null) {
+      for (UpdateOutcomesAsyncRequestItem item : results) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -29,8 +29,10 @@ public class AwsOnDemandListResponse {
 
   public AwsOnDemandListResponse data(List<AwsOnDemandData> data) {
     this.data = data;
-    for (AwsOnDemandData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (AwsOnDemandData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

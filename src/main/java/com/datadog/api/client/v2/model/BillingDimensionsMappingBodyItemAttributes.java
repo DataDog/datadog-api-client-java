@@ -41,8 +41,10 @@ public class BillingDimensionsMappingBodyItemAttributes {
   public BillingDimensionsMappingBodyItemAttributes endpoints(
       List<BillingDimensionsMappingBodyItemAttributesEndpointsItems> endpoints) {
     this.endpoints = endpoints;
-    for (BillingDimensionsMappingBodyItemAttributesEndpointsItems item : endpoints) {
-      this.unparsed |= item.unparsed;
+    if (endpoints != null) {
+      for (BillingDimensionsMappingBodyItemAttributesEndpointsItems item : endpoints) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -35,8 +35,10 @@ public class ListServiceAccessTokensResponse {
 
   public ListServiceAccessTokensResponse data(List<ServiceAccessToken> data) {
     this.data = data;
-    for (ServiceAccessToken item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ServiceAccessToken item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

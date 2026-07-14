@@ -36,8 +36,10 @@ public class MonthlyUsageAttributionMetadata {
   public MonthlyUsageAttributionMetadata aggregates(
       List<UsageAttributionAggregatesBody> aggregates) {
     this.aggregates = aggregates;
-    for (UsageAttributionAggregatesBody item : aggregates) {
-      this.unparsed |= item.unparsed;
+    if (aggregates != null) {
+      for (UsageAttributionAggregatesBody item : aggregates) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

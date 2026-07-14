@@ -29,8 +29,10 @@ public class UserListResponse {
 
   public UserListResponse users(List<User> users) {
     this.users = users;
-    for (User item : users) {
-      this.unparsed |= item.unparsed;
+    if (users != null) {
+      for (User item : users) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

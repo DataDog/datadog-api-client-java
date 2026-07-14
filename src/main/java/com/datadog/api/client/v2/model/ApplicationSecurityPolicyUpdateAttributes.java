@@ -214,8 +214,10 @@ public class ApplicationSecurityPolicyUpdateAttributes {
   public ApplicationSecurityPolicyUpdateAttributes rulesets(
       List<ApplicationSecurityPolicyRulesetOverride> rulesets) {
     this.rulesets = rulesets;
-    for (ApplicationSecurityPolicyRulesetOverride item : rulesets) {
-      this.unparsed |= item.unparsed;
+    if (rulesets != null) {
+      for (ApplicationSecurityPolicyRulesetOverride item : rulesets) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

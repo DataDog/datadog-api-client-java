@@ -346,8 +346,10 @@ public class GCPSTSServiceAccountAttributes {
   public GCPSTSServiceAccountAttributes metricNamespaceConfigs(
       List<GCPMetricNamespaceConfig> metricNamespaceConfigs) {
     this.metricNamespaceConfigs = metricNamespaceConfigs;
-    for (GCPMetricNamespaceConfig item : metricNamespaceConfigs) {
-      this.unparsed |= item.unparsed;
+    if (metricNamespaceConfigs != null) {
+      for (GCPMetricNamespaceConfig item : metricNamespaceConfigs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -386,8 +388,10 @@ public class GCPSTSServiceAccountAttributes {
   public GCPSTSServiceAccountAttributes monitoredResourceConfigs(
       List<GCPMonitoredResourceConfig> monitoredResourceConfigs) {
     this.monitoredResourceConfigs = monitoredResourceConfigs;
-    for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
-      this.unparsed |= item.unparsed;
+    if (monitoredResourceConfigs != null) {
+      for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

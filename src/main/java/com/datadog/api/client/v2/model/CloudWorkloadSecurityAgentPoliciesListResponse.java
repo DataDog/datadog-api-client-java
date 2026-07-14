@@ -30,8 +30,10 @@ public class CloudWorkloadSecurityAgentPoliciesListResponse {
   public CloudWorkloadSecurityAgentPoliciesListResponse data(
       List<CloudWorkloadSecurityAgentPolicyData> data) {
     this.data = data;
-    for (CloudWorkloadSecurityAgentPolicyData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CloudWorkloadSecurityAgentPolicyData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

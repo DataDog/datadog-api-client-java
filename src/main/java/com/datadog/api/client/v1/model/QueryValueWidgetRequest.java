@@ -192,8 +192,10 @@ public class QueryValueWidgetRequest {
   public QueryValueWidgetRequest conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -256,8 +258,10 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -418,8 +422,10 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

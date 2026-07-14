@@ -190,8 +190,10 @@ public class ChangeEventAttributes {
   public ChangeEventAttributes impactedResources(
       List<ChangeEventAttributesImpactedResourcesItem> impactedResources) {
     this.impactedResources = impactedResources;
-    for (ChangeEventAttributesImpactedResourcesItem item : impactedResources) {
-      this.unparsed |= item.unparsed;
+    if (impactedResources != null) {
+      for (ChangeEventAttributesImpactedResourcesItem item : impactedResources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -143,8 +143,10 @@ public class ObservabilityPipelineKafkaSource {
   public ObservabilityPipelineKafkaSource librdkafkaOptions(
       List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions) {
     this.librdkafkaOptions = librdkafkaOptions;
-    for (ObservabilityPipelineKafkaLibrdkafkaOption item : librdkafkaOptions) {
-      this.unparsed |= item.unparsed;
+    if (librdkafkaOptions != null) {
+      for (ObservabilityPipelineKafkaLibrdkafkaOption item : librdkafkaOptions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

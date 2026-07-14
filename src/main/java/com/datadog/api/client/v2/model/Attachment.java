@@ -57,8 +57,10 @@ public class Attachment {
 
   public Attachment included(List<AttachmentIncluded> included) {
     this.included = included;
-    for (AttachmentIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (AttachmentIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

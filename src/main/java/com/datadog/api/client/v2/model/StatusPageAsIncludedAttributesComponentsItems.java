@@ -53,8 +53,10 @@ public class StatusPageAsIncludedAttributesComponentsItems {
   public StatusPageAsIncludedAttributesComponentsItems components(
       List<StatusPageAsIncludedAttributesComponentsItemsComponentsItems> components) {
     this.components = components;
-    for (StatusPageAsIncludedAttributesComponentsItemsComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (StatusPageAsIncludedAttributesComponentsItemsComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

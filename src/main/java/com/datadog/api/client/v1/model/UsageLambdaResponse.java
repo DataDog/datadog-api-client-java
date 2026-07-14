@@ -32,8 +32,10 @@ public class UsageLambdaResponse {
 
   public UsageLambdaResponse usage(List<UsageLambdaHour> usage) {
     this.usage = usage;
-    for (UsageLambdaHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageLambdaHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

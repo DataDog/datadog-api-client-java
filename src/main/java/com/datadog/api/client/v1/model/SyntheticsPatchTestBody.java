@@ -32,8 +32,10 @@ public class SyntheticsPatchTestBody {
 
   public SyntheticsPatchTestBody data(List<SyntheticsPatchTestOperation> data) {
     this.data = data;
-    for (SyntheticsPatchTestOperation item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SyntheticsPatchTestOperation item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

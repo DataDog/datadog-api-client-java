@@ -443,8 +443,10 @@ public class SLOResponseData {
 
   public SLOResponseData thresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
-    for (SLOThreshold item : thresholds) {
-      this.unparsed |= item.unparsed;
+    if (thresholds != null) {
+      for (SLOThreshold item : thresholds) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

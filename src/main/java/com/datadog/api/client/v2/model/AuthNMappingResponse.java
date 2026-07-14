@@ -60,8 +60,10 @@ public class AuthNMappingResponse {
 
   public AuthNMappingResponse included(List<AuthNMappingIncluded> included) {
     this.included = included;
-    for (AuthNMappingIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (AuthNMappingIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

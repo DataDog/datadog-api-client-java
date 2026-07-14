@@ -39,8 +39,10 @@ public class AuditLogsEventsResponse {
 
   public AuditLogsEventsResponse data(List<AuditLogsEvent> data) {
     this.data = data;
-    for (AuditLogsEvent item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (AuditLogsEvent item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

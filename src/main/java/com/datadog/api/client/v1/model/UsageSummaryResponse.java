@@ -9346,8 +9346,10 @@ public class UsageSummaryResponse {
 
   public UsageSummaryResponse usage(List<UsageSummaryDate> usage) {
     this.usage = usage;
-    for (UsageSummaryDate item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageSummaryDate item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

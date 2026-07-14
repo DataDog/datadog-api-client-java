@@ -195,8 +195,10 @@ public class TimeseriesWidgetRequest {
 
   public TimeseriesWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -258,8 +260,10 @@ public class TimeseriesWidgetRequest {
 
   public TimeseriesWidgetRequest metadata(List<TimeseriesWidgetExpressionAlias> metadata) {
     this.metadata = metadata;
-    for (TimeseriesWidgetExpressionAlias item : metadata) {
-      this.unparsed |= item.unparsed;
+    if (metadata != null) {
+      for (TimeseriesWidgetExpressionAlias item : metadata) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -416,8 +420,10 @@ public class TimeseriesWidgetRequest {
 
   public TimeseriesWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

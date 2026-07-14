@@ -186,8 +186,10 @@ public class SimpleMonitorUserTemplate {
   public SimpleMonitorUserTemplate templateVariables(
       List<MonitorUserTemplateTemplateVariablesItems> templateVariables) {
     this.templateVariables = templateVariables;
-    for (MonitorUserTemplateTemplateVariablesItems item : templateVariables) {
-      this.unparsed |= item.unparsed;
+    if (templateVariables != null) {
+      for (MonitorUserTemplateTemplateVariablesItems item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

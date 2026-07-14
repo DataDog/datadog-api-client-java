@@ -57,8 +57,10 @@ public class DegradationUpdate {
 
   public DegradationUpdate included(List<DegradationUpdateIncluded> included) {
     this.included = included;
-    for (DegradationUpdateIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (DegradationUpdateIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

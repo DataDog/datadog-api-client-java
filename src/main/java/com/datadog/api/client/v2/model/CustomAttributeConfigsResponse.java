@@ -29,8 +29,10 @@ public class CustomAttributeConfigsResponse {
 
   public CustomAttributeConfigsResponse data(List<CustomAttributeConfig> data) {
     this.data = data;
-    for (CustomAttributeConfig item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CustomAttributeConfig item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

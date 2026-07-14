@@ -41,8 +41,10 @@ public class SecurityMonitoringSignalsListResponse {
 
   public SecurityMonitoringSignalsListResponse data(List<SecurityMonitoringSignal> data) {
     this.data = data;
-    for (SecurityMonitoringSignal item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityMonitoringSignal item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

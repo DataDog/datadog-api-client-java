@@ -35,8 +35,10 @@ public class AppRelationship {
 
   public AppRelationship connections(List<CustomConnection> connections) {
     this.connections = connections;
-    for (CustomConnection item : connections) {
-      this.unparsed |= item.unparsed;
+    if (connections != null) {
+      for (CustomConnection item : connections) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

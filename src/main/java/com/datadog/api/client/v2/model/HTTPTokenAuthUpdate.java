@@ -82,8 +82,10 @@ public class HTTPTokenAuthUpdate {
 
   public HTTPTokenAuthUpdate headers(List<HTTPHeaderUpdate> headers) {
     this.headers = headers;
-    for (HTTPHeaderUpdate item : headers) {
-      this.unparsed |= item.unparsed;
+    if (headers != null) {
+      for (HTTPHeaderUpdate item : headers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -120,8 +122,10 @@ public class HTTPTokenAuthUpdate {
 
   public HTTPTokenAuthUpdate tokens(List<HTTPTokenUpdate> tokens) {
     this.tokens = tokens;
-    for (HTTPTokenUpdate item : tokens) {
-      this.unparsed |= item.unparsed;
+    if (tokens != null) {
+      for (HTTPTokenUpdate item : tokens) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -182,8 +186,10 @@ public class HTTPTokenAuthUpdate {
 
   public HTTPTokenAuthUpdate urlParameters(List<UrlParamUpdate> urlParameters) {
     this.urlParameters = urlParameters;
-    for (UrlParamUpdate item : urlParameters) {
-      this.unparsed |= item.unparsed;
+    if (urlParameters != null) {
+      for (UrlParamUpdate item : urlParameters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

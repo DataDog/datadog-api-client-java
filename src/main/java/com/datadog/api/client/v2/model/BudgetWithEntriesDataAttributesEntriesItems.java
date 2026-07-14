@@ -115,8 +115,10 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
   public BudgetWithEntriesDataAttributesEntriesItems tagFilters(
       List<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems> tagFilters) {
     this.tagFilters = tagFilters;
-    for (BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems item : tagFilters) {
-      this.unparsed |= item.unparsed;
+    if (tagFilters != null) {
+      for (BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems item : tagFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

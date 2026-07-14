@@ -153,8 +153,10 @@ public class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
   public FormulaAndFunctionProductAnalyticsExtendedQueryDefinition groupBy(
       List<ProductAnalyticsExtendedGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (ProductAnalyticsExtendedGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (ProductAnalyticsExtendedGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

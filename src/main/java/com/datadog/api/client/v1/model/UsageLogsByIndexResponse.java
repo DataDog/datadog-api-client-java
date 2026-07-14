@@ -31,8 +31,10 @@ public class UsageLogsByIndexResponse {
 
   public UsageLogsByIndexResponse usage(List<UsageLogsByIndexHour> usage) {
     this.usage = usage;
-    for (UsageLogsByIndexHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageLogsByIndexHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

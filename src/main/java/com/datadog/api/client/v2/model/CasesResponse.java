@@ -32,8 +32,10 @@ public class CasesResponse {
 
   public CasesResponse data(List<Case> data) {
     this.data = data;
-    for (Case item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (Case item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

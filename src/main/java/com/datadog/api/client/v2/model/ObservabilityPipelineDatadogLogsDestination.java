@@ -139,8 +139,10 @@ public class ObservabilityPipelineDatadogLogsDestination {
   public ObservabilityPipelineDatadogLogsDestination routes(
       List<ObservabilityPipelineDatadogLogsDestinationRoute> routes) {
     this.routes = routes;
-    for (ObservabilityPipelineDatadogLogsDestinationRoute item : routes) {
-      this.unparsed |= item.unparsed;
+    if (routes != null) {
+      for (ObservabilityPipelineDatadogLogsDestinationRoute item : routes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -39,8 +39,10 @@ public class SpansListResponse {
 
   public SpansListResponse data(List<Span> data) {
     this.data = data;
-    for (Span item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (Span item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

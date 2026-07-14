@@ -29,8 +29,10 @@ public class CloudflareAccountsResponse {
 
   public CloudflareAccountsResponse data(List<CloudflareAccountResponseData> data) {
     this.data = data;
-    for (CloudflareAccountResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CloudflareAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

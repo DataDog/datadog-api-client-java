@@ -102,8 +102,10 @@ public class RumSdkConfigRumUpdateAttributes {
   public RumSdkConfigRumUpdateAttributes allowedTracingUrls(
       List<RumSdkConfigTracingUrlConfig> allowedTracingUrls) {
     this.allowedTracingUrls = allowedTracingUrls;
-    for (RumSdkConfigTracingUrlConfig item : allowedTracingUrls) {
-      this.unparsed |= item.unparsed;
+    if (allowedTracingUrls != null) {
+      for (RumSdkConfigTracingUrlConfig item : allowedTracingUrls) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -142,8 +144,10 @@ public class RumSdkConfigRumUpdateAttributes {
   public RumSdkConfigRumUpdateAttributes allowedTrackingOrigins(
       List<RumSdkConfigMatchOption> allowedTrackingOrigins) {
     this.allowedTrackingOrigins = allowedTrackingOrigins;
-    for (RumSdkConfigMatchOption item : allowedTrackingOrigins) {
-      this.unparsed |= item.unparsed;
+    if (allowedTrackingOrigins != null) {
+      for (RumSdkConfigMatchOption item : allowedTrackingOrigins) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -181,8 +185,10 @@ public class RumSdkConfigRumUpdateAttributes {
 
   public RumSdkConfigRumUpdateAttributes context(List<RumSdkConfigDynamicOptionPair> context) {
     this.context = context;
-    for (RumSdkConfigDynamicOptionPair item : context) {
-      this.unparsed |= item.unparsed;
+    if (context != null) {
+      for (RumSdkConfigDynamicOptionPair item : context) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -386,8 +392,10 @@ public class RumSdkConfigRumUpdateAttributes {
 
   public RumSdkConfigRumUpdateAttributes user(List<RumSdkConfigDynamicOptionPair> user) {
     this.user = user;
-    for (RumSdkConfigDynamicOptionPair item : user) {
-      this.unparsed |= item.unparsed;
+    if (user != null) {
+      for (RumSdkConfigDynamicOptionPair item : user) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

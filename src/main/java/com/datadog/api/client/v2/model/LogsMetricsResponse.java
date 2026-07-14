@@ -29,8 +29,10 @@ public class LogsMetricsResponse {
 
   public LogsMetricsResponse data(List<LogsMetricResponseData> data) {
     this.data = data;
-    for (LogsMetricResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (LogsMetricResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -38,8 +38,10 @@ public class MetricTagCardinalitiesResponse {
 
   public MetricTagCardinalitiesResponse data(List<MetricTagCardinality> data) {
     this.data = data;
-    for (MetricTagCardinality item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MetricTagCardinality item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

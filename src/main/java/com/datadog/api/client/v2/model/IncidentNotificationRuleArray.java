@@ -87,8 +87,10 @@ public class IncidentNotificationRuleArray {
   public IncidentNotificationRuleArray included(
       List<IncidentNotificationRuleIncludedItems> included) {
     this.included = included;
-    for (IncidentNotificationRuleIncludedItems item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentNotificationRuleIncludedItems item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

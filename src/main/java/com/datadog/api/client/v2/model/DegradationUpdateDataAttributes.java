@@ -57,8 +57,10 @@ public class DegradationUpdateDataAttributes {
   public DegradationUpdateDataAttributes componentsAffected(
       List<DegradationUpdateDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
-    for (DegradationUpdateDataAttributesComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
+    if (componentsAffected != null) {
+      for (DegradationUpdateDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -46,8 +46,10 @@ public class CIAppTestsAggregateRequest {
 
   public CIAppTestsAggregateRequest compute(List<CIAppCompute> compute) {
     this.compute = compute;
-    for (CIAppCompute item : compute) {
-      this.unparsed |= item.unparsed;
+    if (compute != null) {
+      for (CIAppCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -109,8 +111,10 @@ public class CIAppTestsAggregateRequest {
 
   public CIAppTestsAggregateRequest groupBy(List<CIAppTestsGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (CIAppTestsGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (CIAppTestsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

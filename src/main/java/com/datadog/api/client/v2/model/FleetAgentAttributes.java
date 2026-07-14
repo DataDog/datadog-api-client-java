@@ -577,8 +577,10 @@ public class FleetAgentAttributes {
 
   public FleetAgentAttributes tags(List<FleetAgentAttributesTagsItems> tags) {
     this.tags = tags;
-    for (FleetAgentAttributesTagsItems item : tags) {
-      this.unparsed |= item.unparsed;
+    if (tags != null) {
+      for (FleetAgentAttributesTagsItems item : tags) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

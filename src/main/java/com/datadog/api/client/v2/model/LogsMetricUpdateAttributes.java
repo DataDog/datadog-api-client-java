@@ -89,8 +89,10 @@ public class LogsMetricUpdateAttributes {
 
   public LogsMetricUpdateAttributes groupBy(List<LogsMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (LogsMetricGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (LogsMetricGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

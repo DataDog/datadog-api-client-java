@@ -119,8 +119,10 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   public MonitorFormulaAndFunctionEventQueryDefinition groupBy(
       List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -102,8 +102,10 @@ public class ProjectedCostAttributes {
 
   public ProjectedCostAttributes charges(List<ChargebackBreakdown> charges) {
     this.charges = charges;
-    for (ChargebackBreakdown item : charges) {
-      this.unparsed |= item.unparsed;
+    if (charges != null) {
+      for (ChargebackBreakdown item : charges) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

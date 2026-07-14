@@ -29,8 +29,10 @@ public class DeleteAppsResponse {
 
   public DeleteAppsResponse data(List<DeleteAppsResponseDataItems> data) {
     this.data = data;
-    for (DeleteAppsResponseDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DeleteAppsResponseDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

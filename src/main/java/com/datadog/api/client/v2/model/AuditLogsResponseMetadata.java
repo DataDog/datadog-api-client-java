@@ -139,8 +139,10 @@ public class AuditLogsResponseMetadata {
 
   public AuditLogsResponseMetadata warnings(List<AuditLogsWarning> warnings) {
     this.warnings = warnings;
-    for (AuditLogsWarning item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (AuditLogsWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

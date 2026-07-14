@@ -35,8 +35,10 @@ public class SyntheticsPollTestResultsResponse {
 
   public SyntheticsPollTestResultsResponse data(List<SyntheticsTestResultData> data) {
     this.data = data;
-    for (SyntheticsTestResultData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SyntheticsTestResultData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -74,8 +76,10 @@ public class SyntheticsPollTestResultsResponse {
   public SyntheticsPollTestResultsResponse included(
       List<SyntheticsTestResultIncludedItem> included) {
     this.included = included;
-    for (SyntheticsTestResultIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (SyntheticsTestResultIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

@@ -73,8 +73,10 @@ public class ApmStatsQueryDefinition {
 
   public ApmStatsQueryDefinition columns(List<ApmStatsQueryColumnType> columns) {
     this.columns = columns;
-    for (ApmStatsQueryColumnType item : columns) {
-      this.unparsed |= item.unparsed;
+    if (columns != null) {
+      for (ApmStatsQueryColumnType item : columns) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

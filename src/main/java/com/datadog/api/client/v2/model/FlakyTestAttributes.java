@@ -308,8 +308,10 @@ public class FlakyTestAttributes {
 
   public FlakyTestAttributes history(List<FlakyTestHistory> history) {
     this.history = history;
-    for (FlakyTestHistory item : history) {
-      this.unparsed |= item.unparsed;
+    if (history != null) {
+      for (FlakyTestHistory item : history) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

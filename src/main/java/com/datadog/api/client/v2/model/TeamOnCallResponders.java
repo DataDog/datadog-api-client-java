@@ -60,8 +60,10 @@ public class TeamOnCallResponders {
 
   public TeamOnCallResponders included(List<TeamOnCallRespondersIncluded> included) {
     this.included = included;
-    for (TeamOnCallRespondersIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TeamOnCallRespondersIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

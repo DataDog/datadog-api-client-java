@@ -169,8 +169,10 @@ public class LLMObsAnnotatedInteractionByTraceItem {
 
   public LLMObsAnnotatedInteractionByTraceItem displayBlock(List<LLMObsContentBlock> displayBlock) {
     this.displayBlock = displayBlock;
-    for (LLMObsContentBlock item : displayBlock) {
-      this.unparsed |= item.unparsed;
+    if (displayBlock != null) {
+      for (LLMObsContentBlock item : displayBlock) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

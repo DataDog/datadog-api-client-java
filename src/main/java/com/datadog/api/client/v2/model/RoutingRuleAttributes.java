@@ -46,8 +46,10 @@ public class RoutingRuleAttributes {
 
   public RoutingRuleAttributes actions(List<RoutingRuleAction> actions) {
     this.actions = actions;
-    for (RoutingRuleAction item : actions) {
-      this.unparsed |= item.unparsed;
+    if (actions != null) {
+      for (RoutingRuleAction item : actions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

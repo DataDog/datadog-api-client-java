@@ -30,8 +30,10 @@ public class EscalationRelationshipsResponders {
   public EscalationRelationshipsResponders data(
       List<EscalationRelationshipsRespondersDataItems> data) {
     this.data = data;
-    for (EscalationRelationshipsRespondersDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EscalationRelationshipsRespondersDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

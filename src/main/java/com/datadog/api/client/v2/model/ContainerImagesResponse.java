@@ -39,8 +39,10 @@ public class ContainerImagesResponse {
 
   public ContainerImagesResponse data(List<ContainerImageItem> data) {
     this.data = data;
-    for (ContainerImageItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ContainerImageItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

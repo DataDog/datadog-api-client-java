@@ -61,8 +61,10 @@ public class RestrictionQueryWithRelationshipsResponse {
   public RestrictionQueryWithRelationshipsResponse included(
       List<RestrictionQueryResponseIncludedItem> included) {
     this.included = included;
-    for (RestrictionQueryResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (RestrictionQueryResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

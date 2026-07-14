@@ -43,8 +43,10 @@ public class TeamHierarchyLinksResponse {
 
   public TeamHierarchyLinksResponse data(List<TeamHierarchyLink> data) {
     this.data = data;
-    for (TeamHierarchyLink item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TeamHierarchyLink item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -81,8 +83,10 @@ public class TeamHierarchyLinksResponse {
 
   public TeamHierarchyLinksResponse included(List<TeamHierarchyLinkTeam> included) {
     this.included = included;
-    for (TeamHierarchyLinkTeam item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TeamHierarchyLinkTeam item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

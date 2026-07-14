@@ -110,8 +110,10 @@ public class SLOHistorySLIData {
 
   public SLOHistorySLIData errors(List<SLOHistoryResponseErrorWithType> errors) {
     this.errors = errors;
-    for (SLOHistoryResponseErrorWithType item : errors) {
-      this.unparsed |= item.unparsed;
+    if (errors != null) {
+      for (SLOHistoryResponseErrorWithType item : errors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

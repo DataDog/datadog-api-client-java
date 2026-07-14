@@ -116,8 +116,10 @@ public class ContainerImageAttributes {
 
   public ContainerImageAttributes imageFlavors(List<ContainerImageFlavor> imageFlavors) {
     this.imageFlavors = imageFlavors;
-    for (ContainerImageFlavor item : imageFlavors) {
-      this.unparsed |= item.unparsed;
+    if (imageFlavors != null) {
+      for (ContainerImageFlavor item : imageFlavors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }

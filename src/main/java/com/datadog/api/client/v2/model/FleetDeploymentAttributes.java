@@ -56,8 +56,10 @@ public class FleetDeploymentAttributes {
   public FleetDeploymentAttributes configOperations(
       List<FleetDeploymentOperation> configOperations) {
     this.configOperations = configOperations;
-    for (FleetDeploymentOperation item : configOperations) {
-      this.unparsed |= item.unparsed;
+    if (configOperations != null) {
+      for (FleetDeploymentOperation item : configOperations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -159,8 +161,10 @@ public class FleetDeploymentAttributes {
 
   public FleetDeploymentAttributes hosts(List<FleetDeploymentHost> hosts) {
     this.hosts = hosts;
-    for (FleetDeploymentHost item : hosts) {
-      this.unparsed |= item.unparsed;
+    if (hosts != null) {
+      for (FleetDeploymentHost item : hosts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -200,8 +204,10 @@ public class FleetDeploymentAttributes {
 
   public FleetDeploymentAttributes packages(List<FleetDeploymentPackage> packages) {
     this.packages = packages;
-    for (FleetDeploymentPackage item : packages) {
-      this.unparsed |= item.unparsed;
+    if (packages != null) {
+      for (FleetDeploymentPackage item : packages) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
