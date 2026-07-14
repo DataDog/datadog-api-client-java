@@ -50,6 +50,10 @@ import com.datadog.api.client.v2.model.IncidentUserDefinedFieldCreateRequest;
 import com.datadog.api.client.v2.model.IncidentUserDefinedFieldListResponse;
 import com.datadog.api.client.v2.model.IncidentUserDefinedFieldResponse;
 import com.datadog.api.client.v2.model.IncidentUserDefinedFieldUpdateRequest;
+import com.datadog.api.client.v2.model.IncidentUserDefinedRolePatchRequest;
+import com.datadog.api.client.v2.model.IncidentUserDefinedRoleRequest;
+import com.datadog.api.client.v2.model.IncidentUserDefinedRoleResponse;
+import com.datadog.api.client.v2.model.IncidentUserDefinedRolesResponse;
 import com.datadog.api.client.v2.model.IncidentsResponse;
 import com.datadog.api.client.v2.model.PatchAttachmentRequest;
 import com.datadog.api.client.v2.model.PatchIncidentNotificationTemplateRequest;
@@ -2345,6 +2349,230 @@ public class IncidentsApi {
         new GenericType<IncidentUserDefinedFieldResponse>() {});
   }
 
+  /** Manage optional parameters to createIncidentUserDefinedRole. */
+  public static class CreateIncidentUserDefinedRoleOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include in the response.
+     *     (optional)
+     * @return CreateIncidentUserDefinedRoleOptionalParameters
+     */
+    public CreateIncidentUserDefinedRoleOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create an incident user-defined role.
+   *
+   * <p>See {@link #createIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return IncidentUserDefinedRoleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedRoleResponse createIncidentUserDefinedRole(
+      IncidentUserDefinedRoleRequest body) throws ApiException {
+    return createIncidentUserDefinedRoleWithHttpInfo(
+            body, new CreateIncidentUserDefinedRoleOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create an incident user-defined role.
+   *
+   * <p>See {@link #createIncidentUserDefinedRoleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentUserDefinedRoleResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedRoleResponse> createIncidentUserDefinedRoleAsync(
+      IncidentUserDefinedRoleRequest body) {
+    return createIncidentUserDefinedRoleWithHttpInfoAsync(
+            body, new CreateIncidentUserDefinedRoleOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an incident user-defined role.
+   *
+   * <p>See {@link #createIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentUserDefinedRoleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedRoleResponse createIncidentUserDefinedRole(
+      IncidentUserDefinedRoleRequest body,
+      CreateIncidentUserDefinedRoleOptionalParameters parameters)
+      throws ApiException {
+    return createIncidentUserDefinedRoleWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Create an incident user-defined role.
+   *
+   * <p>See {@link #createIncidentUserDefinedRoleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentUserDefinedRoleResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedRoleResponse> createIncidentUserDefinedRoleAsync(
+      IncidentUserDefinedRoleRequest body,
+      CreateIncidentUserDefinedRoleOptionalParameters parameters) {
+    return createIncidentUserDefinedRoleWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new user-defined role for incidents.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentUserDefinedRoleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentUserDefinedRoleResponse> createIncidentUserDefinedRoleWithHttpInfo(
+      IncidentUserDefinedRoleRequest body,
+      CreateIncidentUserDefinedRoleOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentUserDefinedRole";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createIncidentUserDefinedRole");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/user-defined-roles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createIncidentUserDefinedRole",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedRoleResponse>() {});
+  }
+
+  /**
+   * Create an incident user-defined role.
+   *
+   * <p>See {@link #createIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentUserDefinedRoleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>>
+      createIncidentUserDefinedRoleWithHttpInfoAsync(
+          IncidentUserDefinedRoleRequest body,
+          CreateIncidentUserDefinedRoleOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentUserDefinedRole";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createIncidentUserDefinedRole"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/user-defined-roles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createIncidentUserDefinedRole",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedRoleResponse>() {});
+  }
+
   /**
    * Delete global incident handle.
    *
@@ -4235,6 +4463,160 @@ public class IncidentsApi {
   }
 
   /**
+   * Delete an incident user-defined role.
+   *
+   * <p>See {@link #deleteIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIncidentUserDefinedRole(UUID roleId) throws ApiException {
+    deleteIncidentUserDefinedRoleWithHttpInfo(roleId);
+  }
+
+  /**
+   * Delete an incident user-defined role.
+   *
+   * <p>See {@link #deleteIncidentUserDefinedRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIncidentUserDefinedRoleAsync(UUID roleId) {
+    return deleteIncidentUserDefinedRoleWithHttpInfoAsync(roleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an existing user-defined role for incidents.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteIncidentUserDefinedRoleWithHttpInfo(UUID roleId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentUserDefinedRole";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'roleId' when calling deleteIncidentUserDefinedRole");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-roles/{role_id}"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.deleteIncidentUserDefinedRole",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an incident user-defined role.
+   *
+   * <p>See {@link #deleteIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteIncidentUserDefinedRoleWithHttpInfoAsync(
+      UUID roleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentUserDefinedRole";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'roleId' when calling"
+                  + " deleteIncidentUserDefinedRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-roles/{role_id}"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.deleteIncidentUserDefinedRole",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Get global incident settings.
    *
    * <p>See {@link #getGlobalIncidentSettingsWithHttpInfo}.
@@ -5934,6 +6316,228 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentUserDefinedFieldResponse>() {});
+  }
+
+  /** Manage optional parameters to getIncidentUserDefinedRole. */
+  public static class GetIncidentUserDefinedRoleOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include in the response.
+     *     (optional)
+     * @return GetIncidentUserDefinedRoleOptionalParameters
+     */
+    public GetIncidentUserDefinedRoleOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get an incident user-defined role.
+   *
+   * <p>See {@link #getIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @return IncidentUserDefinedRoleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedRoleResponse getIncidentUserDefinedRole(UUID roleId)
+      throws ApiException {
+    return getIncidentUserDefinedRoleWithHttpInfo(
+            roleId, new GetIncidentUserDefinedRoleOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get an incident user-defined role.
+   *
+   * <p>See {@link #getIncidentUserDefinedRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @return CompletableFuture&lt;IncidentUserDefinedRoleResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedRoleResponse> getIncidentUserDefinedRoleAsync(
+      UUID roleId) {
+    return getIncidentUserDefinedRoleWithHttpInfoAsync(
+            roleId, new GetIncidentUserDefinedRoleOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an incident user-defined role.
+   *
+   * <p>See {@link #getIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentUserDefinedRoleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedRoleResponse getIncidentUserDefinedRole(
+      UUID roleId, GetIncidentUserDefinedRoleOptionalParameters parameters) throws ApiException {
+    return getIncidentUserDefinedRoleWithHttpInfo(roleId, parameters).getData();
+  }
+
+  /**
+   * Get an incident user-defined role.
+   *
+   * <p>See {@link #getIncidentUserDefinedRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentUserDefinedRoleResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedRoleResponse> getIncidentUserDefinedRoleAsync(
+      UUID roleId, GetIncidentUserDefinedRoleOptionalParameters parameters) {
+    return getIncidentUserDefinedRoleWithHttpInfoAsync(roleId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a single user-defined role for incidents.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentUserDefinedRoleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentUserDefinedRoleResponse> getIncidentUserDefinedRoleWithHttpInfo(
+      UUID roleId, GetIncidentUserDefinedRoleOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentUserDefinedRole";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'roleId' when calling getIncidentUserDefinedRole");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-roles/{role_id}"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.getIncidentUserDefinedRole",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedRoleResponse>() {});
+  }
+
+  /**
+   * Get an incident user-defined role.
+   *
+   * <p>See {@link #getIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentUserDefinedRoleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>>
+      getIncidentUserDefinedRoleWithHttpInfoAsync(
+          UUID roleId, GetIncidentUserDefinedRoleOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentUserDefinedRole";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'roleId' when calling getIncidentUserDefinedRole"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-roles/{role_id}"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.getIncidentUserDefinedRole",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedRoleResponse>() {});
   }
 
   /** Manage optional parameters to importIncident. */
@@ -8368,6 +8972,217 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentUserDefinedFieldListResponse>() {});
+  }
+
+  /** Manage optional parameters to listIncidentUserDefinedRoles. */
+  public static class ListIncidentUserDefinedRolesOptionalParameters {
+    private UUID filterIncidentType;
+    private String include;
+
+    /**
+     * Set filterIncidentType.
+     *
+     * @param filterIncidentType Filter roles by incident type UUID. (optional)
+     * @return ListIncidentUserDefinedRolesOptionalParameters
+     */
+    public ListIncidentUserDefinedRolesOptionalParameters filterIncidentType(
+        UUID filterIncidentType) {
+      this.filterIncidentType = filterIncidentType;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include in the response.
+     *     (optional)
+     * @return ListIncidentUserDefinedRolesOptionalParameters
+     */
+    public ListIncidentUserDefinedRolesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * List incident user-defined roles.
+   *
+   * <p>See {@link #listIncidentUserDefinedRolesWithHttpInfo}.
+   *
+   * @return IncidentUserDefinedRolesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedRolesResponse listIncidentUserDefinedRoles() throws ApiException {
+    return listIncidentUserDefinedRolesWithHttpInfo(
+            new ListIncidentUserDefinedRolesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List incident user-defined roles.
+   *
+   * <p>See {@link #listIncidentUserDefinedRolesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;IncidentUserDefinedRolesResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedRolesResponse> listIncidentUserDefinedRolesAsync() {
+    return listIncidentUserDefinedRolesWithHttpInfoAsync(
+            new ListIncidentUserDefinedRolesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List incident user-defined roles.
+   *
+   * <p>See {@link #listIncidentUserDefinedRolesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return IncidentUserDefinedRolesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedRolesResponse listIncidentUserDefinedRoles(
+      ListIncidentUserDefinedRolesOptionalParameters parameters) throws ApiException {
+    return listIncidentUserDefinedRolesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List incident user-defined roles.
+   *
+   * <p>See {@link #listIncidentUserDefinedRolesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentUserDefinedRolesResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedRolesResponse> listIncidentUserDefinedRolesAsync(
+      ListIncidentUserDefinedRolesOptionalParameters parameters) {
+    return listIncidentUserDefinedRolesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all user-defined roles for incidents.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentUserDefinedRolesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentUserDefinedRolesResponse> listIncidentUserDefinedRolesWithHttpInfo(
+      ListIncidentUserDefinedRolesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentUserDefinedRoles";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    UUID filterIncidentType = parameters.filterIncidentType;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/user-defined-roles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[incident-type]", filterIncidentType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.listIncidentUserDefinedRoles",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedRolesResponse>() {});
+  }
+
+  /**
+   * List incident user-defined roles.
+   *
+   * <p>See {@link #listIncidentUserDefinedRolesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentUserDefinedRolesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentUserDefinedRolesResponse>>
+      listIncidentUserDefinedRolesWithHttpInfoAsync(
+          ListIncidentUserDefinedRolesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentUserDefinedRoles";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRolesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    UUID filterIncidentType = parameters.filterIncidentType;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/user-defined-roles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[incident-type]", filterIncidentType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.listIncidentUserDefinedRoles",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRolesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedRolesResponse>() {});
   }
 
   /** Manage optional parameters to searchIncidents. */
@@ -11164,5 +11979,262 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentUserDefinedFieldResponse>() {});
+  }
+
+  /** Manage optional parameters to updateIncidentUserDefinedRole. */
+  public static class UpdateIncidentUserDefinedRoleOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include in the response.
+     *     (optional)
+     * @return UpdateIncidentUserDefinedRoleOptionalParameters
+     */
+    public UpdateIncidentUserDefinedRoleOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Update an incident user-defined role.
+   *
+   * <p>See {@link #updateIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param body (required)
+   * @return IncidentUserDefinedRoleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedRoleResponse updateIncidentUserDefinedRole(
+      UUID roleId, IncidentUserDefinedRolePatchRequest body) throws ApiException {
+    return updateIncidentUserDefinedRoleWithHttpInfo(
+            roleId, body, new UpdateIncidentUserDefinedRoleOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update an incident user-defined role.
+   *
+   * <p>See {@link #updateIncidentUserDefinedRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentUserDefinedRoleResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedRoleResponse> updateIncidentUserDefinedRoleAsync(
+      UUID roleId, IncidentUserDefinedRolePatchRequest body) {
+    return updateIncidentUserDefinedRoleWithHttpInfoAsync(
+            roleId, body, new UpdateIncidentUserDefinedRoleOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an incident user-defined role.
+   *
+   * <p>See {@link #updateIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentUserDefinedRoleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedRoleResponse updateIncidentUserDefinedRole(
+      UUID roleId,
+      IncidentUserDefinedRolePatchRequest body,
+      UpdateIncidentUserDefinedRoleOptionalParameters parameters)
+      throws ApiException {
+    return updateIncidentUserDefinedRoleWithHttpInfo(roleId, body, parameters).getData();
+  }
+
+  /**
+   * Update an incident user-defined role.
+   *
+   * <p>See {@link #updateIncidentUserDefinedRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentUserDefinedRoleResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedRoleResponse> updateIncidentUserDefinedRoleAsync(
+      UUID roleId,
+      IncidentUserDefinedRolePatchRequest body,
+      UpdateIncidentUserDefinedRoleOptionalParameters parameters) {
+    return updateIncidentUserDefinedRoleWithHttpInfoAsync(roleId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing user-defined role for incidents.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentUserDefinedRoleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentUserDefinedRoleResponse> updateIncidentUserDefinedRoleWithHttpInfo(
+      UUID roleId,
+      IncidentUserDefinedRolePatchRequest body,
+      UpdateIncidentUserDefinedRoleOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentUserDefinedRole";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'roleId' when calling updateIncidentUserDefinedRole");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateIncidentUserDefinedRole");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-roles/{role_id}"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateIncidentUserDefinedRole",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedRoleResponse>() {});
+  }
+
+  /**
+   * Update an incident user-defined role.
+   *
+   * <p>See {@link #updateIncidentUserDefinedRoleWithHttpInfo}.
+   *
+   * @param roleId The UUID of the incident user-defined role. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentUserDefinedRoleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>>
+      updateIncidentUserDefinedRoleWithHttpInfoAsync(
+          UUID roleId,
+          IncidentUserDefinedRolePatchRequest body,
+          UpdateIncidentUserDefinedRoleOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentUserDefinedRole";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'roleId' when calling"
+                  + " updateIncidentUserDefinedRole"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateIncidentUserDefinedRole"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-roles/{role_id}"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateIncidentUserDefinedRole",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedRoleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedRoleResponse>() {});
   }
 }
