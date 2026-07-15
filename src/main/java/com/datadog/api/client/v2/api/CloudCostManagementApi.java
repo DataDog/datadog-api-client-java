@@ -4,6 +4,8 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AccountFiltersPatchRequest;
+import com.datadog.api.client.v2.model.AccountFiltersResponse;
 import com.datadog.api.client.v2.model.ArbitraryCostUpsertRequest;
 import com.datadog.api.client.v2.model.ArbitraryRuleResponse;
 import com.datadog.api.client.v2.model.ArbitraryRuleResponseArray;
@@ -5128,6 +5130,149 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CommitmentsUtilizationTimeseriesResponse>() {});
+  }
+
+  /**
+   * Get account filters.
+   *
+   * <p>See {@link #getCostAccountFiltersWithHttpInfo}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @return AccountFiltersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AccountFiltersResponse getCostAccountFilters(Long cloudAccountId) throws ApiException {
+    return getCostAccountFiltersWithHttpInfo(cloudAccountId).getData();
+  }
+
+  /**
+   * Get account filters.
+   *
+   * <p>See {@link #getCostAccountFiltersWithHttpInfoAsync}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @return CompletableFuture&lt;AccountFiltersResponse&gt;
+   */
+  public CompletableFuture<AccountFiltersResponse> getCostAccountFiltersAsync(Long cloudAccountId) {
+    return getCostAccountFiltersWithHttpInfoAsync(cloudAccountId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the account filters for a cloud account (AWS CUR 1.0/2.0, OCI, and other clouds).
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @return ApiResponse&lt;AccountFiltersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AccountFiltersResponse> getCostAccountFiltersWithHttpInfo(Long cloudAccountId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'cloudAccountId' when calling getCostAccountFilters");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/account_filters/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostAccountFilters",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AccountFiltersResponse>() {});
+  }
+
+  /**
+   * Get account filters.
+   *
+   * <p>See {@link #getCostAccountFiltersWithHttpInfo}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AccountFiltersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AccountFiltersResponse>>
+      getCostAccountFiltersWithHttpInfoAsync(Long cloudAccountId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      CompletableFuture<ApiResponse<AccountFiltersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'cloudAccountId' when calling"
+                  + " getCostAccountFilters"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/account_filters/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostAccountFilters",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AccountFiltersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AccountFiltersResponse>() {});
   }
 
   /**
@@ -10757,6 +10902,171 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CostRecommendationArray>() {});
+  }
+
+  /**
+   * Update account filters.
+   *
+   * <p>See {@link #updateCostAccountFiltersWithHttpInfo}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @param body (required)
+   * @return AccountFiltersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AccountFiltersResponse updateCostAccountFilters(
+      Long cloudAccountId, AccountFiltersPatchRequest body) throws ApiException {
+    return updateCostAccountFiltersWithHttpInfo(cloudAccountId, body).getData();
+  }
+
+  /**
+   * Update account filters.
+   *
+   * <p>See {@link #updateCostAccountFiltersWithHttpInfoAsync}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;AccountFiltersResponse&gt;
+   */
+  public CompletableFuture<AccountFiltersResponse> updateCostAccountFiltersAsync(
+      Long cloudAccountId, AccountFiltersPatchRequest body) {
+    return updateCostAccountFiltersWithHttpInfoAsync(cloudAccountId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the account filters for a cloud account (AWS CUR 1.0/2.0, OCI, and other clouds).
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;AccountFiltersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AccountFiltersResponse> updateCostAccountFiltersWithHttpInfo(
+      Long cloudAccountId, AccountFiltersPatchRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'cloudAccountId' when calling updateCostAccountFilters");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateCostAccountFilters");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/account_filters/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.updateCostAccountFilters",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AccountFiltersResponse>() {});
+  }
+
+  /**
+   * Update account filters.
+   *
+   * <p>See {@link #updateCostAccountFiltersWithHttpInfo}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AccountFiltersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AccountFiltersResponse>>
+      updateCostAccountFiltersWithHttpInfoAsync(
+          Long cloudAccountId, AccountFiltersPatchRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      CompletableFuture<ApiResponse<AccountFiltersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'cloudAccountId' when calling"
+                  + " updateCostAccountFilters"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AccountFiltersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateCostAccountFilters"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/account_filters/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.updateCostAccountFilters",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AccountFiltersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AccountFiltersResponse>() {});
   }
 
   /**
