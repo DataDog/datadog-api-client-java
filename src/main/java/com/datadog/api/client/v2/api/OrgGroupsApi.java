@@ -21,6 +21,7 @@ import com.datadog.api.client.v2.model.OrgGroupPolicyOverrideSortOption;
 import com.datadog.api.client.v2.model.OrgGroupPolicyOverrideUpdateRequest;
 import com.datadog.api.client.v2.model.OrgGroupPolicyResponse;
 import com.datadog.api.client.v2.model.OrgGroupPolicySortOption;
+import com.datadog.api.client.v2.model.OrgGroupPolicySuggestionListResponse;
 import com.datadog.api.client.v2.model.OrgGroupPolicyUpdateRequest;
 import com.datadog.api.client.v2.model.OrgGroupResponse;
 import com.datadog.api.client.v2.model.OrgGroupSortOption;
@@ -2745,6 +2746,172 @@ public class OrgGroupsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OrgGroupPolicyOverrideListResponse>() {});
+  }
+
+  /**
+   * List org group policy suggestions.
+   *
+   * <p>See {@link #listOrgGroupPolicySuggestionsWithHttpInfo}.
+   *
+   * @param filterOrgGroupId Filter policies by org group ID. (required)
+   * @return OrgGroupPolicySuggestionListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OrgGroupPolicySuggestionListResponse listOrgGroupPolicySuggestions(UUID filterOrgGroupId)
+      throws ApiException {
+    return listOrgGroupPolicySuggestionsWithHttpInfo(filterOrgGroupId).getData();
+  }
+
+  /**
+   * List org group policy suggestions.
+   *
+   * <p>See {@link #listOrgGroupPolicySuggestionsWithHttpInfoAsync}.
+   *
+   * @param filterOrgGroupId Filter policies by org group ID. (required)
+   * @return CompletableFuture&lt;OrgGroupPolicySuggestionListResponse&gt;
+   */
+  public CompletableFuture<OrgGroupPolicySuggestionListResponse> listOrgGroupPolicySuggestionsAsync(
+      UUID filterOrgGroupId) {
+    return listOrgGroupPolicySuggestionsWithHttpInfoAsync(filterOrgGroupId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List suggested organization group policies. Requires a filter on org group ID.
+   *
+   * @param filterOrgGroupId Filter policies by org group ID. (required)
+   * @return ApiResponse&lt;OrgGroupPolicySuggestionListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OrgGroupPolicySuggestionListResponse>
+      listOrgGroupPolicySuggestionsWithHttpInfo(UUID filterOrgGroupId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listOrgGroupPolicySuggestions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterOrgGroupId' is set
+    if (filterOrgGroupId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterOrgGroupId' when calling"
+              + " listOrgGroupPolicySuggestions");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/org_group_policy_suggestions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[org_group_id]", filterOrgGroupId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OrgGroupsApi.listOrgGroupPolicySuggestions",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgGroupPolicySuggestionListResponse>() {});
+  }
+
+  /**
+   * List org group policy suggestions.
+   *
+   * <p>See {@link #listOrgGroupPolicySuggestionsWithHttpInfo}.
+   *
+   * @param filterOrgGroupId Filter policies by org group ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OrgGroupPolicySuggestionListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OrgGroupPolicySuggestionListResponse>>
+      listOrgGroupPolicySuggestionsWithHttpInfoAsync(UUID filterOrgGroupId) {
+    // Check if unstable operation is enabled
+    String operationId = "listOrgGroupPolicySuggestions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OrgGroupPolicySuggestionListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterOrgGroupId' is set
+    if (filterOrgGroupId == null) {
+      CompletableFuture<ApiResponse<OrgGroupPolicySuggestionListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterOrgGroupId' when calling"
+                  + " listOrgGroupPolicySuggestions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/org_group_policy_suggestions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[org_group_id]", filterOrgGroupId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OrgGroupsApi.listOrgGroupPolicySuggestions",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OrgGroupPolicySuggestionListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgGroupPolicySuggestionListResponse>() {});
   }
 
   /** Manage optional parameters to listOrgGroups. */

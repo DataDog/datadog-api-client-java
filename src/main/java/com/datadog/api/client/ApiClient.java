@@ -1214,6 +1214,7 @@ public class ApiClient {
           put("v2.listOrgGroupPolicies", false);
           put("v2.listOrgGroupPolicyConfigs", false);
           put("v2.listOrgGroupPolicyOverrides", false);
+          put("v2.listOrgGroupPolicySuggestions", false);
           put("v2.listOrgGroups", false);
           put("v2.updateOrgGroup", false);
           put("v2.updateOrgGroupMembership", false);
