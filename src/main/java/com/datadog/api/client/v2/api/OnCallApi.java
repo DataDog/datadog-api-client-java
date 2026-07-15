@@ -15,6 +15,7 @@ import com.datadog.api.client.v2.model.NotificationChannel;
 import com.datadog.api.client.v2.model.OnCallNotificationRule;
 import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleCreateRequest;
+import com.datadog.api.client.v2.model.ScheduleOnCallResponders;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequest;
 import com.datadog.api.client.v2.model.Shift;
 import com.datadog.api.client.v2.model.TeamOnCallResponders;
@@ -1985,6 +1986,257 @@ public class OnCallApi {
         new GenericType<TeamRoutingRules>() {});
   }
 
+  /** Manage optional parameters to getScheduleOnCallResponders. */
+  public static class GetScheduleOnCallRespondersOptionalParameters {
+    private String include;
+    private String filterPosition;
+    private String filterAtTs;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>schedule</code>, <code>responders</code>, <code>responders.shifts</code>, <code>
+     *     responders.shifts.user</code>. (optional)
+     * @return GetScheduleOnCallRespondersOptionalParameters
+     */
+    public GetScheduleOnCallRespondersOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set filterPosition.
+     *
+     * @param filterPosition Comma-separated list of positions to retrieve. Allowed values: <code>
+     *     previous</code>, <code>current</code>, <code>next</code>. Defaults to <code>current
+     *     </code> if omitted. (optional)
+     * @return GetScheduleOnCallRespondersOptionalParameters
+     */
+    public GetScheduleOnCallRespondersOptionalParameters filterPosition(String filterPosition) {
+      this.filterPosition = filterPosition;
+      return this;
+    }
+
+    /**
+     * Set filterAtTs.
+     *
+     * @param filterAtTs Retrieves the on-call responders at the given timestamp in RFC3339 format
+     *     (for example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>
+     *     ). When using timezone offsets with <code>+</code> or <code>-</code>, ensure proper URL
+     *     encoding (<code>+</code> should be encoded as <code>%2B</code>). Defaults to the current
+     *     time if omitted. (optional)
+     * @return GetScheduleOnCallRespondersOptionalParameters
+     */
+    public GetScheduleOnCallRespondersOptionalParameters filterAtTs(String filterAtTs) {
+      this.filterAtTs = filterAtTs;
+      return this;
+    }
+  }
+
+  /**
+   * Get on-call responders for a schedule.
+   *
+   * <p>See {@link #getScheduleOnCallRespondersWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @return ScheduleOnCallResponders
+   * @throws ApiException if fails to make API call
+   */
+  public ScheduleOnCallResponders getScheduleOnCallResponders(String scheduleId)
+      throws ApiException {
+    return getScheduleOnCallRespondersWithHttpInfo(
+            scheduleId, new GetScheduleOnCallRespondersOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get on-call responders for a schedule.
+   *
+   * <p>See {@link #getScheduleOnCallRespondersWithHttpInfoAsync}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @return CompletableFuture&lt;ScheduleOnCallResponders&gt;
+   */
+  public CompletableFuture<ScheduleOnCallResponders> getScheduleOnCallRespondersAsync(
+      String scheduleId) {
+    return getScheduleOnCallRespondersWithHttpInfoAsync(
+            scheduleId, new GetScheduleOnCallRespondersOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get on-call responders for a schedule.
+   *
+   * <p>See {@link #getScheduleOnCallRespondersWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ScheduleOnCallResponders
+   * @throws ApiException if fails to make API call
+   */
+  public ScheduleOnCallResponders getScheduleOnCallResponders(
+      String scheduleId, GetScheduleOnCallRespondersOptionalParameters parameters)
+      throws ApiException {
+    return getScheduleOnCallRespondersWithHttpInfo(scheduleId, parameters).getData();
+  }
+
+  /**
+   * Get on-call responders for a schedule.
+   *
+   * <p>See {@link #getScheduleOnCallRespondersWithHttpInfoAsync}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ScheduleOnCallResponders&gt;
+   */
+  public CompletableFuture<ScheduleOnCallResponders> getScheduleOnCallRespondersAsync(
+      String scheduleId, GetScheduleOnCallRespondersOptionalParameters parameters) {
+    return getScheduleOnCallRespondersWithHttpInfoAsync(scheduleId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieves the on-call responders for the specified schedule, grouped by position (previous,
+   * current, next), at a given time. Supports schedules with multiple concurrent on-call responders
+   * at a position, by returning a list of shifts per position.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ScheduleOnCallResponders&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ScheduleOnCallResponders> getScheduleOnCallRespondersWithHttpInfo(
+      String scheduleId, GetScheduleOnCallRespondersOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'scheduleId' when calling getScheduleOnCallResponders");
+    }
+    String include = parameters.include;
+    String filterPosition = parameters.filterPosition;
+    String filterAtTs = parameters.filterAtTs;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/schedules/{schedule_id}/responders"
+            .replaceAll(
+                "\\{" + "schedule_id" + "\\}", apiClient.escapeString(scheduleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[position]", filterPosition));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[at_ts]", filterAtTs));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.getScheduleOnCallResponders",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ScheduleOnCallResponders>() {});
+  }
+
+  /**
+   * Get on-call responders for a schedule.
+   *
+   * <p>See {@link #getScheduleOnCallRespondersWithHttpInfo}.
+   *
+   * @param scheduleId The ID of the schedule. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ScheduleOnCallResponders&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ScheduleOnCallResponders>>
+      getScheduleOnCallRespondersWithHttpInfoAsync(
+          String scheduleId, GetScheduleOnCallRespondersOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'scheduleId' is set
+    if (scheduleId == null) {
+      CompletableFuture<ApiResponse<ScheduleOnCallResponders>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'scheduleId' when calling"
+                  + " getScheduleOnCallResponders"));
+      return result;
+    }
+    String include = parameters.include;
+    String filterPosition = parameters.filterPosition;
+    String filterAtTs = parameters.filterAtTs;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/schedules/{schedule_id}/responders"
+            .replaceAll(
+                "\\{" + "schedule_id" + "\\}", apiClient.escapeString(scheduleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[position]", filterPosition));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[at_ts]", filterAtTs));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.getScheduleOnCallResponders",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ScheduleOnCallResponders>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ScheduleOnCallResponders>() {});
+  }
+
   /** Manage optional parameters to getScheduleOnCallUser. */
   public static class GetScheduleOnCallUserOptionalParameters {
     private String include;
@@ -2026,7 +2278,9 @@ public class OnCallApi {
    * @param scheduleId The ID of the schedule. (required)
    * @return Shift
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Shift getScheduleOnCallUser(String scheduleId) throws ApiException {
     return getScheduleOnCallUserWithHttpInfo(
             scheduleId, new GetScheduleOnCallUserOptionalParameters())
@@ -2040,7 +2294,9 @@ public class OnCallApi {
    *
    * @param scheduleId The ID of the schedule. (required)
    * @return CompletableFuture&lt;Shift&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Shift> getScheduleOnCallUserAsync(String scheduleId) {
     return getScheduleOnCallUserWithHttpInfoAsync(
             scheduleId, new GetScheduleOnCallUserOptionalParameters())
@@ -2059,7 +2315,9 @@ public class OnCallApi {
    * @param parameters Optional parameters for the request.
    * @return Shift
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Shift getScheduleOnCallUser(
       String scheduleId, GetScheduleOnCallUserOptionalParameters parameters) throws ApiException {
     return getScheduleOnCallUserWithHttpInfo(scheduleId, parameters).getData();
@@ -2073,7 +2331,9 @@ public class OnCallApi {
    * @param scheduleId The ID of the schedule. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;Shift&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Shift> getScheduleOnCallUserAsync(
       String scheduleId, GetScheduleOnCallUserOptionalParameters parameters) {
     return getScheduleOnCallUserWithHttpInfoAsync(scheduleId, parameters)
@@ -2084,7 +2344,9 @@ public class OnCallApi {
   }
 
   /**
-   * Retrieves the user who is on-call for the specified schedule at a given time.
+   * Retrieves the user who is on-call for the specified schedule at a given time. This endpoint
+   * does not support schedules with multiple concurrent on-call responders at a position.
+   * Deprecated. Use <code>Get on-call responders for a schedule</code> instead.
    *
    * @param scheduleId The ID of the schedule. (required)
    * @param parameters Optional parameters for the request.
@@ -2101,7 +2363,10 @@ public class OnCallApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Shift> getScheduleOnCallUserWithHttpInfo(
       String scheduleId, GetScheduleOnCallUserOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -2153,7 +2418,9 @@ public class OnCallApi {
    * @param scheduleId The ID of the schedule. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Shift&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Shift>> getScheduleOnCallUserWithHttpInfoAsync(
       String scheduleId, GetScheduleOnCallUserOptionalParameters parameters) {
     Object localVarPostBody = null;
