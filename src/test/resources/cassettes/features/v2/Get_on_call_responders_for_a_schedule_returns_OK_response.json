@@ -1,0 +1,130 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Get_on_call_responders_for_a_schedule_returns_OK_response-1783675897@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/users",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"7f1b523e-fe13-4917-8519-6dd314ef17c0\",\"attributes\":{\"uuid\":\"7f1b523e-fe13-4917-8519-6dd314ef17c0\",\"name\":null,\"handle\":\"test-get_on_call_responders_for_a_schedule_returns_ok_response-1783675897@datadoghq.com\",\"created_at\":\"2026-07-10T09:31:38.042683+00:00\",\"modified_at\":\"2026-07-10T09:31:38.042683+00:00\",\"email\":\"test-get_on_call_responders_for_a_schedule_returns_ok_response-1783675897@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/22b76633087bc3ee4427cc67e8466d5e?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\",\"last_login_time\":null},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "80668eb5-0507-927f-5faf-4ae4f60261cc"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2026-06-30T09:31:37.503Z\",\"end_date\":\"2026-07-20T09:31:37.503Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"7f1b523e-fe13-4917-8519-6dd314ef17c0\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2026-07-05T09:31:37.503Z\"}],\"name\":\"Test-Get_on_call_responders_for_a_schedule_returns_OK_response-1783675897\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/schedules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"23545b48-fa23-4ea9-a331-3a38f81195cd\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Get_on_call_responders_for_a_schedule_returns_OK_response-1783675897\",\"tags\":[],\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"03edf431-b1a6-418a-965e-9df50275dc7e\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ef6508f9-7c92-8800-0ac9-7c2b134f118e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/on-call/schedules/23545b48-fa23-4ea9-a331-3a38f81195cd/responders",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"23545b48-fa23-4ea9-a331-3a38f81195cd-1783675898\",\"type\":\"schedule_oncall_responders\",\"attributes\":{\"scheduled_at\":\"2026-07-10T09:31:38.803561233Z\"},\"relationships\":{\"responders\":{\"data\":[{\"id\":\"23545b48-fa23-4ea9-a331-3a38f81195cd-1783675898-current\",\"type\":\"schedule_oncall_responder\"}]},\"schedule\":{\"data\":{\"id\":\"23545b48-fa23-4ea9-a331-3a38f81195cd\",\"type\":\"schedules\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cd5cb6e9-d0d0-66c6-26a7-b1143fa877de"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/on-call/schedules/23545b48-fa23-4ea9-a331-3a38f81195cd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7d355057-b29c-a8d0-d028-e717bdef3498"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/users/7f1b523e-fe13-4917-8519-6dd314ef17c0",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ccb97923-5215-4f65-be4e-1776d4779448"
+  }
+]
