@@ -39,6 +39,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_HTTP_VERSION,
+  SyntheticsTestRequest.JSON_PROPERTY_IGNORE_CERTIFICATE_VALIDATION,
   SyntheticsTestRequest.JSON_PROPERTY_IS_MESSAGE_BASE64_ENCODED,
   SyntheticsTestRequest.JSON_PROPERTY_MCP_PROTOCOL_VERSION,
   SyntheticsTestRequest.JSON_PROPERTY_MESSAGE,
@@ -120,6 +121,10 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_HTTP_VERSION = "httpVersion";
   private SyntheticsTestOptionsHTTPVersion httpVersion;
+
+  public static final String JSON_PROPERTY_IGNORE_CERTIFICATE_VALIDATION =
+      "ignore_certificate_validation";
+  private Boolean ignoreCertificateValidation;
 
   public static final String JSON_PROPERTY_IS_MESSAGE_BASE64_ENCODED = "isMessageBase64Encoded";
   private Boolean isMessageBase64Encoded;
@@ -632,6 +637,27 @@ public class SyntheticsTestRequest {
     this.httpVersion = httpVersion;
   }
 
+  public SyntheticsTestRequest ignoreCertificateValidation(Boolean ignoreCertificateValidation) {
+    this.ignoreCertificateValidation = ignoreCertificateValidation;
+    return this;
+  }
+
+  /**
+   * For SSL tests, whether the test should ignore certificate validation.
+   *
+   * @return ignoreCertificateValidation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IGNORE_CERTIFICATE_VALIDATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIgnoreCertificateValidation() {
+    return ignoreCertificateValidation;
+  }
+
+  public void setIgnoreCertificateValidation(Boolean ignoreCertificateValidation) {
+    this.ignoreCertificateValidation = ignoreCertificateValidation;
+  }
+
   public SyntheticsTestRequest isMessageBase64Encoded(Boolean isMessageBase64Encoded) {
     this.isMessageBase64Encoded = isMessageBase64Encoded;
     return this;
@@ -1117,6 +1143,8 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
         && Objects.equals(this.httpVersion, syntheticsTestRequest.httpVersion)
+        && Objects.equals(
+            this.ignoreCertificateValidation, syntheticsTestRequest.ignoreCertificateValidation)
         && Objects.equals(this.isMessageBase64Encoded, syntheticsTestRequest.isMessageBase64Encoded)
         && Objects.equals(this.mcpProtocolVersion, syntheticsTestRequest.mcpProtocolVersion)
         && Objects.equals(this.message, syntheticsTestRequest.message)
@@ -1160,6 +1188,7 @@ public class SyntheticsTestRequest {
         headers,
         host,
         httpVersion,
+        ignoreCertificateValidation,
         isMessageBase64Encoded,
         mcpProtocolVersion,
         message,
@@ -1212,6 +1241,9 @@ public class SyntheticsTestRequest {
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
+    sb.append("    ignoreCertificateValidation: ")
+        .append(toIndentedString(ignoreCertificateValidation))
+        .append("\n");
     sb.append("    isMessageBase64Encoded: ")
         .append(toIndentedString(isMessageBase64Encoded))
         .append("\n");

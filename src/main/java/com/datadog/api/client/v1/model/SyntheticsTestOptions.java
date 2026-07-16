@@ -489,7 +489,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * For SSL tests, whether or not the test should ignore certificate validation.
+   * For SSL tests, whether the test should ignore certificate validation.
    *
    * @return ignoreCertificateValidation
    */
