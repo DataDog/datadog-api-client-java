@@ -35,8 +35,10 @@ public class RelationshipToTeamLinks {
 
   public RelationshipToTeamLinks data(List<RelationshipToTeamLinkData> data) {
     this.data = data;
-    for (RelationshipToTeamLinkData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RelationshipToTeamLinkData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class RelationshipToTeamLinks {
 
   public void setData(List<RelationshipToTeamLinkData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToTeamLinkData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RelationshipToTeamLinks links(TeamRelationshipsLinks links) {
@@ -86,6 +93,9 @@ public class RelationshipToTeamLinks {
 
   public void setLinks(TeamRelationshipsLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   /**

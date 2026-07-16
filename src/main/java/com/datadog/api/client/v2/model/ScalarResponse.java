@@ -48,6 +48,9 @@ public class ScalarResponse {
 
   public void setAttributes(ScalarFormulaResponseAtrributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScalarResponse type(ScalarFormulaResponseType type) {

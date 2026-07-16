@@ -56,6 +56,9 @@ public class LLMObsAnnotationQueueLabelSchemaAttributes {
 
   public void setAnnotationSchema(LLMObsAnnotationSchema annotationSchema) {
     this.annotationSchema = annotationSchema;
+    if (annotationSchema != null) {
+      this.unparsed |= annotationSchema.unparsed;
+    }
   }
 
   /**

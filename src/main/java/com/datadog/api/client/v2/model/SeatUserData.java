@@ -56,6 +56,9 @@ public class SeatUserData {
 
   public void setAttributes(SeatUserDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SeatUserData id(String id) {

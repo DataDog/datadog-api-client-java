@@ -110,8 +110,10 @@ public class ServiceDefinitionV2Dot1 {
 
   public ServiceDefinitionV2Dot1 contacts(List<ServiceDefinitionV2Dot1Contact> contacts) {
     this.contacts = contacts;
-    for (ServiceDefinitionV2Dot1Contact item : contacts) {
-      this.unparsed |= item.unparsed;
+    if (contacts != null) {
+      for (ServiceDefinitionV2Dot1Contact item : contacts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -139,6 +141,11 @@ public class ServiceDefinitionV2Dot1 {
 
   public void setContacts(List<ServiceDefinitionV2Dot1Contact> contacts) {
     this.contacts = contacts;
+    if (contacts != null) {
+      for (ServiceDefinitionV2Dot1Contact item : contacts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ServiceDefinitionV2Dot1 ddService(String ddService) {
@@ -232,6 +239,9 @@ public class ServiceDefinitionV2Dot1 {
 
   public void setIntegrations(ServiceDefinitionV2Dot1Integrations integrations) {
     this.integrations = integrations;
+    if (integrations != null) {
+      this.unparsed |= integrations.unparsed;
+    }
   }
 
   public ServiceDefinitionV2Dot1 lifecycle(String lifecycle) {
@@ -257,8 +267,10 @@ public class ServiceDefinitionV2Dot1 {
 
   public ServiceDefinitionV2Dot1 links(List<ServiceDefinitionV2Dot1Link> links) {
     this.links = links;
-    for (ServiceDefinitionV2Dot1Link item : links) {
-      this.unparsed |= item.unparsed;
+    if (links != null) {
+      for (ServiceDefinitionV2Dot1Link item : links) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -286,6 +298,11 @@ public class ServiceDefinitionV2Dot1 {
 
   public void setLinks(List<ServiceDefinitionV2Dot1Link> links) {
     this.links = links;
+    if (links != null) {
+      for (ServiceDefinitionV2Dot1Link item : links) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ServiceDefinitionV2Dot1 schemaVersion(ServiceDefinitionV2Dot1Version schemaVersion) {

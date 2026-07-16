@@ -159,6 +159,9 @@ public class ProductAnalyticsExtendedCompute {
 
   public void setRollup(CalendarInterval rollup) {
     this.rollup = rollup;
+    if (rollup != null) {
+      this.unparsed |= rollup.unparsed;
+    }
   }
 
   /** Return true if this ProductAnalyticsExtendedCompute object is equal to o. */

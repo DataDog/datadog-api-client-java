@@ -82,6 +82,9 @@ public class IncidentTypeUpdateAttributes {
 
   public void setConfiguration(IncidentTypeConfiguration configuration) {
     this.configuration = configuration;
+    if (configuration != null) {
+      this.unparsed |= configuration.unparsed;
+    }
   }
 
   /**

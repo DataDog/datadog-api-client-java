@@ -103,6 +103,9 @@ public class AzureUCConfigPostRequestAttributes {
 
   public void setActualBillConfig(BillConfig actualBillConfig) {
     this.actualBillConfig = actualBillConfig;
+    if (actualBillConfig != null) {
+      this.unparsed |= actualBillConfig.unparsed;
+    }
   }
 
   public AzureUCConfigPostRequestAttributes amortizedBillConfig(BillConfig amortizedBillConfig) {
@@ -124,6 +127,9 @@ public class AzureUCConfigPostRequestAttributes {
 
   public void setAmortizedBillConfig(BillConfig amortizedBillConfig) {
     this.amortizedBillConfig = amortizedBillConfig;
+    if (amortizedBillConfig != null) {
+      this.unparsed |= amortizedBillConfig.unparsed;
+    }
   }
 
   public AzureUCConfigPostRequestAttributes clientId(String clientId) {

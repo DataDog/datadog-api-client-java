@@ -34,6 +34,9 @@ public class RoleTemplateArray {
   public RoleTemplateArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<RoleTemplateData> data) {
     this.data = data;
+    for (RoleTemplateData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RoleTemplateArray data(List<RoleTemplateData> data) {
@@ -63,6 +66,11 @@ public class RoleTemplateArray {
 
   public void setData(List<RoleTemplateData> data) {
     this.data = data;
+    if (data != null) {
+      for (RoleTemplateData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

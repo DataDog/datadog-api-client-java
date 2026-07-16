@@ -55,6 +55,9 @@ public class EscalationPolicyUpdateRequestDataAttributes {
           List<EscalationPolicyUpdateRequestDataAttributesStepsItems> steps) {
     this.name = name;
     this.steps = steps;
+    for (EscalationPolicyUpdateRequestDataAttributesStepsItems item : steps) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public EscalationPolicyUpdateRequestDataAttributes name(String name) {
@@ -150,6 +153,11 @@ public class EscalationPolicyUpdateRequestDataAttributes {
 
   public void setSteps(List<EscalationPolicyUpdateRequestDataAttributesStepsItems> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (EscalationPolicyUpdateRequestDataAttributesStepsItems item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

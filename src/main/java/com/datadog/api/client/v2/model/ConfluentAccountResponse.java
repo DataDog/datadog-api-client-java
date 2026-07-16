@@ -45,6 +45,9 @@ public class ConfluentAccountResponse {
 
   public void setData(ConfluentAccountResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

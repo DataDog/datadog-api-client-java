@@ -64,6 +64,9 @@ public class AWSCcmConfigRequestData {
 
   public void setAttributes(AWSCcmConfigRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSCcmConfigRequestData type(AWSCcmConfigType type) {

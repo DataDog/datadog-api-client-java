@@ -35,6 +35,9 @@ public class ReorderRuleResourceArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<ReorderRuleResourceData> data) {
     this.data = data;
+    for (ReorderRuleResourceData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ReorderRuleResourceArray data(List<ReorderRuleResourceData> data) {
@@ -64,6 +67,11 @@ public class ReorderRuleResourceArray {
 
   public void setData(List<ReorderRuleResourceData> data) {
     this.data = data;
+    if (data != null) {
+      for (ReorderRuleResourceData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

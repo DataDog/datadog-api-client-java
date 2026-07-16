@@ -35,8 +35,10 @@ public class MonthlyCostAttributionResponse {
 
   public MonthlyCostAttributionResponse data(List<MonthlyCostAttributionBody> data) {
     this.data = data;
-    for (MonthlyCostAttributionBody item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MonthlyCostAttributionBody item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class MonthlyCostAttributionResponse {
 
   public void setData(List<MonthlyCostAttributionBody> data) {
     this.data = data;
+    if (data != null) {
+      for (MonthlyCostAttributionBody item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonthlyCostAttributionResponse meta(MonthlyCostAttributionMeta meta) {
@@ -86,6 +93,9 @@ public class MonthlyCostAttributionResponse {
 
   public void setMeta(MonthlyCostAttributionMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

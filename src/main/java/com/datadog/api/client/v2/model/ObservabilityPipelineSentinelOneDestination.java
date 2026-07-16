@@ -94,6 +94,9 @@ public class ObservabilityPipelineSentinelOneDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineSentinelOneDestination id(String id) {

@@ -45,6 +45,9 @@ public class WorklflowGetInstanceResponse {
 
   public void setData(WorklflowGetInstanceResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

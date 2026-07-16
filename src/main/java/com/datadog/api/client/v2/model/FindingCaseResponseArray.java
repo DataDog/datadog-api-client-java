@@ -35,6 +35,9 @@ public class FindingCaseResponseArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<FindingCaseResponseData> data) {
     this.data = data;
+    for (FindingCaseResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FindingCaseResponseArray data(List<FindingCaseResponseData> data) {
@@ -64,6 +67,11 @@ public class FindingCaseResponseArray {
 
   public void setData(List<FindingCaseResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (FindingCaseResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

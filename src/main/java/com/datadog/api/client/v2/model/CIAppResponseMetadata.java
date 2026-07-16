@@ -110,8 +110,10 @@ public class CIAppResponseMetadata {
 
   public CIAppResponseMetadata warnings(List<CIAppWarning> warnings) {
     this.warnings = warnings;
-    for (CIAppWarning item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (CIAppWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -140,6 +142,11 @@ public class CIAppResponseMetadata {
 
   public void setWarnings(List<CIAppWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (CIAppWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

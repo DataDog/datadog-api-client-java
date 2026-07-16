@@ -46,6 +46,9 @@ public class TeamNotificationRulesResponseMeta {
 
   public void setPage(TeamNotificationRulesResponseMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

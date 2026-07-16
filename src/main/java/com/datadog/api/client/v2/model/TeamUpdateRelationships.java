@@ -45,6 +45,9 @@ public class TeamUpdateRelationships {
 
   public void setTeamLinks(RelationshipToTeamLinks teamLinks) {
     this.teamLinks = teamLinks;
+    if (teamLinks != null) {
+      this.unparsed |= teamLinks.unparsed;
+    }
   }
 
   /**

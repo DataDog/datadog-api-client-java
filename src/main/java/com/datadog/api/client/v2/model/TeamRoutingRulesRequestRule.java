@@ -47,8 +47,10 @@ public class TeamRoutingRulesRequestRule {
 
   public TeamRoutingRulesRequestRule actions(List<RoutingRuleAction> actions) {
     this.actions = actions;
-    for (RoutingRuleAction item : actions) {
-      this.unparsed |= item.unparsed;
+    if (actions != null) {
+      for (RoutingRuleAction item : actions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -76,6 +78,11 @@ public class TeamRoutingRulesRequestRule {
 
   public void setActions(List<RoutingRuleAction> actions) {
     this.actions = actions;
+    if (actions != null) {
+      for (RoutingRuleAction item : actions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamRoutingRulesRequestRule policyId(String policyId) {
@@ -142,6 +149,9 @@ public class TeamRoutingRulesRequestRule {
 
   public void setTimeRestriction(TimeRestrictions timeRestriction) {
     this.timeRestriction = timeRestriction;
+    if (timeRestriction != null) {
+      this.unparsed |= timeRestriction.unparsed;
+    }
   }
 
   public TeamRoutingRulesRequestRule urgency(Urgency urgency) {

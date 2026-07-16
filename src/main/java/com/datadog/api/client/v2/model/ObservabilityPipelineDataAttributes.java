@@ -63,6 +63,9 @@ public class ObservabilityPipelineDataAttributes {
 
   public void setConfig(ObservabilityPipelineConfig config) {
     this.config = config;
+    if (config != null) {
+      this.unparsed |= config.unparsed;
+    }
   }
 
   public ObservabilityPipelineDataAttributes name(String name) {

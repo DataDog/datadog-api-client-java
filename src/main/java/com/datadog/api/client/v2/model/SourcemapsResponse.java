@@ -34,6 +34,9 @@ public class SourcemapsResponse {
   public SourcemapsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SourcemapItem> data) {
     this.data = data;
+    for (SourcemapItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SourcemapsResponse data(List<SourcemapItem> data) {
@@ -63,6 +66,11 @@ public class SourcemapsResponse {
 
   public void setData(List<SourcemapItem> data) {
     this.data = data;
+    if (data != null) {
+      for (SourcemapItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

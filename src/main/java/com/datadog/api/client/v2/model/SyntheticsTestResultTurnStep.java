@@ -51,6 +51,9 @@ public class SyntheticsTestResultTurnStep {
 
   public void setBucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
     this.bucketKeys = bucketKeys;
+    if (bucketKeys != null) {
+      this.unparsed |= bucketKeys.unparsed;
+    }
   }
 
   public SyntheticsTestResultTurnStep config(Map<String, Object> config) {

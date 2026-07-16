@@ -64,6 +64,9 @@ public class UpsertFormVersionData {
 
   public void setAttributes(UpsertFormVersionDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpsertFormVersionData type(FormVersionType type) {

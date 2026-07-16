@@ -66,6 +66,9 @@ public class CreateDegradationRequestData {
 
   public void setAttributes(CreateDegradationRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateDegradationRequestData type(PatchDegradationRequestDataType type) {

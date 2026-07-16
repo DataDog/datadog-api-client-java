@@ -47,6 +47,10 @@ public class ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems {
               allocatedTags,
       @JsonProperty(required = true, value = JSON_PROPERTY_PERCENTAGE) Double percentage) {
     this.allocatedTags = allocatedTags;
+    for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems item :
+        allocatedTags) {
+      this.unparsed |= item.unparsed;
+    }
     this.percentage = percentage;
   }
 
@@ -85,6 +89,12 @@ public class ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems {
       List<ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>
           allocatedTags) {
     this.allocatedTags = allocatedTags;
+    if (allocatedTags != null) {
+      for (ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems item :
+          allocatedTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems percentage(Double percentage) {

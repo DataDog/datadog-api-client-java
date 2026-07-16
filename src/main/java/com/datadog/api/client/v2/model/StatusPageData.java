@@ -70,6 +70,9 @@ public class StatusPageData {
 
   public void setAttributes(StatusPageDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public StatusPageData id(UUID id) {
@@ -113,6 +116,9 @@ public class StatusPageData {
 
   public void setRelationships(StatusPageDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public StatusPageData type(StatusPageDataType type) {

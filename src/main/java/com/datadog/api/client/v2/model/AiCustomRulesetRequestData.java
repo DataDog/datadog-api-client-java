@@ -55,6 +55,9 @@ public class AiCustomRulesetRequestData {
 
   public void setAttributes(AiCustomRulesetRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AiCustomRulesetRequestData id(String id) {

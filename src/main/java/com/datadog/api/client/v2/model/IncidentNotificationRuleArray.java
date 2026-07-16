@@ -45,6 +45,9 @@ public class IncidentNotificationRuleArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<IncidentNotificationRuleResponseData> data) {
     this.data = data;
+    for (IncidentNotificationRuleResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public IncidentNotificationRuleArray data(List<IncidentNotificationRuleResponseData> data) {
@@ -74,13 +77,20 @@ public class IncidentNotificationRuleArray {
 
   public void setData(List<IncidentNotificationRuleResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (IncidentNotificationRuleResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentNotificationRuleArray included(
       List<IncidentNotificationRuleIncludedItems> included) {
     this.included = included;
-    for (IncidentNotificationRuleIncludedItems item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentNotificationRuleIncludedItems item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -109,6 +119,11 @@ public class IncidentNotificationRuleArray {
 
   public void setIncluded(List<IncidentNotificationRuleIncludedItems> included) {
     this.included = included;
+    if (included != null) {
+      for (IncidentNotificationRuleIncludedItems item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentNotificationRuleArray meta(IncidentNotificationRuleArrayMeta meta) {
@@ -131,6 +146,9 @@ public class IncidentNotificationRuleArray {
 
   public void setMeta(IncidentNotificationRuleArrayMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

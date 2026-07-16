@@ -56,6 +56,9 @@ public class SecurityMonitoringSignalListRequest {
 
   public void setFilter(SecurityMonitoringSignalListRequestFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalListRequest page(SecurityMonitoringSignalListRequestPage page) {
@@ -78,6 +81,9 @@ public class SecurityMonitoringSignalListRequest {
 
   public void setPage(SecurityMonitoringSignalListRequestPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalListRequest sort(SecurityMonitoringSignalsSort sort) {

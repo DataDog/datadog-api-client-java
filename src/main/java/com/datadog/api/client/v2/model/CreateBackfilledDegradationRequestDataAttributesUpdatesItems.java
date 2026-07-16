@@ -59,8 +59,11 @@ public class CreateBackfilledDegradationRequestDataAttributesUpdatesItems {
   public CreateBackfilledDegradationRequestDataAttributesUpdatesItems componentsAffected(
       List<CreateDegradationRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
-    for (CreateDegradationRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
+    if (componentsAffected != null) {
+      for (CreateDegradationRequestDataAttributesComponentsAffectedItems item :
+          componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -91,6 +94,12 @@ public class CreateBackfilledDegradationRequestDataAttributesUpdatesItems {
   public void setComponentsAffected(
       List<CreateDegradationRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (CreateDegradationRequestDataAttributesComponentsAffectedItems item :
+          componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateBackfilledDegradationRequestDataAttributesUpdatesItems description(

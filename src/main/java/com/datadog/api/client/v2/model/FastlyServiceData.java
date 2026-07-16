@@ -67,6 +67,9 @@ public class FastlyServiceData {
 
   public void setAttributes(FastlyServiceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FastlyServiceData id(String id) {

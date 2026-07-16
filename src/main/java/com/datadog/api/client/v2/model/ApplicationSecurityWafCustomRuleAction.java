@@ -79,6 +79,9 @@ public class ApplicationSecurityWafCustomRuleAction {
 
   public void setParameters(ApplicationSecurityWafCustomRuleActionParameters parameters) {
     this.parameters = parameters;
+    if (parameters != null) {
+      this.unparsed |= parameters.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class AWSNamespacesResponse {
 
   public void setData(AWSNamespacesResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

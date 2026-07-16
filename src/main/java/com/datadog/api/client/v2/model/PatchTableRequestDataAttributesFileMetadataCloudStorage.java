@@ -52,6 +52,9 @@ public class PatchTableRequestDataAttributesFileMetadataCloudStorage {
   public void setAccessDetails(
       PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails accessDetails) {
     this.accessDetails = accessDetails;
+    if (accessDetails != null) {
+      this.unparsed |= accessDetails.unparsed;
+    }
   }
 
   public PatchTableRequestDataAttributesFileMetadataCloudStorage syncEnabled(Boolean syncEnabled) {

@@ -57,6 +57,9 @@ public class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   public void setAwsDetail(
       CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail awsDetail) {
     this.awsDetail = awsDetail;
+    if (awsDetail != null) {
+      this.unparsed |= awsDetail.unparsed;
+    }
   }
 
   public CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails azureDetail(
@@ -82,6 +85,9 @@ public class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   public void setAzureDetail(
       CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail azureDetail) {
     this.azureDetail = azureDetail;
+    if (azureDetail != null) {
+      this.unparsed |= azureDetail.unparsed;
+    }
   }
 
   public CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails gcpDetail(
@@ -106,6 +112,9 @@ public class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   public void setGcpDetail(
       CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail gcpDetail) {
     this.gcpDetail = gcpDetail;
+    if (gcpDetail != null) {
+      this.unparsed |= gcpDetail.unparsed;
+    }
   }
 
   /**

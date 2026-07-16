@@ -54,6 +54,9 @@ public class MuteRuleResponse {
 
   public void setData(MuteRuleDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

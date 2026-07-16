@@ -36,8 +36,10 @@ public class SingleAggregatedDnsResponseDataAttributes {
   public SingleAggregatedDnsResponseDataAttributes groupBys(
       List<SingleAggregatedDnsResponseDataAttributesGroupByItems> groupBys) {
     this.groupBys = groupBys;
-    for (SingleAggregatedDnsResponseDataAttributesGroupByItems item : groupBys) {
-      this.unparsed |= item.unparsed;
+    if (groupBys != null) {
+      for (SingleAggregatedDnsResponseDataAttributesGroupByItems item : groupBys) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -66,13 +68,20 @@ public class SingleAggregatedDnsResponseDataAttributes {
 
   public void setGroupBys(List<SingleAggregatedDnsResponseDataAttributesGroupByItems> groupBys) {
     this.groupBys = groupBys;
+    if (groupBys != null) {
+      for (SingleAggregatedDnsResponseDataAttributesGroupByItems item : groupBys) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SingleAggregatedDnsResponseDataAttributes metrics(
       List<SingleAggregatedDnsResponseDataAttributesMetricsItems> metrics) {
     this.metrics = metrics;
-    for (SingleAggregatedDnsResponseDataAttributesMetricsItems item : metrics) {
-      this.unparsed |= item.unparsed;
+    if (metrics != null) {
+      for (SingleAggregatedDnsResponseDataAttributesMetricsItems item : metrics) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -101,6 +110,11 @@ public class SingleAggregatedDnsResponseDataAttributes {
 
   public void setMetrics(List<SingleAggregatedDnsResponseDataAttributesMetricsItems> metrics) {
     this.metrics = metrics;
+    if (metrics != null) {
+      for (SingleAggregatedDnsResponseDataAttributesMetricsItems item : metrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

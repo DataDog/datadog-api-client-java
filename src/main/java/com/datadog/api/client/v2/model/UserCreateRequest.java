@@ -54,6 +54,9 @@ public class UserCreateRequest {
 
   public void setData(UserCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

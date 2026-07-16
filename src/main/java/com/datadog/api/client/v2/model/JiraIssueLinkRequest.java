@@ -54,6 +54,9 @@ public class JiraIssueLinkRequest {
 
   public void setData(JiraIssueLinkData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

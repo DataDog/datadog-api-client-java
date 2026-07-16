@@ -45,6 +45,9 @@ public class DeleteAppResponse {
 
   public void setData(DeleteAppResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

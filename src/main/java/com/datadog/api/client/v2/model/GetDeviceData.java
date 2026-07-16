@@ -55,6 +55,9 @@ public class GetDeviceData {
 
   public void setAttributes(GetDeviceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetDeviceData id(String id) {

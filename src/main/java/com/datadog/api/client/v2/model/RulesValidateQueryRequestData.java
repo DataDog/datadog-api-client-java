@@ -67,6 +67,9 @@ public class RulesValidateQueryRequestData {
 
   public void setAttributes(RulesValidateQueryRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RulesValidateQueryRequestData id(String id) {

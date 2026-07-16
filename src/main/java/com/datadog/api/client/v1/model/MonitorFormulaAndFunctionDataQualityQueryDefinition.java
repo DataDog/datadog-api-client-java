@@ -193,6 +193,9 @@ public class MonitorFormulaAndFunctionDataQualityQueryDefinition {
 
   public void setMonitorOptions(MonitorFormulaAndFunctionDataQualityMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
+    if (monitorOptions != null) {
+      this.unparsed |= monitorOptions.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionDataQualityQueryDefinition name(String name) {

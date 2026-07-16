@@ -45,6 +45,9 @@ public class TeamCreateRelationships {
 
   public void setUsers(RelationshipToUsers users) {
     this.users = users;
+    if (users != null) {
+      this.unparsed |= users.unparsed;
+    }
   }
 
   /**

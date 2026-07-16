@@ -60,6 +60,9 @@ public class CaseTypeResource {
 
   public void setAttributes(CaseTypeResourceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseTypeResource id(String id) {

@@ -41,6 +41,9 @@ public class FleetDeploymentPackageUpgradeAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_TARGET_PACKAGES)
           List<FleetDeploymentPackage> targetPackages) {
     this.targetPackages = targetPackages;
+    for (FleetDeploymentPackage item : targetPackages) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FleetDeploymentPackageUpgradeAttributes filterQuery(String filterQuery) {
@@ -93,6 +96,11 @@ public class FleetDeploymentPackageUpgradeAttributes {
 
   public void setTargetPackages(List<FleetDeploymentPackage> targetPackages) {
     this.targetPackages = targetPackages;
+    if (targetPackages != null) {
+      for (FleetDeploymentPackage item : targetPackages) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

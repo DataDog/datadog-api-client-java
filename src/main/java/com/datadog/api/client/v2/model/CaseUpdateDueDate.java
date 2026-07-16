@@ -64,6 +64,9 @@ public class CaseUpdateDueDate {
 
   public void setAttributes(CaseUpdateDueDateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseUpdateDueDate type(CaseResourceType type) {

@@ -66,6 +66,9 @@ public class CreateLinearIssueRequestData {
 
   public void setAttributes(CreateLinearIssueRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateLinearIssueRequestData relationships(
@@ -89,6 +92,9 @@ public class CreateLinearIssueRequestData {
 
   public void setRelationships(CreateLinearIssueRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public CreateLinearIssueRequestData type(LinearIssuesDataType type) {

@@ -70,6 +70,9 @@ public class GcpScanOptionsInputUpdateData {
 
   public void setAttributes(GcpScanOptionsInputUpdateDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GcpScanOptionsInputUpdateData id(String id) {

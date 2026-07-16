@@ -29,8 +29,10 @@ public class RestrictionQueryListResponse {
 
   public RestrictionQueryListResponse data(List<RestrictionQueryWithoutRelationships> data) {
     this.data = data;
-    for (RestrictionQueryWithoutRelationships item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RestrictionQueryWithoutRelationships item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class RestrictionQueryListResponse {
 
   public void setData(List<RestrictionQueryWithoutRelationships> data) {
     this.data = data;
+    if (data != null) {
+      for (RestrictionQueryWithoutRelationships item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

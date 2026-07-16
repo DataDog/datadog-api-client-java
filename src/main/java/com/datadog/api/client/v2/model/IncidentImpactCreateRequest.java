@@ -54,6 +54,9 @@ public class IncidentImpactCreateRequest {
 
   public void setData(IncidentImpactCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

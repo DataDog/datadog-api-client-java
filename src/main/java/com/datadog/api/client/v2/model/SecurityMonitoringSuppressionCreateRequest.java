@@ -56,6 +56,9 @@ public class SecurityMonitoringSuppressionCreateRequest {
 
   public void setData(SecurityMonitoringSuppressionCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

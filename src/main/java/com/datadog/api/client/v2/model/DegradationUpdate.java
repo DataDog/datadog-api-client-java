@@ -50,12 +50,17 @@ public class DegradationUpdate {
 
   public void setData(DegradationUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public DegradationUpdate included(List<DegradationUpdateIncluded> included) {
     this.included = included;
-    for (DegradationUpdateIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (DegradationUpdateIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -83,6 +88,11 @@ public class DegradationUpdate {
 
   public void setIncluded(List<DegradationUpdateIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (DegradationUpdateIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

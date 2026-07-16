@@ -75,6 +75,9 @@ public class JiraIssueTemplateData {
 
   public void setAttributes(JiraIssueTemplateDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public JiraIssueTemplateData id(UUID id) {
@@ -117,6 +120,9 @@ public class JiraIssueTemplateData {
 
   public void setRelationships(JiraIssueTemplateDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public JiraIssueTemplateData type(JiraIssueTemplateType type) {

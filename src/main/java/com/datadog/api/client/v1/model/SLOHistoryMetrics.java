@@ -106,6 +106,9 @@ public class SLOHistoryMetrics {
 
   public void setDenominator(SLOHistoryMetricsSeries denominator) {
     this.denominator = denominator;
+    if (denominator != null) {
+      this.unparsed |= denominator.unparsed;
+    }
   }
 
   public SLOHistoryMetrics interval(Long interval) {
@@ -170,6 +173,9 @@ public class SLOHistoryMetrics {
 
   public void setNumerator(SLOHistoryMetricsSeries numerator) {
     this.numerator = numerator;
+    if (numerator != null) {
+      this.unparsed |= numerator.unparsed;
+    }
   }
 
   public SLOHistoryMetrics query(String query) {

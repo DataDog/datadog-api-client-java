@@ -70,6 +70,9 @@ public class LLMObsSpanData {
 
   public void setAttributes(LLMObsSpanAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsSpanData id(String id) {

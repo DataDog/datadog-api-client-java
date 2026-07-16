@@ -116,8 +116,10 @@ public class IntegrationIncident {
   public IntegrationIncident fieldMappings(
       List<IntegrationIncidentFieldMappingsItems> fieldMappings) {
     this.fieldMappings = fieldMappings;
-    for (IntegrationIncidentFieldMappingsItems item : fieldMappings) {
-      this.unparsed |= item.unparsed;
+    if (fieldMappings != null) {
+      for (IntegrationIncidentFieldMappingsItems item : fieldMappings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -146,6 +148,11 @@ public class IntegrationIncident {
 
   public void setFieldMappings(List<IntegrationIncidentFieldMappingsItems> fieldMappings) {
     this.fieldMappings = fieldMappings;
+    if (fieldMappings != null) {
+      for (IntegrationIncidentFieldMappingsItems item : fieldMappings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IntegrationIncident incidentType(String incidentType) {
@@ -189,6 +196,9 @@ public class IntegrationIncident {
 
   public void setSeverityConfig(IntegrationIncidentSeverityConfig severityConfig) {
     this.severityConfig = severityConfig;
+    if (severityConfig != null) {
+      this.unparsed |= severityConfig.unparsed;
+    }
   }
 
   /**

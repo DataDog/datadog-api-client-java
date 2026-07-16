@@ -45,6 +45,9 @@ public class CreateUploadRequest {
 
   public void setData(CreateUploadRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

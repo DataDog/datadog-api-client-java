@@ -55,6 +55,9 @@ public class CaseViewResponse {
 
   public void setData(CaseView data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

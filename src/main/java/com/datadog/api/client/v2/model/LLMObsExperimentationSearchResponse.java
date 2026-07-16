@@ -64,6 +64,9 @@ public class LLMObsExperimentationSearchResponse {
 
   public void setData(LLMObsExperimentationSearchDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public LLMObsExperimentationSearchResponse meta(LLMObsCursorMeta meta) {
@@ -86,6 +89,9 @@ public class LLMObsExperimentationSearchResponse {
 
   public void setMeta(LLMObsCursorMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

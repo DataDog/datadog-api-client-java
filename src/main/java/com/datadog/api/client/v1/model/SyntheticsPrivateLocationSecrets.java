@@ -55,6 +55,9 @@ public class SyntheticsPrivateLocationSecrets {
 
   public void setAuthentication(SyntheticsPrivateLocationSecretsAuthentication authentication) {
     this.authentication = authentication;
+    if (authentication != null) {
+      this.unparsed |= authentication.unparsed;
+    }
   }
 
   public SyntheticsPrivateLocationSecrets configDecryption(
@@ -79,6 +82,9 @@ public class SyntheticsPrivateLocationSecrets {
   public void setConfigDecryption(
       SyntheticsPrivateLocationSecretsConfigDecryption configDecryption) {
     this.configDecryption = configDecryption;
+    if (configDecryption != null) {
+      this.unparsed |= configDecryption.unparsed;
+    }
   }
 
   /**

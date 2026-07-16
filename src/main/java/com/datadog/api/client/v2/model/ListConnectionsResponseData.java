@@ -70,6 +70,9 @@ public class ListConnectionsResponseData {
 
   public void setAttributes(ListConnectionsResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ListConnectionsResponseData id(String id) {

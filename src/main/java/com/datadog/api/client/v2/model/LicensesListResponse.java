@@ -57,6 +57,9 @@ public class LicensesListResponse {
 
   public void setData(LicensesListResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -59,6 +59,9 @@ public class FullApplicationKey {
 
   public void setAttributes(FullApplicationKeyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FullApplicationKey id(String id) {
@@ -102,6 +105,9 @@ public class FullApplicationKey {
 
   public void setRelationships(ApplicationKeyRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public FullApplicationKey type(ApplicationKeysType type) {

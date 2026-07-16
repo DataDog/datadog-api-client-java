@@ -114,6 +114,9 @@ public class SyntheticsPrivateLocation {
 
   public void setMetadata(SyntheticsPrivateLocationMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public SyntheticsPrivateLocation name(String name) {

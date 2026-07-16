@@ -55,6 +55,9 @@ public class AnonymizeUsersResponseData {
 
   public void setAttributes(AnonymizeUsersResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AnonymizeUsersResponseData id(String id) {

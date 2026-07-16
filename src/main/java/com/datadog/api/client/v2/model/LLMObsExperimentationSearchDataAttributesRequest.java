@@ -71,6 +71,9 @@ public class LLMObsExperimentationSearchDataAttributesRequest {
 
   public void setContentPreview(LLMObsExperimentationContentPreview contentPreview) {
     this.contentPreview = contentPreview;
+    if (contentPreview != null) {
+      this.unparsed |= contentPreview.unparsed;
+    }
   }
 
   public LLMObsExperimentationSearchDataAttributesRequest filter(
@@ -93,6 +96,9 @@ public class LLMObsExperimentationSearchDataAttributesRequest {
 
   public void setFilter(LLMObsExperimentationFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LLMObsExperimentationSearchDataAttributesRequest include(
@@ -116,6 +122,9 @@ public class LLMObsExperimentationSearchDataAttributesRequest {
 
   public void setInclude(LLMObsExperimentationInclude include) {
     this.include = include;
+    if (include != null) {
+      this.unparsed |= include.unparsed;
+    }
   }
 
   public LLMObsExperimentationSearchDataAttributesRequest page(
@@ -139,6 +148,9 @@ public class LLMObsExperimentationSearchDataAttributesRequest {
 
   public void setPage(LLMObsExperimentationCursorPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

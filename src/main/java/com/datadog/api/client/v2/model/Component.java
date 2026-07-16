@@ -67,8 +67,10 @@ public class Component {
 
   public Component events(List<AppBuilderEvent> events) {
     this.events = events;
-    for (AppBuilderEvent item : events) {
-      this.unparsed |= item.unparsed;
+    if (events != null) {
+      for (AppBuilderEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -96,6 +98,11 @@ public class Component {
 
   public void setEvents(List<AppBuilderEvent> events) {
     this.events = events;
+    if (events != null) {
+      for (AppBuilderEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Component id(String id) {
@@ -172,6 +179,9 @@ public class Component {
 
   public void setProperties(ComponentProperties properties) {
     this.properties = properties;
+    if (properties != null) {
+      this.unparsed |= properties.unparsed;
+    }
   }
 
   public Component type(ComponentType type) {

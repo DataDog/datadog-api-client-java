@@ -80,6 +80,9 @@ public class CloudConfigurationComplianceRuleOptions {
 
   public void setRegoRule(CloudConfigurationRegoRule regoRule) {
     this.regoRule = regoRule;
+    if (regoRule != null) {
+      this.unparsed |= regoRule.unparsed;
+    }
   }
 
   public CloudConfigurationComplianceRuleOptions resourceType(String resourceType) {

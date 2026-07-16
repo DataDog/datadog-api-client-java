@@ -95,8 +95,10 @@ public class ConfluentAccountCreateRequestAttributes {
   public ConfluentAccountCreateRequestAttributes resources(
       List<ConfluentAccountResourceAttributes> resources) {
     this.resources = resources;
-    for (ConfluentAccountResourceAttributes item : resources) {
-      this.unparsed |= item.unparsed;
+    if (resources != null) {
+      for (ConfluentAccountResourceAttributes item : resources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -125,6 +127,11 @@ public class ConfluentAccountCreateRequestAttributes {
 
   public void setResources(List<ConfluentAccountResourceAttributes> resources) {
     this.resources = resources;
+    if (resources != null) {
+      for (ConfluentAccountResourceAttributes item : resources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ConfluentAccountCreateRequestAttributes tags(List<String> tags) {

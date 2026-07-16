@@ -54,6 +54,9 @@ public class LLMObsDatasetResponse {
 
   public void setData(LLMObsDatasetDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

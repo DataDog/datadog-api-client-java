@@ -29,8 +29,10 @@ public class RelationshipToPermissions {
 
   public RelationshipToPermissions data(List<RelationshipToPermissionData> data) {
     this.data = data;
-    for (RelationshipToPermissionData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RelationshipToPermissionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class RelationshipToPermissions {
 
   public void setData(List<RelationshipToPermissionData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToPermissionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

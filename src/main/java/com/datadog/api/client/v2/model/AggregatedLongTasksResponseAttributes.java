@@ -75,6 +75,9 @@ public class AggregatedLongTasksResponseAttributes {
     this.applicationId = applicationId;
     this.from = from;
     this.longTasksByInvokerType = longTasksByInvokerType;
+    for (AggregatedLongTasksByInvokerType item : longTasksByInvokerType) {
+      this.unparsed |= item.unparsed;
+    }
     this.sampledViewIds = sampledViewIds;
     this.to = to;
     this.viewCount = viewCount;
@@ -122,6 +125,9 @@ public class AggregatedLongTasksResponseAttributes {
 
   public void setCriteria(AggregatedWaterfallPerformanceCriteria criteria) {
     this.criteria = criteria;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
   }
 
   public AggregatedLongTasksResponseAttributes from(Long from) {
@@ -174,6 +180,11 @@ public class AggregatedLongTasksResponseAttributes {
   public void setLongTasksByInvokerType(
       List<AggregatedLongTasksByInvokerType> longTasksByInvokerType) {
     this.longTasksByInvokerType = longTasksByInvokerType;
+    if (longTasksByInvokerType != null) {
+      for (AggregatedLongTasksByInvokerType item : longTasksByInvokerType) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AggregatedLongTasksResponseAttributes sampledViewIds(List<String> sampledViewIds) {

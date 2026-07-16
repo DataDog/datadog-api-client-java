@@ -74,9 +74,15 @@ public class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
     this.baseQuery = baseQuery;
     this.unparsed |= baseQuery.unparsed;
     this.compute = compute;
+    for (MonitorFormulaAndFunctionEventQueryDefinitionCompute item : compute) {
+      this.unparsed |= item.unparsed;
+    }
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     this.groupBy = groupBy;
+    for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
+      this.unparsed |= item.unparsed;
+    }
     this.joinCondition = joinCondition;
     this.unparsed |= joinCondition.unparsed;
   }
@@ -102,6 +108,9 @@ public class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
 
   public void setAugmentQuery(MonitorFormulaAndFunctionAggregateAugmentQuery augmentQuery) {
     this.augmentQuery = augmentQuery;
+    if (augmentQuery != null) {
+      this.unparsed |= augmentQuery.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition baseQuery(
@@ -124,6 +133,9 @@ public class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
 
   public void setBaseQuery(MonitorFormulaAndFunctionAggregateBaseQuery baseQuery) {
     this.baseQuery = baseQuery;
+    if (baseQuery != null) {
+      this.unparsed |= baseQuery.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition compute(
@@ -155,6 +167,11 @@ public class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
 
   public void setCompute(List<MonitorFormulaAndFunctionEventQueryDefinitionCompute> compute) {
     this.compute = compute;
+    if (compute != null) {
+      for (MonitorFormulaAndFunctionEventQueryDefinitionCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition dataSource(
@@ -211,6 +228,11 @@ public class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
 
   public void setGroupBy(List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition joinCondition(
@@ -233,6 +255,9 @@ public class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
 
   public void setJoinCondition(MonitorFormulaAndFunctionAggregateQueryJoinCondition joinCondition) {
     this.joinCondition = joinCondition;
+    if (joinCondition != null) {
+      this.unparsed |= joinCondition.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition name(String name) {

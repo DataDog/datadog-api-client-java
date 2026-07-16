@@ -58,8 +58,10 @@ public class SecurityMonitoringRuleCaseCreate {
 
   public SecurityMonitoringRuleCaseCreate actions(List<SecurityMonitoringRuleCaseAction> actions) {
     this.actions = actions;
-    for (SecurityMonitoringRuleCaseAction item : actions) {
-      this.unparsed |= item.unparsed;
+    if (actions != null) {
+      for (SecurityMonitoringRuleCaseAction item : actions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -88,6 +90,11 @@ public class SecurityMonitoringRuleCaseCreate {
 
   public void setActions(List<SecurityMonitoringRuleCaseAction> actions) {
     this.actions = actions;
+    if (actions != null) {
+      for (SecurityMonitoringRuleCaseAction item : actions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleCaseCreate condition(String condition) {

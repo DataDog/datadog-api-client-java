@@ -54,8 +54,10 @@ public class CreateStatusPageRequestDataAttributesComponentsItems {
   public CreateStatusPageRequestDataAttributesComponentsItems components(
       List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> components) {
     this.components = components;
-    for (CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -85,6 +87,11 @@ public class CreateStatusPageRequestDataAttributesComponentsItems {
   public void setComponents(
       List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

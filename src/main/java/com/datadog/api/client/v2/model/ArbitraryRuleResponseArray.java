@@ -41,6 +41,9 @@ public class ArbitraryRuleResponseArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<ArbitraryRuleResponseData> data) {
     this.data = data;
+    for (ArbitraryRuleResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ArbitraryRuleResponseArray data(List<ArbitraryRuleResponseData> data) {
@@ -70,6 +73,11 @@ public class ArbitraryRuleResponseArray {
 
   public void setData(List<ArbitraryRuleResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (ArbitraryRuleResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ArbitraryRuleResponseArray meta(ArbitraryRuleResponseArrayMeta meta) {
@@ -92,6 +100,9 @@ public class ArbitraryRuleResponseArray {
 
   public void setMeta(ArbitraryRuleResponseArrayMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class CIAppPipelinesAnalyticsAggregateResponse {
 
   public void setData(CIAppPipelinesAggregationBucketsResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public CIAppPipelinesAnalyticsAggregateResponse links(CIAppResponseLinks links) {
@@ -78,6 +81,9 @@ public class CIAppPipelinesAnalyticsAggregateResponse {
 
   public void setLinks(CIAppResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public CIAppPipelinesAnalyticsAggregateResponse meta(CIAppResponseMetadata meta) {
@@ -100,6 +106,9 @@ public class CIAppPipelinesAnalyticsAggregateResponse {
 
   public void setMeta(CIAppResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

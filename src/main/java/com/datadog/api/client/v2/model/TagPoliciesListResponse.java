@@ -40,6 +40,9 @@ public class TagPoliciesListResponse {
   public TagPoliciesListResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<TagPolicyData> data) {
     this.data = data;
+    for (TagPolicyData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public TagPoliciesListResponse data(List<TagPolicyData> data) {
@@ -69,12 +72,19 @@ public class TagPoliciesListResponse {
 
   public void setData(List<TagPolicyData> data) {
     this.data = data;
+    if (data != null) {
+      for (TagPolicyData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TagPoliciesListResponse included(List<TagPolicyScoreData> included) {
     this.included = included;
-    for (TagPolicyScoreData item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TagPolicyScoreData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -103,6 +113,11 @@ public class TagPoliciesListResponse {
 
   public void setIncluded(List<TagPolicyScoreData> included) {
     this.included = included;
+    if (included != null) {
+      for (TagPolicyScoreData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

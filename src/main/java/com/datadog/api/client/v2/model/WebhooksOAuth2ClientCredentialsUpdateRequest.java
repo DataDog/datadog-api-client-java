@@ -56,6 +56,9 @@ public class WebhooksOAuth2ClientCredentialsUpdateRequest {
 
   public void setData(WebhooksOAuth2ClientCredentialsUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -67,6 +67,9 @@ public class SampleLogGenerationBulkSubscriptionData {
 
   public void setAttributes(SampleLogGenerationBulkSubscriptionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SampleLogGenerationBulkSubscriptionData type(

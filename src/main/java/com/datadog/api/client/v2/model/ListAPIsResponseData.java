@@ -52,6 +52,9 @@ public class ListAPIsResponseData {
 
   public void setAttributes(ListAPIsResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ListAPIsResponseData id(UUID id) {

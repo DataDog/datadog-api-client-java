@@ -71,6 +71,9 @@ public class ListDeploymentRuleResponseData {
 
   public void setAttributes(ListDeploymentRulesResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ListDeploymentRuleResponseData id(String id) {

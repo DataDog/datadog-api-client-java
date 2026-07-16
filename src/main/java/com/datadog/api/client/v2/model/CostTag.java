@@ -69,6 +69,9 @@ public class CostTag {
 
   public void setAttributes(CostTagAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CostTag id(String id) {

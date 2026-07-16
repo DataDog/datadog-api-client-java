@@ -64,6 +64,9 @@ public class FleetScheduleCreate {
 
   public void setAttributes(FleetScheduleCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FleetScheduleCreate type(FleetScheduleResourceType type) {

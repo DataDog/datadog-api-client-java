@@ -43,6 +43,9 @@ public class SecurityMonitoringSignalsBulkTriageUpdateResult {
           List<SecurityMonitoringSignalsBulkTriageEvent> events) {
     this.count = count;
     this.events = events;
+    for (SecurityMonitoringSignalsBulkTriageEvent item : events) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalsBulkTriageUpdateResult count(Long count) {
@@ -94,6 +97,11 @@ public class SecurityMonitoringSignalsBulkTriageUpdateResult {
 
   public void setEvents(List<SecurityMonitoringSignalsBulkTriageEvent> events) {
     this.events = events;
+    if (events != null) {
+      for (SecurityMonitoringSignalsBulkTriageEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

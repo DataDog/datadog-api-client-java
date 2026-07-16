@@ -55,6 +55,9 @@ public class CostByOrg {
 
   public void setAttributes(CostByOrgAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CostByOrg id(String id) {

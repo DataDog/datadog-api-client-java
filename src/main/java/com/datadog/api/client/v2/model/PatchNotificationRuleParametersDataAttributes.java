@@ -118,6 +118,9 @@ public class PatchNotificationRuleParametersDataAttributes {
 
   public void setRouting(NotificationRuleRouting routing) {
     this.routing = routing;
+    if (routing != null) {
+      this.unparsed |= routing.unparsed;
+    }
   }
 
   public PatchNotificationRuleParametersDataAttributes selectors(Selectors selectors) {
@@ -142,6 +145,9 @@ public class PatchNotificationRuleParametersDataAttributes {
 
   public void setSelectors(Selectors selectors) {
     this.selectors = selectors;
+    if (selectors != null) {
+      this.unparsed |= selectors.unparsed;
+    }
   }
 
   public PatchNotificationRuleParametersDataAttributes targets(List<String> targets) {

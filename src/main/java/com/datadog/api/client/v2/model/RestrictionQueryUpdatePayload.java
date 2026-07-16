@@ -45,6 +45,9 @@ public class RestrictionQueryUpdatePayload {
 
   public void setData(RestrictionQueryUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

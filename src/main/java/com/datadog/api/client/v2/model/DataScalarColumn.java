@@ -61,6 +61,9 @@ public class DataScalarColumn {
 
   public void setMeta(ScalarMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public DataScalarColumn name(String name) {

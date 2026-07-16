@@ -190,8 +190,10 @@ public class ApplicationSecurityPolicyCreateAttributes {
   public ApplicationSecurityPolicyCreateAttributes rules(
       List<ApplicationSecurityPolicyRuleOverride> rules) {
     this.rules = rules;
-    for (ApplicationSecurityPolicyRuleOverride item : rules) {
-      this.unparsed |= item.unparsed;
+    if (rules != null) {
+      for (ApplicationSecurityPolicyRuleOverride item : rules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -220,13 +222,20 @@ public class ApplicationSecurityPolicyCreateAttributes {
 
   public void setRules(List<ApplicationSecurityPolicyRuleOverride> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (ApplicationSecurityPolicyRuleOverride item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityPolicyCreateAttributes rulesets(
       List<ApplicationSecurityPolicyRulesetOverride> rulesets) {
     this.rulesets = rulesets;
-    for (ApplicationSecurityPolicyRulesetOverride item : rulesets) {
-      this.unparsed |= item.unparsed;
+    if (rulesets != null) {
+      for (ApplicationSecurityPolicyRulesetOverride item : rulesets) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -258,13 +267,20 @@ public class ApplicationSecurityPolicyCreateAttributes {
   @Deprecated
   public void setRulesets(List<ApplicationSecurityPolicyRulesetOverride> rulesets) {
     this.rulesets = rulesets;
+    if (rulesets != null) {
+      for (ApplicationSecurityPolicyRulesetOverride item : rulesets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityPolicyCreateAttributes scope(
       List<ApplicationSecurityPolicyScope> scope) {
     this.scope = scope;
-    for (ApplicationSecurityPolicyScope item : scope) {
-      this.unparsed |= item.unparsed;
+    if (scope != null) {
+      for (ApplicationSecurityPolicyScope item : scope) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -293,6 +309,11 @@ public class ApplicationSecurityPolicyCreateAttributes {
 
   public void setScope(List<ApplicationSecurityPolicyScope> scope) {
     this.scope = scope;
+    if (scope != null) {
+      for (ApplicationSecurityPolicyScope item : scope) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityPolicyCreateAttributes version(Long version) {

@@ -113,6 +113,9 @@ public class ObservabilityPipelineSocketSource {
 
   public void setFraming(ObservabilityPipelineSocketSourceFraming framing) {
     this.framing = framing;
+    if (framing != null) {
+      this.unparsed |= framing.unparsed;
+    }
   }
 
   public ObservabilityPipelineSocketSource id(String id) {
@@ -181,6 +184,9 @@ public class ObservabilityPipelineSocketSource {
 
   public void setTls(ObservabilityPipelineMtlsServerTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineSocketSource type(ObservabilityPipelineSocketSourceType type) {

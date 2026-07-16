@@ -35,6 +35,9 @@ public class GoogleChatTargetAudiencesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<GoogleChatTargetAudienceData> data) {
     this.data = data;
+    for (GoogleChatTargetAudienceData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public GoogleChatTargetAudiencesResponse data(List<GoogleChatTargetAudienceData> data) {
@@ -64,6 +67,11 @@ public class GoogleChatTargetAudiencesResponse {
 
   public void setData(List<GoogleChatTargetAudienceData> data) {
     this.data = data;
+    if (data != null) {
+      for (GoogleChatTargetAudienceData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

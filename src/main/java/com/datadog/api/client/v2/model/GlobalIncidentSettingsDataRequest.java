@@ -62,6 +62,9 @@ public class GlobalIncidentSettingsDataRequest {
 
   public void setAttributes(GlobalIncidentSettingsAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GlobalIncidentSettingsDataRequest type(GlobalIncidentSettingsType type) {

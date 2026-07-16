@@ -45,6 +45,9 @@ public class RuleOutcomeRelationships {
 
   public void setRule(RelationshipToOutcome rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   /**

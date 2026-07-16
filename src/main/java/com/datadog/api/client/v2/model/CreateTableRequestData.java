@@ -57,6 +57,9 @@ public class CreateTableRequestData {
 
   public void setAttributes(CreateTableRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateTableRequestData type(CreateTableRequestDataType type) {

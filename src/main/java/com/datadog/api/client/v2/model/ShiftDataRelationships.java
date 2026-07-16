@@ -45,6 +45,9 @@ public class ShiftDataRelationships {
 
   public void setUser(ShiftDataRelationshipsUser user) {
     this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**

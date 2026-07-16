@@ -45,6 +45,9 @@ public class CreateAttachmentRequest {
 
   public void setData(CreateAttachmentRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

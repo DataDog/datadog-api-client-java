@@ -45,6 +45,9 @@ public class AttachJiraIssueRequest {
 
   public void setData(AttachJiraIssueRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

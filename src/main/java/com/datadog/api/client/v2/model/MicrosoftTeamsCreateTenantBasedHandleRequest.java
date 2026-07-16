@@ -56,6 +56,9 @@ public class MicrosoftTeamsCreateTenantBasedHandleRequest {
 
   public void setData(MicrosoftTeamsTenantBasedHandleRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

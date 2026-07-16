@@ -54,6 +54,9 @@ public class AWSLogsServicesResponse {
 
   public void setData(AWSLogsServicesResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

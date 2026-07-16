@@ -75,6 +75,9 @@ public class ProductAnalyticsFunnelQuery {
 
   public void setCompute(ProductAnalyticsFunnelCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public ProductAnalyticsFunnelQuery dataSource(ProductAnalyticsFunnelDataSource dataSource) {
@@ -103,8 +106,10 @@ public class ProductAnalyticsFunnelQuery {
 
   public ProductAnalyticsFunnelQuery groupBy(List<ProductAnalyticsFunnelGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (ProductAnalyticsFunnelGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (ProductAnalyticsFunnelGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -132,6 +137,11 @@ public class ProductAnalyticsFunnelQuery {
 
   public void setGroupBy(List<ProductAnalyticsFunnelGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (ProductAnalyticsFunnelGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProductAnalyticsFunnelQuery search(UserJourneySearch search) {
@@ -153,6 +163,9 @@ public class ProductAnalyticsFunnelQuery {
 
   public void setSearch(UserJourneySearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   public ProductAnalyticsFunnelQuery subqueryId(String subqueryId) {

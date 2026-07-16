@@ -73,6 +73,9 @@ public class IncidentNotificationRuleAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_VISIBILITY)
           IncidentNotificationRuleAttributesVisibility visibility) {
     this.conditions = conditions;
+    for (IncidentNotificationRuleConditionsItems item : conditions) {
+      this.unparsed |= item.unparsed;
+    }
     this.created = created;
     this.enabled = enabled;
     this.handles = handles;
@@ -111,6 +114,11 @@ public class IncidentNotificationRuleAttributes {
 
   public void setConditions(List<IncidentNotificationRuleConditionsItems> conditions) {
     this.conditions = conditions;
+    if (conditions != null) {
+      for (IncidentNotificationRuleConditionsItems item : conditions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

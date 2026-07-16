@@ -67,6 +67,9 @@ public class MetricBulkTagConfigDelete {
 
   public void setAttributes(MetricBulkTagConfigDeleteAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricBulkTagConfigDelete id(String id) {

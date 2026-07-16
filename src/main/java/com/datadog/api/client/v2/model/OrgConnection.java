@@ -79,6 +79,9 @@ public class OrgConnection {
 
   public void setAttributes(OrgConnectionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgConnection id(UUID id) {
@@ -120,6 +123,9 @@ public class OrgConnection {
 
   public void setRelationships(OrgConnectionRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgConnection type(OrgConnectionType type) {

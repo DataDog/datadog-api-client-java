@@ -156,6 +156,9 @@ public class CaseRelationships {
 
   public void setProject(ProjectRelationship project) {
     this.project = project;
+    if (project != null) {
+      this.unparsed |= project.unparsed;
+    }
   }
 
   /**

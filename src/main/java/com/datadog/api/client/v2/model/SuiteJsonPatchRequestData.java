@@ -51,6 +51,9 @@ public class SuiteJsonPatchRequestData {
 
   public void setAttributes(SuiteJsonPatchRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SuiteJsonPatchRequestData type(SuiteJsonPatchType type) {

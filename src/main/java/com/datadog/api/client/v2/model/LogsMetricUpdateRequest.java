@@ -54,6 +54,9 @@ public class LogsMetricUpdateRequest {
 
   public void setData(LogsMetricUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

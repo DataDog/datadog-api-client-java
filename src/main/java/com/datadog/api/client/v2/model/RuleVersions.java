@@ -32,8 +32,10 @@ public class RuleVersions {
 
   public RuleVersions changes(List<VersionHistoryUpdate> changes) {
     this.changes = changes;
-    for (VersionHistoryUpdate item : changes) {
-      this.unparsed |= item.unparsed;
+    if (changes != null) {
+      for (VersionHistoryUpdate item : changes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class RuleVersions {
 
   public void setChanges(List<VersionHistoryUpdate> changes) {
     this.changes = changes;
+    if (changes != null) {
+      for (VersionHistoryUpdate item : changes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RuleVersions rule(SecurityMonitoringRuleResponse rule) {
@@ -83,6 +90,9 @@ public class RuleVersions {
 
   public void setRule(SecurityMonitoringRuleResponse rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   /**

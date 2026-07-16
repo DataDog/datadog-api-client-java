@@ -54,6 +54,9 @@ public class CustomRulesetResponse {
 
   public void setData(CustomRuleset data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

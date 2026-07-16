@@ -63,6 +63,9 @@ public class CreateBackfilledMaintenanceRequestData {
 
   public void setAttributes(CreateBackfilledMaintenanceRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateBackfilledMaintenanceRequestData type(PatchMaintenanceRequestDataType type) {

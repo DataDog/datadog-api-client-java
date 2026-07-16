@@ -34,6 +34,9 @@ public class AzureScanOptionsArray {
   public AzureScanOptionsArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AzureScanOptionsData> data) {
     this.data = data;
+    for (AzureScanOptionsData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AzureScanOptionsArray data(List<AzureScanOptionsData> data) {
@@ -63,6 +66,11 @@ public class AzureScanOptionsArray {
 
   public void setData(List<AzureScanOptionsData> data) {
     this.data = data;
+    if (data != null) {
+      for (AzureScanOptionsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

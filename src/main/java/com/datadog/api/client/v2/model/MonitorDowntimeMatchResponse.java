@@ -35,8 +35,10 @@ public class MonitorDowntimeMatchResponse {
 
   public MonitorDowntimeMatchResponse data(List<MonitorDowntimeMatchResponseData> data) {
     this.data = data;
-    for (MonitorDowntimeMatchResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MonitorDowntimeMatchResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class MonitorDowntimeMatchResponse {
 
   public void setData(List<MonitorDowntimeMatchResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (MonitorDowntimeMatchResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorDowntimeMatchResponse meta(DowntimeMeta meta) {
@@ -86,6 +93,9 @@ public class MonitorDowntimeMatchResponse {
 
   public void setMeta(DowntimeMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

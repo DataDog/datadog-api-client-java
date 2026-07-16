@@ -46,6 +46,9 @@ public class RestrictionQueryWithoutRelationshipsResponse {
 
   public void setData(RestrictionQueryWithoutRelationships data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

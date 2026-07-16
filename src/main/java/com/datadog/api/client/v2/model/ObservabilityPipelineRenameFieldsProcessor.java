@@ -68,6 +68,9 @@ public class ObservabilityPipelineRenameFieldsProcessor {
           ObservabilityPipelineRenameFieldsProcessorType type) {
     this.enabled = enabled;
     this.fields = fields;
+    for (ObservabilityPipelineRenameFieldsProcessorField item : fields) {
+      this.unparsed |= item.unparsed;
+    }
     this.id = id;
     this.include = include;
     this.type = type;
@@ -145,6 +148,11 @@ public class ObservabilityPipelineRenameFieldsProcessor {
 
   public void setFields(List<ObservabilityPipelineRenameFieldsProcessorField> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (ObservabilityPipelineRenameFieldsProcessorField item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineRenameFieldsProcessor id(String id) {

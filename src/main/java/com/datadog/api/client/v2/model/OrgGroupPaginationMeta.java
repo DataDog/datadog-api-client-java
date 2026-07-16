@@ -45,6 +45,9 @@ public class OrgGroupPaginationMeta {
 
   public void setPage(OrgGroupPaginationMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

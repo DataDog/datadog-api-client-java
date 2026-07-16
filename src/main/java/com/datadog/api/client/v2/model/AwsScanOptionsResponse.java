@@ -45,6 +45,9 @@ public class AwsScanOptionsResponse {
 
   public void setData(AwsScanOptionsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

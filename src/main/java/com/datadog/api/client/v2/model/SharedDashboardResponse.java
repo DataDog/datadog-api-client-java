@@ -78,6 +78,9 @@ public class SharedDashboardResponse {
 
   public void setAttributes(SharedDashboardResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SharedDashboardResponse id(String id) {
@@ -119,6 +122,9 @@ public class SharedDashboardResponse {
 
   public void setRelationships(SharedDashboardRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SharedDashboardResponse type(SharedDashboardType type) {

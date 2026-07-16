@@ -63,6 +63,9 @@ public class SyntheticsDowntimeDataAttributesRequest {
     this.name = name;
     this.testIds = testIds;
     this.timeSlots = timeSlots;
+    for (SyntheticsDowntimeTimeSlotRequest item : timeSlots) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SyntheticsDowntimeDataAttributesRequest description(String description) {
@@ -209,6 +212,11 @@ public class SyntheticsDowntimeDataAttributesRequest {
 
   public void setTimeSlots(List<SyntheticsDowntimeTimeSlotRequest> timeSlots) {
     this.timeSlots = timeSlots;
+    if (timeSlots != null) {
+      for (SyntheticsDowntimeTimeSlotRequest item : timeSlots) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

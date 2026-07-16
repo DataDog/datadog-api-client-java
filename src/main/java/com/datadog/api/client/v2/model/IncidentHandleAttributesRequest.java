@@ -60,6 +60,9 @@ public class IncidentHandleAttributesRequest {
 
   public void setFields(IncidentHandleAttributesFields fields) {
     this.fields = fields;
+    if (fields != null) {
+      this.unparsed |= fields.unparsed;
+    }
   }
 
   public IncidentHandleAttributesRequest name(String name) {

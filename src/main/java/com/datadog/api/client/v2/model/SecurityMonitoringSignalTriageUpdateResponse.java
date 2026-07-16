@@ -56,6 +56,9 @@ public class SecurityMonitoringSignalTriageUpdateResponse {
 
   public void setData(SecurityMonitoringSignalTriageUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

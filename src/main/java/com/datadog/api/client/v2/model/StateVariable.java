@@ -118,6 +118,9 @@ public class StateVariable {
 
   public void setProperties(StateVariableProperties properties) {
     this.properties = properties;
+    if (properties != null) {
+      this.unparsed |= properties.unparsed;
+    }
   }
 
   public StateVariable type(StateVariableType type) {

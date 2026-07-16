@@ -35,6 +35,9 @@ public class MSTeamsIntegrationMetadata {
       @JsonProperty(required = true, value = JSON_PROPERTY_TEAMS)
           List<MSTeamsIntegrationMetadataTeamsItem> teams) {
     this.teams = teams;
+    for (MSTeamsIntegrationMetadataTeamsItem item : teams) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MSTeamsIntegrationMetadata teams(List<MSTeamsIntegrationMetadataTeamsItem> teams) {
@@ -64,6 +67,11 @@ public class MSTeamsIntegrationMetadata {
 
   public void setTeams(List<MSTeamsIntegrationMetadataTeamsItem> teams) {
     this.teams = teams;
+    if (teams != null) {
+      for (MSTeamsIntegrationMetadataTeamsItem item : teams) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

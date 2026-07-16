@@ -111,6 +111,9 @@ public class SyntheticsBrowserTest {
 
   public void setConfig(SyntheticsBrowserTestConfig config) {
     this.config = config;
+    if (config != null) {
+      this.unparsed |= config.unparsed;
+    }
   }
 
   public SyntheticsBrowserTest locations(List<String> locations) {
@@ -209,6 +212,9 @@ public class SyntheticsBrowserTest {
 
   public void setOptions(SyntheticsTestOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**
@@ -251,8 +257,10 @@ public class SyntheticsBrowserTest {
 
   public SyntheticsBrowserTest steps(List<SyntheticsStep> steps) {
     this.steps = steps;
-    for (SyntheticsStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SyntheticsStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -280,6 +288,11 @@ public class SyntheticsBrowserTest {
 
   public void setSteps(List<SyntheticsStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (SyntheticsStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsBrowserTest tags(List<String> tags) {

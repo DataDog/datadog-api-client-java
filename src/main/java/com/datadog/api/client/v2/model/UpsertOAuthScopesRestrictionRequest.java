@@ -55,6 +55,9 @@ public class UpsertOAuthScopesRestrictionRequest {
 
   public void setData(UpsertOAuthScopesRestrictionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

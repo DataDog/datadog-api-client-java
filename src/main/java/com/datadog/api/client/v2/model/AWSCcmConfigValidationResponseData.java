@@ -71,6 +71,9 @@ public class AWSCcmConfigValidationResponseData {
 
   public void setAttributes(AWSCcmConfigValidationResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSCcmConfigValidationResponseData id(String id) {

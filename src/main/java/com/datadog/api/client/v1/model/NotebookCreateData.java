@@ -64,6 +64,9 @@ public class NotebookCreateData {
 
   public void setAttributes(NotebookCreateDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NotebookCreateData type(NotebookResourceType type) {

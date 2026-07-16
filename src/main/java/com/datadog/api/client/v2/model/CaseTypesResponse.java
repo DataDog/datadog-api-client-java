@@ -29,8 +29,10 @@ public class CaseTypesResponse {
 
   public CaseTypesResponse data(List<CaseTypeResource> data) {
     this.data = data;
-    for (CaseTypeResource item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CaseTypeResource item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class CaseTypesResponse {
 
   public void setData(List<CaseTypeResource> data) {
     this.data = data;
+    if (data != null) {
+      for (CaseTypeResource item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

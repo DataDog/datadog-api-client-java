@@ -78,6 +78,9 @@ public class SensitiveDataScannerReorderConfig {
 
   public void setRelationships(SensitiveDataScannerConfigurationRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SensitiveDataScannerReorderConfig type(SensitiveDataScannerConfigurationType type) {

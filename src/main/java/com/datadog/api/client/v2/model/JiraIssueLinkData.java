@@ -64,6 +64,9 @@ public class JiraIssueLinkData {
 
   public void setAttributes(JiraIssueLinkAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public JiraIssueLinkData type(JiraIssueResourceType type) {

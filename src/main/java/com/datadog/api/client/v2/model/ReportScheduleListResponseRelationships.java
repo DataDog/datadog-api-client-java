@@ -61,6 +61,9 @@ public class ReportScheduleListResponseRelationships {
 
   public void setAuthor(ReportScheduleAuthorRelationship author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   public ReportScheduleListResponseRelationships resource(
@@ -84,6 +87,9 @@ public class ReportScheduleListResponseRelationships {
 
   public void setResource(ReportScheduleListResourceRelationship resource) {
     this.resource = resource;
+    if (resource != null) {
+      this.unparsed |= resource.unparsed;
+    }
   }
 
   /**

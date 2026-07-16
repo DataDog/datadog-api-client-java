@@ -69,6 +69,9 @@ public class CostTagKeyAttributes {
 
   public void setDetails(CostTagKeyDetails details) {
     this.details = details;
+    if (details != null) {
+      this.unparsed |= details.unparsed;
+    }
   }
 
   public CostTagKeyAttributes sources(List<String> sources) {

@@ -54,6 +54,9 @@ public class SignalEntitiesResponse {
 
   public void setData(SignalEntitiesData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

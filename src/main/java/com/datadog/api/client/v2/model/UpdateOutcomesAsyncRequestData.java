@@ -51,6 +51,9 @@ public class UpdateOutcomesAsyncRequestData {
 
   public void setAttributes(UpdateOutcomesAsyncAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateOutcomesAsyncRequestData type(UpdateOutcomesAsyncType type) {

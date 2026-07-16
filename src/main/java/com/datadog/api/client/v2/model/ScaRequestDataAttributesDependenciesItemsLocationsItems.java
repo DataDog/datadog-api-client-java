@@ -63,6 +63,9 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
 
   public void setBlock(ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition block) {
     this.block = block;
+    if (block != null) {
+      this.unparsed |= block.unparsed;
+    }
   }
 
   public ScaRequestDataAttributesDependenciesItemsLocationsItems name(
@@ -86,6 +89,9 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
 
   public void setName(ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition name) {
     this.name = name;
+    if (name != null) {
+      this.unparsed |= name.unparsed;
+    }
   }
 
   public ScaRequestDataAttributesDependenciesItemsLocationsItems namespace(
@@ -110,6 +116,9 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
   public void setNamespace(
       ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition namespace) {
     this.namespace = namespace;
+    if (namespace != null) {
+      this.unparsed |= namespace.unparsed;
+    }
   }
 
   public ScaRequestDataAttributesDependenciesItemsLocationsItems version(
@@ -134,6 +143,9 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
   public void setVersion(
       ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition version) {
     this.version = version;
+    if (version != null) {
+      this.unparsed |= version.unparsed;
+    }
   }
 
   /**

@@ -37,6 +37,9 @@ public class AttachmentArray {
   public AttachmentArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AttachmentData> data) {
     this.data = data;
+    for (AttachmentData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AttachmentArray data(List<AttachmentData> data) {
@@ -66,12 +69,19 @@ public class AttachmentArray {
 
   public void setData(List<AttachmentData> data) {
     this.data = data;
+    if (data != null) {
+      for (AttachmentData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AttachmentArray included(List<AttachmentIncluded> included) {
     this.included = included;
-    for (AttachmentIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (AttachmentIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -99,6 +109,11 @@ public class AttachmentArray {
 
   public void setIncluded(List<AttachmentIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (AttachmentIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

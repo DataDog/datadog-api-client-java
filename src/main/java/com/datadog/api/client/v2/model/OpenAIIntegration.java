@@ -64,6 +64,9 @@ public class OpenAIIntegration {
 
   public void setCredentials(OpenAICredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public OpenAIIntegration type(OpenAIIntegrationType type) {

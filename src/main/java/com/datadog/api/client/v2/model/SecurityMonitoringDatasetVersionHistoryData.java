@@ -72,6 +72,9 @@ public class SecurityMonitoringDatasetVersionHistoryData {
 
   public void setAttributes(SecurityMonitoringDatasetVersionHistoryAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringDatasetVersionHistoryData id(String id) {

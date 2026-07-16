@@ -126,6 +126,9 @@ public class SecurityMonitoringSuppressionAttributes {
 
   public void setCreator(SecurityMonitoringUser creator) {
     this.creator = creator;
+    if (creator != null) {
+      this.unparsed |= creator.unparsed;
+    }
   }
 
   public SecurityMonitoringSuppressionAttributes dataExclusionQuery(String dataExclusionQuery) {
@@ -393,6 +396,9 @@ public class SecurityMonitoringSuppressionAttributes {
 
   public void setUpdater(SecurityMonitoringUser updater) {
     this.updater = updater;
+    if (updater != null) {
+      this.unparsed |= updater.unparsed;
+    }
   }
 
   public SecurityMonitoringSuppressionAttributes version(Integer version) {

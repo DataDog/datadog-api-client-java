@@ -34,6 +34,9 @@ public class CostMetricsResponse {
   public CostMetricsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CostMetric> data) {
     this.data = data;
+    for (CostMetric item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CostMetricsResponse data(List<CostMetric> data) {
@@ -63,6 +66,11 @@ public class CostMetricsResponse {
 
   public void setData(List<CostMetric> data) {
     this.data = data;
+    if (data != null) {
+      for (CostMetric item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

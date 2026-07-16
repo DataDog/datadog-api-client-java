@@ -70,6 +70,9 @@ public class JSSourcemapData {
 
   public void setAttributes(JSSourcemapAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public JSSourcemapData id(String id) {

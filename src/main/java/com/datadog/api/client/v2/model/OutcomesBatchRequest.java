@@ -45,6 +45,9 @@ public class OutcomesBatchRequest {
 
   public void setData(OutcomesBatchRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -47,6 +47,9 @@ public class ListStreamWidgetRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_RESPONSE_FORMAT)
           ListStreamResponseFormat responseFormat) {
     this.columns = columns;
+    for (ListStreamColumn item : columns) {
+      this.unparsed |= item.unparsed;
+    }
     this.query = query;
     this.unparsed |= query.unparsed;
     this.responseFormat = responseFormat;
@@ -80,6 +83,11 @@ public class ListStreamWidgetRequest {
 
   public void setColumns(List<ListStreamColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (ListStreamColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListStreamWidgetRequest query(ListStreamQuery query) {
@@ -101,6 +109,9 @@ public class ListStreamWidgetRequest {
 
   public void setQuery(ListStreamQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public ListStreamWidgetRequest responseFormat(ListStreamResponseFormat responseFormat) {

@@ -59,6 +59,9 @@ public class ContainerGroup {
 
   public void setAttributes(ContainerGroupAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ContainerGroup id(String id) {
@@ -102,6 +105,9 @@ public class ContainerGroup {
 
   public void setRelationships(ContainerGroupRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ContainerGroup type(ContainerGroupType type) {

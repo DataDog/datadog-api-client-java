@@ -181,6 +181,9 @@ public class DORADeploymentRequestAttributes {
 
   public void setGit(DORAGitInfo git) {
     this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
   }
 
   public DORADeploymentRequestAttributes id(String id) {

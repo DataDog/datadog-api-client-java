@@ -64,6 +64,9 @@ public class SplitIntegration {
 
   public void setCredentials(SplitCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public SplitIntegration type(SplitIntegrationType type) {

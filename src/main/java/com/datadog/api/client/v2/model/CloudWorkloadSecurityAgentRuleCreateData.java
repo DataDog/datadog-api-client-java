@@ -66,6 +66,9 @@ public class CloudWorkloadSecurityAgentRuleCreateData {
 
   public void setAttributes(CloudWorkloadSecurityAgentRuleCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CloudWorkloadSecurityAgentRuleCreateData type(CloudWorkloadSecurityAgentRuleType type) {

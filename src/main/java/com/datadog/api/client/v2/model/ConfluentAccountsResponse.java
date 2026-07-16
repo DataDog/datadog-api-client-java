@@ -29,8 +29,10 @@ public class ConfluentAccountsResponse {
 
   public ConfluentAccountsResponse data(List<ConfluentAccountResponseData> data) {
     this.data = data;
-    for (ConfluentAccountResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ConfluentAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class ConfluentAccountsResponse {
 
   public void setData(List<ConfluentAccountResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (ConfluentAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

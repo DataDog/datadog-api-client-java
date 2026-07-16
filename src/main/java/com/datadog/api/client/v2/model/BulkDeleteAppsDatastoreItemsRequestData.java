@@ -68,6 +68,9 @@ public class BulkDeleteAppsDatastoreItemsRequestData {
 
   public void setAttributes(BulkDeleteAppsDatastoreItemsRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BulkDeleteAppsDatastoreItemsRequestData id(String id) {

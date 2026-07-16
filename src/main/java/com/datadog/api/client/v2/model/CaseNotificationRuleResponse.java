@@ -45,6 +45,9 @@ public class CaseNotificationRuleResponse {
 
   public void setData(CaseNotificationRule data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

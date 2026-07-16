@@ -68,6 +68,9 @@ public class TagPolicyUpdateData {
 
   public void setAttributes(TagPolicyUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TagPolicyUpdateData id(String id) {

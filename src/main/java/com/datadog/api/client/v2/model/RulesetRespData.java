@@ -65,6 +65,9 @@ public class RulesetRespData {
 
   public void setAttributes(RulesetRespDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RulesetRespData id(String id) {

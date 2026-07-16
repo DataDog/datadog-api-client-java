@@ -55,6 +55,9 @@ public class SyntheticsGlobalVariableValue {
 
   public void setOptions(SyntheticsGlobalVariableOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public SyntheticsGlobalVariableValue secure(Boolean secure) {

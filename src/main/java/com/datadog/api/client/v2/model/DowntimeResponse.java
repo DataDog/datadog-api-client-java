@@ -54,12 +54,17 @@ public class DowntimeResponse {
 
   public void setData(DowntimeResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public DowntimeResponse included(List<DowntimeResponseIncludedItem> included) {
     this.included = included;
-    for (DowntimeResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (DowntimeResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -87,6 +92,11 @@ public class DowntimeResponse {
 
   public void setIncluded(List<DowntimeResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (DowntimeResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

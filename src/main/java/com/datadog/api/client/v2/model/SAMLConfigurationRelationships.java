@@ -45,6 +45,9 @@ public class SAMLConfigurationRelationships {
 
   public void setDefaultRoles(RelationshipToRoles defaultRoles) {
     this.defaultRoles = defaultRoles;
+    if (defaultRoles != null) {
+      this.unparsed |= defaultRoles.unparsed;
+    }
   }
 
   /**

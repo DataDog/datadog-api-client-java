@@ -55,6 +55,9 @@ public class DeletedSuiteResponseData {
 
   public void setAttributes(DeletedSuiteResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeletedSuiteResponseData id(String id) {

@@ -55,6 +55,9 @@ public class LLMObsDataDeletionResponse {
 
   public void setData(LLMObsDataDeletionResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

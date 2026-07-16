@@ -72,6 +72,9 @@ public class CaseAggregateResponseData {
 
   public void setAttributes(CaseAggregateResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseAggregateResponseData id(String id) {

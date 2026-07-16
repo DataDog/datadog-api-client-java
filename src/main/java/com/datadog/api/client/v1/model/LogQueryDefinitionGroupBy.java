@@ -105,6 +105,9 @@ public class LogQueryDefinitionGroupBy {
 
   public void setSort(LogQueryDefinitionGroupBySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   /**

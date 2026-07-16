@@ -54,6 +54,9 @@ public class GovernanceControlUpdateRequest {
 
   public void setData(GovernanceControlUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

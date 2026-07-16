@@ -46,6 +46,9 @@ public class MetricBulkTagConfigResponse {
 
   public void setData(MetricBulkTagConfigStatus data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

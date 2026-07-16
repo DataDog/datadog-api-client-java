@@ -66,6 +66,9 @@ public class BranchCoverageSummaryRequestData {
 
   public void setAttributes(BranchCoverageSummaryRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BranchCoverageSummaryRequestData type(BranchCoverageSummaryRequestType type) {

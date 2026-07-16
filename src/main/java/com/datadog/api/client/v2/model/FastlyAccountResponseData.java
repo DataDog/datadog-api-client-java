@@ -70,6 +70,9 @@ public class FastlyAccountResponseData {
 
   public void setAttributes(FastlyAccounResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FastlyAccountResponseData id(String id) {

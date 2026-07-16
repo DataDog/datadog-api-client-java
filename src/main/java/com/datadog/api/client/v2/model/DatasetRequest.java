@@ -76,6 +76,9 @@ public class DatasetRequest {
 
   public void setAttributes(DatasetAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DatasetRequest type(DatasetType type) {

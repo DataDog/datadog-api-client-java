@@ -65,6 +65,9 @@ public class AWSEventBridgeCreateRequestData {
 
   public void setAttributes(AWSEventBridgeCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSEventBridgeCreateRequestData type(AWSEventBridgeType type) {

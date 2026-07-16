@@ -62,12 +62,17 @@ public class ReportScheduleResponse {
 
   public void setData(ReportScheduleResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public ReportScheduleResponse included(List<ReportScheduleIncludedResource> included) {
     this.included = included;
-    for (ReportScheduleIncludedResource item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ReportScheduleIncludedResource item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -95,6 +100,11 @@ public class ReportScheduleResponse {
 
   public void setIncluded(List<ReportScheduleIncludedResource> included) {
     this.included = included;
+    if (included != null) {
+      for (ReportScheduleIncludedResource item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -35,6 +35,9 @@ public class RelationshipToIncidentResponders {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<RelationshipToIncidentResponderData> data) {
     this.data = data;
+    for (RelationshipToIncidentResponderData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RelationshipToIncidentResponders data(List<RelationshipToIncidentResponderData> data) {
@@ -65,6 +68,11 @@ public class RelationshipToIncidentResponders {
 
   public void setData(List<RelationshipToIncidentResponderData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToIncidentResponderData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

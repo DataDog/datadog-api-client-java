@@ -54,6 +54,9 @@ public class UpdateFormRequest {
 
   public void setData(UpdateFormData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

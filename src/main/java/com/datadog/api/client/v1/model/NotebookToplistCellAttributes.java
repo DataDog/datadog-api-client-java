@@ -72,6 +72,9 @@ public class NotebookToplistCellAttributes {
 
   public void setDefinition(ToplistWidgetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public NotebookToplistCellAttributes graphSize(NotebookGraphSize graphSize) {
@@ -119,6 +122,9 @@ public class NotebookToplistCellAttributes {
 
   public void setSplitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
+    if (splitBy != null) {
+      this.unparsed |= splitBy.unparsed;
+    }
   }
 
   public NotebookToplistCellAttributes time(NotebookCellTime time) {

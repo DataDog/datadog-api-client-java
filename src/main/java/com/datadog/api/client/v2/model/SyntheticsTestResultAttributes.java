@@ -75,6 +75,9 @@ public class SyntheticsTestResultAttributes {
 
   public void setBatch(SyntheticsTestResultBatch batch) {
     this.batch = batch;
+    if (batch != null) {
+      this.unparsed |= batch.unparsed;
+    }
   }
 
   public SyntheticsTestResultAttributes ci(SyntheticsTestResultCI ci) {
@@ -97,6 +100,9 @@ public class SyntheticsTestResultAttributes {
 
   public void setCi(SyntheticsTestResultCI ci) {
     this.ci = ci;
+    if (ci != null) {
+      this.unparsed |= ci.unparsed;
+    }
   }
 
   public SyntheticsTestResultAttributes device(SyntheticsTestResultDevice device) {
@@ -119,6 +125,9 @@ public class SyntheticsTestResultAttributes {
 
   public void setDevice(SyntheticsTestResultDevice device) {
     this.device = device;
+    if (device != null) {
+      this.unparsed |= device.unparsed;
+    }
   }
 
   public SyntheticsTestResultAttributes git(SyntheticsTestResultGit git) {
@@ -141,6 +150,9 @@ public class SyntheticsTestResultAttributes {
 
   public void setGit(SyntheticsTestResultGit git) {
     this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
   }
 
   public SyntheticsTestResultAttributes location(SyntheticsTestResultLocation location) {
@@ -163,6 +175,9 @@ public class SyntheticsTestResultAttributes {
 
   public void setLocation(SyntheticsTestResultLocation location) {
     this.location = location;
+    if (location != null) {
+      this.unparsed |= location.unparsed;
+    }
   }
 
   public SyntheticsTestResultAttributes result(SyntheticsTestResultDetail result) {
@@ -185,6 +200,9 @@ public class SyntheticsTestResultAttributes {
 
   public void setResult(SyntheticsTestResultDetail result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public SyntheticsTestResultAttributes testSubType(SyntheticsTestSubType testSubType) {

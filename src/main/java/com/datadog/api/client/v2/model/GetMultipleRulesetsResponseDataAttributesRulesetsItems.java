@@ -76,6 +76,9 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
 
   public void setData(GetMultipleRulesetsResponseDataAttributesRulesetsItemsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItems description(String description) {
@@ -123,8 +126,10 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   public GetMultipleRulesetsResponseDataAttributesRulesetsItems rules(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems> rules) {
     this.rules = rules;
-    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
-      this.unparsed |= item.unparsed;
+    if (rules != null) {
+      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -154,6 +159,11 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   public void setRules(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItems shortDescription(

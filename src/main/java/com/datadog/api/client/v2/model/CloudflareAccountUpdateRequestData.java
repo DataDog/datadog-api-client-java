@@ -52,6 +52,9 @@ public class CloudflareAccountUpdateRequestData {
 
   public void setAttributes(CloudflareAccountUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CloudflareAccountUpdateRequestData type(CloudflareAccountType type) {

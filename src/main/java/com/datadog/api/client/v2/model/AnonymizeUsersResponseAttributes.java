@@ -43,6 +43,9 @@ public class AnonymizeUsersResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_ANONYMIZED_USER_IDS)
           List<String> anonymizedUserIds) {
     this.anonymizeErrors = anonymizeErrors;
+    for (AnonymizeUserError item : anonymizeErrors) {
+      this.unparsed |= item.unparsed;
+    }
     this.anonymizedUserIds = anonymizedUserIds;
   }
 
@@ -75,6 +78,11 @@ public class AnonymizeUsersResponseAttributes {
 
   public void setAnonymizeErrors(List<AnonymizeUserError> anonymizeErrors) {
     this.anonymizeErrors = anonymizeErrors;
+    if (anonymizeErrors != null) {
+      for (AnonymizeUserError item : anonymizeErrors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AnonymizeUsersResponseAttributes anonymizedUserIds(List<String> anonymizedUserIds) {

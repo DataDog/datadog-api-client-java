@@ -41,6 +41,9 @@ public class DashboardListItems {
       @JsonProperty(required = true, value = JSON_PROPERTY_DASHBOARDS)
           List<DashboardListItem> dashboards) {
     this.dashboards = dashboards;
+    for (DashboardListItem item : dashboards) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DashboardListItems dashboards(List<DashboardListItem> dashboards) {
@@ -70,6 +73,11 @@ public class DashboardListItems {
 
   public void setDashboards(List<DashboardListItem> dashboards) {
     this.dashboards = dashboards;
+    if (dashboards != null) {
+      for (DashboardListItem item : dashboards) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

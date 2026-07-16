@@ -66,6 +66,9 @@ public class TeamReference {
 
   public void setAttributes(TeamReferenceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamReference id(String id) {

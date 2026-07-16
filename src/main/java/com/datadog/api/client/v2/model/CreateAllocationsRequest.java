@@ -54,6 +54,9 @@ public class CreateAllocationsRequest {
 
   public void setData(AllocationDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

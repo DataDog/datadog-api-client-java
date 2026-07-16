@@ -86,6 +86,9 @@ public class CIAppResponseMetadataWithPagination {
 
   public void setPage(CIAppResponsePage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public CIAppResponseMetadataWithPagination requestId(String requestId) {
@@ -136,8 +139,10 @@ public class CIAppResponseMetadataWithPagination {
 
   public CIAppResponseMetadataWithPagination warnings(List<CIAppWarning> warnings) {
     this.warnings = warnings;
-    for (CIAppWarning item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (CIAppWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -166,6 +171,11 @@ public class CIAppResponseMetadataWithPagination {
 
   public void setWarnings(List<CIAppWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (CIAppWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

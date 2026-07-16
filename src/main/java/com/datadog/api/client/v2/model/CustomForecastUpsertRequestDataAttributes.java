@@ -43,6 +43,9 @@ public class CustomForecastUpsertRequestDataAttributes {
           List<CustomForecastEntry> entries) {
     this.budgetUid = budgetUid;
     this.entries = entries;
+    for (CustomForecastEntry item : entries) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CustomForecastUpsertRequestDataAttributes budgetUid(String budgetUid) {
@@ -93,6 +96,11 @@ public class CustomForecastUpsertRequestDataAttributes {
 
   public void setEntries(List<CustomForecastEntry> entries) {
     this.entries = entries;
+    if (entries != null) {
+      for (CustomForecastEntry item : entries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

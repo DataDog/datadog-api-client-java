@@ -71,6 +71,9 @@ public class StatuspageUrlSettingResponseData {
 
   public void setAttributes(StatuspageUrlSettingResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public StatuspageUrlSettingResponseData id(String id) {

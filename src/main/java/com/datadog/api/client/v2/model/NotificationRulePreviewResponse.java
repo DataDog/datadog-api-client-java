@@ -55,6 +55,9 @@ public class NotificationRulePreviewResponse {
 
   public void setData(NotificationRulePreviewResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

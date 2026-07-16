@@ -55,6 +55,9 @@ public class LLMObsAnnotatedInteractionsResponse {
 
   public void setData(LLMObsAnnotatedInteractionsDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

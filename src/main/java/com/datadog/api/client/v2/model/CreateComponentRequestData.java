@@ -69,6 +69,9 @@ public class CreateComponentRequestData {
 
   public void setAttributes(CreateComponentRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateComponentRequestData relationships(
@@ -92,6 +95,9 @@ public class CreateComponentRequestData {
 
   public void setRelationships(CreateComponentRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public CreateComponentRequestData type(StatusPagesComponentGroupType type) {

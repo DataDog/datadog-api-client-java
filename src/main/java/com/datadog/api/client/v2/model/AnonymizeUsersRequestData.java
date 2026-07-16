@@ -68,6 +68,9 @@ public class AnonymizeUsersRequestData {
 
   public void setAttributes(AnonymizeUsersRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AnonymizeUsersRequestData id(String id) {

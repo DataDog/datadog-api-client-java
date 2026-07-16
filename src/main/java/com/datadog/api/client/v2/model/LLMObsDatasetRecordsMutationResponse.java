@@ -35,6 +35,9 @@ public class LLMObsDatasetRecordsMutationResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<LLMObsDatasetRecordsMutationData> data) {
     this.data = data;
+    for (LLMObsDatasetRecordsMutationData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsDatasetRecordsMutationResponse data(List<LLMObsDatasetRecordsMutationData> data) {
@@ -65,6 +68,11 @@ public class LLMObsDatasetRecordsMutationResponse {
 
   public void setData(List<LLMObsDatasetRecordsMutationData> data) {
     this.data = data;
+    if (data != null) {
+      for (LLMObsDatasetRecordsMutationData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

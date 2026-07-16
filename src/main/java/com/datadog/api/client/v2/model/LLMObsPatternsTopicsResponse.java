@@ -55,6 +55,9 @@ public class LLMObsPatternsTopicsResponse {
 
   public void setData(LLMObsPatternsTopicsResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

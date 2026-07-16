@@ -109,6 +109,9 @@ public class BarChartWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public BarChartWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
@@ -131,13 +134,18 @@ public class BarChartWidgetRequest {
 
   public void setAuditQuery(LogQueryDefinition auditQuery) {
     this.auditQuery = auditQuery;
+    if (auditQuery != null) {
+      this.unparsed |= auditQuery.unparsed;
+    }
   }
 
   public BarChartWidgetRequest conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -166,6 +174,11 @@ public class BarChartWidgetRequest {
 
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public BarChartWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
@@ -188,12 +201,17 @@ public class BarChartWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public BarChartWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -221,6 +239,11 @@ public class BarChartWidgetRequest {
 
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public BarChartWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -243,6 +266,9 @@ public class BarChartWidgetRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public BarChartWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -265,6 +291,9 @@ public class BarChartWidgetRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public BarChartWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
@@ -287,6 +316,9 @@ public class BarChartWidgetRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public BarChartWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -309,6 +341,9 @@ public class BarChartWidgetRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public BarChartWidgetRequest q(String q) {
@@ -337,8 +372,10 @@ public class BarChartWidgetRequest {
 
   public BarChartWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -366,6 +403,11 @@ public class BarChartWidgetRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public BarChartWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
@@ -414,6 +456,9 @@ public class BarChartWidgetRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public BarChartWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -436,6 +481,9 @@ public class BarChartWidgetRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   public BarChartWidgetRequest sort(WidgetSortBy sort) {
@@ -458,6 +506,9 @@ public class BarChartWidgetRequest {
 
   public void setSort(WidgetSortBy sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public BarChartWidgetRequest style(WidgetRequestStyle style) {
@@ -480,6 +531,9 @@ public class BarChartWidgetRequest {
 
   public void setStyle(WidgetRequestStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /**

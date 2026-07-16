@@ -54,6 +54,9 @@ public class LLMObsProjectResponse {
 
   public void setData(LLMObsProjectDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

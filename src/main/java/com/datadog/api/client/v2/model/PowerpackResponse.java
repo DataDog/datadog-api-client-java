@@ -50,12 +50,17 @@ public class PowerpackResponse {
 
   public void setData(PowerpackData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public PowerpackResponse included(List<User> included) {
     this.included = included;
-    for (User item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (User item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -83,6 +88,11 @@ public class PowerpackResponse {
 
   public void setIncluded(List<User> included) {
     this.included = included;
+    if (included != null) {
+      for (User item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

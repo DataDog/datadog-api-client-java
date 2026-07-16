@@ -94,6 +94,9 @@ public class UserJourneySearch {
 
   public void setFilters(UserJourneySearchFilters filters) {
     this.filters = filters;
+    if (filters != null) {
+      this.unparsed |= filters.unparsed;
+    }
   }
 
   public UserJourneySearch joinKeys(UserJourneyJoinKeys joinKeys) {
@@ -116,6 +119,9 @@ public class UserJourneySearch {
 
   public void setJoinKeys(UserJourneyJoinKeys joinKeys) {
     this.joinKeys = joinKeys;
+    if (joinKeys != null) {
+      this.unparsed |= joinKeys.unparsed;
+    }
   }
 
   public UserJourneySearch nodeObjects(Map<String, ProductAnalyticsBaseQuery> nodeObjects) {

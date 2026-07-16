@@ -110,6 +110,9 @@ public class SyntheticsMobileTest {
 
   public void setConfig(SyntheticsMobileTestConfig config) {
     this.config = config;
+    if (config != null) {
+      this.unparsed |= config.unparsed;
+    }
   }
 
   public SyntheticsMobileTest deviceIds(List<String> deviceIds) {
@@ -212,6 +215,9 @@ public class SyntheticsMobileTest {
 
   public void setOptions(SyntheticsMobileTestOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**
@@ -254,8 +260,10 @@ public class SyntheticsMobileTest {
 
   public SyntheticsMobileTest steps(List<SyntheticsMobileStep> steps) {
     this.steps = steps;
-    for (SyntheticsMobileStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SyntheticsMobileStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -283,6 +291,11 @@ public class SyntheticsMobileTest {
 
   public void setSteps(List<SyntheticsMobileStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (SyntheticsMobileStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsMobileTest tags(List<String> tags) {

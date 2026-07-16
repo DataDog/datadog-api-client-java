@@ -30,8 +30,10 @@ public class EntityResponseDataRelationshipsOncalls {
   public EntityResponseDataRelationshipsOncalls data(
       List<EntityResponseDataRelationshipsOncallsDataItems> data) {
     this.data = data;
-    for (EntityResponseDataRelationshipsOncallsDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EntityResponseDataRelationshipsOncallsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class EntityResponseDataRelationshipsOncalls {
 
   public void setData(List<EntityResponseDataRelationshipsOncallsDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (EntityResponseDataRelationshipsOncallsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

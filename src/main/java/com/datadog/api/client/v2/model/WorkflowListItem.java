@@ -72,6 +72,9 @@ public class WorkflowListItem {
 
   public void setAttributes(WorkflowListItemAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

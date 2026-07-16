@@ -93,6 +93,9 @@ public class CaseWatcher {
 
   public void setRelationships(CaseWatcherRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public CaseWatcher type(CaseWatcherResourceType type) {

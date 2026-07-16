@@ -66,6 +66,9 @@ public class CreateAppsDatastoreRequestData {
 
   public void setAttributes(CreateAppsDatastoreRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateAppsDatastoreRequestData id(String id) {

@@ -45,6 +45,9 @@ public class CreateTableRequest {
 
   public void setData(CreateTableRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

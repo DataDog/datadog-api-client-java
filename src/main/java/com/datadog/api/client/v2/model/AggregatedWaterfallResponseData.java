@@ -72,6 +72,9 @@ public class AggregatedWaterfallResponseData {
 
   public void setAttributes(AggregatedWaterfallResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AggregatedWaterfallResponseData id(String id) {

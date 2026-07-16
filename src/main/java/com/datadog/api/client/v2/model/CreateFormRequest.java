@@ -54,6 +54,9 @@ public class CreateFormRequest {
 
   public void setData(CreateFormData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

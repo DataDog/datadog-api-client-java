@@ -39,8 +39,10 @@ public class TimeseriesResponseAttributes {
 
   public TimeseriesResponseAttributes series(List<TimeseriesResponseSeries> series) {
     this.series = series;
-    for (TimeseriesResponseSeries item : series) {
-      this.unparsed |= item.unparsed;
+    if (series != null) {
+      for (TimeseriesResponseSeries item : series) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -69,6 +71,11 @@ public class TimeseriesResponseAttributes {
 
   public void setSeries(List<TimeseriesResponseSeries> series) {
     this.series = series;
+    if (series != null) {
+      for (TimeseriesResponseSeries item : series) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesResponseAttributes times(List<Long> times) {

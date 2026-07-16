@@ -65,6 +65,9 @@ public class AutomationRuleCreate {
 
   public void setAttributes(AutomationRuleCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AutomationRuleCreate type(CaseAutomationRuleResourceType type) {

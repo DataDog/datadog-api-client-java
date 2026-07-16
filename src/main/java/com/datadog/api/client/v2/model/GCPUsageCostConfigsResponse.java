@@ -34,6 +34,9 @@ public class GCPUsageCostConfigsResponse {
   public GCPUsageCostConfigsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<GCPUsageCostConfig> data) {
     this.data = data;
+    for (GCPUsageCostConfig item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public GCPUsageCostConfigsResponse data(List<GCPUsageCostConfig> data) {
@@ -63,6 +66,11 @@ public class GCPUsageCostConfigsResponse {
 
   public void setData(List<GCPUsageCostConfig> data) {
     this.data = data;
+    if (data != null) {
+      for (GCPUsageCostConfig item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

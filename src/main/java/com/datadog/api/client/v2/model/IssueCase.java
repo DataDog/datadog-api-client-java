@@ -74,6 +74,9 @@ public class IssueCase {
 
   public void setAttributes(IssueCaseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IssueCase id(String id) {
@@ -116,6 +119,9 @@ public class IssueCase {
 
   public void setRelationships(IssueCaseRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IssueCase type(IssueCaseResourceType type) {

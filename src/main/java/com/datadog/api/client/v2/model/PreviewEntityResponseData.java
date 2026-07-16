@@ -69,6 +69,9 @@ public class PreviewEntityResponseData {
 
   public void setAttributes(EntityResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PreviewEntityResponseData id(String id) {
@@ -112,6 +115,9 @@ public class PreviewEntityResponseData {
 
   public void setRelationships(EntityResponseDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public PreviewEntityResponseData type(EntityResponseDataType type) {

@@ -68,6 +68,9 @@ public class RulesValidateQueryResponseData {
 
   public void setAttributes(RulesValidateQueryResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RulesValidateQueryResponseData id(String id) {

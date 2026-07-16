@@ -108,6 +108,9 @@ public class FeatureFlagListItemAttributes {
     this.valueType = valueType;
     this.unparsed |= !valueType.isValid();
     this.variants = variants;
+    for (Variant item : variants) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FeatureFlagListItemAttributes archivedAt(OffsetDateTime archivedAt) {
@@ -227,8 +230,10 @@ public class FeatureFlagListItemAttributes {
   public FeatureFlagListItemAttributes featureFlagEnvironments(
       List<FeatureFlagEnvironmentListItem> featureFlagEnvironments) {
     this.featureFlagEnvironments = featureFlagEnvironments;
-    for (FeatureFlagEnvironmentListItem item : featureFlagEnvironments) {
-      this.unparsed |= item.unparsed;
+    if (featureFlagEnvironments != null) {
+      for (FeatureFlagEnvironmentListItem item : featureFlagEnvironments) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -258,6 +263,11 @@ public class FeatureFlagListItemAttributes {
   public void setFeatureFlagEnvironments(
       List<FeatureFlagEnvironmentListItem> featureFlagEnvironments) {
     this.featureFlagEnvironments = featureFlagEnvironments;
+    if (featureFlagEnvironments != null) {
+      for (FeatureFlagEnvironmentListItem item : featureFlagEnvironments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FeatureFlagListItemAttributes jsonSchema(String jsonSchema) {
@@ -495,6 +505,11 @@ public class FeatureFlagListItemAttributes {
 
   public void setVariants(List<Variant> variants) {
     this.variants = variants;
+    if (variants != null) {
+      for (Variant item : variants) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

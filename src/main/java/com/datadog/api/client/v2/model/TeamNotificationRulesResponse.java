@@ -35,8 +35,10 @@ public class TeamNotificationRulesResponse {
 
   public TeamNotificationRulesResponse data(List<TeamNotificationRule> data) {
     this.data = data;
-    for (TeamNotificationRule item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TeamNotificationRule item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class TeamNotificationRulesResponse {
 
   public void setData(List<TeamNotificationRule> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamNotificationRule item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamNotificationRulesResponse meta(TeamNotificationRulesResponseMeta meta) {
@@ -86,6 +93,9 @@ public class TeamNotificationRulesResponse {
 
   public void setMeta(TeamNotificationRulesResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

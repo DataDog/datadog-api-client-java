@@ -61,6 +61,9 @@ public class GlobalOrgData {
 
   public void setAttributes(GlobalOrgAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GlobalOrgData type(GlobalOrgType type) {

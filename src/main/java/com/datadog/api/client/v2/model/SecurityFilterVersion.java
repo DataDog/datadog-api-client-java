@@ -70,6 +70,9 @@ public class SecurityFilterVersion {
 
   public void setAttributes(SecurityFilterVersionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityFilterVersion id(String id) {

@@ -80,6 +80,9 @@ public class SecurityFindingsMeta {
 
   public void setPage(SecurityFindingsPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public SecurityFindingsMeta requestId(String requestId) {

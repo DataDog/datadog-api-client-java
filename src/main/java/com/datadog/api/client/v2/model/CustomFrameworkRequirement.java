@@ -42,6 +42,9 @@ public class CustomFrameworkRequirement {
           List<CustomFrameworkControl> controls,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.controls = controls;
+    for (CustomFrameworkControl item : controls) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
   }
 
@@ -72,6 +75,11 @@ public class CustomFrameworkRequirement {
 
   public void setControls(List<CustomFrameworkControl> controls) {
     this.controls = controls;
+    if (controls != null) {
+      for (CustomFrameworkControl item : controls) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CustomFrameworkRequirement name(String name) {

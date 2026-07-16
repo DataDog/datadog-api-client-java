@@ -32,8 +32,10 @@ public class MetricAssetMonitorRelationships {
 
   public MetricAssetMonitorRelationships data(List<MetricAssetMonitorRelationship> data) {
     this.data = data;
-    for (MetricAssetMonitorRelationship item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (MetricAssetMonitorRelationship item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class MetricAssetMonitorRelationships {
 
   public void setData(List<MetricAssetMonitorRelationship> data) {
     this.data = data;
+    if (data != null) {
+      for (MetricAssetMonitorRelationship item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -71,6 +71,9 @@ public class SecureEmbedUpdateResponseData {
 
   public void setAttributes(SecureEmbedUpdateResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecureEmbedUpdateResponseData id(String id) {

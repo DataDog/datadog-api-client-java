@@ -64,6 +64,9 @@ public class ActionConnectionDataUpdate {
 
   public void setAttributes(ActionConnectionAttributesUpdate attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ActionConnectionDataUpdate type(ActionConnectionDataType type) {

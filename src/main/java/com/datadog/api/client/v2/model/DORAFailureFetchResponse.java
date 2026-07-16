@@ -45,6 +45,9 @@ public class DORAFailureFetchResponse {
 
   public void setData(DORAIncidentObject data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

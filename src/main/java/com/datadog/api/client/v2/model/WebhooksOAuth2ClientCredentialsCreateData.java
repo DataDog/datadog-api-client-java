@@ -67,6 +67,9 @@ public class WebhooksOAuth2ClientCredentialsCreateData {
 
   public void setAttributes(WebhooksOAuth2ClientCredentialsCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WebhooksOAuth2ClientCredentialsCreateData type(WebhooksOAuth2ClientCredentialsType type) {

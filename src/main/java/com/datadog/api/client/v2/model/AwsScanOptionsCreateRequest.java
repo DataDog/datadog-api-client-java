@@ -54,6 +54,9 @@ public class AwsScanOptionsCreateRequest {
 
   public void setData(AwsScanOptionsCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

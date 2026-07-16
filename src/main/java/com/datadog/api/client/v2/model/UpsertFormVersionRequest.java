@@ -54,6 +54,9 @@ public class UpsertFormVersionRequest {
 
   public void setData(UpsertFormVersionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

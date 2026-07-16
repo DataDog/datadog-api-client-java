@@ -43,8 +43,10 @@ public class PostmortemAttachmentRequestAttributes {
 
   public PostmortemAttachmentRequestAttributes cells(List<PostmortemCell> cells) {
     this.cells = cells;
-    for (PostmortemCell item : cells) {
-      this.unparsed |= item.unparsed;
+    if (cells != null) {
+      for (PostmortemCell item : cells) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -72,6 +74,11 @@ public class PostmortemAttachmentRequestAttributes {
 
   public void setCells(List<PostmortemCell> cells) {
     this.cells = cells;
+    if (cells != null) {
+      for (PostmortemCell item : cells) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PostmortemAttachmentRequestAttributes content(String content) {

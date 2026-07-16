@@ -50,12 +50,17 @@ public class Maintenance {
 
   public void setData(MaintenanceData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public Maintenance included(List<DegradationIncluded> included) {
     this.included = included;
-    for (DegradationIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (DegradationIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -84,6 +89,11 @@ public class Maintenance {
 
   public void setIncluded(List<DegradationIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (DegradationIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

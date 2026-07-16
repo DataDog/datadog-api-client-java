@@ -54,6 +54,9 @@ public class ServiceAccountCreateRequest {
 
   public void setData(ServiceAccountCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

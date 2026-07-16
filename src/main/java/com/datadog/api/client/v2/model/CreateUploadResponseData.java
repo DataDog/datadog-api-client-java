@@ -62,6 +62,9 @@ public class CreateUploadResponseData {
 
   public void setAttributes(CreateUploadResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateUploadResponseData id(String id) {

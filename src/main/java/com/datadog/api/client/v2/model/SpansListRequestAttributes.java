@@ -59,6 +59,9 @@ public class SpansListRequestAttributes {
 
   public void setFilter(SpansQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public SpansListRequestAttributes options(SpansQueryOptions options) {
@@ -82,6 +85,9 @@ public class SpansListRequestAttributes {
 
   public void setOptions(SpansQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public SpansListRequestAttributes page(SpansListRequestPage page) {
@@ -104,6 +110,9 @@ public class SpansListRequestAttributes {
 
   public void setPage(SpansListRequestPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public SpansListRequestAttributes sort(SpansSort sort) {

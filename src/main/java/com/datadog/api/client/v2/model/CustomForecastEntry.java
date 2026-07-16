@@ -49,6 +49,9 @@ public class CustomForecastEntry {
     this.amount = amount;
     this.month = month;
     this.tagFilters = tagFilters;
+    for (CustomForecastEntryTagFilter item : tagFilters) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CustomForecastEntry amount(Double amount) {
@@ -118,6 +121,11 @@ public class CustomForecastEntry {
 
   public void setTagFilters(List<CustomForecastEntryTagFilter> tagFilters) {
     this.tagFilters = tagFilters;
+    if (tagFilters != null) {
+      for (CustomForecastEntryTagFilter item : tagFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

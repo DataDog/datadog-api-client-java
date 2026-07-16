@@ -46,6 +46,9 @@ public class MonitorNotificationRuleRelationships {
 
   public void setCreatedBy(MonitorNotificationRuleRelationshipsCreatedBy createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   /**

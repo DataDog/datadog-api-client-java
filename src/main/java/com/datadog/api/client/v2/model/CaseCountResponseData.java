@@ -69,6 +69,9 @@ public class CaseCountResponseData {
 
   public void setAttributes(CaseCountResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseCountResponseData id(String id) {

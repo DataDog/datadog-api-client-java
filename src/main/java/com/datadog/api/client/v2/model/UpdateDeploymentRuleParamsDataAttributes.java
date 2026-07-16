@@ -110,6 +110,9 @@ public class UpdateDeploymentRuleParamsDataAttributes {
 
   public void setOptions(DeploymentRulesOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

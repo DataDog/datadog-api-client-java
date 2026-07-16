@@ -117,8 +117,10 @@ public class CreateStatusPageRequestDataAttributes {
   public CreateStatusPageRequestDataAttributes components(
       List<CreateStatusPageRequestDataAttributesComponentsItems> components) {
     this.components = components;
-    for (CreateStatusPageRequestDataAttributesComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (CreateStatusPageRequestDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -147,6 +149,11 @@ public class CreateStatusPageRequestDataAttributes {
 
   public void setComponents(List<CreateStatusPageRequestDataAttributesComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (CreateStatusPageRequestDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateStatusPageRequestDataAttributes domainPrefix(String domainPrefix) {

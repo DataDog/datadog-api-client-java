@@ -54,6 +54,9 @@ public class AuthNMappingRelationshipToTeam {
 
   public void setTeam(RelationshipToTeam team) {
     this.team = team;
+    if (team != null) {
+      this.unparsed |= team.unparsed;
+    }
   }
 
   /**

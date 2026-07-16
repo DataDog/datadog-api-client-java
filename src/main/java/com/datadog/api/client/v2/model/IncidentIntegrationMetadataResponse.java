@@ -62,6 +62,9 @@ public class IncidentIntegrationMetadataResponse {
 
   public void setData(IncidentIntegrationMetadataResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

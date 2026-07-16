@@ -56,6 +56,9 @@ public class RelationshipToIncidentNotificationTemplate {
 
   public void setData(RelationshipToIncidentNotificationTemplateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

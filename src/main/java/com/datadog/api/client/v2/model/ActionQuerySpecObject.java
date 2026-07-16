@@ -68,6 +68,9 @@ public class ActionQuerySpecObject {
 
   public void setConnectionGroup(ActionQuerySpecConnectionGroup connectionGroup) {
     this.connectionGroup = connectionGroup;
+    if (connectionGroup != null) {
+      this.unparsed |= connectionGroup.unparsed;
+    }
   }
 
   public ActionQuerySpecObject connectionId(String connectionId) {
@@ -132,6 +135,9 @@ public class ActionQuerySpecObject {
 
   public void setInputs(ActionQuerySpecInputs inputs) {
     this.inputs = inputs;
+    if (inputs != null) {
+      this.unparsed |= inputs.unparsed;
+    }
   }
 
   /**

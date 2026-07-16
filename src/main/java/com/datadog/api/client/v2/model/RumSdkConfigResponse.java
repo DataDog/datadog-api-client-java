@@ -54,6 +54,9 @@ public class RumSdkConfigResponse {
 
   public void setData(RumSdkConfigData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

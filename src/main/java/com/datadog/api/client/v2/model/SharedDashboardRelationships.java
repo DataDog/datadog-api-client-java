@@ -65,6 +65,9 @@ public class SharedDashboardRelationships {
 
   public void setDashboard(SharedDashboardRelationshipDashboard dashboard) {
     this.dashboard = dashboard;
+    if (dashboard != null) {
+      this.unparsed |= dashboard.unparsed;
+    }
   }
 
   public SharedDashboardRelationships sharer(SharedDashboardRelationshipSharer sharer) {
@@ -86,6 +89,9 @@ public class SharedDashboardRelationships {
 
   public void setSharer(SharedDashboardRelationshipSharer sharer) {
     this.sharer = sharer;
+    if (sharer != null) {
+      this.unparsed |= sharer.unparsed;
+    }
   }
 
   /**

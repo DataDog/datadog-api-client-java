@@ -75,6 +75,9 @@ public class LogsSchemaCategoryMapper {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           LogsSchemaCategoryMapperType type) {
     this.categories = categories;
+    for (LogsSchemaCategoryMapperCategory item : categories) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
     this.targets = targets;
     this.unparsed |= targets.unparsed;
@@ -111,6 +114,11 @@ public class LogsSchemaCategoryMapper {
 
   public void setCategories(List<LogsSchemaCategoryMapperCategory> categories) {
     this.categories = categories;
+    if (categories != null) {
+      for (LogsSchemaCategoryMapperCategory item : categories) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsSchemaCategoryMapper fallback(LogsSchemaCategoryMapperFallback fallback) {
@@ -134,6 +142,9 @@ public class LogsSchemaCategoryMapper {
 
   public void setFallback(LogsSchemaCategoryMapperFallback fallback) {
     this.fallback = fallback;
+    if (fallback != null) {
+      this.unparsed |= fallback.unparsed;
+    }
   }
 
   public LogsSchemaCategoryMapper name(String name) {
@@ -175,6 +186,9 @@ public class LogsSchemaCategoryMapper {
 
   public void setTargets(LogsSchemaCategoryMapperTargets targets) {
     this.targets = targets;
+    if (targets != null) {
+      this.unparsed |= targets.unparsed;
+    }
   }
 
   public LogsSchemaCategoryMapper type(LogsSchemaCategoryMapperType type) {

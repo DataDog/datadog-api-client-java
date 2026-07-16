@@ -71,6 +71,9 @@ public class LLMObsDatasetRestoreVersionDataRequest {
 
   public void setAttributes(LLMObsDatasetRestoreVersionDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDatasetRestoreVersionDataRequest id(String id) {

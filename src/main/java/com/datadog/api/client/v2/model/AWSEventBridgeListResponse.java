@@ -55,6 +55,9 @@ public class AWSEventBridgeListResponse {
 
   public void setData(AWSEventBridgeListResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

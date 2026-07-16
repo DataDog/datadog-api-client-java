@@ -64,6 +64,9 @@ public class CreateSnapshotDataRequest {
 
   public void setAttributes(CreateSnapshotDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateSnapshotDataRequest type(CreateSnapshotType type) {

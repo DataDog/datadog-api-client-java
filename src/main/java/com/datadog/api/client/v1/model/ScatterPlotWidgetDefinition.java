@@ -118,8 +118,10 @@ public class ScatterPlotWidgetDefinition {
 
   public ScatterPlotWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -147,6 +149,11 @@ public class ScatterPlotWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScatterPlotWidgetDefinition description(String description) {
@@ -189,6 +196,9 @@ public class ScatterPlotWidgetDefinition {
 
   public void setRequests(ScatterPlotWidgetDefinitionRequests requests) {
     this.requests = requests;
+    if (requests != null) {
+      this.unparsed |= requests.unparsed;
+    }
   }
 
   public ScatterPlotWidgetDefinition time(WidgetTime time) {
@@ -211,6 +221,9 @@ public class ScatterPlotWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public ScatterPlotWidgetDefinition title(String title) {
@@ -324,6 +337,9 @@ public class ScatterPlotWidgetDefinition {
 
   public void setXaxis(WidgetAxis xaxis) {
     this.xaxis = xaxis;
+    if (xaxis != null) {
+      this.unparsed |= xaxis.unparsed;
+    }
   }
 
   public ScatterPlotWidgetDefinition yaxis(WidgetAxis yaxis) {
@@ -346,6 +362,9 @@ public class ScatterPlotWidgetDefinition {
 
   public void setYaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
+    if (yaxis != null) {
+      this.unparsed |= yaxis.unparsed;
+    }
   }
 
   /**

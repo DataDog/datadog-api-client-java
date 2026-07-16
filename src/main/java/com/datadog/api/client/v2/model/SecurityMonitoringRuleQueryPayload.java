@@ -98,6 +98,9 @@ public class SecurityMonitoringRuleQueryPayload {
 
   public void setPayload(SecurityMonitoringRuleQueryPayloadData payload) {
     this.payload = payload;
+    if (payload != null) {
+      this.unparsed |= payload.unparsed;
+    }
   }
 
   /**

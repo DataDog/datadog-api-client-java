@@ -81,6 +81,9 @@ public class SampleLogGenerationBulkSubscriptionResultItem {
 
   public void setAttributes(SampleLogGenerationSubscriptionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SampleLogGenerationBulkSubscriptionResultItem id(String id) {
@@ -123,6 +126,9 @@ public class SampleLogGenerationBulkSubscriptionResultItem {
 
   public void setMeta(SampleLogGenerationBulkSubscriptionItemMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public SampleLogGenerationBulkSubscriptionResultItem type(

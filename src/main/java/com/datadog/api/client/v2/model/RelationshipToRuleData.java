@@ -45,6 +45,9 @@ public class RelationshipToRuleData {
 
   public void setData(RelationshipToRuleDataObject data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

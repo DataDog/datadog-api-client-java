@@ -133,8 +133,10 @@ public class LLMObsExperimentSpanWithEvals {
   public LLMObsExperimentSpanWithEvals evalMetrics(
       List<LLMObsExperimentEvalMetricEvent> evalMetrics) {
     this.evalMetrics = evalMetrics;
-    for (LLMObsExperimentEvalMetricEvent item : evalMetrics) {
-      this.unparsed |= item.unparsed;
+    if (evalMetrics != null) {
+      for (LLMObsExperimentEvalMetricEvent item : evalMetrics) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -163,6 +165,11 @@ public class LLMObsExperimentSpanWithEvals {
 
   public void setEvalMetrics(List<LLMObsExperimentEvalMetricEvent> evalMetrics) {
     this.evalMetrics = evalMetrics;
+    if (evalMetrics != null) {
+      for (LLMObsExperimentEvalMetricEvent item : evalMetrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsExperimentSpanWithEvals id(String id) {
@@ -206,6 +213,9 @@ public class LLMObsExperimentSpanWithEvals {
 
   public void setMeta(LLMObsExperimentSpanMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public LLMObsExperimentSpanWithEvals metrics(Map<String, Double> metrics) {

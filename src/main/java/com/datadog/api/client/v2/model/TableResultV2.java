@@ -45,6 +45,9 @@ public class TableResultV2 {
 
   public void setData(TableResultV2Data data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -57,8 +57,10 @@ public class LogsByRetentionMonthlyUsage {
 
   public LogsByRetentionMonthlyUsage usage(List<LogsRetentionSumUsage> usage) {
     this.usage = usage;
-    for (LogsRetentionSumUsage item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (LogsRetentionSumUsage item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -86,6 +88,11 @@ public class LogsByRetentionMonthlyUsage {
 
   public void setUsage(List<LogsRetentionSumUsage> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (LogsRetentionSumUsage item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

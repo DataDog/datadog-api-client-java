@@ -134,6 +134,9 @@ public class NotebookTemplateVariable {
   public void setAvailableValuesQuery(
       NotebookTemplateVariableAvailableValuesQuery availableValuesQuery) {
     this.availableValuesQuery = availableValuesQuery;
+    if (availableValuesQuery != null) {
+      this.unparsed |= availableValuesQuery.unparsed;
+    }
   }
 
   public NotebookTemplateVariable dataSourceMappings(Map<String, String> dataSourceMappings) {

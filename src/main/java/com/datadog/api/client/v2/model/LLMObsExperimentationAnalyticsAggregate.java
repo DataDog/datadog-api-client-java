@@ -65,6 +65,9 @@ public class LLMObsExperimentationAnalyticsAggregate {
       @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH)
           LLMObsExperimentationAnalyticsSearch search) {
     this.compute = compute;
+    for (LLMObsExperimentationAnalyticsCompute item : compute) {
+      this.unparsed |= item.unparsed;
+    }
     this.indexes = indexes;
     this.search = search;
     this.unparsed |= search.unparsed;
@@ -99,6 +102,11 @@ public class LLMObsExperimentationAnalyticsAggregate {
 
   public void setCompute(List<LLMObsExperimentationAnalyticsCompute> compute) {
     this.compute = compute;
+    if (compute != null) {
+      for (LLMObsExperimentationAnalyticsCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsExperimentationAnalyticsAggregate datasetVersion(Long datasetVersion) {
@@ -135,8 +143,10 @@ public class LLMObsExperimentationAnalyticsAggregate {
   public LLMObsExperimentationAnalyticsAggregate groupBy(
       List<LLMObsExperimentationAnalyticsGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (LLMObsExperimentationAnalyticsGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (LLMObsExperimentationAnalyticsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -165,6 +175,11 @@ public class LLMObsExperimentationAnalyticsAggregate {
 
   public void setGroupBy(List<LLMObsExperimentationAnalyticsGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (LLMObsExperimentationAnalyticsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsExperimentationAnalyticsAggregate indexes(List<String> indexes) {
@@ -243,6 +258,9 @@ public class LLMObsExperimentationAnalyticsAggregate {
 
   public void setSearch(LLMObsExperimentationAnalyticsSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   public LLMObsExperimentationAnalyticsAggregate time(
@@ -266,6 +284,9 @@ public class LLMObsExperimentationAnalyticsAggregate {
 
   public void setTime(LLMObsExperimentationAnalyticsTimeRange time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   /**

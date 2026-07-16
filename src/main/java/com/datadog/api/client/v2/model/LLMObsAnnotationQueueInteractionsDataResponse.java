@@ -72,6 +72,9 @@ public class LLMObsAnnotationQueueInteractionsDataResponse {
 
   public void setAttributes(LLMObsAnnotationQueueInteractionsDataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsAnnotationQueueInteractionsDataResponse id(String id) {

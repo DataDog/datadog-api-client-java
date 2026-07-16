@@ -29,8 +29,10 @@ public class AWSAccountListResponse {
 
   public AWSAccountListResponse accounts(List<AWSAccount> accounts) {
     this.accounts = accounts;
-    for (AWSAccount item : accounts) {
-      this.unparsed |= item.unparsed;
+    if (accounts != null) {
+      for (AWSAccount item : accounts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class AWSAccountListResponse {
 
   public void setAccounts(List<AWSAccount> accounts) {
     this.accounts = accounts;
+    if (accounts != null) {
+      for (AWSAccount item : accounts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -51,6 +51,9 @@ public class FleetDeploymentResponse {
 
   public void setData(FleetDeployment data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public FleetDeploymentResponse meta(FleetDeploymentResponseMeta meta) {
@@ -73,6 +76,9 @@ public class FleetDeploymentResponse {
 
   public void setMeta(FleetDeploymentResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

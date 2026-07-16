@@ -47,6 +47,9 @@ public class CustomAttributeConfigResponse {
 
   public void setData(CustomAttributeConfig data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

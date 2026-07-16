@@ -54,6 +54,9 @@ public class LLMObsExperimentRequest {
 
   public void setData(LLMObsExperimentDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

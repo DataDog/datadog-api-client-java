@@ -56,6 +56,9 @@ public class ReportScheduleListResourceRelationship {
 
   public void setData(ReportScheduleListResourceRelationshipData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

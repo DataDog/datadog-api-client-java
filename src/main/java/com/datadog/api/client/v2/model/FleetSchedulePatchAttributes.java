@@ -107,6 +107,9 @@ public class FleetSchedulePatchAttributes {
 
   public void setRule(FleetScheduleRecurrenceRule rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   public FleetSchedulePatchAttributes status(FleetScheduleStatus status) {

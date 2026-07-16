@@ -46,6 +46,9 @@ public class BulkPutAppsDatastoreItemsRequest {
 
   public void setData(BulkPutAppsDatastoreItemsRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

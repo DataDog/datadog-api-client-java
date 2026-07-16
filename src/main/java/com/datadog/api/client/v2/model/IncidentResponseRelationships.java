@@ -81,6 +81,9 @@ public class IncidentResponseRelationships {
 
   public void setAttachments(RelationshipToIncidentAttachment attachments) {
     this.attachments = attachments;
+    if (attachments != null) {
+      this.unparsed |= attachments.unparsed;
+    }
   }
 
   public IncidentResponseRelationships commanderUser(NullableRelationshipToUser commanderUser) {
@@ -135,6 +138,9 @@ public class IncidentResponseRelationships {
 
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public IncidentResponseRelationships declaredByUser(RelationshipToUser declaredByUser) {
@@ -157,6 +163,9 @@ public class IncidentResponseRelationships {
 
   public void setDeclaredByUser(RelationshipToUser declaredByUser) {
     this.declaredByUser = declaredByUser;
+    if (declaredByUser != null) {
+      this.unparsed |= declaredByUser.unparsed;
+    }
   }
 
   public IncidentResponseRelationships impacts(RelationshipToIncidentImpacts impacts) {
@@ -179,6 +188,9 @@ public class IncidentResponseRelationships {
 
   public void setImpacts(RelationshipToIncidentImpacts impacts) {
     this.impacts = impacts;
+    if (impacts != null) {
+      this.unparsed |= impacts.unparsed;
+    }
   }
 
   public IncidentResponseRelationships integrations(
@@ -202,6 +214,9 @@ public class IncidentResponseRelationships {
 
   public void setIntegrations(RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
+    if (integrations != null) {
+      this.unparsed |= integrations.unparsed;
+    }
   }
 
   public IncidentResponseRelationships lastModifiedByUser(RelationshipToUser lastModifiedByUser) {
@@ -224,6 +239,9 @@ public class IncidentResponseRelationships {
 
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   public IncidentResponseRelationships responders(RelationshipToIncidentResponders responders) {
@@ -246,6 +264,9 @@ public class IncidentResponseRelationships {
 
   public void setResponders(RelationshipToIncidentResponders responders) {
     this.responders = responders;
+    if (responders != null) {
+      this.unparsed |= responders.unparsed;
+    }
   }
 
   public IncidentResponseRelationships userDefinedFields(
@@ -269,6 +290,9 @@ public class IncidentResponseRelationships {
 
   public void setUserDefinedFields(RelationshipToIncidentUserDefinedFields userDefinedFields) {
     this.userDefinedFields = userDefinedFields;
+    if (userDefinedFields != null) {
+      this.unparsed |= userDefinedFields.unparsed;
+    }
   }
 
   /**

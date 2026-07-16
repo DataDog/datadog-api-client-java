@@ -95,6 +95,9 @@ public class LogsArchiveDestinationGCS {
 
   public void setIntegration(LogsArchiveIntegrationGCS integration) {
     this.integration = integration;
+    if (integration != null) {
+      this.unparsed |= integration.unparsed;
+    }
   }
 
   public LogsArchiveDestinationGCS path(String path) {

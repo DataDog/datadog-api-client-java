@@ -56,6 +56,9 @@ public class SecurityMonitoringEntraIdAzureAppRegistrationsResponse {
 
   public void setData(SecurityMonitoringEntraIdAzureAppRegistrationsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

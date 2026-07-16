@@ -36,8 +36,10 @@ public class SecurityMonitoringRuleSequenceDetectionOptions {
   public SecurityMonitoringRuleSequenceDetectionOptions stepTransitions(
       List<SecurityMonitoringRuleSequenceDetectionStepTransition> stepTransitions) {
     this.stepTransitions = stepTransitions;
-    for (SecurityMonitoringRuleSequenceDetectionStepTransition item : stepTransitions) {
-      this.unparsed |= item.unparsed;
+    if (stepTransitions != null) {
+      for (SecurityMonitoringRuleSequenceDetectionStepTransition item : stepTransitions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -67,13 +69,20 @@ public class SecurityMonitoringRuleSequenceDetectionOptions {
   public void setStepTransitions(
       List<SecurityMonitoringRuleSequenceDetectionStepTransition> stepTransitions) {
     this.stepTransitions = stepTransitions;
+    if (stepTransitions != null) {
+      for (SecurityMonitoringRuleSequenceDetectionStepTransition item : stepTransitions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleSequenceDetectionOptions steps(
       List<SecurityMonitoringRuleSequenceDetectionStep> steps) {
     this.steps = steps;
-    for (SecurityMonitoringRuleSequenceDetectionStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SecurityMonitoringRuleSequenceDetectionStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -102,6 +111,11 @@ public class SecurityMonitoringRuleSequenceDetectionOptions {
 
   public void setSteps(List<SecurityMonitoringRuleSequenceDetectionStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (SecurityMonitoringRuleSequenceDetectionStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

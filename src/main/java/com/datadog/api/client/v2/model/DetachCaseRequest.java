@@ -45,6 +45,9 @@ public class DetachCaseRequest {
 
   public void setData(DetachCaseRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

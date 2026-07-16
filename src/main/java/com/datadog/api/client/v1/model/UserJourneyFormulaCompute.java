@@ -140,6 +140,9 @@ public class UserJourneyFormulaCompute {
 
   public void setTarget(UserJourneySearchTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   /** Return true if this UserJourneyFormulaCompute object is equal to o. */

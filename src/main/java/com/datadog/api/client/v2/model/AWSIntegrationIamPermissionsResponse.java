@@ -55,6 +55,9 @@ public class AWSIntegrationIamPermissionsResponse {
 
   public void setData(AWSIntegrationIamPermissionsResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

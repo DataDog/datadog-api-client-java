@@ -104,8 +104,10 @@ public class LLMObsPatternsTopicWithClusteredPoints {
   public LLMObsPatternsTopicWithClusteredPoints clusterPoints(
       List<LLMObsPatternsClusteredPointRef> clusterPoints) {
     this.clusterPoints = clusterPoints;
-    for (LLMObsPatternsClusteredPointRef item : clusterPoints) {
-      this.unparsed |= item.unparsed;
+    if (clusterPoints != null) {
+      for (LLMObsPatternsClusteredPointRef item : clusterPoints) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -134,6 +136,11 @@ public class LLMObsPatternsTopicWithClusteredPoints {
 
   public void setClusterPoints(List<LLMObsPatternsClusteredPointRef> clusterPoints) {
     this.clusterPoints = clusterPoints;
+    if (clusterPoints != null) {
+      for (LLMObsPatternsClusteredPointRef item : clusterPoints) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsPatternsTopicWithClusteredPoints createdAt(OffsetDateTime createdAt) {

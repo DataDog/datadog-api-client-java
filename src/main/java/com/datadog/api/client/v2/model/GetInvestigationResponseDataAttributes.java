@@ -47,6 +47,9 @@ public class GetInvestigationResponseDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_STATUS) String status,
       @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
     this.conclusions = conclusions;
+    for (InvestigationConclusion item : conclusions) {
+      this.unparsed |= item.unparsed;
+    }
     this.status = status;
     this.title = title;
   }
@@ -80,6 +83,11 @@ public class GetInvestigationResponseDataAttributes {
 
   public void setConclusions(List<InvestigationConclusion> conclusions) {
     this.conclusions = conclusions;
+    if (conclusions != null) {
+      for (InvestigationConclusion item : conclusions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GetInvestigationResponseDataAttributes status(String status) {

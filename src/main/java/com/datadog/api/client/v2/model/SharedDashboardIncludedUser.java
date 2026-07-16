@@ -70,6 +70,9 @@ public class SharedDashboardIncludedUser {
 
   public void setAttributes(SharedDashboardIncludedUserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SharedDashboardIncludedUser id(String id) {

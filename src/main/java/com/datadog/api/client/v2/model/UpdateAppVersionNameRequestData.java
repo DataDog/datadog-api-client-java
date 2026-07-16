@@ -52,6 +52,9 @@ public class UpdateAppVersionNameRequestData {
 
   public void setAttributes(UpdateAppVersionNameRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateAppVersionNameRequestData type(AppVersionNameType type) {

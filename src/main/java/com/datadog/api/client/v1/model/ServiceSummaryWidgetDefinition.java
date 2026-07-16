@@ -387,6 +387,9 @@ public class ServiceSummaryWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public ServiceSummaryWidgetDefinition title(String title) {

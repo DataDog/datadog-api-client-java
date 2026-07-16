@@ -64,6 +64,9 @@ public class JiraIssueCreateData {
 
   public void setAttributes(JiraIssueCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public JiraIssueCreateData type(JiraIssueResourceType type) {

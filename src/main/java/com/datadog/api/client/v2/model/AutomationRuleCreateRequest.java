@@ -54,6 +54,9 @@ public class AutomationRuleCreateRequest {
 
   public void setData(AutomationRuleCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

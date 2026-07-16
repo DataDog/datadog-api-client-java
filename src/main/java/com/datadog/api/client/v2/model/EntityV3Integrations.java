@@ -47,6 +47,9 @@ public class EntityV3Integrations {
 
   public void setOpsgenie(EntityV3DatadogIntegrationOpsgenie opsgenie) {
     this.opsgenie = opsgenie;
+    if (opsgenie != null) {
+      this.unparsed |= opsgenie.unparsed;
+    }
   }
 
   public EntityV3Integrations pagerduty(EntityV3DatadogIntegrationPagerduty pagerduty) {
@@ -69,6 +72,9 @@ public class EntityV3Integrations {
 
   public void setPagerduty(EntityV3DatadogIntegrationPagerduty pagerduty) {
     this.pagerduty = pagerduty;
+    if (pagerduty != null) {
+      this.unparsed |= pagerduty.unparsed;
+    }
   }
 
   /** Return true if this EntityV3Integrations object is equal to o. */

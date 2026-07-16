@@ -45,6 +45,9 @@ public class RoutingRuleRelationshipsPolicy {
 
   public void setData(RoutingRuleRelationshipsPolicyData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

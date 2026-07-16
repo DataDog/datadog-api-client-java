@@ -29,8 +29,10 @@ public class RumRetentionFiltersResponse {
 
   public RumRetentionFiltersResponse data(List<RumRetentionFilterData> data) {
     this.data = data;
-    for (RumRetentionFilterData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RumRetentionFilterData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class RumRetentionFiltersResponse {
 
   public void setData(List<RumRetentionFilterData> data) {
     this.data = data;
+    if (data != null) {
+      for (RumRetentionFilterData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

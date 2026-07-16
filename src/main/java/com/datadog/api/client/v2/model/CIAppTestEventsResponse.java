@@ -39,8 +39,10 @@ public class CIAppTestEventsResponse {
 
   public CIAppTestEventsResponse data(List<CIAppTestEvent> data) {
     this.data = data;
-    for (CIAppTestEvent item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CIAppTestEvent item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class CIAppTestEventsResponse {
 
   public void setData(List<CIAppTestEvent> data) {
     this.data = data;
+    if (data != null) {
+      for (CIAppTestEvent item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CIAppTestEventsResponse links(CIAppResponseLinks links) {
@@ -90,6 +97,9 @@ public class CIAppTestEventsResponse {
 
   public void setLinks(CIAppResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public CIAppTestEventsResponse meta(CIAppResponseMetadataWithPagination meta) {
@@ -112,6 +122,9 @@ public class CIAppTestEventsResponse {
 
   public void setMeta(CIAppResponseMetadataWithPagination meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

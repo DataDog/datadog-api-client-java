@@ -55,6 +55,9 @@ public class SyntheticsTestParentSuiteData {
 
   public void setAttributes(SyntheticsTestParentSuiteAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsTestParentSuiteData id(String id) {

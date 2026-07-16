@@ -110,8 +110,10 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   public ListConnectionsResponseDataAttributesConnectionsItems fields(
       List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
-    for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
-      this.unparsed |= item.unparsed;
+    if (fields != null) {
+      for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -140,6 +142,11 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
 
   public void setFields(List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListConnectionsResponseDataAttributesConnectionsItems id(String id) {
@@ -184,6 +191,9 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
 
   public void setJoin(ListConnectionsResponseDataAttributesConnectionsItemsJoin join) {
     this.join = join;
+    if (join != null) {
+      this.unparsed |= join.unparsed;
+    }
   }
 
   public ListConnectionsResponseDataAttributesConnectionsItems metadata(

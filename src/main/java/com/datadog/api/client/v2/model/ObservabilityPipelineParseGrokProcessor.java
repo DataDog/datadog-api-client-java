@@ -79,6 +79,9 @@ public class ObservabilityPipelineParseGrokProcessor {
     this.id = id;
     this.include = include;
     this.rules = rules;
+    for (ObservabilityPipelineParseGrokProcessorRuleItem item : rules) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -235,6 +238,11 @@ public class ObservabilityPipelineParseGrokProcessor {
 
   public void setRules(List<ObservabilityPipelineParseGrokProcessorRuleItem> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (ObservabilityPipelineParseGrokProcessorRuleItem item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineParseGrokProcessor type(

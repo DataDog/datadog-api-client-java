@@ -59,6 +59,9 @@ public class UserInvitationResponseData {
 
   public void setAttributes(UserInvitationDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UserInvitationResponseData id(String id) {
@@ -102,6 +105,9 @@ public class UserInvitationResponseData {
 
   public void setRelationships(UserInvitationRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public UserInvitationResponseData type(UserInvitationsType type) {

@@ -57,6 +57,9 @@ public class MicrosoftTeamsTenantBasedHandleResponseData {
 
   public void setAttributes(MicrosoftTeamsTenantBasedHandleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MicrosoftTeamsTenantBasedHandleResponseData id(String id) {

@@ -29,8 +29,10 @@ public class SecurityMonitoringSuppressionsResponse {
 
   public SecurityMonitoringSuppressionsResponse data(List<SecurityMonitoringSuppression> data) {
     this.data = data;
-    for (SecurityMonitoringSuppression item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityMonitoringSuppression item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -59,6 +61,11 @@ public class SecurityMonitoringSuppressionsResponse {
 
   public void setData(List<SecurityMonitoringSuppression> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringSuppression item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

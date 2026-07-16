@@ -45,6 +45,9 @@ public class SecurityFindingsSearchRequest {
 
   public void setData(SecurityFindingsSearchRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

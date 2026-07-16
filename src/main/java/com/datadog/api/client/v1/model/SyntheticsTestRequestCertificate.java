@@ -51,6 +51,9 @@ public class SyntheticsTestRequestCertificate {
 
   public void setCert(SyntheticsTestRequestCertificateItem cert) {
     this.cert = cert;
+    if (cert != null) {
+      this.unparsed |= cert.unparsed;
+    }
   }
 
   public SyntheticsTestRequestCertificate key(SyntheticsTestRequestCertificateItem key) {
@@ -73,6 +76,9 @@ public class SyntheticsTestRequestCertificate {
 
   public void setKey(SyntheticsTestRequestCertificateItem key) {
     this.key = key;
+    if (key != null) {
+      this.unparsed |= key.unparsed;
+    }
   }
 
   /**

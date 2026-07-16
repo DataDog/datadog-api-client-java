@@ -54,6 +54,9 @@ public class CaseManagementProject {
 
   public void setData(CaseManagementProjectData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

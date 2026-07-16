@@ -190,6 +190,9 @@ public class LLMObsExperimentDataAttributesResponse {
 
   public void setAuthor(LLMObsExperimentUser author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   public LLMObsExperimentDataAttributesResponse config(Map<String, Object> config) {

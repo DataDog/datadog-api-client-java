@@ -55,6 +55,9 @@ public class AWSEventBridgeCreateResponse {
 
   public void setData(AWSEventBridgeCreateResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

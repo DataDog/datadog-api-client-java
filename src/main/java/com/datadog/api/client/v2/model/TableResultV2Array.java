@@ -34,6 +34,9 @@ public class TableResultV2Array {
   public TableResultV2Array(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<TableResultV2Data> data) {
     this.data = data;
+    for (TableResultV2Data item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public TableResultV2Array data(List<TableResultV2Data> data) {
@@ -63,6 +66,11 @@ public class TableResultV2Array {
 
   public void setData(List<TableResultV2Data> data) {
     this.data = data;
+    if (data != null) {
+      for (TableResultV2Data item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

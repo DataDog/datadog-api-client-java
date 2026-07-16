@@ -64,6 +64,9 @@ public class AnthropicIntegration {
 
   public void setCredentials(AnthropicCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public AnthropicIntegration type(AnthropicIntegrationType type) {

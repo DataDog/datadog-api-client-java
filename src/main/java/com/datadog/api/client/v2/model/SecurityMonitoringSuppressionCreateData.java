@@ -66,6 +66,9 @@ public class SecurityMonitoringSuppressionCreateData {
 
   public void setAttributes(SecurityMonitoringSuppressionCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringSuppressionCreateData type(SecurityMonitoringSuppressionType type) {

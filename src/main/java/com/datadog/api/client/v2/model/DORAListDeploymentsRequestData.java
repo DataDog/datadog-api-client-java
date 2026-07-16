@@ -63,6 +63,9 @@ public class DORAListDeploymentsRequestData {
 
   public void setAttributes(DORAListDeploymentsRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DORAListDeploymentsRequestData type(DORAListDeploymentsRequestDataType type) {

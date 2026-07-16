@@ -51,6 +51,9 @@ public class ServiceDefinitionV2Integrations {
 
   public void setOpsgenie(ServiceDefinitionV2Opsgenie opsgenie) {
     this.opsgenie = opsgenie;
+    if (opsgenie != null) {
+      this.unparsed |= opsgenie.unparsed;
+    }
   }
 
   public ServiceDefinitionV2Integrations pagerduty(String pagerduty) {

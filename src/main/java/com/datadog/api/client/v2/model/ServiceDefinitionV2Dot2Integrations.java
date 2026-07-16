@@ -51,6 +51,9 @@ public class ServiceDefinitionV2Dot2Integrations {
 
   public void setOpsgenie(ServiceDefinitionV2Dot2Opsgenie opsgenie) {
     this.opsgenie = opsgenie;
+    if (opsgenie != null) {
+      this.unparsed |= opsgenie.unparsed;
+    }
   }
 
   public ServiceDefinitionV2Dot2Integrations pagerduty(ServiceDefinitionV2Dot2Pagerduty pagerduty) {
@@ -73,6 +76,9 @@ public class ServiceDefinitionV2Dot2Integrations {
 
   public void setPagerduty(ServiceDefinitionV2Dot2Pagerduty pagerduty) {
     this.pagerduty = pagerduty;
+    if (pagerduty != null) {
+      this.unparsed |= pagerduty.unparsed;
+    }
   }
 
   /**

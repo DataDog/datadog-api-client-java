@@ -54,6 +54,9 @@ public class LLMObsDatasetDraftStateResponse {
 
   public void setData(LLMObsDatasetDraftStateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class CreateDeploymentRuleParams {
 
   public void setData(CreateDeploymentRuleParamsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

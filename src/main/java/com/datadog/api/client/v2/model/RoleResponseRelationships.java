@@ -45,6 +45,9 @@ public class RoleResponseRelationships {
 
   public void setPermissions(RelationshipToPermissions permissions) {
     this.permissions = permissions;
+    if (permissions != null) {
+      this.unparsed |= permissions.unparsed;
+    }
   }
 
   /**

@@ -74,6 +74,9 @@ public class CloudInventorySyncConfigResponseData {
 
   public void setAttributes(CloudInventorySyncConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CloudInventorySyncConfigResponseData id(String id) {

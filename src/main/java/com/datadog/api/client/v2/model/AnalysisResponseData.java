@@ -70,6 +70,9 @@ public class AnalysisResponseData {
 
   public void setAttributes(AnalysisResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AnalysisResponseData id(String id) {

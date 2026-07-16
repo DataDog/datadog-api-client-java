@@ -70,6 +70,9 @@ public class OrgData {
 
   public void setAttributes(OrgAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgData id(UUID id) {

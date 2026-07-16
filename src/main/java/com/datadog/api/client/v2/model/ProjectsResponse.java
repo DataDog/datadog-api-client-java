@@ -29,8 +29,10 @@ public class ProjectsResponse {
 
   public ProjectsResponse data(List<Project> data) {
     this.data = data;
-    for (Project item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (Project item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class ProjectsResponse {
 
   public void setData(List<Project> data) {
     this.data = data;
+    if (data != null) {
+      for (Project item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

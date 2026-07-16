@@ -190,6 +190,9 @@ public class LogsListRequest {
 
   public void setTime(LogsListRequestTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   /**

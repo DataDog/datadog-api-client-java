@@ -71,6 +71,9 @@ public class LLMObsPatternsRunStatusResponseData {
 
   public void setAttributes(LLMObsPatternsRunStatusResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsPatternsRunStatusResponseData id(String id) {

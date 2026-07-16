@@ -132,6 +132,9 @@ public class ObservabilityPipelineClickhouseDestination {
 
   public void setAuth(ObservabilityPipelineClickhouseDestinationAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineClickhouseDestination batch(
@@ -155,6 +158,9 @@ public class ObservabilityPipelineClickhouseDestination {
 
   public void setBatch(ObservabilityPipelineClickhouseDestinationBatch batch) {
     this.batch = batch;
+    if (batch != null) {
+      this.unparsed |= batch.unparsed;
+    }
   }
 
   public ObservabilityPipelineClickhouseDestination batchEncoding(
@@ -181,6 +187,9 @@ public class ObservabilityPipelineClickhouseDestination {
   public void setBatchEncoding(
       ObservabilityPipelineClickhouseDestinationBatchEncoding batchEncoding) {
     this.batchEncoding = batchEncoding;
+    if (batchEncoding != null) {
+      this.unparsed |= batchEncoding.unparsed;
+    }
   }
 
   public ObservabilityPipelineClickhouseDestination buffer(
@@ -204,6 +213,9 @@ public class ObservabilityPipelineClickhouseDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineClickhouseDestination compression(
@@ -229,6 +241,9 @@ public class ObservabilityPipelineClickhouseDestination {
 
   public void setCompression(ObservabilityPipelineClickhouseDestinationCompression compression) {
     this.compression = compression;
+    if (compression != null) {
+      this.unparsed |= compression.unparsed;
+    }
   }
 
   public ObservabilityPipelineClickhouseDestination database(String database) {
@@ -447,6 +462,9 @@ public class ObservabilityPipelineClickhouseDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineClickhouseDestination type(

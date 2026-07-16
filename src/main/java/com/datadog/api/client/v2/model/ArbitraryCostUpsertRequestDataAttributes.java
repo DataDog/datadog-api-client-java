@@ -71,6 +71,9 @@ public class ArbitraryCostUpsertRequestDataAttributes {
           ArbitraryCostUpsertRequestDataAttributesStrategy strategy,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
     this.costsToAllocate = costsToAllocate;
+    for (ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems item : costsToAllocate) {
+      this.unparsed |= item.unparsed;
+    }
     this.provider = provider;
     this.ruleName = ruleName;
     this.strategy = strategy;
@@ -108,6 +111,11 @@ public class ArbitraryCostUpsertRequestDataAttributes {
   public void setCostsToAllocate(
       List<ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems> costsToAllocate) {
     this.costsToAllocate = costsToAllocate;
+    if (costsToAllocate != null) {
+      for (ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems item : costsToAllocate) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ArbitraryCostUpsertRequestDataAttributes enabled(Boolean enabled) {
@@ -238,6 +246,9 @@ public class ArbitraryCostUpsertRequestDataAttributes {
 
   public void setStrategy(ArbitraryCostUpsertRequestDataAttributesStrategy strategy) {
     this.strategy = strategy;
+    if (strategy != null) {
+      this.unparsed |= strategy.unparsed;
+    }
   }
 
   public ArbitraryCostUpsertRequestDataAttributes type(String type) {

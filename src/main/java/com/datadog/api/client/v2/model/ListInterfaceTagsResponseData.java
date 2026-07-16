@@ -55,6 +55,9 @@ public class ListInterfaceTagsResponseData {
 
   public void setAttributes(ListTagsResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ListInterfaceTagsResponseData id(String id) {

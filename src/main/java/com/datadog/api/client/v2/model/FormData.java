@@ -71,6 +71,9 @@ public class FormData {
 
   public void setAttributes(FormDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FormData id(UUID id) {

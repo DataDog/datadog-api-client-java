@@ -92,6 +92,9 @@ public class ObservabilityPipelineHttpServerSourceValidToken {
 
   public void setFieldToAdd(ObservabilityPipelineSourceValidTokenFieldToAdd fieldToAdd) {
     this.fieldToAdd = fieldToAdd;
+    if (fieldToAdd != null) {
+      this.unparsed |= fieldToAdd.unparsed;
+    }
   }
 
   public ObservabilityPipelineHttpServerSourceValidToken pathToToken(
@@ -118,6 +121,9 @@ public class ObservabilityPipelineHttpServerSourceValidToken {
   public void setPathToToken(
       ObservabilityPipelineHttpServerSourceValidTokenPathToToken pathToToken) {
     this.pathToToken = pathToToken;
+    if (pathToToken != null) {
+      this.unparsed |= pathToToken.unparsed;
+    }
   }
 
   public ObservabilityPipelineHttpServerSourceValidToken tokenKey(String tokenKey) {

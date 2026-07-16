@@ -70,6 +70,9 @@ public class LLMObsExperimentSpanDataResponse {
 
   public void setAttributes(LLMObsExperimentSpanWithEvals attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsExperimentSpanDataResponse id(String id) {

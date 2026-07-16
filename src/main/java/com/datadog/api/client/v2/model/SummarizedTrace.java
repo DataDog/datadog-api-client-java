@@ -59,6 +59,9 @@ public class SummarizedTrace {
 
   public void setRoot(SummarizedSpan root) {
     this.root = root;
+    if (root != null) {
+      this.unparsed |= root.unparsed;
+    }
   }
 
   public SummarizedTrace traceId(String traceId) {

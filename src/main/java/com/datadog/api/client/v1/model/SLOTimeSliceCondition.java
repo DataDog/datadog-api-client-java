@@ -101,6 +101,9 @@ public class SLOTimeSliceCondition {
 
   public void setQuery(SLOTimeSliceQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public SLOTimeSliceCondition queryIntervalSeconds(SLOTimeSliceInterval queryIntervalSeconds) {

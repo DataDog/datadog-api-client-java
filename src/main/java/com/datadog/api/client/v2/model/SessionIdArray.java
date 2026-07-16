@@ -34,6 +34,9 @@ public class SessionIdArray {
   public SessionIdArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SessionIdData> data) {
     this.data = data;
+    for (SessionIdData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SessionIdArray data(List<SessionIdData> data) {
@@ -63,6 +66,11 @@ public class SessionIdArray {
 
   public void setData(List<SessionIdData> data) {
     this.data = data;
+    if (data != null) {
+      for (SessionIdData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -84,6 +84,9 @@ public class LLMObsExperimentationAnalyticsDataAttributesResponse {
 
   public void setResult(LLMObsExperimentationAnalyticsResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   /**

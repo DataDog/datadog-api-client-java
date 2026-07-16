@@ -55,6 +55,9 @@ public class TagPolicyScoreRelationship {
 
   public void setData(TagPolicyScoreRelationshipData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

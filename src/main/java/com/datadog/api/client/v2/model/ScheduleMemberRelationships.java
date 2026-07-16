@@ -45,6 +45,9 @@ public class ScheduleMemberRelationships {
 
   public void setUser(ScheduleMemberRelationshipsUser user) {
     this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**

@@ -48,6 +48,9 @@ public class CreatePublishRequestRequest {
 
   public void setData(CreatePublishRequestRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

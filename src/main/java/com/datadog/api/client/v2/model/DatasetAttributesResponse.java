@@ -153,8 +153,10 @@ public class DatasetAttributesResponse {
 
   public DatasetAttributesResponse productFilters(List<FiltersPerProduct> productFilters) {
     this.productFilters = productFilters;
-    for (FiltersPerProduct item : productFilters) {
-      this.unparsed |= item.unparsed;
+    if (productFilters != null) {
+      for (FiltersPerProduct item : productFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -182,6 +184,11 @@ public class DatasetAttributesResponse {
 
   public void setProductFilters(List<FiltersPerProduct> productFilters) {
     this.productFilters = productFilters;
+    if (productFilters != null) {
+      for (FiltersPerProduct item : productFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

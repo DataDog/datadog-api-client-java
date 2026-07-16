@@ -74,14 +74,19 @@ public class ToplistWidgetDefinition {
           List<ToplistWidgetRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ToplistWidgetDefinitionType type) {
     this.requests = requests;
+    for (ToplistWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
   public ToplistWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -109,6 +114,11 @@ public class ToplistWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ToplistWidgetDefinition description(String description) {
@@ -159,6 +169,11 @@ public class ToplistWidgetDefinition {
 
   public void setRequests(List<ToplistWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (ToplistWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ToplistWidgetDefinition style(ToplistWidgetStyle style) {
@@ -181,6 +196,9 @@ public class ToplistWidgetDefinition {
 
   public void setStyle(ToplistWidgetStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   public ToplistWidgetDefinition time(WidgetTime time) {
@@ -203,6 +221,9 @@ public class ToplistWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public ToplistWidgetDefinition title(String title) {

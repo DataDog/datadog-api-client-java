@@ -34,6 +34,9 @@ public class OrgGroupMembershipBulkUpdateAttributes {
   public OrgGroupMembershipBulkUpdateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_ORGS) List<GlobalOrgIdentifier> orgs) {
     this.orgs = orgs;
+    for (GlobalOrgIdentifier item : orgs) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OrgGroupMembershipBulkUpdateAttributes orgs(List<GlobalOrgIdentifier> orgs) {
@@ -63,6 +66,11 @@ public class OrgGroupMembershipBulkUpdateAttributes {
 
   public void setOrgs(List<GlobalOrgIdentifier> orgs) {
     this.orgs = orgs;
+    if (orgs != null) {
+      for (GlobalOrgIdentifier item : orgs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

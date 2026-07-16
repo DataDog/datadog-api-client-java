@@ -45,6 +45,9 @@ public class ResponseMetaAttributes {
 
   public void setPage(Pagination page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

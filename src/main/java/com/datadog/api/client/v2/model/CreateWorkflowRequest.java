@@ -54,6 +54,9 @@ public class CreateWorkflowRequest {
 
   public void setData(WorkflowData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

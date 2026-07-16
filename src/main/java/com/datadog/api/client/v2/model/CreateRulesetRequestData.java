@@ -66,6 +66,9 @@ public class CreateRulesetRequestData {
 
   public void setAttributes(CreateRulesetRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateRulesetRequestData id(String id) {

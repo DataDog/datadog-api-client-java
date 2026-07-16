@@ -47,6 +47,9 @@ public class UpdateRulesetRequestDataAttributes {
           List<UpdateRulesetRequestDataAttributesRulesItems> rules) {
     this.enabled = enabled;
     this.rules = rules;
+    for (UpdateRulesetRequestDataAttributesRulesItems item : rules) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public UpdateRulesetRequestDataAttributes enabled(Boolean enabled) {
@@ -119,6 +122,11 @@ public class UpdateRulesetRequestDataAttributes {
 
   public void setRules(List<UpdateRulesetRequestDataAttributesRulesItems> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (UpdateRulesetRequestDataAttributesRulesItems item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

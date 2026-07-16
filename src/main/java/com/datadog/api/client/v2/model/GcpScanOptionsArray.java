@@ -34,6 +34,9 @@ public class GcpScanOptionsArray {
   public GcpScanOptionsArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<GcpScanOptionsData> data) {
     this.data = data;
+    for (GcpScanOptionsData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public GcpScanOptionsArray data(List<GcpScanOptionsData> data) {
@@ -63,6 +66,11 @@ public class GcpScanOptionsArray {
 
   public void setData(List<GcpScanOptionsData> data) {
     this.data = data;
+    if (data != null) {
+      for (GcpScanOptionsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

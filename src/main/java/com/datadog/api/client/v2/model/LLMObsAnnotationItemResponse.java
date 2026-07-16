@@ -72,6 +72,9 @@ public class LLMObsAnnotationItemResponse {
     this.id = id;
     this.interactionId = interactionId;
     this.labelValues = labelValues;
+    for (LLMObsAnnotationLabelValueResponse item : labelValues) {
+      this.unparsed |= item.unparsed;
+    }
     this.modifiedAt = modifiedAt;
     this.modifiedBy = modifiedBy;
   }
@@ -186,6 +189,11 @@ public class LLMObsAnnotationItemResponse {
 
   public void setLabelValues(List<LLMObsAnnotationLabelValueResponse> labelValues) {
     this.labelValues = labelValues;
+    if (labelValues != null) {
+      for (LLMObsAnnotationLabelValueResponse item : labelValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsAnnotationItemResponse modifiedAt(OffsetDateTime modifiedAt) {

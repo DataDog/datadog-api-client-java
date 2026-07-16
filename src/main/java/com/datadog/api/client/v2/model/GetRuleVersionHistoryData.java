@@ -55,6 +55,9 @@ public class GetRuleVersionHistoryData {
 
   public void setAttributes(RuleVersionHistory attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetRuleVersionHistoryData id(String id) {

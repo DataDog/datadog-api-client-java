@@ -73,6 +73,9 @@ public class GroupWidgetDefinition {
     this.type = type;
     this.unparsed |= !type.isValid();
     this.widgets = widgets;
+    for (Widget item : widgets) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public GroupWidgetDefinition backgroundColor(String backgroundColor) {
@@ -263,6 +266,11 @@ public class GroupWidgetDefinition {
 
   public void setWidgets(List<Widget> widgets) {
     this.widgets = widgets;
+    if (widgets != null) {
+      for (Widget item : widgets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

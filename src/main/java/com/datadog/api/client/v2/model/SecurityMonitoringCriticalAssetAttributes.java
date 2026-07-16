@@ -143,6 +143,9 @@ public class SecurityMonitoringCriticalAssetAttributes {
 
   public void setCreator(SecurityMonitoringUser creator) {
     this.creator = creator;
+    if (creator != null) {
+      this.unparsed |= creator.unparsed;
+    }
   }
 
   public SecurityMonitoringCriticalAssetAttributes description(String description) {
@@ -370,6 +373,9 @@ public class SecurityMonitoringCriticalAssetAttributes {
 
   public void setUpdater(SecurityMonitoringUser updater) {
     this.updater = updater;
+    if (updater != null) {
+      this.unparsed |= updater.unparsed;
+    }
   }
 
   public SecurityMonitoringCriticalAssetAttributes version(Integer version) {

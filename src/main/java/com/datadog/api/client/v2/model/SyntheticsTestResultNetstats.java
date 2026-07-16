@@ -67,6 +67,9 @@ public class SyntheticsTestResultNetstats {
 
   public void setHops(SyntheticsTestResultNetstatsHops hops) {
     this.hops = hops;
+    if (hops != null) {
+      this.unparsed |= hops.unparsed;
+    }
   }
 
   public SyntheticsTestResultNetstats jitter(Double jitter) {
@@ -110,6 +113,9 @@ public class SyntheticsTestResultNetstats {
 
   public void setLatency(SyntheticsTestResultNetworkLatency latency) {
     this.latency = latency;
+    if (latency != null) {
+      this.unparsed |= latency.unparsed;
+    }
   }
 
   public SyntheticsTestResultNetstats packetLossPercentage(Double packetLossPercentage) {

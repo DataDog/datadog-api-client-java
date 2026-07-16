@@ -58,6 +58,9 @@ public class MetricTagCardinality {
 
   public void setAttributes(MetricTagCardinalityAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricTagCardinality id(String id) {

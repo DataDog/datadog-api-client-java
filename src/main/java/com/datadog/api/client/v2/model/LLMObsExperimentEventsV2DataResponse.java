@@ -71,6 +71,9 @@ public class LLMObsExperimentEventsV2DataResponse {
 
   public void setAttributes(LLMObsExperimentEventsV2DataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsExperimentEventsV2DataResponse id(String id) {

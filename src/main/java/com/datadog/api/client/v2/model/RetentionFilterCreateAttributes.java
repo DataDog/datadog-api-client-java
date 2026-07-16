@@ -106,6 +106,9 @@ public class RetentionFilterCreateAttributes {
 
   public void setFilter(SpansFilterCreate filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public RetentionFilterCreateAttributes filterType(RetentionFilterType filterType) {

@@ -59,6 +59,9 @@ public class CreateRuleResponseData {
 
   public void setAttributes(RuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateRuleResponseData id(String id) {
@@ -102,6 +105,9 @@ public class CreateRuleResponseData {
 
   public void setRelationships(RelationshipToRule relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public CreateRuleResponseData type(RuleType type) {

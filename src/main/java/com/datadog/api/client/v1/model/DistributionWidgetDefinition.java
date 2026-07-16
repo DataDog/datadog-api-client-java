@@ -91,14 +91,19 @@ public class DistributionWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           DistributionWidgetDefinitionType type) {
     this.requests = requests;
+    for (DistributionWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
   public DistributionWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -126,6 +131,11 @@ public class DistributionWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DistributionWidgetDefinition description(String description) {
@@ -175,8 +185,10 @@ public class DistributionWidgetDefinition {
 
   public DistributionWidgetDefinition markers(List<WidgetMarker> markers) {
     this.markers = markers;
-    for (WidgetMarker item : markers) {
-      this.unparsed |= item.unparsed;
+    if (markers != null) {
+      for (WidgetMarker item : markers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -204,6 +216,11 @@ public class DistributionWidgetDefinition {
 
   public void setMarkers(List<WidgetMarker> markers) {
     this.markers = markers;
+    if (markers != null) {
+      for (WidgetMarker item : markers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DistributionWidgetDefinition requests(List<DistributionWidgetRequest> requests) {
@@ -237,6 +254,11 @@ public class DistributionWidgetDefinition {
 
   public void setRequests(List<DistributionWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (DistributionWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DistributionWidgetDefinition showLegend(Boolean showLegend) {
@@ -283,6 +305,9 @@ public class DistributionWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public DistributionWidgetDefinition title(String title) {
@@ -396,6 +421,9 @@ public class DistributionWidgetDefinition {
 
   public void setXaxis(DistributionWidgetXAxis xaxis) {
     this.xaxis = xaxis;
+    if (xaxis != null) {
+      this.unparsed |= xaxis.unparsed;
+    }
   }
 
   public DistributionWidgetDefinition yaxis(DistributionWidgetYAxis yaxis) {
@@ -418,6 +446,9 @@ public class DistributionWidgetDefinition {
 
   public void setYaxis(DistributionWidgetYAxis yaxis) {
     this.yaxis = yaxis;
+    if (yaxis != null) {
+      this.unparsed |= yaxis.unparsed;
+    }
   }
 
   /**

@@ -34,6 +34,9 @@ public class NetworkHealthInsightsResponse {
   public NetworkHealthInsightsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<NetworkHealthInsight> data) {
     this.data = data;
+    for (NetworkHealthInsight item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public NetworkHealthInsightsResponse data(List<NetworkHealthInsight> data) {
@@ -63,6 +66,11 @@ public class NetworkHealthInsightsResponse {
 
   public void setData(List<NetworkHealthInsight> data) {
     this.data = data;
+    if (data != null) {
+      for (NetworkHealthInsight item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

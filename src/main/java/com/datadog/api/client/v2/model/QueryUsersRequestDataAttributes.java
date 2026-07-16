@@ -136,6 +136,9 @@ public class QueryUsersRequestDataAttributes {
 
   public void setSort(QueryUsersRequestDataAttributesSort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public QueryUsersRequestDataAttributes wildcardSearchTerm(String wildcardSearchTerm) {

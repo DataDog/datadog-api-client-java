@@ -53,12 +53,17 @@ public class AuthNMappingResponse {
 
   public void setData(AuthNMapping data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public AuthNMappingResponse included(List<AuthNMappingIncluded> included) {
     this.included = included;
-    for (AuthNMappingIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (AuthNMappingIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -86,6 +91,11 @@ public class AuthNMappingResponse {
 
   public void setIncluded(List<AuthNMappingIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (AuthNMappingIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

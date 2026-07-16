@@ -55,6 +55,9 @@ public class MonitorNotificationRuleCreateRequest {
 
   public void setData(MonitorNotificationRuleCreateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

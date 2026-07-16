@@ -39,8 +39,10 @@ public class SBOMMetadata {
 
   public SBOMMetadata authors(List<SBOMMetadataAuthor> authors) {
     this.authors = authors;
-    for (SBOMMetadataAuthor item : authors) {
-      this.unparsed |= item.unparsed;
+    if (authors != null) {
+      for (SBOMMetadataAuthor item : authors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class SBOMMetadata {
 
   public void setAuthors(List<SBOMMetadataAuthor> authors) {
     this.authors = authors;
+    if (authors != null) {
+      for (SBOMMetadataAuthor item : authors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SBOMMetadata component(SBOMMetadataComponent component) {
@@ -90,6 +97,9 @@ public class SBOMMetadata {
 
   public void setComponent(SBOMMetadataComponent component) {
     this.component = component;
+    if (component != null) {
+      this.unparsed |= component.unparsed;
+    }
   }
 
   public SBOMMetadata timestamp(String timestamp) {

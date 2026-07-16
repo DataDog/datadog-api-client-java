@@ -30,8 +30,10 @@ public class SingleAggregatedConnectionResponseArray {
   public SingleAggregatedConnectionResponseArray data(
       List<SingleAggregatedConnectionResponseData> data) {
     this.data = data;
-    for (SingleAggregatedConnectionResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SingleAggregatedConnectionResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class SingleAggregatedConnectionResponseArray {
 
   public void setData(List<SingleAggregatedConnectionResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (SingleAggregatedConnectionResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

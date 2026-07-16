@@ -45,6 +45,9 @@ public class DeploymentGateResponse {
 
   public void setData(DeploymentGateResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

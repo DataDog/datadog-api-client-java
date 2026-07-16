@@ -59,6 +59,9 @@ public class EventsListRequest {
 
   public void setFilter(EventsQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public EventsListRequest options(EventsQueryOptions options) {
@@ -82,6 +85,9 @@ public class EventsListRequest {
 
   public void setOptions(EventsQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public EventsListRequest page(EventsRequestPage page) {
@@ -104,6 +110,9 @@ public class EventsListRequest {
 
   public void setPage(EventsRequestPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public EventsListRequest sort(EventsSort sort) {

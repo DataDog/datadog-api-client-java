@@ -76,6 +76,9 @@ public class MuteFindingsRequestData {
 
   public void setAttributes(MuteFindingsRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MuteFindingsRequestData id(String id) {
@@ -118,6 +121,9 @@ public class MuteFindingsRequestData {
 
   public void setRelationships(MuteFindingsRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public MuteFindingsRequestData type(MuteDataType type) {

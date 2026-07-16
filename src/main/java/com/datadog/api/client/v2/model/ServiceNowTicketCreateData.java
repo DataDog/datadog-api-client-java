@@ -65,6 +65,9 @@ public class ServiceNowTicketCreateData {
 
   public void setAttributes(ServiceNowTicketCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceNowTicketCreateData type(ServiceNowTicketResourceType type) {

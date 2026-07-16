@@ -35,8 +35,10 @@ public class SLOCorrectionListResponse {
 
   public SLOCorrectionListResponse data(List<SLOCorrection> data) {
     this.data = data;
-    for (SLOCorrection item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SLOCorrection item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class SLOCorrectionListResponse {
 
   public void setData(List<SLOCorrection> data) {
     this.data = data;
+    if (data != null) {
+      for (SLOCorrection item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SLOCorrectionListResponse meta(ResponseMetaAttributes meta) {
@@ -86,6 +93,9 @@ public class SLOCorrectionListResponse {
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class CreateCampaignRequest {
 
   public void setData(CreateCampaignRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

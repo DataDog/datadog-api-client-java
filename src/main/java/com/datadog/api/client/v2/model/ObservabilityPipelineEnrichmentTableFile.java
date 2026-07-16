@@ -56,8 +56,14 @@ public class ObservabilityPipelineEnrichmentTableFile {
     this.encoding = encoding;
     this.unparsed |= encoding.unparsed;
     this.key = key;
+    for (ObservabilityPipelineEnrichmentTableFileKeyItems item : key) {
+      this.unparsed |= item.unparsed;
+    }
     this.path = path;
     this.schema = schema;
+    for (ObservabilityPipelineEnrichmentTableFileSchemaItems item : schema) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ObservabilityPipelineEnrichmentTableFile encoding(
@@ -80,6 +86,9 @@ public class ObservabilityPipelineEnrichmentTableFile {
 
   public void setEncoding(ObservabilityPipelineEnrichmentTableFileEncoding encoding) {
     this.encoding = encoding;
+    if (encoding != null) {
+      this.unparsed |= encoding.unparsed;
+    }
   }
 
   public ObservabilityPipelineEnrichmentTableFile key(
@@ -111,6 +120,11 @@ public class ObservabilityPipelineEnrichmentTableFile {
 
   public void setKey(List<ObservabilityPipelineEnrichmentTableFileKeyItems> key) {
     this.key = key;
+    if (key != null) {
+      for (ObservabilityPipelineEnrichmentTableFileKeyItems item : key) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineEnrichmentTableFile path(String path) {
@@ -162,6 +176,11 @@ public class ObservabilityPipelineEnrichmentTableFile {
 
   public void setSchema(List<ObservabilityPipelineEnrichmentTableFileSchemaItems> schema) {
     this.schema = schema;
+    if (schema != null) {
+      for (ObservabilityPipelineEnrichmentTableFileSchemaItems item : schema) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

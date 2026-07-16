@@ -32,8 +32,10 @@ public class CustomAttributeTypeData {
 
   public CustomAttributeTypeData options(List<CustomAttributeSelectOption> options) {
     this.options = options;
-    for (CustomAttributeSelectOption item : options) {
-      this.unparsed |= item.unparsed;
+    if (options != null) {
+      for (CustomAttributeSelectOption item : options) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class CustomAttributeTypeData {
 
   public void setOptions(List<CustomAttributeSelectOption> options) {
     this.options = options;
+    if (options != null) {
+      for (CustomAttributeSelectOption item : options) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

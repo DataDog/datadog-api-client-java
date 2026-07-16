@@ -56,6 +56,9 @@ public class StatusPageAsIncludedRelationshipsCreatedByUser {
 
   public void setData(StatusPageAsIncludedRelationshipsCreatedByUserData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class RestrictionPolicyResponse {
 
   public void setData(RestrictionPolicy data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

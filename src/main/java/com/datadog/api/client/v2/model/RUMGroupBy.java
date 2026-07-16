@@ -96,6 +96,9 @@ public class RUMGroupBy {
 
   public void setHistogram(RUMGroupByHistogram histogram) {
     this.histogram = histogram;
+    if (histogram != null) {
+      this.unparsed |= histogram.unparsed;
+    }
   }
 
   public RUMGroupBy limit(Long limit) {
@@ -139,6 +142,9 @@ public class RUMGroupBy {
 
   public void setMissing(RUMGroupByMissing missing) {
     this.missing = missing;
+    if (missing != null) {
+      this.unparsed |= missing.unparsed;
+    }
   }
 
   public RUMGroupBy sort(RUMAggregateSort sort) {
@@ -161,6 +167,9 @@ public class RUMGroupBy {
 
   public void setSort(RUMAggregateSort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public RUMGroupBy total(RUMGroupByTotal total) {
@@ -183,6 +192,9 @@ public class RUMGroupBy {
 
   public void setTotal(RUMGroupByTotal total) {
     this.total = total;
+    if (total != null) {
+      this.unparsed |= total.unparsed;
+    }
   }
 
   /**

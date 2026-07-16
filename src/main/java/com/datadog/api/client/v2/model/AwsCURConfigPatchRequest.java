@@ -54,6 +54,9 @@ public class AwsCURConfigPatchRequest {
 
   public void setData(AwsCURConfigPatchData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

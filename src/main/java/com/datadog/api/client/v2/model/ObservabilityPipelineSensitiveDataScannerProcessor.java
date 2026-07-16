@@ -71,6 +71,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessor {
     this.id = id;
     this.include = include;
     this.rules = rules;
+    for (ObservabilityPipelineSensitiveDataScannerProcessorRule item : rules) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -186,6 +189,11 @@ public class ObservabilityPipelineSensitiveDataScannerProcessor {
 
   public void setRules(List<ObservabilityPipelineSensitiveDataScannerProcessorRule> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (ObservabilityPipelineSensitiveDataScannerProcessorRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessor type(

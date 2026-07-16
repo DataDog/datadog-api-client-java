@@ -6445,6 +6445,9 @@ public class UsageSummaryResponse {
 
   public void setLogsByRetention(LogsByRetention logsByRetention) {
     this.logsByRetention = logsByRetention;
+    if (logsByRetention != null) {
+      this.unparsed |= logsByRetention.unparsed;
+    }
     putAdditionalProperty(JSON_PROPERTY_LOGS_BY_RETENTION, logsByRetention);
   }
 
@@ -9343,8 +9346,10 @@ public class UsageSummaryResponse {
 
   public UsageSummaryResponse usage(List<UsageSummaryDate> usage) {
     this.usage = usage;
-    for (UsageSummaryDate item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageSummaryDate item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -9372,6 +9377,11 @@ public class UsageSummaryResponse {
 
   public void setUsage(List<UsageSummaryDate> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageSummaryDate item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
     putAdditionalProperty(JSON_PROPERTY_USAGE, usage);
   }
 

@@ -56,6 +56,9 @@ public class MetricSuggestedTagsAndAggregations {
 
   public void setAttributes(MetricSuggestedTagsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricSuggestedTagsAndAggregations id(String id) {

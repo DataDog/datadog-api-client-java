@@ -36,8 +36,10 @@ public class MetricSuggestedTagsAttributes {
   public MetricSuggestedTagsAttributes activeAggregations(
       List<MetricCustomAggregation> activeAggregations) {
     this.activeAggregations = activeAggregations;
-    for (MetricCustomAggregation item : activeAggregations) {
-      this.unparsed |= item.unparsed;
+    if (activeAggregations != null) {
+      for (MetricCustomAggregation item : activeAggregations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -66,6 +68,11 @@ public class MetricSuggestedTagsAttributes {
 
   public void setActiveAggregations(List<MetricCustomAggregation> activeAggregations) {
     this.activeAggregations = activeAggregations;
+    if (activeAggregations != null) {
+      for (MetricCustomAggregation item : activeAggregations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MetricSuggestedTagsAttributes activeTags(List<String> activeTags) {

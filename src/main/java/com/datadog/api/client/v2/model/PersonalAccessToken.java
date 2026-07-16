@@ -59,6 +59,9 @@ public class PersonalAccessToken {
 
   public void setAttributes(PersonalAccessTokenAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PersonalAccessToken id(String id) {
@@ -102,6 +105,9 @@ public class PersonalAccessToken {
 
   public void setRelationships(PersonalAccessTokenRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public PersonalAccessToken type(PersonalAccessTokensType type) {

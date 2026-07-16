@@ -67,6 +67,9 @@ public class SAMLAssertionAttribute {
 
   public void setAttributes(SAMLAssertionAttributeAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SAMLAssertionAttribute id(String id) {

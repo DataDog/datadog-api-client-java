@@ -29,8 +29,10 @@ public class UsageProfilingResponse {
 
   public UsageProfilingResponse usage(List<UsageProfilingHour> usage) {
     this.usage = usage;
-    for (UsageProfilingHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageProfilingHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class UsageProfilingResponse {
 
   public void setUsage(List<UsageProfilingHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageProfilingHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

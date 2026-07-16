@@ -64,6 +64,9 @@ public class IncidentTodoPatchData {
 
   public void setAttributes(IncidentTodoAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentTodoPatchData type(IncidentTodoType type) {

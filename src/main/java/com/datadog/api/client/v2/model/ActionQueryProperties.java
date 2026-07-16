@@ -90,6 +90,9 @@ public class ActionQueryProperties {
 
   public void setCondition(ActionQueryCondition condition) {
     this.condition = condition;
+    if (condition != null) {
+      this.unparsed |= condition.unparsed;
+    }
   }
 
   public ActionQueryProperties debounceInMs(ActionQueryDebounceInMs debounceInMs) {
@@ -113,6 +116,9 @@ public class ActionQueryProperties {
 
   public void setDebounceInMs(ActionQueryDebounceInMs debounceInMs) {
     this.debounceInMs = debounceInMs;
+    if (debounceInMs != null) {
+      this.unparsed |= debounceInMs.unparsed;
+    }
   }
 
   public ActionQueryProperties mockedOutputs(ActionQueryMockedOutputs mockedOutputs) {
@@ -136,6 +142,9 @@ public class ActionQueryProperties {
 
   public void setMockedOutputs(ActionQueryMockedOutputs mockedOutputs) {
     this.mockedOutputs = mockedOutputs;
+    if (mockedOutputs != null) {
+      this.unparsed |= mockedOutputs.unparsed;
+    }
   }
 
   public ActionQueryProperties onlyTriggerManually(
@@ -161,6 +170,9 @@ public class ActionQueryProperties {
 
   public void setOnlyTriggerManually(ActionQueryOnlyTriggerManually onlyTriggerManually) {
     this.onlyTriggerManually = onlyTriggerManually;
+    if (onlyTriggerManually != null) {
+      this.unparsed |= onlyTriggerManually.unparsed;
+    }
   }
 
   public ActionQueryProperties outputs(String outputs) {
@@ -208,6 +220,9 @@ public class ActionQueryProperties {
 
   public void setPollingIntervalInMs(ActionQueryPollingIntervalInMs pollingIntervalInMs) {
     this.pollingIntervalInMs = pollingIntervalInMs;
+    if (pollingIntervalInMs != null) {
+      this.unparsed |= pollingIntervalInMs.unparsed;
+    }
   }
 
   public ActionQueryProperties requiresConfirmation(
@@ -231,6 +246,9 @@ public class ActionQueryProperties {
 
   public void setRequiresConfirmation(ActionQueryRequiresConfirmation requiresConfirmation) {
     this.requiresConfirmation = requiresConfirmation;
+    if (requiresConfirmation != null) {
+      this.unparsed |= requiresConfirmation.unparsed;
+    }
   }
 
   public ActionQueryProperties showToastOnError(ActionQueryShowToastOnError showToastOnError) {
@@ -253,6 +271,9 @@ public class ActionQueryProperties {
 
   public void setShowToastOnError(ActionQueryShowToastOnError showToastOnError) {
     this.showToastOnError = showToastOnError;
+    if (showToastOnError != null) {
+      this.unparsed |= showToastOnError.unparsed;
+    }
   }
 
   public ActionQueryProperties spec(ActionQuerySpec spec) {
@@ -274,6 +295,9 @@ public class ActionQueryProperties {
 
   public void setSpec(ActionQuerySpec spec) {
     this.spec = spec;
+    if (spec != null) {
+      this.unparsed |= spec.unparsed;
+    }
   }
 
   /**

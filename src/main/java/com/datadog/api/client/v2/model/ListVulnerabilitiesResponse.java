@@ -44,6 +44,9 @@ public class ListVulnerabilitiesResponse {
   public ListVulnerabilitiesResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Vulnerability> data) {
     this.data = data;
+    for (Vulnerability item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListVulnerabilitiesResponse data(List<Vulnerability> data) {
@@ -73,6 +76,11 @@ public class ListVulnerabilitiesResponse {
 
   public void setData(List<Vulnerability> data) {
     this.data = data;
+    if (data != null) {
+      for (Vulnerability item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListVulnerabilitiesResponse links(Links links) {
@@ -95,6 +103,9 @@ public class ListVulnerabilitiesResponse {
 
   public void setLinks(Links links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListVulnerabilitiesResponse meta(Metadata meta) {
@@ -117,6 +128,9 @@ public class ListVulnerabilitiesResponse {
 
   public void setMeta(Metadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

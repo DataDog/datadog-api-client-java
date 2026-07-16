@@ -94,6 +94,9 @@ public class SecurityMonitoringRuleOptions {
   public void setAnomalyDetectionOptions(
       SecurityMonitoringRuleAnomalyDetectionOptions anomalyDetectionOptions) {
     this.anomalyDetectionOptions = anomalyDetectionOptions;
+    if (anomalyDetectionOptions != null) {
+      this.unparsed |= anomalyDetectionOptions.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleOptions complianceRuleOptions(
@@ -119,6 +122,9 @@ public class SecurityMonitoringRuleOptions {
   public void setComplianceRuleOptions(
       CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
     this.complianceRuleOptions = complianceRuleOptions;
+    if (complianceRuleOptions != null) {
+      this.unparsed |= complianceRuleOptions.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleOptions decreaseCriticalityBasedOnEnv(
@@ -251,6 +257,9 @@ public class SecurityMonitoringRuleOptions {
   public void setImpossibleTravelOptions(
       SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions) {
     this.impossibleTravelOptions = impossibleTravelOptions;
+    if (impossibleTravelOptions != null) {
+      this.unparsed |= impossibleTravelOptions.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
@@ -327,6 +336,9 @@ public class SecurityMonitoringRuleOptions {
 
   public void setNewValueOptions(SecurityMonitoringRuleNewValueOptions newValueOptions) {
     this.newValueOptions = newValueOptions;
+    if (newValueOptions != null) {
+      this.unparsed |= newValueOptions.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleOptions sequenceDetectionOptions(
@@ -351,6 +363,9 @@ public class SecurityMonitoringRuleOptions {
   public void setSequenceDetectionOptions(
       SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions) {
     this.sequenceDetectionOptions = sequenceDetectionOptions;
+    if (sequenceDetectionOptions != null) {
+      this.unparsed |= sequenceDetectionOptions.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleOptions thirdPartyRuleOptions(
@@ -375,6 +390,9 @@ public class SecurityMonitoringRuleOptions {
   public void setThirdPartyRuleOptions(
       SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
     this.thirdPartyRuleOptions = thirdPartyRuleOptions;
+    if (thirdPartyRuleOptions != null) {
+      this.unparsed |= thirdPartyRuleOptions.unparsed;
+    }
   }
 
   /**

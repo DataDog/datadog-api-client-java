@@ -146,9 +146,11 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
           arguments) {
     this.arguments = arguments;
-    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems item :
-        arguments) {
-      this.unparsed |= item.unparsed;
+    if (arguments != null) {
+      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems item :
+          arguments) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -181,6 +183,12 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
           arguments) {
     this.arguments = arguments;
+    if (arguments != null) {
+      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems item :
+          arguments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems category(
@@ -355,6 +363,9 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
 
   public void setData(GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems description(
@@ -644,8 +655,11 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems tests(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests) {
     this.tests = tests;
-    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems item : tests) {
-      this.unparsed |= item.unparsed;
+    if (tests != null) {
+      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems item :
+          tests) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -676,6 +690,12 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   public void setTests(
       List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests) {
     this.tests = tests;
+    if (tests != null) {
+      for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems item :
+          tests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems treeSitterQuery(

@@ -103,6 +103,9 @@ public class ObservabilityPipelineGoogleChronicleDestination {
 
   public void setAuth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineGoogleChronicleDestination buffer(
@@ -126,6 +129,9 @@ public class ObservabilityPipelineGoogleChronicleDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineGoogleChronicleDestination customerId(String customerId) {

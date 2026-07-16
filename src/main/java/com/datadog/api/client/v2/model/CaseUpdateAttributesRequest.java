@@ -54,6 +54,9 @@ public class CaseUpdateAttributesRequest {
 
   public void setData(CaseUpdateAttributes data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

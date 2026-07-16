@@ -65,8 +65,10 @@ public class DegradationDataAttributes {
   public DegradationDataAttributes componentsAffected(
       List<DegradationDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
-    for (DegradationDataAttributesComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
+    if (componentsAffected != null) {
+      for (DegradationDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -96,6 +98,11 @@ public class DegradationDataAttributes {
   public void setComponentsAffected(
       List<DegradationDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (DegradationDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DegradationDataAttributes createdAt(OffsetDateTime createdAt) {
@@ -202,6 +209,9 @@ public class DegradationDataAttributes {
 
   public void setSource(DegradationDataAttributesSource source) {
     this.source = source;
+    if (source != null) {
+      this.unparsed |= source.unparsed;
+    }
   }
 
   public DegradationDataAttributes status(CreateDegradationRequestDataAttributesStatus status) {
@@ -252,8 +262,10 @@ public class DegradationDataAttributes {
 
   public DegradationDataAttributes updates(List<DegradationDataAttributesUpdatesItems> updates) {
     this.updates = updates;
-    for (DegradationDataAttributesUpdatesItems item : updates) {
-      this.unparsed |= item.unparsed;
+    if (updates != null) {
+      for (DegradationDataAttributesUpdatesItems item : updates) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -282,6 +294,11 @@ public class DegradationDataAttributes {
 
   public void setUpdates(List<DegradationDataAttributesUpdatesItems> updates) {
     this.updates = updates;
+    if (updates != null) {
+      for (DegradationDataAttributesUpdatesItems item : updates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -64,6 +64,9 @@ public class CaseUpdateCustomAttribute {
 
   public void setAttributes(CustomAttributeValue attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseUpdateCustomAttribute type(CaseResourceType type) {

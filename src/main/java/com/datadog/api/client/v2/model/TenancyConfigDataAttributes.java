@@ -226,6 +226,9 @@ public class TenancyConfigDataAttributes {
 
   public void setLogsConfig(TenancyConfigDataAttributesLogsConfig logsConfig) {
     this.logsConfig = logsConfig;
+    if (logsConfig != null) {
+      this.unparsed |= logsConfig.unparsed;
+    }
   }
 
   public TenancyConfigDataAttributes metricsConfig(
@@ -250,6 +253,9 @@ public class TenancyConfigDataAttributes {
 
   public void setMetricsConfig(TenancyConfigDataAttributesMetricsConfig metricsConfig) {
     this.metricsConfig = metricsConfig;
+    if (metricsConfig != null) {
+      this.unparsed |= metricsConfig.unparsed;
+    }
   }
 
   public TenancyConfigDataAttributes parentTenancyName(String parentTenancyName) {
@@ -295,6 +301,9 @@ public class TenancyConfigDataAttributes {
 
   public void setRegionsConfig(TenancyConfigDataAttributesRegionsConfig regionsConfig) {
     this.regionsConfig = regionsConfig;
+    if (regionsConfig != null) {
+      this.unparsed |= regionsConfig.unparsed;
+    }
   }
 
   public TenancyConfigDataAttributes resourceCollectionEnabled(Boolean resourceCollectionEnabled) {

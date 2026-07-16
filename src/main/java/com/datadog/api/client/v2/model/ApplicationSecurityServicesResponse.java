@@ -43,6 +43,9 @@ public class ApplicationSecurityServicesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_META)
           ApplicationSecurityServicesMetadata meta) {
     this.data = data;
+    for (ApplicationSecurityServiceResource item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -75,6 +78,11 @@ public class ApplicationSecurityServicesResponse {
 
   public void setData(List<ApplicationSecurityServiceResource> data) {
     this.data = data;
+    if (data != null) {
+      for (ApplicationSecurityServiceResource item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityServicesResponse meta(ApplicationSecurityServicesMetadata meta) {
@@ -96,6 +104,9 @@ public class ApplicationSecurityServicesResponse {
 
   public void setMeta(ApplicationSecurityServicesMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

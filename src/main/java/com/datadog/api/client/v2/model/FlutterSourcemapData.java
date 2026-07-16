@@ -70,6 +70,9 @@ public class FlutterSourcemapData {
 
   public void setAttributes(FlutterSourcemapAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FlutterSourcemapData id(String id) {

@@ -67,8 +67,10 @@ public class SyntheticsTestVersionChangeAttributes {
   public SyntheticsTestVersionChangeAttributes changeMetadata(
       List<SyntheticsTestVersionChangeMetadataItem> changeMetadata) {
     this.changeMetadata = changeMetadata;
-    for (SyntheticsTestVersionChangeMetadataItem item : changeMetadata) {
-      this.unparsed |= item.unparsed;
+    if (changeMetadata != null) {
+      for (SyntheticsTestVersionChangeMetadataItem item : changeMetadata) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -97,6 +99,11 @@ public class SyntheticsTestVersionChangeAttributes {
 
   public void setChangeMetadata(List<SyntheticsTestVersionChangeMetadataItem> changeMetadata) {
     this.changeMetadata = changeMetadata;
+    if (changeMetadata != null) {
+      for (SyntheticsTestVersionChangeMetadataItem item : changeMetadata) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestVersionChangeAttributes versionNumber(Long versionNumber) {

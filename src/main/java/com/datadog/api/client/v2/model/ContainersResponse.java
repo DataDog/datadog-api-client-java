@@ -39,8 +39,10 @@ public class ContainersResponse {
 
   public ContainersResponse data(List<ContainerItem> data) {
     this.data = data;
-    for (ContainerItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ContainerItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class ContainersResponse {
 
   public void setData(List<ContainerItem> data) {
     this.data = data;
+    if (data != null) {
+      for (ContainerItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ContainersResponse links(ContainersResponseLinks links) {
@@ -90,6 +97,9 @@ public class ContainersResponse {
 
   public void setLinks(ContainersResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ContainersResponse meta(ContainerMeta meta) {
@@ -112,6 +122,9 @@ public class ContainersResponse {
 
   public void setMeta(ContainerMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

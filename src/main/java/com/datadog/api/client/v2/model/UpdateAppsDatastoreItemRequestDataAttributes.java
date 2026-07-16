@@ -89,6 +89,9 @@ public class UpdateAppsDatastoreItemRequestDataAttributes {
 
   public void setItemChanges(UpdateAppsDatastoreItemRequestDataAttributesItemChanges itemChanges) {
     this.itemChanges = itemChanges;
+    if (itemChanges != null) {
+      this.unparsed |= itemChanges.unparsed;
+    }
   }
 
   public UpdateAppsDatastoreItemRequestDataAttributes itemKey(String itemKey) {

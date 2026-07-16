@@ -109,6 +109,9 @@ public class DistributionWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public DistributionWidgetRequest apmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
@@ -131,6 +134,9 @@ public class DistributionWidgetRequest {
 
   public void setApmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
     this.apmStatsQuery = apmStatsQuery;
+    if (apmStatsQuery != null) {
+      this.unparsed |= apmStatsQuery.unparsed;
+    }
   }
 
   public DistributionWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
@@ -153,12 +159,17 @@ public class DistributionWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public DistributionWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -186,6 +197,11 @@ public class DistributionWidgetRequest {
 
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DistributionWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -208,6 +224,9 @@ public class DistributionWidgetRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public DistributionWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -230,6 +249,9 @@ public class DistributionWidgetRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public DistributionWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
@@ -252,6 +274,9 @@ public class DistributionWidgetRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public DistributionWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -274,6 +299,9 @@ public class DistributionWidgetRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public DistributionWidgetRequest q(String q) {
@@ -302,8 +330,10 @@ public class DistributionWidgetRequest {
 
   public DistributionWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -331,6 +361,11 @@ public class DistributionWidgetRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DistributionWidgetRequest query(DistributionWidgetHistogramRequestQuery query) {
@@ -353,6 +388,9 @@ public class DistributionWidgetRequest {
 
   public void setQuery(DistributionWidgetHistogramRequestQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public DistributionWidgetRequest requestType(WidgetHistogramRequestType requestType) {
@@ -427,6 +465,9 @@ public class DistributionWidgetRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public DistributionWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -449,6 +490,9 @@ public class DistributionWidgetRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   public DistributionWidgetRequest style(WidgetStyle style) {
@@ -471,6 +515,9 @@ public class DistributionWidgetRequest {
 
   public void setStyle(WidgetStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /**

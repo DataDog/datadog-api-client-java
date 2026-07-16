@@ -140,7 +140,11 @@ public class IncidentUserDefinedFieldAttributesResponse {
     this.type = type;
     if (type != null) {}
     this.validValues = validValues;
-    if (validValues != null) {}
+    if (validValues != null) {
+      for (IncidentUserDefinedFieldValidValue item : validValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentUserDefinedFieldAttributesResponse category(
@@ -290,6 +294,9 @@ public class IncidentUserDefinedFieldAttributesResponse {
 
   public void setMetadata(IncidentUserDefinedFieldMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   /**
@@ -452,6 +459,11 @@ public class IncidentUserDefinedFieldAttributesResponse {
 
   public void setValidValues(List<IncidentUserDefinedFieldValidValue> validValues) {
     this.validValues = validValues;
+    if (validValues != null) {
+      for (IncidentUserDefinedFieldValidValue item : validValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

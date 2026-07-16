@@ -52,6 +52,9 @@ public class JiraIssueTemplateCreateRequestData {
 
   public void setAttributes(JiraIssueTemplateCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public JiraIssueTemplateCreateRequestData type(JiraIssueTemplateType type) {

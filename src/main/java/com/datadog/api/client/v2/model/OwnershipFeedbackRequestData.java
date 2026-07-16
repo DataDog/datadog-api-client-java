@@ -64,6 +64,9 @@ public class OwnershipFeedbackRequestData {
 
   public void setAttributes(OwnershipFeedbackRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OwnershipFeedbackRequestData type(OwnershipFeedbackType type) {

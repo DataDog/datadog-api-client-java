@@ -34,6 +34,9 @@ public class WatcherArray {
   public WatcherArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<WatcherData> data) {
     this.data = data;
+    for (WatcherData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public WatcherArray data(List<WatcherData> data) {
@@ -63,6 +66,11 @@ public class WatcherArray {
 
   public void setData(List<WatcherData> data) {
     this.data = data;
+    if (data != null) {
+      for (WatcherData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

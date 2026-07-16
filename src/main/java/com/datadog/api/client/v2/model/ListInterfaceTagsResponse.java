@@ -45,6 +45,9 @@ public class ListInterfaceTagsResponse {
 
   public void setData(ListInterfaceTagsResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -66,6 +66,9 @@ public class TestOptimizationDeleteServiceSettingsRequestData {
 
   public void setAttributes(TestOptimizationDeleteServiceSettingsRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TestOptimizationDeleteServiceSettingsRequestData type(

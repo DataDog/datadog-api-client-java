@@ -111,6 +111,9 @@ public class PrunedTraceAttributes {
 
   public void setSummarizedTrace(SummarizedTrace summarizedTrace) {
     this.summarizedTrace = summarizedTrace;
+    if (summarizedTrace != null) {
+      this.unparsed |= summarizedTrace.unparsed;
+    }
   }
 
   /**

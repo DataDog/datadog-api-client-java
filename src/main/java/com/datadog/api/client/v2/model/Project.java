@@ -73,6 +73,9 @@ public class Project {
 
   public void setAttributes(ProjectAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Project id(String id) {
@@ -115,6 +118,9 @@ public class Project {
 
   public void setRelationships(ProjectRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public Project type(ProjectResourceType type) {

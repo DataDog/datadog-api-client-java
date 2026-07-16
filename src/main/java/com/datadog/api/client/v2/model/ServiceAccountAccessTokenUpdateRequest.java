@@ -55,6 +55,9 @@ public class ServiceAccountAccessTokenUpdateRequest {
 
   public void setData(ServiceAccountAccessTokenUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

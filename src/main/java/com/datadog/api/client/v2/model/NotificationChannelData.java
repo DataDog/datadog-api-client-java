@@ -65,6 +65,9 @@ public class NotificationChannelData {
 
   public void setAttributes(NotificationChannelAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NotificationChannelData id(String id) {

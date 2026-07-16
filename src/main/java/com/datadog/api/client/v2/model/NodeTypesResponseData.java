@@ -71,6 +71,9 @@ public class NodeTypesResponseData {
 
   public void setAttributes(NodeTypesResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NodeTypesResponseData id(String id) {

@@ -45,6 +45,9 @@ public class FlakyTestsSearchResponseMeta {
 
   public void setPagination(FlakyTestsPagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

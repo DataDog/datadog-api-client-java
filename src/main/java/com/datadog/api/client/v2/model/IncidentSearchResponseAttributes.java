@@ -50,6 +50,9 @@ public class IncidentSearchResponseAttributes {
     this.facets = facets;
     this.unparsed |= facets.unparsed;
     this.incidents = incidents;
+    for (IncidentSearchResponseIncidentsData item : incidents) {
+      this.unparsed |= item.unparsed;
+    }
     this.total = total;
   }
 
@@ -72,6 +75,9 @@ public class IncidentSearchResponseAttributes {
 
   public void setFacets(IncidentSearchResponseFacetsData facets) {
     this.facets = facets;
+    if (facets != null) {
+      this.unparsed |= facets.unparsed;
+    }
   }
 
   public IncidentSearchResponseAttributes incidents(
@@ -103,6 +109,11 @@ public class IncidentSearchResponseAttributes {
 
   public void setIncidents(List<IncidentSearchResponseIncidentsData> incidents) {
     this.incidents = incidents;
+    if (incidents != null) {
+      for (IncidentSearchResponseIncidentsData item : incidents) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseAttributes total(Integer total) {

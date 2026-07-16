@@ -66,6 +66,9 @@ public class NotebookLogStreamCellAttributes {
 
   public void setDefinition(LogStreamWidgetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public NotebookLogStreamCellAttributes graphSize(NotebookGraphSize graphSize) {

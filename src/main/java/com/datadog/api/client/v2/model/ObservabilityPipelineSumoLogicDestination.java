@@ -107,6 +107,9 @@ public class ObservabilityPipelineSumoLogicDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineSumoLogicDestination encoding(
@@ -159,9 +162,11 @@ public class ObservabilityPipelineSumoLogicDestination {
   public ObservabilityPipelineSumoLogicDestination headerCustomFields(
       List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields) {
     this.headerCustomFields = headerCustomFields;
-    for (ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem item :
-        headerCustomFields) {
-      this.unparsed |= item.unparsed;
+    if (headerCustomFields != null) {
+      for (ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem item :
+          headerCustomFields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -192,6 +197,12 @@ public class ObservabilityPipelineSumoLogicDestination {
   public void setHeaderCustomFields(
       List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields) {
     this.headerCustomFields = headerCustomFields;
+    if (headerCustomFields != null) {
+      for (ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem item :
+          headerCustomFields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineSumoLogicDestination headerHostName(String headerHostName) {

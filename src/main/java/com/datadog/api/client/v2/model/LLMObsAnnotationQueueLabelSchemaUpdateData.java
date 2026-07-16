@@ -65,6 +65,9 @@ public class LLMObsAnnotationQueueLabelSchemaUpdateData {
 
   public void setAttributes(LLMObsAnnotationQueueLabelSchemaUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsAnnotationQueueLabelSchemaUpdateData type(LLMObsAnnotationQueueType type) {

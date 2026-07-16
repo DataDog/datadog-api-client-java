@@ -53,6 +53,9 @@ public class Playlist {
 
   public void setData(PlaylistData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

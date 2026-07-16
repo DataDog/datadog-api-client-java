@@ -48,6 +48,9 @@ public class EscalationPolicyCreateRequestDataAttributesStepsItems {
       @JsonProperty(required = true, value = JSON_PROPERTY_TARGETS)
           List<EscalationPolicyStepTarget> targets) {
     this.targets = targets;
+    for (EscalationPolicyStepTarget item : targets) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public EscalationPolicyCreateRequestDataAttributesStepsItems assignment(
@@ -128,6 +131,11 @@ public class EscalationPolicyCreateRequestDataAttributesStepsItems {
 
   public void setTargets(List<EscalationPolicyStepTarget> targets) {
     this.targets = targets;
+    if (targets != null) {
+      for (EscalationPolicyStepTarget item : targets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

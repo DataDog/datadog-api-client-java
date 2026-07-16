@@ -60,6 +60,9 @@ public class GoogleMeetConfigurationReference {
 
   public void setData(GoogleMeetConfigurationReferenceData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class GetIoCIndicatorResponseData {
 
   public void setAttributes(GetIoCIndicatorResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetIoCIndicatorResponseData id(String id) {

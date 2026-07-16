@@ -89,6 +89,9 @@ public class ProductAnalyticsEventQuery {
 
   public void setSearch(ProductAnalyticsEventSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /**

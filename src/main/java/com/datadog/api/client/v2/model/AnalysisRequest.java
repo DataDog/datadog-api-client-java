@@ -54,6 +54,9 @@ public class AnalysisRequest {
 
   public void setData(AnalysisRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

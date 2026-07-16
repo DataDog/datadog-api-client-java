@@ -69,6 +69,9 @@ public class CustomForecastUpsertRequestData {
 
   public void setAttributes(CustomForecastUpsertRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomForecastUpsertRequestData id(String id) {

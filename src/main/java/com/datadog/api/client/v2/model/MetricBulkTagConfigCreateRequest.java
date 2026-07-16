@@ -54,6 +54,9 @@ public class MetricBulkTagConfigCreateRequest {
 
   public void setData(MetricBulkTagConfigCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

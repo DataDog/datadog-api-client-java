@@ -64,6 +64,9 @@ public class MaxSessionDurationUpdateData {
 
   public void setAttributes(MaxSessionDurationUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MaxSessionDurationUpdateData type(MaxSessionDurationType type) {

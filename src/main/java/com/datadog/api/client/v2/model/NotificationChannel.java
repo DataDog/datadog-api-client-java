@@ -45,6 +45,9 @@ public class NotificationChannel {
 
   public void setData(NotificationChannelData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

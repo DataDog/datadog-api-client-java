@@ -66,6 +66,9 @@ public class AwsCurConfigResponseData {
 
   public void setAttributes(AwsCurConfigResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AwsCurConfigResponseData id(String id) {

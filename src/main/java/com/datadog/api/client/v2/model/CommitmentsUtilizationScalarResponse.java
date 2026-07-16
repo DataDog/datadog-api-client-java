@@ -41,6 +41,9 @@ public class CommitmentsUtilizationScalarResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_COLUMNS)
           List<CommitmentsScalarColumn> columns) {
     this.columns = columns;
+    for (CommitmentsScalarColumn item : columns) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CommitmentsUtilizationScalarResponse columns(List<CommitmentsScalarColumn> columns) {
@@ -70,13 +73,20 @@ public class CommitmentsUtilizationScalarResponse {
 
   public void setColumns(List<CommitmentsScalarColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (CommitmentsScalarColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CommitmentsUtilizationScalarResponse productBreakdown(
       List<CommitmentsUtilizationScalarProductBreakdownEntry> productBreakdown) {
     this.productBreakdown = productBreakdown;
-    for (CommitmentsUtilizationScalarProductBreakdownEntry item : productBreakdown) {
-      this.unparsed |= item.unparsed;
+    if (productBreakdown != null) {
+      for (CommitmentsUtilizationScalarProductBreakdownEntry item : productBreakdown) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -106,6 +116,11 @@ public class CommitmentsUtilizationScalarResponse {
   public void setProductBreakdown(
       List<CommitmentsUtilizationScalarProductBreakdownEntry> productBreakdown) {
     this.productBreakdown = productBreakdown;
+    if (productBreakdown != null) {
+      for (CommitmentsUtilizationScalarProductBreakdownEntry item : productBreakdown) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

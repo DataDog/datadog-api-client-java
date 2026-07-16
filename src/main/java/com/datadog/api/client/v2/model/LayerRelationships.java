@@ -45,6 +45,9 @@ public class LayerRelationships {
 
   public void setMembers(LayerRelationshipsMembers members) {
     this.members = members;
+    if (members != null) {
+      this.unparsed |= members.unparsed;
+    }
   }
 
   /**

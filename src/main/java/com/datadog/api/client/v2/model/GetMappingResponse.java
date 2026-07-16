@@ -48,6 +48,9 @@ public class GetMappingResponse {
 
   public void setData(GetMappingResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

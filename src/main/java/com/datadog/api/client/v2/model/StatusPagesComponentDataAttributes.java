@@ -68,8 +68,10 @@ public class StatusPagesComponentDataAttributes {
   public StatusPagesComponentDataAttributes components(
       List<StatusPagesComponentDataAttributesComponentsItems> components) {
     this.components = components;
-    for (StatusPagesComponentDataAttributesComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (StatusPagesComponentDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -98,6 +100,11 @@ public class StatusPagesComponentDataAttributes {
 
   public void setComponents(List<StatusPagesComponentDataAttributesComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (StatusPagesComponentDataAttributesComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public StatusPagesComponentDataAttributes createdAt(OffsetDateTime createdAt) {

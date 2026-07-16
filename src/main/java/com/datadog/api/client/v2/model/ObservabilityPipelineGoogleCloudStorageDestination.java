@@ -139,6 +139,9 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
 
   public void setAuth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineGoogleCloudStorageDestination bucket(String bucket) {
@@ -182,6 +185,9 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineGoogleCloudStorageDestination id(String id) {
@@ -253,8 +259,10 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
   public ObservabilityPipelineGoogleCloudStorageDestination metadata(
       List<ObservabilityPipelineMetadataEntry> metadata) {
     this.metadata = metadata;
-    for (ObservabilityPipelineMetadataEntry item : metadata) {
-      this.unparsed |= item.unparsed;
+    if (metadata != null) {
+      for (ObservabilityPipelineMetadataEntry item : metadata) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -283,6 +291,11 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
 
   public void setMetadata(List<ObservabilityPipelineMetadataEntry> metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      for (ObservabilityPipelineMetadataEntry item : metadata) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineGoogleCloudStorageDestination storageClass(

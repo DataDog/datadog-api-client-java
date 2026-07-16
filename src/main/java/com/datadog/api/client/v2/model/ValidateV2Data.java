@@ -70,6 +70,9 @@ public class ValidateV2Data {
 
   public void setAttributes(ValidateV2Attributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ValidateV2Data id(String id) {

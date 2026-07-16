@@ -251,6 +251,9 @@ public class CostAnomaly {
 
   public void setDismissal(CostAnomalyDismissal dismissal) {
     this.dismissal = dismissal;
+    if (dismissal != null) {
+      this.unparsed |= dismissal.unparsed;
+    }
   }
 
   public CostAnomaly maxCost(Double maxCost) {

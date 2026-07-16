@@ -148,6 +148,9 @@ public class LLMObsIntegrationAccount {
 
   public void setAzureOpenaiMetadata(LLMObsAzureOpenAIMetadata azureOpenaiMetadata) {
     this.azureOpenaiMetadata = azureOpenaiMetadata;
+    if (azureOpenaiMetadata != null) {
+      this.unparsed |= azureOpenaiMetadata.unparsed;
+    }
   }
 
   public LLMObsIntegrationAccount id(String id) {
@@ -210,6 +213,9 @@ public class LLMObsIntegrationAccount {
 
   public void setVertexAiMetadata(LLMObsVertexAIMetadata vertexAiMetadata) {
     this.vertexAiMetadata = vertexAiMetadata;
+    if (vertexAiMetadata != null) {
+      this.unparsed |= vertexAiMetadata.unparsed;
+    }
   }
 
   /**

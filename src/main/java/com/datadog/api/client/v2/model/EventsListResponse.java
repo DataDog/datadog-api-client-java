@@ -39,8 +39,10 @@ public class EventsListResponse {
 
   public EventsListResponse data(List<EventResponse> data) {
     this.data = data;
-    for (EventResponse item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EventResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class EventsListResponse {
 
   public void setData(List<EventResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (EventResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EventsListResponse links(EventsListResponseLinks links) {
@@ -90,6 +97,9 @@ public class EventsListResponse {
 
   public void setLinks(EventsListResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public EventsListResponse meta(EventsResponseMetadata meta) {
@@ -112,6 +122,9 @@ public class EventsListResponse {
 
   public void setMeta(EventsResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

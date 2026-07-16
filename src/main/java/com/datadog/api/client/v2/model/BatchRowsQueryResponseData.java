@@ -87,6 +87,9 @@ public class BatchRowsQueryResponseData {
 
   public void setRelationships(BatchRowsQueryResponseDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public BatchRowsQueryResponseData type(BatchRowsQueryDataType type) {

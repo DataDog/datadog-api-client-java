@@ -65,6 +65,9 @@ public class CreateAttachmentRequestData {
 
   public void setAttributes(CreateAttachmentRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateAttachmentRequestData id(String id) {

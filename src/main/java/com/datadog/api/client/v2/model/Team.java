@@ -73,6 +73,9 @@ public class Team {
 
   public void setAttributes(TeamAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Team id(String id) {
@@ -115,6 +118,9 @@ public class Team {
 
   public void setRelationships(TeamRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public Team type(TeamType type) {

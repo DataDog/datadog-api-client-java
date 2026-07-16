@@ -45,6 +45,9 @@ public class OrgConnectionUserRelationship {
 
   public void setData(OrgConnectionUserRelationshipData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

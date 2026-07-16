@@ -55,6 +55,9 @@ public class UpdateCustomFrameworkResponse {
 
   public void setData(FrameworkHandleAndVersionResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -123,9 +123,15 @@ public class SharedDashboardResponseAttributes {
     if (globalTime != null) {}
     this.globalTimeSelectable = globalTimeSelectable;
     this.invitees = invitees;
+    for (SharedDashboardInvitee item : invitees) {
+      this.unparsed |= item.unparsed;
+    }
     this.lastAccessed = lastAccessed;
     if (lastAccessed != null) {}
     this.selectableTemplateVars = selectableTemplateVars;
+    for (SharedDashboardSelectableTemplateVariable item : selectableTemplateVars) {
+      this.unparsed |= item.unparsed;
+    }
     this.shareType = shareType;
     this.unparsed |= !shareType.isValid();
     this.sharerDisabled = sharerDisabled;
@@ -279,6 +285,11 @@ public class SharedDashboardResponseAttributes {
 
   public void setInvitees(List<SharedDashboardInvitee> invitees) {
     this.invitees = invitees;
+    if (invitees != null) {
+      for (SharedDashboardInvitee item : invitees) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SharedDashboardResponseAttributes lastAccessed(OffsetDateTime lastAccessed) {
@@ -333,6 +344,11 @@ public class SharedDashboardResponseAttributes {
   public void setSelectableTemplateVars(
       List<SharedDashboardSelectableTemplateVariable> selectableTemplateVars) {
     this.selectableTemplateVars = selectableTemplateVars;
+    if (selectableTemplateVars != null) {
+      for (SharedDashboardSelectableTemplateVariable item : selectableTemplateVars) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SharedDashboardResponseAttributes shareType(SharedDashboardShareType shareType) {
@@ -483,6 +499,9 @@ public class SharedDashboardResponseAttributes {
 
   public void setViewingPreferences(SharedDashboardViewingPreferences viewingPreferences) {
     this.viewingPreferences = viewingPreferences;
+    if (viewingPreferences != null) {
+      this.unparsed |= viewingPreferences.unparsed;
+    }
   }
 
   /**

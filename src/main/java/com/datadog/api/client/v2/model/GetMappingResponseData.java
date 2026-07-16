@@ -65,6 +65,9 @@ public class GetMappingResponseData {
 
   public void setAttributes(GetMappingResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetMappingResponseData id(String id) {

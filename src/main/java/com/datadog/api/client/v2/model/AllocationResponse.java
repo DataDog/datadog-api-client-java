@@ -54,6 +54,9 @@ public class AllocationResponse {
 
   public void setData(AllocationDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

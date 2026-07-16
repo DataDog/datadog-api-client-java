@@ -45,6 +45,9 @@ public class UnpublishAppResponse {
 
   public void setData(Deployment data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -64,6 +64,9 @@ public class ChangeRequestCreateData {
 
   public void setAttributes(ChangeRequestCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ChangeRequestCreateData type(ChangeRequestResourceType type) {

@@ -71,6 +71,9 @@ public class CostAnomaliesResponseData {
 
   public void setAttributes(CostAnomaliesResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CostAnomaliesResponseData id(String id) {

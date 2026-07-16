@@ -71,6 +71,9 @@ public class PlaylistsSessionData {
 
   public void setAttributes(PlaylistsSessionDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PlaylistsSessionData id(String id) {

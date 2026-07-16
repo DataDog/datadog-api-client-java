@@ -142,6 +142,9 @@ public class LLMObsDatasetRecordDataResponse {
 
   public void setExpectedOutput(AnyValue expectedOutput) {
     this.expectedOutput = expectedOutput;
+    if (expectedOutput != null) {
+      this.unparsed |= expectedOutput.unparsed;
+    }
   }
 
   public LLMObsDatasetRecordDataResponse id(String id) {
@@ -186,6 +189,9 @@ public class LLMObsDatasetRecordDataResponse {
 
   public void setInput(AnyValue input) {
     this.input = input;
+    if (input != null) {
+      this.unparsed |= input.unparsed;
+    }
   }
 
   public LLMObsDatasetRecordDataResponse metadata(Map<String, Object> metadata) {

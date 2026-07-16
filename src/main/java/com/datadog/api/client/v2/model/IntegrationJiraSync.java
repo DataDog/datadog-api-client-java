@@ -72,6 +72,9 @@ public class IntegrationJiraSync {
 
   public void setProperties(IntegrationJiraSyncProperties properties) {
     this.properties = properties;
+    if (properties != null) {
+      this.unparsed |= properties.unparsed;
+    }
   }
 
   /**

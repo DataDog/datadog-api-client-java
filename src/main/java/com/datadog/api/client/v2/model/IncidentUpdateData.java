@@ -71,6 +71,9 @@ public class IncidentUpdateData {
 
   public void setAttributes(IncidentUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentUpdateData id(String id) {
@@ -113,6 +116,9 @@ public class IncidentUpdateData {
 
   public void setRelationships(IncidentUpdateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentUpdateData type(IncidentType type) {

@@ -54,6 +54,9 @@ public class CaseUpdateDueDateRequest {
 
   public void setData(CaseUpdateDueDate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

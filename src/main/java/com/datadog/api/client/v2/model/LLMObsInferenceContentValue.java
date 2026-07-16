@@ -76,6 +76,9 @@ public class LLMObsInferenceContentValue {
 
   public void setToolCall(LLMObsInferenceToolCall toolCall) {
     this.toolCall = toolCall;
+    if (toolCall != null) {
+      this.unparsed |= toolCall.unparsed;
+    }
   }
 
   public LLMObsInferenceContentValue toolCallResult(LLMObsInferenceToolResult toolCallResult) {
@@ -98,6 +101,9 @@ public class LLMObsInferenceContentValue {
 
   public void setToolCallResult(LLMObsInferenceToolResult toolCallResult) {
     this.toolCallResult = toolCallResult;
+    if (toolCallResult != null) {
+      this.unparsed |= toolCallResult.unparsed;
+    }
   }
 
   /**

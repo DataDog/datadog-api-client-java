@@ -43,8 +43,10 @@ public class ListPowerpacksResponse {
 
   public ListPowerpacksResponse data(List<PowerpackData> data) {
     this.data = data;
-    for (PowerpackData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (PowerpackData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -72,12 +74,19 @@ public class ListPowerpacksResponse {
 
   public void setData(List<PowerpackData> data) {
     this.data = data;
+    if (data != null) {
+      for (PowerpackData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListPowerpacksResponse included(List<User> included) {
     this.included = included;
-    for (User item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (User item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -105,6 +114,11 @@ public class ListPowerpacksResponse {
 
   public void setIncluded(List<User> included) {
     this.included = included;
+    if (included != null) {
+      for (User item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListPowerpacksResponse links(PowerpackResponseLinks links) {
@@ -127,6 +141,9 @@ public class ListPowerpacksResponse {
 
   public void setLinks(PowerpackResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListPowerpacksResponse meta(PowerpacksResponseMeta meta) {
@@ -149,6 +166,9 @@ public class ListPowerpacksResponse {
 
   public void setMeta(PowerpacksResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

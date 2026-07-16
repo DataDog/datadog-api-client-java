@@ -56,6 +56,9 @@ public class GoogleChatTargetAudienceCreateRequest {
 
   public void setData(GoogleChatTargetAudienceCreateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

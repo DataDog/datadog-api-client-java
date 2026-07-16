@@ -55,6 +55,9 @@ public class CustomRuleRevisionRequestData {
 
   public void setAttributes(CustomRuleRevisionInputAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomRuleRevisionRequestData id(String id) {

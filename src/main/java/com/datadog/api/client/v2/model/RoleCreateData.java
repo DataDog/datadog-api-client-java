@@ -65,6 +65,9 @@ public class RoleCreateData {
 
   public void setAttributes(RoleCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RoleCreateData relationships(RoleRelationships relationships) {
@@ -87,6 +90,9 @@ public class RoleCreateData {
 
   public void setRelationships(RoleRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public RoleCreateData type(RolesType type) {

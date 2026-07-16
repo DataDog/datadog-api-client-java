@@ -106,6 +106,9 @@ public class SyntheticsParsingOptions {
 
   public void setParser(SyntheticsVariableParser parser) {
     this.parser = parser;
+    if (parser != null) {
+      this.unparsed |= parser.unparsed;
+    }
   }
 
   public SyntheticsParsingOptions secure(Boolean secure) {

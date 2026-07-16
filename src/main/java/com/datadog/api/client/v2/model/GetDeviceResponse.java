@@ -45,6 +45,9 @@ public class GetDeviceResponse {
 
   public void setData(GetDeviceData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

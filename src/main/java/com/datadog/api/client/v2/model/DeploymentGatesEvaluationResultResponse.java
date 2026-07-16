@@ -46,6 +46,9 @@ public class DeploymentGatesEvaluationResultResponse {
 
   public void setData(DeploymentGatesEvaluationResultResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

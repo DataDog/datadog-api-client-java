@@ -53,6 +53,9 @@ public class FormResponse {
 
   public void setData(FormData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

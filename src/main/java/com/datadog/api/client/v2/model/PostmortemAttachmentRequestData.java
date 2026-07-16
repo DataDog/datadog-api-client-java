@@ -65,6 +65,9 @@ public class PostmortemAttachmentRequestData {
 
   public void setAttributes(PostmortemAttachmentRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PostmortemAttachmentRequestData type(IncidentAttachmentType type) {

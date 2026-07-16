@@ -54,6 +54,9 @@ public class CreateFeatureFlagRequest {
 
   public void setData(CreateFeatureFlagData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class LLMObsDatasetRestoreVersionRequest {
 
   public void setData(LLMObsDatasetRestoreVersionDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

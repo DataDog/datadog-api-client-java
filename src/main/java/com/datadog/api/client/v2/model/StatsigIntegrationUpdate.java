@@ -61,6 +61,9 @@ public class StatsigIntegrationUpdate {
 
   public void setCredentials(StatsigCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public StatsigIntegrationUpdate type(StatsigIntegrationType type) {

@@ -68,8 +68,10 @@ public class ActionQuery {
 
   public ActionQuery events(List<AppBuilderEvent> events) {
     this.events = events;
-    for (AppBuilderEvent item : events) {
-      this.unparsed |= item.unparsed;
+    if (events != null) {
+      for (AppBuilderEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -97,6 +99,11 @@ public class ActionQuery {
 
   public void setEvents(List<AppBuilderEvent> events) {
     this.events = events;
+    if (events != null) {
+      for (AppBuilderEvent item : events) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ActionQuery id(UUID id) {
@@ -159,6 +166,9 @@ public class ActionQuery {
 
   public void setProperties(ActionQueryProperties properties) {
     this.properties = properties;
+    if (properties != null) {
+      this.unparsed |= properties.unparsed;
+    }
   }
 
   public ActionQuery type(ActionQueryType type) {

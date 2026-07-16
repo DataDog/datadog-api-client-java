@@ -84,6 +84,9 @@ public class ObservabilityPipelineOcsfMapperProcessorMapping {
 
   public void setMapping(ObservabilityPipelineOcsfMapperProcessorMappingMapping mapping) {
     this.mapping = mapping;
+    if (mapping != null) {
+      this.unparsed |= mapping.unparsed;
+    }
   }
 
   /**

@@ -29,8 +29,10 @@ public class EntityToRelatedEntities {
 
   public EntityToRelatedEntities data(List<RelationshipItem> data) {
     this.data = data;
-    for (RelationshipItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RelationshipItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class EntityToRelatedEntities {
 
   public void setData(List<RelationshipItem> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

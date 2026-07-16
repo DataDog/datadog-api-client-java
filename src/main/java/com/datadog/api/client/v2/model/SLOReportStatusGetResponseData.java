@@ -56,6 +56,9 @@ public class SLOReportStatusGetResponseData {
 
   public void setAttributes(SLOReportStatusGetResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SLOReportStatusGetResponseData id(String id) {

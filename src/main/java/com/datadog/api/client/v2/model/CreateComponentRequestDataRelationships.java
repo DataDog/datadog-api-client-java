@@ -46,6 +46,9 @@ public class CreateComponentRequestDataRelationships {
 
   public void setGroup(CreateComponentRequestDataRelationshipsGroup group) {
     this.group = group;
+    if (group != null) {
+      this.unparsed |= group.unparsed;
+    }
   }
 
   /**

@@ -66,6 +66,9 @@ public class AWSCloudAuthPersonaMappingCreateData {
 
   public void setAttributes(AWSCloudAuthPersonaMappingCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSCloudAuthPersonaMappingCreateData type(AWSCloudAuthPersonaMappingType type) {

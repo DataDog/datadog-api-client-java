@@ -45,6 +45,9 @@ public class ListAPIsResponseMeta {
 
   public void setPagination(ListAPIsResponseMetaPagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

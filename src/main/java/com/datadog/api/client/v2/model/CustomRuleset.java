@@ -70,6 +70,9 @@ public class CustomRuleset {
 
   public void setAttributes(CustomRulesetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomRuleset id(String id) {

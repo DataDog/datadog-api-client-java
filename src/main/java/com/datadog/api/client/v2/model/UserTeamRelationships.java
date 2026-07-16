@@ -51,6 +51,9 @@ public class UserTeamRelationships {
 
   public void setTeam(RelationshipToUserTeamTeam team) {
     this.team = team;
+    if (team != null) {
+      this.unparsed |= team.unparsed;
+    }
   }
 
   public UserTeamRelationships user(RelationshipToUserTeamUser user) {
@@ -73,6 +76,9 @@ public class UserTeamRelationships {
 
   public void setUser(RelationshipToUserTeamUser user) {
     this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**

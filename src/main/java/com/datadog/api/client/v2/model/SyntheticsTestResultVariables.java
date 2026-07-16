@@ -35,8 +35,10 @@ public class SyntheticsTestResultVariables {
 
   public SyntheticsTestResultVariables config(List<SyntheticsTestResultVariable> config) {
     this.config = config;
-    for (SyntheticsTestResultVariable item : config) {
-      this.unparsed |= item.unparsed;
+    if (config != null) {
+      for (SyntheticsTestResultVariable item : config) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,12 +66,19 @@ public class SyntheticsTestResultVariables {
 
   public void setConfig(List<SyntheticsTestResultVariable> config) {
     this.config = config;
+    if (config != null) {
+      for (SyntheticsTestResultVariable item : config) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultVariables extracted(List<SyntheticsTestResultVariable> extracted) {
     this.extracted = extracted;
-    for (SyntheticsTestResultVariable item : extracted) {
-      this.unparsed |= item.unparsed;
+    if (extracted != null) {
+      for (SyntheticsTestResultVariable item : extracted) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -98,6 +107,11 @@ public class SyntheticsTestResultVariables {
 
   public void setExtracted(List<SyntheticsTestResultVariable> extracted) {
     this.extracted = extracted;
+    if (extracted != null) {
+      for (SyntheticsTestResultVariable item : extracted) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

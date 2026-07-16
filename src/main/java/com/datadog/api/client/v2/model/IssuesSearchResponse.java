@@ -35,8 +35,10 @@ public class IssuesSearchResponse {
 
   public IssuesSearchResponse data(List<IssuesSearchResult> data) {
     this.data = data;
-    for (IssuesSearchResult item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (IssuesSearchResult item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,12 +66,19 @@ public class IssuesSearchResponse {
 
   public void setData(List<IssuesSearchResult> data) {
     this.data = data;
+    if (data != null) {
+      for (IssuesSearchResult item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IssuesSearchResponse included(List<IssuesSearchResultIncluded> included) {
     this.included = included;
-    for (IssuesSearchResultIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IssuesSearchResultIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -97,6 +106,11 @@ public class IssuesSearchResponse {
 
   public void setIncluded(List<IssuesSearchResultIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (IssuesSearchResultIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -59,6 +59,9 @@ public class ServiceAccessToken {
 
   public void setAttributes(ServiceAccessTokenAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceAccessToken id(String id) {
@@ -102,6 +105,9 @@ public class ServiceAccessToken {
 
   public void setRelationships(ServiceAccessTokenRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ServiceAccessToken type(ServiceAccessTokensType type) {

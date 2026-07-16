@@ -58,6 +58,9 @@ public class FunnelComparisonDuration {
 
   public void setCustomTimeframe(FunnelComparisonCustomTimeframe customTimeframe) {
     this.customTimeframe = customTimeframe;
+    if (customTimeframe != null) {
+      this.unparsed |= customTimeframe.unparsed;
+    }
   }
 
   public FunnelComparisonDuration type(FunnelComparisonDurationType type) {

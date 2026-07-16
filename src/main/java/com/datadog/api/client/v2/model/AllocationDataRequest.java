@@ -64,6 +64,9 @@ public class AllocationDataRequest {
 
   public void setAttributes(UpsertAllocationRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AllocationDataRequest type(AllocationDataType type) {

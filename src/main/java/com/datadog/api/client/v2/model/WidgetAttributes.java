@@ -103,6 +103,9 @@ public class WidgetAttributes {
 
   public void setDefinition(WidgetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public WidgetAttributes isFavorited(Boolean isFavorited) {

@@ -65,6 +65,9 @@ public class FastlyAccountCreateRequestData {
 
   public void setAttributes(FastlyAccountCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FastlyAccountCreateRequestData type(FastlyAccountType type) {

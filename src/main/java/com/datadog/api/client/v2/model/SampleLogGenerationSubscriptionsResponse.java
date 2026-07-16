@@ -43,6 +43,9 @@ public class SampleLogGenerationSubscriptionsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_META)
           SampleLogGenerationSubscriptionsResponseMeta meta) {
     this.data = data;
+    for (SampleLogGenerationSubscriptionData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -76,6 +79,11 @@ public class SampleLogGenerationSubscriptionsResponse {
 
   public void setData(List<SampleLogGenerationSubscriptionData> data) {
     this.data = data;
+    if (data != null) {
+      for (SampleLogGenerationSubscriptionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SampleLogGenerationSubscriptionsResponse meta(
@@ -98,6 +106,9 @@ public class SampleLogGenerationSubscriptionsResponse {
 
   public void setMeta(SampleLogGenerationSubscriptionsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

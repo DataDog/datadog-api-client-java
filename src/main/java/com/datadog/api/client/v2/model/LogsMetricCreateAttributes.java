@@ -66,6 +66,9 @@ public class LogsMetricCreateAttributes {
 
   public void setCompute(LogsMetricCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public LogsMetricCreateAttributes filter(LogsMetricFilter filter) {
@@ -88,12 +91,17 @@ public class LogsMetricCreateAttributes {
 
   public void setFilter(LogsMetricFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LogsMetricCreateAttributes groupBy(List<LogsMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (LogsMetricGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (LogsMetricGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -121,6 +129,11 @@ public class LogsMetricCreateAttributes {
 
   public void setGroupBy(List<LogsMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (LogsMetricGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

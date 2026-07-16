@@ -145,6 +145,9 @@ public class IoCIndicator {
 
   public void setAsGeo(IoCGeoLocation asGeo) {
     this.asGeo = asGeo;
+    if (asGeo != null) {
+      this.unparsed |= asGeo.unparsed;
+    }
   }
 
   public IoCIndicator asType(String asType) {

@@ -66,6 +66,9 @@ public class SecurityMonitoringRuleBulkDeleteData {
 
   public void setAttributes(SecurityMonitoringRuleBulkDeleteAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleBulkDeleteData type(

@@ -45,6 +45,9 @@ public class IncidentNotificationTemplateArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<IncidentNotificationTemplateResponseData> data) {
     this.data = data;
+    for (IncidentNotificationTemplateResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public IncidentNotificationTemplateArray data(
@@ -76,13 +79,20 @@ public class IncidentNotificationTemplateArray {
 
   public void setData(List<IncidentNotificationTemplateResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (IncidentNotificationTemplateResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentNotificationTemplateArray included(
       List<IncidentNotificationTemplateIncludedItems> included) {
     this.included = included;
-    for (IncidentNotificationTemplateIncludedItems item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentNotificationTemplateIncludedItems item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -111,6 +121,11 @@ public class IncidentNotificationTemplateArray {
 
   public void setIncluded(List<IncidentNotificationTemplateIncludedItems> included) {
     this.included = included;
+    if (included != null) {
+      for (IncidentNotificationTemplateIncludedItems item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentNotificationTemplateArray meta(IncidentNotificationTemplateArrayMeta meta) {
@@ -133,6 +148,9 @@ public class IncidentNotificationTemplateArray {
 
   public void setMeta(IncidentNotificationTemplateArrayMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

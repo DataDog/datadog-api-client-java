@@ -303,6 +303,9 @@ public class LogStreamWidgetDefinition {
 
   public void setSort(WidgetFieldSort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public LogStreamWidgetDefinition time(WidgetTime time) {
@@ -325,6 +328,9 @@ public class LogStreamWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public LogStreamWidgetDefinition title(String title) {

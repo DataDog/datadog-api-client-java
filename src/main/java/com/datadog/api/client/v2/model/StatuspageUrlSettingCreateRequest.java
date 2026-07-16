@@ -55,6 +55,9 @@ public class StatuspageUrlSettingCreateRequest {
 
   public void setData(StatuspageUrlSettingCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

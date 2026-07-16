@@ -112,6 +112,9 @@ public class Step {
 
   public void setCompletionGate(CompletionGate completionGate) {
     this.completionGate = completionGate;
+    if (completionGate != null) {
+      this.unparsed |= completionGate.unparsed;
+    }
   }
 
   public Step connectionLabel(String connectionLabel) {
@@ -155,12 +158,17 @@ public class Step {
 
   public void setDisplay(StepDisplay display) {
     this.display = display;
+    if (display != null) {
+      this.unparsed |= display.unparsed;
+    }
   }
 
   public Step errorHandlers(List<ErrorHandler> errorHandlers) {
     this.errorHandlers = errorHandlers;
-    for (ErrorHandler item : errorHandlers) {
-      this.unparsed |= item.unparsed;
+    if (errorHandlers != null) {
+      for (ErrorHandler item : errorHandlers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -188,6 +196,11 @@ public class Step {
 
   public void setErrorHandlers(List<ErrorHandler> errorHandlers) {
     this.errorHandlers = errorHandlers;
+    if (errorHandlers != null) {
+      for (ErrorHandler item : errorHandlers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Step name(String name) {
@@ -212,8 +225,10 @@ public class Step {
 
   public Step outboundEdges(List<OutboundEdge> outboundEdges) {
     this.outboundEdges = outboundEdges;
-    for (OutboundEdge item : outboundEdges) {
-      this.unparsed |= item.unparsed;
+    if (outboundEdges != null) {
+      for (OutboundEdge item : outboundEdges) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -241,12 +256,19 @@ public class Step {
 
   public void setOutboundEdges(List<OutboundEdge> outboundEdges) {
     this.outboundEdges = outboundEdges;
+    if (outboundEdges != null) {
+      for (OutboundEdge item : outboundEdges) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Step parameters(List<Parameter> parameters) {
     this.parameters = parameters;
-    for (Parameter item : parameters) {
-      this.unparsed |= item.unparsed;
+    if (parameters != null) {
+      for (Parameter item : parameters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -274,6 +296,11 @@ public class Step {
 
   public void setParameters(List<Parameter> parameters) {
     this.parameters = parameters;
+    if (parameters != null) {
+      for (Parameter item : parameters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Step readinessGate(ReadinessGate readinessGate) {
@@ -296,6 +323,9 @@ public class Step {
 
   public void setReadinessGate(ReadinessGate readinessGate) {
     this.readinessGate = readinessGate;
+    if (readinessGate != null) {
+      this.unparsed |= readinessGate.unparsed;
+    }
   }
 
   /**

@@ -66,6 +66,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude {
 
   public void setOptions(ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude target(

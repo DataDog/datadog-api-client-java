@@ -63,6 +63,9 @@ public class EntityRelationships {
 
   public void setIncidents(EntityToIncidents incidents) {
     this.incidents = incidents;
+    if (incidents != null) {
+      this.unparsed |= incidents.unparsed;
+    }
   }
 
   public EntityRelationships oncall(EntityToOncalls oncall) {
@@ -85,6 +88,9 @@ public class EntityRelationships {
 
   public void setOncall(EntityToOncalls oncall) {
     this.oncall = oncall;
+    if (oncall != null) {
+      this.unparsed |= oncall.unparsed;
+    }
   }
 
   public EntityRelationships rawSchema(EntityToRawSchema rawSchema) {
@@ -107,6 +113,9 @@ public class EntityRelationships {
 
   public void setRawSchema(EntityToRawSchema rawSchema) {
     this.rawSchema = rawSchema;
+    if (rawSchema != null) {
+      this.unparsed |= rawSchema.unparsed;
+    }
   }
 
   public EntityRelationships relatedEntities(EntityToRelatedEntities relatedEntities) {
@@ -129,6 +138,9 @@ public class EntityRelationships {
 
   public void setRelatedEntities(EntityToRelatedEntities relatedEntities) {
     this.relatedEntities = relatedEntities;
+    if (relatedEntities != null) {
+      this.unparsed |= relatedEntities.unparsed;
+    }
   }
 
   public EntityRelationships schema(EntityToSchema schema) {
@@ -151,6 +163,9 @@ public class EntityRelationships {
 
   public void setSchema(EntityToSchema schema) {
     this.schema = schema;
+    if (schema != null) {
+      this.unparsed |= schema.unparsed;
+    }
   }
 
   /**

@@ -68,6 +68,9 @@ public class SecurityMonitoringSignalsBulkAssigneeUpdateData {
 
   public void setAttributes(SecurityMonitoringSignalsBulkAssigneeUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalsBulkAssigneeUpdateData id(String id) {

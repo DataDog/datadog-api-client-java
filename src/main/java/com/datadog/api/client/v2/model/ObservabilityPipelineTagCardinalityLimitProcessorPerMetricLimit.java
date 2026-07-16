@@ -137,8 +137,10 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
   public ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit perTagLimits(
       List<ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit> perTagLimits) {
     this.perTagLimits = perTagLimits;
-    for (ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit item : perTagLimits) {
-      this.unparsed |= item.unparsed;
+    if (perTagLimits != null) {
+      for (ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit item : perTagLimits) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -169,6 +171,11 @@ public class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
   public void setPerTagLimits(
       List<ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit> perTagLimits) {
     this.perTagLimits = perTagLimits;
+    if (perTagLimits != null) {
+      for (ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit item : perTagLimits) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit valueLimit(

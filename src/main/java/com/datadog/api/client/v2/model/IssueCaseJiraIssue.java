@@ -76,6 +76,9 @@ public class IssueCaseJiraIssue {
 
   public void setResult(IssueCaseJiraIssueResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public IssueCaseJiraIssue status(String status) {

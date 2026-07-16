@@ -67,6 +67,9 @@ public class MetricSLOAsset {
 
   public void setAttributes(MetricAssetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricSLOAsset id(String id) {

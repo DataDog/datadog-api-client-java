@@ -51,6 +51,9 @@ public class TimeseriesResponse {
 
   public void setAttributes(TimeseriesResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TimeseriesResponse type(TimeseriesFormulaResponseType type) {

@@ -48,6 +48,9 @@ public class ScheduleRequestDataAttributesLayersItemsMembersItems {
 
   public void setUser(ScheduleRequestDataAttributesLayersItemsMembersItemsUser user) {
     this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**

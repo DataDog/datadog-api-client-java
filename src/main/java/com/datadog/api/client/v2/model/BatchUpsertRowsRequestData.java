@@ -67,6 +67,9 @@ public class BatchUpsertRowsRequestData {
 
   public void setAttributes(BatchUpsertRowsRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BatchUpsertRowsRequestData id(String id) {

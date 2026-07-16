@@ -64,8 +64,10 @@ public class FastlyAccounResponseAttributes {
 
   public FastlyAccounResponseAttributes services(List<FastlyService> services) {
     this.services = services;
-    for (FastlyService item : services) {
-      this.unparsed |= item.unparsed;
+    if (services != null) {
+      for (FastlyService item : services) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -93,6 +95,11 @@ public class FastlyAccounResponseAttributes {
 
   public void setServices(List<FastlyService> services) {
     this.services = services;
+    if (services != null) {
+      for (FastlyService item : services) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

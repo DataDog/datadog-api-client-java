@@ -42,6 +42,9 @@ public class RuleBasedViewAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_RULES) List<RuleBasedViewRule> rules) {
     this.count = count;
     this.rules = rules;
+    for (RuleBasedViewRule item : rules) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RuleBasedViewAttributes count(Long count) {
@@ -91,6 +94,11 @@ public class RuleBasedViewAttributes {
 
   public void setRules(List<RuleBasedViewRule> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (RuleBasedViewRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class MaintenanceDataRelationshipsCreatedByUser {
 
   public void setData(MaintenanceDataRelationshipsCreatedByUserData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

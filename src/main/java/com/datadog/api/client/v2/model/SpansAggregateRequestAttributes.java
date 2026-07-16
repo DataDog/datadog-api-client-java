@@ -43,8 +43,10 @@ public class SpansAggregateRequestAttributes {
 
   public SpansAggregateRequestAttributes compute(List<SpansCompute> compute) {
     this.compute = compute;
-    for (SpansCompute item : compute) {
-      this.unparsed |= item.unparsed;
+    if (compute != null) {
+      for (SpansCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -72,6 +74,11 @@ public class SpansAggregateRequestAttributes {
 
   public void setCompute(List<SpansCompute> compute) {
     this.compute = compute;
+    if (compute != null) {
+      for (SpansCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SpansAggregateRequestAttributes filter(SpansQueryFilter filter) {
@@ -94,12 +101,17 @@ public class SpansAggregateRequestAttributes {
 
   public void setFilter(SpansQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public SpansAggregateRequestAttributes groupBy(List<SpansGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (SpansGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (SpansGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -127,6 +139,11 @@ public class SpansAggregateRequestAttributes {
 
   public void setGroupBy(List<SpansGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (SpansGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SpansAggregateRequestAttributes options(SpansQueryOptions options) {
@@ -150,6 +167,9 @@ public class SpansAggregateRequestAttributes {
 
   public void setOptions(SpansQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

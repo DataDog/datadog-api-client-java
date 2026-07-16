@@ -67,6 +67,9 @@ public class ApplicationSecurityWafCustomRuleUpdateData {
 
   public void setAttributes(ApplicationSecurityWafCustomRuleUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ApplicationSecurityWafCustomRuleUpdateData type(

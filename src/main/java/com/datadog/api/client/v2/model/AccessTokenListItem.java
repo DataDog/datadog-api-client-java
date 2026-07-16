@@ -62,6 +62,9 @@ public class AccessTokenListItem {
 
   public void setAttributes(PersonalAccessTokenAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AccessTokenListItem id(String id) {
@@ -105,6 +108,9 @@ public class AccessTokenListItem {
 
   public void setRelationships(AccessTokenListItemRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public AccessTokenListItem type(AccessTokensType type) {

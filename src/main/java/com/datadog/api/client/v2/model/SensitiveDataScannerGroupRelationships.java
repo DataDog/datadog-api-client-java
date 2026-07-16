@@ -52,6 +52,9 @@ public class SensitiveDataScannerGroupRelationships {
 
   public void setConfiguration(SensitiveDataScannerConfigurationData configuration) {
     this.configuration = configuration;
+    if (configuration != null) {
+      this.unparsed |= configuration.unparsed;
+    }
   }
 
   public SensitiveDataScannerGroupRelationships rules(SensitiveDataScannerRuleData rules) {
@@ -74,6 +77,9 @@ public class SensitiveDataScannerGroupRelationships {
 
   public void setRules(SensitiveDataScannerRuleData rules) {
     this.rules = rules;
+    if (rules != null) {
+      this.unparsed |= rules.unparsed;
+    }
   }
 
   /**

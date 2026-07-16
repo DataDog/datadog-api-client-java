@@ -55,6 +55,9 @@ public class ListInvestigationsResponseMeta {
 
   public void setPage(ListInvestigationsResponseMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

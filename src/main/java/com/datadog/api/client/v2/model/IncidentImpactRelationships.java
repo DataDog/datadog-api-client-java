@@ -55,6 +55,9 @@ public class IncidentImpactRelationships {
 
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public IncidentImpactRelationships incident(RelationshipToIncident incident) {
@@ -77,6 +80,9 @@ public class IncidentImpactRelationships {
 
   public void setIncident(RelationshipToIncident incident) {
     this.incident = incident;
+    if (incident != null) {
+      this.unparsed |= incident.unparsed;
+    }
   }
 
   public IncidentImpactRelationships lastModifiedByUser(RelationshipToUser lastModifiedByUser) {
@@ -99,6 +105,9 @@ public class IncidentImpactRelationships {
 
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   /**

@@ -57,6 +57,9 @@ public class GoogleChatAppNamedSpaceResponseData {
 
   public void setAttributes(GoogleChatAppNamedSpaceResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GoogleChatAppNamedSpaceResponseData id(String id) {

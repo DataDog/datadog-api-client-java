@@ -67,6 +67,9 @@ public class GoogleChatTargetAudienceUpdateRequestData {
 
   public void setAttributes(GoogleChatTargetAudienceUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GoogleChatTargetAudienceUpdateRequestData type(GoogleChatTargetAudienceType type) {

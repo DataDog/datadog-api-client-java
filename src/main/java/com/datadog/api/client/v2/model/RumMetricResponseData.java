@@ -55,6 +55,9 @@ public class RumMetricResponseData {
 
   public void setAttributes(RumMetricResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RumMetricResponseData id(String id) {

@@ -65,6 +65,9 @@ public class DeletedSuitesRequestDelete {
 
   public void setAttributes(DeletedSuitesRequestDeleteAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeletedSuitesRequestDelete id(String id) {

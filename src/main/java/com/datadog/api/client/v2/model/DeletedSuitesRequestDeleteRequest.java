@@ -54,6 +54,9 @@ public class DeletedSuitesRequestDeleteRequest {
 
   public void setData(DeletedSuitesRequestDelete data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -64,6 +64,9 @@ public class CreateCampaignRequestData {
 
   public void setAttributes(CreateCampaignRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateCampaignRequestData type(CampaignType type) {

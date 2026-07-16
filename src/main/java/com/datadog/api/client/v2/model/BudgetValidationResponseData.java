@@ -72,6 +72,9 @@ public class BudgetValidationResponseData {
 
   public void setAttributes(BudgetValidationResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BudgetValidationResponseData id(String id) {

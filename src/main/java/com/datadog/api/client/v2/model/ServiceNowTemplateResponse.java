@@ -54,6 +54,9 @@ public class ServiceNowTemplateResponse {
 
   public void setData(ServiceNowTemplateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -66,6 +66,9 @@ public class ProductAnalyticsAnalyticsRequestData {
 
   public void setAttributes(ProductAnalyticsAnalyticsRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ProductAnalyticsAnalyticsRequestData type(ProductAnalyticsAnalyticsRequestType type) {

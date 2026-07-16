@@ -35,8 +35,10 @@ public class SecurityFiltersResponse {
 
   public SecurityFiltersResponse data(List<SecurityFilter> data) {
     this.data = data;
-    for (SecurityFilter item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityFilter item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class SecurityFiltersResponse {
 
   public void setData(List<SecurityFilter> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityFilter item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityFiltersResponse meta(SecurityFilterMeta meta) {
@@ -86,6 +93,9 @@ public class SecurityFiltersResponse {
 
   public void setMeta(SecurityFilterMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

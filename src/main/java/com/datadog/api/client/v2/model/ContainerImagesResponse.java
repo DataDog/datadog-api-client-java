@@ -39,8 +39,10 @@ public class ContainerImagesResponse {
 
   public ContainerImagesResponse data(List<ContainerImageItem> data) {
     this.data = data;
-    for (ContainerImageItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ContainerImageItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class ContainerImagesResponse {
 
   public void setData(List<ContainerImageItem> data) {
     this.data = data;
+    if (data != null) {
+      for (ContainerImageItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ContainerImagesResponse links(ContainerImagesResponseLinks links) {
@@ -90,6 +97,9 @@ public class ContainerImagesResponse {
 
   public void setLinks(ContainerImagesResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ContainerImagesResponse meta(ContainerImageMeta meta) {
@@ -112,6 +122,9 @@ public class ContainerImagesResponse {
 
   public void setMeta(ContainerImageMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

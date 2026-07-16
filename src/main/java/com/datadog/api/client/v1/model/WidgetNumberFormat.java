@@ -53,6 +53,9 @@ public class WidgetNumberFormat {
 
   public void setUnit(NumberFormatUnit unit) {
     this.unit = unit;
+    if (unit != null) {
+      this.unparsed |= unit.unparsed;
+    }
   }
 
   public WidgetNumberFormat unitScale(NumberFormatUnitScale unitScale) {

@@ -110,6 +110,9 @@ public class MonitorFormulaAndFunctionEventQueryGroupBy {
 
   public void setSort(MonitorFormulaAndFunctionEventQueryGroupBySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionEventQueryGroupBy source(String source) {

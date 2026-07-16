@@ -45,6 +45,9 @@ public class CloudWorkloadSecurityAgentPolicyResponse {
 
   public void setData(CloudWorkloadSecurityAgentPolicyData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

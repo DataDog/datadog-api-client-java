@@ -29,8 +29,10 @@ public class ApiKeyListResponse {
 
   public ApiKeyListResponse apiKeys(List<ApiKey> apiKeys) {
     this.apiKeys = apiKeys;
-    for (ApiKey item : apiKeys) {
-      this.unparsed |= item.unparsed;
+    if (apiKeys != null) {
+      for (ApiKey item : apiKeys) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class ApiKeyListResponse {
 
   public void setApiKeys(List<ApiKey> apiKeys) {
     this.apiKeys = apiKeys;
+    if (apiKeys != null) {
+      for (ApiKey item : apiKeys) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

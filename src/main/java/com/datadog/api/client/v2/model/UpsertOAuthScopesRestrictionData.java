@@ -64,6 +64,9 @@ public class UpsertOAuthScopesRestrictionData {
 
   public void setAttributes(UpsertOAuthScopesRestrictionDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpsertOAuthScopesRestrictionData type(UpsertOAuthScopesRestrictionType type) {

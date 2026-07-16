@@ -83,6 +83,9 @@ public class SyntheticsTestResultSummaryAttributes {
 
   public void setDevice(SyntheticsTestResultDevice device) {
     this.device = device;
+    if (device != null) {
+      this.unparsed |= device.unparsed;
+    }
   }
 
   public SyntheticsTestResultSummaryAttributes executionInfo(
@@ -106,6 +109,9 @@ public class SyntheticsTestResultSummaryAttributes {
 
   public void setExecutionInfo(SyntheticsTestResultExecutionInfo executionInfo) {
     this.executionInfo = executionInfo;
+    if (executionInfo != null) {
+      this.unparsed |= executionInfo.unparsed;
+    }
   }
 
   public SyntheticsTestResultSummaryAttributes finishedAt(Long finishedAt) {
@@ -149,6 +155,9 @@ public class SyntheticsTestResultSummaryAttributes {
 
   public void setLocation(SyntheticsTestResultLocation location) {
     this.location = location;
+    if (location != null) {
+      this.unparsed |= location.unparsed;
+    }
   }
 
   public SyntheticsTestResultSummaryAttributes runType(SyntheticsTestResultRunType runType) {
@@ -242,6 +251,9 @@ public class SyntheticsTestResultSummaryAttributes {
 
   public void setStepsInfo(SyntheticsTestResultStepsInfo stepsInfo) {
     this.stepsInfo = stepsInfo;
+    if (stepsInfo != null) {
+      this.unparsed |= stepsInfo.unparsed;
+    }
   }
 
   public SyntheticsTestResultSummaryAttributes testSubType(SyntheticsTestSubType testSubType) {

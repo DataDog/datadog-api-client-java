@@ -97,6 +97,9 @@ public class SyntheticsTestResultSubTest {
 
   public void setRumContext(SyntheticsTestResultRumContext rumContext) {
     this.rumContext = rumContext;
+    if (rumContext != null) {
+      this.unparsed |= rumContext.unparsed;
+    }
   }
 
   /**

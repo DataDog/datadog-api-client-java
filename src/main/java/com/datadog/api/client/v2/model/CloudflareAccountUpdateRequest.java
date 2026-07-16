@@ -55,6 +55,9 @@ public class CloudflareAccountUpdateRequest {
 
   public void setData(CloudflareAccountUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

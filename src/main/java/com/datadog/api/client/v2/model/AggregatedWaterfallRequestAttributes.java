@@ -113,6 +113,9 @@ public class AggregatedWaterfallRequestAttributes {
 
   public void setCriteria(AggregatedWaterfallPerformanceCriteria criteria) {
     this.criteria = criteria;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
   }
 
   public AggregatedWaterfallRequestAttributes filter(String filter) {

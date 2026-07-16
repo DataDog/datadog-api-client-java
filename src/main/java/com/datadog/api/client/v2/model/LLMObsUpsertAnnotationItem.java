@@ -46,6 +46,9 @@ public class LLMObsUpsertAnnotationItem {
           List<LLMObsAnnotationLabelValue> labelValues) {
     this.interactionId = interactionId;
     this.labelValues = labelValues;
+    for (LLMObsAnnotationLabelValue item : labelValues) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsUpsertAnnotationItem interactionId(String interactionId) {
@@ -96,6 +99,11 @@ public class LLMObsUpsertAnnotationItem {
 
   public void setLabelValues(List<LLMObsAnnotationLabelValue> labelValues) {
     this.labelValues = labelValues;
+    if (labelValues != null) {
+      for (LLMObsAnnotationLabelValue item : labelValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

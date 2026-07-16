@@ -45,6 +45,9 @@ public class UCConfigPair {
 
   public void setData(UCConfigPairData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

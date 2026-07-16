@@ -39,8 +39,10 @@ public class SyntheticsTestResultWarning {
 
   public SyntheticsTestResultWarning elementBounds(List<SyntheticsTestResultBounds> elementBounds) {
     this.elementBounds = elementBounds;
-    for (SyntheticsTestResultBounds item : elementBounds) {
-      this.unparsed |= item.unparsed;
+    if (elementBounds != null) {
+      for (SyntheticsTestResultBounds item : elementBounds) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -69,6 +71,11 @@ public class SyntheticsTestResultWarning {
 
   public void setElementBounds(List<SyntheticsTestResultBounds> elementBounds) {
     this.elementBounds = elementBounds;
+    if (elementBounds != null) {
+      for (SyntheticsTestResultBounds item : elementBounds) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultWarning message(String message) {

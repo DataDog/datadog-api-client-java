@@ -166,6 +166,9 @@ public class SyntheticsMobileStepParamsElement {
   public void setRelativePosition(
       SyntheticsMobileStepParamsElementRelativePosition relativePosition) {
     this.relativePosition = relativePosition;
+    if (relativePosition != null) {
+      this.unparsed |= relativePosition.unparsed;
+    }
   }
 
   public SyntheticsMobileStepParamsElement textContent(String textContent) {
@@ -210,6 +213,9 @@ public class SyntheticsMobileStepParamsElement {
 
   public void setUserLocator(SyntheticsMobileStepParamsElementUserLocator userLocator) {
     this.userLocator = userLocator;
+    if (userLocator != null) {
+      this.unparsed |= userLocator.unparsed;
+    }
   }
 
   public SyntheticsMobileStepParamsElement viewName(String viewName) {

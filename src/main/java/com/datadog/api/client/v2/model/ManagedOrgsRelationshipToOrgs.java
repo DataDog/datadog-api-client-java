@@ -34,6 +34,9 @@ public class ManagedOrgsRelationshipToOrgs {
   public ManagedOrgsRelationshipToOrgs(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<OrgRelationshipData> data) {
     this.data = data;
+    for (OrgRelationshipData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ManagedOrgsRelationshipToOrgs data(List<OrgRelationshipData> data) {
@@ -63,6 +66,11 @@ public class ManagedOrgsRelationshipToOrgs {
 
   public void setData(List<OrgRelationshipData> data) {
     this.data = data;
+    if (data != null) {
+      for (OrgRelationshipData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -30,8 +30,10 @@ public class CloudWorkloadSecurityAgentRulesListResponse {
   public CloudWorkloadSecurityAgentRulesListResponse data(
       List<CloudWorkloadSecurityAgentRuleData> data) {
     this.data = data;
-    for (CloudWorkloadSecurityAgentRuleData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CloudWorkloadSecurityAgentRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class CloudWorkloadSecurityAgentRulesListResponse {
 
   public void setData(List<CloudWorkloadSecurityAgentRuleData> data) {
     this.data = data;
+    if (data != null) {
+      for (CloudWorkloadSecurityAgentRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

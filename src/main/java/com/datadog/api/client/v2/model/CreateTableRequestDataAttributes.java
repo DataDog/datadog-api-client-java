@@ -108,6 +108,9 @@ public class CreateTableRequestDataAttributes {
 
   public void setFileMetadata(CreateTableRequestDataAttributesFileMetadata fileMetadata) {
     this.fileMetadata = fileMetadata;
+    if (fileMetadata != null) {
+      this.unparsed |= fileMetadata.unparsed;
+    }
   }
 
   public CreateTableRequestDataAttributes schema(CreateTableRequestDataAttributesSchema schema) {
@@ -129,6 +132,9 @@ public class CreateTableRequestDataAttributes {
 
   public void setSchema(CreateTableRequestDataAttributesSchema schema) {
     this.schema = schema;
+    if (schema != null) {
+      this.unparsed |= schema.unparsed;
+    }
   }
 
   public CreateTableRequestDataAttributes source(ReferenceTableCreateSourceType source) {

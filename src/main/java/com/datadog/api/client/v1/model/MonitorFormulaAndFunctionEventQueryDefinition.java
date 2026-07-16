@@ -86,6 +86,9 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
 
   public void setCompute(MonitorFormulaAndFunctionEventQueryDefinitionCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public MonitorFormulaAndFunctionEventQueryDefinition dataSource(
@@ -116,8 +119,10 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   public MonitorFormulaAndFunctionEventQueryDefinition groupBy(
       List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -146,6 +151,11 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
 
   public void setGroupBy(List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorFormulaAndFunctionEventQueryDefinition indexes(List<String> indexes) {
@@ -219,6 +229,9 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
 
   public void setSearch(MonitorFormulaAndFunctionEventQueryDefinitionSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class ListTagsResponse {
 
   public void setData(ListTagsResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

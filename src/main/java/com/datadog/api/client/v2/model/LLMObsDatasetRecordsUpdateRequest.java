@@ -55,6 +55,9 @@ public class LLMObsDatasetRecordsUpdateRequest {
 
   public void setData(LLMObsDatasetRecordsUpdateDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

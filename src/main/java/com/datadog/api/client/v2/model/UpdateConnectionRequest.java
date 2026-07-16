@@ -49,6 +49,9 @@ public class UpdateConnectionRequest {
 
   public void setData(UpdateConnectionRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

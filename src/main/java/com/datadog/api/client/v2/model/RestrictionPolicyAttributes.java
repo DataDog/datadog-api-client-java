@@ -35,6 +35,9 @@ public class RestrictionPolicyAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_BINDINGS)
           List<RestrictionPolicyBinding> bindings) {
     this.bindings = bindings;
+    for (RestrictionPolicyBinding item : bindings) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RestrictionPolicyAttributes bindings(List<RestrictionPolicyBinding> bindings) {
@@ -64,6 +67,11 @@ public class RestrictionPolicyAttributes {
 
   public void setBindings(List<RestrictionPolicyBinding> bindings) {
     this.bindings = bindings;
+    if (bindings != null) {
+      for (RestrictionPolicyBinding item : bindings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

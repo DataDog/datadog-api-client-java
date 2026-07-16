@@ -73,6 +73,9 @@ public class OrgGroupPolicyOverrideCreateData {
 
   public void setAttributes(OrgGroupPolicyOverrideCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupPolicyOverrideCreateData relationships(
@@ -95,6 +98,9 @@ public class OrgGroupPolicyOverrideCreateData {
 
   public void setRelationships(OrgGroupPolicyOverrideCreateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgGroupPolicyOverrideCreateData type(OrgGroupPolicyOverrideType type) {

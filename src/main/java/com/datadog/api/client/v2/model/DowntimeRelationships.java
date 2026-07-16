@@ -51,6 +51,9 @@ public class DowntimeRelationships {
 
   public void setCreatedBy(DowntimeRelationshipsCreatedBy createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public DowntimeRelationships monitor(DowntimeRelationshipsMonitor monitor) {
@@ -73,6 +76,9 @@ public class DowntimeRelationships {
 
   public void setMonitor(DowntimeRelationshipsMonitor monitor) {
     this.monitor = monitor;
+    if (monitor != null) {
+      this.unparsed |= monitor.unparsed;
+    }
   }
 
   /**

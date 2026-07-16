@@ -61,6 +61,9 @@ public class SharedDashboardInvites {
 
   public void setData(SharedDashboardInvitesData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

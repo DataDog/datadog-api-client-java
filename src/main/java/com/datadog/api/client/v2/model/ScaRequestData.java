@@ -68,6 +68,9 @@ public class ScaRequestData {
 
   public void setAttributes(ScaRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScaRequestData id(String id) {

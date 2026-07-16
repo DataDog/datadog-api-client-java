@@ -29,8 +29,10 @@ public class UsageHostsResponse {
 
   public UsageHostsResponse usage(List<UsageHostHour> usage) {
     this.usage = usage;
-    for (UsageHostHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageHostHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class UsageHostsResponse {
 
   public void setUsage(List<UsageHostHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageHostHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

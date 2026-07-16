@@ -64,6 +64,9 @@ public class TicketCreationRuleDataCreate {
 
   public void setAttributes(TicketCreationRuleAttributesCreate attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TicketCreationRuleDataCreate type(TicketCreationRuleType type) {

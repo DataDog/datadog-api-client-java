@@ -66,6 +66,9 @@ public class CustomAttributeConfigCreate {
 
   public void setAttributes(CustomAttributeConfigAttributesCreate attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomAttributeConfigCreate type(CustomAttributeConfigResourceType type) {

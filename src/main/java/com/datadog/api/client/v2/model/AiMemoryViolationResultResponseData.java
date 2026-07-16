@@ -72,6 +72,9 @@ public class AiMemoryViolationResultResponseData {
 
   public void setAttributes(AiMemoryViolationResultResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AiMemoryViolationResultResponseData id(String id) {

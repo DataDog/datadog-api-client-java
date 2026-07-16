@@ -55,6 +55,9 @@ public class CreateOnCallNotificationRuleRequest {
 
   public void setData(CreateOnCallNotificationRuleRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

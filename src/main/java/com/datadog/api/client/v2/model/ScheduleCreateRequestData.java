@@ -73,6 +73,9 @@ public class ScheduleCreateRequestData {
 
   public void setAttributes(ScheduleCreateRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScheduleCreateRequestData relationships(
@@ -97,6 +100,9 @@ public class ScheduleCreateRequestData {
 
   public void setRelationships(ScheduleCreateRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ScheduleCreateRequestData type(ScheduleCreateRequestDataType type) {

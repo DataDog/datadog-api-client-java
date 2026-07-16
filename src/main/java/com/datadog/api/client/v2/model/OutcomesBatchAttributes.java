@@ -29,8 +29,10 @@ public class OutcomesBatchAttributes {
 
   public OutcomesBatchAttributes results(List<OutcomesBatchRequestItem> results) {
     this.results = results;
-    for (OutcomesBatchRequestItem item : results) {
-      this.unparsed |= item.unparsed;
+    if (results != null) {
+      for (OutcomesBatchRequestItem item : results) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class OutcomesBatchAttributes {
 
   public void setResults(List<OutcomesBatchRequestItem> results) {
     this.results = results;
+    if (results != null) {
+      for (OutcomesBatchRequestItem item : results) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -230,6 +230,9 @@ public class SyntheticsTestResultResponseInfo {
 
   public void setCdn(SyntheticsTestResultCdnProviderInfo cdn) {
     this.cdn = cdn;
+    if (cdn != null) {
+      this.unparsed |= cdn.unparsed;
+    }
   }
 
   public SyntheticsTestResultResponseInfo close(SyntheticsTestResultWebSocketClose close) {
@@ -252,6 +255,9 @@ public class SyntheticsTestResultResponseInfo {
 
   public void setClose(SyntheticsTestResultWebSocketClose close) {
     this.close = close;
+    if (close != null) {
+      this.unparsed |= close.unparsed;
+    }
   }
 
   public SyntheticsTestResultResponseInfo compressedMessage(String compressedMessage) {
@@ -324,6 +330,9 @@ public class SyntheticsTestResultResponseInfo {
 
   public void setHealthcheck(SyntheticsTestResultHealthCheck healthcheck) {
     this.healthcheck = healthcheck;
+    if (healthcheck != null) {
+      this.unparsed |= healthcheck.unparsed;
+    }
   }
 
   public SyntheticsTestResultResponseInfo httpVersion(String httpVersion) {
@@ -441,8 +450,10 @@ public class SyntheticsTestResultResponseInfo {
 
   public SyntheticsTestResultResponseInfo records(List<SyntheticsTestResultDnsRecord> records) {
     this.records = records;
-    for (SyntheticsTestResultDnsRecord item : records) {
-      this.unparsed |= item.unparsed;
+    if (records != null) {
+      for (SyntheticsTestResultDnsRecord item : records) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -471,12 +482,19 @@ public class SyntheticsTestResultResponseInfo {
 
   public void setRecords(List<SyntheticsTestResultDnsRecord> records) {
     this.records = records;
+    if (records != null) {
+      for (SyntheticsTestResultDnsRecord item : records) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultResponseInfo redirects(List<SyntheticsTestResultRedirect> redirects) {
     this.redirects = redirects;
-    for (SyntheticsTestResultRedirect item : redirects) {
-      this.unparsed |= item.unparsed;
+    if (redirects != null) {
+      for (SyntheticsTestResultRedirect item : redirects) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -505,6 +523,11 @@ public class SyntheticsTestResultResponseInfo {
 
   public void setRedirects(List<SyntheticsTestResultRedirect> redirects) {
     this.redirects = redirects;
+    if (redirects != null) {
+      for (SyntheticsTestResultRedirect item : redirects) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultResponseInfo statusCode(Long statusCode) {

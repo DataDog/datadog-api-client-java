@@ -37,6 +37,9 @@ public class CostTagDescriptionsResponse {
   public CostTagDescriptionsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CostTagDescription> data) {
     this.data = data;
+    for (CostTagDescription item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CostTagDescriptionsResponse data(List<CostTagDescription> data) {
@@ -66,6 +69,11 @@ public class CostTagDescriptionsResponse {
 
   public void setData(List<CostTagDescription> data) {
     this.data = data;
+    if (data != null) {
+      for (CostTagDescription item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -216,6 +216,9 @@ public class GovernanceControlAttributes {
     this.mitigationParameters = mitigationParameters;
     this.mitigationType = mitigationType;
     this.mitigations = mitigations;
+    for (GovernanceControlMitigationDefinition item : mitigations) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
     this.nextSteps = nextSteps;
     this.notificationFrequency = notificationFrequency;
@@ -227,7 +230,13 @@ public class GovernanceControlAttributes {
     this.resourceType = resourceType;
     this.resourceTypeDisplayName = resourceTypeDisplayName;
     this.supportedDetectionParameters = supportedDetectionParameters;
+    for (GovernanceControlParameterDefinition item : supportedDetectionParameters) {
+      this.unparsed |= item.unparsed;
+    }
     this.supportedNotificationParameters = supportedNotificationParameters;
+    for (GovernanceControlParameterDefinition item : supportedNotificationParameters) {
+      this.unparsed |= item.unparsed;
+    }
     this.task = task;
     this.type = type;
     this.usageConcern = usageConcern;
@@ -569,6 +578,11 @@ public class GovernanceControlAttributes {
 
   public void setMitigations(List<GovernanceControlMitigationDefinition> mitigations) {
     this.mitigations = mitigations;
+    if (mitigations != null) {
+      for (GovernanceControlMitigationDefinition item : mitigations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GovernanceControlAttributes name(String name) {
@@ -808,6 +822,11 @@ public class GovernanceControlAttributes {
   public void setSupportedDetectionParameters(
       List<GovernanceControlParameterDefinition> supportedDetectionParameters) {
     this.supportedDetectionParameters = supportedDetectionParameters;
+    if (supportedDetectionParameters != null) {
+      for (GovernanceControlParameterDefinition item : supportedDetectionParameters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GovernanceControlAttributes supportedNotificationParameters(
@@ -840,6 +859,11 @@ public class GovernanceControlAttributes {
   public void setSupportedNotificationParameters(
       List<GovernanceControlParameterDefinition> supportedNotificationParameters) {
     this.supportedNotificationParameters = supportedNotificationParameters;
+    if (supportedNotificationParameters != null) {
+      for (GovernanceControlParameterDefinition item : supportedNotificationParameters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GovernanceControlAttributes task(String task) {

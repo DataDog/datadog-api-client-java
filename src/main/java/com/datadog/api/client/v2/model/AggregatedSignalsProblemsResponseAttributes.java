@@ -115,6 +115,9 @@ public class AggregatedSignalsProblemsResponseAttributes {
 
   public void setCriteria(AggregatedWaterfallPerformanceCriteria criteria) {
     this.criteria = criteria;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
   }
 
   public AggregatedSignalsProblemsResponseAttributes from(Long from) {
@@ -157,6 +160,9 @@ public class AggregatedSignalsProblemsResponseAttributes {
 
   public void setProblemDetections(SignalsProblemsDetections problemDetections) {
     this.problemDetections = problemDetections;
+    if (problemDetections != null) {
+      this.unparsed |= problemDetections.unparsed;
+    }
   }
 
   public AggregatedSignalsProblemsResponseAttributes sampleMetadata(
@@ -179,6 +185,9 @@ public class AggregatedSignalsProblemsResponseAttributes {
 
   public void setSampleMetadata(SignalsProblemsSampleMetadata sampleMetadata) {
     this.sampleMetadata = sampleMetadata;
+    if (sampleMetadata != null) {
+      this.unparsed |= sampleMetadata.unparsed;
+    }
   }
 
   public AggregatedSignalsProblemsResponseAttributes to(Long to) {

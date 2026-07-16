@@ -70,6 +70,9 @@ public class EntityIntegrationConfigRequestData {
 
   public void setAttributes(EntityIntegrationConfigRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EntityIntegrationConfigRequestData type(EntityIntegrationConfigRequestType type) {

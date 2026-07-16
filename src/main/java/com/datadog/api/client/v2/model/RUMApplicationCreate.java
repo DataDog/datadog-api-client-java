@@ -64,6 +64,9 @@ public class RUMApplicationCreate {
 
   public void setAttributes(RUMApplicationCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RUMApplicationCreate type(RUMApplicationCreateType type) {

@@ -54,6 +54,9 @@ public class AwsScanOptionsUpdateRequest {
 
   public void setData(AwsScanOptionsUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class CustomRuleRequest {
 
   public void setData(CustomRuleRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

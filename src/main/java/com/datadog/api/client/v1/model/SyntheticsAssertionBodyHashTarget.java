@@ -97,6 +97,9 @@ public class SyntheticsAssertionBodyHashTarget {
 
   public void setTarget(SyntheticsAssertionTargetValue target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   public SyntheticsAssertionBodyHashTarget type(SyntheticsAssertionBodyHashType type) {

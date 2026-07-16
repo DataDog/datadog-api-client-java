@@ -55,8 +55,10 @@ public class Spec {
 
   public Spec annotations(List<Annotation> annotations) {
     this.annotations = annotations;
-    for (Annotation item : annotations) {
-      this.unparsed |= item.unparsed;
+    if (annotations != null) {
+      for (Annotation item : annotations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -84,12 +86,19 @@ public class Spec {
 
   public void setAnnotations(List<Annotation> annotations) {
     this.annotations = annotations;
+    if (annotations != null) {
+      for (Annotation item : annotations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Spec connectionEnvs(List<ConnectionEnv> connectionEnvs) {
     this.connectionEnvs = connectionEnvs;
-    for (ConnectionEnv item : connectionEnvs) {
-      this.unparsed |= item.unparsed;
+    if (connectionEnvs != null) {
+      for (ConnectionEnv item : connectionEnvs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -117,6 +126,11 @@ public class Spec {
 
   public void setConnectionEnvs(List<ConnectionEnv> connectionEnvs) {
     this.connectionEnvs = connectionEnvs;
+    if (connectionEnvs != null) {
+      for (ConnectionEnv item : connectionEnvs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Spec handle(String handle) {
@@ -161,6 +175,9 @@ public class Spec {
 
   public void setInputSchema(InputSchema inputSchema) {
     this.inputSchema = inputSchema;
+    if (inputSchema != null) {
+      this.unparsed |= inputSchema.unparsed;
+    }
   }
 
   public Spec outputSchema(OutputSchema outputSchema) {
@@ -183,12 +200,17 @@ public class Spec {
 
   public void setOutputSchema(OutputSchema outputSchema) {
     this.outputSchema = outputSchema;
+    if (outputSchema != null) {
+      this.unparsed |= outputSchema.unparsed;
+    }
   }
 
   public Spec steps(List<Step> steps) {
     this.steps = steps;
-    for (Step item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (Step item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -217,12 +239,19 @@ public class Spec {
 
   public void setSteps(List<Step> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (Step item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Spec triggers(List<Trigger> triggers) {
     this.triggers = triggers;
-    for (Trigger item : triggers) {
-      this.unparsed |= item.unparsed;
+    if (triggers != null) {
+      for (Trigger item : triggers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -251,6 +280,11 @@ public class Spec {
 
   public void setTriggers(List<Trigger> triggers) {
     this.triggers = triggers;
+    if (triggers != null) {
+      for (Trigger item : triggers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

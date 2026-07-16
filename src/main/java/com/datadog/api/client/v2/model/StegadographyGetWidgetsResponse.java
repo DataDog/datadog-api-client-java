@@ -34,6 +34,9 @@ public class StegadographyGetWidgetsResponse {
   public StegadographyGetWidgetsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<StegadographyWidget> data) {
     this.data = data;
+    for (StegadographyWidget item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public StegadographyGetWidgetsResponse data(List<StegadographyWidget> data) {
@@ -63,6 +66,11 @@ public class StegadographyGetWidgetsResponse {
 
   public void setData(List<StegadographyWidget> data) {
     this.data = data;
+    if (data != null) {
+      for (StegadographyWidget item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

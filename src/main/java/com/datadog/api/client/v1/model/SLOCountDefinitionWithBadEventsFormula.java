@@ -49,6 +49,9 @@ public class SLOCountDefinitionWithBadEventsFormula {
     this.goodEventsFormula = goodEventsFormula;
     this.unparsed |= goodEventsFormula.unparsed;
     this.queries = queries;
+    for (SLODataSourceQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SLOCountDefinitionWithBadEventsFormula badEventsFormula(SLOFormula badEventsFormula) {
@@ -70,6 +73,9 @@ public class SLOCountDefinitionWithBadEventsFormula {
 
   public void setBadEventsFormula(SLOFormula badEventsFormula) {
     this.badEventsFormula = badEventsFormula;
+    if (badEventsFormula != null) {
+      this.unparsed |= badEventsFormula.unparsed;
+    }
   }
 
   public SLOCountDefinitionWithBadEventsFormula goodEventsFormula(SLOFormula goodEventsFormula) {
@@ -91,6 +97,9 @@ public class SLOCountDefinitionWithBadEventsFormula {
 
   public void setGoodEventsFormula(SLOFormula goodEventsFormula) {
     this.goodEventsFormula = goodEventsFormula;
+    if (goodEventsFormula != null) {
+      this.unparsed |= goodEventsFormula.unparsed;
+    }
   }
 
   public SLOCountDefinitionWithBadEventsFormula queries(
@@ -122,6 +131,11 @@ public class SLOCountDefinitionWithBadEventsFormula {
 
   public void setQueries(List<SLODataSourceQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (SLODataSourceQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /** Return true if this SLOCountDefinitionWithBadEventsFormula object is equal to o. */

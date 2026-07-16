@@ -59,6 +59,9 @@ public class SyntheticsTestResultCdnResource {
 
   public void setCdn(SyntheticsTestResultCdnProviderInfo cdn) {
     this.cdn = cdn;
+    if (cdn != null) {
+      this.unparsed |= cdn.unparsed;
+    }
   }
 
   public SyntheticsTestResultCdnResource resolvedIp(String resolvedIp) {

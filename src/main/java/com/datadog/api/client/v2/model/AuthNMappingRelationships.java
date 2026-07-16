@@ -55,6 +55,9 @@ public class AuthNMappingRelationships {
 
   public void setRole(RelationshipToRole role) {
     this.role = role;
+    if (role != null) {
+      this.unparsed |= role.unparsed;
+    }
   }
 
   public AuthNMappingRelationships samlAssertionAttribute(
@@ -79,6 +82,9 @@ public class AuthNMappingRelationships {
   public void setSamlAssertionAttribute(
       RelationshipToSAMLAssertionAttribute samlAssertionAttribute) {
     this.samlAssertionAttribute = samlAssertionAttribute;
+    if (samlAssertionAttribute != null) {
+      this.unparsed |= samlAssertionAttribute.unparsed;
+    }
   }
 
   public AuthNMappingRelationships team(RelationshipToTeam team) {
@@ -101,6 +107,9 @@ public class AuthNMappingRelationships {
 
   public void setTeam(RelationshipToTeam team) {
     this.team = team;
+    if (team != null) {
+      this.unparsed |= team.unparsed;
+    }
   }
 
   /**

@@ -58,6 +58,9 @@ public class LLMObsExperimentationSearchRequest {
 
   public void setData(LLMObsExperimentationSearchDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

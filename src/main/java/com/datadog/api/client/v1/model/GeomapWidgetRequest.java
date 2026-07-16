@@ -79,8 +79,10 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest columns(List<ListStreamColumn> columns) {
     this.columns = columns;
-    for (ListStreamColumn item : columns) {
-      this.unparsed |= item.unparsed;
+    if (columns != null) {
+      for (ListStreamColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -108,12 +110,19 @@ public class GeomapWidgetRequest {
 
   public void setColumns(List<ListStreamColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (ListStreamColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GeomapWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -142,12 +151,19 @@ public class GeomapWidgetRequest {
 
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GeomapWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -175,6 +191,11 @@ public class GeomapWidgetRequest {
 
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GeomapWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -197,6 +218,9 @@ public class GeomapWidgetRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public GeomapWidgetRequest q(String q) {
@@ -226,8 +250,10 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -255,6 +281,11 @@ public class GeomapWidgetRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GeomapWidgetRequest query(ListStreamQuery query) {
@@ -277,6 +308,9 @@ public class GeomapWidgetRequest {
 
   public void setQuery(ListStreamQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public GeomapWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
@@ -325,6 +359,9 @@ public class GeomapWidgetRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public GeomapWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -347,6 +384,9 @@ public class GeomapWidgetRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   public GeomapWidgetRequest sort(WidgetSortBy sort) {
@@ -369,6 +409,9 @@ public class GeomapWidgetRequest {
 
   public void setSort(WidgetSortBy sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public GeomapWidgetRequest style(GeomapWidgetRequestStyle style) {
@@ -391,12 +434,17 @@ public class GeomapWidgetRequest {
 
   public void setStyle(GeomapWidgetRequestStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   public GeomapWidgetRequest textFormats(List<TableWidgetTextFormatRule> textFormats) {
     this.textFormats = textFormats;
-    for (TableWidgetTextFormatRule item : textFormats) {
-      this.unparsed |= item.unparsed;
+    if (textFormats != null) {
+      for (TableWidgetTextFormatRule item : textFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -424,6 +472,11 @@ public class GeomapWidgetRequest {
 
   public void setTextFormats(List<TableWidgetTextFormatRule> textFormats) {
     this.textFormats = textFormats;
+    if (textFormats != null) {
+      for (TableWidgetTextFormatRule item : textFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

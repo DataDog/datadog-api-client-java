@@ -64,6 +64,9 @@ public class CheckCanDeleteMonitorResponse {
 
   public void setData(CheckCanDeleteMonitorResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public CheckCanDeleteMonitorResponse errors(Map<String, List<String>> errors) {

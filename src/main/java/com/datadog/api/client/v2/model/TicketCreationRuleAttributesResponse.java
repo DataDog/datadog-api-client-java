@@ -104,6 +104,9 @@ public class TicketCreationRuleAttributesResponse {
 
   public void setAction(TicketCreationRuleActionResponse action) {
     this.action = action;
+    if (action != null) {
+      this.unparsed |= action.unparsed;
+    }
   }
 
   public TicketCreationRuleAttributesResponse createdAt(Long createdAt) {
@@ -145,6 +148,9 @@ public class TicketCreationRuleAttributesResponse {
 
   public void setCreatedBy(AutomationRuleCreatedBy createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public TicketCreationRuleAttributesResponse enabled(Boolean enabled) {
@@ -206,6 +212,9 @@ public class TicketCreationRuleAttributesResponse {
 
   public void setModifiedBy(AutomationRuleModifiedBy modifiedBy) {
     this.modifiedBy = modifiedBy;
+    if (modifiedBy != null) {
+      this.unparsed |= modifiedBy.unparsed;
+    }
   }
 
   public TicketCreationRuleAttributesResponse name(String name) {
@@ -247,6 +256,9 @@ public class TicketCreationRuleAttributesResponse {
 
   public void setRule(AutomationRuleScope rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   /**

@@ -68,6 +68,9 @@ public class GCPUsageCostConfig {
 
   public void setAttributes(GCPUsageCostConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GCPUsageCostConfig id(String id) {

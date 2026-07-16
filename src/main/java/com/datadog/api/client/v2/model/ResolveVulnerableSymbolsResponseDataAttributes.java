@@ -30,8 +30,10 @@ public class ResolveVulnerableSymbolsResponseDataAttributes {
   public ResolveVulnerableSymbolsResponseDataAttributes results(
       List<ResolveVulnerableSymbolsResponseResults> results) {
     this.results = results;
-    for (ResolveVulnerableSymbolsResponseResults item : results) {
-      this.unparsed |= item.unparsed;
+    if (results != null) {
+      for (ResolveVulnerableSymbolsResponseResults item : results) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class ResolveVulnerableSymbolsResponseDataAttributes {
 
   public void setResults(List<ResolveVulnerableSymbolsResponseResults> results) {
     this.results = results;
+    if (results != null) {
+      for (ResolveVulnerableSymbolsResponseResults item : results) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

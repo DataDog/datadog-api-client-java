@@ -228,8 +228,10 @@ public class IncidentUpdateAttributes {
   public IncidentUpdateAttributes notificationHandles(
       List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
-    for (IncidentNotificationHandle item : notificationHandles) {
-      this.unparsed |= item.unparsed;
+    if (notificationHandles != null) {
+      for (IncidentNotificationHandle item : notificationHandles) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -258,6 +260,11 @@ public class IncidentUpdateAttributes {
 
   public void setNotificationHandles(List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
+    if (notificationHandles != null) {
+      for (IncidentNotificationHandle item : notificationHandles) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentUpdateAttributes title(String title) {

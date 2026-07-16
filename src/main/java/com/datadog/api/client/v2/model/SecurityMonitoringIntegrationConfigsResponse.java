@@ -35,6 +35,9 @@ public class SecurityMonitoringIntegrationConfigsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<SecurityMonitoringIntegrationConfigData> data) {
     this.data = data;
+    for (SecurityMonitoringIntegrationConfigData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecurityMonitoringIntegrationConfigsResponse data(
@@ -66,6 +69,11 @@ public class SecurityMonitoringIntegrationConfigsResponse {
 
   public void setData(List<SecurityMonitoringIntegrationConfigData> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringIntegrationConfigData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

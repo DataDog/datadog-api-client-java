@@ -56,6 +56,9 @@ public class CustomConnection {
 
   public void setAttributes(CustomConnectionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomConnection id(UUID id) {

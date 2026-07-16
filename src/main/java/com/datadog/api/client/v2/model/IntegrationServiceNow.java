@@ -84,6 +84,9 @@ public class IntegrationServiceNow {
 
   public void setAutoCreation(IntegrationServiceNowAutoCreation autoCreation) {
     this.autoCreation = autoCreation;
+    if (autoCreation != null) {
+      this.unparsed |= autoCreation.unparsed;
+    }
   }
 
   public IntegrationServiceNow enabled(Boolean enabled) {
@@ -148,6 +151,9 @@ public class IntegrationServiceNow {
 
   public void setSyncConfig(IntegrationServiceNowSyncConfig syncConfig) {
     this.syncConfig = syncConfig;
+    if (syncConfig != null) {
+      this.unparsed |= syncConfig.unparsed;
+    }
   }
 
   /**

@@ -35,6 +35,9 @@ public class UserAuthorizedClientRelationshipScopes {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<UserAuthorizedClientRelationshipScopeData> data) {
     this.data = data;
+    for (UserAuthorizedClientRelationshipScopeData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public UserAuthorizedClientRelationshipScopes data(
@@ -66,6 +69,11 @@ public class UserAuthorizedClientRelationshipScopes {
 
   public void setData(List<UserAuthorizedClientRelationshipScopeData> data) {
     this.data = data;
+    if (data != null) {
+      for (UserAuthorizedClientRelationshipScopeData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

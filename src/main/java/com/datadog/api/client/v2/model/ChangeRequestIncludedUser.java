@@ -69,6 +69,9 @@ public class ChangeRequestIncludedUser {
 
   public void setAttributes(ChangeRequestIncludedUserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ChangeRequestIncludedUser id(String id) {

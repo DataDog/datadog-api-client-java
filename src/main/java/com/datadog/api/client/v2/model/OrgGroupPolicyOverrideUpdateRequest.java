@@ -55,6 +55,9 @@ public class OrgGroupPolicyOverrideUpdateRequest {
 
   public void setData(OrgGroupPolicyOverrideUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

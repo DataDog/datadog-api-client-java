@@ -131,15 +131,25 @@ public class ModelLabRunAttributes {
     this.hasChildren = hasChildren;
     this.isPinned = isPinned;
     this.metricSummaries = metricSummaries;
+    for (ModelLabMetricSummary item : metricSummaries) {
+      this.unparsed |= item.unparsed;
+    }
     this.mlflowArtifactLocation = mlflowArtifactLocation;
     this.name = name;
     this.params = params;
-    if (params != null) {}
+    if (params != null) {
+      for (ModelLabRunParam item : params) {
+        this.unparsed |= item.unparsed;
+      }
+    }
     this.projectId = projectId;
     this.startedAt = startedAt;
     this.status = status;
     this.unparsed |= !status.isValid();
     this.tags = tags;
+    for (ModelLabTag item : tags) {
+      this.unparsed |= item.unparsed;
+    }
     this.updatedAt = updatedAt;
   }
 
@@ -394,6 +404,11 @@ public class ModelLabRunAttributes {
 
   public void setMetricSummaries(List<ModelLabMetricSummary> metricSummaries) {
     this.metricSummaries = metricSummaries;
+    if (metricSummaries != null) {
+      for (ModelLabMetricSummary item : metricSummaries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ModelLabRunAttributes mlflowArtifactLocation(String mlflowArtifactLocation) {
@@ -495,6 +510,11 @@ public class ModelLabRunAttributes {
 
   public void setParams(List<ModelLabRunParam> params) {
     this.params = params;
+    if (params != null) {
+      for (ModelLabRunParam item : params) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ModelLabRunAttributes projectId(Long projectId) {
@@ -588,6 +608,11 @@ public class ModelLabRunAttributes {
 
   public void setTags(List<ModelLabTag> tags) {
     this.tags = tags;
+    if (tags != null) {
+      for (ModelLabTag item : tags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ModelLabRunAttributes updatedAt(OffsetDateTime updatedAt) {

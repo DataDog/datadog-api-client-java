@@ -39,8 +39,10 @@ public class ListAppsResponse {
 
   public ListAppsResponse data(List<ListAppsResponseDataItems> data) {
     this.data = data;
-    for (ListAppsResponseDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ListAppsResponseDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,12 +70,19 @@ public class ListAppsResponse {
 
   public void setData(List<ListAppsResponseDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (ListAppsResponseDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListAppsResponse included(List<Deployment> included) {
     this.included = included;
-    for (Deployment item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (Deployment item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -101,6 +110,11 @@ public class ListAppsResponse {
 
   public void setIncluded(List<Deployment> included) {
     this.included = included;
+    if (included != null) {
+      for (Deployment item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListAppsResponse meta(ListAppsResponseMeta meta) {
@@ -123,6 +137,9 @@ public class ListAppsResponse {
 
   public void setMeta(ListAppsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -124,12 +124,17 @@ public class CustomCostsFileMetadataWithContent {
 
   public void setChargePeriod(CustomCostsFileUsageChargePeriod chargePeriod) {
     this.chargePeriod = chargePeriod;
+    if (chargePeriod != null) {
+      this.unparsed |= chargePeriod.unparsed;
+    }
   }
 
   public CustomCostsFileMetadataWithContent content(List<CustomCostsFileLineItem> content) {
     this.content = content;
-    for (CustomCostsFileLineItem item : content) {
-      this.unparsed |= item.unparsed;
+    if (content != null) {
+      for (CustomCostsFileLineItem item : content) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -157,6 +162,11 @@ public class CustomCostsFileMetadataWithContent {
 
   public void setContent(List<CustomCostsFileLineItem> content) {
     this.content = content;
+    if (content != null) {
+      for (CustomCostsFileLineItem item : content) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CustomCostsFileMetadataWithContent name(String name) {
@@ -271,6 +281,9 @@ public class CustomCostsFileMetadataWithContent {
 
   public void setUploadedBy(CustomCostsUser uploadedBy) {
     this.uploadedBy = uploadedBy;
+    if (uploadedBy != null) {
+      this.unparsed |= uploadedBy.unparsed;
+    }
   }
 
   /**

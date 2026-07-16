@@ -55,6 +55,9 @@ public class SyntheticsFastTestResultData {
 
   public void setAttributes(SyntheticsFastTestResultAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsFastTestResultData id(String id) {

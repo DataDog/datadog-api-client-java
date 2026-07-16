@@ -66,6 +66,9 @@ public class ReportSchedulePatchRequestData {
 
   public void setAttributes(ReportSchedulePatchRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ReportSchedulePatchRequestData type(ReportScheduleType type) {

@@ -58,6 +58,9 @@ public class SLOListWidgetDefinition {
           List<SLOListWidgetRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOListWidgetDefinitionType type) {
     this.requests = requests;
+    for (SLOListWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -110,6 +113,11 @@ public class SLOListWidgetDefinition {
 
   public void setRequests(List<SLOListWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (SLOListWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SLOListWidgetDefinition title(String title) {

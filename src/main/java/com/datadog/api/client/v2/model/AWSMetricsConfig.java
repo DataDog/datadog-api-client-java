@@ -191,12 +191,17 @@ public class AWSMetricsConfig {
 
   public void setNamespaceFilters(AWSNamespaceFilters namespaceFilters) {
     this.namespaceFilters = namespaceFilters;
+    if (namespaceFilters != null) {
+      this.unparsed |= namespaceFilters.unparsed;
+    }
   }
 
   public AWSMetricsConfig tagFilters(List<AWSNamespaceTagFilter> tagFilters) {
     this.tagFilters = tagFilters;
-    for (AWSNamespaceTagFilter item : tagFilters) {
-      this.unparsed |= item.unparsed;
+    if (tagFilters != null) {
+      for (AWSNamespaceTagFilter item : tagFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -224,6 +229,11 @@ public class AWSMetricsConfig {
 
   public void setTagFilters(List<AWSNamespaceTagFilter> tagFilters) {
     this.tagFilters = tagFilters;
+    if (tagFilters != null) {
+      for (AWSNamespaceTagFilter item : tagFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -59,6 +59,9 @@ public class MetricTagConfiguration {
 
   public void setAttributes(MetricTagConfigurationAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricTagConfiguration id(String id) {
@@ -102,6 +105,9 @@ public class MetricTagConfiguration {
 
   public void setRelationships(MetricRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public MetricTagConfiguration type(MetricTagConfigurationType type) {

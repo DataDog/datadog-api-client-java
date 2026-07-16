@@ -55,6 +55,9 @@ public class CreateDeploymentGateParams {
 
   public void setData(CreateDeploymentGateParamsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -70,6 +70,9 @@ public class IdentityProviderUpdateData {
 
   public void setAttributes(IdentityProviderUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IdentityProviderUpdateData id(String id) {

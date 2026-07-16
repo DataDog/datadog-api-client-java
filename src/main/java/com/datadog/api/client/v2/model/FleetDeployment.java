@@ -70,6 +70,9 @@ public class FleetDeployment {
 
   public void setAttributes(FleetDeploymentAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FleetDeployment id(String id) {

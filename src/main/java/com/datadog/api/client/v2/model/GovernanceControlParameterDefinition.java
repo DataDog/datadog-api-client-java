@@ -78,6 +78,9 @@ public class GovernanceControlParameterDefinition {
     this.name = name;
     this.required = required;
     this.supportedValues = supportedValues;
+    for (GovernanceControlSupportedValue item : supportedValues) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
   }
 
@@ -230,6 +233,11 @@ public class GovernanceControlParameterDefinition {
 
   public void setSupportedValues(List<GovernanceControlSupportedValue> supportedValues) {
     this.supportedValues = supportedValues;
+    if (supportedValues != null) {
+      for (GovernanceControlSupportedValue item : supportedValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GovernanceControlParameterDefinition type(String type) {

@@ -63,6 +63,9 @@ public class MaintenanceWindowUpdate {
 
   public void setAttributes(MaintenanceWindowUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MaintenanceWindowUpdate type(MaintenanceWindowResourceType type) {

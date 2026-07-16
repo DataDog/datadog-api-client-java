@@ -37,6 +37,9 @@ public class ItemApiPayloadArray {
   public ItemApiPayloadArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<ItemApiPayloadData> data) {
     this.data = data;
+    for (ItemApiPayloadData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ItemApiPayloadArray data(List<ItemApiPayloadData> data) {
@@ -66,6 +69,11 @@ public class ItemApiPayloadArray {
 
   public void setData(List<ItemApiPayloadData> data) {
     this.data = data;
+    if (data != null) {
+      for (ItemApiPayloadData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ItemApiPayloadArray meta(ItemApiPayloadMeta meta) {
@@ -89,6 +97,9 @@ public class ItemApiPayloadArray {
 
   public void setMeta(ItemApiPayloadMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

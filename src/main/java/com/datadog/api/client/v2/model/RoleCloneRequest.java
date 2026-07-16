@@ -54,6 +54,9 @@ public class RoleCloneRequest {
 
   public void setData(RoleClone data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

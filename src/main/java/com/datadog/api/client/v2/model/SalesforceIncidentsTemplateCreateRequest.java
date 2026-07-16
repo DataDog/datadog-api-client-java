@@ -55,6 +55,9 @@ public class SalesforceIncidentsTemplateCreateRequest {
 
   public void setData(SalesforceIncidentsTemplateCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

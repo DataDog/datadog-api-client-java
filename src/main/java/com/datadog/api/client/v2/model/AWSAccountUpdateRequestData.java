@@ -68,6 +68,9 @@ public class AWSAccountUpdateRequestData {
 
   public void setAttributes(AWSAccountUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSAccountUpdateRequestData id(String id) {

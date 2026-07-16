@@ -73,6 +73,9 @@ public class NotebookCellResponse {
 
   public void setAttributes(NotebookCellResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NotebookCellResponse id(String id) {

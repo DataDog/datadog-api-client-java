@@ -156,6 +156,9 @@ public class DowntimeCreateRequestAttributes {
 
   public void setMonitorIdentifier(DowntimeMonitorIdentifier monitorIdentifier) {
     this.monitorIdentifier = monitorIdentifier;
+    if (monitorIdentifier != null) {
+      this.unparsed |= monitorIdentifier.unparsed;
+    }
   }
 
   public DowntimeCreateRequestAttributes muteFirstRecoveryNotification(
@@ -266,6 +269,9 @@ public class DowntimeCreateRequestAttributes {
 
   public void setSchedule(DowntimeScheduleCreateRequest schedule) {
     this.schedule = schedule;
+    if (schedule != null) {
+      this.unparsed |= schedule.unparsed;
+    }
   }
 
   public DowntimeCreateRequestAttributes scope(String scope) {

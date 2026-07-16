@@ -54,6 +54,9 @@ public class MaintenanceWindowUpdateRequest {
 
   public void setData(MaintenanceWindowUpdate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class AWSCcmConfigRequest {
 
   public void setData(AWSCcmConfigRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

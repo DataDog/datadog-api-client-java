@@ -71,6 +71,9 @@ public class UpdateTenancyConfigData {
 
   public void setAttributes(UpdateTenancyConfigDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateTenancyConfigData id(String id) {

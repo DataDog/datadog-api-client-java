@@ -64,6 +64,9 @@ public class IncidentTodoCreateData {
 
   public void setAttributes(IncidentTodoAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentTodoCreateData type(IncidentTodoType type) {

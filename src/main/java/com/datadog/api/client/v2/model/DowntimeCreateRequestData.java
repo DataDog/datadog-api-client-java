@@ -64,6 +64,9 @@ public class DowntimeCreateRequestData {
 
   public void setAttributes(DowntimeCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DowntimeCreateRequestData type(DowntimeResourceType type) {

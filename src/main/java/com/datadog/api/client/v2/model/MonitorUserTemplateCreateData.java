@@ -66,6 +66,9 @@ public class MonitorUserTemplateCreateData {
 
   public void setAttributes(MonitorUserTemplateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorUserTemplateCreateData type(MonitorUserTemplateResourceType type) {

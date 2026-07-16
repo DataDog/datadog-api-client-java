@@ -70,6 +70,9 @@ public class FormVersionData {
 
   public void setAttributes(FormVersionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FormVersionData id(String id) {

@@ -147,6 +147,9 @@ public class SensitiveDataScannerRuleAttributes {
   public void setIncludedKeywordConfiguration(
       SensitiveDataScannerIncludedKeywordConfiguration includedKeywordConfiguration) {
     this.includedKeywordConfiguration = includedKeywordConfiguration;
+    if (includedKeywordConfiguration != null) {
+      this.unparsed |= includedKeywordConfiguration.unparsed;
+    }
   }
 
   public SensitiveDataScannerRuleAttributes isEnabled(Boolean isEnabled) {
@@ -286,6 +289,9 @@ public class SensitiveDataScannerRuleAttributes {
 
   public void setSuppressions(SensitiveDataScannerSuppressions suppressions) {
     this.suppressions = suppressions;
+    if (suppressions != null) {
+      this.unparsed |= suppressions.unparsed;
+    }
   }
 
   public SensitiveDataScannerRuleAttributes tags(List<String> tags) {
@@ -338,6 +344,9 @@ public class SensitiveDataScannerRuleAttributes {
 
   public void setTextReplacement(SensitiveDataScannerTextReplacement textReplacement) {
     this.textReplacement = textReplacement;
+    if (textReplacement != null) {
+      this.unparsed |= textReplacement.unparsed;
+    }
   }
 
   /**

@@ -70,6 +70,9 @@ public class FormPublicationData {
 
   public void setAttributes(FormPublicationAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FormPublicationData id(String id) {

@@ -70,6 +70,9 @@ public class HamrOrgConnectionDataRequest {
 
   public void setAttributes(HamrOrgConnectionAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public HamrOrgConnectionDataRequest id(String id) {

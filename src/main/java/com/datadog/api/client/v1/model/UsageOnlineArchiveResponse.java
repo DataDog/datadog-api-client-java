@@ -29,8 +29,10 @@ public class UsageOnlineArchiveResponse {
 
   public UsageOnlineArchiveResponse usage(List<UsageOnlineArchiveHour> usage) {
     this.usage = usage;
-    for (UsageOnlineArchiveHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageOnlineArchiveHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class UsageOnlineArchiveResponse {
 
   public void setUsage(List<UsageOnlineArchiveHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageOnlineArchiveHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

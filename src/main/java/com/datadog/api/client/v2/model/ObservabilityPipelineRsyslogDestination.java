@@ -94,6 +94,9 @@ public class ObservabilityPipelineRsyslogDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineRsyslogDestination endpointUrlKey(String endpointUrlKey) {
@@ -203,6 +206,9 @@ public class ObservabilityPipelineRsyslogDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineRsyslogDestination type(

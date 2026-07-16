@@ -80,6 +80,8 @@ public class SharedDashboardInvitesData extends AbstractOpenApiSchema {
       Object tmp = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
+      Object deserializedUnparsed = null;
+      int matchUnparsed = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
       // deserialize SharedDashboardInvitesDataObject
       try {
@@ -159,9 +161,19 @@ public class SharedDashboardInvitesData extends AbstractOpenApiSchema {
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          deserialized = tmp;
-          match++;
-
+          // keep the matched list, but propagate 'unparsed' from any invalid item
+          boolean itemsUnparsed = false;
+          for (SharedDashboardInvitesDataObject item :
+              (List<SharedDashboardInvitesDataObject>) tmp) {
+            itemsUnparsed |= item.unparsed;
+          }
+          if (itemsUnparsed) {
+            deserializedUnparsed = tmp;
+            matchUnparsed++;
+          } else {
+            deserialized = tmp;
+            match++;
+          }
           log.log(
               Level.FINER, "Input data matches schema 'List<SharedDashboardInvitesDataObject>'");
         }
@@ -176,6 +188,9 @@ public class SharedDashboardInvitesData extends AbstractOpenApiSchema {
       SharedDashboardInvitesData ret = new SharedDashboardInvitesData();
       if (match == 1) {
         ret.setActualInstance(deserialized);
+      } else if (match == 0 && matchUnparsed == 1) {
+        ret.setActualInstance(deserializedUnparsed);
+        ret.unparsed = true;
       } else {
         Map<String, Object> res =
             new ObjectMapper()

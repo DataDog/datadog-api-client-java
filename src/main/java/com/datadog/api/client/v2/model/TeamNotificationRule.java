@@ -68,6 +68,9 @@ public class TeamNotificationRule {
 
   public void setAttributes(TeamNotificationRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamNotificationRule id(String id) {

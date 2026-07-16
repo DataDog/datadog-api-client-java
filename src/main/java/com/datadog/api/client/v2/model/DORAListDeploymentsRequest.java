@@ -55,6 +55,9 @@ public class DORAListDeploymentsRequest {
 
   public void setData(DORAListDeploymentsRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

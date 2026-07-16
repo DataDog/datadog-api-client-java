@@ -56,6 +56,9 @@ public class EntityIntegrationConfigRequest {
 
   public void setData(EntityIntegrationConfigRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

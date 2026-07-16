@@ -181,8 +181,10 @@ public class ServiceDefinitionMeta {
 
   public ServiceDefinitionMeta warnings(List<ServiceDefinitionMetaWarnings> warnings) {
     this.warnings = warnings;
-    for (ServiceDefinitionMetaWarnings item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (ServiceDefinitionMetaWarnings item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -210,6 +212,11 @@ public class ServiceDefinitionMeta {
 
   public void setWarnings(List<ServiceDefinitionMetaWarnings> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (ServiceDefinitionMetaWarnings item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

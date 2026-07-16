@@ -59,6 +59,9 @@ public class OutcomesResponseDataItem {
 
   public void setAttributes(OutcomesBatchResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OutcomesResponseDataItem id(String id) {
@@ -102,6 +105,9 @@ public class OutcomesResponseDataItem {
 
   public void setRelationships(RuleOutcomeRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OutcomesResponseDataItem type(OutcomeType type) {

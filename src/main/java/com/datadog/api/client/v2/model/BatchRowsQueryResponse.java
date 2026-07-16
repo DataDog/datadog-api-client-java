@@ -53,12 +53,17 @@ public class BatchRowsQueryResponse {
 
   public void setData(BatchRowsQueryResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public BatchRowsQueryResponse included(List<TableRowResourceData> included) {
     this.included = included;
-    for (TableRowResourceData item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TableRowResourceData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -87,6 +92,11 @@ public class BatchRowsQueryResponse {
 
   public void setIncluded(List<TableRowResourceData> included) {
     this.included = included;
+    if (included != null) {
+      for (TableRowResourceData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

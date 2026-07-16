@@ -66,6 +66,9 @@ public class DomainAllowlist {
 
   public void setAttributes(DomainAllowlistAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DomainAllowlist id(String id) {

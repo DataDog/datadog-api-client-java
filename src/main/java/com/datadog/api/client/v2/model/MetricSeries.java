@@ -74,6 +74,9 @@ public class MetricSeries {
       @JsonProperty(required = true, value = JSON_PROPERTY_POINTS) List<MetricPoint> points) {
     this.metric = metric;
     this.points = points;
+    for (MetricPoint item : points) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MetricSeries interval(Long interval) {
@@ -117,6 +120,9 @@ public class MetricSeries {
 
   public void setMetadata(MetricMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public MetricSeries metric(String metric) {
@@ -168,12 +174,19 @@ public class MetricSeries {
 
   public void setPoints(List<MetricPoint> points) {
     this.points = points;
+    if (points != null) {
+      for (MetricPoint item : points) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MetricSeries resources(List<MetricResource> resources) {
     this.resources = resources;
-    for (MetricResource item : resources) {
-      this.unparsed |= item.unparsed;
+    if (resources != null) {
+      for (MetricResource item : resources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -201,6 +214,11 @@ public class MetricSeries {
 
   public void setResources(List<MetricResource> resources) {
     this.resources = resources;
+    if (resources != null) {
+      for (MetricResource item : resources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MetricSeries sourceTypeName(String sourceTypeName) {

@@ -64,6 +64,9 @@ public class DueDateRuleDataCreate {
 
   public void setAttributes(DueDateRuleAttributesCreate attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DueDateRuleDataCreate type(DueDateRuleType type) {

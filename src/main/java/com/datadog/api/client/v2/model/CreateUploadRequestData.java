@@ -58,6 +58,9 @@ public class CreateUploadRequestData {
 
   public void setAttributes(CreateUploadRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateUploadRequestData type(CreateUploadRequestDataType type) {

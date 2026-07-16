@@ -35,6 +35,9 @@ public class RelationshipToIncidentUserDefinedFields {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<RelationshipToIncidentUserDefinedFieldData> data) {
     this.data = data;
+    for (RelationshipToIncidentUserDefinedFieldData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RelationshipToIncidentUserDefinedFields data(
@@ -66,6 +69,11 @@ public class RelationshipToIncidentUserDefinedFields {
 
   public void setData(List<RelationshipToIncidentUserDefinedFieldData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToIncidentUserDefinedFieldData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

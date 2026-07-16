@@ -45,6 +45,9 @@ public class ContainerGroupRelationships {
 
   public void setContainers(ContainerGroupRelationshipsLink containers) {
     this.containers = containers;
+    if (containers != null) {
+      this.unparsed |= containers.unparsed;
+    }
   }
 
   /**

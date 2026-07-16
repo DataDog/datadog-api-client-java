@@ -44,6 +44,9 @@ public class MaintenanceArray {
   public MaintenanceArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<MaintenanceData> data) {
     this.data = data;
+    for (MaintenanceData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MaintenanceArray data(List<MaintenanceData> data) {
@@ -73,12 +76,19 @@ public class MaintenanceArray {
 
   public void setData(List<MaintenanceData> data) {
     this.data = data;
+    if (data != null) {
+      for (MaintenanceData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MaintenanceArray included(List<DegradationIncluded> included) {
     this.included = included;
-    for (DegradationIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (DegradationIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -107,6 +117,11 @@ public class MaintenanceArray {
 
   public void setIncluded(List<DegradationIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (DegradationIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

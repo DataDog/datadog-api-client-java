@@ -71,6 +71,9 @@ public class ScannedAssetMetadataAttributes {
 
   public void setAsset(ScannedAssetMetadataAsset asset) {
     this.asset = asset;
+    if (asset != null) {
+      this.unparsed |= asset.unparsed;
+    }
   }
 
   public ScannedAssetMetadataAttributes firstSuccessTimestamp(String firstSuccessTimestamp) {
@@ -112,6 +115,9 @@ public class ScannedAssetMetadataAttributes {
 
   public void setLastSuccess(ScannedAssetMetadataLastSuccess lastSuccess) {
     this.lastSuccess = lastSuccess;
+    if (lastSuccess != null) {
+      this.unparsed |= lastSuccess.unparsed;
+    }
   }
 
   /**

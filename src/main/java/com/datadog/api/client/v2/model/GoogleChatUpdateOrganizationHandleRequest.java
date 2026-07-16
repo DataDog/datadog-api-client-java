@@ -67,6 +67,9 @@ public class GoogleChatUpdateOrganizationHandleRequest {
 
   public void setData(GoogleChatUpdateOrganizationHandleRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public GoogleChatUpdateOrganizationHandleRequest type(GoogleChatOrganizationHandleType type) {

@@ -64,6 +64,9 @@ public class FreshserviceIntegration {
 
   public void setCredentials(FreshserviceCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public FreshserviceIntegration type(FreshserviceIntegrationType type) {

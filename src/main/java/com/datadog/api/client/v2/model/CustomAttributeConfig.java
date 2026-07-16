@@ -61,6 +61,9 @@ public class CustomAttributeConfig {
 
   public void setAttributes(CustomAttributeConfigResourceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomAttributeConfig id(String id) {

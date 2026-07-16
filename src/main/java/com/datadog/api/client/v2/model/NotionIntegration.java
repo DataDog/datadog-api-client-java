@@ -64,6 +64,9 @@ public class NotionIntegration {
 
   public void setCredentials(NotionCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public NotionIntegration type(NotionIntegrationType type) {

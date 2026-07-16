@@ -57,6 +57,9 @@ public class CaseBulkUpdateRequest {
 
   public void setData(CaseBulkUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

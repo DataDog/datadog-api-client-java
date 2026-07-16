@@ -29,8 +29,10 @@ public class BillingDimensionsMappingResponse {
 
   public BillingDimensionsMappingResponse data(List<BillingDimensionsMappingBodyItem> data) {
     this.data = data;
-    for (BillingDimensionsMappingBodyItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (BillingDimensionsMappingBodyItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class BillingDimensionsMappingResponse {
 
   public void setData(List<BillingDimensionsMappingBodyItem> data) {
     this.data = data;
+    if (data != null) {
+      for (BillingDimensionsMappingBodyItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

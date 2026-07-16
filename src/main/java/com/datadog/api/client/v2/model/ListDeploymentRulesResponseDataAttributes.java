@@ -30,8 +30,10 @@ public class ListDeploymentRulesResponseDataAttributes {
   public ListDeploymentRulesResponseDataAttributes rules(
       List<DeploymentRuleResponseDataAttributes> rules) {
     this.rules = rules;
-    for (DeploymentRuleResponseDataAttributes item : rules) {
-      this.unparsed |= item.unparsed;
+    if (rules != null) {
+      for (DeploymentRuleResponseDataAttributes item : rules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class ListDeploymentRulesResponseDataAttributes {
 
   public void setRules(List<DeploymentRuleResponseDataAttributes> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (DeploymentRuleResponseDataAttributes item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -291,6 +291,9 @@ public class ObservabilityPipelineHttpClientSource {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineHttpClientSource tokenKey(String tokenKey) {

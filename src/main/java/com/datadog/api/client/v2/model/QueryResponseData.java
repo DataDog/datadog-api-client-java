@@ -65,6 +65,9 @@ public class QueryResponseData {
 
   public void setAttributes(QueryResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public QueryResponseData id(String id) {

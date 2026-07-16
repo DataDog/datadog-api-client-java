@@ -45,6 +45,9 @@ public class V2EventResponse {
 
   public void setData(V2Event data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

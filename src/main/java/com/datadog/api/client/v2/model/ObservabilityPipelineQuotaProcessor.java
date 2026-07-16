@@ -256,6 +256,9 @@ public class ObservabilityPipelineQuotaProcessor {
 
   public void setLimit(ObservabilityPipelineQuotaProcessorLimit limit) {
     this.limit = limit;
+    if (limit != null) {
+      this.unparsed |= limit.unparsed;
+    }
   }
 
   public ObservabilityPipelineQuotaProcessor name(String name) {
@@ -309,8 +312,10 @@ public class ObservabilityPipelineQuotaProcessor {
   public ObservabilityPipelineQuotaProcessor overrides(
       List<ObservabilityPipelineQuotaProcessorOverride> overrides) {
     this.overrides = overrides;
-    for (ObservabilityPipelineQuotaProcessorOverride item : overrides) {
-      this.unparsed |= item.unparsed;
+    if (overrides != null) {
+      for (ObservabilityPipelineQuotaProcessorOverride item : overrides) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -340,6 +345,11 @@ public class ObservabilityPipelineQuotaProcessor {
 
   public void setOverrides(List<ObservabilityPipelineQuotaProcessorOverride> overrides) {
     this.overrides = overrides;
+    if (overrides != null) {
+      for (ObservabilityPipelineQuotaProcessorOverride item : overrides) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineQuotaProcessor partitionFields(List<String> partitionFields) {

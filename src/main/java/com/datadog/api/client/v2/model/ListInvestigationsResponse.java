@@ -49,6 +49,9 @@ public class ListInvestigationsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_META)
           ListInvestigationsResponseMeta meta) {
     this.data = data;
+    for (ListInvestigationsResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.links = links;
     this.unparsed |= links.unparsed;
     this.meta = meta;
@@ -82,6 +85,11 @@ public class ListInvestigationsResponse {
 
   public void setData(List<ListInvestigationsResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (ListInvestigationsResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListInvestigationsResponse links(ListInvestigationsResponseLinks links) {
@@ -103,6 +111,9 @@ public class ListInvestigationsResponse {
 
   public void setLinks(ListInvestigationsResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListInvestigationsResponse meta(ListInvestigationsResponseMeta meta) {
@@ -124,6 +135,9 @@ public class ListInvestigationsResponse {
 
   public void setMeta(ListInvestigationsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

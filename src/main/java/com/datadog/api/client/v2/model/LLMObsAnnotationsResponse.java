@@ -55,6 +55,9 @@ public class LLMObsAnnotationsResponse {
 
   public void setData(LLMObsAnnotationsDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -56,8 +56,10 @@ public class MetricTagConfigurationAttributes {
 
   public MetricTagConfigurationAttributes aggregations(List<MetricCustomAggregation> aggregations) {
     this.aggregations = aggregations;
-    for (MetricCustomAggregation item : aggregations) {
-      this.unparsed |= item.unparsed;
+    if (aggregations != null) {
+      for (MetricCustomAggregation item : aggregations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -87,6 +89,11 @@ public class MetricTagConfigurationAttributes {
 
   public void setAggregations(List<MetricCustomAggregation> aggregations) {
     this.aggregations = aggregations;
+    if (aggregations != null) {
+      for (MetricCustomAggregation item : aggregations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MetricTagConfigurationAttributes createdAt(OffsetDateTime createdAt) {

@@ -73,6 +73,9 @@ public class MonitorConfigPolicyEditData {
 
   public void setAttributes(MonitorConfigPolicyAttributeEditRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorConfigPolicyEditData id(String id) {

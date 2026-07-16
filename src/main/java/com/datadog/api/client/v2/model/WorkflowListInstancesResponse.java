@@ -35,8 +35,10 @@ public class WorkflowListInstancesResponse {
 
   public WorkflowListInstancesResponse data(List<WorkflowInstanceListItem> data) {
     this.data = data;
-    for (WorkflowInstanceListItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (WorkflowInstanceListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class WorkflowListInstancesResponse {
 
   public void setData(List<WorkflowInstanceListItem> data) {
     this.data = data;
+    if (data != null) {
+      for (WorkflowInstanceListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public WorkflowListInstancesResponse meta(WorkflowListInstancesResponseMeta meta) {
@@ -86,6 +93,9 @@ public class WorkflowListInstancesResponse {
 
   public void setMeta(WorkflowListInstancesResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class RevertCustomRuleRevisionRequestData {
 
   public void setAttributes(RevertCustomRuleRevisionRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RevertCustomRuleRevisionRequestData id(String id) {

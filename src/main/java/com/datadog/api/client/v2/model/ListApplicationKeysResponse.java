@@ -39,8 +39,10 @@ public class ListApplicationKeysResponse {
 
   public ListApplicationKeysResponse data(List<PartialApplicationKey> data) {
     this.data = data;
-    for (PartialApplicationKey item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (PartialApplicationKey item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,12 +70,19 @@ public class ListApplicationKeysResponse {
 
   public void setData(List<PartialApplicationKey> data) {
     this.data = data;
+    if (data != null) {
+      for (PartialApplicationKey item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListApplicationKeysResponse included(List<ApplicationKeyResponseIncludedItem> included) {
     this.included = included;
-    for (ApplicationKeyResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ApplicationKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -102,6 +111,11 @@ public class ListApplicationKeysResponse {
 
   public void setIncluded(List<ApplicationKeyResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (ApplicationKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListApplicationKeysResponse meta(ApplicationKeyResponseMeta meta) {
@@ -124,6 +138,9 @@ public class ListApplicationKeysResponse {
 
   public void setMeta(ApplicationKeyResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

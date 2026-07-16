@@ -51,6 +51,9 @@ public class RestrictionQueryUpdateData {
 
   public void setAttributes(RestrictionQueryUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RestrictionQueryUpdateData type(LogsRestrictionQueriesType type) {

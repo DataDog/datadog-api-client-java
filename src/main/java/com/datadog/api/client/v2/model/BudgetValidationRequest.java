@@ -46,6 +46,9 @@ public class BudgetValidationRequest {
 
   public void setData(BudgetValidationRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

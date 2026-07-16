@@ -54,6 +54,9 @@ public class AttachCaseRequestDataRelationships {
 
   public void setFindings(Findings findings) {
     this.findings = findings;
+    if (findings != null) {
+      this.unparsed |= findings.unparsed;
+    }
   }
 
   /**

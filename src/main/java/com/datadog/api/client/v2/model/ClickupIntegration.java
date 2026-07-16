@@ -64,6 +64,9 @@ public class ClickupIntegration {
 
   public void setCredentials(ClickupCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public ClickupIntegration type(ClickupIntegrationType type) {

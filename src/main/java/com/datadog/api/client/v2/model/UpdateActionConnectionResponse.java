@@ -45,6 +45,9 @@ public class UpdateActionConnectionResponse {
 
   public void setData(ActionConnectionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

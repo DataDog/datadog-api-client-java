@@ -73,6 +73,9 @@ public class SharedDashboardIncludedDashboard {
 
   public void setAttributes(SharedDashboardIncludedDashboardAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SharedDashboardIncludedDashboard id(String id) {

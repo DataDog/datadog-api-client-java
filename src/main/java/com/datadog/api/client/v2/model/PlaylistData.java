@@ -68,6 +68,9 @@ public class PlaylistData {
 
   public void setAttributes(PlaylistDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PlaylistData id(String id) {

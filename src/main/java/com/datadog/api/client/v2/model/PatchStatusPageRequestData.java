@@ -71,6 +71,9 @@ public class PatchStatusPageRequestData {
 
   public void setAttributes(PatchStatusPageRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PatchStatusPageRequestData id(UUID id) {

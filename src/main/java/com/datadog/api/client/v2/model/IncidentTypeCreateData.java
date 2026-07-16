@@ -64,6 +64,9 @@ public class IncidentTypeCreateData {
 
   public void setAttributes(IncidentTypeAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentTypeCreateData type(IncidentTypeType type) {

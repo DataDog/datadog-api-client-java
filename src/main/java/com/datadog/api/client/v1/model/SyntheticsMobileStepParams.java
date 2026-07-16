@@ -169,6 +169,9 @@ public class SyntheticsMobileStepParams {
 
   public void setElement(SyntheticsMobileStepParamsElement element) {
     this.element = element;
+    if (element != null) {
+      this.unparsed |= element.unparsed;
+    }
   }
 
   public SyntheticsMobileStepParams enabled(Boolean enabled) {
@@ -216,8 +219,10 @@ public class SyntheticsMobileStepParams {
   public SyntheticsMobileStepParams positions(
       List<SyntheticsMobileStepParamsPositionsItems> positions) {
     this.positions = positions;
-    for (SyntheticsMobileStepParamsPositionsItems item : positions) {
-      this.unparsed |= item.unparsed;
+    if (positions != null) {
+      for (SyntheticsMobileStepParamsPositionsItems item : positions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -246,6 +251,11 @@ public class SyntheticsMobileStepParams {
 
   public void setPositions(List<SyntheticsMobileStepParamsPositionsItems> positions) {
     this.positions = positions;
+    if (positions != null) {
+      for (SyntheticsMobileStepParamsPositionsItems item : positions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsMobileStepParams subtestPublicId(String subtestPublicId) {
@@ -289,6 +299,9 @@ public class SyntheticsMobileStepParams {
 
   public void setValue(SyntheticsMobileStepParamsValue value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   public SyntheticsMobileStepParams variable(SyntheticsMobileStepParamsVariable variable) {
@@ -311,6 +324,9 @@ public class SyntheticsMobileStepParams {
 
   public void setVariable(SyntheticsMobileStepParamsVariable variable) {
     this.variable = variable;
+    if (variable != null) {
+      this.unparsed |= variable.unparsed;
+    }
   }
 
   public SyntheticsMobileStepParams withEnter(Boolean withEnter) {

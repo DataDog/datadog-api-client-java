@@ -80,6 +80,9 @@ public class SyntheticsTestUptime {
 
   public void setOverall(SyntheticsUptime overall) {
     this.overall = overall;
+    if (overall != null) {
+      this.unparsed |= overall.unparsed;
+    }
   }
 
   public SyntheticsTestUptime publicId(String publicId) {

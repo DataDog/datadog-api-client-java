@@ -71,6 +71,9 @@ public class IncidentImpactResponseData {
 
   public void setAttributes(IncidentImpactAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentImpactResponseData id(String id) {
@@ -113,6 +116,9 @@ public class IncidentImpactResponseData {
 
   public void setRelationships(IncidentImpactRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentImpactResponseData type(IncidentImpactType type) {

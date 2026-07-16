@@ -54,6 +54,9 @@ public class ModelLabFacetValuesResponse {
 
   public void setData(ModelLabFacetValuesData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

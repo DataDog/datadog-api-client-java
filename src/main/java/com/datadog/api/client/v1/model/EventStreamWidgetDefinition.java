@@ -182,6 +182,9 @@ public class EventStreamWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public EventStreamWidgetDefinition title(String title) {

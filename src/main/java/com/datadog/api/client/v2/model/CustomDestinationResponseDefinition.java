@@ -56,6 +56,9 @@ public class CustomDestinationResponseDefinition {
 
   public void setAttributes(CustomDestinationResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

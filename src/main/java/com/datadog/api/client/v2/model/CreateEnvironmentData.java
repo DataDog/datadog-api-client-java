@@ -64,6 +64,9 @@ public class CreateEnvironmentData {
 
   public void setAttributes(CreateEnvironmentAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateEnvironmentData type(CreateEnvironmentDataType type) {

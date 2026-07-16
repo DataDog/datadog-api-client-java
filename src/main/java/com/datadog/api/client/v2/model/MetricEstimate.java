@@ -55,6 +55,9 @@ public class MetricEstimate {
 
   public void setAttributes(MetricEstimateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricEstimate id(String id) {

@@ -43,8 +43,10 @@ public class ListEntityCatalogResponse {
 
   public ListEntityCatalogResponse data(List<EntityData> data) {
     this.data = data;
-    for (EntityData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EntityData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -72,12 +74,19 @@ public class ListEntityCatalogResponse {
 
   public void setData(List<EntityData> data) {
     this.data = data;
+    if (data != null) {
+      for (EntityData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListEntityCatalogResponse included(List<ListEntityCatalogResponseIncludedItem> included) {
     this.included = included;
-    for (ListEntityCatalogResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ListEntityCatalogResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -106,6 +115,11 @@ public class ListEntityCatalogResponse {
 
   public void setIncluded(List<ListEntityCatalogResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (ListEntityCatalogResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListEntityCatalogResponse links(ListEntityCatalogResponseLinks links) {
@@ -128,6 +142,9 @@ public class ListEntityCatalogResponse {
 
   public void setLinks(ListEntityCatalogResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListEntityCatalogResponse meta(EntityResponseMeta meta) {
@@ -150,6 +167,9 @@ public class ListEntityCatalogResponse {
 
   public void setMeta(EntityResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

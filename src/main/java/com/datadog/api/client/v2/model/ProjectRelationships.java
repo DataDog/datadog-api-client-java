@@ -51,6 +51,9 @@ public class ProjectRelationships {
 
   public void setMemberTeam(RelationshipToTeamLinks memberTeam) {
     this.memberTeam = memberTeam;
+    if (memberTeam != null) {
+      this.unparsed |= memberTeam.unparsed;
+    }
   }
 
   public ProjectRelationships memberUser(UsersRelationship memberUser) {
@@ -73,6 +76,9 @@ public class ProjectRelationships {
 
   public void setMemberUser(UsersRelationship memberUser) {
     this.memberUser = memberUser;
+    if (memberUser != null) {
+      this.unparsed |= memberUser.unparsed;
+    }
   }
 
   /**

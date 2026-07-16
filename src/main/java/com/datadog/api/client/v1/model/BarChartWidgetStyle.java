@@ -55,6 +55,9 @@ public class BarChartWidgetStyle {
 
   public void setDisplay(BarChartWidgetDisplay display) {
     this.display = display;
+    if (display != null) {
+      this.unparsed |= display.unparsed;
+    }
   }
 
   public BarChartWidgetStyle palette(String palette) {

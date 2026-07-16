@@ -45,6 +45,9 @@ public class AiCustomRulesetUpdateRequest {
 
   public void setData(AiCustomRulesetUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

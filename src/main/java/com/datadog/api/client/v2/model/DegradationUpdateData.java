@@ -71,6 +71,9 @@ public class DegradationUpdateData {
 
   public void setAttributes(DegradationUpdateDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DegradationUpdateData id(String id) {
@@ -114,6 +117,9 @@ public class DegradationUpdateData {
 
   public void setRelationships(DegradationUpdateDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public DegradationUpdateData type(PatchDegradationUpdateRequestDataType type) {

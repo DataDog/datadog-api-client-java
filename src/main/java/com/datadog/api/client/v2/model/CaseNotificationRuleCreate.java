@@ -66,6 +66,9 @@ public class CaseNotificationRuleCreate {
 
   public void setAttributes(CaseNotificationRuleCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseNotificationRuleCreate type(CaseNotificationRuleResourceType type) {

@@ -70,6 +70,9 @@ public class LLMObsDatasetDataResponse {
 
   public void setAttributes(LLMObsDatasetDataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDatasetDataResponse id(String id) {

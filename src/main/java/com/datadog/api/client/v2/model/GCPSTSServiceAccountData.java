@@ -51,6 +51,9 @@ public class GCPSTSServiceAccountData {
 
   public void setAttributes(GCPSTSServiceAccountAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GCPSTSServiceAccountData type(GCPServiceAccountType type) {

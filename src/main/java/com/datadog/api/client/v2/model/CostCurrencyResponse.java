@@ -37,6 +37,9 @@ public class CostCurrencyResponse {
   public CostCurrencyResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CostCurrency> data) {
     this.data = data;
+    for (CostCurrency item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CostCurrencyResponse data(List<CostCurrency> data) {
@@ -66,6 +69,11 @@ public class CostCurrencyResponse {
 
   public void setData(List<CostCurrency> data) {
     this.data = data;
+    if (data != null) {
+      for (CostCurrency item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

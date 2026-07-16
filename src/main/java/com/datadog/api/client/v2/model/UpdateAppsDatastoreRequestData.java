@@ -66,6 +66,9 @@ public class UpdateAppsDatastoreRequestData {
 
   public void setAttributes(UpdateAppsDatastoreRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateAppsDatastoreRequestData id(String id) {

@@ -113,6 +113,9 @@ public class MicrosoftSentinelDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public MicrosoftSentinelDestination clientId(String clientId) {

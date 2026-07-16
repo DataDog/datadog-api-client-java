@@ -29,8 +29,10 @@ public class WebIntegrationAccountsResponse {
 
   public WebIntegrationAccountsResponse data(List<WebIntegrationAccountResponseData> data) {
     this.data = data;
-    for (WebIntegrationAccountResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (WebIntegrationAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class WebIntegrationAccountsResponse {
 
   public void setData(List<WebIntegrationAccountResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (WebIntegrationAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

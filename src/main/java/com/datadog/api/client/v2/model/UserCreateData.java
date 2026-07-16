@@ -68,6 +68,9 @@ public class UserCreateData {
 
   public void setAttributes(UserCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UserCreateData relationships(UserRelationships relationships) {
@@ -90,6 +93,9 @@ public class UserCreateData {
 
   public void setRelationships(UserRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public UserCreateData type(UsersType type) {

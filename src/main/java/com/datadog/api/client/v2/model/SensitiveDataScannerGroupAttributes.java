@@ -90,6 +90,9 @@ public class SensitiveDataScannerGroupAttributes {
 
   public void setFilter(SensitiveDataScannerFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public SensitiveDataScannerGroupAttributes isEnabled(Boolean isEnabled) {
@@ -169,8 +172,10 @@ public class SensitiveDataScannerGroupAttributes {
   public SensitiveDataScannerGroupAttributes samplings(
       List<SensitiveDataScannerSamplings> samplings) {
     this.samplings = samplings;
-    for (SensitiveDataScannerSamplings item : samplings) {
-      this.unparsed |= item.unparsed;
+    if (samplings != null) {
+      for (SensitiveDataScannerSamplings item : samplings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -199,6 +204,11 @@ public class SensitiveDataScannerGroupAttributes {
 
   public void setSamplings(List<SensitiveDataScannerSamplings> samplings) {
     this.samplings = samplings;
+    if (samplings != null) {
+      for (SensitiveDataScannerSamplings item : samplings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

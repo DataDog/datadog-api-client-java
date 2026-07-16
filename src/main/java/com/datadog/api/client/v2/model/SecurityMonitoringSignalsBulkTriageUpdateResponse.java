@@ -70,6 +70,9 @@ public class SecurityMonitoringSignalsBulkTriageUpdateResponse {
 
   public void setResult(SecurityMonitoringSignalsBulkTriageUpdateResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalsBulkTriageUpdateResponse status(String status) {

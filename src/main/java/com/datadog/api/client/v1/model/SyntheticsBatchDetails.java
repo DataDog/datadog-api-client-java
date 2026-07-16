@@ -45,6 +45,9 @@ public class SyntheticsBatchDetails {
 
   public void setData(SyntheticsBatchDetailsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

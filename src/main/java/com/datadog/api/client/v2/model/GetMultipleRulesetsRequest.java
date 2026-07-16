@@ -46,6 +46,9 @@ public class GetMultipleRulesetsRequest {
 
   public void setData(GetMultipleRulesetsRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -47,8 +47,10 @@ public class SyntheticsTestVersionDiffPatches {
 
   public SyntheticsTestVersionDiffPatches diffs(List<SyntheticsTestVersionDiffPatchDiff> diffs) {
     this.diffs = diffs;
-    for (SyntheticsTestVersionDiffPatchDiff item : diffs) {
-      this.unparsed |= item.unparsed;
+    if (diffs != null) {
+      for (SyntheticsTestVersionDiffPatchDiff item : diffs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -77,6 +79,11 @@ public class SyntheticsTestVersionDiffPatches {
 
   public void setDiffs(List<SyntheticsTestVersionDiffPatchDiff> diffs) {
     this.diffs = diffs;
+    if (diffs != null) {
+      for (SyntheticsTestVersionDiffPatchDiff item : diffs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestVersionDiffPatches length1(Long length1) {

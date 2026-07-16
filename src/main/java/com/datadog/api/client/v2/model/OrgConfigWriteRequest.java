@@ -54,6 +54,9 @@ public class OrgConfigWriteRequest {
 
   public void setData(OrgConfigWrite data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

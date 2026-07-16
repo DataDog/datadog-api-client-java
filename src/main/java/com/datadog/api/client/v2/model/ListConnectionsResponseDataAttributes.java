@@ -33,8 +33,10 @@ public class ListConnectionsResponseDataAttributes {
   public ListConnectionsResponseDataAttributes connections(
       List<ListConnectionsResponseDataAttributesConnectionsItems> connections) {
     this.connections = connections;
-    for (ListConnectionsResponseDataAttributesConnectionsItems item : connections) {
-      this.unparsed |= item.unparsed;
+    if (connections != null) {
+      for (ListConnectionsResponseDataAttributesConnectionsItems item : connections) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class ListConnectionsResponseDataAttributes {
   public void setConnections(
       List<ListConnectionsResponseDataAttributesConnectionsItems> connections) {
     this.connections = connections;
+    if (connections != null) {
+      for (ListConnectionsResponseDataAttributesConnectionsItems item : connections) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

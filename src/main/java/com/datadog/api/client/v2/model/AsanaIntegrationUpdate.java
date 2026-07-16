@@ -61,6 +61,9 @@ public class AsanaIntegrationUpdate {
 
   public void setCredentials(AsanaCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public AsanaIntegrationUpdate type(AsanaIntegrationType type) {

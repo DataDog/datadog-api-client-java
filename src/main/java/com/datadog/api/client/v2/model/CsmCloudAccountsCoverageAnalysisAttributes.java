@@ -63,6 +63,9 @@ public class CsmCloudAccountsCoverageAnalysisAttributes {
 
   public void setAwsCoverage(CsmCoverageAnalysis awsCoverage) {
     this.awsCoverage = awsCoverage;
+    if (awsCoverage != null) {
+      this.unparsed |= awsCoverage.unparsed;
+    }
   }
 
   public CsmCloudAccountsCoverageAnalysisAttributes azureCoverage(
@@ -86,6 +89,9 @@ public class CsmCloudAccountsCoverageAnalysisAttributes {
 
   public void setAzureCoverage(CsmCoverageAnalysis azureCoverage) {
     this.azureCoverage = azureCoverage;
+    if (azureCoverage != null) {
+      this.unparsed |= azureCoverage.unparsed;
+    }
   }
 
   public CsmCloudAccountsCoverageAnalysisAttributes gcpCoverage(CsmCoverageAnalysis gcpCoverage) {
@@ -108,6 +114,9 @@ public class CsmCloudAccountsCoverageAnalysisAttributes {
 
   public void setGcpCoverage(CsmCoverageAnalysis gcpCoverage) {
     this.gcpCoverage = gcpCoverage;
+    if (gcpCoverage != null) {
+      this.unparsed |= gcpCoverage.unparsed;
+    }
   }
 
   public CsmCloudAccountsCoverageAnalysisAttributes orgId(Long orgId) {
@@ -152,6 +161,9 @@ public class CsmCloudAccountsCoverageAnalysisAttributes {
 
   public void setTotalCoverage(CsmCoverageAnalysis totalCoverage) {
     this.totalCoverage = totalCoverage;
+    if (totalCoverage != null) {
+      this.unparsed |= totalCoverage.unparsed;
+    }
   }
 
   /**

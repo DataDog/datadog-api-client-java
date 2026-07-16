@@ -94,6 +94,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionRedact {
   public void setOptions(
       ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

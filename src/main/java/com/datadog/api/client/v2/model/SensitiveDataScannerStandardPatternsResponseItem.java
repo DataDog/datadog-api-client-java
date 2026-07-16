@@ -57,6 +57,9 @@ public class SensitiveDataScannerStandardPatternsResponseItem {
 
   public void setAttributes(SensitiveDataScannerStandardPatternAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SensitiveDataScannerStandardPatternsResponseItem id(String id) {

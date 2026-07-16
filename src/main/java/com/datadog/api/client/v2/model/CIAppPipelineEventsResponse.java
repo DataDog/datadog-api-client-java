@@ -39,8 +39,10 @@ public class CIAppPipelineEventsResponse {
 
   public CIAppPipelineEventsResponse data(List<CIAppPipelineEvent> data) {
     this.data = data;
-    for (CIAppPipelineEvent item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CIAppPipelineEvent item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class CIAppPipelineEventsResponse {
 
   public void setData(List<CIAppPipelineEvent> data) {
     this.data = data;
+    if (data != null) {
+      for (CIAppPipelineEvent item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CIAppPipelineEventsResponse links(CIAppResponseLinks links) {
@@ -90,6 +97,9 @@ public class CIAppPipelineEventsResponse {
 
   public void setLinks(CIAppResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public CIAppPipelineEventsResponse meta(CIAppResponseMetadataWithPagination meta) {
@@ -112,6 +122,9 @@ public class CIAppPipelineEventsResponse {
 
   public void setMeta(CIAppResponseMetadataWithPagination meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

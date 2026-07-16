@@ -75,12 +75,17 @@ public class HTTPTokenAuthUpdate {
 
   public void setBody(HTTPBody body) {
     this.body = body;
+    if (body != null) {
+      this.unparsed |= body.unparsed;
+    }
   }
 
   public HTTPTokenAuthUpdate headers(List<HTTPHeaderUpdate> headers) {
     this.headers = headers;
-    for (HTTPHeaderUpdate item : headers) {
-      this.unparsed |= item.unparsed;
+    if (headers != null) {
+      for (HTTPHeaderUpdate item : headers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -108,12 +113,19 @@ public class HTTPTokenAuthUpdate {
 
   public void setHeaders(List<HTTPHeaderUpdate> headers) {
     this.headers = headers;
+    if (headers != null) {
+      for (HTTPHeaderUpdate item : headers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HTTPTokenAuthUpdate tokens(List<HTTPTokenUpdate> tokens) {
     this.tokens = tokens;
-    for (HTTPTokenUpdate item : tokens) {
-      this.unparsed |= item.unparsed;
+    if (tokens != null) {
+      for (HTTPTokenUpdate item : tokens) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -141,6 +153,11 @@ public class HTTPTokenAuthUpdate {
 
   public void setTokens(List<HTTPTokenUpdate> tokens) {
     this.tokens = tokens;
+    if (tokens != null) {
+      for (HTTPTokenUpdate item : tokens) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HTTPTokenAuthUpdate type(HTTPTokenAuthType type) {
@@ -169,8 +186,10 @@ public class HTTPTokenAuthUpdate {
 
   public HTTPTokenAuthUpdate urlParameters(List<UrlParamUpdate> urlParameters) {
     this.urlParameters = urlParameters;
-    for (UrlParamUpdate item : urlParameters) {
-      this.unparsed |= item.unparsed;
+    if (urlParameters != null) {
+      for (UrlParamUpdate item : urlParameters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -198,6 +217,11 @@ public class HTTPTokenAuthUpdate {
 
   public void setUrlParameters(List<UrlParamUpdate> urlParameters) {
     this.urlParameters = urlParameters;
+    if (urlParameters != null) {
+      for (UrlParamUpdate item : urlParameters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

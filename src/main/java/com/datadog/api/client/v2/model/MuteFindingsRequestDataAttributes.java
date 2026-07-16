@@ -54,6 +54,9 @@ public class MuteFindingsRequestDataAttributes {
 
   public void setMute(MuteFindingsMuteAttributes mute) {
     this.mute = mute;
+    if (mute != null) {
+      this.unparsed |= mute.unparsed;
+    }
   }
 
   /**

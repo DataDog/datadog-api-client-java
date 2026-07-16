@@ -65,6 +65,9 @@ public class SensitiveDataScannerRuleUpdateRequest {
 
   public void setData(SensitiveDataScannerRuleUpdate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SensitiveDataScannerRuleUpdateRequest meta(SensitiveDataScannerMetaVersionOnly meta) {
@@ -86,6 +89,9 @@ public class SensitiveDataScannerRuleUpdateRequest {
 
   public void setMeta(SensitiveDataScannerMetaVersionOnly meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

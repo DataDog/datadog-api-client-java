@@ -74,6 +74,9 @@ public class RoleUpdateData {
 
   public void setAttributes(RoleUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RoleUpdateData id(String id) {
@@ -116,6 +119,9 @@ public class RoleUpdateData {
 
   public void setRelationships(RoleRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public RoleUpdateData type(RolesType type) {

@@ -88,6 +88,9 @@ public class LogsGrokParser {
 
   public void setGrok(LogsGrokParserRules grok) {
     this.grok = grok;
+    if (grok != null) {
+      this.unparsed |= grok.unparsed;
+    }
   }
 
   public LogsGrokParser isEnabled(Boolean isEnabled) {

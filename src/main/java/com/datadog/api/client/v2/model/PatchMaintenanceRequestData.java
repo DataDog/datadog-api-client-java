@@ -72,6 +72,9 @@ public class PatchMaintenanceRequestData {
 
   public void setAttributes(PatchMaintenanceRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PatchMaintenanceRequestData id(UUID id) {

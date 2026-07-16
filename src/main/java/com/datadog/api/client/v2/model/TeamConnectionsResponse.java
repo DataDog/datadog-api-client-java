@@ -35,8 +35,10 @@ public class TeamConnectionsResponse {
 
   public TeamConnectionsResponse data(List<TeamConnection> data) {
     this.data = data;
-    for (TeamConnection item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TeamConnection item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class TeamConnectionsResponse {
 
   public void setData(List<TeamConnection> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamConnection item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamConnectionsResponse meta(ConnectionsResponseMeta meta) {
@@ -86,6 +93,9 @@ public class TeamConnectionsResponse {
 
   public void setMeta(ConnectionsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

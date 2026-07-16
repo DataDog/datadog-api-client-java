@@ -65,6 +65,9 @@ public class LLMObsPatternsTriggerRequestData {
 
   public void setAttributes(LLMObsPatternsTriggerRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsPatternsTriggerRequestData type(LLMObsPatternsRequestType type) {

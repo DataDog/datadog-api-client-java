@@ -43,6 +43,9 @@ public class AnalysisResponseDataAttributes {
           List<AnalysisRuleResponse> ruleResponses) {
     this.errors = errors;
     this.ruleResponses = ruleResponses;
+    for (AnalysisRuleResponse item : ruleResponses) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AnalysisResponseDataAttributes errors(List<String> errors) {
@@ -98,6 +101,11 @@ public class AnalysisResponseDataAttributes {
 
   public void setRuleResponses(List<AnalysisRuleResponse> ruleResponses) {
     this.ruleResponses = ruleResponses;
+    if (ruleResponses != null) {
+      for (AnalysisRuleResponse item : ruleResponses) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

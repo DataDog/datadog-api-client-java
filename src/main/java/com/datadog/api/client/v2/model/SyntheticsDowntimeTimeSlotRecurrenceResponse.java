@@ -126,6 +126,9 @@ public class SyntheticsDowntimeTimeSlotRecurrenceResponse {
 
   public void setUntil(SyntheticsDowntimeTimeSlotDate until) {
     this.until = until;
+    if (until != null) {
+      this.unparsed |= until.unparsed;
+    }
   }
 
   public SyntheticsDowntimeTimeSlotRecurrenceResponse weekdayPositions(

@@ -32,8 +32,10 @@ public class SeatUserDataArray {
 
   public SeatUserDataArray data(List<SeatUserData> data) {
     this.data = data;
-    for (SeatUserData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SeatUserData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class SeatUserDataArray {
 
   public void setData(List<SeatUserData> data) {
     this.data = data;
+    if (data != null) {
+      for (SeatUserData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SeatUserDataArray meta(SeatUserMeta meta) {
@@ -83,6 +90,9 @@ public class SeatUserDataArray {
 
   public void setMeta(SeatUserMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

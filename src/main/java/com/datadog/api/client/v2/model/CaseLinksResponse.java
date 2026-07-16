@@ -34,6 +34,9 @@ public class CaseLinksResponse {
   public CaseLinksResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CaseLink> data) {
     this.data = data;
+    for (CaseLink item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CaseLinksResponse data(List<CaseLink> data) {
@@ -63,6 +66,11 @@ public class CaseLinksResponse {
 
   public void setData(List<CaseLink> data) {
     this.data = data;
+    if (data != null) {
+      for (CaseLink item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

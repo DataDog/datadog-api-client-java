@@ -35,8 +35,10 @@ public class ListAppVersionsResponse {
 
   public ListAppVersionsResponse data(List<AppVersion> data) {
     this.data = data;
-    for (AppVersion item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (AppVersion item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class ListAppVersionsResponse {
 
   public void setData(List<AppVersion> data) {
     this.data = data;
+    if (data != null) {
+      for (AppVersion item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListAppVersionsResponse meta(ListAppsResponseMeta meta) {
@@ -86,6 +93,9 @@ public class ListAppVersionsResponse {
 
   public void setMeta(ListAppsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

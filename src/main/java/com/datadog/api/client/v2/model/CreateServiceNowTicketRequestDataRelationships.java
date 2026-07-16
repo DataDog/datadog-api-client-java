@@ -63,6 +63,9 @@ public class CreateServiceNowTicketRequestDataRelationships {
 
   public void setFindings(Findings findings) {
     this.findings = findings;
+    if (findings != null) {
+      this.unparsed |= findings.unparsed;
+    }
   }
 
   public CreateServiceNowTicketRequestDataRelationships project(CaseManagementProject project) {
@@ -84,6 +87,9 @@ public class CreateServiceNowTicketRequestDataRelationships {
 
   public void setProject(CaseManagementProject project) {
     this.project = project;
+    if (project != null) {
+      this.unparsed |= project.unparsed;
+    }
   }
 
   /**

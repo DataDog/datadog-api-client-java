@@ -44,6 +44,9 @@ public class CaseAggregateResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_GROUPS) List<CaseAggregateGroup> groups,
       @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL) Double total) {
     this.groups = groups;
+    for (CaseAggregateGroup item : groups) {
+      this.unparsed |= item.unparsed;
+    }
     this.total = total;
   }
 
@@ -74,6 +77,11 @@ public class CaseAggregateResponseAttributes {
 
   public void setGroups(List<CaseAggregateGroup> groups) {
     this.groups = groups;
+    if (groups != null) {
+      for (CaseAggregateGroup item : groups) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CaseAggregateResponseAttributes total(Double total) {

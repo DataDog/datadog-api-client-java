@@ -74,6 +74,9 @@ public class OrgGroupMembershipBulkUpdateData {
 
   public void setAttributes(OrgGroupMembershipBulkUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupMembershipBulkUpdateData relationships(
@@ -96,6 +99,9 @@ public class OrgGroupMembershipBulkUpdateData {
 
   public void setRelationships(OrgGroupMembershipBulkUpdateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgGroupMembershipBulkUpdateData type(OrgGroupMembershipBulkUpdateType type) {

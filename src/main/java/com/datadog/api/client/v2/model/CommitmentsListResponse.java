@@ -41,6 +41,9 @@ public class CommitmentsListResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_COMMITMENTS)
           List<CommitmentsListItem> commitments) {
     this.commitments = commitments;
+    for (CommitmentsListItem item : commitments) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CommitmentsListResponse commitments(List<CommitmentsListItem> commitments) {
@@ -70,6 +73,11 @@ public class CommitmentsListResponse {
 
   public void setCommitments(List<CommitmentsListItem> commitments) {
     this.commitments = commitments;
+    if (commitments != null) {
+      for (CommitmentsListItem item : commitments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CommitmentsListResponse meta(CommitmentsListMeta meta) {
@@ -92,6 +100,9 @@ public class CommitmentsListResponse {
 
   public void setMeta(CommitmentsListMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

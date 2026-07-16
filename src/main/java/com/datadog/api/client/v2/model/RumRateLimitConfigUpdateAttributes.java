@@ -65,6 +65,9 @@ public class RumRateLimitConfigUpdateAttributes {
 
   public void setAdaptive(RumRateLimitAdaptiveConfig adaptive) {
     this.adaptive = adaptive;
+    if (adaptive != null) {
+      this.unparsed |= adaptive.unparsed;
+    }
   }
 
   public RumRateLimitConfigUpdateAttributes custom(RumRateLimitCustomConfig custom) {
@@ -87,6 +90,9 @@ public class RumRateLimitConfigUpdateAttributes {
 
   public void setCustom(RumRateLimitCustomConfig custom) {
     this.custom = custom;
+    if (custom != null) {
+      this.unparsed |= custom.unparsed;
+    }
   }
 
   public RumRateLimitConfigUpdateAttributes mode(RumRateLimitMode mode) {

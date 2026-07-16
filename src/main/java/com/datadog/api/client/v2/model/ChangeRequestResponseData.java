@@ -74,6 +74,9 @@ public class ChangeRequestResponseData {
 
   public void setAttributes(ChangeRequestResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ChangeRequestResponseData id(String id) {
@@ -116,6 +119,9 @@ public class ChangeRequestResponseData {
 
   public void setRelationships(ChangeRequestRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ChangeRequestResponseData type(ChangeRequestResourceType type) {

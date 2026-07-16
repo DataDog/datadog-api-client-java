@@ -56,6 +56,9 @@ public class PatchIncidentNotificationTemplateRequest {
 
   public void setData(IncidentNotificationTemplateUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -29,8 +29,10 @@ public class SyntheticsLocations {
 
   public SyntheticsLocations locations(List<SyntheticsLocation> locations) {
     this.locations = locations;
-    for (SyntheticsLocation item : locations) {
-      this.unparsed |= item.unparsed;
+    if (locations != null) {
+      for (SyntheticsLocation item : locations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class SyntheticsLocations {
 
   public void setLocations(List<SyntheticsLocation> locations) {
     this.locations = locations;
+    if (locations != null) {
+      for (SyntheticsLocation item : locations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

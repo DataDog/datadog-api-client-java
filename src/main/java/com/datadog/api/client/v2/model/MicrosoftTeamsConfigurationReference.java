@@ -60,6 +60,9 @@ public class MicrosoftTeamsConfigurationReference {
 
   public void setData(MicrosoftTeamsConfigurationReferenceData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -57,6 +57,9 @@ public class SecurityMonitoringSignalTriageUpdateData {
 
   public void setAttributes(SecurityMonitoringSignalTriageAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalTriageUpdateData id(String id) {

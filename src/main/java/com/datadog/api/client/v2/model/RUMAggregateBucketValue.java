@@ -79,6 +79,8 @@ public class RUMAggregateBucketValue extends AbstractOpenApiSchema {
       Object tmp = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
+      Object deserializedUnparsed = null;
+      int matchUnparsed = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
       // deserialize String
       try {
@@ -211,6 +213,9 @@ public class RUMAggregateBucketValue extends AbstractOpenApiSchema {
       RUMAggregateBucketValue ret = new RUMAggregateBucketValue();
       if (match == 1) {
         ret.setActualInstance(deserialized);
+      } else if (match == 0 && matchUnparsed == 1) {
+        ret.setActualInstance(deserializedUnparsed);
+        ret.unparsed = true;
       } else {
         Map<String, Object> res =
             new ObjectMapper()

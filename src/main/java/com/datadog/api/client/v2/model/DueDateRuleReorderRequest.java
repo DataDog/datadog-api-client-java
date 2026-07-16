@@ -35,6 +35,9 @@ public class DueDateRuleReorderRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<DueDateRuleReorderItem> data) {
     this.data = data;
+    for (DueDateRuleReorderItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DueDateRuleReorderRequest data(List<DueDateRuleReorderItem> data) {
@@ -64,6 +67,11 @@ public class DueDateRuleReorderRequest {
 
   public void setData(List<DueDateRuleReorderItem> data) {
     this.data = data;
+    if (data != null) {
+      for (DueDateRuleReorderItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

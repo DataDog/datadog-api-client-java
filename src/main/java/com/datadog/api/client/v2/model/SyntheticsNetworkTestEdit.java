@@ -64,6 +64,9 @@ public class SyntheticsNetworkTestEdit {
 
   public void setAttributes(SyntheticsNetworkTest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsNetworkTestEdit type(SyntheticsNetworkTestType type) {

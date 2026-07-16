@@ -176,6 +176,9 @@ public class DORADeploymentObjectAttributes {
 
   public void setGit(DORAGitInfoResponse git) {
     this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
   }
 
   public DORADeploymentObjectAttributes service(String service) {

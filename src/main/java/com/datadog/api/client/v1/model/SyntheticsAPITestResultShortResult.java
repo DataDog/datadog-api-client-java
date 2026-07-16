@@ -74,6 +74,9 @@ public class SyntheticsAPITestResultShortResult {
 
   public void setTimings(SyntheticsTiming timings) {
     this.timings = timings;
+    if (timings != null) {
+      this.unparsed |= timings.unparsed;
+    }
   }
 
   /**

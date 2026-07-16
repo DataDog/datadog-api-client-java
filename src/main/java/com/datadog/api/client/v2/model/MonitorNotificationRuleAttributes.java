@@ -69,6 +69,9 @@ public class MonitorNotificationRuleAttributes {
   public void setConditionalRecipients(
       MonitorNotificationRuleConditionalRecipients conditionalRecipients) {
     this.conditionalRecipients = conditionalRecipients;
+    if (conditionalRecipients != null) {
+      this.unparsed |= conditionalRecipients.unparsed;
+    }
   }
 
   public MonitorNotificationRuleAttributes filter(MonitorNotificationRuleFilter filter) {
@@ -91,6 +94,9 @@ public class MonitorNotificationRuleAttributes {
 
   public void setFilter(MonitorNotificationRuleFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public MonitorNotificationRuleAttributes name(String name) {

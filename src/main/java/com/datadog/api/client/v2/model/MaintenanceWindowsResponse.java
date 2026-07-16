@@ -34,6 +34,9 @@ public class MaintenanceWindowsResponse {
   public MaintenanceWindowsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<MaintenanceWindow> data) {
     this.data = data;
+    for (MaintenanceWindow item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public MaintenanceWindowsResponse data(List<MaintenanceWindow> data) {
@@ -63,6 +66,11 @@ public class MaintenanceWindowsResponse {
 
   public void setData(List<MaintenanceWindow> data) {
     this.data = data;
+    if (data != null) {
+      for (MaintenanceWindow item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

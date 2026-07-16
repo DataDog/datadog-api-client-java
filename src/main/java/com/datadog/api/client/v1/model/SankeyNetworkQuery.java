@@ -90,6 +90,9 @@ public class SankeyNetworkQuery {
 
   public void setCompute(SankeyNetworkQueryCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public SankeyNetworkQuery dataSource(SankeyNetworkDataSource dataSource) {
@@ -247,6 +250,9 @@ public class SankeyNetworkQuery {
 
   public void setSort(SankeyNetworkQuerySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   /** Return true if this SankeyNetworkQuery object is equal to o. */

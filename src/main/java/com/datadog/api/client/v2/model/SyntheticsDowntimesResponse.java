@@ -35,6 +35,9 @@ public class SyntheticsDowntimesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<SyntheticsDowntimeData> data) {
     this.data = data;
+    for (SyntheticsDowntimeData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SyntheticsDowntimesResponse data(List<SyntheticsDowntimeData> data) {
@@ -64,6 +67,11 @@ public class SyntheticsDowntimesResponse {
 
   public void setData(List<SyntheticsDowntimeData> data) {
     this.data = data;
+    if (data != null) {
+      for (SyntheticsDowntimeData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

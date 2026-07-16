@@ -109,6 +109,9 @@ public class AggregatedLongTasksRequestAttributes {
 
   public void setCriteria(AggregatedWaterfallPerformanceCriteria criteria) {
     this.criteria = criteria;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
   }
 
   public AggregatedLongTasksRequestAttributes filter(String filter) {

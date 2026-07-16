@@ -89,6 +89,9 @@ public class GovernanceControlMitigationDefinition {
     this.permissions = permissions;
     this.requiresAi = requiresAi;
     this.supportedParameters = supportedParameters;
+    for (GovernanceControlParameterDefinition item : supportedParameters) {
+      this.unparsed |= item.unparsed;
+    }
     this.title = title;
   }
 
@@ -303,6 +306,11 @@ public class GovernanceControlMitigationDefinition {
   public void setSupportedParameters(
       List<GovernanceControlParameterDefinition> supportedParameters) {
     this.supportedParameters = supportedParameters;
+    if (supportedParameters != null) {
+      for (GovernanceControlParameterDefinition item : supportedParameters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GovernanceControlMitigationDefinition title(String title) {

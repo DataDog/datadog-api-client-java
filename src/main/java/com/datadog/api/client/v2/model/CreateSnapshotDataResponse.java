@@ -70,6 +70,9 @@ public class CreateSnapshotDataResponse {
 
   public void setAttributes(CreateSnapshotDataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateSnapshotDataResponse id(String id) {

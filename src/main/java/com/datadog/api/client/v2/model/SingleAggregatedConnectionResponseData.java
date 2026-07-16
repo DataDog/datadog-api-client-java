@@ -57,6 +57,9 @@ public class SingleAggregatedConnectionResponseData {
 
   public void setAttributes(SingleAggregatedConnectionResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SingleAggregatedConnectionResponseData id(String id) {

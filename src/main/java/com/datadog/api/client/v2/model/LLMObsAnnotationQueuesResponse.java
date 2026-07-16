@@ -35,6 +35,9 @@ public class LLMObsAnnotationQueuesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<LLMObsAnnotationQueueDataResponse> data) {
     this.data = data;
+    for (LLMObsAnnotationQueueDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsAnnotationQueuesResponse data(List<LLMObsAnnotationQueueDataResponse> data) {
@@ -64,6 +67,11 @@ public class LLMObsAnnotationQueuesResponse {
 
   public void setData(List<LLMObsAnnotationQueueDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (LLMObsAnnotationQueueDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

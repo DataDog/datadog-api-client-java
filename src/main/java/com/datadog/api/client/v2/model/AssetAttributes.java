@@ -160,6 +160,9 @@ public class AssetAttributes {
 
   public void setOperatingSystem(AssetOperatingSystem operatingSystem) {
     this.operatingSystem = operatingSystem;
+    if (operatingSystem != null) {
+      this.unparsed |= operatingSystem.unparsed;
+    }
   }
 
   public AssetAttributes risks(AssetRisks risks) {
@@ -181,6 +184,9 @@ public class AssetAttributes {
 
   public void setRisks(AssetRisks risks) {
     this.risks = risks;
+    if (risks != null) {
+      this.unparsed |= risks.unparsed;
+    }
   }
 
   public AssetAttributes teams(List<String> teams) {
@@ -256,6 +262,9 @@ public class AssetAttributes {
 
   public void setVersion(AssetVersion version) {
     this.version = version;
+    if (version != null) {
+      this.unparsed |= version.unparsed;
+    }
   }
 
   /**

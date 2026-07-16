@@ -35,8 +35,10 @@ public class ServiceListDataAttributes {
 
   public ServiceListDataAttributes metadata(List<ServiceListDataAttributesMetadataItems> metadata) {
     this.metadata = metadata;
-    for (ServiceListDataAttributesMetadataItems item : metadata) {
-      this.unparsed |= item.unparsed;
+    if (metadata != null) {
+      for (ServiceListDataAttributesMetadataItems item : metadata) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -65,6 +67,11 @@ public class ServiceListDataAttributes {
 
   public void setMetadata(List<ServiceListDataAttributesMetadataItems> metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      for (ServiceListDataAttributesMetadataItems item : metadata) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ServiceListDataAttributes services(List<String> services) {

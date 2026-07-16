@@ -54,6 +54,9 @@ public class GetAstResponse {
 
   public void setData(GetAstResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

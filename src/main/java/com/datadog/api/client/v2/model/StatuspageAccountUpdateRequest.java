@@ -54,6 +54,9 @@ public class StatuspageAccountUpdateRequest {
 
   public void setData(StatuspageAccountUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

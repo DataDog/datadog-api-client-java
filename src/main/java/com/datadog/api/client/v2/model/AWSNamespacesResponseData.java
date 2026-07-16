@@ -68,6 +68,9 @@ public class AWSNamespacesResponseData {
 
   public void setAttributes(AWSNamespacesResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSNamespacesResponseData id(String id) {

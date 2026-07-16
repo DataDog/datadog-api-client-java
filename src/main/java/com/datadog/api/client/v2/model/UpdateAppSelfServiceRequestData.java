@@ -52,6 +52,9 @@ public class UpdateAppSelfServiceRequestData {
 
   public void setAttributes(UpdateAppSelfServiceRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateAppSelfServiceRequestData type(AppSelfServiceType type) {

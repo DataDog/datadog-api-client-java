@@ -35,8 +35,10 @@ public class AssigneeResponseMeta {
 
   public AssigneeResponseMeta failures(List<AssignmentResult> failures) {
     this.failures = failures;
-    for (AssignmentResult item : failures) {
-      this.unparsed |= item.unparsed;
+    if (failures != null) {
+      for (AssignmentResult item : failures) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,12 +66,19 @@ public class AssigneeResponseMeta {
 
   public void setFailures(List<AssignmentResult> failures) {
     this.failures = failures;
+    if (failures != null) {
+      for (AssignmentResult item : failures) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AssigneeResponseMeta warnings(List<AssignmentResult> warnings) {
     this.warnings = warnings;
-    for (AssignmentResult item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (AssignmentResult item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -98,6 +107,11 @@ public class AssigneeResponseMeta {
 
   public void setWarnings(List<AssignmentResult> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (AssignmentResult item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

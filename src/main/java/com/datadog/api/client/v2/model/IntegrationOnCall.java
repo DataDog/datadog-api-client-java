@@ -82,8 +82,10 @@ public class IntegrationOnCall {
   public IntegrationOnCall escalationQueries(
       List<IntegrationOnCallEscalationQueriesItems> escalationQueries) {
     this.escalationQueries = escalationQueries;
-    for (IntegrationOnCallEscalationQueriesItems item : escalationQueries) {
-      this.unparsed |= item.unparsed;
+    if (escalationQueries != null) {
+      for (IntegrationOnCallEscalationQueriesItems item : escalationQueries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -113,6 +115,11 @@ public class IntegrationOnCall {
   public void setEscalationQueries(
       List<IntegrationOnCallEscalationQueriesItems> escalationQueries) {
     this.escalationQueries = escalationQueries;
+    if (escalationQueries != null) {
+      for (IntegrationOnCallEscalationQueriesItems item : escalationQueries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

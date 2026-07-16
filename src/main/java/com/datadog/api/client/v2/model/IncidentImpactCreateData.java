@@ -64,6 +64,9 @@ public class IncidentImpactCreateData {
 
   public void setAttributes(IncidentImpactCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentImpactCreateData type(IncidentImpactType type) {

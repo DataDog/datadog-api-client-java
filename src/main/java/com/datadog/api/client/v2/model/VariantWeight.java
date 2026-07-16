@@ -163,6 +163,9 @@ public class VariantWeight {
 
   public void setVariant(Variant variant) {
     this.variant = variant;
+    if (variant != null) {
+      this.unparsed |= variant.unparsed;
+    }
   }
 
   public VariantWeight variantId(UUID variantId) {

@@ -65,6 +65,9 @@ public class LLMObsExperimentEventsDataRequest {
 
   public void setAttributes(LLMObsExperimentEventsDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsExperimentEventsDataRequest type(LLMObsEventType type) {

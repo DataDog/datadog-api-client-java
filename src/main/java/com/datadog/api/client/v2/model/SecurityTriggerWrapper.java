@@ -64,6 +64,9 @@ public class SecurityTriggerWrapper {
 
   public void setSecurityTrigger(SecurityTrigger securityTrigger) {
     this.securityTrigger = securityTrigger;
+    if (securityTrigger != null) {
+      this.unparsed |= securityTrigger.unparsed;
+    }
   }
 
   public SecurityTriggerWrapper startStepNames(List<String> startStepNames) {

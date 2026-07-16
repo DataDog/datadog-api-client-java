@@ -55,6 +55,9 @@ public class IncidentUserData {
 
   public void setAttributes(IncidentUserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentUserData id(String id) {

@@ -72,8 +72,10 @@ public class LLMObsInferenceMessage {
 
   public LLMObsInferenceMessage contents(List<LLMObsInferenceContent> contents) {
     this.contents = contents;
-    for (LLMObsInferenceContent item : contents) {
-      this.unparsed |= item.unparsed;
+    if (contents != null) {
+      for (LLMObsInferenceContent item : contents) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -101,6 +103,11 @@ public class LLMObsInferenceMessage {
 
   public void setContents(List<LLMObsInferenceContent> contents) {
     this.contents = contents;
+    if (contents != null) {
+      for (LLMObsInferenceContent item : contents) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsInferenceMessage id(String id) {
@@ -147,8 +154,10 @@ public class LLMObsInferenceMessage {
 
   public LLMObsInferenceMessage toolCalls(List<LLMObsInferenceToolCall> toolCalls) {
     this.toolCalls = toolCalls;
-    for (LLMObsInferenceToolCall item : toolCalls) {
-      this.unparsed |= item.unparsed;
+    if (toolCalls != null) {
+      for (LLMObsInferenceToolCall item : toolCalls) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -176,12 +185,19 @@ public class LLMObsInferenceMessage {
 
   public void setToolCalls(List<LLMObsInferenceToolCall> toolCalls) {
     this.toolCalls = toolCalls;
+    if (toolCalls != null) {
+      for (LLMObsInferenceToolCall item : toolCalls) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsInferenceMessage toolResults(List<LLMObsInferenceToolResult> toolResults) {
     this.toolResults = toolResults;
-    for (LLMObsInferenceToolResult item : toolResults) {
-      this.unparsed |= item.unparsed;
+    if (toolResults != null) {
+      for (LLMObsInferenceToolResult item : toolResults) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -209,6 +225,11 @@ public class LLMObsInferenceMessage {
 
   public void setToolResults(List<LLMObsInferenceToolResult> toolResults) {
     this.toolResults = toolResults;
+    if (toolResults != null) {
+      for (LLMObsInferenceToolResult item : toolResults) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

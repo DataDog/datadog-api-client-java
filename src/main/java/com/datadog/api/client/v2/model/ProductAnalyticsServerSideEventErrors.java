@@ -30,8 +30,10 @@ public class ProductAnalyticsServerSideEventErrors {
   public ProductAnalyticsServerSideEventErrors errors(
       List<ProductAnalyticsServerSideEventError> errors) {
     this.errors = errors;
-    for (ProductAnalyticsServerSideEventError item : errors) {
-      this.unparsed |= item.unparsed;
+    if (errors != null) {
+      for (ProductAnalyticsServerSideEventError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class ProductAnalyticsServerSideEventErrors {
 
   public void setErrors(List<ProductAnalyticsServerSideEventError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (ProductAnalyticsServerSideEventError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

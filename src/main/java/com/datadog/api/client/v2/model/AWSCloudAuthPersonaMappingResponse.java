@@ -55,6 +55,9 @@ public class AWSCloudAuthPersonaMappingResponse {
 
   public void setData(AWSCloudAuthPersonaMappingDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

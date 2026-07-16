@@ -65,6 +65,9 @@ public class LLMObsAnnotationsDataRequest {
 
   public void setAttributes(LLMObsAnnotationsDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsAnnotationsDataRequest type(LLMObsAnnotationsType type) {

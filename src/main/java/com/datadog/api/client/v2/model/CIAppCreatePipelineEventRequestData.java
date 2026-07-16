@@ -53,6 +53,9 @@ public class CIAppCreatePipelineEventRequestData {
 
   public void setAttributes(CIAppCreatePipelineEventRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CIAppCreatePipelineEventRequestData type(CIAppCreatePipelineEventRequestDataType type) {

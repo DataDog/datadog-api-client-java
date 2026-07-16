@@ -74,6 +74,9 @@ public class NotebookCellUpdateRequest {
 
   public void setAttributes(NotebookCellUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NotebookCellUpdateRequest id(String id) {

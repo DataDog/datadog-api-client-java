@@ -51,6 +51,9 @@ public class RunHistoricalJobRequestData {
 
   public void setAttributes(RunHistoricalJobRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RunHistoricalJobRequestData type(RunHistoricalJobRequestDataType type) {

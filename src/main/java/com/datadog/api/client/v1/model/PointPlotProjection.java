@@ -46,6 +46,9 @@ public class PointPlotProjection {
           List<PointPlotProjectionDimension> dimensions,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) PointPlotProjectionType type) {
     this.dimensions = dimensions;
+    for (PointPlotProjectionDimension item : dimensions) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -77,6 +80,11 @@ public class PointPlotProjection {
 
   public void setDimensions(List<PointPlotProjectionDimension> dimensions) {
     this.dimensions = dimensions;
+    if (dimensions != null) {
+      for (PointPlotProjectionDimension item : dimensions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PointPlotProjection extraColumns(List<String> extraColumns) {

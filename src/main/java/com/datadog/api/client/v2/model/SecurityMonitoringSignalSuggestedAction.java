@@ -73,6 +73,9 @@ public class SecurityMonitoringSignalSuggestedAction {
 
   public void setAttributes(SecurityMonitoringSignalSuggestedActionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalSuggestedAction id(String id) {

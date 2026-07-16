@@ -356,8 +356,10 @@ public class SearchServiceLevelObjectiveAttributes {
   public SearchServiceLevelObjectiveAttributes overallStatus(
       List<SLOOverallStatuses> overallStatus) {
     this.overallStatus = overallStatus;
-    for (SLOOverallStatuses item : overallStatus) {
-      this.unparsed |= item.unparsed;
+    if (overallStatus != null) {
+      for (SLOOverallStatuses item : overallStatus) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -386,6 +388,11 @@ public class SearchServiceLevelObjectiveAttributes {
 
   public void setOverallStatus(List<SLOOverallStatuses> overallStatus) {
     this.overallStatus = overallStatus;
+    if (overallStatus != null) {
+      for (SLOOverallStatuses item : overallStatus) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchServiceLevelObjectiveAttributes query(SearchSLOQuery query) {
@@ -495,6 +502,9 @@ public class SearchServiceLevelObjectiveAttributes {
 
   public void setStatus(SLOStatus status) {
     this.status = status;
+    if (status != null) {
+      this.unparsed |= status.unparsed;
+    }
   }
 
   public SearchServiceLevelObjectiveAttributes teamTags(List<String> teamTags) {
@@ -528,8 +538,10 @@ public class SearchServiceLevelObjectiveAttributes {
 
   public SearchServiceLevelObjectiveAttributes thresholds(List<SearchSLOThreshold> thresholds) {
     this.thresholds = thresholds;
-    for (SearchSLOThreshold item : thresholds) {
-      this.unparsed |= item.unparsed;
+    if (thresholds != null) {
+      for (SearchSLOThreshold item : thresholds) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -558,6 +570,11 @@ public class SearchServiceLevelObjectiveAttributes {
 
   public void setThresholds(List<SearchSLOThreshold> thresholds) {
     this.thresholds = thresholds;
+    if (thresholds != null) {
+      for (SearchSLOThreshold item : thresholds) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

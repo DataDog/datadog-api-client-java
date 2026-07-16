@@ -76,6 +76,9 @@ public class SecurityFindingsSearchRequestDataAttributes {
 
   public void setPage(SecurityFindingsSearchRequestPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public SecurityFindingsSearchRequestDataAttributes sort(SecurityFindingsSort sort) {

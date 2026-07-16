@@ -74,14 +74,19 @@ public class BarChartWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           BarChartWidgetDefinitionType type) {
     this.requests = requests;
+    for (BarChartWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
   public BarChartWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -109,6 +114,11 @@ public class BarChartWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public BarChartWidgetDefinition description(String description) {
@@ -159,6 +169,11 @@ public class BarChartWidgetDefinition {
 
   public void setRequests(List<BarChartWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (BarChartWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public BarChartWidgetDefinition style(BarChartWidgetStyle style) {
@@ -181,6 +196,9 @@ public class BarChartWidgetDefinition {
 
   public void setStyle(BarChartWidgetStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   public BarChartWidgetDefinition time(WidgetTime time) {
@@ -203,6 +221,9 @@ public class BarChartWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public BarChartWidgetDefinition title(String title) {

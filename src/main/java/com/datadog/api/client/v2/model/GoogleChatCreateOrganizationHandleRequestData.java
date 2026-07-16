@@ -56,6 +56,9 @@ public class GoogleChatCreateOrganizationHandleRequestData {
 
   public void setAttributes(GoogleChatCreateOrganizationHandleRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

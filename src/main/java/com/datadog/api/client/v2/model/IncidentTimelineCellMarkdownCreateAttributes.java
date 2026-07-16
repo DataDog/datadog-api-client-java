@@ -96,6 +96,9 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
 
   public void setContent(IncidentTimelineCellMarkdownCreateAttributesContent content) {
     this.content = content;
+    if (content != null) {
+      this.unparsed |= content.unparsed;
+    }
   }
 
   public IncidentTimelineCellMarkdownCreateAttributes important(Boolean important) {

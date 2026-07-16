@@ -32,8 +32,10 @@ public class MonitorOptionsCustomSchedule {
   public MonitorOptionsCustomSchedule recurrences(
       List<MonitorOptionsCustomScheduleRecurrence> recurrences) {
     this.recurrences = recurrences;
-    for (MonitorOptionsCustomScheduleRecurrence item : recurrences) {
-      this.unparsed |= item.unparsed;
+    if (recurrences != null) {
+      for (MonitorOptionsCustomScheduleRecurrence item : recurrences) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -62,6 +64,11 @@ public class MonitorOptionsCustomSchedule {
 
   public void setRecurrences(List<MonitorOptionsCustomScheduleRecurrence> recurrences) {
     this.recurrences = recurrences;
+    if (recurrences != null) {
+      for (MonitorOptionsCustomScheduleRecurrence item : recurrences) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

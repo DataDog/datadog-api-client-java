@@ -29,8 +29,10 @@ public class TeamSyncResponse {
 
   public TeamSyncResponse data(List<TeamSyncData> data) {
     this.data = data;
-    for (TeamSyncData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TeamSyncData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class TeamSyncResponse {
 
   public void setData(List<TeamSyncData> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamSyncData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

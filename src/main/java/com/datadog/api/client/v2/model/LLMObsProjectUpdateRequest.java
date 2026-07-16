@@ -55,6 +55,9 @@ public class LLMObsProjectUpdateRequest {
 
   public void setData(LLMObsProjectUpdateDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class ToplistWidgetStyle {
 
   public void setDisplay(ToplistWidgetDisplay display) {
     this.display = display;
+    if (display != null) {
+      this.unparsed |= display.unparsed;
+    }
   }
 
   public ToplistWidgetStyle palette(String palette) {

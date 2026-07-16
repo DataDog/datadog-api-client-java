@@ -76,6 +76,9 @@ public class GeomapWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GeomapWidgetDefinitionType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_VIEW) GeomapWidgetDefinitionView view) {
     this.requests = requests;
+    for (GeomapWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.style = style;
     this.unparsed |= style.unparsed;
     this.type = type;
@@ -86,8 +89,10 @@ public class GeomapWidgetDefinition {
 
   public GeomapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -115,6 +120,11 @@ public class GeomapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GeomapWidgetDefinition description(String description) {
@@ -169,6 +179,11 @@ public class GeomapWidgetDefinition {
 
   public void setRequests(List<GeomapWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (GeomapWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GeomapWidgetDefinition style(GeomapWidgetDefinitionStyle style) {
@@ -190,6 +205,9 @@ public class GeomapWidgetDefinition {
 
   public void setStyle(GeomapWidgetDefinitionStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   public GeomapWidgetDefinition time(WidgetTime time) {
@@ -212,6 +230,9 @@ public class GeomapWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public GeomapWidgetDefinition title(String title) {
@@ -324,6 +345,9 @@ public class GeomapWidgetDefinition {
 
   public void setView(GeomapWidgetDefinitionView view) {
     this.view = view;
+    if (view != null) {
+      this.unparsed |= view.unparsed;
+    }
   }
 
   /**

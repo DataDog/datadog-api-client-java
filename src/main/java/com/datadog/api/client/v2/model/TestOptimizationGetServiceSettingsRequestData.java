@@ -66,6 +66,9 @@ public class TestOptimizationGetServiceSettingsRequestData {
 
   public void setAttributes(TestOptimizationGetServiceSettingsRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TestOptimizationGetServiceSettingsRequestData type(

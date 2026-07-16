@@ -70,6 +70,9 @@ public class CostAnomalyResponseData {
 
   public void setAttributes(CostAnomaly attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CostAnomalyResponseData id(String id) {

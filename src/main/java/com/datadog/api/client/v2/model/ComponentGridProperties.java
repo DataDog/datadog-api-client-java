@@ -60,8 +60,10 @@ public class ComponentGridProperties {
 
   public ComponentGridProperties children(List<Component> children) {
     this.children = children;
-    for (Component item : children) {
-      this.unparsed |= item.unparsed;
+    if (children != null) {
+      for (Component item : children) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -89,6 +91,11 @@ public class ComponentGridProperties {
 
   public void setChildren(List<Component> children) {
     this.children = children;
+    if (children != null) {
+      for (Component item : children) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ComponentGridProperties isVisible(ComponentGridPropertiesIsVisible isVisible) {
@@ -112,6 +119,9 @@ public class ComponentGridProperties {
 
   public void setIsVisible(ComponentGridPropertiesIsVisible isVisible) {
     this.isVisible = isVisible;
+    if (isVisible != null) {
+      this.unparsed |= isVisible.unparsed;
+    }
   }
 
   /**

@@ -65,6 +65,9 @@ public class UCConfigPairData {
 
   public void setAttributes(UCConfigPairDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UCConfigPairData id(String id) {

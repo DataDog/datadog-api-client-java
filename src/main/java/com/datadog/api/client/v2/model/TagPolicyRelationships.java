@@ -48,6 +48,9 @@ public class TagPolicyRelationships {
 
   public void setScore(TagPolicyScoreRelationship score) {
     this.score = score;
+    if (score != null) {
+      this.unparsed |= score.unparsed;
+    }
   }
 
   /**

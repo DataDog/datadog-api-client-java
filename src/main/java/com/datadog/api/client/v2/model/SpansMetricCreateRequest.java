@@ -54,6 +54,9 @@ public class SpansMetricCreateRequest {
 
   public void setData(SpansMetricCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

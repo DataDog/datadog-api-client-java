@@ -34,6 +34,9 @@ public class AwsCURConfigsResponse {
   public AwsCURConfigsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AwsCURConfig> data) {
     this.data = data;
+    for (AwsCURConfig item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AwsCURConfigsResponse data(List<AwsCURConfig> data) {
@@ -63,6 +66,11 @@ public class AwsCURConfigsResponse {
 
   public void setData(List<AwsCURConfig> data) {
     this.data = data;
+    if (data != null) {
+      for (AwsCURConfig item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

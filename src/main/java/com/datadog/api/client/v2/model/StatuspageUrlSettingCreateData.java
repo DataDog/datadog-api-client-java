@@ -65,6 +65,9 @@ public class StatuspageUrlSettingCreateData {
 
   public void setAttributes(StatuspageUrlSettingCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public StatuspageUrlSettingCreateData type(StatuspageUrlSettingType type) {

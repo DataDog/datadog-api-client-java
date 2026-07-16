@@ -214,8 +214,10 @@ public class IssueCaseAttributes {
 
   public IssueCaseAttributes insights(List<IssueCaseInsight> insights) {
     this.insights = insights;
-    for (IssueCaseInsight item : insights) {
-      this.unparsed |= item.unparsed;
+    if (insights != null) {
+      for (IssueCaseInsight item : insights) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -243,6 +245,11 @@ public class IssueCaseAttributes {
 
   public void setInsights(List<IssueCaseInsight> insights) {
     this.insights = insights;
+    if (insights != null) {
+      for (IssueCaseInsight item : insights) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IssueCaseAttributes jiraIssue(IssueCaseJiraIssue jiraIssue) {
@@ -265,6 +272,9 @@ public class IssueCaseAttributes {
 
   public void setJiraIssue(IssueCaseJiraIssue jiraIssue) {
     this.jiraIssue = jiraIssue;
+    if (jiraIssue != null) {
+      this.unparsed |= jiraIssue.unparsed;
+    }
   }
 
   public IssueCaseAttributes key(String key) {
@@ -308,6 +318,9 @@ public class IssueCaseAttributes {
 
   public void setLinearIssue(IssueCaseLinearIssue linearIssue) {
     this.linearIssue = linearIssue;
+    if (linearIssue != null) {
+      this.unparsed |= linearIssue.unparsed;
+    }
   }
 
   public IssueCaseAttributes modifiedAt(OffsetDateTime modifiedAt) {

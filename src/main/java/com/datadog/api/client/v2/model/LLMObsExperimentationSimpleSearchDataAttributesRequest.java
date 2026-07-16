@@ -77,6 +77,9 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
 
   public void setContentPreview(LLMObsExperimentationContentPreview contentPreview) {
     this.contentPreview = contentPreview;
+    if (contentPreview != null) {
+      this.unparsed |= contentPreview.unparsed;
+    }
   }
 
   public LLMObsExperimentationSimpleSearchDataAttributesRequest filter(
@@ -99,6 +102,9 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
 
   public void setFilter(LLMObsExperimentationFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LLMObsExperimentationSimpleSearchDataAttributesRequest include(
@@ -122,6 +128,9 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
 
   public void setInclude(LLMObsExperimentationInclude include) {
     this.include = include;
+    if (include != null) {
+      this.unparsed |= include.unparsed;
+    }
   }
 
   public LLMObsExperimentationSimpleSearchDataAttributesRequest page(
@@ -145,13 +154,18 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
 
   public void setPage(LLMObsExperimentationNumberPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public LLMObsExperimentationSimpleSearchDataAttributesRequest sort(
       List<LLMObsExperimentationSortField> sort) {
     this.sort = sort;
-    for (LLMObsExperimentationSortField item : sort) {
-      this.unparsed |= item.unparsed;
+    if (sort != null) {
+      for (LLMObsExperimentationSortField item : sort) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -180,6 +194,11 @@ public class LLMObsExperimentationSimpleSearchDataAttributesRequest {
 
   public void setSort(List<LLMObsExperimentationSortField> sort) {
     this.sort = sort;
+    if (sort != null) {
+      for (LLMObsExperimentationSortField item : sort) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

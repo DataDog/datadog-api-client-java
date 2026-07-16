@@ -63,6 +63,9 @@ public class LLMObsInferenceTool {
 
   public void setFunction(LLMObsInferenceFunction function) {
     this.function = function;
+    if (function != null) {
+      this.unparsed |= function.unparsed;
+    }
   }
 
   public LLMObsInferenceTool type(String type) {

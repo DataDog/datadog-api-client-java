@@ -54,6 +54,9 @@ public class IncidentTypeResponse {
 
   public void setData(IncidentTypeObject data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

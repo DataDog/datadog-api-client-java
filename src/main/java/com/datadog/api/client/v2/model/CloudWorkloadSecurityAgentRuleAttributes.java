@@ -295,6 +295,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public void setCreator(CloudWorkloadSecurityAgentRuleCreatorAttributes creator) {
     this.creator = creator;
+    if (creator != null) {
+      this.unparsed |= creator.unparsed;
+    }
   }
 
   public CloudWorkloadSecurityAgentRuleAttributes defaultRule(Boolean defaultRule) {
@@ -623,6 +626,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public void setUpdater(CloudWorkloadSecurityAgentRuleUpdaterAttributes updater) {
     this.updater = updater;
+    if (updater != null) {
+      this.unparsed |= updater.unparsed;
+    }
   }
 
   public CloudWorkloadSecurityAgentRuleAttributes version(Long version) {

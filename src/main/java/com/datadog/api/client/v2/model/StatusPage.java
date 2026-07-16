@@ -50,12 +50,17 @@ public class StatusPage {
 
   public void setData(StatusPageData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public StatusPage included(List<StatusPageArrayIncluded> included) {
     this.included = included;
-    for (StatusPageArrayIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (StatusPageArrayIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -84,6 +89,11 @@ public class StatusPage {
 
   public void setIncluded(List<StatusPageArrayIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (StatusPageArrayIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

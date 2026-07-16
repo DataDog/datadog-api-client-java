@@ -70,6 +70,9 @@ public class CloudWorkloadSecurityAgentRuleUpdateData {
 
   public void setAttributes(CloudWorkloadSecurityAgentRuleUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CloudWorkloadSecurityAgentRuleUpdateData id(String id) {

@@ -65,6 +65,9 @@ public class LLMObsDataDeletionRequestData {
 
   public void setAttributes(LLMObsDataDeletionRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDataDeletionRequestData type(LLMObsDataDeletionRequestType type) {

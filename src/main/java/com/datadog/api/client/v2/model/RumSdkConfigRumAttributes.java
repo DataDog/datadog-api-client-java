@@ -108,8 +108,10 @@ public class RumSdkConfigRumAttributes {
   public RumSdkConfigRumAttributes allowedTracingUrls(
       List<RumSdkConfigTracingUrlConfig> allowedTracingUrls) {
     this.allowedTracingUrls = allowedTracingUrls;
-    for (RumSdkConfigTracingUrlConfig item : allowedTracingUrls) {
-      this.unparsed |= item.unparsed;
+    if (allowedTracingUrls != null) {
+      for (RumSdkConfigTracingUrlConfig item : allowedTracingUrls) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -138,13 +140,20 @@ public class RumSdkConfigRumAttributes {
 
   public void setAllowedTracingUrls(List<RumSdkConfigTracingUrlConfig> allowedTracingUrls) {
     this.allowedTracingUrls = allowedTracingUrls;
+    if (allowedTracingUrls != null) {
+      for (RumSdkConfigTracingUrlConfig item : allowedTracingUrls) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumSdkConfigRumAttributes allowedTrackingOrigins(
       List<RumSdkConfigMatchOption> allowedTrackingOrigins) {
     this.allowedTrackingOrigins = allowedTrackingOrigins;
-    for (RumSdkConfigMatchOption item : allowedTrackingOrigins) {
-      this.unparsed |= item.unparsed;
+    if (allowedTrackingOrigins != null) {
+      for (RumSdkConfigMatchOption item : allowedTrackingOrigins) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -173,6 +182,11 @@ public class RumSdkConfigRumAttributes {
 
   public void setAllowedTrackingOrigins(List<RumSdkConfigMatchOption> allowedTrackingOrigins) {
     this.allowedTrackingOrigins = allowedTrackingOrigins;
+    if (allowedTrackingOrigins != null) {
+      for (RumSdkConfigMatchOption item : allowedTrackingOrigins) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumSdkConfigRumAttributes applicationId(String applicationId) {
@@ -197,8 +211,10 @@ public class RumSdkConfigRumAttributes {
 
   public RumSdkConfigRumAttributes context(List<RumSdkConfigDynamicOptionPair> context) {
     this.context = context;
-    for (RumSdkConfigDynamicOptionPair item : context) {
-      this.unparsed |= item.unparsed;
+    if (context != null) {
+      for (RumSdkConfigDynamicOptionPair item : context) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -226,6 +242,11 @@ public class RumSdkConfigRumAttributes {
 
   public void setContext(List<RumSdkConfigDynamicOptionPair> context) {
     this.context = context;
+    if (context != null) {
+      for (RumSdkConfigDynamicOptionPair item : context) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumSdkConfigRumAttributes defaultPrivacyLevel(String defaultPrivacyLevel) {
@@ -396,8 +417,10 @@ public class RumSdkConfigRumAttributes {
 
   public RumSdkConfigRumAttributes user(List<RumSdkConfigDynamicOptionPair> user) {
     this.user = user;
-    for (RumSdkConfigDynamicOptionPair item : user) {
-      this.unparsed |= item.unparsed;
+    if (user != null) {
+      for (RumSdkConfigDynamicOptionPair item : user) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -425,6 +448,11 @@ public class RumSdkConfigRumAttributes {
 
   public void setUser(List<RumSdkConfigDynamicOptionPair> user) {
     this.user = user;
+    if (user != null) {
+      for (RumSdkConfigDynamicOptionPair item : user) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumSdkConfigRumAttributes version(RumSdkConfigDynamicOption version) {
@@ -447,6 +475,9 @@ public class RumSdkConfigRumAttributes {
 
   public void setVersion(RumSdkConfigDynamicOption version) {
     this.version = version;
+    if (version != null) {
+      this.unparsed |= version.unparsed;
+    }
   }
 
   /**

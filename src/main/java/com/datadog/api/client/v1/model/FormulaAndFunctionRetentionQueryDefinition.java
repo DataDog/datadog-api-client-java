@@ -83,6 +83,9 @@ public class FormulaAndFunctionRetentionQueryDefinition {
 
   public void setCompute(RetentionCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public FormulaAndFunctionRetentionQueryDefinition dataSource(RetentionDataSource dataSource) {
@@ -111,8 +114,10 @@ public class FormulaAndFunctionRetentionQueryDefinition {
 
   public FormulaAndFunctionRetentionQueryDefinition groupBy(List<RetentionGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (RetentionGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (RetentionGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -140,6 +145,11 @@ public class FormulaAndFunctionRetentionQueryDefinition {
 
   public void setGroupBy(List<RetentionGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (RetentionGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FormulaAndFunctionRetentionQueryDefinition name(String name) {
@@ -181,6 +191,9 @@ public class FormulaAndFunctionRetentionQueryDefinition {
 
   public void setSearch(RetentionSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /**

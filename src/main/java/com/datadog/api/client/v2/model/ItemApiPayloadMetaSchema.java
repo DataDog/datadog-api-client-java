@@ -35,8 +35,10 @@ public class ItemApiPayloadMetaSchema {
 
   public ItemApiPayloadMetaSchema fields(List<ItemApiPayloadMetaSchemaField> fields) {
     this.fields = fields;
-    for (ItemApiPayloadMetaSchemaField item : fields) {
-      this.unparsed |= item.unparsed;
+    if (fields != null) {
+      for (ItemApiPayloadMetaSchemaField item : fields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class ItemApiPayloadMetaSchema {
 
   public void setFields(List<ItemApiPayloadMetaSchemaField> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (ItemApiPayloadMetaSchemaField item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ItemApiPayloadMetaSchema primaryKey(String primaryKey) {

@@ -46,6 +46,9 @@ public class TeamRoutingRulesRequest {
 
   public void setData(TeamRoutingRulesRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class MetricTagConfigurationCreateRequest {
 
   public void setData(MetricTagConfigurationCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

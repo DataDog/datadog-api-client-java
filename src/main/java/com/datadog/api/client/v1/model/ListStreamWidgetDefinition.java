@@ -74,6 +74,9 @@ public class ListStreamWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ListStreamWidgetDefinitionType type) {
     this.requests = requests;
+    for (ListStreamWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -147,6 +150,11 @@ public class ListStreamWidgetDefinition {
 
   public void setRequests(List<ListStreamWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (ListStreamWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListStreamWidgetDefinition showLegend(Boolean showLegend) {
@@ -190,6 +198,9 @@ public class ListStreamWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public ListStreamWidgetDefinition title(String title) {

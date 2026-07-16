@@ -73,6 +73,9 @@ public class DeploymentGatesEvaluationResultResponseData {
 
   public void setAttributes(DeploymentGatesEvaluationResultResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeploymentGatesEvaluationResultResponseData id(String id) {

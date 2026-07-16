@@ -45,6 +45,9 @@ public class ServiceAccessTokenCreateResponse {
 
   public void setData(FullServiceAccessToken data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

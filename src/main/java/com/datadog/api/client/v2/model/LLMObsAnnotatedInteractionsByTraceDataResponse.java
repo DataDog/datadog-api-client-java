@@ -72,6 +72,9 @@ public class LLMObsAnnotatedInteractionsByTraceDataResponse {
 
   public void setAttributes(LLMObsAnnotatedInteractionsByTraceDataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsAnnotatedInteractionsByTraceDataResponse id(String id) {

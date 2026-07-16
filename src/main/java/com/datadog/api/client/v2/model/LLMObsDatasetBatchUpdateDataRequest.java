@@ -71,6 +71,9 @@ public class LLMObsDatasetBatchUpdateDataRequest {
 
   public void setAttributes(LLMObsDatasetBatchUpdateDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDatasetBatchUpdateDataRequest id(String id) {

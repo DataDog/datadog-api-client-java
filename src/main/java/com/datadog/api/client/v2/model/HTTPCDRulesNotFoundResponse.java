@@ -29,8 +29,10 @@ public class HTTPCDRulesNotFoundResponse {
 
   public HTTPCDRulesNotFoundResponse errors(List<HTTPCIAppError> errors) {
     this.errors = errors;
-    for (HTTPCIAppError item : errors) {
-      this.unparsed |= item.unparsed;
+    if (errors != null) {
+      for (HTTPCIAppError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class HTTPCDRulesNotFoundResponse {
 
   public void setErrors(List<HTTPCIAppError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (HTTPCIAppError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

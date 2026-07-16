@@ -57,6 +57,9 @@ public class NotebookMarkdownCellAttributes {
 
   public void setDefinition(NotebookMarkdownCellDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   /**

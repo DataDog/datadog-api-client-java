@@ -55,6 +55,9 @@ public class CIAppTestEvent {
 
   public void setAttributes(CIAppEventAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CIAppTestEvent id(String id) {

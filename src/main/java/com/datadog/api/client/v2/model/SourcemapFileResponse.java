@@ -54,6 +54,9 @@ public class SourcemapFileResponse {
 
   public void setData(SourcemapFileData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

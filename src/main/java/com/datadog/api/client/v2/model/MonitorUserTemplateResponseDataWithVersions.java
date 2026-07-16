@@ -56,6 +56,9 @@ public class MonitorUserTemplateResponseDataWithVersions {
 
   public void setAttributes(MonitorUserTemplate attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorUserTemplateResponseDataWithVersions id(String id) {

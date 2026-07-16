@@ -45,6 +45,9 @@ public class CreateOpenAPIResponse {
 
   public void setData(CreateOpenAPIResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

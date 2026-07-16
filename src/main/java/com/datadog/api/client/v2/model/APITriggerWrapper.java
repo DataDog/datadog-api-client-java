@@ -62,6 +62,9 @@ public class APITriggerWrapper {
 
   public void setApiTrigger(APITrigger apiTrigger) {
     this.apiTrigger = apiTrigger;
+    if (apiTrigger != null) {
+      this.unparsed |= apiTrigger.unparsed;
+    }
   }
 
   public APITriggerWrapper startStepNames(List<String> startStepNames) {

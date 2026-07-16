@@ -68,6 +68,9 @@ public class RUMApplicationList {
 
   public void setAttributes(RUMApplicationListAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RUMApplicationList id(String id) {

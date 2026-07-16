@@ -73,6 +73,9 @@ public class ChangeRequestDecisionCreateItem {
 
   public void setAttributes(ChangeRequestDecisionCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ChangeRequestDecisionCreateItem id(String id) {
@@ -116,6 +119,9 @@ public class ChangeRequestDecisionCreateItem {
 
   public void setRelationships(ChangeRequestDecisionCreateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ChangeRequestDecisionCreateItem type(ChangeRequestDecisionResourceType type) {

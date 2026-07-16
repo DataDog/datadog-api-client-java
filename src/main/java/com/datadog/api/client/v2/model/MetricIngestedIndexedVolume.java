@@ -55,6 +55,9 @@ public class MetricIngestedIndexedVolume {
 
   public void setAttributes(MetricIngestedIndexedVolumeAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricIngestedIndexedVolume id(String id) {

@@ -60,8 +60,10 @@ public class SearchSLOResponseDataAttributesFacets {
   public SearchSLOResponseDataAttributesFacets allTags(
       List<SearchSLOResponseDataAttributesFacetsObjectString> allTags) {
     this.allTags = allTags;
-    for (SearchSLOResponseDataAttributesFacetsObjectString item : allTags) {
-      this.unparsed |= item.unparsed;
+    if (allTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : allTags) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -90,13 +92,20 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setAllTags(List<SearchSLOResponseDataAttributesFacetsObjectString> allTags) {
     this.allTags = allTags;
+    if (allTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : allTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets creatorName(
       List<SearchSLOResponseDataAttributesFacetsObjectString> creatorName) {
     this.creatorName = creatorName;
-    for (SearchSLOResponseDataAttributesFacetsObjectString item : creatorName) {
-      this.unparsed |= item.unparsed;
+    if (creatorName != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : creatorName) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -125,13 +134,20 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setCreatorName(List<SearchSLOResponseDataAttributesFacetsObjectString> creatorName) {
     this.creatorName = creatorName;
+    if (creatorName != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : creatorName) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets envTags(
       List<SearchSLOResponseDataAttributesFacetsObjectString> envTags) {
     this.envTags = envTags;
-    for (SearchSLOResponseDataAttributesFacetsObjectString item : envTags) {
-      this.unparsed |= item.unparsed;
+    if (envTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : envTags) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -160,13 +176,20 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setEnvTags(List<SearchSLOResponseDataAttributesFacetsObjectString> envTags) {
     this.envTags = envTags;
+    if (envTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : envTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets serviceTags(
       List<SearchSLOResponseDataAttributesFacetsObjectString> serviceTags) {
     this.serviceTags = serviceTags;
-    for (SearchSLOResponseDataAttributesFacetsObjectString item : serviceTags) {
-      this.unparsed |= item.unparsed;
+    if (serviceTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : serviceTags) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -195,13 +218,20 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setServiceTags(List<SearchSLOResponseDataAttributesFacetsObjectString> serviceTags) {
     this.serviceTags = serviceTags;
+    if (serviceTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : serviceTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets sloType(
       List<SearchSLOResponseDataAttributesFacetsObjectInt> sloType) {
     this.sloType = sloType;
-    for (SearchSLOResponseDataAttributesFacetsObjectInt item : sloType) {
-      this.unparsed |= item.unparsed;
+    if (sloType != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectInt item : sloType) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -230,13 +260,20 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setSloType(List<SearchSLOResponseDataAttributesFacetsObjectInt> sloType) {
     this.sloType = sloType;
+    if (sloType != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectInt item : sloType) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets target(
       List<SearchSLOResponseDataAttributesFacetsObjectInt> target) {
     this.target = target;
-    for (SearchSLOResponseDataAttributesFacetsObjectInt item : target) {
-      this.unparsed |= item.unparsed;
+    if (target != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectInt item : target) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -265,13 +302,20 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setTarget(List<SearchSLOResponseDataAttributesFacetsObjectInt> target) {
     this.target = target;
+    if (target != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectInt item : target) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets teamTags(
       List<SearchSLOResponseDataAttributesFacetsObjectString> teamTags) {
     this.teamTags = teamTags;
-    for (SearchSLOResponseDataAttributesFacetsObjectString item : teamTags) {
-      this.unparsed |= item.unparsed;
+    if (teamTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : teamTags) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -300,13 +344,20 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setTeamTags(List<SearchSLOResponseDataAttributesFacetsObjectString> teamTags) {
     this.teamTags = teamTags;
+    if (teamTags != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : teamTags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SearchSLOResponseDataAttributesFacets timeframe(
       List<SearchSLOResponseDataAttributesFacetsObjectString> timeframe) {
     this.timeframe = timeframe;
-    for (SearchSLOResponseDataAttributesFacetsObjectString item : timeframe) {
-      this.unparsed |= item.unparsed;
+    if (timeframe != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : timeframe) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -335,6 +386,11 @@ public class SearchSLOResponseDataAttributesFacets {
 
   public void setTimeframe(List<SearchSLOResponseDataAttributesFacetsObjectString> timeframe) {
     this.timeframe = timeframe;
+    if (timeframe != null) {
+      for (SearchSLOResponseDataAttributesFacetsObjectString item : timeframe) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

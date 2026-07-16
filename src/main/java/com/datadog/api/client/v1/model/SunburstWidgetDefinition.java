@@ -75,14 +75,19 @@ public class SunburstWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           SunburstWidgetDefinitionType type) {
     this.requests = requests;
+    for (SunburstWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
   public SunburstWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -110,6 +115,11 @@ public class SunburstWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SunburstWidgetDefinition description(String description) {
@@ -174,6 +184,9 @@ public class SunburstWidgetDefinition {
 
   public void setLegend(SunburstWidgetLegend legend) {
     this.legend = legend;
+    if (legend != null) {
+      this.unparsed |= legend.unparsed;
+    }
   }
 
   public SunburstWidgetDefinition requests(List<SunburstWidgetRequest> requests) {
@@ -203,6 +216,11 @@ public class SunburstWidgetDefinition {
 
   public void setRequests(List<SunburstWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (SunburstWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SunburstWidgetDefinition time(WidgetTime time) {
@@ -225,6 +243,9 @@ public class SunburstWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public SunburstWidgetDefinition title(String title) {

@@ -55,6 +55,9 @@ public class RelationshipToIncidentPostmortem {
 
   public void setData(RelationshipToIncidentPostmortemData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

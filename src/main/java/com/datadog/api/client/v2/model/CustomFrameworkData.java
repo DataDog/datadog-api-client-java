@@ -64,6 +64,9 @@ public class CustomFrameworkData {
 
   public void setAttributes(CustomFrameworkDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomFrameworkData type(CustomFrameworkType type) {

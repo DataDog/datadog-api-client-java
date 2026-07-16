@@ -56,6 +56,9 @@ public class StatusPagesComponentGroupRelationshipsStatusPage {
 
   public void setData(StatusPagesComponentGroupRelationshipsStatusPageData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

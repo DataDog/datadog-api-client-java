@@ -35,8 +35,10 @@ public class SuppressionVersions {
 
   public SuppressionVersions changes(List<VersionHistoryUpdate> changes) {
     this.changes = changes;
-    for (VersionHistoryUpdate item : changes) {
-      this.unparsed |= item.unparsed;
+    if (changes != null) {
+      for (VersionHistoryUpdate item : changes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class SuppressionVersions {
 
   public void setChanges(List<VersionHistoryUpdate> changes) {
     this.changes = changes;
+    if (changes != null) {
+      for (VersionHistoryUpdate item : changes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SuppressionVersions suppression(SecurityMonitoringSuppressionAttributes suppression) {
@@ -86,6 +93,9 @@ public class SuppressionVersions {
 
   public void setSuppression(SecurityMonitoringSuppressionAttributes suppression) {
     this.suppression = suppression;
+    if (suppression != null) {
+      this.unparsed |= suppression.unparsed;
+    }
   }
 
   /**

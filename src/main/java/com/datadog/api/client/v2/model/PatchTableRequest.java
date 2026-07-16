@@ -45,6 +45,9 @@ public class PatchTableRequest {
 
   public void setData(PatchTableRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

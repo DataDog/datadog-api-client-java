@@ -45,6 +45,9 @@ public class TeamLinkResponse {
 
   public void setData(TeamLink data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

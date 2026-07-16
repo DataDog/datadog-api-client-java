@@ -55,6 +55,9 @@ public class AwsOnDemandData {
 
   public void setAttributes(AwsOnDemandAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AwsOnDemandData id(String id) {

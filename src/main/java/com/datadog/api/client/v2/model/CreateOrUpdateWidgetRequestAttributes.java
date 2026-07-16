@@ -64,6 +64,9 @@ public class CreateOrUpdateWidgetRequestAttributes {
 
   public void setDefinition(WidgetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public CreateOrUpdateWidgetRequestAttributes tags(List<String> tags) {

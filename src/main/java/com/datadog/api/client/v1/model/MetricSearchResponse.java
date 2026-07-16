@@ -45,6 +45,9 @@ public class MetricSearchResponse {
 
   public void setResults(MetricSearchResponseResults results) {
     this.results = results;
+    if (results != null) {
+      this.unparsed |= results.unparsed;
+    }
   }
 
   /**

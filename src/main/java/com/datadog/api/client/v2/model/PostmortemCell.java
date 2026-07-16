@@ -55,6 +55,9 @@ public class PostmortemCell {
 
   public void setAttributes(PostmortemCellAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PostmortemCell id(String id) {

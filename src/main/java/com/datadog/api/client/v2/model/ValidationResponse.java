@@ -29,8 +29,10 @@ public class ValidationResponse {
 
   public ValidationResponse errors(List<ValidationError> errors) {
     this.errors = errors;
-    for (ValidationError item : errors) {
-      this.unparsed |= item.unparsed;
+    if (errors != null) {
+      for (ValidationError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class ValidationResponse {
 
   public void setErrors(List<ValidationError> errors) {
     this.errors = errors;
+    if (errors != null) {
+      for (ValidationError item : errors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

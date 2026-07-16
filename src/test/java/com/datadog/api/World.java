@@ -699,10 +699,17 @@ public class World {
             try {
               result = getPropertyValue(result, toPropertyName(part));
             } catch (java.lang.NoSuchFieldException ee) {
-              // try to handle oneOf models
-              try {
-                result = result.getClass().getMethod("getActualInstance").invoke(result);
-              } catch (InvocationTargetException | NoSuchMethodException eee) {
+              // try to handle oneOf models, unwrapping nested oneOf wrappers if needed
+              boolean unwrappedAny = false;
+              while (true) {
+                try {
+                  result = result.getClass().getMethod("getActualInstance").invoke(result);
+                  unwrappedAny = true;
+                } catch (InvocationTargetException | NoSuchMethodException eee) {
+                  break;
+                }
+              }
+              if (!unwrappedAny) {
                 throw ee;
               }
 

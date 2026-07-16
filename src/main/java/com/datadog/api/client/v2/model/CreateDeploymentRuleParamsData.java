@@ -65,6 +65,9 @@ public class CreateDeploymentRuleParamsData {
 
   public void setAttributes(CreateDeploymentRuleParamsDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateDeploymentRuleParamsData type(DeploymentRuleDataType type) {

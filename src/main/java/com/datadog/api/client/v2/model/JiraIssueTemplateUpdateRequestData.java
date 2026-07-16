@@ -65,6 +65,9 @@ public class JiraIssueTemplateUpdateRequestData {
 
   public void setAttributes(JiraIssueTemplateUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public JiraIssueTemplateUpdateRequestData type(JiraIssueTemplateType type) {

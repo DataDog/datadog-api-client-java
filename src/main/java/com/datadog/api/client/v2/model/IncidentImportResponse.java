@@ -61,6 +61,9 @@ public class IncidentImportResponse {
 
   public void setData(IncidentImportResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

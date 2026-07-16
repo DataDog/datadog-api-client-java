@@ -134,6 +134,9 @@ public class AWSAccountUpdateRequestAttributes {
 
   public void setAuthConfig(AWSAuthConfig authConfig) {
     this.authConfig = authConfig;
+    if (authConfig != null) {
+      this.unparsed |= authConfig.unparsed;
+    }
   }
 
   public AWSAccountUpdateRequestAttributes awsAccountId(String awsAccountId) {
@@ -203,6 +206,9 @@ public class AWSAccountUpdateRequestAttributes {
 
   public void setAwsRegions(AWSRegions awsRegions) {
     this.awsRegions = awsRegions;
+    if (awsRegions != null) {
+      this.unparsed |= awsRegions.unparsed;
+    }
   }
 
   public AWSAccountUpdateRequestAttributes logsConfig(AWSLogsConfig logsConfig) {
@@ -225,6 +231,9 @@ public class AWSAccountUpdateRequestAttributes {
 
   public void setLogsConfig(AWSLogsConfig logsConfig) {
     this.logsConfig = logsConfig;
+    if (logsConfig != null) {
+      this.unparsed |= logsConfig.unparsed;
+    }
   }
 
   public AWSAccountUpdateRequestAttributes metricsConfig(AWSMetricsConfig metricsConfig) {
@@ -247,6 +256,9 @@ public class AWSAccountUpdateRequestAttributes {
 
   public void setMetricsConfig(AWSMetricsConfig metricsConfig) {
     this.metricsConfig = metricsConfig;
+    if (metricsConfig != null) {
+      this.unparsed |= metricsConfig.unparsed;
+    }
   }
 
   public AWSAccountUpdateRequestAttributes resourcesConfig(AWSResourcesConfig resourcesConfig) {
@@ -269,6 +281,9 @@ public class AWSAccountUpdateRequestAttributes {
 
   public void setResourcesConfig(AWSResourcesConfig resourcesConfig) {
     this.resourcesConfig = resourcesConfig;
+    if (resourcesConfig != null) {
+      this.unparsed |= resourcesConfig.unparsed;
+    }
   }
 
   public AWSAccountUpdateRequestAttributes tracesConfig(AWSTracesConfig tracesConfig) {
@@ -291,6 +306,9 @@ public class AWSAccountUpdateRequestAttributes {
 
   public void setTracesConfig(AWSTracesConfig tracesConfig) {
     this.tracesConfig = tracesConfig;
+    if (tracesConfig != null) {
+      this.unparsed |= tracesConfig.unparsed;
+    }
   }
 
   /**

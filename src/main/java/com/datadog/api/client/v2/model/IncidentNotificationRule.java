@@ -63,12 +63,17 @@ public class IncidentNotificationRule {
 
   public void setData(IncidentNotificationRuleResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public IncidentNotificationRule included(List<IncidentNotificationRuleIncludedItems> included) {
     this.included = included;
-    for (IncidentNotificationRuleIncludedItems item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentNotificationRuleIncludedItems item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -97,6 +102,11 @@ public class IncidentNotificationRule {
 
   public void setIncluded(List<IncidentNotificationRuleIncludedItems> included) {
     this.included = included;
+    if (included != null) {
+      for (IncidentNotificationRuleIncludedItems item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

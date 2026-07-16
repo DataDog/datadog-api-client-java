@@ -46,6 +46,9 @@ public class IncidentNotificationRuleArrayMeta {
 
   public void setPagination(IncidentNotificationRuleArrayMetaPage pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

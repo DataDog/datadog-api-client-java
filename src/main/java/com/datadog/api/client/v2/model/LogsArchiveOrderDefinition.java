@@ -65,6 +65,9 @@ public class LogsArchiveOrderDefinition {
 
   public void setAttributes(LogsArchiveOrderAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LogsArchiveOrderDefinition type(LogsArchiveOrderDefinitionType type) {

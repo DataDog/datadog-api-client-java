@@ -61,8 +61,11 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
   public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems componentsAffected(
       List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
-    for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
+    if (componentsAffected != null) {
+      for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item :
+          componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -93,6 +96,12 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
   public void setComponentsAffected(
       List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item :
+          componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems description(

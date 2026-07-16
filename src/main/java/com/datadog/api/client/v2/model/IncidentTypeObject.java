@@ -71,6 +71,9 @@ public class IncidentTypeObject {
 
   public void setAttributes(IncidentTypeAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentTypeObject id(String id) {
@@ -113,6 +116,9 @@ public class IncidentTypeObject {
 
   public void setRelationships(IncidentTypeRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentTypeObject type(IncidentTypeType type) {

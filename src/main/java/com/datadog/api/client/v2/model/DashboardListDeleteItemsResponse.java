@@ -31,8 +31,10 @@ public class DashboardListDeleteItemsResponse {
   public DashboardListDeleteItemsResponse deletedDashboardsFromList(
       List<DashboardListItemResponse> deletedDashboardsFromList) {
     this.deletedDashboardsFromList = deletedDashboardsFromList;
-    for (DashboardListItemResponse item : deletedDashboardsFromList) {
-      this.unparsed |= item.unparsed;
+    if (deletedDashboardsFromList != null) {
+      for (DashboardListItemResponse item : deletedDashboardsFromList) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -62,6 +64,11 @@ public class DashboardListDeleteItemsResponse {
   public void setDeletedDashboardsFromList(
       List<DashboardListItemResponse> deletedDashboardsFromList) {
     this.deletedDashboardsFromList = deletedDashboardsFromList;
+    if (deletedDashboardsFromList != null) {
+      for (DashboardListItemResponse item : deletedDashboardsFromList) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

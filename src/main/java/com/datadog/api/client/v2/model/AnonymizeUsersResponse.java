@@ -45,6 +45,9 @@ public class AnonymizeUsersResponse {
 
   public void setData(AnonymizeUsersResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

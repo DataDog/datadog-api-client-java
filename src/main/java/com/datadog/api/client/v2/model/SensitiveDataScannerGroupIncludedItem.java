@@ -61,6 +61,9 @@ public class SensitiveDataScannerGroupIncludedItem {
 
   public void setAttributes(SensitiveDataScannerGroupAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SensitiveDataScannerGroupIncludedItem id(String id) {
@@ -105,6 +108,9 @@ public class SensitiveDataScannerGroupIncludedItem {
 
   public void setRelationships(SensitiveDataScannerGroupRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SensitiveDataScannerGroupIncludedItem type(SensitiveDataScannerGroupType type) {

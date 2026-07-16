@@ -65,6 +65,9 @@ public class ChangeRequestBranchCreateData {
 
   public void setAttributes(ChangeRequestBranchCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ChangeRequestBranchCreateData type(ChangeRequestBranchResourceType type) {

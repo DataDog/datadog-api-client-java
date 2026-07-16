@@ -29,8 +29,10 @@ public class CustomRuleRevisionsResponse {
 
   public CustomRuleRevisionsResponse data(List<CustomRuleRevision> data) {
     this.data = data;
-    for (CustomRuleRevision item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CustomRuleRevision item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class CustomRuleRevisionsResponse {
 
   public void setData(List<CustomRuleRevision> data) {
     this.data = data;
+    if (data != null) {
+      for (CustomRuleRevision item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

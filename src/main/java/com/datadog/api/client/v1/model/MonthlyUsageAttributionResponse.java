@@ -53,12 +53,17 @@ public class MonthlyUsageAttributionResponse {
 
   public void setMetadata(MonthlyUsageAttributionMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public MonthlyUsageAttributionResponse usage(List<MonthlyUsageAttributionBody> usage) {
     this.usage = usage;
-    for (MonthlyUsageAttributionBody item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (MonthlyUsageAttributionBody item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -86,6 +91,11 @@ public class MonthlyUsageAttributionResponse {
 
   public void setUsage(List<MonthlyUsageAttributionBody> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (MonthlyUsageAttributionBody item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

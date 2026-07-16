@@ -35,6 +35,9 @@ public class SecurityMonitoringSignalSuggestedActionsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<SecurityMonitoringSignalSuggestedAction> data) {
     this.data = data;
+    for (SecurityMonitoringSignalSuggestedAction item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalSuggestedActionsResponse data(
@@ -66,6 +69,11 @@ public class SecurityMonitoringSignalSuggestedActionsResponse {
 
   public void setData(List<SecurityMonitoringSignalSuggestedAction> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringSignalSuggestedAction item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

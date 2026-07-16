@@ -34,6 +34,9 @@ public class ListIntegrationsResponse {
   public ListIntegrationsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Integration> data) {
     this.data = data;
+    for (Integration item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListIntegrationsResponse data(List<Integration> data) {
@@ -63,6 +66,11 @@ public class ListIntegrationsResponse {
 
   public void setData(List<Integration> data) {
     this.data = data;
+    if (data != null) {
+      for (Integration item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

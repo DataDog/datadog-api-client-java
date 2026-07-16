@@ -29,8 +29,10 @@ public class FleetAgentsResponseDataAttributes {
 
   public FleetAgentsResponseDataAttributes agents(List<FleetAgentAttributes> agents) {
     this.agents = agents;
-    for (FleetAgentAttributes item : agents) {
-      this.unparsed |= item.unparsed;
+    if (agents != null) {
+      for (FleetAgentAttributes item : agents) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class FleetAgentsResponseDataAttributes {
 
   public void setAgents(List<FleetAgentAttributes> agents) {
     this.agents = agents;
+    if (agents != null) {
+      for (FleetAgentAttributes item : agents) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

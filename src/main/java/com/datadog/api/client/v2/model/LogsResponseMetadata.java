@@ -86,6 +86,9 @@ public class LogsResponseMetadata {
 
   public void setPage(LogsResponseMetadataPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public LogsResponseMetadata requestId(String requestId) {
@@ -136,8 +139,10 @@ public class LogsResponseMetadata {
 
   public LogsResponseMetadata warnings(List<LogsWarning> warnings) {
     this.warnings = warnings;
-    for (LogsWarning item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (LogsWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -166,6 +171,11 @@ public class LogsResponseMetadata {
 
   public void setWarnings(List<LogsWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (LogsWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

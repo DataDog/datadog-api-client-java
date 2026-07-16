@@ -53,12 +53,17 @@ public class SyntheticsTestResultResponse {
 
   public void setData(SyntheticsTestResultData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SyntheticsTestResultResponse included(List<SyntheticsTestResultIncludedItem> included) {
     this.included = included;
-    for (SyntheticsTestResultIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (SyntheticsTestResultIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -87,6 +92,11 @@ public class SyntheticsTestResultResponse {
 
   public void setIncluded(List<SyntheticsTestResultIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (SyntheticsTestResultIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

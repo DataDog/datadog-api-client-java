@@ -57,6 +57,9 @@ public class MonitorConfigPolicyResponseData {
 
   public void setAttributes(MonitorConfigPolicyAttributeResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorConfigPolicyResponseData id(String id) {

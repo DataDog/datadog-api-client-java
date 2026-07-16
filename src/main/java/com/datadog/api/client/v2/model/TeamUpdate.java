@@ -68,6 +68,9 @@ public class TeamUpdate {
 
   public void setAttributes(TeamUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamUpdate relationships(TeamUpdateRelationships relationships) {
@@ -90,6 +93,9 @@ public class TeamUpdate {
 
   public void setRelationships(TeamUpdateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public TeamUpdate type(TeamType type) {

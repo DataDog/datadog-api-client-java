@@ -64,6 +64,9 @@ public class IncidentTriggerWrapper {
 
   public void setIncidentTrigger(IncidentTrigger incidentTrigger) {
     this.incidentTrigger = incidentTrigger;
+    if (incidentTrigger != null) {
+      this.unparsed |= incidentTrigger.unparsed;
+    }
   }
 
   public IncidentTriggerWrapper startStepNames(List<String> startStepNames) {

@@ -45,6 +45,9 @@ public class GetIoCIndicatorResponse {
 
   public void setData(GetIoCIndicatorResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

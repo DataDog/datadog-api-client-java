@@ -44,8 +44,10 @@ public class ProductAnalyticsAudienceFilters {
   public ProductAnalyticsAudienceFilters accounts(
       List<ProductAnalyticsAudienceAccountSubquery> accounts) {
     this.accounts = accounts;
-    for (ProductAnalyticsAudienceAccountSubquery item : accounts) {
-      this.unparsed |= item.unparsed;
+    if (accounts != null) {
+      for (ProductAnalyticsAudienceAccountSubquery item : accounts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -74,6 +76,11 @@ public class ProductAnalyticsAudienceFilters {
 
   public void setAccounts(List<ProductAnalyticsAudienceAccountSubquery> accounts) {
     this.accounts = accounts;
+    if (accounts != null) {
+      for (ProductAnalyticsAudienceAccountSubquery item : accounts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProductAnalyticsAudienceFilters filterCondition(String filterCondition) {
@@ -100,8 +107,10 @@ public class ProductAnalyticsAudienceFilters {
   public ProductAnalyticsAudienceFilters segments(
       List<ProductAnalyticsAudienceSegmentSubquery> segments) {
     this.segments = segments;
-    for (ProductAnalyticsAudienceSegmentSubquery item : segments) {
-      this.unparsed |= item.unparsed;
+    if (segments != null) {
+      for (ProductAnalyticsAudienceSegmentSubquery item : segments) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -130,12 +139,19 @@ public class ProductAnalyticsAudienceFilters {
 
   public void setSegments(List<ProductAnalyticsAudienceSegmentSubquery> segments) {
     this.segments = segments;
+    if (segments != null) {
+      for (ProductAnalyticsAudienceSegmentSubquery item : segments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ProductAnalyticsAudienceFilters users(List<ProductAnalyticsAudienceUserSubquery> users) {
     this.users = users;
-    for (ProductAnalyticsAudienceUserSubquery item : users) {
-      this.unparsed |= item.unparsed;
+    if (users != null) {
+      for (ProductAnalyticsAudienceUserSubquery item : users) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -164,6 +180,11 @@ public class ProductAnalyticsAudienceFilters {
 
   public void setUsers(List<ProductAnalyticsAudienceUserSubquery> users) {
     this.users = users;
+    if (users != null) {
+      for (ProductAnalyticsAudienceUserSubquery item : users) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

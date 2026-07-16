@@ -54,12 +54,17 @@ public class TeamRoutingRules {
 
   public void setData(TeamRoutingRulesData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public TeamRoutingRules included(List<TeamRoutingRulesIncluded> included) {
     this.included = included;
-    for (TeamRoutingRulesIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TeamRoutingRulesIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -87,6 +92,11 @@ public class TeamRoutingRules {
 
   public void setIncluded(List<TeamRoutingRulesIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (TeamRoutingRulesIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class OrgConnectionCreateRelationships {
 
   public void setSinkOrg(OrgConnectionOrgRelationship sinkOrg) {
     this.sinkOrg = sinkOrg;
+    if (sinkOrg != null) {
+      this.unparsed |= sinkOrg.unparsed;
+    }
   }
 
   /**

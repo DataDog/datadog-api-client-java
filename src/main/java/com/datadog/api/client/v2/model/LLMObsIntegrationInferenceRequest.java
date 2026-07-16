@@ -99,6 +99,9 @@ public class LLMObsIntegrationInferenceRequest {
           List<LLMObsInferenceMessage> messages,
       @JsonProperty(required = true, value = JSON_PROPERTY_MODEL_ID) String modelId) {
     this.messages = messages;
+    for (LLMObsInferenceMessage item : messages) {
+      this.unparsed |= item.unparsed;
+    }
     this.modelId = modelId;
   }
 
@@ -123,6 +126,9 @@ public class LLMObsIntegrationInferenceRequest {
 
   public void setAnthropicMetadata(LLMObsAnthropicMetadata anthropicMetadata) {
     this.anthropicMetadata = anthropicMetadata;
+    if (anthropicMetadata != null) {
+      this.unparsed |= anthropicMetadata.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceRequest azureOpenaiMetadata(
@@ -146,6 +152,9 @@ public class LLMObsIntegrationInferenceRequest {
 
   public void setAzureOpenaiMetadata(LLMObsAzureOpenAIMetadata azureOpenaiMetadata) {
     this.azureOpenaiMetadata = azureOpenaiMetadata;
+    if (azureOpenaiMetadata != null) {
+      this.unparsed |= azureOpenaiMetadata.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceRequest bedrockMetadata(LLMObsBedrockMetadata bedrockMetadata) {
@@ -168,6 +177,9 @@ public class LLMObsIntegrationInferenceRequest {
 
   public void setBedrockMetadata(LLMObsBedrockMetadata bedrockMetadata) {
     this.bedrockMetadata = bedrockMetadata;
+    if (bedrockMetadata != null) {
+      this.unparsed |= bedrockMetadata.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceRequest frequencyPenalty(Double frequencyPenalty) {
@@ -321,6 +333,11 @@ public class LLMObsIntegrationInferenceRequest {
 
   public void setMessages(List<LLMObsInferenceMessage> messages) {
     this.messages = messages;
+    if (messages != null) {
+      for (LLMObsInferenceMessage item : messages) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsIntegrationInferenceRequest modelId(String modelId) {
@@ -363,6 +380,9 @@ public class LLMObsIntegrationInferenceRequest {
 
   public void setOpenaiMetadata(LLMObsOpenAIMetadata openaiMetadata) {
     this.openaiMetadata = openaiMetadata;
+    if (openaiMetadata != null) {
+      this.unparsed |= openaiMetadata.unparsed;
+    }
   }
 
   public LLMObsIntegrationInferenceRequest presencePenalty(Double presencePenalty) {
@@ -429,8 +449,10 @@ public class LLMObsIntegrationInferenceRequest {
 
   public LLMObsIntegrationInferenceRequest tools(List<LLMObsInferenceTool> tools) {
     this.tools = tools;
-    for (LLMObsInferenceTool item : tools) {
-      this.unparsed |= item.unparsed;
+    if (tools != null) {
+      for (LLMObsInferenceTool item : tools) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -458,6 +480,11 @@ public class LLMObsIntegrationInferenceRequest {
 
   public void setTools(List<LLMObsInferenceTool> tools) {
     this.tools = tools;
+    if (tools != null) {
+      for (LLMObsInferenceTool item : tools) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsIntegrationInferenceRequest topK(Long topK) {
@@ -543,6 +570,9 @@ public class LLMObsIntegrationInferenceRequest {
 
   public void setVertexAiMetadata(LLMObsVertexAIMetadata vertexAiMetadata) {
     this.vertexAiMetadata = vertexAiMetadata;
+    if (vertexAiMetadata != null) {
+      this.unparsed |= vertexAiMetadata.unparsed;
+    }
   }
 
   /**

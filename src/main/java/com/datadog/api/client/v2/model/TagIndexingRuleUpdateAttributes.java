@@ -179,6 +179,9 @@ public class TagIndexingRuleUpdateAttributes {
 
   public void setOptions(TagIndexingRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public TagIndexingRuleUpdateAttributes ruleOrder(Long ruleOrder) {

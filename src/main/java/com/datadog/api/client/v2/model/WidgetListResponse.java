@@ -44,6 +44,9 @@ public class WidgetListResponse {
   public WidgetListResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<WidgetData> data) {
     this.data = data;
+    for (WidgetData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public WidgetListResponse data(List<WidgetData> data) {
@@ -73,12 +76,19 @@ public class WidgetListResponse {
 
   public void setData(List<WidgetData> data) {
     this.data = data;
+    if (data != null) {
+      for (WidgetData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public WidgetListResponse included(List<WidgetIncludedUser> included) {
     this.included = included;
-    for (WidgetIncludedUser item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (WidgetIncludedUser item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -106,6 +116,11 @@ public class WidgetListResponse {
 
   public void setIncluded(List<WidgetIncludedUser> included) {
     this.included = included;
+    if (included != null) {
+      for (WidgetIncludedUser item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public WidgetListResponse meta(WidgetSearchMeta meta) {
@@ -128,6 +143,9 @@ public class WidgetListResponse {
 
   public void setMeta(WidgetSearchMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

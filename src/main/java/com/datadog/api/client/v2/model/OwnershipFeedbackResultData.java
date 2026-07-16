@@ -70,6 +70,9 @@ public class OwnershipFeedbackResultData {
 
   public void setAttributes(OwnershipFeedbackResultAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OwnershipFeedbackResultData id(String id) {

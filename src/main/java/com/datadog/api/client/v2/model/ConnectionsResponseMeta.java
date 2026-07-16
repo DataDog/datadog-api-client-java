@@ -45,6 +45,9 @@ public class ConnectionsResponseMeta {
 
   public void setPage(ConnectionsPagePagination page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

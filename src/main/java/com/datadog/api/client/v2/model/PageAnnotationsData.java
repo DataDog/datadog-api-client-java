@@ -70,6 +70,9 @@ public class PageAnnotationsData {
 
   public void setAttributes(PageAnnotationsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PageAnnotationsData id(String id) {

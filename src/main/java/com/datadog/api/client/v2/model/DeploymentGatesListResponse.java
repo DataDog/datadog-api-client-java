@@ -35,8 +35,10 @@ public class DeploymentGatesListResponse {
 
   public DeploymentGatesListResponse data(List<DeploymentGateResponseData> data) {
     this.data = data;
-    for (DeploymentGateResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DeploymentGateResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class DeploymentGatesListResponse {
 
   public void setData(List<DeploymentGateResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (DeploymentGateResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DeploymentGatesListResponse meta(DeploymentGatesListResponseMeta meta) {
@@ -86,6 +93,9 @@ public class DeploymentGatesListResponse {
 
   public void setMeta(DeploymentGatesListResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

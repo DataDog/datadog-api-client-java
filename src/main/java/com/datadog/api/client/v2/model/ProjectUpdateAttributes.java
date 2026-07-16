@@ -65,6 +65,9 @@ public class ProjectUpdateAttributes {
 
   public void setColumnsConfig(ProjectColumnsConfig columnsConfig) {
     this.columnsConfig = columnsConfig;
+    if (columnsConfig != null) {
+      this.unparsed |= columnsConfig.unparsed;
+    }
   }
 
   public ProjectUpdateAttributes enabledCustomCaseTypes(List<String> enabledCustomCaseTypes) {
@@ -137,6 +140,9 @@ public class ProjectUpdateAttributes {
 
   public void setSettings(ProjectSettings settings) {
     this.settings = settings;
+    if (settings != null) {
+      this.unparsed |= settings.unparsed;
+    }
   }
 
   public ProjectUpdateAttributes teamUuid(String teamUuid) {

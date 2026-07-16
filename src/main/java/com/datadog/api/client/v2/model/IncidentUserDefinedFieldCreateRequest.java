@@ -55,6 +55,9 @@ public class IncidentUserDefinedFieldCreateRequest {
 
   public void setData(IncidentUserDefinedFieldCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

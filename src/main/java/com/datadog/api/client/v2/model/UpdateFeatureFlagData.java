@@ -64,6 +64,9 @@ public class UpdateFeatureFlagData {
 
   public void setAttributes(UpdateFeatureFlagAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateFeatureFlagData type(UpdateFeatureFlagDataType type) {

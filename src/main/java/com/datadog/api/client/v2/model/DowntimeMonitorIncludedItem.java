@@ -55,6 +55,9 @@ public class DowntimeMonitorIncludedItem {
 
   public void setAttributes(DowntimeMonitorIncludedAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DowntimeMonitorIncludedItem id(Long id) {

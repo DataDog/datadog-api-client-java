@@ -53,6 +53,9 @@ public class TraceResponse {
 
   public void setData(TraceData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

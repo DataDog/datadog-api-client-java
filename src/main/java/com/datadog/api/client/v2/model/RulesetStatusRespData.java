@@ -70,6 +70,9 @@ public class RulesetStatusRespData {
 
   public void setAttributes(RulesetStatusRespDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RulesetStatusRespData id(String id) {

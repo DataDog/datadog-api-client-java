@@ -54,6 +54,9 @@ public class FleetSchedulePatchRequest {
 
   public void setData(FleetSchedulePatch data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

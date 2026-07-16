@@ -64,6 +64,9 @@ public class NotebookCellCreateRequest {
 
   public void setAttributes(NotebookCellCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NotebookCellCreateRequest type(NotebookCellResourceType type) {

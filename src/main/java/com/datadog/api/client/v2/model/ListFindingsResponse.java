@@ -41,6 +41,9 @@ public class ListFindingsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Finding> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) ListFindingsMeta meta) {
     this.data = data;
+    for (Finding item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -72,6 +75,11 @@ public class ListFindingsResponse {
 
   public void setData(List<Finding> data) {
     this.data = data;
+    if (data != null) {
+      for (Finding item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListFindingsResponse meta(ListFindingsMeta meta) {
@@ -93,6 +101,9 @@ public class ListFindingsResponse {
 
   public void setMeta(ListFindingsMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

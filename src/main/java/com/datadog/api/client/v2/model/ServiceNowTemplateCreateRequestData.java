@@ -65,6 +65,9 @@ public class ServiceNowTemplateCreateRequestData {
 
   public void setAttributes(ServiceNowTemplateCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceNowTemplateCreateRequestData type(ServiceNowTemplateType type) {

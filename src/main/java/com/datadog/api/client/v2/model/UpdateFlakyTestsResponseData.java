@@ -55,6 +55,9 @@ public class UpdateFlakyTestsResponseData {
 
   public void setAttributes(UpdateFlakyTestsResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateFlakyTestsResponseData id(String id) {

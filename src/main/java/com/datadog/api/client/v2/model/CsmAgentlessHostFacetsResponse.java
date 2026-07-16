@@ -35,6 +35,9 @@ public class CsmAgentlessHostFacetsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<CsmAgentlessHostFacetData> data) {
     this.data = data;
+    for (CsmAgentlessHostFacetData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CsmAgentlessHostFacetsResponse data(List<CsmAgentlessHostFacetData> data) {
@@ -64,6 +67,11 @@ public class CsmAgentlessHostFacetsResponse {
 
   public void setData(List<CsmAgentlessHostFacetData> data) {
     this.data = data;
+    if (data != null) {
+      for (CsmAgentlessHostFacetData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

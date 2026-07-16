@@ -45,6 +45,9 @@ public class PersonalAccessTokenRelationships {
 
   public void setOwnedBy(RelationshipToUser ownedBy) {
     this.ownedBy = ownedBy;
+    if (ownedBy != null) {
+      this.unparsed |= ownedBy.unparsed;
+    }
   }
 
   /**

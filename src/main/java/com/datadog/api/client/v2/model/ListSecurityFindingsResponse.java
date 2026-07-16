@@ -39,8 +39,10 @@ public class ListSecurityFindingsResponse {
 
   public ListSecurityFindingsResponse data(List<SecurityFindingsData> data) {
     this.data = data;
-    for (SecurityFindingsData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityFindingsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class ListSecurityFindingsResponse {
 
   public void setData(List<SecurityFindingsData> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityFindingsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListSecurityFindingsResponse links(SecurityFindingsLinks links) {
@@ -90,6 +97,9 @@ public class ListSecurityFindingsResponse {
 
   public void setLinks(SecurityFindingsLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ListSecurityFindingsResponse meta(SecurityFindingsMeta meta) {
@@ -112,6 +122,9 @@ public class ListSecurityFindingsResponse {
 
   public void setMeta(SecurityFindingsMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -66,6 +66,9 @@ public class OrgAuthorizedClientRelationships {
 
   public void setOauth2Client(OrgAuthorizedClientRelationshipOAuth2Client oauth2Client) {
     this.oauth2Client = oauth2Client;
+    if (oauth2Client != null) {
+      this.unparsed |= oauth2Client.unparsed;
+    }
   }
 
   public OrgAuthorizedClientRelationships userAuthorizedClients(
@@ -89,6 +92,9 @@ public class OrgAuthorizedClientRelationships {
   public void setUserAuthorizedClients(
       OrgAuthorizedClientRelationshipUserAuthorizedClients userAuthorizedClients) {
     this.userAuthorizedClients = userAuthorizedClients;
+    if (userAuthorizedClients != null) {
+      this.unparsed |= userAuthorizedClients.unparsed;
+    }
   }
 
   /**

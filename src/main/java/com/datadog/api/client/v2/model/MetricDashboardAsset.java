@@ -67,6 +67,9 @@ public class MetricDashboardAsset {
 
   public void setAttributes(MetricDashboardAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MetricDashboardAsset id(String id) {

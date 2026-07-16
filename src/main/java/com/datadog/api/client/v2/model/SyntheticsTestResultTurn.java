@@ -73,6 +73,9 @@ public class SyntheticsTestResultTurn {
 
   public void setBucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
     this.bucketKeys = bucketKeys;
+    if (bucketKeys != null) {
+      this.unparsed |= bucketKeys.unparsed;
+    }
   }
 
   public SyntheticsTestResultTurn name(String name) {
@@ -140,8 +143,10 @@ public class SyntheticsTestResultTurn {
 
   public SyntheticsTestResultTurn steps(List<SyntheticsTestResultTurnStep> steps) {
     this.steps = steps;
-    for (SyntheticsTestResultTurnStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SyntheticsTestResultTurnStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -169,6 +174,11 @@ public class SyntheticsTestResultTurn {
 
   public void setSteps(List<SyntheticsTestResultTurnStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (SyntheticsTestResultTurnStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultTurn turnFinishedAt(Long turnFinishedAt) {

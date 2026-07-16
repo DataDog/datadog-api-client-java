@@ -41,6 +41,9 @@ public class FleetDeploymentConfigureAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG_OPERATIONS)
           List<FleetDeploymentOperation> configOperations) {
     this.configOperations = configOperations;
+    for (FleetDeploymentOperation item : configOperations) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FleetDeploymentConfigureAttributes configOperations(
@@ -72,6 +75,11 @@ public class FleetDeploymentConfigureAttributes {
 
   public void setConfigOperations(List<FleetDeploymentOperation> configOperations) {
     this.configOperations = configOperations;
+    if (configOperations != null) {
+      for (FleetDeploymentOperation item : configOperations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FleetDeploymentConfigureAttributes filterQuery(String filterQuery) {

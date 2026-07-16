@@ -54,6 +54,9 @@ public class TagIndexingRuleUpdateRequest {
 
   public void setData(TagIndexingRuleUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

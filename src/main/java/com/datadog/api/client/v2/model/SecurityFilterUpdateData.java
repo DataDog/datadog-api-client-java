@@ -64,6 +64,9 @@ public class SecurityFilterUpdateData {
 
   public void setAttributes(SecurityFilterUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityFilterUpdateData type(SecurityFilterType type) {

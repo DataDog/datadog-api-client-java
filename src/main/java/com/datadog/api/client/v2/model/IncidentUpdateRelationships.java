@@ -90,6 +90,9 @@ public class IncidentUpdateRelationships {
 
   public void setIntegrations(RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
+    if (integrations != null) {
+      this.unparsed |= integrations.unparsed;
+    }
   }
 
   public IncidentUpdateRelationships postmortem(RelationshipToIncidentPostmortem postmortem) {
@@ -112,6 +115,9 @@ public class IncidentUpdateRelationships {
 
   public void setPostmortem(RelationshipToIncidentPostmortem postmortem) {
     this.postmortem = postmortem;
+    if (postmortem != null) {
+      this.unparsed |= postmortem.unparsed;
+    }
   }
 
   /**

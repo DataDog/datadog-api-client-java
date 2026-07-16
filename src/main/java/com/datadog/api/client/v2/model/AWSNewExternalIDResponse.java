@@ -55,6 +55,9 @@ public class AWSNewExternalIDResponse {
 
   public void setData(AWSNewExternalIDResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

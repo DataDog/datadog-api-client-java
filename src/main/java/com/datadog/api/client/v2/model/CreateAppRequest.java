@@ -45,6 +45,9 @@ public class CreateAppRequest {
 
   public void setData(CreateAppRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

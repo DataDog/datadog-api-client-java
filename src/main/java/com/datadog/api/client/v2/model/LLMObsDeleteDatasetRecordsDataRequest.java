@@ -65,6 +65,9 @@ public class LLMObsDeleteDatasetRecordsDataRequest {
 
   public void setAttributes(LLMObsDeleteDatasetRecordsDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDeleteDatasetRecordsDataRequest type(LLMObsRecordType type) {

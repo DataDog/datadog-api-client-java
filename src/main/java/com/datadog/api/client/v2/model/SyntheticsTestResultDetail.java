@@ -193,8 +193,10 @@ public class SyntheticsTestResultDetail {
   public SyntheticsTestResultDetail assertions(
       List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
-    for (SyntheticsTestResultAssertionResult item : assertions) {
-      this.unparsed |= item.unparsed;
+    if (assertions != null) {
+      for (SyntheticsTestResultAssertionResult item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -223,6 +225,11 @@ public class SyntheticsTestResultDetail {
 
   public void setAssertions(List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
+    if (assertions != null) {
+      for (SyntheticsTestResultAssertionResult item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultDetail bucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
@@ -245,6 +252,9 @@ public class SyntheticsTestResultDetail {
 
   public void setBucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
     this.bucketKeys = bucketKeys;
+    if (bucketKeys != null) {
+      this.unparsed |= bucketKeys.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail callType(String callType) {
@@ -289,6 +299,9 @@ public class SyntheticsTestResultDetail {
 
   public void setCert(SyntheticsTestResultCertificate cert) {
     this.cert = cert;
+    if (cert != null) {
+      this.unparsed |= cert.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail compressedJsonDescriptor(String compressedJsonDescriptor) {
@@ -375,6 +388,9 @@ public class SyntheticsTestResultDetail {
 
   public void setDnsResolution(SyntheticsTestResultDnsResolution dnsResolution) {
     this.dnsResolution = dnsResolution;
+    if (dnsResolution != null) {
+      this.unparsed |= dnsResolution.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail duration(Double duration) {
@@ -439,6 +455,9 @@ public class SyntheticsTestResultDetail {
 
   public void setFailure(SyntheticsTestResultFailure failure) {
     this.failure = failure;
+    if (failure != null) {
+      this.unparsed |= failure.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail finishedAt(Long finishedAt) {
@@ -482,6 +501,9 @@ public class SyntheticsTestResultDetail {
 
   public void setHandshake(SyntheticsTestResultHandshake handshake) {
     this.handshake = handshake;
+    if (handshake != null) {
+      this.unparsed |= handshake.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail id(String id) {
@@ -588,6 +610,9 @@ public class SyntheticsTestResultDetail {
 
   public void setNetpath(SyntheticsTestResultNetpath netpath) {
     this.netpath = netpath;
+    if (netpath != null) {
+      this.unparsed |= netpath.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail netstats(SyntheticsTestResultNetstats netstats) {
@@ -610,6 +635,9 @@ public class SyntheticsTestResultDetail {
 
   public void setNetstats(SyntheticsTestResultNetstats netstats) {
     this.netstats = netstats;
+    if (netstats != null) {
+      this.unparsed |= netstats.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail ocsp(SyntheticsTestResultOCSPResponse ocsp) {
@@ -632,6 +660,9 @@ public class SyntheticsTestResultDetail {
 
   public void setOcsp(SyntheticsTestResultOCSPResponse ocsp) {
     this.ocsp = ocsp;
+    if (ocsp != null) {
+      this.unparsed |= ocsp.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail ping(SyntheticsTestResultTracerouteHop ping) {
@@ -654,6 +685,9 @@ public class SyntheticsTestResultDetail {
 
   public void setPing(SyntheticsTestResultTracerouteHop ping) {
     this.ping = ping;
+    if (ping != null) {
+      this.unparsed |= ping.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail receivedEmailCount(Long receivedEmailCount) {
@@ -718,6 +752,9 @@ public class SyntheticsTestResultDetail {
 
   public void setRequest(SyntheticsTestResultRequestInfo request) {
     this.request = request;
+    if (request != null) {
+      this.unparsed |= request.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail resolvedIp(String resolvedIp) {
@@ -761,6 +798,9 @@ public class SyntheticsTestResultDetail {
 
   public void setResponse(SyntheticsTestResultResponseInfo response) {
     this.response = response;
+    if (response != null) {
+      this.unparsed |= response.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail runType(SyntheticsTestResultRunType runType) {
@@ -878,8 +918,10 @@ public class SyntheticsTestResultDetail {
 
   public SyntheticsTestResultDetail steps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
-    for (SyntheticsTestResultStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SyntheticsTestResultStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -907,6 +949,11 @@ public class SyntheticsTestResultDetail {
 
   public void setSteps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (SyntheticsTestResultStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultDetail timeToInteractive(Long timeToInteractive) {
@@ -979,12 +1026,17 @@ public class SyntheticsTestResultDetail {
 
   public void setTrace(SyntheticsTestResultTrace trace) {
     this.trace = trace;
+    if (trace != null) {
+      this.unparsed |= trace.unparsed;
+    }
   }
 
   public SyntheticsTestResultDetail traceroute(List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
-    for (SyntheticsTestResultTracerouteHop item : traceroute) {
-      this.unparsed |= item.unparsed;
+    if (traceroute != null) {
+      for (SyntheticsTestResultTracerouteHop item : traceroute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -1013,6 +1065,11 @@ public class SyntheticsTestResultDetail {
 
   public void setTraceroute(List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
+    if (traceroute != null) {
+      for (SyntheticsTestResultTracerouteHop item : traceroute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultDetail triggeredAt(Long triggeredAt) {
@@ -1059,8 +1116,10 @@ public class SyntheticsTestResultDetail {
 
   public SyntheticsTestResultDetail turns(List<SyntheticsTestResultTurn> turns) {
     this.turns = turns;
-    for (SyntheticsTestResultTurn item : turns) {
-      this.unparsed |= item.unparsed;
+    if (turns != null) {
+      for (SyntheticsTestResultTurn item : turns) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -1088,6 +1147,11 @@ public class SyntheticsTestResultDetail {
 
   public void setTurns(List<SyntheticsTestResultTurn> turns) {
     this.turns = turns;
+    if (turns != null) {
+      for (SyntheticsTestResultTurn item : turns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultDetail unhealthy(Boolean unhealthy) {
@@ -1131,6 +1195,9 @@ public class SyntheticsTestResultDetail {
 
   public void setVariables(SyntheticsTestResultVariables variables) {
     this.variables = variables;
+    if (variables != null) {
+      this.unparsed |= variables.unparsed;
+    }
   }
 
   /**

@@ -64,6 +64,9 @@ public class AwsOnDemandCreateData {
 
   public void setAttributes(AwsOnDemandCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AwsOnDemandCreateData type(AwsOnDemandType type) {

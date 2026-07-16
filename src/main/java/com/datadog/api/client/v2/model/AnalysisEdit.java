@@ -123,6 +123,9 @@ public class AnalysisEdit {
 
   public void setEnd(AnalysisPosition end) {
     this.end = end;
+    if (end != null) {
+      this.unparsed |= end.unparsed;
+    }
   }
 
   public AnalysisEdit start(AnalysisPosition start) {
@@ -144,6 +147,9 @@ public class AnalysisEdit {
 
   public void setStart(AnalysisPosition start) {
     this.start = start;
+    if (start != null) {
+      this.unparsed |= start.unparsed;
+    }
   }
 
   /**

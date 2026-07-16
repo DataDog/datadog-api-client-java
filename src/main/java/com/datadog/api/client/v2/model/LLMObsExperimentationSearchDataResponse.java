@@ -71,6 +71,9 @@ public class LLMObsExperimentationSearchDataResponse {
 
   public void setAttributes(LLMObsExperimentationSearchResults attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsExperimentationSearchDataResponse id(String id) {

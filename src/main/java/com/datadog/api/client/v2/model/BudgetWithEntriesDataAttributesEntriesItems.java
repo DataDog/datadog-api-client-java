@@ -86,6 +86,9 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
 
   public void setCosts(BudgetWithEntriesDataAttributesEntriesItemsCosts costs) {
     this.costs = costs;
+    if (costs != null) {
+      this.unparsed |= costs.unparsed;
+    }
   }
 
   public BudgetWithEntriesDataAttributesEntriesItems month(Long month) {
@@ -112,8 +115,10 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
   public BudgetWithEntriesDataAttributesEntriesItems tagFilters(
       List<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems> tagFilters) {
     this.tagFilters = tagFilters;
-    for (BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems item : tagFilters) {
-      this.unparsed |= item.unparsed;
+    if (tagFilters != null) {
+      for (BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems item : tagFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -143,6 +148,11 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
   public void setTagFilters(
       List<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems> tagFilters) {
     this.tagFilters = tagFilters;
+    if (tagFilters != null) {
+      for (BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems item : tagFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -63,13 +63,18 @@ public class ChangeRequestDecisionUpdateRequest {
 
   public void setData(ChangeRequestDecisionUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public ChangeRequestDecisionUpdateRequest included(
       List<ChangeRequestDecisionCreateItem> included) {
     this.included = included;
-    for (ChangeRequestDecisionCreateItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ChangeRequestDecisionCreateItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -98,6 +103,11 @@ public class ChangeRequestDecisionUpdateRequest {
 
   public void setIncluded(List<ChangeRequestDecisionCreateItem> included) {
     this.included = included;
+    if (included != null) {
+      for (ChangeRequestDecisionCreateItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

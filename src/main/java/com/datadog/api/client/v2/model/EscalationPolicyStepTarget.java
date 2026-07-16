@@ -58,6 +58,9 @@ public class EscalationPolicyStepTarget {
 
   public void setConfig(EscalationPolicyStepTargetConfig config) {
     this.config = config;
+    if (config != null) {
+      this.unparsed |= config.unparsed;
+    }
   }
 
   public EscalationPolicyStepTarget id(String id) {

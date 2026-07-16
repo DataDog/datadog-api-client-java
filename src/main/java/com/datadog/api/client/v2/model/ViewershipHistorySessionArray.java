@@ -35,6 +35,9 @@ public class ViewershipHistorySessionArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<ViewershipHistorySessionData> data) {
     this.data = data;
+    for (ViewershipHistorySessionData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ViewershipHistorySessionArray data(List<ViewershipHistorySessionData> data) {
@@ -64,6 +67,11 @@ public class ViewershipHistorySessionArray {
 
   public void setData(List<ViewershipHistorySessionData> data) {
     this.data = data;
+    if (data != null) {
+      for (ViewershipHistorySessionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

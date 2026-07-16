@@ -69,6 +69,9 @@ public class SnapshotUpdateRequestData {
 
   public void setAttributes(SnapshotUpdateRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SnapshotUpdateRequestData id(String id) {

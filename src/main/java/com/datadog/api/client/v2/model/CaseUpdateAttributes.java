@@ -64,6 +64,9 @@ public class CaseUpdateAttributes {
 
   public void setAttributes(CaseUpdateAttributesAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseUpdateAttributes type(CaseResourceType type) {

@@ -55,6 +55,9 @@ public class EscalationPolicyCreateRequestDataAttributes {
           List<EscalationPolicyCreateRequestDataAttributesStepsItems> steps) {
     this.name = name;
     this.steps = steps;
+    for (EscalationPolicyCreateRequestDataAttributesStepsItems item : steps) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public EscalationPolicyCreateRequestDataAttributes name(String name) {
@@ -151,6 +154,11 @@ public class EscalationPolicyCreateRequestDataAttributes {
 
   public void setSteps(List<EscalationPolicyCreateRequestDataAttributesStepsItems> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (EscalationPolicyCreateRequestDataAttributesStepsItems item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

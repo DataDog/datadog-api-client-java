@@ -34,6 +34,9 @@ public class PlaylistsSessionArray {
   public PlaylistsSessionArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<PlaylistsSessionData> data) {
     this.data = data;
+    for (PlaylistsSessionData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public PlaylistsSessionArray data(List<PlaylistsSessionData> data) {
@@ -63,6 +66,11 @@ public class PlaylistsSessionArray {
 
   public void setData(List<PlaylistsSessionData> data) {
     this.data = data;
+    if (data != null) {
+      for (PlaylistsSessionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

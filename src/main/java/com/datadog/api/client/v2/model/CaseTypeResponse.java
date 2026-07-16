@@ -46,6 +46,9 @@ public class CaseTypeResponse {
 
   public void setData(CaseTypeResource data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

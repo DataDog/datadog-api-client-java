@@ -72,6 +72,9 @@ public class ServiceRepositoryInfoResponseData {
 
   public void setAttributes(ServiceRepositoryInfoResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceRepositoryInfoResponseData id(String id) {

@@ -53,6 +53,9 @@ public class GetSBOMResponse {
 
   public void setData(SBOM data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

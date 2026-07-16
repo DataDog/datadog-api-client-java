@@ -65,6 +65,9 @@ public class CloudflareAccountCreateRequestData {
 
   public void setAttributes(CloudflareAccountCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CloudflareAccountCreateRequestData type(CloudflareAccountType type) {

@@ -54,6 +54,9 @@ public class DORAListFailuresRequest {
 
   public void setData(DORAListFailuresRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

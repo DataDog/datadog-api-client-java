@@ -55,6 +55,9 @@ public class FlakyTestsSearchRequestAttributes {
 
   public void setFilter(FlakyTestsSearchFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public FlakyTestsSearchRequestAttributes page(FlakyTestsSearchPageOptions page) {
@@ -77,6 +80,9 @@ public class FlakyTestsSearchRequestAttributes {
 
   public void setPage(FlakyTestsSearchPageOptions page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public FlakyTestsSearchRequestAttributes sort(FlakyTestsSearchSort sort) {

@@ -64,6 +64,9 @@ public class CaseBulkUpdateRequestData {
 
   public void setAttributes(CaseBulkUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseBulkUpdateRequestData type(CaseBulkResourceType type) {

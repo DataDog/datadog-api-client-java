@@ -55,6 +55,9 @@ public class DeletedTestResponseData {
 
   public void setAttributes(DeletedTestResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeletedTestResponseData id(String id) {

@@ -45,6 +45,9 @@ public class CreateMaintenanceRequest {
 
   public void setData(CreateMaintenanceRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

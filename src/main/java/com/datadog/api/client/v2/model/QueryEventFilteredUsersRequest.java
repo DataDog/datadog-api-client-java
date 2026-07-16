@@ -48,6 +48,9 @@ public class QueryEventFilteredUsersRequest {
 
   public void setData(QueryEventFilteredUsersRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

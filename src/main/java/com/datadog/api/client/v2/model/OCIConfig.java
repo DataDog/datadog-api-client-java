@@ -70,6 +70,9 @@ public class OCIConfig {
 
   public void setAttributes(OCIConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OCIConfig id(String id) {

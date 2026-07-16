@@ -62,12 +62,17 @@ public class ChangeRequestResponse {
 
   public void setData(ChangeRequestResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public ChangeRequestResponse included(List<ChangeRequestIncludedItem> included) {
     this.included = included;
-    for (ChangeRequestIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ChangeRequestIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -95,6 +100,11 @@ public class ChangeRequestResponse {
 
   public void setIncluded(List<ChangeRequestIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (ChangeRequestIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

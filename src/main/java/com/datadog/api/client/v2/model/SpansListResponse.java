@@ -39,8 +39,10 @@ public class SpansListResponse {
 
   public SpansListResponse data(List<Span> data) {
     this.data = data;
-    for (Span item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (Span item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class SpansListResponse {
 
   public void setData(List<Span> data) {
     this.data = data;
+    if (data != null) {
+      for (Span item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SpansListResponse links(SpansListResponseLinks links) {
@@ -90,6 +97,9 @@ public class SpansListResponse {
 
   public void setLinks(SpansListResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public SpansListResponse meta(SpansListResponseMetadata meta) {
@@ -112,6 +122,9 @@ public class SpansListResponse {
 
   public void setMeta(SpansListResponseMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

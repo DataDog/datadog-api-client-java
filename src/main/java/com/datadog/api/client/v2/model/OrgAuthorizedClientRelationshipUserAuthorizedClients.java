@@ -43,6 +43,9 @@ public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
       @JsonProperty(required = true, value = JSON_PROPERTY_LINKS)
           OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks links) {
     this.data = data;
+    for (OrgAuthorizedClientRelationshipUserAuthorizedClientsData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.links = links;
     this.unparsed |= links.unparsed;
   }
@@ -76,6 +79,11 @@ public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
 
   public void setData(List<OrgAuthorizedClientRelationshipUserAuthorizedClientsData> data) {
     this.data = data;
+    if (data != null) {
+      for (OrgAuthorizedClientRelationshipUserAuthorizedClientsData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public OrgAuthorizedClientRelationshipUserAuthorizedClients links(
@@ -98,6 +106,9 @@ public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
 
   public void setLinks(OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   /**

@@ -43,8 +43,10 @@ public class TeamHierarchyLinksResponse {
 
   public TeamHierarchyLinksResponse data(List<TeamHierarchyLink> data) {
     this.data = data;
-    for (TeamHierarchyLink item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TeamHierarchyLink item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -72,12 +74,19 @@ public class TeamHierarchyLinksResponse {
 
   public void setData(List<TeamHierarchyLink> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamHierarchyLink item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamHierarchyLinksResponse included(List<TeamHierarchyLinkTeam> included) {
     this.included = included;
-    for (TeamHierarchyLinkTeam item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TeamHierarchyLinkTeam item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -105,6 +114,11 @@ public class TeamHierarchyLinksResponse {
 
   public void setIncluded(List<TeamHierarchyLinkTeam> included) {
     this.included = included;
+    if (included != null) {
+      for (TeamHierarchyLinkTeam item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamHierarchyLinksResponse links(TeamsHierarchyLinksResponseLinks links) {
@@ -128,6 +142,9 @@ public class TeamHierarchyLinksResponse {
 
   public void setLinks(TeamsHierarchyLinksResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public TeamHierarchyLinksResponse meta(TeamsHierarchyLinksResponseMeta meta) {
@@ -150,6 +167,9 @@ public class TeamHierarchyLinksResponse {
 
   public void setMeta(TeamsHierarchyLinksResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

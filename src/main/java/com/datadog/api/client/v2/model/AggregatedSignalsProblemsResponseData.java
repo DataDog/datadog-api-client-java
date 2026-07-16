@@ -72,6 +72,9 @@ public class AggregatedSignalsProblemsResponseData {
 
   public void setAttributes(AggregatedSignalsProblemsResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AggregatedSignalsProblemsResponseData id(String id) {

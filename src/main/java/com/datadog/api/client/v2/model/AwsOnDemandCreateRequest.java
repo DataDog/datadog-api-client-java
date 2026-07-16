@@ -54,6 +54,9 @@ public class AwsOnDemandCreateRequest {
 
   public void setData(AwsOnDemandCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

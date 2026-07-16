@@ -70,6 +70,9 @@ public class LLMObsPatternsConfigResponseData {
 
   public void setAttributes(LLMObsPatternsConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsPatternsConfigResponseData id(String id) {

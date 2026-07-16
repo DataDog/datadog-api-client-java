@@ -74,6 +74,9 @@ public class SensitiveDataScannerRuleCreate {
 
   public void setAttributes(SensitiveDataScannerRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SensitiveDataScannerRuleCreate relationships(
@@ -96,6 +99,9 @@ public class SensitiveDataScannerRuleCreate {
 
   public void setRelationships(SensitiveDataScannerRuleRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public SensitiveDataScannerRuleCreate type(SensitiveDataScannerRuleType type) {

@@ -45,6 +45,9 @@ public class DeploymentGatesEvaluationConfiguration {
       @JsonProperty(required = true, value = JSON_PROPERTY_RULES)
           List<DeploymentGatesEvaluationRule> rules) {
     this.rules = rules;
+    for (DeploymentGatesEvaluationRule item : rules) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DeploymentGatesEvaluationConfiguration dryRun(Boolean dryRun) {
@@ -97,6 +100,11 @@ public class DeploymentGatesEvaluationConfiguration {
 
   public void setRules(List<DeploymentGatesEvaluationRule> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (DeploymentGatesEvaluationRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

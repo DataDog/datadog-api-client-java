@@ -47,6 +47,9 @@ public class RetentionFilters {
 
   public void setAudienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
+    if (audienceFilters != null) {
+      this.unparsed |= audienceFilters.unparsed;
+    }
   }
 
   public RetentionFilters stringFilter(String stringFilter) {

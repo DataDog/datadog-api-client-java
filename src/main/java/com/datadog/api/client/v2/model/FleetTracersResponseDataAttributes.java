@@ -29,8 +29,10 @@ public class FleetTracersResponseDataAttributes {
 
   public FleetTracersResponseDataAttributes tracers(List<FleetTracerAttributes> tracers) {
     this.tracers = tracers;
-    for (FleetTracerAttributes item : tracers) {
-      this.unparsed |= item.unparsed;
+    if (tracers != null) {
+      for (FleetTracerAttributes item : tracers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class FleetTracersResponseDataAttributes {
 
   public void setTracers(List<FleetTracerAttributes> tracers) {
     this.tracers = tracers;
+    if (tracers != null) {
+      for (FleetTracerAttributes item : tracers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

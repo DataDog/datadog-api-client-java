@@ -112,6 +112,9 @@ public class EntityV3API {
 
   public void setDatadog(EntityV3APIDatadog datadog) {
     this.datadog = datadog;
+    if (datadog != null) {
+      this.unparsed |= datadog.unparsed;
+    }
   }
 
   public EntityV3API extensions(Map<String, Object> extensions) {
@@ -164,6 +167,9 @@ public class EntityV3API {
 
   public void setIntegrations(EntityV3Integrations integrations) {
     this.integrations = integrations;
+    if (integrations != null) {
+      this.unparsed |= integrations.unparsed;
+    }
   }
 
   public EntityV3API kind(EntityV3APIKind kind) {
@@ -209,6 +215,9 @@ public class EntityV3API {
 
   public void setMetadata(EntityV3Metadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public EntityV3API spec(EntityV3APISpec spec) {
@@ -231,6 +240,9 @@ public class EntityV3API {
 
   public void setSpec(EntityV3APISpec spec) {
     this.spec = spec;
+    if (spec != null) {
+      this.unparsed |= spec.unparsed;
+    }
   }
 
   /** Return true if this EntityV3API object is equal to o. */

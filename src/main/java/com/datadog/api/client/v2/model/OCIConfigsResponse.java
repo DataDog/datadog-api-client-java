@@ -34,6 +34,9 @@ public class OCIConfigsResponse {
   public OCIConfigsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<OCIConfig> data) {
     this.data = data;
+    for (OCIConfig item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OCIConfigsResponse data(List<OCIConfig> data) {
@@ -63,6 +66,11 @@ public class OCIConfigsResponse {
 
   public void setData(List<OCIConfig> data) {
     this.data = data;
+    if (data != null) {
+      for (OCIConfig item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

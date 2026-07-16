@@ -60,6 +60,9 @@ public class RetentionCompute {
 
   public void setAggregation(EventsAggregation aggregation) {
     this.aggregation = aggregation;
+    if (aggregation != null) {
+      this.unparsed |= aggregation.unparsed;
+    }
   }
 
   public RetentionCompute metric(RetentionComputeMetric metric) {

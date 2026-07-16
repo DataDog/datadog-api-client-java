@@ -65,6 +65,9 @@ public class QueryAccountRequestData {
 
   public void setAttributes(QueryAccountRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public QueryAccountRequestData id(String id) {

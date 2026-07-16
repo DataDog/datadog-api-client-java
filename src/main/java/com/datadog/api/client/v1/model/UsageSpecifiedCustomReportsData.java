@@ -56,6 +56,9 @@ public class UsageSpecifiedCustomReportsData {
 
   public void setAttributes(UsageSpecifiedCustomReportsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UsageSpecifiedCustomReportsData id(String id) {

@@ -55,6 +55,9 @@ public class DORAFailureRequestData {
 
   public void setAttributes(DORAFailureRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class ApplicationSecurityWafExclusionFilterUpdateRequest {
 
   public void setData(ApplicationSecurityWafExclusionFilterUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

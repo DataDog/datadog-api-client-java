@@ -72,8 +72,10 @@ public class IncidentSearchResponseFacetsData {
   public IncidentSearchResponseFacetsData commander(
       List<IncidentSearchResponseUserFacetData> commander) {
     this.commander = commander;
-    for (IncidentSearchResponseUserFacetData item : commander) {
-      this.unparsed |= item.unparsed;
+    if (commander != null) {
+      for (IncidentSearchResponseUserFacetData item : commander) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -102,13 +104,20 @@ public class IncidentSearchResponseFacetsData {
 
   public void setCommander(List<IncidentSearchResponseUserFacetData> commander) {
     this.commander = commander;
+    if (commander != null) {
+      for (IncidentSearchResponseUserFacetData item : commander) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData createdBy(
       List<IncidentSearchResponseUserFacetData> createdBy) {
     this.createdBy = createdBy;
-    for (IncidentSearchResponseUserFacetData item : createdBy) {
-      this.unparsed |= item.unparsed;
+    if (createdBy != null) {
+      for (IncidentSearchResponseUserFacetData item : createdBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -137,13 +146,20 @@ public class IncidentSearchResponseFacetsData {
 
   public void setCreatedBy(List<IncidentSearchResponseUserFacetData> createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      for (IncidentSearchResponseUserFacetData item : createdBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData fields(
       List<IncidentSearchResponsePropertyFieldFacetData> fields) {
     this.fields = fields;
-    for (IncidentSearchResponsePropertyFieldFacetData item : fields) {
-      this.unparsed |= item.unparsed;
+    if (fields != null) {
+      for (IncidentSearchResponsePropertyFieldFacetData item : fields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -172,13 +188,20 @@ public class IncidentSearchResponseFacetsData {
 
   public void setFields(List<IncidentSearchResponsePropertyFieldFacetData> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (IncidentSearchResponsePropertyFieldFacetData item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData impact(
       List<IncidentSearchResponseFieldFacetData> impact) {
     this.impact = impact;
-    for (IncidentSearchResponseFieldFacetData item : impact) {
-      this.unparsed |= item.unparsed;
+    if (impact != null) {
+      for (IncidentSearchResponseFieldFacetData item : impact) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -207,13 +230,20 @@ public class IncidentSearchResponseFacetsData {
 
   public void setImpact(List<IncidentSearchResponseFieldFacetData> impact) {
     this.impact = impact;
+    if (impact != null) {
+      for (IncidentSearchResponseFieldFacetData item : impact) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData lastModifiedBy(
       List<IncidentSearchResponseUserFacetData> lastModifiedBy) {
     this.lastModifiedBy = lastModifiedBy;
-    for (IncidentSearchResponseUserFacetData item : lastModifiedBy) {
-      this.unparsed |= item.unparsed;
+    if (lastModifiedBy != null) {
+      for (IncidentSearchResponseUserFacetData item : lastModifiedBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -242,13 +272,20 @@ public class IncidentSearchResponseFacetsData {
 
   public void setLastModifiedBy(List<IncidentSearchResponseUserFacetData> lastModifiedBy) {
     this.lastModifiedBy = lastModifiedBy;
+    if (lastModifiedBy != null) {
+      for (IncidentSearchResponseUserFacetData item : lastModifiedBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData postmortem(
       List<IncidentSearchResponseFieldFacetData> postmortem) {
     this.postmortem = postmortem;
-    for (IncidentSearchResponseFieldFacetData item : postmortem) {
-      this.unparsed |= item.unparsed;
+    if (postmortem != null) {
+      for (IncidentSearchResponseFieldFacetData item : postmortem) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -277,13 +314,20 @@ public class IncidentSearchResponseFacetsData {
 
   public void setPostmortem(List<IncidentSearchResponseFieldFacetData> postmortem) {
     this.postmortem = postmortem;
+    if (postmortem != null) {
+      for (IncidentSearchResponseFieldFacetData item : postmortem) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData responder(
       List<IncidentSearchResponseUserFacetData> responder) {
     this.responder = responder;
-    for (IncidentSearchResponseUserFacetData item : responder) {
-      this.unparsed |= item.unparsed;
+    if (responder != null) {
+      for (IncidentSearchResponseUserFacetData item : responder) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -312,13 +356,20 @@ public class IncidentSearchResponseFacetsData {
 
   public void setResponder(List<IncidentSearchResponseUserFacetData> responder) {
     this.responder = responder;
+    if (responder != null) {
+      for (IncidentSearchResponseUserFacetData item : responder) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData severity(
       List<IncidentSearchResponseFieldFacetData> severity) {
     this.severity = severity;
-    for (IncidentSearchResponseFieldFacetData item : severity) {
-      this.unparsed |= item.unparsed;
+    if (severity != null) {
+      for (IncidentSearchResponseFieldFacetData item : severity) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -347,12 +398,19 @@ public class IncidentSearchResponseFacetsData {
 
   public void setSeverity(List<IncidentSearchResponseFieldFacetData> severity) {
     this.severity = severity;
+    if (severity != null) {
+      for (IncidentSearchResponseFieldFacetData item : severity) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData state(List<IncidentSearchResponseFieldFacetData> state) {
     this.state = state;
-    for (IncidentSearchResponseFieldFacetData item : state) {
-      this.unparsed |= item.unparsed;
+    if (state != null) {
+      for (IncidentSearchResponseFieldFacetData item : state) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -381,13 +439,20 @@ public class IncidentSearchResponseFacetsData {
 
   public void setState(List<IncidentSearchResponseFieldFacetData> state) {
     this.state = state;
+    if (state != null) {
+      for (IncidentSearchResponseFieldFacetData item : state) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData timeToRepair(
       List<IncidentSearchResponseNumericFacetData> timeToRepair) {
     this.timeToRepair = timeToRepair;
-    for (IncidentSearchResponseNumericFacetData item : timeToRepair) {
-      this.unparsed |= item.unparsed;
+    if (timeToRepair != null) {
+      for (IncidentSearchResponseNumericFacetData item : timeToRepair) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -416,13 +481,20 @@ public class IncidentSearchResponseFacetsData {
 
   public void setTimeToRepair(List<IncidentSearchResponseNumericFacetData> timeToRepair) {
     this.timeToRepair = timeToRepair;
+    if (timeToRepair != null) {
+      for (IncidentSearchResponseNumericFacetData item : timeToRepair) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentSearchResponseFacetsData timeToResolve(
       List<IncidentSearchResponseNumericFacetData> timeToResolve) {
     this.timeToResolve = timeToResolve;
-    for (IncidentSearchResponseNumericFacetData item : timeToResolve) {
-      this.unparsed |= item.unparsed;
+    if (timeToResolve != null) {
+      for (IncidentSearchResponseNumericFacetData item : timeToResolve) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -451,6 +523,11 @@ public class IncidentSearchResponseFacetsData {
 
   public void setTimeToResolve(List<IncidentSearchResponseNumericFacetData> timeToResolve) {
     this.timeToResolve = timeToResolve;
+    if (timeToResolve != null) {
+      for (IncidentSearchResponseNumericFacetData item : timeToResolve) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

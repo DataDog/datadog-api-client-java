@@ -52,6 +52,9 @@ public class SLOHistoryResponse {
 
   public void setData(SLOHistoryResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SLOHistoryResponse errors(List<SLOHistoryResponseError> errors) {

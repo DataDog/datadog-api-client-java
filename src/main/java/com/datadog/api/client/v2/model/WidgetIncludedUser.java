@@ -66,6 +66,9 @@ public class WidgetIncludedUser {
 
   public void setAttributes(WidgetIncludedUserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WidgetIncludedUser id(String id) {

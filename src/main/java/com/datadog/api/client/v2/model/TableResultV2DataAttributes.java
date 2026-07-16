@@ -139,6 +139,9 @@ public class TableResultV2DataAttributes {
 
   public void setFileMetadata(TableResultV2DataAttributesFileMetadata fileMetadata) {
     this.fileMetadata = fileMetadata;
+    if (fileMetadata != null) {
+      this.unparsed |= fileMetadata.unparsed;
+    }
   }
 
   public TableResultV2DataAttributes lastUpdatedBy(String lastUpdatedBy) {
@@ -203,6 +206,9 @@ public class TableResultV2DataAttributes {
 
   public void setSchema(TableResultV2DataAttributesSchema schema) {
     this.schema = schema;
+    if (schema != null) {
+      this.unparsed |= schema.unparsed;
+    }
   }
 
   public TableResultV2DataAttributes source(ReferenceTableSourceType source) {

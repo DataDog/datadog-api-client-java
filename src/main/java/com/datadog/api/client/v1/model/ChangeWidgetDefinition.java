@@ -66,14 +66,19 @@ public class ChangeWidgetDefinition {
           List<ChangeWidgetRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ChangeWidgetDefinitionType type) {
     this.requests = requests;
+    for (ChangeWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
   public ChangeWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -101,6 +106,11 @@ public class ChangeWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ChangeWidgetDefinition description(String description) {
@@ -155,6 +165,11 @@ public class ChangeWidgetDefinition {
 
   public void setRequests(List<ChangeWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (ChangeWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ChangeWidgetDefinition time(WidgetTime time) {
@@ -177,6 +192,9 @@ public class ChangeWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public ChangeWidgetDefinition title(String title) {

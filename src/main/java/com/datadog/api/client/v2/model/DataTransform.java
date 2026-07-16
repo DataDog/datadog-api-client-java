@@ -121,6 +121,9 @@ public class DataTransform {
 
   public void setProperties(DataTransformProperties properties) {
     this.properties = properties;
+    if (properties != null) {
+      this.unparsed |= properties.unparsed;
+    }
   }
 
   public DataTransform type(DataTransformType type) {

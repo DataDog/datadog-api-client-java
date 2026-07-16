@@ -88,12 +88,18 @@ public class SecurityMonitoringSignalRulePayload {
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
           List<SecurityMonitoringSignalRuleQuery> queries) {
     this.cases = cases;
+    for (SecurityMonitoringRuleCaseCreate item : cases) {
+      this.unparsed |= item.unparsed;
+    }
     this.isEnabled = isEnabled;
     this.message = message;
     this.name = name;
     this.options = options;
     this.unparsed |= options.unparsed;
     this.queries = queries;
+    for (SecurityMonitoringSignalRuleQuery item : queries) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalRulePayload cases(List<SecurityMonitoringRuleCaseCreate> cases) {
@@ -124,6 +130,11 @@ public class SecurityMonitoringSignalRulePayload {
 
   public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
+    if (cases != null) {
+      for (SecurityMonitoringRuleCaseCreate item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalRulePayload customMessage(String customMessage) {
@@ -170,8 +181,10 @@ public class SecurityMonitoringSignalRulePayload {
 
   public SecurityMonitoringSignalRulePayload filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
-    for (SecurityMonitoringFilter item : filters) {
-      this.unparsed |= item.unparsed;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -200,6 +213,11 @@ public class SecurityMonitoringSignalRulePayload {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalRulePayload hasExtendedTitle(Boolean hasExtendedTitle) {
@@ -302,6 +320,9 @@ public class SecurityMonitoringSignalRulePayload {
 
   public void setOptions(SecurityMonitoringRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalRulePayload queries(
@@ -333,6 +354,11 @@ public class SecurityMonitoringSignalRulePayload {
 
   public void setQueries(List<SecurityMonitoringSignalRuleQuery> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (SecurityMonitoringSignalRuleQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringSignalRulePayload tags(List<String> tags) {

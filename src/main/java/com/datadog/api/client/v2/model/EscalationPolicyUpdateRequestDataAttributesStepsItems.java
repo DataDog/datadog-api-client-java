@@ -52,6 +52,9 @@ public class EscalationPolicyUpdateRequestDataAttributesStepsItems {
       @JsonProperty(required = true, value = JSON_PROPERTY_TARGETS)
           List<EscalationPolicyStepTarget> targets) {
     this.targets = targets;
+    for (EscalationPolicyStepTarget item : targets) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public EscalationPolicyUpdateRequestDataAttributesStepsItems assignment(
@@ -153,6 +156,11 @@ public class EscalationPolicyUpdateRequestDataAttributesStepsItems {
 
   public void setTargets(List<EscalationPolicyStepTarget> targets) {
     this.targets = targets;
+    if (targets != null) {
+      for (EscalationPolicyStepTarget item : targets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

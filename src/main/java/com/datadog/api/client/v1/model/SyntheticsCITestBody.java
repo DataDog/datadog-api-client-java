@@ -29,8 +29,10 @@ public class SyntheticsCITestBody {
 
   public SyntheticsCITestBody tests(List<SyntheticsCITest> tests) {
     this.tests = tests;
-    for (SyntheticsCITest item : tests) {
-      this.unparsed |= item.unparsed;
+    if (tests != null) {
+      for (SyntheticsCITest item : tests) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class SyntheticsCITestBody {
 
   public void setTests(List<SyntheticsCITest> tests) {
     this.tests = tests;
+    if (tests != null) {
+      for (SyntheticsCITest item : tests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

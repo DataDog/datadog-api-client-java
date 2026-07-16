@@ -153,6 +153,9 @@ public class ObservabilityPipelineSplunkHecSource {
 
   public void setTls(ObservabilityPipelineMtlsServerTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineSplunkHecSource type(ObservabilityPipelineSplunkHecSourceType type) {
@@ -182,8 +185,10 @@ public class ObservabilityPipelineSplunkHecSource {
   public ObservabilityPipelineSplunkHecSource validTokens(
       List<ObservabilityPipelineSplunkHecSourceValidToken> validTokens) {
     this.validTokens = validTokens;
-    for (ObservabilityPipelineSplunkHecSourceValidToken item : validTokens) {
-      this.unparsed |= item.unparsed;
+    if (validTokens != null) {
+      for (ObservabilityPipelineSplunkHecSourceValidToken item : validTokens) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -213,6 +218,11 @@ public class ObservabilityPipelineSplunkHecSource {
 
   public void setValidTokens(List<ObservabilityPipelineSplunkHecSourceValidToken> validTokens) {
     this.validTokens = validTokens;
+    if (validTokens != null) {
+      for (ObservabilityPipelineSplunkHecSourceValidToken item : validTokens) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

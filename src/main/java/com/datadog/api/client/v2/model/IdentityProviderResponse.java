@@ -54,6 +54,9 @@ public class IdentityProviderResponse {
 
   public void setData(IdentityProviderData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

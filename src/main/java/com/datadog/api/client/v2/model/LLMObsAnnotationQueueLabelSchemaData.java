@@ -71,6 +71,9 @@ public class LLMObsAnnotationQueueLabelSchemaData {
 
   public void setAttributes(LLMObsAnnotationQueueLabelSchemaAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsAnnotationQueueLabelSchemaData id(String id) {

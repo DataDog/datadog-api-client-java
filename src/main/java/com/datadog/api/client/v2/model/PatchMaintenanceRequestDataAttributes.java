@@ -104,8 +104,10 @@ public class PatchMaintenanceRequestDataAttributes {
   public PatchMaintenanceRequestDataAttributes componentsAffected(
       List<PatchMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
-    for (PatchMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
+    if (componentsAffected != null) {
+      for (PatchMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -136,6 +138,11 @@ public class PatchMaintenanceRequestDataAttributes {
   public void setComponentsAffected(
       List<PatchMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (PatchMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PatchMaintenanceRequestDataAttributes inProgressDescription(String inProgressDescription) {

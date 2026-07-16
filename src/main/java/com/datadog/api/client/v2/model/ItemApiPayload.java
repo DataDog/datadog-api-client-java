@@ -45,6 +45,9 @@ public class ItemApiPayload {
 
   public void setData(ItemApiPayloadData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

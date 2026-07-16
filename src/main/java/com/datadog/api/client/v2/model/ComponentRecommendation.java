@@ -58,6 +58,9 @@ public class ComponentRecommendation {
 
   public void setEstimation(Estimation estimation) {
     this.estimation = estimation;
+    if (estimation != null) {
+      this.unparsed |= estimation.unparsed;
+    }
   }
 
   /**

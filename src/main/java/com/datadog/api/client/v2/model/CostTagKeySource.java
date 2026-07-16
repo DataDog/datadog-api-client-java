@@ -70,6 +70,9 @@ public class CostTagKeySource {
 
   public void setAttributes(CostTagKeySourceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CostTagKeySource id(String id) {

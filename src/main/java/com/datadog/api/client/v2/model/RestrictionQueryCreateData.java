@@ -51,6 +51,9 @@ public class RestrictionQueryCreateData {
 
   public void setAttributes(RestrictionQueryCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RestrictionQueryCreateData type(LogsRestrictionQueriesType type) {

@@ -68,6 +68,9 @@ public class IncidentCreateData {
 
   public void setAttributes(IncidentCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentCreateData relationships(IncidentCreateRelationships relationships) {
@@ -90,6 +93,9 @@ public class IncidentCreateData {
 
   public void setRelationships(IncidentCreateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentCreateData type(IncidentType type) {

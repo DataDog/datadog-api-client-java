@@ -45,6 +45,9 @@ public class ObservabilityPipelineQuotaProcessorOverride {
       @JsonProperty(required = true, value = JSON_PROPERTY_LIMIT)
           ObservabilityPipelineQuotaProcessorLimit limit) {
     this.fields = fields;
+    for (ObservabilityPipelineFieldValue item : fields) {
+      this.unparsed |= item.unparsed;
+    }
     this.limit = limit;
     this.unparsed |= limit.unparsed;
   }
@@ -79,6 +82,11 @@ public class ObservabilityPipelineQuotaProcessorOverride {
 
   public void setFields(List<ObservabilityPipelineFieldValue> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (ObservabilityPipelineFieldValue item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineQuotaProcessorOverride limit(
@@ -102,6 +110,9 @@ public class ObservabilityPipelineQuotaProcessorOverride {
 
   public void setLimit(ObservabilityPipelineQuotaProcessorLimit limit) {
     this.limit = limit;
+    if (limit != null) {
+      this.unparsed |= limit.unparsed;
+    }
   }
 
   /**

@@ -51,6 +51,9 @@ public class TimelineCellAuthorUser {
 
   public void setContent(TimelineCellAuthorUserContent content) {
     this.content = content;
+    if (content != null) {
+      this.unparsed |= content.unparsed;
+    }
   }
 
   public TimelineCellAuthorUser type(TimelineCellAuthorUserType type) {

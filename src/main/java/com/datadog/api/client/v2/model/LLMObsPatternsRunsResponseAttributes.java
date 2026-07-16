@@ -35,6 +35,9 @@ public class LLMObsPatternsRunsResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_RUNS)
           List<LLMObsPatternsRunSummary> runs) {
     this.runs = runs;
+    for (LLMObsPatternsRunSummary item : runs) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsPatternsRunsResponseAttributes runs(List<LLMObsPatternsRunSummary> runs) {
@@ -64,6 +67,11 @@ public class LLMObsPatternsRunsResponseAttributes {
 
   public void setRuns(List<LLMObsPatternsRunSummary> runs) {
     this.runs = runs;
+    if (runs != null) {
+      for (LLMObsPatternsRunSummary item : runs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -44,6 +44,9 @@ public class CreateBackfilledDegradationRequestDataAttributes {
           List<CreateBackfilledDegradationRequestDataAttributesUpdatesItems> updates) {
     this.title = title;
     this.updates = updates;
+    for (CreateBackfilledDegradationRequestDataAttributesUpdatesItems item : updates) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CreateBackfilledDegradationRequestDataAttributes title(String title) {
@@ -96,6 +99,11 @@ public class CreateBackfilledDegradationRequestDataAttributes {
   public void setUpdates(
       List<CreateBackfilledDegradationRequestDataAttributesUpdatesItems> updates) {
     this.updates = updates;
+    if (updates != null) {
+      for (CreateBackfilledDegradationRequestDataAttributesUpdatesItems item : updates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

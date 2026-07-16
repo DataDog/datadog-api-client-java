@@ -63,6 +63,9 @@ public class ScheduleTriggerWrapper {
 
   public void setScheduleTrigger(ScheduleTrigger scheduleTrigger) {
     this.scheduleTrigger = scheduleTrigger;
+    if (scheduleTrigger != null) {
+      this.unparsed |= scheduleTrigger.unparsed;
+    }
   }
 
   public ScheduleTriggerWrapper startStepNames(List<String> startStepNames) {

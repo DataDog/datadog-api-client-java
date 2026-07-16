@@ -83,6 +83,9 @@ public class LLMObsCustomEvalConfigPromptContent {
 
   public void setValue(LLMObsCustomEvalConfigPromptContentValue value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /**

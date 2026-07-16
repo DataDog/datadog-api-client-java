@@ -70,6 +70,9 @@ public class SecureEmbedGetResponseData {
 
   public void setAttributes(SecureEmbedGetResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecureEmbedGetResponseData id(String id) {

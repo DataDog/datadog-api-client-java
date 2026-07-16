@@ -45,6 +45,9 @@ public class DeploymentGateRulesResponse {
 
   public void setData(ListDeploymentRuleResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

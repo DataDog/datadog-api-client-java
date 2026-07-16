@@ -69,6 +69,9 @@ public class ProjectAttributes {
 
   public void setColumnsConfig(ProjectColumnsConfig columnsConfig) {
     this.columnsConfig = columnsConfig;
+    if (columnsConfig != null) {
+      this.unparsed |= columnsConfig.unparsed;
+    }
   }
 
   public ProjectAttributes enabledCustomCaseTypes(List<String> enabledCustomCaseTypes) {
@@ -183,6 +186,9 @@ public class ProjectAttributes {
 
   public void setSettings(ProjectSettings settings) {
     this.settings = settings;
+    if (settings != null) {
+      this.unparsed |= settings.unparsed;
+    }
   }
 
   /**

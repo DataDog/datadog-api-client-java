@@ -67,6 +67,9 @@ public class OrgAuthorizedClientUpdateData {
 
   public void setAttributes(OrgAuthorizedClientUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgAuthorizedClientUpdateData id(String id) {

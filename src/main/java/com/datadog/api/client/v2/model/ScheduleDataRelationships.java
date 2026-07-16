@@ -51,6 +51,9 @@ public class ScheduleDataRelationships {
 
   public void setLayers(ScheduleDataRelationshipsLayers layers) {
     this.layers = layers;
+    if (layers != null) {
+      this.unparsed |= layers.unparsed;
+    }
   }
 
   public ScheduleDataRelationships teams(DataRelationshipsTeams teams) {
@@ -73,6 +76,9 @@ public class ScheduleDataRelationships {
 
   public void setTeams(DataRelationshipsTeams teams) {
     this.teams = teams;
+    if (teams != null) {
+      this.unparsed |= teams.unparsed;
+    }
   }
 
   /**

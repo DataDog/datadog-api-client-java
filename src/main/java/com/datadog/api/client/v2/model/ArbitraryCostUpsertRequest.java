@@ -45,6 +45,9 @@ public class ArbitraryCostUpsertRequest {
 
   public void setData(ArbitraryCostUpsertRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

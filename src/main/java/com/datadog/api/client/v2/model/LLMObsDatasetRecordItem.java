@@ -101,6 +101,9 @@ public class LLMObsDatasetRecordItem {
 
   public void setInput(AnyValue input) {
     this.input = input;
+    if (input != null) {
+      this.unparsed |= input.unparsed;
+    }
   }
 
   public LLMObsDatasetRecordItem metadata(Map<String, Object> metadata) {

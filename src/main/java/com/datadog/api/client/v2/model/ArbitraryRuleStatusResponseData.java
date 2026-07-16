@@ -73,6 +73,9 @@ public class ArbitraryRuleStatusResponseData {
 
   public void setAttributes(ArbitraryRuleStatusResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ArbitraryRuleStatusResponseData id(String id) {

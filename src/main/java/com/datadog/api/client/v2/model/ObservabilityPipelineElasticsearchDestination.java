@@ -150,6 +150,9 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public void setAuth(ObservabilityPipelineElasticsearchDestinationAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineElasticsearchDestination buffer(
@@ -173,6 +176,9 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineElasticsearchDestination bulkIndex(String bulkIndex) {
@@ -217,6 +223,9 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public void setCompression(ObservabilityPipelineElasticsearchDestinationCompression compression) {
     this.compression = compression;
+    if (compression != null) {
+      this.unparsed |= compression.unparsed;
+    }
   }
 
   public ObservabilityPipelineElasticsearchDestination dataStream(
@@ -240,6 +249,9 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public void setDataStream(ObservabilityPipelineElasticsearchDestinationDataStream dataStream) {
     this.dataStream = dataStream;
+    if (dataStream != null) {
+      this.unparsed |= dataStream.unparsed;
+    }
   }
 
   public ObservabilityPipelineElasticsearchDestination endpointUrlKey(String endpointUrlKey) {
@@ -393,6 +405,9 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineElasticsearchDestination type(

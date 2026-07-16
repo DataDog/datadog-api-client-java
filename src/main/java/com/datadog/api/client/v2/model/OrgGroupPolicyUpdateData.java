@@ -71,6 +71,9 @@ public class OrgGroupPolicyUpdateData {
 
   public void setAttributes(OrgGroupPolicyUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupPolicyUpdateData id(UUID id) {

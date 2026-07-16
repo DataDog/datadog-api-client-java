@@ -89,6 +89,9 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
 
   public void setAssessmentCriteria(LLMObsCustomEvalConfigAssessmentCriteria assessmentCriteria) {
     this.assessmentCriteria = assessmentCriteria;
+    if (assessmentCriteria != null) {
+      this.unparsed |= assessmentCriteria.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigLLMJudgeConfig inferenceParams(
@@ -111,6 +114,9 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
 
   public void setInferenceParams(LLMObsCustomEvalConfigInferenceParams inferenceParams) {
     this.inferenceParams = inferenceParams;
+    if (inferenceParams != null) {
+      this.unparsed |= inferenceParams.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigLLMJudgeConfig lastUsedLibraryPromptTemplateName(
@@ -254,8 +260,10 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
   public LLMObsCustomEvalConfigLLMJudgeConfig promptTemplate(
       List<LLMObsCustomEvalConfigPromptMessage> promptTemplate) {
     this.promptTemplate = promptTemplate;
-    for (LLMObsCustomEvalConfigPromptMessage item : promptTemplate) {
-      this.unparsed |= item.unparsed;
+    if (promptTemplate != null) {
+      for (LLMObsCustomEvalConfigPromptMessage item : promptTemplate) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -284,6 +292,11 @@ public class LLMObsCustomEvalConfigLLMJudgeConfig {
 
   public void setPromptTemplate(List<LLMObsCustomEvalConfigPromptMessage> promptTemplate) {
     this.promptTemplate = promptTemplate;
+    if (promptTemplate != null) {
+      for (LLMObsCustomEvalConfigPromptMessage item : promptTemplate) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

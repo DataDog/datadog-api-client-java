@@ -71,6 +71,9 @@ public class GetAppResponseData {
 
   public void setAttributes(GetAppResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetAppResponseData id(UUID id) {

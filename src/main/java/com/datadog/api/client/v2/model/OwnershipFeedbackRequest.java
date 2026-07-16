@@ -55,6 +55,9 @@ public class OwnershipFeedbackRequest {
 
   public void setData(OwnershipFeedbackRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

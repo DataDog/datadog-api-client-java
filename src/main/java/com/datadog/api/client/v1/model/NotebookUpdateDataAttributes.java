@@ -60,6 +60,9 @@ public class NotebookUpdateDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TIME) NotebookGlobalTime time) {
     this.cells = cells;
+    for (NotebookUpdateCell item : cells) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -92,6 +95,11 @@ public class NotebookUpdateDataAttributes {
 
   public void setCells(List<NotebookUpdateCell> cells) {
     this.cells = cells;
+    if (cells != null) {
+      for (NotebookUpdateCell item : cells) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public NotebookUpdateDataAttributes metadata(NotebookMetadata metadata) {
@@ -114,6 +122,9 @@ public class NotebookUpdateDataAttributes {
 
   public void setMetadata(NotebookMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public NotebookUpdateDataAttributes name(String name) {
@@ -226,6 +237,9 @@ public class NotebookUpdateDataAttributes {
 
   public void setTime(NotebookGlobalTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   /**

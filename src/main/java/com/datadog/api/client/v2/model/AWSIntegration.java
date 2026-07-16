@@ -60,6 +60,9 @@ public class AWSIntegration {
 
   public void setCredentials(AWSCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public AWSIntegration type(AWSIntegrationType type) {

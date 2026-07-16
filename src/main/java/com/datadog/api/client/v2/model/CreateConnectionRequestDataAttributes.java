@@ -63,8 +63,10 @@ public class CreateConnectionRequestDataAttributes {
   public CreateConnectionRequestDataAttributes fields(
       List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
-    for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
-      this.unparsed |= item.unparsed;
+    if (fields != null) {
+      for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -93,6 +95,11 @@ public class CreateConnectionRequestDataAttributes {
 
   public void setFields(List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CreateConnectionRequestDataAttributes joinAttribute(String joinAttribute) {

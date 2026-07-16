@@ -45,6 +45,9 @@ public class MonitorUserTemplateCreateResponse {
 
   public void setData(MonitorUserTemplateResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

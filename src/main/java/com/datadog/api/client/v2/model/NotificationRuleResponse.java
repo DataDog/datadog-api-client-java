@@ -49,6 +49,9 @@ public class NotificationRuleResponse {
 
   public void setData(NotificationRule data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

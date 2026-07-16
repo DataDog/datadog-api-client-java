@@ -35,6 +35,9 @@ public class BatchDeleteRowsRequestArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<TableRowResourceIdentifier> data) {
     this.data = data;
+    for (TableRowResourceIdentifier item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public BatchDeleteRowsRequestArray data(List<TableRowResourceIdentifier> data) {
@@ -64,6 +67,11 @@ public class BatchDeleteRowsRequestArray {
 
   public void setData(List<TableRowResourceIdentifier> data) {
     this.data = data;
+    if (data != null) {
+      for (TableRowResourceIdentifier item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

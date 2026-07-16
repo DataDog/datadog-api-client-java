@@ -64,6 +64,9 @@ public class CreateStatusPageRequestData {
 
   public void setAttributes(CreateStatusPageRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateStatusPageRequestData type(StatusPageDataType type) {

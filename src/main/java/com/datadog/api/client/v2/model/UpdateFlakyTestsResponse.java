@@ -45,6 +45,9 @@ public class UpdateFlakyTestsResponse {
 
   public void setData(UpdateFlakyTestsResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class EntityResponseDataRelationshipsRawSchema {
 
   public void setData(EntityResponseDataRelationshipsRawSchemaData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class RumSdkConfigAttributes {
 
   public void setRum(RumSdkConfigRumAttributes rum) {
     this.rum = rum;
+    if (rum != null) {
+      this.unparsed |= rum.unparsed;
+    }
   }
 
   /**

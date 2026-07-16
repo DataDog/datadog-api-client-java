@@ -67,6 +67,9 @@ public class UserTeamPermission {
 
   public void setAttributes(UserTeamPermissionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UserTeamPermission id(String id) {

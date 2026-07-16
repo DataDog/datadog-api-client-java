@@ -30,8 +30,10 @@ public class ApplicationSecurityWafExclusionFiltersResponse {
   public ApplicationSecurityWafExclusionFiltersResponse data(
       List<ApplicationSecurityWafExclusionFilterResource> data) {
     this.data = data;
-    for (ApplicationSecurityWafExclusionFilterResource item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ApplicationSecurityWafExclusionFilterResource item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class ApplicationSecurityWafExclusionFiltersResponse {
 
   public void setData(List<ApplicationSecurityWafExclusionFilterResource> data) {
     this.data = data;
+    if (data != null) {
+      for (ApplicationSecurityWafExclusionFilterResource item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

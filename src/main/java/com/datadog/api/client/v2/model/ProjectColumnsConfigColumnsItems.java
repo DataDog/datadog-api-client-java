@@ -55,6 +55,9 @@ public class ProjectColumnsConfigColumnsItems {
 
   public void setSort(ProjectColumnsConfigColumnsItemsSort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public ProjectColumnsConfigColumnsItems sortField(String sortField) {

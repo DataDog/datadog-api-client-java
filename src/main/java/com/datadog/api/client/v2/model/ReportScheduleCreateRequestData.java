@@ -65,6 +65,9 @@ public class ReportScheduleCreateRequestData {
 
   public void setAttributes(ReportScheduleCreateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ReportScheduleCreateRequestData type(ReportScheduleType type) {

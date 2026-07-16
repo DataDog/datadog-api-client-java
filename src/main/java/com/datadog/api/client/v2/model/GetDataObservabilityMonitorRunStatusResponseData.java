@@ -72,6 +72,9 @@ public class GetDataObservabilityMonitorRunStatusResponseData {
 
   public void setAttributes(GetDataObservabilityMonitorRunStatusResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetDataObservabilityMonitorRunStatusResponseData id(String id) {

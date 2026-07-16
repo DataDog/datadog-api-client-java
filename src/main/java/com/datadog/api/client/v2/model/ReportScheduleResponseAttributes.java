@@ -111,6 +111,9 @@ public class ReportScheduleResponseAttributes {
     this.tabId = tabId;
     if (tabId != null) {}
     this.templateVariables = templateVariables;
+    for (ReportScheduleTemplateVariable item : templateVariables) {
+      this.unparsed |= item.unparsed;
+    }
     this.timeframe = timeframe;
     if (timeframe != null) {}
     this.timezone = timezone;
@@ -365,6 +368,11 @@ public class ReportScheduleResponseAttributes {
 
   public void setTemplateVariables(List<ReportScheduleTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (ReportScheduleTemplateVariable item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ReportScheduleResponseAttributes timeframe(String timeframe) {

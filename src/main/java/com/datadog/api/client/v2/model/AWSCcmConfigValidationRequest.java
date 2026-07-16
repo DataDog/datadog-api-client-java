@@ -55,6 +55,9 @@ public class AWSCcmConfigValidationRequest {
 
   public void setData(AWSCcmConfigValidationRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

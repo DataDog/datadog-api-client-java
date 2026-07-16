@@ -53,13 +53,18 @@ public class MonitorNotificationRuleResponse {
 
   public void setData(MonitorNotificationRuleData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public MonitorNotificationRuleResponse included(
       List<MonitorNotificationRuleResponseIncludedItem> included) {
     this.included = included;
-    for (MonitorNotificationRuleResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (MonitorNotificationRuleResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -88,6 +93,11 @@ public class MonitorNotificationRuleResponse {
 
   public void setIncluded(List<MonitorNotificationRuleResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (MonitorNotificationRuleResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

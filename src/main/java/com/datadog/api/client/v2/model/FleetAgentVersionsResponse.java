@@ -34,6 +34,9 @@ public class FleetAgentVersionsResponse {
   public FleetAgentVersionsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<FleetAgentVersion> data) {
     this.data = data;
+    for (FleetAgentVersion item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public FleetAgentVersionsResponse data(List<FleetAgentVersion> data) {
@@ -63,6 +66,11 @@ public class FleetAgentVersionsResponse {
 
   public void setData(List<FleetAgentVersion> data) {
     this.data = data;
+    if (data != null) {
+      for (FleetAgentVersion item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

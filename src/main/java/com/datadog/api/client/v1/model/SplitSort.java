@@ -57,6 +57,9 @@ public class SplitSort {
 
   public void setCompute(SplitConfigSortCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public SplitSort order(WidgetSort order) {

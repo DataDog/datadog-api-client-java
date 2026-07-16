@@ -70,6 +70,9 @@ public class ObservabilityPipelineRenameMetricTagsProcessor {
     this.id = id;
     this.include = include;
     this.tags = tags;
+    for (ObservabilityPipelineRenameMetricTagsProcessorTag item : tags) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -185,6 +188,11 @@ public class ObservabilityPipelineRenameMetricTagsProcessor {
 
   public void setTags(List<ObservabilityPipelineRenameMetricTagsProcessorTag> tags) {
     this.tags = tags;
+    if (tags != null) {
+      for (ObservabilityPipelineRenameMetricTagsProcessorTag item : tags) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineRenameMetricTagsProcessor type(

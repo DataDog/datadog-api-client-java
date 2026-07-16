@@ -61,6 +61,9 @@ public class V2EventAttributes {
 
   public void setAttributes(V2EventAttributesAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public V2EventAttributes message(String message) {

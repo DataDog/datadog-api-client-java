@@ -348,6 +348,9 @@ public class SyntheticsTestResultCertificate {
 
   public void setValid(SyntheticsTestResultCertificateValidity valid) {
     this.valid = valid;
+    if (valid != null) {
+      this.unparsed |= valid.unparsed;
+    }
   }
 
   /**

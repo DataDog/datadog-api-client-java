@@ -73,6 +73,9 @@ public class AttachLinearIssueRequestData {
 
   public void setAttributes(AttachLinearIssueRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AttachLinearIssueRequestData relationships(
@@ -95,6 +98,9 @@ public class AttachLinearIssueRequestData {
 
   public void setRelationships(AttachLinearIssueRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public AttachLinearIssueRequestData type(LinearIssuesDataType type) {

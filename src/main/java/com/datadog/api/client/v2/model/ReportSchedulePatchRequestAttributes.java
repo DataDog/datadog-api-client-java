@@ -82,6 +82,9 @@ public class ReportSchedulePatchRequestAttributes {
     this.recipients = recipients;
     this.rrule = rrule;
     this.templateVariables = templateVariables;
+    for (ReportScheduleTemplateVariable item : templateVariables) {
+      this.unparsed |= item.unparsed;
+    }
     this.timeframe = timeframe;
     this.timezone = timezone;
     this.title = title;
@@ -231,6 +234,11 @@ public class ReportSchedulePatchRequestAttributes {
 
   public void setTemplateVariables(List<ReportScheduleTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (ReportScheduleTemplateVariable item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ReportSchedulePatchRequestAttributes timeframe(String timeframe) {

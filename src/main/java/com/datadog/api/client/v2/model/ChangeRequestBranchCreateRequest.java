@@ -55,6 +55,9 @@ public class ChangeRequestBranchCreateRequest {
 
   public void setData(ChangeRequestBranchCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

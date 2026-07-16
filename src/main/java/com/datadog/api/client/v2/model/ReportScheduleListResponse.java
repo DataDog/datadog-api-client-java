@@ -49,6 +49,9 @@ public class ReportScheduleListResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<ReportScheduleListResponseData> data) {
     this.data = data;
+    for (ReportScheduleListResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ReportScheduleListResponse data(List<ReportScheduleListResponseData> data) {
@@ -78,12 +81,19 @@ public class ReportScheduleListResponse {
 
   public void setData(List<ReportScheduleListResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (ReportScheduleListResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ReportScheduleListResponse included(List<ReportScheduleIncludedResource> included) {
     this.included = included;
-    for (ReportScheduleIncludedResource item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ReportScheduleIncludedResource item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -111,6 +121,11 @@ public class ReportScheduleListResponse {
 
   public void setIncluded(List<ReportScheduleIncludedResource> included) {
     this.included = included;
+    if (included != null) {
+      for (ReportScheduleIncludedResource item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ReportScheduleListResponse links(ReportScheduleListResponseLinks links) {
@@ -133,6 +148,9 @@ public class ReportScheduleListResponse {
 
   public void setLinks(ReportScheduleListResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public ReportScheduleListResponse meta(ReportScheduleListResponseMeta meta) {
@@ -155,6 +173,9 @@ public class ReportScheduleListResponse {
 
   public void setMeta(ReportScheduleListResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

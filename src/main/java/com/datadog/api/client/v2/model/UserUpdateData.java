@@ -70,6 +70,9 @@ public class UserUpdateData {
 
   public void setAttributes(UserUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UserUpdateData id(String id) {

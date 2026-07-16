@@ -61,6 +61,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttributes {
   public void setAttemptToFix(
       TestOptimizationFlakyTestsManagementPoliciesAttemptToFix attemptToFix) {
     this.attemptToFix = attemptToFix;
+    if (attemptToFix != null) {
+      this.unparsed |= attemptToFix.unparsed;
+    }
   }
 
   public TestOptimizationFlakyTestsManagementPoliciesAttributes disabled(
@@ -84,6 +87,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttributes {
 
   public void setDisabled(TestOptimizationFlakyTestsManagementPoliciesDisabled disabled) {
     this.disabled = disabled;
+    if (disabled != null) {
+      this.unparsed |= disabled.unparsed;
+    }
   }
 
   public TestOptimizationFlakyTestsManagementPoliciesAttributes quarantined(
@@ -107,6 +113,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttributes {
 
   public void setQuarantined(TestOptimizationFlakyTestsManagementPoliciesQuarantined quarantined) {
     this.quarantined = quarantined;
+    if (quarantined != null) {
+      this.unparsed |= quarantined.unparsed;
+    }
   }
 
   public TestOptimizationFlakyTestsManagementPoliciesAttributes repositoryId(String repositoryId) {

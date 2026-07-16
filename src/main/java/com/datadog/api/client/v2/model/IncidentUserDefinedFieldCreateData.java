@@ -74,6 +74,9 @@ public class IncidentUserDefinedFieldCreateData {
 
   public void setAttributes(IncidentUserDefinedFieldAttributesCreateRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentUserDefinedFieldCreateData relationships(
@@ -96,6 +99,9 @@ public class IncidentUserDefinedFieldCreateData {
 
   public void setRelationships(IncidentUserDefinedFieldCreateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentUserDefinedFieldCreateData type(IncidentUserDefinedFieldType type) {

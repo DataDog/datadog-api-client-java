@@ -69,6 +69,9 @@ public class AWSEventBridgeDeleteResponseData {
 
   public void setAttributes(AWSEventBridgeDeleteResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSEventBridgeDeleteResponseData id(String id) {

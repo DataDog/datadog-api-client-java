@@ -59,6 +59,9 @@ public class DowntimeResponseData {
 
   public void setAttributes(DowntimeResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DowntimeResponseData id(String id) {
@@ -102,6 +105,9 @@ public class DowntimeResponseData {
 
   public void setRelationships(DowntimeRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public DowntimeResponseData type(DowntimeResourceType type) {

@@ -59,6 +59,9 @@ public class IncidentNotificationRuleRelationships {
 
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public IncidentNotificationRuleRelationships incidentType(
@@ -82,6 +85,9 @@ public class IncidentNotificationRuleRelationships {
 
   public void setIncidentType(RelationshipToIncidentType incidentType) {
     this.incidentType = incidentType;
+    if (incidentType != null) {
+      this.unparsed |= incidentType.unparsed;
+    }
   }
 
   public IncidentNotificationRuleRelationships lastModifiedByUser(
@@ -105,6 +111,9 @@ public class IncidentNotificationRuleRelationships {
 
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   public IncidentNotificationRuleRelationships notificationTemplate(
@@ -129,6 +138,9 @@ public class IncidentNotificationRuleRelationships {
   public void setNotificationTemplate(
       RelationshipToIncidentNotificationTemplate notificationTemplate) {
     this.notificationTemplate = notificationTemplate;
+    if (notificationTemplate != null) {
+      this.unparsed |= notificationTemplate.unparsed;
+    }
   }
 
   /**

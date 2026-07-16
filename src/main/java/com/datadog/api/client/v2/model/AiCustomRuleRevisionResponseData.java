@@ -72,6 +72,9 @@ public class AiCustomRuleRevisionResponseData {
 
   public void setAttributes(AiCustomRuleRevisionResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AiCustomRuleRevisionResponseData id(String id) {

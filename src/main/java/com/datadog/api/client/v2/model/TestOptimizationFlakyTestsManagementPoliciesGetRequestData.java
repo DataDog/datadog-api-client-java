@@ -67,6 +67,9 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
   public void setAttributes(
       TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TestOptimizationFlakyTestsManagementPoliciesGetRequestData type(

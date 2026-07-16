@@ -63,6 +63,9 @@ public class Budget {
 
   public void setAttributes(BudgetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Budget id(String id) {

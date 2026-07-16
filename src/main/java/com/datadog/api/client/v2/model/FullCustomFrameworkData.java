@@ -70,6 +70,9 @@ public class FullCustomFrameworkData {
 
   public void setAttributes(FullCustomFrameworkDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FullCustomFrameworkData id(String id) {

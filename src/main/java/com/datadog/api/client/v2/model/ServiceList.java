@@ -45,6 +45,9 @@ public class ServiceList {
 
   public void setData(ServiceListData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

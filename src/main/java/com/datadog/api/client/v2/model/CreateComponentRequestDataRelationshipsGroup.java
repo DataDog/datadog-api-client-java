@@ -61,6 +61,9 @@ public class CreateComponentRequestDataRelationshipsGroup {
 
   public void setData(CreateComponentRequestDataRelationshipsGroupData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

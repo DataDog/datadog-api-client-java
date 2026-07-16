@@ -60,6 +60,9 @@ public class UsageSummaryAvailableFieldsBody {
 
   public void setAttributes(UsageSummaryAvailableFieldsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UsageSummaryAvailableFieldsBody id(String id) {

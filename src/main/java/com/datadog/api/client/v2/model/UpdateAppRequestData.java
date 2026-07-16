@@ -69,6 +69,9 @@ public class UpdateAppRequestData {
 
   public void setAttributes(UpdateAppRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateAppRequestData id(UUID id) {

@@ -45,6 +45,9 @@ public class SLOCorrectionUpdateRequest {
 
   public void setData(SLOCorrectionUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

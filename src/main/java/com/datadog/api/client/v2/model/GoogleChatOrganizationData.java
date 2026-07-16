@@ -60,6 +60,9 @@ public class GoogleChatOrganizationData {
 
   public void setAttributes(GoogleChatOrganizationAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GoogleChatOrganizationData id(String id) {
@@ -104,6 +107,9 @@ public class GoogleChatOrganizationData {
 
   public void setRelationships(GoogleChatOrganizationRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public GoogleChatOrganizationData type(GoogleChatOrganizationType type) {

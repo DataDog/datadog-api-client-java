@@ -79,14 +79,19 @@ public class PointPlotWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           PointPlotWidgetDefinitionType type) {
     this.requests = requests;
+    for (PointPlotWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
   public PointPlotWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -114,6 +119,11 @@ public class PointPlotWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PointPlotWidgetDefinition description(String description) {
@@ -157,12 +167,17 @@ public class PointPlotWidgetDefinition {
 
   public void setLegend(PointPlotWidgetLegend legend) {
     this.legend = legend;
+    if (legend != null) {
+      this.unparsed |= legend.unparsed;
+    }
   }
 
   public PointPlotWidgetDefinition markers(List<WidgetMarker> markers) {
     this.markers = markers;
-    for (WidgetMarker item : markers) {
-      this.unparsed |= item.unparsed;
+    if (markers != null) {
+      for (WidgetMarker item : markers) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -190,6 +205,11 @@ public class PointPlotWidgetDefinition {
 
   public void setMarkers(List<WidgetMarker> markers) {
     this.markers = markers;
+    if (markers != null) {
+      for (WidgetMarker item : markers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PointPlotWidgetDefinition requests(List<PointPlotWidgetRequest> requests) {
@@ -219,6 +239,11 @@ public class PointPlotWidgetDefinition {
 
   public void setRequests(List<PointPlotWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (PointPlotWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PointPlotWidgetDefinition time(WidgetTime time) {
@@ -241,6 +266,9 @@ public class PointPlotWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public PointPlotWidgetDefinition title(String title) {
@@ -354,6 +382,9 @@ public class PointPlotWidgetDefinition {
 
   public void setYaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
+    if (yaxis != null) {
+      this.unparsed |= yaxis.unparsed;
+    }
   }
 
   /**

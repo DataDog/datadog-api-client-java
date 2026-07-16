@@ -101,8 +101,10 @@ public class ModelLabFacetValuesAttributes {
   public ModelLabFacetValuesAttributes metricStatRanges(
       List<ModelLabMetricStatRange> metricStatRanges) {
     this.metricStatRanges = metricStatRanges;
-    for (ModelLabMetricStatRange item : metricStatRanges) {
-      this.unparsed |= item.unparsed;
+    if (metricStatRanges != null) {
+      for (ModelLabMetricStatRange item : metricStatRanges) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -131,6 +133,11 @@ public class ModelLabFacetValuesAttributes {
 
   public void setMetricStatRanges(List<ModelLabMetricStatRange> metricStatRanges) {
     this.metricStatRanges = metricStatRanges;
+    if (metricStatRanges != null) {
+      for (ModelLabMetricStatRange item : metricStatRanges) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ModelLabFacetValuesAttributes numericRange(ModelLabNumericRange numericRange) {
@@ -153,6 +160,9 @@ public class ModelLabFacetValuesAttributes {
 
   public void setNumericRange(ModelLabNumericRange numericRange) {
     this.numericRange = numericRange;
+    if (numericRange != null) {
+      this.unparsed |= numericRange.unparsed;
+    }
   }
 
   public ModelLabFacetValuesAttributes values(List<String> values) {

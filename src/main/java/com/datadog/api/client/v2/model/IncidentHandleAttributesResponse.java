@@ -96,6 +96,9 @@ public class IncidentHandleAttributesResponse {
 
   public void setFields(IncidentHandleAttributesFields fields) {
     this.fields = fields;
+    if (fields != null) {
+      this.unparsed |= fields.unparsed;
+    }
   }
 
   public IncidentHandleAttributesResponse modifiedAt(OffsetDateTime modifiedAt) {

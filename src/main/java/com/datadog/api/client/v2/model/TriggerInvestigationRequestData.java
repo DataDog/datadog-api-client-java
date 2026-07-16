@@ -66,6 +66,9 @@ public class TriggerInvestigationRequestData {
 
   public void setAttributes(TriggerInvestigationRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TriggerInvestigationRequestData type(TriggerInvestigationRequestType type) {

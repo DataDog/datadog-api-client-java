@@ -70,6 +70,9 @@ public class SecurityEntityRiskScore {
 
   public void setAttributes(SecurityEntityRiskScoreAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityEntityRiskScore id(String id) {

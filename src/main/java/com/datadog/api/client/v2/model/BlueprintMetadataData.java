@@ -71,6 +71,9 @@ public class BlueprintMetadataData {
 
   public void setAttributes(BlueprintMetadataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BlueprintMetadataData id(UUID id) {

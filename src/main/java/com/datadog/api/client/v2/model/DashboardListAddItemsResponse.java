@@ -30,8 +30,10 @@ public class DashboardListAddItemsResponse {
   public DashboardListAddItemsResponse addedDashboardsToList(
       List<DashboardListItemResponse> addedDashboardsToList) {
     this.addedDashboardsToList = addedDashboardsToList;
-    for (DashboardListItemResponse item : addedDashboardsToList) {
-      this.unparsed |= item.unparsed;
+    if (addedDashboardsToList != null) {
+      for (DashboardListItemResponse item : addedDashboardsToList) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class DashboardListAddItemsResponse {
 
   public void setAddedDashboardsToList(List<DashboardListItemResponse> addedDashboardsToList) {
     this.addedDashboardsToList = addedDashboardsToList;
+    if (addedDashboardsToList != null) {
+      for (DashboardListItemResponse item : addedDashboardsToList) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

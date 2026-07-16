@@ -137,6 +137,9 @@ public class RetentionGroupBy {
 
   public void setSort(RetentionGroupBySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public RetentionGroupBy source(String source) {

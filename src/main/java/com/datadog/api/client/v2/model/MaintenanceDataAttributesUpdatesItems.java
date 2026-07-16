@@ -63,8 +63,10 @@ public class MaintenanceDataAttributesUpdatesItems {
   public MaintenanceDataAttributesUpdatesItems componentsAffected(
       List<MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
-    for (MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems item : componentsAffected) {
-      this.unparsed |= item.unparsed;
+    if (componentsAffected != null) {
+      for (MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -95,6 +97,11 @@ public class MaintenanceDataAttributesUpdatesItems {
   public void setComponentsAffected(
       List<MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
+    if (componentsAffected != null) {
+      for (MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems item : componentsAffected) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

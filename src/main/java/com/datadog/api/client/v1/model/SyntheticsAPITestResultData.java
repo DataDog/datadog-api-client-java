@@ -79,6 +79,9 @@ public class SyntheticsAPITestResultData {
 
   public void setCert(SyntheticsSSLCertificate cert) {
     this.cert = cert;
+    if (cert != null) {
+      this.unparsed |= cert.unparsed;
+    }
   }
 
   public SyntheticsAPITestResultData eventType(SyntheticsTestProcessStatus eventType) {
@@ -126,6 +129,9 @@ public class SyntheticsAPITestResultData {
 
   public void setFailure(SyntheticsApiTestResultFailure failure) {
     this.failure = failure;
+    if (failure != null) {
+      this.unparsed |= failure.unparsed;
+    }
   }
 
   public SyntheticsAPITestResultData httpStatusCode(Long httpStatusCode) {
@@ -272,6 +278,9 @@ public class SyntheticsAPITestResultData {
 
   public void setTimings(SyntheticsTiming timings) {
     this.timings = timings;
+    if (timings != null) {
+      this.unparsed |= timings.unparsed;
+    }
   }
 
   /**

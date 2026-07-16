@@ -48,6 +48,9 @@ public class Log {
 
   public void setContent(LogContent content) {
     this.content = content;
+    if (content != null) {
+      this.unparsed |= content.unparsed;
+    }
   }
 
   public Log id(String id) {

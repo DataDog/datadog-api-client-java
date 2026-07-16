@@ -35,6 +35,9 @@ public class CommitmentsCoverageScalarResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_COLUMNS)
           List<CommitmentsScalarColumn> columns) {
     this.columns = columns;
+    for (CommitmentsScalarColumn item : columns) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CommitmentsCoverageScalarResponse columns(List<CommitmentsScalarColumn> columns) {
@@ -64,6 +67,11 @@ public class CommitmentsCoverageScalarResponse {
 
   public void setColumns(List<CommitmentsScalarColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (CommitmentsScalarColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

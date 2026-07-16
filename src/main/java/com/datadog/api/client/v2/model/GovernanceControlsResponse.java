@@ -34,6 +34,9 @@ public class GovernanceControlsResponse {
   public GovernanceControlsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<GovernanceControlData> data) {
     this.data = data;
+    for (GovernanceControlData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public GovernanceControlsResponse data(List<GovernanceControlData> data) {
@@ -63,6 +66,11 @@ public class GovernanceControlsResponse {
 
   public void setData(List<GovernanceControlData> data) {
     this.data = data;
+    if (data != null) {
+      for (GovernanceControlData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

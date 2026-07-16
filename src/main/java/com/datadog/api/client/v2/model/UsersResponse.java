@@ -39,8 +39,10 @@ public class UsersResponse {
 
   public UsersResponse data(List<User> data) {
     this.data = data;
-    for (User item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (User item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,12 +70,19 @@ public class UsersResponse {
 
   public void setData(List<User> data) {
     this.data = data;
+    if (data != null) {
+      for (User item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UsersResponse included(List<UserResponseIncludedItem> included) {
     this.included = included;
-    for (UserResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (UserResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -101,6 +110,11 @@ public class UsersResponse {
 
   public void setIncluded(List<UserResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (UserResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UsersResponse meta(ResponseMetaAttributes meta) {
@@ -123,6 +137,9 @@ public class UsersResponse {
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

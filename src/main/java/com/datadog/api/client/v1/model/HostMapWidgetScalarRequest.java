@@ -52,7 +52,13 @@ public class HostMapWidgetScalarRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_RESPONSE_FORMAT)
           HostMapWidgetScalarRequestResponseFormat responseFormat) {
     this.formulas = formulas;
+    for (HostMapWidgetFormula item : formulas) {
+      this.unparsed |= item.unparsed;
+    }
     this.queries = queries;
+    for (FormulaAndFunctionQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     this.responseFormat = responseFormat;
     this.unparsed |= !responseFormat.isValid();
   }
@@ -84,6 +90,11 @@ public class HostMapWidgetScalarRequest {
 
   public void setFormulas(List<HostMapWidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (HostMapWidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetScalarRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
@@ -113,6 +124,11 @@ public class HostMapWidgetScalarRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetScalarRequest responseFormat(

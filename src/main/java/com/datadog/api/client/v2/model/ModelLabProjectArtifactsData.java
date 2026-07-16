@@ -71,6 +71,9 @@ public class ModelLabProjectArtifactsData {
 
   public void setAttributes(ModelLabProjectArtifactsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ModelLabProjectArtifactsData id(String id) {

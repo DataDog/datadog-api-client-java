@@ -51,6 +51,9 @@ public class TopologyRequest {
 
   public void setQuery(TopologyQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public TopologyRequest requestType(TopologyRequestType requestType) {

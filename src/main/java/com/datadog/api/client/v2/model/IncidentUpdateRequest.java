@@ -54,6 +54,9 @@ public class IncidentUpdateRequest {
 
   public void setData(IncidentUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

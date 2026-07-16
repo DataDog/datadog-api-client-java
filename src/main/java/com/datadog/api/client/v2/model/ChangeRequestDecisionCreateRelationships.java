@@ -46,6 +46,9 @@ public class ChangeRequestDecisionCreateRelationships {
 
   public void setRequestedUser(ChangeRequestUserRelationship requestedUser) {
     this.requestedUser = requestedUser;
+    if (requestedUser != null) {
+      this.unparsed |= requestedUser.unparsed;
+    }
   }
 
   /**

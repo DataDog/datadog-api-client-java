@@ -35,8 +35,10 @@ public class UpsertCatalogKindResponse {
 
   public UpsertCatalogKindResponse data(List<KindData> data) {
     this.data = data;
-    for (KindData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (KindData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class UpsertCatalogKindResponse {
 
   public void setData(List<KindData> data) {
     this.data = data;
+    if (data != null) {
+      for (KindData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpsertCatalogKindResponse meta(KindResponseMeta meta) {
@@ -86,6 +93,9 @@ public class UpsertCatalogKindResponse {
 
   public void setMeta(KindResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

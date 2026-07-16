@@ -71,6 +71,9 @@ public class SyntheticsDowntimeData {
 
   public void setAttributes(SyntheticsDowntimeDataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsDowntimeData id(String id) {

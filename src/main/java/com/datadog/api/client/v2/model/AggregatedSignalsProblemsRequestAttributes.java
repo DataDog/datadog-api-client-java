@@ -115,6 +115,9 @@ public class AggregatedSignalsProblemsRequestAttributes {
 
   public void setCriteria(AggregatedWaterfallPerformanceCriteria criteria) {
     this.criteria = criteria;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
   }
 
   public AggregatedSignalsProblemsRequestAttributes detectionTypes(List<String> detectionTypes) {

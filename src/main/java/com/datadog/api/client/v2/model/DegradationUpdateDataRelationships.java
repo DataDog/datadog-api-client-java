@@ -64,6 +64,9 @@ public class DegradationUpdateDataRelationships {
 
   public void setCreatedByUser(DegradationUpdateDataRelationshipsUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public DegradationUpdateDataRelationships degradation(
@@ -87,6 +90,9 @@ public class DegradationUpdateDataRelationships {
 
   public void setDegradation(DegradationUpdateDataRelationshipsDegradation degradation) {
     this.degradation = degradation;
+    if (degradation != null) {
+      this.unparsed |= degradation.unparsed;
+    }
   }
 
   public DegradationUpdateDataRelationships deletedByUser(
@@ -110,6 +116,9 @@ public class DegradationUpdateDataRelationships {
 
   public void setDeletedByUser(DegradationUpdateDataRelationshipsUser deletedByUser) {
     this.deletedByUser = deletedByUser;
+    if (deletedByUser != null) {
+      this.unparsed |= deletedByUser.unparsed;
+    }
   }
 
   public DegradationUpdateDataRelationships lastModifiedByUser(
@@ -133,6 +142,9 @@ public class DegradationUpdateDataRelationships {
 
   public void setLastModifiedByUser(DegradationUpdateDataRelationshipsUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   public DegradationUpdateDataRelationships statusPage(
@@ -156,6 +168,9 @@ public class DegradationUpdateDataRelationships {
 
   public void setStatusPage(DegradationUpdateDataRelationshipsStatusPage statusPage) {
     this.statusPage = statusPage;
+    if (statusPage != null) {
+      this.unparsed |= statusPage.unparsed;
+    }
   }
 
   /**

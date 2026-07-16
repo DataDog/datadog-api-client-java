@@ -30,8 +30,10 @@ public class SensitiveDataScannerStandardPatternsResponseData {
   public SensitiveDataScannerStandardPatternsResponseData data(
       List<SensitiveDataScannerStandardPatternsResponseItem> data) {
     this.data = data;
-    for (SensitiveDataScannerStandardPatternsResponseItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SensitiveDataScannerStandardPatternsResponseItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class SensitiveDataScannerStandardPatternsResponseData {
 
   public void setData(List<SensitiveDataScannerStandardPatternsResponseItem> data) {
     this.data = data;
+    if (data != null) {
+      for (SensitiveDataScannerStandardPatternsResponseItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

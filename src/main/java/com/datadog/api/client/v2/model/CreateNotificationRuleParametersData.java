@@ -68,6 +68,9 @@ public class CreateNotificationRuleParametersData {
 
   public void setAttributes(CreateNotificationRuleParametersDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateNotificationRuleParametersData type(NotificationRulesType type) {

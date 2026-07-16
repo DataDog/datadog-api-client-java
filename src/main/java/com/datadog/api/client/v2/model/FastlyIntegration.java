@@ -64,6 +64,9 @@ public class FastlyIntegration {
 
   public void setCredentials(FastlyCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public FastlyIntegration type(FastlyIntegrationType type) {

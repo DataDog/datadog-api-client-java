@@ -86,6 +86,9 @@ public class HTTPIntegrationUpdate {
 
   public void setCredentials(HTTPCredentialsUpdate credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public HTTPIntegrationUpdate type(HTTPIntegrationType type) {

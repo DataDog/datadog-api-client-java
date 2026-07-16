@@ -45,6 +45,9 @@ public class ProcessSummariesMeta {
 
   public void setPage(ProcessSummariesMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

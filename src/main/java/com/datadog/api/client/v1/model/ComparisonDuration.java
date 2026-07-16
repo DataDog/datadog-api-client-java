@@ -65,6 +65,9 @@ public class ComparisonDuration {
 
   public void setCustomTimeframe(ComparisonCustomTimeframe customTimeframe) {
     this.customTimeframe = customTimeframe;
+    if (customTimeframe != null) {
+      this.unparsed |= customTimeframe.unparsed;
+    }
   }
 
   public ComparisonDuration type(ComparisonDurationType type) {

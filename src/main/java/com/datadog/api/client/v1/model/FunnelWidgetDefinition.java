@@ -69,6 +69,9 @@ public class FunnelWidgetDefinition {
           List<FunnelWidgetRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FunnelWidgetDefinitionType type) {
     this.requests = requests;
+    for (FunnelWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -146,6 +149,11 @@ public class FunnelWidgetDefinition {
 
   public void setRequests(List<FunnelWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (FunnelWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FunnelWidgetDefinition time(WidgetTime time) {
@@ -168,6 +176,9 @@ public class FunnelWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public FunnelWidgetDefinition title(String title) {

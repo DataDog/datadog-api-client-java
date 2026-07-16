@@ -69,6 +69,9 @@ public class UpdateResourceEvaluationFiltersResponseData {
 
   public void setAttributes(ResourceFilterAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateResourceEvaluationFiltersResponseData id(String id) {

@@ -65,6 +65,9 @@ public class TeamConnectionCreateData {
 
   public void setAttributes(TeamConnectionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamConnectionCreateData relationships(TeamConnectionRelationships relationships) {
@@ -87,6 +90,9 @@ public class TeamConnectionCreateData {
 
   public void setRelationships(TeamConnectionRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public TeamConnectionCreateData type(TeamConnectionType type) {

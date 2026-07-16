@@ -45,6 +45,9 @@ public class PatchComponentRequest {
 
   public void setData(PatchComponentRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

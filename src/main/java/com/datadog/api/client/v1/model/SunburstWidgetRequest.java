@@ -105,6 +105,9 @@ public class SunburstWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public SunburstWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
@@ -127,6 +130,9 @@ public class SunburstWidgetRequest {
 
   public void setAuditQuery(LogQueryDefinition auditQuery) {
     this.auditQuery = auditQuery;
+    if (auditQuery != null) {
+      this.unparsed |= auditQuery.unparsed;
+    }
   }
 
   public SunburstWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
@@ -149,12 +155,17 @@ public class SunburstWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public SunburstWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -182,6 +193,11 @@ public class SunburstWidgetRequest {
 
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SunburstWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -204,6 +220,9 @@ public class SunburstWidgetRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public SunburstWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -226,6 +245,9 @@ public class SunburstWidgetRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public SunburstWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
@@ -248,6 +270,9 @@ public class SunburstWidgetRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public SunburstWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -270,6 +295,9 @@ public class SunburstWidgetRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public SunburstWidgetRequest q(String q) {
@@ -298,8 +326,10 @@ public class SunburstWidgetRequest {
 
   public SunburstWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -327,6 +357,11 @@ public class SunburstWidgetRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SunburstWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
@@ -375,6 +410,9 @@ public class SunburstWidgetRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public SunburstWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -397,6 +435,9 @@ public class SunburstWidgetRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   public SunburstWidgetRequest sort(WidgetSortBy sort) {
@@ -419,6 +460,9 @@ public class SunburstWidgetRequest {
 
   public void setSort(WidgetSortBy sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public SunburstWidgetRequest style(WidgetStyle style) {
@@ -441,6 +485,9 @@ public class SunburstWidgetRequest {
 
   public void setStyle(WidgetStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /**

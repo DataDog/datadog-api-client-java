@@ -88,6 +88,9 @@ public class ObservabilityPipelineSplunkHecSourceValidToken {
 
   public void setFieldToAdd(ObservabilityPipelineSourceValidTokenFieldToAdd fieldToAdd) {
     this.fieldToAdd = fieldToAdd;
+    if (fieldToAdd != null) {
+      this.unparsed |= fieldToAdd.unparsed;
+    }
   }
 
   public ObservabilityPipelineSplunkHecSourceValidToken tokenKey(String tokenKey) {

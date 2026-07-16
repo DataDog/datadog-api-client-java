@@ -74,6 +74,9 @@ public class TagPolicyData {
 
   public void setAttributes(TagPolicyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TagPolicyData id(String id) {
@@ -117,6 +120,9 @@ public class TagPolicyData {
 
   public void setRelationships(TagPolicyRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public TagPolicyData type(TagPolicyResourceType type) {

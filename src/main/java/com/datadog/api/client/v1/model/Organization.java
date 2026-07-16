@@ -78,6 +78,9 @@ public class Organization {
   @Deprecated
   public void setBilling(OrganizationBilling billing) {
     this.billing = billing;
+    if (billing != null) {
+      this.unparsed |= billing.unparsed;
+    }
   }
 
   /**
@@ -175,6 +178,9 @@ public class Organization {
 
   public void setSettings(OrganizationSettings settings) {
     this.settings = settings;
+    if (settings != null) {
+      this.unparsed |= settings.unparsed;
+    }
   }
 
   public Organization subscription(OrganizationSubscription subscription) {
@@ -200,6 +206,9 @@ public class Organization {
   @Deprecated
   public void setSubscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
+    if (subscription != null) {
+      this.unparsed |= subscription.unparsed;
+    }
   }
 
   public Organization trial(Boolean trial) {

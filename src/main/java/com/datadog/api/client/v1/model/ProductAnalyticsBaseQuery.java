@@ -85,6 +85,9 @@ public class ProductAnalyticsBaseQuery {
 
   public void setSearch(ProductAnalyticsEventQuerySearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /** Return true if this ProductAnalyticsBaseQuery object is equal to o. */

@@ -34,6 +34,9 @@ public class RulesetStatusRespArray {
   public RulesetStatusRespArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<RulesetStatusRespData> data) {
     this.data = data;
+    for (RulesetStatusRespData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public RulesetStatusRespArray data(List<RulesetStatusRespData> data) {
@@ -63,6 +66,11 @@ public class RulesetStatusRespArray {
 
   public void setData(List<RulesetStatusRespData> data) {
     this.data = data;
+    if (data != null) {
+      for (RulesetStatusRespData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

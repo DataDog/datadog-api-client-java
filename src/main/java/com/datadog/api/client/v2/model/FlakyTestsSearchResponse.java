@@ -35,8 +35,10 @@ public class FlakyTestsSearchResponse {
 
   public FlakyTestsSearchResponse data(List<FlakyTest> data) {
     this.data = data;
-    for (FlakyTest item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (FlakyTest item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class FlakyTestsSearchResponse {
 
   public void setData(List<FlakyTest> data) {
     this.data = data;
+    if (data != null) {
+      for (FlakyTest item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FlakyTestsSearchResponse meta(FlakyTestsSearchResponseMeta meta) {
@@ -86,6 +93,9 @@ public class FlakyTestsSearchResponse {
 
   public void setMeta(FlakyTestsSearchResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

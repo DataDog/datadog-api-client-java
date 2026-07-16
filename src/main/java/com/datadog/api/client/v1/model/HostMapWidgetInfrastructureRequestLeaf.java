@@ -73,6 +73,9 @@ public class HostMapWidgetInfrastructureRequestLeaf {
       @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST_TYPE)
           HostMapWidgetInfrastructureRequestRequestType requestType) {
     this.enrichments = enrichments;
+    for (HostMapWidgetScalarRequest item : enrichments) {
+      this.unparsed |= item.unparsed;
+    }
     this.nodeType = nodeType;
     this.unparsed |= !nodeType.isValid();
     this.requestType = requestType;
@@ -82,8 +85,10 @@ public class HostMapWidgetInfrastructureRequestLeaf {
   public HostMapWidgetInfrastructureRequestLeaf conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -112,6 +117,11 @@ public class HostMapWidgetInfrastructureRequestLeaf {
 
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetInfrastructureRequestLeaf enrichments(
@@ -143,6 +153,11 @@ public class HostMapWidgetInfrastructureRequestLeaf {
 
   public void setEnrichments(List<HostMapWidgetScalarRequest> enrichments) {
     this.enrichments = enrichments;
+    if (enrichments != null) {
+      for (HostMapWidgetScalarRequest item : enrichments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetInfrastructureRequestLeaf filter(String filter) {
@@ -168,8 +183,10 @@ public class HostMapWidgetInfrastructureRequestLeaf {
 
   public HostMapWidgetInfrastructureRequestLeaf groupBy(List<HostMapWidgetGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (HostMapWidgetGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (HostMapWidgetGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -198,6 +215,11 @@ public class HostMapWidgetInfrastructureRequestLeaf {
 
   public void setGroupBy(List<HostMapWidgetGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (HostMapWidgetGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetInfrastructureRequestLeaf noGroupHosts(Boolean noGroupHosts) {
@@ -311,6 +333,9 @@ public class HostMapWidgetInfrastructureRequestLeaf {
 
   public void setStyle(HostMapWidgetInfrastructureStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /**

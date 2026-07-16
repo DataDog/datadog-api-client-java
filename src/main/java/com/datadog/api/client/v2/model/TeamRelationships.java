@@ -51,6 +51,9 @@ public class TeamRelationships {
 
   public void setTeamLinks(RelationshipToTeamLinks teamLinks) {
     this.teamLinks = teamLinks;
+    if (teamLinks != null) {
+      this.unparsed |= teamLinks.unparsed;
+    }
   }
 
   public TeamRelationships userTeamPermissions(
@@ -74,6 +77,9 @@ public class TeamRelationships {
 
   public void setUserTeamPermissions(RelationshipToUserTeamPermission userTeamPermissions) {
     this.userTeamPermissions = userTeamPermissions;
+    if (userTeamPermissions != null) {
+      this.unparsed |= userTeamPermissions.unparsed;
+    }
   }
 
   /**

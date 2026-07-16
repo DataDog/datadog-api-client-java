@@ -56,6 +56,9 @@ public class EntityResponseDataRelationshipsSchema {
 
   public void setData(EntityResponseDataRelationshipsSchemaData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

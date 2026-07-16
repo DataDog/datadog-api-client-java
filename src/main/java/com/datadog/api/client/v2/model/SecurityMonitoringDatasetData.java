@@ -72,6 +72,9 @@ public class SecurityMonitoringDatasetData {
 
   public void setAttributes(SecurityMonitoringDatasetAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringDatasetData id(String id) {

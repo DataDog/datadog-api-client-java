@@ -134,6 +134,9 @@ public class ProductAnalyticsGroupBy {
 
   public void setSort(ProductAnalyticsGroupBySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public ProductAnalyticsGroupBy source(String source) {

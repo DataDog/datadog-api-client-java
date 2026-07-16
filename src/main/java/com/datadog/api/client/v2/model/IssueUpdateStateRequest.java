@@ -54,6 +54,9 @@ public class IssueUpdateStateRequest {
 
   public void setData(IssueUpdateStateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

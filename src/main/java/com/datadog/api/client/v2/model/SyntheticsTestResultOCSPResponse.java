@@ -56,6 +56,9 @@ public class SyntheticsTestResultOCSPResponse {
 
   public void setCertificate(SyntheticsTestResultOCSPCertificate certificate) {
     this.certificate = certificate;
+    if (certificate != null) {
+      this.unparsed |= certificate.unparsed;
+    }
   }
 
   public SyntheticsTestResultOCSPResponse status(String status) {
@@ -100,6 +103,9 @@ public class SyntheticsTestResultOCSPResponse {
 
   public void setUpdates(SyntheticsTestResultOCSPUpdates updates) {
     this.updates = updates;
+    if (updates != null) {
+      this.unparsed |= updates.unparsed;
+    }
   }
 
   /**

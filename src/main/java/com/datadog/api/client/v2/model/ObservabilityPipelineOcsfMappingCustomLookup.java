@@ -57,8 +57,10 @@ public class ObservabilityPipelineOcsfMappingCustomLookup {
   public ObservabilityPipelineOcsfMappingCustomLookup table(
       List<ObservabilityPipelineOcsfMappingCustomLookupTableEntry> table) {
     this.table = table;
-    for (ObservabilityPipelineOcsfMappingCustomLookupTableEntry item : table) {
-      this.unparsed |= item.unparsed;
+    if (table != null) {
+      for (ObservabilityPipelineOcsfMappingCustomLookupTableEntry item : table) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -87,6 +89,11 @@ public class ObservabilityPipelineOcsfMappingCustomLookup {
 
   public void setTable(List<ObservabilityPipelineOcsfMappingCustomLookupTableEntry> table) {
     this.table = table;
+    if (table != null) {
+      for (ObservabilityPipelineOcsfMappingCustomLookupTableEntry item : table) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

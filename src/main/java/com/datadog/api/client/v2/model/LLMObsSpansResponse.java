@@ -45,6 +45,9 @@ public class LLMObsSpansResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<LLMObsSpanData> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) LLMObsSpansResponseMeta meta) {
     this.data = data;
+    for (LLMObsSpanData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -76,6 +79,11 @@ public class LLMObsSpansResponse {
 
   public void setData(List<LLMObsSpanData> data) {
     this.data = data;
+    if (data != null) {
+      for (LLMObsSpanData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsSpansResponse links(LLMObsSpansResponseLinks links) {
@@ -98,6 +106,9 @@ public class LLMObsSpansResponse {
 
   public void setLinks(LLMObsSpansResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public LLMObsSpansResponse meta(LLMObsSpansResponseMeta meta) {
@@ -119,6 +130,9 @@ public class LLMObsSpansResponse {
 
   public void setMeta(LLMObsSpansResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

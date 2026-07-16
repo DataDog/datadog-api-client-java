@@ -122,6 +122,9 @@ public class RoutingRuleEscalationPolicyAction {
 
   public void setSupportHours(RoutingRuleEscalationPolicyActionSupportHours supportHours) {
     this.supportHours = supportHours;
+    if (supportHours != null) {
+      this.unparsed |= supportHours.unparsed;
+    }
   }
 
   public RoutingRuleEscalationPolicyAction type(RoutingRuleEscalationPolicyActionType type) {

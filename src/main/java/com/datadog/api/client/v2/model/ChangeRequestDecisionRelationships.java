@@ -73,6 +73,9 @@ public class ChangeRequestDecisionRelationships {
 
   public void setModifiedBy(ChangeRequestUserRelationship modifiedBy) {
     this.modifiedBy = modifiedBy;
+    if (modifiedBy != null) {
+      this.unparsed |= modifiedBy.unparsed;
+    }
   }
 
   public ChangeRequestDecisionRelationships requestedByUser(
@@ -95,6 +98,9 @@ public class ChangeRequestDecisionRelationships {
 
   public void setRequestedByUser(ChangeRequestUserRelationship requestedByUser) {
     this.requestedByUser = requestedByUser;
+    if (requestedByUser != null) {
+      this.unparsed |= requestedByUser.unparsed;
+    }
   }
 
   public ChangeRequestDecisionRelationships requestedUser(
@@ -117,6 +123,9 @@ public class ChangeRequestDecisionRelationships {
 
   public void setRequestedUser(ChangeRequestUserRelationship requestedUser) {
     this.requestedUser = requestedUser;
+    if (requestedUser != null) {
+      this.unparsed |= requestedUser.unparsed;
+    }
   }
 
   /**

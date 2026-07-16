@@ -61,6 +61,9 @@ public class RetentionCohortCriteria {
 
   public void setBaseQuery(ProductAnalyticsBaseQuery baseQuery) {
     this.baseQuery = baseQuery;
+    if (baseQuery != null) {
+      this.unparsed |= baseQuery.unparsed;
+    }
   }
 
   public RetentionCohortCriteria timeInterval(RetentionCohortCriteriaTimeInterval timeInterval) {
@@ -82,6 +85,9 @@ public class RetentionCohortCriteria {
 
   public void setTimeInterval(RetentionCohortCriteriaTimeInterval timeInterval) {
     this.timeInterval = timeInterval;
+    if (timeInterval != null) {
+      this.unparsed |= timeInterval.unparsed;
+    }
   }
 
   /** Return true if this RetentionCohortCriteria object is equal to o. */

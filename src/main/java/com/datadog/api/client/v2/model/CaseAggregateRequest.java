@@ -57,6 +57,9 @@ public class CaseAggregateRequest {
 
   public void setData(CaseAggregateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

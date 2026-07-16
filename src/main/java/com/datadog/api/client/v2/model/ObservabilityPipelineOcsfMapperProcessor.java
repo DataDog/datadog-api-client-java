@@ -75,6 +75,9 @@ public class ObservabilityPipelineOcsfMapperProcessor {
     this.id = id;
     this.include = include;
     this.mappings = mappings;
+    for (ObservabilityPipelineOcsfMapperProcessorMapping item : mappings) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -211,6 +214,11 @@ public class ObservabilityPipelineOcsfMapperProcessor {
 
   public void setMappings(List<ObservabilityPipelineOcsfMapperProcessorMapping> mappings) {
     this.mappings = mappings;
+    if (mappings != null) {
+      for (ObservabilityPipelineOcsfMapperProcessorMapping item : mappings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineOcsfMapperProcessor type(

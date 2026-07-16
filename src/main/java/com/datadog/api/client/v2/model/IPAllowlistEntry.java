@@ -54,6 +54,9 @@ public class IPAllowlistEntry {
 
   public void setData(IPAllowlistEntryData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

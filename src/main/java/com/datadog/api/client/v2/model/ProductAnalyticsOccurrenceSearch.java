@@ -52,6 +52,9 @@ public class ProductAnalyticsOccurrenceSearch {
 
   public void setOccurrences(ProductAnalyticsOccurrenceFilter occurrences) {
     this.occurrences = occurrences;
+    if (occurrences != null) {
+      this.unparsed |= occurrences.unparsed;
+    }
   }
 
   public ProductAnalyticsOccurrenceSearch query(String query) {

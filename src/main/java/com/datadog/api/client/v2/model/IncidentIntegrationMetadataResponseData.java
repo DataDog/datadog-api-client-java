@@ -74,6 +74,9 @@ public class IncidentIntegrationMetadataResponseData {
 
   public void setAttributes(IncidentIntegrationMetadataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentIntegrationMetadataResponseData id(String id) {
@@ -117,6 +120,9 @@ public class IncidentIntegrationMetadataResponseData {
 
   public void setRelationships(IncidentIntegrationRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentIntegrationMetadataResponseData type(IncidentIntegrationMetadataType type) {

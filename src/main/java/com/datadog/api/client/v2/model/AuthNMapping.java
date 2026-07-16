@@ -71,6 +71,9 @@ public class AuthNMapping {
 
   public void setAttributes(AuthNMappingAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AuthNMapping id(String id) {
@@ -113,6 +116,9 @@ public class AuthNMapping {
 
   public void setRelationships(AuthNMappingRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public AuthNMapping type(AuthNMappingsType type) {

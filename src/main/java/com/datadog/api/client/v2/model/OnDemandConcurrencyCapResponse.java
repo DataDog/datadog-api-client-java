@@ -45,6 +45,9 @@ public class OnDemandConcurrencyCapResponse {
 
   public void setData(OnDemandConcurrencyCap data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

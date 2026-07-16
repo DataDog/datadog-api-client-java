@@ -56,6 +56,9 @@ public class EntityResponseIncludedOncall {
 
   public void setAttributes(EntityResponseIncludedRelatedOncallAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EntityResponseIncludedOncall id(String id) {

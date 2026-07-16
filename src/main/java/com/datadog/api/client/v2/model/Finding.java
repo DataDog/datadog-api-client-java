@@ -55,6 +55,9 @@ public class Finding {
 
   public void setAttributes(FindingAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Finding id(String id) {

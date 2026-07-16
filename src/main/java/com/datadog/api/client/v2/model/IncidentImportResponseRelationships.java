@@ -86,6 +86,9 @@ public class IncidentImportResponseRelationships {
 
   public void setAttachments(RelationshipToIncidentAttachment attachments) {
     this.attachments = attachments;
+    if (attachments != null) {
+      this.unparsed |= attachments.unparsed;
+    }
   }
 
   public IncidentImportResponseRelationships commanderUser(
@@ -141,6 +144,9 @@ public class IncidentImportResponseRelationships {
 
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public IncidentImportResponseRelationships declaredByUser(RelationshipToUser declaredByUser) {
@@ -163,6 +169,9 @@ public class IncidentImportResponseRelationships {
 
   public void setDeclaredByUser(RelationshipToUser declaredByUser) {
     this.declaredByUser = declaredByUser;
+    if (declaredByUser != null) {
+      this.unparsed |= declaredByUser.unparsed;
+    }
   }
 
   public IncidentImportResponseRelationships impacts(RelationshipToIncidentImpacts impacts) {
@@ -185,6 +194,9 @@ public class IncidentImportResponseRelationships {
 
   public void setImpacts(RelationshipToIncidentImpacts impacts) {
     this.impacts = impacts;
+    if (impacts != null) {
+      this.unparsed |= impacts.unparsed;
+    }
   }
 
   public IncidentImportResponseRelationships incidentType(RelationshipToIncidentType incidentType) {
@@ -207,6 +219,9 @@ public class IncidentImportResponseRelationships {
 
   public void setIncidentType(RelationshipToIncidentType incidentType) {
     this.incidentType = incidentType;
+    if (incidentType != null) {
+      this.unparsed |= incidentType.unparsed;
+    }
   }
 
   public IncidentImportResponseRelationships integrations(
@@ -230,6 +245,9 @@ public class IncidentImportResponseRelationships {
 
   public void setIntegrations(RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
+    if (integrations != null) {
+      this.unparsed |= integrations.unparsed;
+    }
   }
 
   public IncidentImportResponseRelationships lastModifiedByUser(
@@ -253,6 +271,9 @@ public class IncidentImportResponseRelationships {
 
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   public IncidentImportResponseRelationships responders(
@@ -276,6 +297,9 @@ public class IncidentImportResponseRelationships {
 
   public void setResponders(RelationshipToIncidentResponders responders) {
     this.responders = responders;
+    if (responders != null) {
+      this.unparsed |= responders.unparsed;
+    }
   }
 
   public IncidentImportResponseRelationships userDefinedFields(
@@ -299,6 +323,9 @@ public class IncidentImportResponseRelationships {
 
   public void setUserDefinedFields(RelationshipToIncidentUserDefinedFields userDefinedFields) {
     this.userDefinedFields = userDefinedFields;
+    if (userDefinedFields != null) {
+      this.unparsed |= userDefinedFields.unparsed;
+    }
   }
 
   /**

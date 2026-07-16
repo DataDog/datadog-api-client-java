@@ -73,6 +73,9 @@ public class OrgGroupPolicyOverrideUpdateData {
 
   public void setAttributes(OrgGroupPolicyOverrideUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupPolicyOverrideUpdateData id(UUID id) {

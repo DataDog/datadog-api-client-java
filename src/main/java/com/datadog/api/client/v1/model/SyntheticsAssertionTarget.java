@@ -125,6 +125,9 @@ public class SyntheticsAssertionTarget {
 
   public void setTarget(SyntheticsAssertionTargetValue target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   public SyntheticsAssertionTarget timingsScope(SyntheticsAssertionTimingsScope timingsScope) {

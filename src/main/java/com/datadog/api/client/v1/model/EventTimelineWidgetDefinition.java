@@ -153,6 +153,9 @@ public class EventTimelineWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public EventTimelineWidgetDefinition title(String title) {

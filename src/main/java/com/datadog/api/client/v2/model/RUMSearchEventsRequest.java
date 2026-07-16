@@ -59,6 +59,9 @@ public class RUMSearchEventsRequest {
 
   public void setFilter(RUMQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public RUMSearchEventsRequest options(RUMQueryOptions options) {
@@ -82,6 +85,9 @@ public class RUMSearchEventsRequest {
 
   public void setOptions(RUMQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public RUMSearchEventsRequest page(RUMQueryPageOptions page) {
@@ -104,6 +110,9 @@ public class RUMSearchEventsRequest {
 
   public void setPage(RUMQueryPageOptions page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public RUMSearchEventsRequest sort(RUMSort sort) {

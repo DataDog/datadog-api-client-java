@@ -39,8 +39,10 @@ public class IoCExplorerListResponseAttributes {
 
   public IoCExplorerListResponseAttributes data(List<IoCIndicator> data) {
     this.data = data;
-    for (IoCIndicator item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (IoCIndicator item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class IoCExplorerListResponseAttributes {
 
   public void setData(List<IoCIndicator> data) {
     this.data = data;
+    if (data != null) {
+      for (IoCIndicator item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IoCExplorerListResponseAttributes metadata(IoCExplorerListResponseMetadata metadata) {
@@ -90,6 +97,9 @@ public class IoCExplorerListResponseAttributes {
 
   public void setMetadata(IoCExplorerListResponseMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public IoCExplorerListResponseAttributes paging(IoCExplorerListResponsePaging paging) {
@@ -112,6 +122,9 @@ public class IoCExplorerListResponseAttributes {
 
   public void setPaging(IoCExplorerListResponsePaging paging) {
     this.paging = paging;
+    if (paging != null) {
+      this.unparsed |= paging.unparsed;
+    }
   }
 
   /**

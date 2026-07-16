@@ -53,8 +53,10 @@ public class StatusPageDataAttributesComponentsItems {
   public StatusPageDataAttributesComponentsItems components(
       List<StatusPageDataAttributesComponentsItemsComponentsItems> components) {
     this.components = components;
-    for (StatusPageDataAttributesComponentsItemsComponentsItems item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (StatusPageDataAttributesComponentsItemsComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -84,6 +86,11 @@ public class StatusPageDataAttributesComponentsItems {
   public void setComponents(
       List<StatusPageDataAttributesComponentsItemsComponentsItems> components) {
     this.components = components;
+    if (components != null) {
+      for (StatusPageDataAttributesComponentsItemsComponentsItems item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public StatusPageDataAttributesComponentsItems id(UUID id) {

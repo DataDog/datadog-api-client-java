@@ -63,6 +63,9 @@ public class AzureUCConfigPostData {
 
   public void setAttributes(AzureUCConfigPostRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AzureUCConfigPostData type(AzureUCConfigPostRequestType type) {

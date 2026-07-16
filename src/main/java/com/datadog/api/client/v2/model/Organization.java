@@ -65,6 +65,9 @@ public class Organization {
 
   public void setAttributes(OrganizationAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Organization id(String id) {

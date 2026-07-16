@@ -52,6 +52,9 @@ public class ConvertJobResultsToSignalsData {
 
   public void setAttributes(ConvertJobResultsToSignalsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ConvertJobResultsToSignalsData type(ConvertJobResultsToSignalsDataType type) {

@@ -57,12 +57,17 @@ public class LogsByRetention {
 
   public void setOrgs(LogsByRetentionOrgs orgs) {
     this.orgs = orgs;
+    if (orgs != null) {
+      this.unparsed |= orgs.unparsed;
+    }
   }
 
   public LogsByRetention usage(List<LogsRetentionAggSumUsage> usage) {
     this.usage = usage;
-    for (LogsRetentionAggSumUsage item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (LogsRetentionAggSumUsage item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -90,6 +95,11 @@ public class LogsByRetention {
 
   public void setUsage(List<LogsRetentionAggSumUsage> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (LogsRetentionAggSumUsage item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsByRetention usageByMonth(LogsByRetentionMonthlyUsage usageByMonth) {
@@ -112,6 +122,9 @@ public class LogsByRetention {
 
   public void setUsageByMonth(LogsByRetentionMonthlyUsage usageByMonth) {
     this.usageByMonth = usageByMonth;
+    if (usageByMonth != null) {
+      this.unparsed |= usageByMonth.unparsed;
+    }
   }
 
   /**

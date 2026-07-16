@@ -56,6 +56,9 @@ public class TestOptimizationServiceSettingsData {
 
   public void setAttributes(TestOptimizationServiceSettingsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TestOptimizationServiceSettingsData id(String id) {

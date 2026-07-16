@@ -43,8 +43,10 @@ public class ScaRequestDataAttributesVulnerabilitiesItems {
   public ScaRequestDataAttributesVulnerabilitiesItems affects(
       List<ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems> affects) {
     this.affects = affects;
-    for (ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems item : affects) {
-      this.unparsed |= item.unparsed;
+    if (affects != null) {
+      for (ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems item : affects) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -73,6 +75,11 @@ public class ScaRequestDataAttributesVulnerabilitiesItems {
 
   public void setAffects(List<ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems> affects) {
     this.affects = affects;
+    if (affects != null) {
+      for (ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems item : affects) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScaRequestDataAttributesVulnerabilitiesItems bomRef(String bomRef) {

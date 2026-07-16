@@ -64,6 +64,9 @@ public class EscalationPolicyDataRelationships {
 
   public void setSteps(EscalationPolicyDataRelationshipsSteps steps) {
     this.steps = steps;
+    if (steps != null) {
+      this.unparsed |= steps.unparsed;
+    }
   }
 
   public EscalationPolicyDataRelationships teams(DataRelationshipsTeams teams) {
@@ -86,6 +89,9 @@ public class EscalationPolicyDataRelationships {
 
   public void setTeams(DataRelationshipsTeams teams) {
     this.teams = teams;
+    if (teams != null) {
+      this.unparsed |= teams.unparsed;
+    }
   }
 
   /**

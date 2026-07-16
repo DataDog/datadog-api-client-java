@@ -58,8 +58,10 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
   public SyntheticsGetBrowserTestLatestResultsResponse results(
       List<SyntheticsBrowserTestResultShort> results) {
     this.results = results;
-    for (SyntheticsBrowserTestResultShort item : results) {
-      this.unparsed |= item.unparsed;
+    if (results != null) {
+      for (SyntheticsBrowserTestResultShort item : results) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -88,6 +90,11 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
 
   public void setResults(List<SyntheticsBrowserTestResultShort> results) {
     this.results = results;
+    if (results != null) {
+      for (SyntheticsBrowserTestResultShort item : results) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

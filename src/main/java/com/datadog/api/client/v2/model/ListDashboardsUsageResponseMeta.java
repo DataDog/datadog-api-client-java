@@ -45,6 +45,9 @@ public class ListDashboardsUsageResponseMeta {
 
   public void setPage(PaginationMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

@@ -71,6 +71,9 @@ public class TeamConnection {
 
   public void setAttributes(TeamConnectionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamConnection id(String id) {
@@ -113,6 +116,9 @@ public class TeamConnection {
 
   public void setRelationships(TeamConnectionRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public TeamConnection type(TeamConnectionType type) {

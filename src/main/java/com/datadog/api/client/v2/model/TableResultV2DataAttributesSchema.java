@@ -42,6 +42,9 @@ public class TableResultV2DataAttributesSchema {
           List<TableResultV2DataAttributesSchemaFieldsItems> fields,
       @JsonProperty(required = true, value = JSON_PROPERTY_PRIMARY_KEYS) List<String> primaryKeys) {
     this.fields = fields;
+    for (TableResultV2DataAttributesSchemaFieldsItems item : fields) {
+      this.unparsed |= item.unparsed;
+    }
     this.primaryKeys = primaryKeys;
   }
 
@@ -74,6 +77,11 @@ public class TableResultV2DataAttributesSchema {
 
   public void setFields(List<TableResultV2DataAttributesSchemaFieldsItems> fields) {
     this.fields = fields;
+    if (fields != null) {
+      for (TableResultV2DataAttributesSchemaFieldsItems item : fields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TableResultV2DataAttributesSchema primaryKeys(List<String> primaryKeys) {

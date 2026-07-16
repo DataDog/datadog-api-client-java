@@ -51,6 +51,9 @@ public class EventCreateResponsePayload {
 
   public void setData(EventCreateResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public EventCreateResponsePayload links(EventCreateResponsePayloadLinks links) {
@@ -73,6 +76,9 @@ public class EventCreateResponsePayload {
 
   public void setLinks(EventCreateResponsePayloadLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   /**

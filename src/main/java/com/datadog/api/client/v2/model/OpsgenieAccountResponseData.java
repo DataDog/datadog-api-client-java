@@ -70,6 +70,9 @@ public class OpsgenieAccountResponseData {
 
   public void setAttributes(OpsgenieAccountResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OpsgenieAccountResponseData id(String id) {

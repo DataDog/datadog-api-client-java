@@ -70,6 +70,9 @@ public class CsmUnifiedHostFacetData {
 
   public void setAttributes(CsmAgentlessHostFacetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CsmUnifiedHostFacetData id(String id) {

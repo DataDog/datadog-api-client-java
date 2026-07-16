@@ -70,6 +70,9 @@ public class SyntheticsSuite {
     this.options = options;
     this.unparsed |= options.unparsed;
     this.tests = tests;
+    for (SyntheticsSuiteTest item : tests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -146,6 +149,9 @@ public class SyntheticsSuite {
 
   public void setOptions(SyntheticsSuiteOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**
@@ -216,6 +222,11 @@ public class SyntheticsSuite {
 
   public void setTests(List<SyntheticsSuiteTest> tests) {
     this.tests = tests;
+    if (tests != null) {
+      for (SyntheticsSuiteTest item : tests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsSuite type(SyntheticsSuiteType type) {

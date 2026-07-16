@@ -56,6 +56,9 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
 
   public void setEnd(ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition end) {
     this.end = end;
+    if (end != null) {
+      this.unparsed |= end.unparsed;
+    }
   }
 
   public ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition fileName(
@@ -101,6 +104,9 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
 
   public void setStart(ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition start) {
     this.start = start;
+    if (start != null) {
+      this.unparsed |= start.unparsed;
+    }
   }
 
   /**

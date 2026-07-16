@@ -48,6 +48,9 @@ public class TicketCreationRulesResponse {
           SecurityAutomationRulesLinks links,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) SecurityAutomationRulesMeta meta) {
     this.data = data;
+    for (TicketCreationRuleDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.links = links;
     this.unparsed |= links.unparsed;
     this.meta = meta;
@@ -81,6 +84,11 @@ public class TicketCreationRulesResponse {
 
   public void setData(List<TicketCreationRuleDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (TicketCreationRuleDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TicketCreationRulesResponse links(SecurityAutomationRulesLinks links) {
@@ -102,6 +110,9 @@ public class TicketCreationRulesResponse {
 
   public void setLinks(SecurityAutomationRulesLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public TicketCreationRulesResponse meta(SecurityAutomationRulesMeta meta) {
@@ -123,6 +134,9 @@ public class TicketCreationRulesResponse {
 
   public void setMeta(SecurityAutomationRulesMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

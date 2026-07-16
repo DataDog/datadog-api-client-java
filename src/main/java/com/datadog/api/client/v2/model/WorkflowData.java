@@ -72,6 +72,9 @@ public class WorkflowData {
 
   public void setAttributes(WorkflowDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

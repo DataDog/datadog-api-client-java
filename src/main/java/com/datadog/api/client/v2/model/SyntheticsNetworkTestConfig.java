@@ -35,8 +35,10 @@ public class SyntheticsNetworkTestConfig {
 
   public SyntheticsNetworkTestConfig assertions(List<SyntheticsNetworkAssertion> assertions) {
     this.assertions = assertions;
-    for (SyntheticsNetworkAssertion item : assertions) {
-      this.unparsed |= item.unparsed;
+    if (assertions != null) {
+      for (SyntheticsNetworkAssertion item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class SyntheticsNetworkTestConfig {
 
   public void setAssertions(List<SyntheticsNetworkAssertion> assertions) {
     this.assertions = assertions;
+    if (assertions != null) {
+      for (SyntheticsNetworkAssertion item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsNetworkTestConfig request(SyntheticsNetworkTestRequest request) {
@@ -86,6 +93,9 @@ public class SyntheticsNetworkTestConfig {
 
   public void setRequest(SyntheticsNetworkTestRequest request) {
     this.request = request;
+    if (request != null) {
+      this.unparsed |= request.unparsed;
+    }
   }
 
   /**

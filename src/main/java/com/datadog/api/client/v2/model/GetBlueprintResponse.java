@@ -45,6 +45,9 @@ public class GetBlueprintResponse {
 
   public void setData(BlueprintData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

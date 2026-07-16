@@ -32,8 +32,10 @@ public class EventListResponse {
 
   public EventListResponse events(List<Event> events) {
     this.events = events;
-    for (Event item : events) {
-      this.unparsed |= item.unparsed;
+    if (events != null) {
+      for (Event item : events) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class EventListResponse {
 
   public void setEvents(List<Event> events) {
     this.events = events;
+    if (events != null) {
+      for (Event item : events) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EventListResponse status(String status) {

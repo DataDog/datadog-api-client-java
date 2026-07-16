@@ -64,6 +64,9 @@ public class IssuesSearchRequestData {
 
   public void setAttributes(IssuesSearchRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IssuesSearchRequestData type(IssuesSearchRequestDataType type) {

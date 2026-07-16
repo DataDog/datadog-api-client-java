@@ -70,6 +70,9 @@ public class ReactNativeSourcemapData {
 
   public void setAttributes(ReactNativeSourcemapAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ReactNativeSourcemapData id(String id) {

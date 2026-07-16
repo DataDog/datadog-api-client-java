@@ -29,8 +29,10 @@ public class RelationshipToRoles {
 
   public RelationshipToRoles data(List<RelationshipToRoleData> data) {
     this.data = data;
-    for (RelationshipToRoleData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (RelationshipToRoleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class RelationshipToRoles {
 
   public void setData(List<RelationshipToRoleData> data) {
     this.data = data;
+    if (data != null) {
+      for (RelationshipToRoleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

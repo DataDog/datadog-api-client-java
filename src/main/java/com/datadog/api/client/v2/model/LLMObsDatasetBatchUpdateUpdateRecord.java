@@ -187,6 +187,9 @@ public class LLMObsDatasetBatchUpdateUpdateRecord {
 
   public void setTagOperations(LLMObsDatasetRecordTagOperations tagOperations) {
     this.tagOperations = tagOperations;
+    if (tagOperations != null) {
+      this.unparsed |= tagOperations.unparsed;
+    }
   }
 
   /**

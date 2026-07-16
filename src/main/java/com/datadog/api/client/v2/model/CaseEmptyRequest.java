@@ -54,6 +54,9 @@ public class CaseEmptyRequest {
 
   public void setData(CaseEmpty data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

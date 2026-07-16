@@ -85,6 +85,9 @@ public class FormUiDefinition {
 
   public void setUiTheme(FormUiDefinitionUiTheme uiTheme) {
     this.uiTheme = uiTheme;
+    if (uiTheme != null) {
+      this.unparsed |= uiTheme.unparsed;
+    }
   }
 
   /**

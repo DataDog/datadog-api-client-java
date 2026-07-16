@@ -53,12 +53,17 @@ public class Schedule {
 
   public void setData(ScheduleData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public Schedule included(List<ScheduleDataIncludedItem> included) {
     this.included = included;
-    for (ScheduleDataIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ScheduleDataIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -86,6 +91,11 @@ public class Schedule {
 
   public void setIncluded(List<ScheduleDataIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (ScheduleDataIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

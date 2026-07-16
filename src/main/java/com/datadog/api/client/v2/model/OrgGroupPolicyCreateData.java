@@ -74,6 +74,9 @@ public class OrgGroupPolicyCreateData {
 
   public void setAttributes(OrgGroupPolicyCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupPolicyCreateData relationships(OrgGroupPolicyCreateRelationships relationships) {
@@ -95,6 +98,9 @@ public class OrgGroupPolicyCreateData {
 
   public void setRelationships(OrgGroupPolicyCreateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgGroupPolicyCreateData type(OrgGroupPolicyType type) {

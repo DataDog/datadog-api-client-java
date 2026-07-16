@@ -55,6 +55,9 @@ public class V2Event {
 
   public void setAttributes(V2EventAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public V2Event id(String id) {

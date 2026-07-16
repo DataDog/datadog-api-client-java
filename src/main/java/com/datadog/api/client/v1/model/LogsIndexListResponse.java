@@ -29,8 +29,10 @@ public class LogsIndexListResponse {
 
   public LogsIndexListResponse indexes(List<LogsIndex> indexes) {
     this.indexes = indexes;
-    for (LogsIndex item : indexes) {
-      this.unparsed |= item.unparsed;
+    if (indexes != null) {
+      for (LogsIndex item : indexes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class LogsIndexListResponse {
 
   public void setIndexes(List<LogsIndex> indexes) {
     this.indexes = indexes;
+    if (indexes != null) {
+      for (LogsIndex item : indexes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

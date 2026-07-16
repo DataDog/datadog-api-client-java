@@ -33,8 +33,10 @@ public class EscalationPolicyDataRelationshipsSteps {
   public EscalationPolicyDataRelationshipsSteps data(
       List<EscalationPolicyDataRelationshipsStepsDataItems> data) {
     this.data = data;
-    for (EscalationPolicyDataRelationshipsStepsDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EscalationPolicyDataRelationshipsStepsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -63,6 +65,11 @@ public class EscalationPolicyDataRelationshipsSteps {
 
   public void setData(List<EscalationPolicyDataRelationshipsStepsDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (EscalationPolicyDataRelationshipsStepsDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

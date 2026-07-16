@@ -103,6 +103,9 @@ public class DueDateRuleAttributesResponse {
 
   public void setAction(DueDateRuleAction action) {
     this.action = action;
+    if (action != null) {
+      this.unparsed |= action.unparsed;
+    }
   }
 
   public DueDateRuleAttributesResponse createdAt(Long createdAt) {
@@ -144,6 +147,9 @@ public class DueDateRuleAttributesResponse {
 
   public void setCreatedBy(AutomationRuleCreatedBy createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public DueDateRuleAttributesResponse enabled(Boolean enabled) {
@@ -205,6 +211,9 @@ public class DueDateRuleAttributesResponse {
 
   public void setModifiedBy(AutomationRuleModifiedBy modifiedBy) {
     this.modifiedBy = modifiedBy;
+    if (modifiedBy != null) {
+      this.unparsed |= modifiedBy.unparsed;
+    }
   }
 
   public DueDateRuleAttributesResponse name(String name) {
@@ -246,6 +255,9 @@ public class DueDateRuleAttributesResponse {
 
   public void setRule(AutomationRuleScope rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   /**

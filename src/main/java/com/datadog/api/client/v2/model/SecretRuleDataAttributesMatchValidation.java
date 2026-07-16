@@ -137,9 +137,11 @@ public class SecretRuleDataAttributesMatchValidation {
       List<SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems>
           invalidHttpStatusCode) {
     this.invalidHttpStatusCode = invalidHttpStatusCode;
-    for (SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems item :
-        invalidHttpStatusCode) {
-      this.unparsed |= item.unparsed;
+    if (invalidHttpStatusCode != null) {
+      for (SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems item :
+          invalidHttpStatusCode) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -171,6 +173,12 @@ public class SecretRuleDataAttributesMatchValidation {
       List<SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems>
           invalidHttpStatusCode) {
     this.invalidHttpStatusCode = invalidHttpStatusCode;
+    if (invalidHttpStatusCode != null) {
+      for (SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems item :
+          invalidHttpStatusCode) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecretRuleDataAttributesMatchValidation requestHeaders(
@@ -250,9 +258,11 @@ public class SecretRuleDataAttributesMatchValidation {
   public SecretRuleDataAttributesMatchValidation validHttpStatusCode(
       List<SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems> validHttpStatusCode) {
     this.validHttpStatusCode = validHttpStatusCode;
-    for (SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems item :
-        validHttpStatusCode) {
-      this.unparsed |= item.unparsed;
+    if (validHttpStatusCode != null) {
+      for (SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems item :
+          validHttpStatusCode) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -283,6 +293,12 @@ public class SecretRuleDataAttributesMatchValidation {
   public void setValidHttpStatusCode(
       List<SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems> validHttpStatusCode) {
     this.validHttpStatusCode = validHttpStatusCode;
+    if (validHttpStatusCode != null) {
+      for (SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems item :
+          validHttpStatusCode) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

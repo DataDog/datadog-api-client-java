@@ -71,6 +71,9 @@ public class EntityIntegrationConfigData {
 
   public void setAttributes(EntityIntegrationConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EntityIntegrationConfigData id(String id) {

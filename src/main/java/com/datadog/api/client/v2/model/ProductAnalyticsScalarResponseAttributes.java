@@ -30,8 +30,10 @@ public class ProductAnalyticsScalarResponseAttributes {
   public ProductAnalyticsScalarResponseAttributes columns(
       List<ProductAnalyticsScalarColumn> columns) {
     this.columns = columns;
-    for (ProductAnalyticsScalarColumn item : columns) {
-      this.unparsed |= item.unparsed;
+    if (columns != null) {
+      for (ProductAnalyticsScalarColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class ProductAnalyticsScalarResponseAttributes {
 
   public void setColumns(List<ProductAnalyticsScalarColumn> columns) {
     this.columns = columns;
+    if (columns != null) {
+      for (ProductAnalyticsScalarColumn item : columns) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class UpdateRuleResponse {
 
   public void setData(UpdateRuleResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

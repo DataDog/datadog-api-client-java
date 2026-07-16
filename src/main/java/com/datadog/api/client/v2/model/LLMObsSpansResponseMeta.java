@@ -94,6 +94,9 @@ public class LLMObsSpansResponseMeta {
 
   public void setPage(LLMObsSpansResponsePage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   public LLMObsSpansResponseMeta requestId(String requestId) {

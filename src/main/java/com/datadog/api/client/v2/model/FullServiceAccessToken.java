@@ -59,6 +59,9 @@ public class FullServiceAccessToken {
 
   public void setAttributes(FullServiceAccessTokenAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FullServiceAccessToken id(String id) {
@@ -102,6 +105,9 @@ public class FullServiceAccessToken {
 
   public void setRelationships(ServiceAccessTokenRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public FullServiceAccessToken type(ServiceAccessTokensType type) {

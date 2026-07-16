@@ -55,6 +55,9 @@ public class GCPSTSDelegateAccount {
 
   public void setAttributes(GCPSTSDelegateAccountAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GCPSTSDelegateAccount id(String id) {

@@ -59,6 +59,9 @@ public class FullAPIKey {
 
   public void setAttributes(FullAPIKeyAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FullAPIKey id(String id) {
@@ -102,6 +105,9 @@ public class FullAPIKey {
 
   public void setRelationships(APIKeyRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public FullAPIKey type(APIKeysType type) {

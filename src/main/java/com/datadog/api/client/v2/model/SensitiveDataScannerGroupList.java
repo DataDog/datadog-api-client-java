@@ -29,8 +29,10 @@ public class SensitiveDataScannerGroupList {
 
   public SensitiveDataScannerGroupList data(List<SensitiveDataScannerGroupItem> data) {
     this.data = data;
-    for (SensitiveDataScannerGroupItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SensitiveDataScannerGroupItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class SensitiveDataScannerGroupList {
 
   public void setData(List<SensitiveDataScannerGroupItem> data) {
     this.data = data;
+    if (data != null) {
+      for (SensitiveDataScannerGroupItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -70,6 +70,9 @@ public class StatusPageAsIncluded {
 
   public void setAttributes(StatusPageAsIncludedAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public StatusPageAsIncluded id(UUID id) {
@@ -113,6 +116,9 @@ public class StatusPageAsIncluded {
 
   public void setRelationships(StatusPageAsIncludedRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public StatusPageAsIncluded type(StatusPageDataType type) {

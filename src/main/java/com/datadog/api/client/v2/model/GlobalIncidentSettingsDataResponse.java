@@ -71,6 +71,9 @@ public class GlobalIncidentSettingsDataResponse {
 
   public void setAttributes(GlobalIncidentSettingsAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GlobalIncidentSettingsDataResponse id(String id) {

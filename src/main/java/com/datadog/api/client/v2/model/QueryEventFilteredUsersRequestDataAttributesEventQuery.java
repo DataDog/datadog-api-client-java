@@ -77,6 +77,9 @@ public class QueryEventFilteredUsersRequestDataAttributesEventQuery {
   public void setTimeFrame(
       QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame timeFrame) {
     this.timeFrame = timeFrame;
+    if (timeFrame != null) {
+      this.unparsed |= timeFrame.unparsed;
+    }
   }
 
   /**

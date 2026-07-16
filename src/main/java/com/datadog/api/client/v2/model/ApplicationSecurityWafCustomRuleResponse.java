@@ -45,6 +45,9 @@ public class ApplicationSecurityWafCustomRuleResponse {
 
   public void setData(ApplicationSecurityWafCustomRuleData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

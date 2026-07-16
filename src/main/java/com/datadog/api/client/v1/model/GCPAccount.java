@@ -393,8 +393,10 @@ public class GCPAccount {
   public GCPAccount monitoredResourceConfigs(
       List<GCPMonitoredResourceConfig> monitoredResourceConfigs) {
     this.monitoredResourceConfigs = monitoredResourceConfigs;
-    for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
-      this.unparsed |= item.unparsed;
+    if (monitoredResourceConfigs != null) {
+      for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -424,6 +426,11 @@ public class GCPAccount {
   public void setMonitoredResourceConfigs(
       List<GCPMonitoredResourceConfig> monitoredResourceConfigs) {
     this.monitoredResourceConfigs = monitoredResourceConfigs;
+    if (monitoredResourceConfigs != null) {
+      for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GCPAccount privateKey(String privateKey) {

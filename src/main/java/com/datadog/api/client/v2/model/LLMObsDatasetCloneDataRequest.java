@@ -71,6 +71,9 @@ public class LLMObsDatasetCloneDataRequest {
 
   public void setAttributes(LLMObsDatasetCloneDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDatasetCloneDataRequest id(String id) {

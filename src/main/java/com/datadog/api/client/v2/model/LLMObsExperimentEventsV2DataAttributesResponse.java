@@ -43,7 +43,13 @@ public class LLMObsExperimentEventsV2DataAttributesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_SUMMARY_METRICS)
           List<LLMObsExperimentEvalMetricEvent> summaryMetrics) {
     this.spans = spans;
+    for (LLMObsExperimentSpanWithEvals item : spans) {
+      this.unparsed |= item.unparsed;
+    }
     this.summaryMetrics = summaryMetrics;
+    for (LLMObsExperimentEvalMetricEvent item : summaryMetrics) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsExperimentEventsV2DataAttributesResponse spans(
@@ -75,6 +81,11 @@ public class LLMObsExperimentEventsV2DataAttributesResponse {
 
   public void setSpans(List<LLMObsExperimentSpanWithEvals> spans) {
     this.spans = spans;
+    if (spans != null) {
+      for (LLMObsExperimentSpanWithEvals item : spans) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsExperimentEventsV2DataAttributesResponse summaryMetrics(
@@ -106,6 +117,11 @@ public class LLMObsExperimentEventsV2DataAttributesResponse {
 
   public void setSummaryMetrics(List<LLMObsExperimentEvalMetricEvent> summaryMetrics) {
     this.summaryMetrics = summaryMetrics;
+    if (summaryMetrics != null) {
+      for (LLMObsExperimentEvalMetricEvent item : summaryMetrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

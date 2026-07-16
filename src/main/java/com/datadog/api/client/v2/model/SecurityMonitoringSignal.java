@@ -55,6 +55,9 @@ public class SecurityMonitoringSignal {
 
   public void setAttributes(SecurityMonitoringSignalAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringSignal id(String id) {

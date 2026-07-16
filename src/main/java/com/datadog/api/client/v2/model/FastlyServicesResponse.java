@@ -29,8 +29,10 @@ public class FastlyServicesResponse {
 
   public FastlyServicesResponse data(List<FastlyServiceData> data) {
     this.data = data;
-    for (FastlyServiceData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (FastlyServiceData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class FastlyServicesResponse {
 
   public void setData(List<FastlyServiceData> data) {
     this.data = data;
+    if (data != null) {
+      for (FastlyServiceData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -51,6 +51,9 @@ public class SecurityFilterResponse {
 
   public void setData(SecurityFilter data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SecurityFilterResponse meta(SecurityFilterMeta meta) {
@@ -73,6 +76,9 @@ public class SecurityFilterResponse {
 
   public void setMeta(SecurityFilterMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

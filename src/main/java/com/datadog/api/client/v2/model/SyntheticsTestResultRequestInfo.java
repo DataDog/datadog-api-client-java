@@ -259,8 +259,10 @@ public class SyntheticsTestResultRequestInfo {
 
   public SyntheticsTestResultRequestInfo files(List<SyntheticsTestResultFileRef> files) {
     this.files = files;
-    for (SyntheticsTestResultFileRef item : files) {
-      this.unparsed |= item.unparsed;
+    if (files != null) {
+      for (SyntheticsTestResultFileRef item : files) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -288,6 +290,11 @@ public class SyntheticsTestResultRequestInfo {
 
   public void setFiles(List<SyntheticsTestResultFileRef> files) {
     this.files = files;
+    if (files != null) {
+      for (SyntheticsTestResultFileRef item : files) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestResultRequestInfo headers(Map<String, Object> headers) {

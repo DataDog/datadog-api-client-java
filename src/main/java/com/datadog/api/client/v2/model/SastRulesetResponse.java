@@ -54,6 +54,9 @@ public class SastRulesetResponse {
 
   public void setData(SastRulesetData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

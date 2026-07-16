@@ -114,6 +114,9 @@ public class LogsIndexUpdateRequest {
 
   public void setDailyLimitReset(LogsDailyLimitReset dailyLimitReset) {
     this.dailyLimitReset = dailyLimitReset;
+    if (dailyLimitReset != null) {
+      this.unparsed |= dailyLimitReset.unparsed;
+    }
   }
 
   public LogsIndexUpdateRequest dailyLimitWarningThresholdPercentage(
@@ -164,8 +167,10 @@ public class LogsIndexUpdateRequest {
 
   public LogsIndexUpdateRequest exclusionFilters(List<LogsExclusion> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
-    for (LogsExclusion item : exclusionFilters) {
-      this.unparsed |= item.unparsed;
+    if (exclusionFilters != null) {
+      for (LogsExclusion item : exclusionFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -195,6 +200,11 @@ public class LogsIndexUpdateRequest {
 
   public void setExclusionFilters(List<LogsExclusion> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
+    if (exclusionFilters != null) {
+      for (LogsExclusion item : exclusionFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsIndexUpdateRequest filter(LogsFilter filter) {
@@ -216,6 +226,9 @@ public class LogsIndexUpdateRequest {
 
   public void setFilter(LogsFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public LogsIndexUpdateRequest numFlexLogsRetentionDays(Long numFlexLogsRetentionDays) {

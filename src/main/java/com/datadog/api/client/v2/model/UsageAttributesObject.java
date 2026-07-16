@@ -135,8 +135,10 @@ public class UsageAttributesObject {
 
   public UsageAttributesObject timeseries(List<UsageTimeSeriesObject> timeseries) {
     this.timeseries = timeseries;
-    for (UsageTimeSeriesObject item : timeseries) {
-      this.unparsed |= item.unparsed;
+    if (timeseries != null) {
+      for (UsageTimeSeriesObject item : timeseries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -164,6 +166,11 @@ public class UsageAttributesObject {
 
   public void setTimeseries(List<UsageTimeSeriesObject> timeseries) {
     this.timeseries = timeseries;
+    if (timeseries != null) {
+      for (UsageTimeSeriesObject item : timeseries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UsageAttributesObject usageType(HourlyUsageType usageType) {

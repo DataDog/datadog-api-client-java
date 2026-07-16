@@ -73,6 +73,9 @@ public class McpScanRequestResponseData {
 
   public void setAttributes(McpScanRequestResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public McpScanRequestResponseData id(String id) {

@@ -51,6 +51,9 @@ public class CreateDataDeletionResponseBody {
 
   public void setData(DataDeletionResponseItem data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public CreateDataDeletionResponseBody meta(DataDeletionResponseMeta meta) {
@@ -73,6 +76,9 @@ public class CreateDataDeletionResponseBody {
 
   public void setMeta(DataDeletionResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

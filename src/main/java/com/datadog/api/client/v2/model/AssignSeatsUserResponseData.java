@@ -56,6 +56,9 @@ public class AssignSeatsUserResponseData {
 
   public void setAttributes(AssignSeatsUserResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AssignSeatsUserResponseData id(String id) {

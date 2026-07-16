@@ -55,6 +55,9 @@ public class AuthNMappingTeam {
 
   public void setAttributes(AuthNMappingTeamAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AuthNMappingTeam id(String id) {

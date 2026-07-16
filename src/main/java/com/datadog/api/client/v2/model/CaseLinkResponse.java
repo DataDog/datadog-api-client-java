@@ -55,6 +55,9 @@ public class CaseLinkResponse {
 
   public void setData(CaseLink data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

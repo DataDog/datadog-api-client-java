@@ -1071,4 +1071,63 @@ public class DashboardsApiTest extends V1ApiTest {
       assertNotNull(error.getErrors());
     }
   }
+
+  private static String userJourneyQuery(String sortAggregation) {
+    return "{"
+        + "\"data_source\":\"product_analytics_journey\","
+        + "\"name\":\"query1\","
+        + "\"compute\":{\"aggregation\":\"count\"},"
+        + "\"search\":{\"expression\":\"node_0\",\"node_objects\":{}},"
+        + "\"group_by\":[{\"facet\":\"@x\",\"sort\":{\"aggregation\":\""
+        + sortAggregation
+        + "\",\"order\":\"asc\"}}]"
+        + "}";
+  }
+
+  @Test
+  public void testUserJourneyFormulaGroupByPropagatesUnparsed() throws Exception {
+    ObjectMapper mapper = generalApiClient.getJSON().getMapper();
+
+    FormulaAndFunctionUserJourneyQueryDefinition invalid =
+        com.datadog.api.World.fromJSON(
+            mapper,
+            FormulaAndFunctionUserJourneyQueryDefinition.class,
+            userJourneyQuery("NOT_A_VALID_AGGREGATION"));
+    assertTrue(invalid.getGroupBy().get(0).getSort().unparsed);
+    assertTrue(
+        "group-by item must propagate unparsed from its sort",
+        invalid.getGroupBy().get(0).unparsed);
+    assertTrue("query must propagate unparsed from its group_by items", invalid.unparsed);
+  }
+
+  private static String eventQuery(String sortAggregation) {
+    return "{"
+        + "\"data_source\":\"logs\","
+        + "\"name\":\"query1\","
+        + "\"compute\":{\"aggregation\":\"count\"},"
+        + "\"group_by\":[{\"facet\":\"@x\",\"sort\":{\"aggregation\":\""
+        + sortAggregation
+        + "\",\"order\":\"asc\"}}]"
+        + "}";
+  }
+
+  @Test
+  public void testEventQueryOneOfGroupByPropagatesUnparsed() throws Exception {
+    ObjectMapper mapper = generalApiClient.getJSON().getMapper();
+
+    // An invalid sort inside the group_by list, which is itself wrapped in a oneOf, must
+    // propagate unparsed up to the query.
+    FormulaAndFunctionEventQueryDefinition invalid =
+        com.datadog.api.World.fromJSON(
+            mapper,
+            FormulaAndFunctionEventQueryDefinition.class,
+            eventQuery("NOT_A_VALID_AGGREGATION"));
+    assertTrue(
+        "group-by list item must propagate unparsed from its sort",
+        invalid.getGroupBy().getList().get(0).unparsed);
+    assertTrue(
+        "oneOf group_by wrapper must propagate unparsed from its list items",
+        invalid.getGroupBy().unparsed);
+    assertTrue("query must propagate unparsed from its group_by", invalid.unparsed);
+  }
 }

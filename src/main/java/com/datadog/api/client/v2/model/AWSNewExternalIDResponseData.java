@@ -68,6 +68,9 @@ public class AWSNewExternalIDResponseData {
 
   public void setAttributes(AWSNewExternalIDResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSNewExternalIDResponseData id(String id) {

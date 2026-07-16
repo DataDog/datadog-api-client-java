@@ -29,8 +29,10 @@ public class CIAppTestsAggregationBucketsResponse {
 
   public CIAppTestsAggregationBucketsResponse buckets(List<CIAppTestsBucketResponse> buckets) {
     this.buckets = buckets;
-    for (CIAppTestsBucketResponse item : buckets) {
-      this.unparsed |= item.unparsed;
+    if (buckets != null) {
+      for (CIAppTestsBucketResponse item : buckets) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class CIAppTestsAggregationBucketsResponse {
 
   public void setBuckets(List<CIAppTestsBucketResponse> buckets) {
     this.buckets = buckets;
+    if (buckets != null) {
+      for (CIAppTestsBucketResponse item : buckets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

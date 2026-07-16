@@ -45,6 +45,9 @@ public class EntityResponseIncludedSchemaAttributes {
 
   public void setSchema(EntityV3 schema) {
     this.schema = schema;
+    if (schema != null) {
+      this.unparsed |= schema.unparsed;
+    }
   }
 
   /**

@@ -57,6 +57,9 @@ public class RetentionReturnCriteria {
 
   public void setBaseQuery(ProductAnalyticsBaseQuery baseQuery) {
     this.baseQuery = baseQuery;
+    if (baseQuery != null) {
+      this.unparsed |= baseQuery.unparsed;
+    }
   }
 
   public RetentionReturnCriteria timeInterval(RetentionReturnCriteriaTimeInterval timeInterval) {
@@ -79,6 +82,9 @@ public class RetentionReturnCriteria {
 
   public void setTimeInterval(RetentionReturnCriteriaTimeInterval timeInterval) {
     this.timeInterval = timeInterval;
+    if (timeInterval != null) {
+      this.unparsed |= timeInterval.unparsed;
+    }
   }
 
   /** Return true if this RetentionReturnCriteria object is equal to o. */

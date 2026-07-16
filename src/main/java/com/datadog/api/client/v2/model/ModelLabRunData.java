@@ -70,6 +70,9 @@ public class ModelLabRunData {
 
   public void setAttributes(ModelLabRunAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ModelLabRunData id(String id) {

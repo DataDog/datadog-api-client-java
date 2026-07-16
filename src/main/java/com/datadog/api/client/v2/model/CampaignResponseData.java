@@ -70,6 +70,9 @@ public class CampaignResponseData {
 
   public void setAttributes(CampaignResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CampaignResponseData id(String id) {

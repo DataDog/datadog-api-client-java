@@ -41,6 +41,9 @@ public class LLMObsProjectsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<LLMObsProjectDataResponse> data) {
     this.data = data;
+    for (LLMObsProjectDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsProjectsResponse data(List<LLMObsProjectDataResponse> data) {
@@ -70,6 +73,11 @@ public class LLMObsProjectsResponse {
 
   public void setData(List<LLMObsProjectDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (LLMObsProjectDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsProjectsResponse meta(LLMObsCursorMeta meta) {
@@ -92,6 +100,9 @@ public class LLMObsProjectsResponse {
 
   public void setMeta(LLMObsCursorMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -29,8 +29,10 @@ public class DashboardListListResponse {
 
   public DashboardListListResponse dashboardLists(List<DashboardList> dashboardLists) {
     this.dashboardLists = dashboardLists;
-    for (DashboardList item : dashboardLists) {
-      this.unparsed |= item.unparsed;
+    if (dashboardLists != null) {
+      for (DashboardList item : dashboardLists) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class DashboardListListResponse {
 
   public void setDashboardLists(List<DashboardList> dashboardLists) {
     this.dashboardLists = dashboardLists;
+    if (dashboardLists != null) {
+      for (DashboardList item : dashboardLists) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

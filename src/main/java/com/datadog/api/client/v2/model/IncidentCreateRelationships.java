@@ -60,6 +60,9 @@ public class IncidentCreateRelationships {
 
   public void setCommanderUser(NullableRelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
+    if (commanderUser != null) {
+      this.unparsed |= commanderUser.unparsed;
+    }
   }
 
   /**

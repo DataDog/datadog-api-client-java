@@ -70,6 +70,9 @@ public class IncidentNotificationTemplateUpdateData {
 
   public void setAttributes(IncidentNotificationTemplateUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentNotificationTemplateUpdateData id(UUID id) {

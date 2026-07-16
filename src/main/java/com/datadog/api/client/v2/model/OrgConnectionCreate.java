@@ -72,6 +72,9 @@ public class OrgConnectionCreate {
 
   public void setAttributes(OrgConnectionCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgConnectionCreate relationships(OrgConnectionCreateRelationships relationships) {
@@ -93,6 +96,9 @@ public class OrgConnectionCreate {
 
   public void setRelationships(OrgConnectionCreateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgConnectionCreate type(OrgConnectionType type) {

@@ -34,6 +34,9 @@ public class DatastoreArray {
   public DatastoreArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<DatastoreData> data) {
     this.data = data;
+    for (DatastoreData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DatastoreArray data(List<DatastoreData> data) {
@@ -63,6 +66,11 @@ public class DatastoreArray {
 
   public void setData(List<DatastoreData> data) {
     this.data = data;
+    if (data != null) {
+      for (DatastoreData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

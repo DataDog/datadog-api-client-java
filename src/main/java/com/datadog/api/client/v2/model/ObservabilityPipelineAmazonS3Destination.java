@@ -115,6 +115,9 @@ public class ObservabilityPipelineAmazonS3Destination {
 
   public void setAuth(ObservabilityPipelineAwsAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3Destination bucket(String bucket) {
@@ -158,6 +161,9 @@ public class ObservabilityPipelineAmazonS3Destination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3Destination id(String id) {
@@ -291,6 +297,9 @@ public class ObservabilityPipelineAmazonS3Destination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonS3Destination type(

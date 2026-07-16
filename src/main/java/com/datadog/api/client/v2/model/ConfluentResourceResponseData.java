@@ -70,6 +70,9 @@ public class ConfluentResourceResponseData {
 
   public void setAttributes(ConfluentResourceResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ConfluentResourceResponseData id(String id) {

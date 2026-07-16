@@ -54,6 +54,9 @@ public class FleetScheduleCreateRequest {
 
   public void setData(FleetScheduleCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -41,6 +41,9 @@ public class CsmAgentlessHostsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CsmAgentlessHostData> data,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) CsmSettingsMeta meta) {
     this.data = data;
+    for (CsmAgentlessHostData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -72,6 +75,11 @@ public class CsmAgentlessHostsResponse {
 
   public void setData(List<CsmAgentlessHostData> data) {
     this.data = data;
+    if (data != null) {
+      for (CsmAgentlessHostData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CsmAgentlessHostsResponse meta(CsmSettingsMeta meta) {
@@ -93,6 +101,9 @@ public class CsmAgentlessHostsResponse {
 
   public void setMeta(CsmSettingsMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

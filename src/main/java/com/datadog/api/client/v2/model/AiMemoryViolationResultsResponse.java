@@ -35,6 +35,9 @@ public class AiMemoryViolationResultsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<AiMemoryViolationResultResponseData> data) {
     this.data = data;
+    for (AiMemoryViolationResultResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AiMemoryViolationResultsResponse data(List<AiMemoryViolationResultResponseData> data) {
@@ -65,6 +68,11 @@ public class AiMemoryViolationResultsResponse {
 
   public void setData(List<AiMemoryViolationResultResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (AiMemoryViolationResultResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

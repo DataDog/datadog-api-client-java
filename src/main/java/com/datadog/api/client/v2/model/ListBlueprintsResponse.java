@@ -29,8 +29,10 @@ public class ListBlueprintsResponse {
 
   public ListBlueprintsResponse data(List<BlueprintMetadataData> data) {
     this.data = data;
-    for (BlueprintMetadataData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (BlueprintMetadataData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class ListBlueprintsResponse {
 
   public void setData(List<BlueprintMetadataData> data) {
     this.data = data;
+    if (data != null) {
+      for (BlueprintMetadataData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

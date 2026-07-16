@@ -59,6 +59,9 @@ public class ListRulesResponseDataItem {
 
   public void setAttributes(RuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ListRulesResponseDataItem id(String id) {
@@ -102,6 +105,9 @@ public class ListRulesResponseDataItem {
 
   public void setRelationships(RelationshipToRule relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ListRulesResponseDataItem type(RuleType type) {

@@ -114,6 +114,9 @@ public class DeploymentGatesMonitorRule {
 
   public void setOptions(DeploymentGatesMonitorRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public DeploymentGatesMonitorRule type(DeploymentGatesMonitorRuleType type) {

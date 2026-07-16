@@ -29,8 +29,10 @@ public class BatchRowsQueryResponseDataRelationshipsRows {
 
   public BatchRowsQueryResponseDataRelationshipsRows data(List<TableRowResourceIdentifier> data) {
     this.data = data;
-    for (TableRowResourceIdentifier item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TableRowResourceIdentifier item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -59,6 +61,11 @@ public class BatchRowsQueryResponseDataRelationshipsRows {
 
   public void setData(List<TableRowResourceIdentifier> data) {
     this.data = data;
+    if (data != null) {
+      for (TableRowResourceIdentifier item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

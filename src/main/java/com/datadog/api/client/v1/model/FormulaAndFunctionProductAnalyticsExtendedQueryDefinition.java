@@ -95,6 +95,9 @@ public class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
 
   public void setAudienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
+    if (audienceFilters != null) {
+      this.unparsed |= audienceFilters.unparsed;
+    }
   }
 
   public FormulaAndFunctionProductAnalyticsExtendedQueryDefinition compute(
@@ -117,6 +120,9 @@ public class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
 
   public void setCompute(ProductAnalyticsExtendedCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public FormulaAndFunctionProductAnalyticsExtendedQueryDefinition dataSource(
@@ -147,8 +153,10 @@ public class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
   public FormulaAndFunctionProductAnalyticsExtendedQueryDefinition groupBy(
       List<ProductAnalyticsExtendedGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (ProductAnalyticsExtendedGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (ProductAnalyticsExtendedGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -177,6 +185,11 @@ public class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
 
   public void setGroupBy(List<ProductAnalyticsExtendedGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (ProductAnalyticsExtendedGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public FormulaAndFunctionProductAnalyticsExtendedQueryDefinition indexes(
@@ -252,6 +265,9 @@ public class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
 
   public void setQuery(ProductAnalyticsBaseQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   /**

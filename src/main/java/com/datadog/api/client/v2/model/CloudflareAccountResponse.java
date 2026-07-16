@@ -45,6 +45,9 @@ public class CloudflareAccountResponse {
 
   public void setData(CloudflareAccountResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

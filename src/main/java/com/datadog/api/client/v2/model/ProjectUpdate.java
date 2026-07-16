@@ -58,6 +58,9 @@ public class ProjectUpdate {
 
   public void setAttributes(ProjectUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ProjectUpdate type(ProjectResourceType type) {

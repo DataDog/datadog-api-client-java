@@ -54,6 +54,9 @@ public class OpsgenieAccountCreateRequest {
 
   public void setData(OpsgenieAccountCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

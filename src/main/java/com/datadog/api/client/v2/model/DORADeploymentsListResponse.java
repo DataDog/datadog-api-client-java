@@ -29,8 +29,10 @@ public class DORADeploymentsListResponse {
 
   public DORADeploymentsListResponse data(List<DORADeploymentObject> data) {
     this.data = data;
-    for (DORADeploymentObject item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (DORADeploymentObject item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class DORADeploymentsListResponse {
 
   public void setData(List<DORADeploymentObject> data) {
     this.data = data;
+    if (data != null) {
+      for (DORADeploymentObject item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

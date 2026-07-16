@@ -67,6 +67,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern {
   public void setOptions(
       ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern type(

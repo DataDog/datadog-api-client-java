@@ -58,6 +58,9 @@ public class CloudConfigurationRuleOptions {
   public void setComplianceRuleOptions(
       CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
     this.complianceRuleOptions = complianceRuleOptions;
+    if (complianceRuleOptions != null) {
+      this.unparsed |= complianceRuleOptions.unparsed;
+    }
   }
 
   /**

@@ -67,6 +67,9 @@ public class TeamPermissionSetting {
 
   public void setAttributes(TeamPermissionSettingAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamPermissionSetting id(String id) {

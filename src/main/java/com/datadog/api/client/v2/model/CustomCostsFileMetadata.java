@@ -119,6 +119,9 @@ public class CustomCostsFileMetadata {
 
   public void setChargePeriod(CustomCostsFileUsageChargePeriod chargePeriod) {
     this.chargePeriod = chargePeriod;
+    if (chargePeriod != null) {
+      this.unparsed |= chargePeriod.unparsed;
+    }
   }
 
   public CustomCostsFileMetadata name(String name) {
@@ -233,6 +236,9 @@ public class CustomCostsFileMetadata {
 
   public void setUploadedBy(CustomCostsUser uploadedBy) {
     this.uploadedBy = uploadedBy;
+    if (uploadedBy != null) {
+      this.unparsed |= uploadedBy.unparsed;
+    }
   }
 
   /**

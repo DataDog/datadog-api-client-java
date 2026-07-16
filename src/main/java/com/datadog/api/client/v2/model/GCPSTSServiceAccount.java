@@ -59,6 +59,9 @@ public class GCPSTSServiceAccount {
 
   public void setAttributes(GCPSTSServiceAccountAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GCPSTSServiceAccount id(String id) {
@@ -102,6 +105,9 @@ public class GCPSTSServiceAccount {
 
   public void setMeta(GCPServiceAccountMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public GCPSTSServiceAccount type(GCPServiceAccountType type) {

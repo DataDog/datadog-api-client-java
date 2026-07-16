@@ -109,6 +109,9 @@ public class ToplistWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public ToplistWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
@@ -131,12 +134,17 @@ public class ToplistWidgetRequest {
 
   public void setAuditQuery(LogQueryDefinition auditQuery) {
     this.auditQuery = auditQuery;
+    if (auditQuery != null) {
+      this.unparsed |= auditQuery.unparsed;
+    }
   }
 
   public ToplistWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -165,6 +173,11 @@ public class ToplistWidgetRequest {
 
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ToplistWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
@@ -187,12 +200,17 @@ public class ToplistWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public ToplistWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -220,6 +238,11 @@ public class ToplistWidgetRequest {
 
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ToplistWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -242,6 +265,9 @@ public class ToplistWidgetRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public ToplistWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -264,6 +290,9 @@ public class ToplistWidgetRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public ToplistWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
@@ -286,6 +315,9 @@ public class ToplistWidgetRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public ToplistWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -308,6 +340,9 @@ public class ToplistWidgetRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public ToplistWidgetRequest q(String q) {
@@ -336,8 +371,10 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -365,6 +402,11 @@ public class ToplistWidgetRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ToplistWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
@@ -413,6 +455,9 @@ public class ToplistWidgetRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public ToplistWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -435,6 +480,9 @@ public class ToplistWidgetRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   public ToplistWidgetRequest sort(WidgetSortBy sort) {
@@ -457,6 +505,9 @@ public class ToplistWidgetRequest {
 
   public void setSort(WidgetSortBy sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   public ToplistWidgetRequest style(WidgetRequestStyle style) {
@@ -479,6 +530,9 @@ public class ToplistWidgetRequest {
 
   public void setStyle(WidgetRequestStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /**

@@ -69,6 +69,9 @@ public class UnassignSeatsUserRequestData {
 
   public void setAttributes(UnassignSeatsUserRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UnassignSeatsUserRequestData id(String id) {

@@ -54,6 +54,9 @@ public class DORAFailureResponse {
 
   public void setData(DORAFailureResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

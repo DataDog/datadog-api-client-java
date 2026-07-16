@@ -185,6 +185,9 @@ public class DORAFailureRequestAttributes {
 
   public void setGit(DORAGitInfo git) {
     this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
   }
 
   public DORAFailureRequestAttributes id(String id) {

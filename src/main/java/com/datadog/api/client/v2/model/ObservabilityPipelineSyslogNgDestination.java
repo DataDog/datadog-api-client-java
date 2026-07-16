@@ -95,6 +95,9 @@ public class ObservabilityPipelineSyslogNgDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineSyslogNgDestination endpointUrlKey(String endpointUrlKey) {
@@ -204,6 +207,9 @@ public class ObservabilityPipelineSyslogNgDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineSyslogNgDestination type(

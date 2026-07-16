@@ -51,7 +51,13 @@ public class CaseNotificationRuleCreateAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_TRIGGERS)
           List<CaseNotificationRuleTrigger> triggers) {
     this.recipients = recipients;
+    for (CaseNotificationRuleRecipient item : recipients) {
+      this.unparsed |= item.unparsed;
+    }
     this.triggers = triggers;
+    for (CaseNotificationRuleTrigger item : triggers) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CaseNotificationRuleCreateAttributes isEnabled(Boolean isEnabled) {
@@ -125,6 +131,11 @@ public class CaseNotificationRuleCreateAttributes {
 
   public void setRecipients(List<CaseNotificationRuleRecipient> recipients) {
     this.recipients = recipients;
+    if (recipients != null) {
+      for (CaseNotificationRuleRecipient item : recipients) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CaseNotificationRuleCreateAttributes triggers(List<CaseNotificationRuleTrigger> triggers) {
@@ -155,6 +166,11 @@ public class CaseNotificationRuleCreateAttributes {
 
   public void setTriggers(List<CaseNotificationRuleTrigger> triggers) {
     this.triggers = triggers;
+    if (triggers != null) {
+      for (CaseNotificationRuleTrigger item : triggers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

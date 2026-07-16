@@ -67,6 +67,9 @@ public class SecurityMonitoringIntegrationCredentialsValidateData {
 
   public void setAttributes(SecurityMonitoringIntegrationCredentialsValidateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringIntegrationCredentialsValidateData type(

@@ -72,6 +72,9 @@ public class IncidentUserDefinedFieldUpdateData {
 
   public void setAttributes(IncidentUserDefinedFieldAttributesUpdateRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentUserDefinedFieldUpdateData id(String id) {

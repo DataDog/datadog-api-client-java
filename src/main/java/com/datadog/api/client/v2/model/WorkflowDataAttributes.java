@@ -165,6 +165,9 @@ public class WorkflowDataAttributes {
 
   public void setSpec(Spec spec) {
     this.spec = spec;
+    if (spec != null) {
+      this.unparsed |= spec.unparsed;
+    }
   }
 
   public WorkflowDataAttributes tags(List<String> tags) {

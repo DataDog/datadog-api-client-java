@@ -55,6 +55,9 @@ public class SalesforceIncidentsTemplateResponse {
 
   public void setData(SalesforceIncidentsTemplateResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

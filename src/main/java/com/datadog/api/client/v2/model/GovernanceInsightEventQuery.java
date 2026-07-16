@@ -68,6 +68,9 @@ public class GovernanceInsightEventQuery {
 
   public void setCompute(GovernanceInsightEventCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public GovernanceInsightEventQuery indexes(List<String> indexes) {

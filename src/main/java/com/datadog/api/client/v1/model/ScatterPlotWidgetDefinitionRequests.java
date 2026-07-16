@@ -55,6 +55,9 @@ public class ScatterPlotWidgetDefinitionRequests {
 
   public void setTable(ScatterplotTableRequest table) {
     this.table = table;
+    if (table != null) {
+      this.unparsed |= table.unparsed;
+    }
   }
 
   public ScatterPlotWidgetDefinitionRequests x(ScatterPlotRequest x) {
@@ -77,6 +80,9 @@ public class ScatterPlotWidgetDefinitionRequests {
 
   public void setX(ScatterPlotRequest x) {
     this.x = x;
+    if (x != null) {
+      this.unparsed |= x.unparsed;
+    }
   }
 
   public ScatterPlotWidgetDefinitionRequests y(ScatterPlotRequest y) {
@@ -99,6 +105,9 @@ public class ScatterPlotWidgetDefinitionRequests {
 
   public void setY(ScatterPlotRequest y) {
     this.y = y;
+    if (y != null) {
+      this.unparsed |= y.unparsed;
+    }
   }
 
   /**

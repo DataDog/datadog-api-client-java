@@ -170,6 +170,9 @@ public class TopLongTaskInvoker {
 
   public void setStatsPerView(LongTaskStatsPerView statsPerView) {
     this.statsPerView = statsPerView;
+    if (statsPerView != null) {
+      this.unparsed |= statsPerView.unparsed;
+    }
   }
 
   public TopLongTaskInvoker viewOccurrences(Integer viewOccurrences) {

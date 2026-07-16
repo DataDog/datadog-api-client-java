@@ -45,6 +45,9 @@ public class SecurityMonitoringSuppressionResponse {
 
   public void setData(SecurityMonitoringSuppression data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

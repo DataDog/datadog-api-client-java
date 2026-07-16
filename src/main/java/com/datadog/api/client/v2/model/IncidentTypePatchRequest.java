@@ -54,6 +54,9 @@ public class IncidentTypePatchRequest {
 
   public void setData(IncidentTypePatchData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

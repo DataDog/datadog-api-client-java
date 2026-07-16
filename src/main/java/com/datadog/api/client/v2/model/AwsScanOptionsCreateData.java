@@ -70,6 +70,9 @@ public class AwsScanOptionsCreateData {
 
   public void setAttributes(AwsScanOptionsCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AwsScanOptionsCreateData id(String id) {

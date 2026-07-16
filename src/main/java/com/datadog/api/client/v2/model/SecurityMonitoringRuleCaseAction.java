@@ -53,6 +53,9 @@ public class SecurityMonitoringRuleCaseAction {
 
   public void setOptions(SecurityMonitoringRuleCaseActionOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleCaseAction type(SecurityMonitoringRuleCaseActionType type) {

@@ -43,6 +43,9 @@ public class SecurityMonitoringContentPackStatesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_META)
           SecurityMonitoringContentPackStateMeta meta) {
     this.data = data;
+    for (SecurityMonitoringContentPackStateData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.meta = meta;
     this.unparsed |= meta.unparsed;
   }
@@ -76,6 +79,11 @@ public class SecurityMonitoringContentPackStatesResponse {
 
   public void setData(List<SecurityMonitoringContentPackStateData> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringContentPackStateData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringContentPackStatesResponse meta(
@@ -98,6 +106,9 @@ public class SecurityMonitoringContentPackStatesResponse {
 
   public void setMeta(SecurityMonitoringContentPackStateMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

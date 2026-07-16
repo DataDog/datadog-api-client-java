@@ -54,6 +54,9 @@ public class OrgSAMLPreferencesUpdateRequest {
 
   public void setData(OrgSAMLPreferencesData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

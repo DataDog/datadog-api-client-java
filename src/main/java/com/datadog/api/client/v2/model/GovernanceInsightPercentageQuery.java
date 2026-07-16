@@ -66,6 +66,9 @@ public class GovernanceInsightPercentageQuery {
 
   public void setDenominatorQuery(GovernanceInsightMetricQuery denominatorQuery) {
     this.denominatorQuery = denominatorQuery;
+    if (denominatorQuery != null) {
+      this.unparsed |= denominatorQuery.unparsed;
+    }
   }
 
   public GovernanceInsightPercentageQuery numeratorQuery(
@@ -88,6 +91,9 @@ public class GovernanceInsightPercentageQuery {
 
   public void setNumeratorQuery(GovernanceInsightMetricQuery numeratorQuery) {
     this.numeratorQuery = numeratorQuery;
+    if (numeratorQuery != null) {
+      this.unparsed |= numeratorQuery.unparsed;
+    }
   }
 
   /**

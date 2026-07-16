@@ -45,6 +45,9 @@ public class GetSuppressionVersionHistoryResponse {
 
   public void setData(GetSuppressionVersionHistoryData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

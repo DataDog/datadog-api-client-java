@@ -67,6 +67,9 @@ public class SyntheticsTestResultExecutionInfo {
 
   public void setDuration(SyntheticsTestResultDuration duration) {
     this.duration = duration;
+    if (duration != null) {
+      this.unparsed |= duration.unparsed;
+    }
   }
 
   public SyntheticsTestResultExecutionInfo errorMessage(String errorMessage) {

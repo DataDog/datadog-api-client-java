@@ -48,6 +48,9 @@ public class Powerpack {
 
   public void setData(PowerpackData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

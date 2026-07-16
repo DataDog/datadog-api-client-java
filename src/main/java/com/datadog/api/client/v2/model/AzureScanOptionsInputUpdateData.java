@@ -70,6 +70,9 @@ public class AzureScanOptionsInputUpdateData {
 
   public void setAttributes(AzureScanOptionsInputUpdateDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AzureScanOptionsInputUpdateData id(String id) {

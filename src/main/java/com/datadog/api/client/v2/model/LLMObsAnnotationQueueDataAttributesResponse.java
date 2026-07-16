@@ -104,6 +104,9 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
 
   public void setAnnotationSchema(LLMObsAnnotationSchema annotationSchema) {
     this.annotationSchema = annotationSchema;
+    if (annotationSchema != null) {
+      this.unparsed |= annotationSchema.unparsed;
+    }
   }
 
   public LLMObsAnnotationQueueDataAttributesResponse createdAt(OffsetDateTime createdAt) {

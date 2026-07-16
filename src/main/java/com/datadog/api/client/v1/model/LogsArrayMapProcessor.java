@@ -72,6 +72,9 @@ public class LogsArrayMapProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsArrayMapProcessorType type) {
     this.processors = processors;
+    for (LogsArrayMapSubProcessor item : processors) {
+      this.unparsed |= item.unparsed;
+    }
     this.source = source;
     this.target = target;
     this.type = type;
@@ -171,6 +174,11 @@ public class LogsArrayMapProcessor {
 
   public void setProcessors(List<LogsArrayMapSubProcessor> processors) {
     this.processors = processors;
+    if (processors != null) {
+      for (LogsArrayMapSubProcessor item : processors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LogsArrayMapProcessor source(String source) {

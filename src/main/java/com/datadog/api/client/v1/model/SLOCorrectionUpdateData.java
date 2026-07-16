@@ -51,6 +51,9 @@ public class SLOCorrectionUpdateData {
 
   public void setAttributes(SLOCorrectionUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SLOCorrectionUpdateData type(SLOCorrectionType type) {

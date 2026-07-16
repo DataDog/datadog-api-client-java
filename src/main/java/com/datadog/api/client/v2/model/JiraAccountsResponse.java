@@ -40,6 +40,9 @@ public class JiraAccountsResponse {
   public JiraAccountsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<JiraAccountData> data) {
     this.data = data;
+    for (JiraAccountData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public JiraAccountsResponse data(List<JiraAccountData> data) {
@@ -69,6 +72,11 @@ public class JiraAccountsResponse {
 
   public void setData(List<JiraAccountData> data) {
     this.data = data;
+    if (data != null) {
+      for (JiraAccountData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public JiraAccountsResponse meta(JiraAccountsMeta meta) {
@@ -91,6 +99,9 @@ public class JiraAccountsResponse {
 
   public void setMeta(JiraAccountsMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

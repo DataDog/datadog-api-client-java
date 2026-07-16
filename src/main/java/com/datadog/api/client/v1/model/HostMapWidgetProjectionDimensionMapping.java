@@ -139,6 +139,9 @@ public class HostMapWidgetProjectionDimensionMapping {
 
   public void setNumberFormat(WidgetNumberFormat numberFormat) {
     this.numberFormat = numberFormat;
+    if (numberFormat != null) {
+      this.unparsed |= numberFormat.unparsed;
+    }
   }
 
   /**

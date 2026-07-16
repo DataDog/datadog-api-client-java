@@ -94,6 +94,9 @@ public class FormulaAndFunctionEventQueryDefinition {
 
   public void setCompute(FormulaAndFunctionEventQueryDefinitionCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public FormulaAndFunctionEventQueryDefinition crossOrgUuids(List<String> crossOrgUuids) {
@@ -172,6 +175,9 @@ public class FormulaAndFunctionEventQueryDefinition {
 
   public void setGroupBy(FormulaAndFunctionEventQueryGroupByConfig groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      this.unparsed |= groupBy.unparsed;
+    }
   }
 
   public FormulaAndFunctionEventQueryDefinition indexes(List<String> indexes) {
@@ -245,6 +251,9 @@ public class FormulaAndFunctionEventQueryDefinition {
 
   public void setSearch(FormulaAndFunctionEventQueryDefinitionSearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   public FormulaAndFunctionEventQueryDefinition storage(String storage) {

@@ -45,6 +45,9 @@ public class AssignSeatsUserResponse {
 
   public void setData(AssignSeatsUserResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -73,6 +73,9 @@ public class EscalationPolicyData {
 
   public void setAttributes(EscalationPolicyDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EscalationPolicyData id(String id) {
@@ -116,6 +119,9 @@ public class EscalationPolicyData {
 
   public void setRelationships(EscalationPolicyDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public EscalationPolicyData type(EscalationPolicyDataType type) {

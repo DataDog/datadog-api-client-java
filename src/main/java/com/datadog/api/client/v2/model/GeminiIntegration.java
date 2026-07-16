@@ -64,6 +64,9 @@ public class GeminiIntegration {
 
   public void setCredentials(GeminiCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public GeminiIntegration type(GeminiIntegrationType type) {

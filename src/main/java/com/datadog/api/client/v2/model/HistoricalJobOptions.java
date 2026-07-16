@@ -81,6 +81,9 @@ public class HistoricalJobOptions {
   public void setAnomalyDetectionOptions(
       SecurityMonitoringRuleAnomalyDetectionOptions anomalyDetectionOptions) {
     this.anomalyDetectionOptions = anomalyDetectionOptions;
+    if (anomalyDetectionOptions != null) {
+      this.unparsed |= anomalyDetectionOptions.unparsed;
+    }
   }
 
   public HistoricalJobOptions detectionMethod(
@@ -159,6 +162,9 @@ public class HistoricalJobOptions {
   public void setImpossibleTravelOptions(
       SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions) {
     this.impossibleTravelOptions = impossibleTravelOptions;
+    if (impossibleTravelOptions != null) {
+      this.unparsed |= impossibleTravelOptions.unparsed;
+    }
   }
 
   public HistoricalJobOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
@@ -235,6 +241,9 @@ public class HistoricalJobOptions {
 
   public void setNewValueOptions(SecurityMonitoringRuleNewValueOptions newValueOptions) {
     this.newValueOptions = newValueOptions;
+    if (newValueOptions != null) {
+      this.unparsed |= newValueOptions.unparsed;
+    }
   }
 
   public HistoricalJobOptions sequenceDetectionOptions(
@@ -259,6 +268,9 @@ public class HistoricalJobOptions {
   public void setSequenceDetectionOptions(
       SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions) {
     this.sequenceDetectionOptions = sequenceDetectionOptions;
+    if (sequenceDetectionOptions != null) {
+      this.unparsed |= sequenceDetectionOptions.unparsed;
+    }
   }
 
   public HistoricalJobOptions thirdPartyRuleOptions(
@@ -283,6 +295,9 @@ public class HistoricalJobOptions {
   public void setThirdPartyRuleOptions(
       SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
     this.thirdPartyRuleOptions = thirdPartyRuleOptions;
+    if (thirdPartyRuleOptions != null) {
+      this.unparsed |= thirdPartyRuleOptions.unparsed;
+    }
   }
 
   /**

@@ -71,6 +71,9 @@ public class UserTeam {
 
   public void setAttributes(UserTeamAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UserTeam id(String id) {
@@ -113,6 +116,9 @@ public class UserTeam {
 
   public void setRelationships(UserTeamRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public UserTeam type(UserTeamType type) {

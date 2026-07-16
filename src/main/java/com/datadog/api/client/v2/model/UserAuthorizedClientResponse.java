@@ -54,6 +54,9 @@ public class UserAuthorizedClientResponse {
 
   public void setData(UserAuthorizedClientData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

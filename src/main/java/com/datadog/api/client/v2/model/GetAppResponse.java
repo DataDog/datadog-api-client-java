@@ -61,12 +61,17 @@ public class GetAppResponse {
 
   public void setData(GetAppResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public GetAppResponse included(List<Deployment> included) {
     this.included = included;
-    for (Deployment item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (Deployment item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -94,6 +99,11 @@ public class GetAppResponse {
 
   public void setIncluded(List<Deployment> included) {
     this.included = included;
+    if (included != null) {
+      for (Deployment item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public GetAppResponse meta(AppMeta meta) {
@@ -116,6 +126,9 @@ public class GetAppResponse {
 
   public void setMeta(AppMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public GetAppResponse relationship(AppRelationship relationship) {
@@ -138,6 +151,9 @@ public class GetAppResponse {
 
   public void setRelationship(AppRelationship relationship) {
     this.relationship = relationship;
+    if (relationship != null) {
+      this.unparsed |= relationship.unparsed;
+    }
   }
 
   /**

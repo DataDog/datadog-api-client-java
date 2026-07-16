@@ -66,6 +66,9 @@ public class SyntheticsDowntimeDataRequest {
 
   public void setAttributes(SyntheticsDowntimeDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SyntheticsDowntimeDataRequest type(SyntheticsDowntimeResourceType type) {

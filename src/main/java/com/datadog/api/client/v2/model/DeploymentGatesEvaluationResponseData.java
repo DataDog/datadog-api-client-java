@@ -74,6 +74,9 @@ public class DeploymentGatesEvaluationResponseData {
 
   public void setAttributes(DeploymentGatesEvaluationResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeploymentGatesEvaluationResponseData id(UUID id) {

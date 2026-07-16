@@ -70,6 +70,9 @@ public class OrgGroupPolicyConfigData {
 
   public void setAttributes(OrgGroupPolicyConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupPolicyConfigData id(String id) {

@@ -58,6 +58,9 @@ public class GoogleChatOrganizationHandleResponse {
 
   public void setData(GoogleChatOrganizationHandleResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

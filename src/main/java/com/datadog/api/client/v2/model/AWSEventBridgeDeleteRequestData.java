@@ -65,6 +65,9 @@ public class AWSEventBridgeDeleteRequestData {
 
   public void setAttributes(AWSEventBridgeDeleteRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSEventBridgeDeleteRequestData type(AWSEventBridgeType type) {

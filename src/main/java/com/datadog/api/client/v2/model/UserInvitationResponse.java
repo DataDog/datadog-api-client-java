@@ -45,6 +45,9 @@ public class UserInvitationResponse {
 
   public void setData(UserInvitationResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

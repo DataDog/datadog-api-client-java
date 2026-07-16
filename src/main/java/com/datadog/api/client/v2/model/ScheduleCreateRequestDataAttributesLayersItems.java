@@ -79,6 +79,9 @@ public class ScheduleCreateRequestDataAttributesLayersItems {
     this.interval = interval;
     this.unparsed |= interval.unparsed;
     this.members = members;
+    for (ScheduleRequestDataAttributesLayersItemsMembersItems item : members) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
     this.rotationStart = rotationStart;
   }
@@ -145,6 +148,9 @@ public class ScheduleCreateRequestDataAttributesLayersItems {
 
   public void setInterval(LayerAttributesInterval interval) {
     this.interval = interval;
+    if (interval != null) {
+      this.unparsed |= interval.unparsed;
+    }
   }
 
   public ScheduleCreateRequestDataAttributesLayersItems members(
@@ -176,6 +182,11 @@ public class ScheduleCreateRequestDataAttributesLayersItems {
 
   public void setMembers(List<ScheduleRequestDataAttributesLayersItemsMembersItems> members) {
     this.members = members;
+    if (members != null) {
+      for (ScheduleRequestDataAttributesLayersItemsMembersItems item : members) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScheduleCreateRequestDataAttributesLayersItems name(String name) {
@@ -201,8 +212,10 @@ public class ScheduleCreateRequestDataAttributesLayersItems {
   public ScheduleCreateRequestDataAttributesLayersItems restrictions(
       List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
-    for (TimeRestriction item : restrictions) {
-      this.unparsed |= item.unparsed;
+    if (restrictions != null) {
+      for (TimeRestriction item : restrictions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -231,6 +244,11 @@ public class ScheduleCreateRequestDataAttributesLayersItems {
 
   public void setRestrictions(List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
+    if (restrictions != null) {
+      for (TimeRestriction item : restrictions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScheduleCreateRequestDataAttributesLayersItems rotationStart(

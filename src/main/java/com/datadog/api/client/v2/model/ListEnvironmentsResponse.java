@@ -40,6 +40,9 @@ public class ListEnvironmentsResponse {
   public ListEnvironmentsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Environment> data) {
     this.data = data;
+    for (Environment item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListEnvironmentsResponse data(List<Environment> data) {
@@ -69,6 +72,11 @@ public class ListEnvironmentsResponse {
 
   public void setData(List<Environment> data) {
     this.data = data;
+    if (data != null) {
+      for (Environment item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListEnvironmentsResponse meta(EnvironmentsPaginationMeta meta) {
@@ -91,6 +99,9 @@ public class ListEnvironmentsResponse {
 
   public void setMeta(EnvironmentsPaginationMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

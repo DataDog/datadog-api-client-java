@@ -68,6 +68,9 @@ public class CustomDestinationUpdateRequestDefinition {
 
   public void setAttributes(CustomDestinationUpdateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomDestinationUpdateRequestDefinition id(String id) {

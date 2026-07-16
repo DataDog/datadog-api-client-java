@@ -60,7 +60,13 @@ public class ObservabilityPipelineConfig {
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES)
           List<ObservabilityPipelineConfigSourceItem> sources) {
     this.destinations = destinations;
+    for (ObservabilityPipelineConfigDestinationItem item : destinations) {
+      this.unparsed |= item.unparsed;
+    }
     this.sources = sources;
+    for (ObservabilityPipelineConfigSourceItem item : sources) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ObservabilityPipelineConfig destinations(
@@ -92,6 +98,11 @@ public class ObservabilityPipelineConfig {
 
   public void setDestinations(List<ObservabilityPipelineConfigDestinationItem> destinations) {
     this.destinations = destinations;
+    if (destinations != null) {
+      for (ObservabilityPipelineConfigDestinationItem item : destinations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineConfig pipelineType(
@@ -123,8 +134,10 @@ public class ObservabilityPipelineConfig {
   public ObservabilityPipelineConfig processorGroups(
       List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
     this.processorGroups = processorGroups;
-    for (ObservabilityPipelineConfigProcessorGroup item : processorGroups) {
-      this.unparsed |= item.unparsed;
+    if (processorGroups != null) {
+      for (ObservabilityPipelineConfigProcessorGroup item : processorGroups) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -153,13 +166,20 @@ public class ObservabilityPipelineConfig {
 
   public void setProcessorGroups(List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
     this.processorGroups = processorGroups;
+    if (processorGroups != null) {
+      for (ObservabilityPipelineConfigProcessorGroup item : processorGroups) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineConfig processors(
       List<ObservabilityPipelineConfigProcessorGroup> processors) {
     this.processors = processors;
-    for (ObservabilityPipelineConfigProcessorGroup item : processors) {
-      this.unparsed |= item.unparsed;
+    if (processors != null) {
+      for (ObservabilityPipelineConfigProcessorGroup item : processors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -194,6 +214,11 @@ public class ObservabilityPipelineConfig {
   @Deprecated
   public void setProcessors(List<ObservabilityPipelineConfigProcessorGroup> processors) {
     this.processors = processors;
+    if (processors != null) {
+      for (ObservabilityPipelineConfigProcessorGroup item : processors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineConfig sources(List<ObservabilityPipelineConfigSourceItem> sources) {
@@ -224,6 +249,11 @@ public class ObservabilityPipelineConfig {
 
   public void setSources(List<ObservabilityPipelineConfigSourceItem> sources) {
     this.sources = sources;
+    if (sources != null) {
+      for (ObservabilityPipelineConfigSourceItem item : sources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineConfig useLegacySearchSyntax(Boolean useLegacySearchSyntax) {

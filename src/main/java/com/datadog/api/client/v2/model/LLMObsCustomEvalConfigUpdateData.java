@@ -69,6 +69,9 @@ public class LLMObsCustomEvalConfigUpdateData {
 
   public void setAttributes(LLMObsCustomEvalConfigUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigUpdateData id(String id) {

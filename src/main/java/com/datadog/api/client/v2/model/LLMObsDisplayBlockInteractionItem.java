@@ -46,6 +46,9 @@ public class LLMObsDisplayBlockInteractionItem {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           LLMObsDisplayBlockInteractionType type) {
     this.displayBlock = displayBlock;
+    for (LLMObsContentBlock item : displayBlock) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -79,6 +82,11 @@ public class LLMObsDisplayBlockInteractionItem {
 
   public void setDisplayBlock(List<LLMObsContentBlock> displayBlock) {
     this.displayBlock = displayBlock;
+    if (displayBlock != null) {
+      for (LLMObsContentBlock item : displayBlock) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsDisplayBlockInteractionItem type(LLMObsDisplayBlockInteractionType type) {

@@ -41,6 +41,9 @@ public class LLMObsDatasetRecordsDataAttributesRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_RECORDS)
           List<LLMObsDatasetRecordItem> records) {
     this.records = records;
+    for (LLMObsDatasetRecordItem item : records) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsDatasetRecordsDataAttributesRequest deduplicate(Boolean deduplicate) {
@@ -92,6 +95,11 @@ public class LLMObsDatasetRecordsDataAttributesRequest {
 
   public void setRecords(List<LLMObsDatasetRecordItem> records) {
     this.records = records;
+    if (records != null) {
+      for (LLMObsDatasetRecordItem item : records) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -69,6 +69,9 @@ public class TraceData {
 
   public void setAttributes(TraceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TraceData id(String id) {

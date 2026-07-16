@@ -34,6 +34,9 @@ public class AzureUCConfigsResponse {
   public AzureUCConfigsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AzureUCConfigPair> data) {
     this.data = data;
+    for (AzureUCConfigPair item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AzureUCConfigsResponse data(List<AzureUCConfigPair> data) {
@@ -63,6 +66,11 @@ public class AzureUCConfigsResponse {
 
   public void setData(List<AzureUCConfigPair> data) {
     this.data = data;
+    if (data != null) {
+      for (AzureUCConfigPair item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

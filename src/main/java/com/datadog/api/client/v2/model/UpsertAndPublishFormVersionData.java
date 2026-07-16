@@ -65,6 +65,9 @@ public class UpsertAndPublishFormVersionData {
 
   public void setAttributes(UpsertAndPublishFormVersionDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpsertAndPublishFormVersionData type(FormVersionType type) {

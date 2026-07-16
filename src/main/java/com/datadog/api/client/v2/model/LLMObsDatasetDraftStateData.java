@@ -70,6 +70,9 @@ public class LLMObsDatasetDraftStateData {
 
   public void setAttributes(LLMObsDatasetDraftStateDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsDatasetDraftStateData id(String id) {

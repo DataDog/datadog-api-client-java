@@ -66,6 +66,9 @@ public class AggregatedSignalsProblemsRequestData {
 
   public void setAttributes(AggregatedSignalsProblemsRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AggregatedSignalsProblemsRequestData type(AggregatedSignalsProblemsRequestType type) {

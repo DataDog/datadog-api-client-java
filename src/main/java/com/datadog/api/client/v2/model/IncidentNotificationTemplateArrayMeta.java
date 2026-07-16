@@ -46,6 +46,9 @@ public class IncidentNotificationTemplateArrayMeta {
 
   public void setPage(IncidentNotificationTemplateArrayMetaPage page) {
     this.page = page;
+    if (page != null) {
+      this.unparsed |= page.unparsed;
+    }
   }
 
   /**

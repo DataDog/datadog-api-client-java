@@ -29,8 +29,10 @@ public class SyntheticsApiMultistepSubtestsResponse {
 
   public SyntheticsApiMultistepSubtestsResponse data(List<SyntheticsApiMultistepSubtestData> data) {
     this.data = data;
-    for (SyntheticsApiMultistepSubtestData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SyntheticsApiMultistepSubtestData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -59,6 +61,11 @@ public class SyntheticsApiMultistepSubtestsResponse {
 
   public void setData(List<SyntheticsApiMultistepSubtestData> data) {
     this.data = data;
+    if (data != null) {
+      for (SyntheticsApiMultistepSubtestData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

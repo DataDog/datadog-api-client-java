@@ -119,6 +119,9 @@ public class ObservabilityPipelineEnrichmentTableFileKeyItems {
 
   public void setField(ObservabilityPipelineEnrichmentTableFileKeyItemField field) {
     this.field = field;
+    if (field != null) {
+      this.unparsed |= field.unparsed;
+    }
   }
 
   /**

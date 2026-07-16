@@ -68,6 +68,9 @@ public class CaseCreate {
 
   public void setAttributes(CaseCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CaseCreate relationships(CaseCreateRelationships relationships) {
@@ -90,6 +93,9 @@ public class CaseCreate {
 
   public void setRelationships(CaseCreateRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public CaseCreate type(CaseResourceType type) {

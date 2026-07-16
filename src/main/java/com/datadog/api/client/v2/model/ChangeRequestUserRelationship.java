@@ -60,6 +60,9 @@ public class ChangeRequestUserRelationship {
 
   public void setData(ChangeRequestUserRelationshipData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

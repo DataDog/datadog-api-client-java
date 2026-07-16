@@ -112,6 +112,9 @@ public class EntityV3System {
 
   public void setDatadog(EntityV3SystemDatadog datadog) {
     this.datadog = datadog;
+    if (datadog != null) {
+      this.unparsed |= datadog.unparsed;
+    }
   }
 
   public EntityV3System extensions(Map<String, Object> extensions) {
@@ -164,6 +167,9 @@ public class EntityV3System {
 
   public void setIntegrations(EntityV3Integrations integrations) {
     this.integrations = integrations;
+    if (integrations != null) {
+      this.unparsed |= integrations.unparsed;
+    }
   }
 
   public EntityV3System kind(EntityV3SystemKind kind) {
@@ -209,6 +215,9 @@ public class EntityV3System {
 
   public void setMetadata(EntityV3Metadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   public EntityV3System spec(EntityV3SystemSpec spec) {
@@ -231,6 +240,9 @@ public class EntityV3System {
 
   public void setSpec(EntityV3SystemSpec spec) {
     this.spec = spec;
+    if (spec != null) {
+      this.unparsed |= spec.unparsed;
+    }
   }
 
   /** Return true if this EntityV3System object is equal to o. */

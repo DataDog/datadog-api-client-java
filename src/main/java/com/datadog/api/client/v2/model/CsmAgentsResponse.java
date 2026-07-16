@@ -32,8 +32,10 @@ public class CsmAgentsResponse {
 
   public CsmAgentsResponse data(List<CsmAgentData> data) {
     this.data = data;
-    for (CsmAgentData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (CsmAgentData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class CsmAgentsResponse {
 
   public void setData(List<CsmAgentData> data) {
     this.data = data;
+    if (data != null) {
+      for (CsmAgentData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CsmAgentsResponse meta(CSMAgentsMetadata meta) {
@@ -83,6 +90,9 @@ public class CsmAgentsResponse {
 
   public void setMeta(CSMAgentsMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

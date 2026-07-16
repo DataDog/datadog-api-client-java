@@ -64,6 +64,9 @@ public class ExposureScheduleRequest {
     this.rolloutOptions = rolloutOptions;
     this.unparsed |= rolloutOptions.unparsed;
     this.rolloutSteps = rolloutSteps;
+    for (ExposureRolloutStepRequest item : rolloutSteps) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ExposureScheduleRequest absoluteStartTime(OffsetDateTime absoluteStartTime) {
@@ -199,6 +202,9 @@ public class ExposureScheduleRequest {
 
   public void setRolloutOptions(RolloutOptionsRequest rolloutOptions) {
     this.rolloutOptions = rolloutOptions;
+    if (rolloutOptions != null) {
+      this.unparsed |= rolloutOptions.unparsed;
+    }
   }
 
   public ExposureScheduleRequest rolloutSteps(List<ExposureRolloutStepRequest> rolloutSteps) {
@@ -228,6 +234,11 @@ public class ExposureScheduleRequest {
 
   public void setRolloutSteps(List<ExposureRolloutStepRequest> rolloutSteps) {
     this.rolloutSteps = rolloutSteps;
+    if (rolloutSteps != null) {
+      for (ExposureRolloutStepRequest item : rolloutSteps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

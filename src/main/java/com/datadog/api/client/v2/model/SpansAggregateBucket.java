@@ -55,6 +55,9 @@ public class SpansAggregateBucket {
 
   public void setAttributes(SpansAggregateBucketAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SpansAggregateBucket id(String id) {

@@ -36,8 +36,10 @@ public class EntityResponseIncludedRelatedOncallAttributes {
   public EntityResponseIncludedRelatedOncallAttributes escalations(
       List<EntityResponseIncludedRelatedOncallEscalationItem> escalations) {
     this.escalations = escalations;
-    for (EntityResponseIncludedRelatedOncallEscalationItem item : escalations) {
-      this.unparsed |= item.unparsed;
+    if (escalations != null) {
+      for (EntityResponseIncludedRelatedOncallEscalationItem item : escalations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -66,6 +68,11 @@ public class EntityResponseIncludedRelatedOncallAttributes {
 
   public void setEscalations(List<EntityResponseIncludedRelatedOncallEscalationItem> escalations) {
     this.escalations = escalations;
+    if (escalations != null) {
+      for (EntityResponseIncludedRelatedOncallEscalationItem item : escalations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EntityResponseIncludedRelatedOncallAttributes provider(String provider) {

@@ -64,6 +64,9 @@ public class DeleteAppsDatastoreItemRequestData {
 
   public void setAttributes(DeleteAppsDatastoreItemRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DeleteAppsDatastoreItemRequestData type(DatastoreItemsDataType type) {

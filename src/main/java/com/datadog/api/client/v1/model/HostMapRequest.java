@@ -86,6 +86,9 @@ public class HostMapRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public HostMapRequest eventQuery(LogQueryDefinition eventQuery) {
@@ -108,6 +111,9 @@ public class HostMapRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public HostMapRequest logQuery(LogQueryDefinition logQuery) {
@@ -130,6 +136,9 @@ public class HostMapRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public HostMapRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -152,6 +161,9 @@ public class HostMapRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public HostMapRequest processQuery(ProcessQueryDefinition processQuery) {
@@ -174,6 +186,9 @@ public class HostMapRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public HostMapRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -196,6 +211,9 @@ public class HostMapRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public HostMapRequest q(String q) {
@@ -239,6 +257,9 @@ public class HostMapRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public HostMapRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -261,6 +282,9 @@ public class HostMapRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   /**

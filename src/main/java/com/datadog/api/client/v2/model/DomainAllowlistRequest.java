@@ -54,6 +54,9 @@ public class DomainAllowlistRequest {
 
   public void setData(DomainAllowlist data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

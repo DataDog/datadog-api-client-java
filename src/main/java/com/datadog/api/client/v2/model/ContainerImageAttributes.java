@@ -116,8 +116,10 @@ public class ContainerImageAttributes {
 
   public ContainerImageAttributes imageFlavors(List<ContainerImageFlavor> imageFlavors) {
     this.imageFlavors = imageFlavors;
-    for (ContainerImageFlavor item : imageFlavors) {
-      this.unparsed |= item.unparsed;
+    if (imageFlavors != null) {
+      for (ContainerImageFlavor item : imageFlavors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -146,6 +148,11 @@ public class ContainerImageAttributes {
 
   public void setImageFlavors(List<ContainerImageFlavor> imageFlavors) {
     this.imageFlavors = imageFlavors;
+    if (imageFlavors != null) {
+      for (ContainerImageFlavor item : imageFlavors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ContainerImageAttributes imageTags(List<String> imageTags) {
@@ -529,6 +536,9 @@ public class ContainerImageAttributes {
 
   public void setVulnerabilityCount(ContainerImageVulnerabilities vulnerabilityCount) {
     this.vulnerabilityCount = vulnerabilityCount;
+    if (vulnerabilityCount != null) {
+      this.unparsed |= vulnerabilityCount.unparsed;
+    }
   }
 
   /**

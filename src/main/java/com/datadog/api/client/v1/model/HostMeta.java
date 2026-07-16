@@ -226,6 +226,9 @@ public class HostMeta {
 
   public void setInstallMethod(HostMetaInstallMethod installMethod) {
     this.installMethod = installMethod;
+    if (installMethod != null) {
+      this.unparsed |= installMethod.unparsed;
+    }
   }
 
   public HostMeta macV(List<Object> macV) {

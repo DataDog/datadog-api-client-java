@@ -178,8 +178,10 @@ public class MonitorUserTemplateResponseAttributes {
   public MonitorUserTemplateResponseAttributes templateVariables(
       List<MonitorUserTemplateTemplateVariablesItems> templateVariables) {
     this.templateVariables = templateVariables;
-    for (MonitorUserTemplateTemplateVariablesItems item : templateVariables) {
-      this.unparsed |= item.unparsed;
+    if (templateVariables != null) {
+      for (MonitorUserTemplateTemplateVariablesItems item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -209,6 +211,11 @@ public class MonitorUserTemplateResponseAttributes {
   public void setTemplateVariables(
       List<MonitorUserTemplateTemplateVariablesItems> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (MonitorUserTemplateTemplateVariablesItems item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MonitorUserTemplateResponseAttributes title(String title) {

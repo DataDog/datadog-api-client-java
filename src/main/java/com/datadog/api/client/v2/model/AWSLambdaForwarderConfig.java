@@ -91,6 +91,9 @@ public class AWSLambdaForwarderConfig {
 
   public void setLogSourceConfig(AWSLambdaForwarderConfigLogSourceConfig logSourceConfig) {
     this.logSourceConfig = logSourceConfig;
+    if (logSourceConfig != null) {
+      this.unparsed |= logSourceConfig.unparsed;
+    }
   }
 
   public AWSLambdaForwarderConfig sources(List<String> sources) {

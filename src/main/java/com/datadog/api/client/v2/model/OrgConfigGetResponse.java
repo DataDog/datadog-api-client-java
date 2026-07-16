@@ -54,6 +54,9 @@ public class OrgConfigGetResponse {
 
   public void setData(OrgConfigRead data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

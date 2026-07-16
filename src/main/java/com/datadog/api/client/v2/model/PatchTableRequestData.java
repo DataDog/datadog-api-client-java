@@ -57,6 +57,9 @@ public class PatchTableRequestData {
 
   public void setAttributes(PatchTableRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PatchTableRequestData type(PatchTableRequestDataType type) {

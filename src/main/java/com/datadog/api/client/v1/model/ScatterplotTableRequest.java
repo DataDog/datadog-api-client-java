@@ -39,8 +39,10 @@ public class ScatterplotTableRequest {
 
   public ScatterplotTableRequest formulas(List<ScatterplotWidgetFormula> formulas) {
     this.formulas = formulas;
-    for (ScatterplotWidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (ScatterplotWidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,12 +70,19 @@ public class ScatterplotTableRequest {
 
   public void setFormulas(List<ScatterplotWidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (ScatterplotWidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScatterplotTableRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -101,6 +110,11 @@ public class ScatterplotTableRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ScatterplotTableRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {

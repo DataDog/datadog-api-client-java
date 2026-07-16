@@ -70,6 +70,9 @@ public class RumMetricCreateData {
 
   public void setAttributes(RumMetricCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RumMetricCreateData id(String id) {

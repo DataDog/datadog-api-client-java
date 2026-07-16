@@ -78,6 +78,9 @@ public class QueryFormula {
 
   public void setLimit(FormulaLimit limit) {
     this.limit = limit;
+    if (limit != null) {
+      this.unparsed |= limit.unparsed;
+    }
   }
 
   /**

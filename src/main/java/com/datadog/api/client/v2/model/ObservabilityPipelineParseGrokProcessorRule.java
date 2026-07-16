@@ -49,6 +49,9 @@ public class ObservabilityPipelineParseGrokProcessorRule {
           List<ObservabilityPipelineParseGrokProcessorRuleMatchRule> matchRules,
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) String source) {
     this.matchRules = matchRules;
+    for (ObservabilityPipelineParseGrokProcessorRuleMatchRule item : matchRules) {
+      this.unparsed |= item.unparsed;
+    }
     this.source = source;
   }
 
@@ -82,6 +85,11 @@ public class ObservabilityPipelineParseGrokProcessorRule {
 
   public void setMatchRules(List<ObservabilityPipelineParseGrokProcessorRuleMatchRule> matchRules) {
     this.matchRules = matchRules;
+    if (matchRules != null) {
+      for (ObservabilityPipelineParseGrokProcessorRuleMatchRule item : matchRules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineParseGrokProcessorRule source(String source) {
@@ -107,8 +115,10 @@ public class ObservabilityPipelineParseGrokProcessorRule {
   public ObservabilityPipelineParseGrokProcessorRule supportRules(
       List<ObservabilityPipelineParseGrokProcessorRuleSupportRule> supportRules) {
     this.supportRules = supportRules;
-    for (ObservabilityPipelineParseGrokProcessorRuleSupportRule item : supportRules) {
-      this.unparsed |= item.unparsed;
+    if (supportRules != null) {
+      for (ObservabilityPipelineParseGrokProcessorRuleSupportRule item : supportRules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -138,6 +148,11 @@ public class ObservabilityPipelineParseGrokProcessorRule {
   public void setSupportRules(
       List<ObservabilityPipelineParseGrokProcessorRuleSupportRule> supportRules) {
     this.supportRules = supportRules;
+    if (supportRules != null) {
+      for (ObservabilityPipelineParseGrokProcessorRuleSupportRule item : supportRules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

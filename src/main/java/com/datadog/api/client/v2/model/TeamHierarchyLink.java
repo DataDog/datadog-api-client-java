@@ -74,6 +74,9 @@ public class TeamHierarchyLink {
 
   public void setAttributes(TeamHierarchyLinkAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamHierarchyLink id(String id) {
@@ -116,6 +119,9 @@ public class TeamHierarchyLink {
 
   public void setRelationships(TeamHierarchyLinkRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public TeamHierarchyLink type(TeamHierarchyLinkType type) {

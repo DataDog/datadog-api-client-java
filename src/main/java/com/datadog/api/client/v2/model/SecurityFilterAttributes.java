@@ -56,8 +56,10 @@ public class SecurityFilterAttributes {
   public SecurityFilterAttributes exclusionFilters(
       List<SecurityFilterExclusionFilterResponse> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
-    for (SecurityFilterExclusionFilterResponse item : exclusionFilters) {
-      this.unparsed |= item.unparsed;
+    if (exclusionFilters != null) {
+      for (SecurityFilterExclusionFilterResponse item : exclusionFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -86,6 +88,11 @@ public class SecurityFilterAttributes {
 
   public void setExclusionFilters(List<SecurityFilterExclusionFilterResponse> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
+    if (exclusionFilters != null) {
+      for (SecurityFilterExclusionFilterResponse item : exclusionFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityFilterAttributes filteredDataType(

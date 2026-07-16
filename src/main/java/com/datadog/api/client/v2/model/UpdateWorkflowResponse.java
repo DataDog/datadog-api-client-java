@@ -45,6 +45,9 @@ public class UpdateWorkflowResponse {
 
   public void setData(WorkflowDataUpdate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class SyntheticsBrowserTestConfig {
           List<SyntheticsAssertion> assertions,
       @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST) SyntheticsTestRequest request) {
     this.assertions = assertions;
+    for (SyntheticsAssertion item : assertions) {
+      this.unparsed |= item.unparsed;
+    }
     this.request = request;
     this.unparsed |= request.unparsed;
   }
@@ -85,13 +88,20 @@ public class SyntheticsBrowserTestConfig {
 
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+    if (assertions != null) {
+      for (SyntheticsAssertion item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsBrowserTestConfig configVariables(
       List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
-    for (SyntheticsConfigVariable item : configVariables) {
-      this.unparsed |= item.unparsed;
+    if (configVariables != null) {
+      for (SyntheticsConfigVariable item : configVariables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -120,6 +130,11 @@ public class SyntheticsBrowserTestConfig {
 
   public void setConfigVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
+    if (configVariables != null) {
+      for (SyntheticsConfigVariable item : configVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsBrowserTestConfig request(SyntheticsTestRequest request) {
@@ -141,6 +156,9 @@ public class SyntheticsBrowserTestConfig {
 
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
+    if (request != null) {
+      this.unparsed |= request.unparsed;
+    }
   }
 
   public SyntheticsBrowserTestConfig setCookie(String setCookie) {
@@ -168,8 +186,10 @@ public class SyntheticsBrowserTestConfig {
 
   public SyntheticsBrowserTestConfig variables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
-    for (SyntheticsBrowserVariable item : variables) {
-      this.unparsed |= item.unparsed;
+    if (variables != null) {
+      for (SyntheticsBrowserVariable item : variables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -197,6 +217,11 @@ public class SyntheticsBrowserTestConfig {
 
   public void setVariables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
+    if (variables != null) {
+      for (SyntheticsBrowserVariable item : variables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

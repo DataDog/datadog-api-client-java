@@ -34,6 +34,9 @@ public class CaseWatchersResponse {
   public CaseWatchersResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CaseWatcher> data) {
     this.data = data;
+    for (CaseWatcher item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CaseWatchersResponse data(List<CaseWatcher> data) {
@@ -63,6 +66,11 @@ public class CaseWatchersResponse {
 
   public void setData(List<CaseWatcher> data) {
     this.data = data;
+    if (data != null) {
+      for (CaseWatcher item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

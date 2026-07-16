@@ -56,6 +56,9 @@ public class SecurityMonitoringDatasetDependenciesRequestData {
 
   public void setAttributes(SecurityMonitoringDatasetDependenciesRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

@@ -65,6 +65,9 @@ public class QueryUsersRequestData {
 
   public void setAttributes(QueryUsersRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public QueryUsersRequestData id(String id) {

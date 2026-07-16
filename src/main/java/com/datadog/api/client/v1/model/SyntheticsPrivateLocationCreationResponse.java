@@ -81,6 +81,9 @@ public class SyntheticsPrivateLocationCreationResponse {
 
   public void setPrivateLocation(SyntheticsPrivateLocation privateLocation) {
     this.privateLocation = privateLocation;
+    if (privateLocation != null) {
+      this.unparsed |= privateLocation.unparsed;
+    }
   }
 
   public SyntheticsPrivateLocationCreationResponse resultEncryption(
@@ -105,6 +108,9 @@ public class SyntheticsPrivateLocationCreationResponse {
   public void setResultEncryption(
       SyntheticsPrivateLocationCreationResponseResultEncryption resultEncryption) {
     this.resultEncryption = resultEncryption;
+    if (resultEncryption != null) {
+      this.unparsed |= resultEncryption.unparsed;
+    }
   }
 
   /**

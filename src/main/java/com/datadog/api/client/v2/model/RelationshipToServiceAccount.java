@@ -55,6 +55,9 @@ public class RelationshipToServiceAccount {
 
   public void setData(RelationshipToServiceAccountData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

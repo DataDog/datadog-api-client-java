@@ -64,6 +64,9 @@ public class CreateTableRequestDataAttributesFileMetadataCloudStorage {
   public void setAccessDetails(
       CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails accessDetails) {
     this.accessDetails = accessDetails;
+    if (accessDetails != null) {
+      this.unparsed |= accessDetails.unparsed;
+    }
   }
 
   public CreateTableRequestDataAttributesFileMetadataCloudStorage syncEnabled(Boolean syncEnabled) {

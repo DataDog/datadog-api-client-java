@@ -104,6 +104,9 @@ public class SloStatusDataAttributes {
 
   public void setRawErrorBudgetRemaining(RawErrorBudgetRemaining rawErrorBudgetRemaining) {
     this.rawErrorBudgetRemaining = rawErrorBudgetRemaining;
+    if (rawErrorBudgetRemaining != null) {
+      this.unparsed |= rawErrorBudgetRemaining.unparsed;
+    }
   }
 
   public SloStatusDataAttributes sli(Double sli) {

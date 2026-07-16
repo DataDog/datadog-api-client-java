@@ -68,6 +68,9 @@ public class GetAstRequestData {
 
   public void setAttributes(GetAstRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetAstRequestData id(String id) {

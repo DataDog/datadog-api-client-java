@@ -123,12 +123,17 @@ public class AlertEventAttributes {
 
   public void setEvt(EventSystemAttributes evt) {
     this.evt = evt;
+    if (evt != null) {
+      this.unparsed |= evt.unparsed;
+    }
   }
 
   public AlertEventAttributes links(List<AlertEventAttributesLinksItem> links) {
     this.links = links;
-    for (AlertEventAttributesLinksItem item : links) {
-      this.unparsed |= item.unparsed;
+    if (links != null) {
+      for (AlertEventAttributesLinksItem item : links) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -156,6 +161,11 @@ public class AlertEventAttributes {
 
   public void setLinks(List<AlertEventAttributesLinksItem> links) {
     this.links = links;
+    if (links != null) {
+      for (AlertEventAttributesLinksItem item : links) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AlertEventAttributes priority(AlertEventAttributesPriority priority) {

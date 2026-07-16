@@ -54,6 +54,9 @@ public class FastlyServiceRequest {
 
   public void setData(FastlyServiceData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

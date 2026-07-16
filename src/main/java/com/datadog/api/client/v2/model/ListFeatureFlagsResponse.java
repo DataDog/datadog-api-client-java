@@ -40,6 +40,9 @@ public class ListFeatureFlagsResponse {
   public ListFeatureFlagsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<FeatureFlagListItem> data) {
     this.data = data;
+    for (FeatureFlagListItem item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ListFeatureFlagsResponse data(List<FeatureFlagListItem> data) {
@@ -69,6 +72,11 @@ public class ListFeatureFlagsResponse {
 
   public void setData(List<FeatureFlagListItem> data) {
     this.data = data;
+    if (data != null) {
+      for (FeatureFlagListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListFeatureFlagsResponse meta(FeatureFlagsPaginationMeta meta) {
@@ -91,6 +99,9 @@ public class ListFeatureFlagsResponse {
 
   public void setMeta(FeatureFlagsPaginationMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

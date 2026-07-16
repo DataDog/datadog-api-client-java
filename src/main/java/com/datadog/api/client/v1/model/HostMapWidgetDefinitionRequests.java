@@ -112,13 +112,18 @@ public class HostMapWidgetDefinitionRequests {
 
   public void setChild(HostMapWidgetInfrastructureRequest child) {
     this.child = child;
+    if (child != null) {
+      this.unparsed |= child.unparsed;
+    }
   }
 
   public HostMapWidgetDefinitionRequests conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -147,12 +152,19 @@ public class HostMapWidgetDefinitionRequests {
 
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetDefinitionRequests enrichments(List<HostMapWidgetScalarRequest> enrichments) {
     this.enrichments = enrichments;
-    for (HostMapWidgetScalarRequest item : enrichments) {
-      this.unparsed |= item.unparsed;
+    if (enrichments != null) {
+      for (HostMapWidgetScalarRequest item : enrichments) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -182,6 +194,11 @@ public class HostMapWidgetDefinitionRequests {
 
   public void setEnrichments(List<HostMapWidgetScalarRequest> enrichments) {
     this.enrichments = enrichments;
+    if (enrichments != null) {
+      for (HostMapWidgetScalarRequest item : enrichments) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetDefinitionRequests fill(HostMapRequest fill) {
@@ -209,6 +226,9 @@ public class HostMapWidgetDefinitionRequests {
   @Deprecated
   public void setFill(HostMapRequest fill) {
     this.fill = fill;
+    if (fill != null) {
+      this.unparsed |= fill.unparsed;
+    }
   }
 
   public HostMapWidgetDefinitionRequests filter(String filter) {
@@ -235,8 +255,10 @@ public class HostMapWidgetDefinitionRequests {
 
   public HostMapWidgetDefinitionRequests groupBy(List<HostMapWidgetGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (HostMapWidgetGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (HostMapWidgetGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -265,6 +287,11 @@ public class HostMapWidgetDefinitionRequests {
 
   public void setGroupBy(List<HostMapWidgetGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (HostMapWidgetGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public HostMapWidgetDefinitionRequests limit(Long limit) {
@@ -378,6 +405,9 @@ public class HostMapWidgetDefinitionRequests {
 
   public void setProjection(HostMapWidgetProjection projection) {
     this.projection = projection;
+    if (projection != null) {
+      this.unparsed |= projection.unparsed;
+    }
   }
 
   public HostMapWidgetDefinitionRequests query(DatasetListQuery query) {
@@ -400,6 +430,9 @@ public class HostMapWidgetDefinitionRequests {
 
   public void setQuery(DatasetListQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public HostMapWidgetDefinitionRequests requestType(
@@ -455,6 +488,9 @@ public class HostMapWidgetDefinitionRequests {
   @Deprecated
   public void setSize(HostMapRequest size) {
     this.size = size;
+    if (size != null) {
+      this.unparsed |= size.unparsed;
+    }
   }
 
   public HostMapWidgetDefinitionRequests style(HostMapWidgetInfrastructureStyle style) {
@@ -477,6 +513,9 @@ public class HostMapWidgetDefinitionRequests {
 
   public void setStyle(HostMapWidgetInfrastructureStyle style) {
     this.style = style;
+    if (style != null) {
+      this.unparsed |= style.unparsed;
+    }
   }
 
   /**

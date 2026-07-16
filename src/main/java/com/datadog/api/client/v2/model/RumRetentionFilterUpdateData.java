@@ -70,6 +70,9 @@ public class RumRetentionFilterUpdateData {
 
   public void setAttributes(RumRetentionFilterUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RumRetentionFilterUpdateData id(String id) {

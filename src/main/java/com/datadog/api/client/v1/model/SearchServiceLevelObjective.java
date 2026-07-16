@@ -45,6 +45,9 @@ public class SearchServiceLevelObjective {
 
   public void setData(SearchServiceLevelObjectiveData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

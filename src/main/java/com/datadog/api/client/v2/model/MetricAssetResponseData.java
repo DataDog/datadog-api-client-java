@@ -87,6 +87,9 @@ public class MetricAssetResponseData {
 
   public void setRelationships(MetricAssetResponseRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public MetricAssetResponseData type(MetricType type) {

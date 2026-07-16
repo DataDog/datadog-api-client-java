@@ -56,6 +56,9 @@ public class TestOptimizationDeleteServiceSettingsRequest {
 
   public void setData(TestOptimizationDeleteServiceSettingsRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

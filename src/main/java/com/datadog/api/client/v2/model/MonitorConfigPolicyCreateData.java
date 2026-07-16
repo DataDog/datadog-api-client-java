@@ -67,6 +67,9 @@ public class MonitorConfigPolicyCreateData {
 
   public void setAttributes(MonitorConfigPolicyAttributeCreateRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorConfigPolicyCreateData type(MonitorConfigPolicyResourceType type) {

@@ -29,8 +29,10 @@ public class FastlyAccountsResponse {
 
   public FastlyAccountsResponse data(List<FastlyAccountResponseData> data) {
     this.data = data;
-    for (FastlyAccountResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (FastlyAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class FastlyAccountsResponse {
 
   public void setData(List<FastlyAccountResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (FastlyAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

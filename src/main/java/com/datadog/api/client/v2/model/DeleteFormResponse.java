@@ -45,6 +45,9 @@ public class DeleteFormResponse {
 
   public void setData(DeleteFormData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

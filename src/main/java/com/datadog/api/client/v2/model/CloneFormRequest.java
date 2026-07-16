@@ -54,6 +54,9 @@ public class CloneFormRequest {
 
   public void setData(CloneFormData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

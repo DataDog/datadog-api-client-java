@@ -68,6 +68,9 @@ public class ServiceAccountCreateData {
 
   public void setAttributes(ServiceAccountCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceAccountCreateData relationships(UserRelationships relationships) {
@@ -90,6 +93,9 @@ public class ServiceAccountCreateData {
 
   public void setRelationships(UserRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ServiceAccountCreateData type(UsersType type) {

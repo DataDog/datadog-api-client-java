@@ -65,6 +65,9 @@ public class CreateDeploymentGateParamsData {
 
   public void setAttributes(CreateDeploymentGateParamsDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateDeploymentGateParamsData type(DeploymentGateDataType type) {

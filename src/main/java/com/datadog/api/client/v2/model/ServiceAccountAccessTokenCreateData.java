@@ -65,6 +65,9 @@ public class ServiceAccountAccessTokenCreateData {
 
   public void setAttributes(ServiceAccountAccessTokenCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceAccountAccessTokenCreateData type(ServiceAccessTokensType type) {

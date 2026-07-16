@@ -61,6 +61,9 @@ public class DetachCaseRequestData {
 
   public void setRelationships(DetachCaseRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public DetachCaseRequestData type(CaseDataType type) {

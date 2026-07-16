@@ -45,6 +45,9 @@ public class DeleteAppsDatastoreItemResponse {
 
   public void setData(DeleteAppsDatastoreItemResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

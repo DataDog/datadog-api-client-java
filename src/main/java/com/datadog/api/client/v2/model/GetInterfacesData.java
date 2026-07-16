@@ -55,6 +55,9 @@ public class GetInterfacesData {
 
   public void setAttributes(InterfaceAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GetInterfacesData id(String id) {

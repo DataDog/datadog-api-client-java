@@ -52,6 +52,9 @@ public class GlobalVariableJsonPatchRequestData {
 
   public void setAttributes(GlobalVariableJsonPatchRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public GlobalVariableJsonPatchRequestData type(GlobalVariableJsonPatchType type) {

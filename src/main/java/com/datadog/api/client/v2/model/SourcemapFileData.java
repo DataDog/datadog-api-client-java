@@ -70,6 +70,9 @@ public class SourcemapFileData {
 
   public void setAttributes(SourcemapFileAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SourcemapFileData id(String id) {

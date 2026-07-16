@@ -63,6 +63,9 @@ public class LLMObsTraceAnnotatedInteractionItem {
       @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) OffsetDateTime modifiedAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsTraceInteractionType type) {
     this.annotations = annotations;
+    for (LLMObsAnnotationItem item : annotations) {
+      this.unparsed |= item.unparsed;
+    }
     this.contentId = contentId;
     this.createdAt = createdAt;
     this.id = id;
@@ -99,6 +102,11 @@ public class LLMObsTraceAnnotatedInteractionItem {
 
   public void setAnnotations(List<LLMObsAnnotationItem> annotations) {
     this.annotations = annotations;
+    if (annotations != null) {
+      for (LLMObsAnnotationItem item : annotations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsTraceAnnotatedInteractionItem contentId(String contentId) {

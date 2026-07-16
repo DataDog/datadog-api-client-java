@@ -70,6 +70,9 @@ public class IL2CPPSourcemapData {
 
   public void setAttributes(IL2CPPSourcemapAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IL2CPPSourcemapData id(String id) {

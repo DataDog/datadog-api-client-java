@@ -108,6 +108,9 @@ public class CreateFormDataAttributes {
 
   public void setDataDefinition(FormDataDefinition dataDefinition) {
     this.dataDefinition = dataDefinition;
+    if (dataDefinition != null) {
+      this.unparsed |= dataDefinition.unparsed;
+    }
   }
 
   public CreateFormDataAttributes description(String description) {
@@ -213,6 +216,9 @@ public class CreateFormDataAttributes {
 
   public void setUiDefinition(FormUiDefinition uiDefinition) {
     this.uiDefinition = uiDefinition;
+    if (uiDefinition != null) {
+      this.unparsed |= uiDefinition.unparsed;
+    }
   }
 
   /**

@@ -73,6 +73,9 @@ public class TicketCreationRuleAttributesCreate {
 
   public void setAction(TicketCreationRuleAction action) {
     this.action = action;
+    if (action != null) {
+      this.unparsed |= action.unparsed;
+    }
   }
 
   public TicketCreationRuleAttributesCreate enabled(Boolean enabled) {
@@ -135,6 +138,9 @@ public class TicketCreationRuleAttributesCreate {
 
   public void setRule(AutomationRuleScope rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   /**

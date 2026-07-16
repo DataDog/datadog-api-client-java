@@ -82,8 +82,10 @@ public class EntityV3Metadata {
   public EntityV3Metadata additionalOwners(
       List<EntityV3MetadataAdditionalOwnersItems> additionalOwners) {
     this.additionalOwners = additionalOwners;
-    for (EntityV3MetadataAdditionalOwnersItems item : additionalOwners) {
-      this.unparsed |= item.unparsed;
+    if (additionalOwners != null) {
+      for (EntityV3MetadataAdditionalOwnersItems item : additionalOwners) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -112,12 +114,19 @@ public class EntityV3Metadata {
 
   public void setAdditionalOwners(List<EntityV3MetadataAdditionalOwnersItems> additionalOwners) {
     this.additionalOwners = additionalOwners;
+    if (additionalOwners != null) {
+      for (EntityV3MetadataAdditionalOwnersItems item : additionalOwners) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EntityV3Metadata contacts(List<EntityV3MetadataContactsItems> contacts) {
     this.contacts = contacts;
-    for (EntityV3MetadataContactsItems item : contacts) {
-      this.unparsed |= item.unparsed;
+    if (contacts != null) {
+      for (EntityV3MetadataContactsItems item : contacts) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -145,6 +154,11 @@ public class EntityV3Metadata {
 
   public void setContacts(List<EntityV3MetadataContactsItems> contacts) {
     this.contacts = contacts;
+    if (contacts != null) {
+      for (EntityV3MetadataContactsItems item : contacts) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EntityV3Metadata description(String description) {
@@ -234,8 +248,10 @@ public class EntityV3Metadata {
 
   public EntityV3Metadata links(List<EntityV3MetadataLinksItems> links) {
     this.links = links;
-    for (EntityV3MetadataLinksItems item : links) {
-      this.unparsed |= item.unparsed;
+    if (links != null) {
+      for (EntityV3MetadataLinksItems item : links) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -263,6 +279,11 @@ public class EntityV3Metadata {
 
   public void setLinks(List<EntityV3MetadataLinksItems> links) {
     this.links = links;
+    if (links != null) {
+      for (EntityV3MetadataLinksItems item : links) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public EntityV3Metadata managed(Map<String, Object> managed) {

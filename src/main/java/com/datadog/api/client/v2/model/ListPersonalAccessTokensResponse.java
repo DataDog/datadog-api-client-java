@@ -35,8 +35,10 @@ public class ListPersonalAccessTokensResponse {
 
   public ListPersonalAccessTokensResponse data(List<AccessTokenListItem> data) {
     this.data = data;
-    for (AccessTokenListItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (AccessTokenListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class ListPersonalAccessTokensResponse {
 
   public void setData(List<AccessTokenListItem> data) {
     this.data = data;
+    if (data != null) {
+      for (AccessTokenListItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListPersonalAccessTokensResponse meta(PersonalAccessTokenResponseMeta meta) {
@@ -86,6 +93,9 @@ public class ListPersonalAccessTokensResponse {
 
   public void setMeta(PersonalAccessTokenResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -66,6 +66,9 @@ public class CommitCoverageSummaryRequestData {
 
   public void setAttributes(CommitCoverageSummaryRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CommitCoverageSummaryRequestData type(CommitCoverageSummaryRequestType type) {

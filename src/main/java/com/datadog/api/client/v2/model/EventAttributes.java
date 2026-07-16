@@ -228,6 +228,9 @@ public class EventAttributes {
 
   public void setEvt(Event evt) {
     this.evt = evt;
+    if (evt != null) {
+      this.unparsed |= evt.unparsed;
+    }
   }
 
   public EventAttributes hostname(String hostname) {

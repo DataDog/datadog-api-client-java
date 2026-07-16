@@ -57,6 +57,9 @@ public class SecurityMonitoringCriticalAsset {
 
   public void setAttributes(SecurityMonitoringCriticalAssetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringCriticalAsset id(String id) {

@@ -68,6 +68,9 @@ public class ShiftData {
 
   public void setAttributes(ShiftDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ShiftData id(String id) {
@@ -111,6 +114,9 @@ public class ShiftData {
 
   public void setRelationships(ShiftDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ShiftData type(ShiftDataType type) {

@@ -55,6 +55,9 @@ public class SyntheticsNetworkTestResponseData {
 
   public void setAttributes(SyntheticsNetworkTest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

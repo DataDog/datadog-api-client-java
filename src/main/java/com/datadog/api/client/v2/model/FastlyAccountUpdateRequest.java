@@ -55,6 +55,9 @@ public class FastlyAccountUpdateRequest {
 
   public void setData(FastlyAccountUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

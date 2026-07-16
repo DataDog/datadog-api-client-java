@@ -46,6 +46,9 @@ public class TenancyConfig {
 
   public void setData(TenancyConfigData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

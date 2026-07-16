@@ -71,6 +71,9 @@ public class LLMObsPatternsTopicsWithClusteredPointsResponseAttributes {
     this.previousRunId = previousRunId;
     this.runId = runId;
     this.topics = topics;
+    for (LLMObsPatternsTopicWithClusteredPoints item : topics) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsPatternsTopicsWithClusteredPointsResponseAttributes completedAt(
@@ -146,6 +149,9 @@ public class LLMObsPatternsTopicsWithClusteredPointsResponseAttributes {
 
   public void setConfigSnapshot(LLMObsPatternsConfigSnapshot configSnapshot) {
     this.configSnapshot = configSnapshot;
+    if (configSnapshot != null) {
+      this.unparsed |= configSnapshot.unparsed;
+    }
   }
 
   public LLMObsPatternsTopicsWithClusteredPointsResponseAttributes createdAt(
@@ -239,6 +245,11 @@ public class LLMObsPatternsTopicsWithClusteredPointsResponseAttributes {
 
   public void setTopics(List<LLMObsPatternsTopicWithClusteredPoints> topics) {
     this.topics = topics;
+    if (topics != null) {
+      for (LLMObsPatternsTopicWithClusteredPoints item : topics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

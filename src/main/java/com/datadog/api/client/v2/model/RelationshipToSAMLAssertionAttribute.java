@@ -55,6 +55,9 @@ public class RelationshipToSAMLAssertionAttribute {
 
   public void setData(RelationshipToSAMLAssertionAttributeData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

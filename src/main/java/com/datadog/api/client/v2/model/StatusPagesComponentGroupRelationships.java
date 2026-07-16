@@ -60,6 +60,9 @@ public class StatusPagesComponentGroupRelationships {
 
   public void setCreatedByUser(StatusPagesComponentGroupRelationshipsCreatedByUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public StatusPagesComponentGroupRelationships group(
@@ -83,6 +86,9 @@ public class StatusPagesComponentGroupRelationships {
 
   public void setGroup(StatusPagesComponentGroupRelationshipsGroup group) {
     this.group = group;
+    if (group != null) {
+      this.unparsed |= group.unparsed;
+    }
   }
 
   public StatusPagesComponentGroupRelationships lastModifiedByUser(
@@ -107,6 +113,9 @@ public class StatusPagesComponentGroupRelationships {
   public void setLastModifiedByUser(
       StatusPagesComponentGroupRelationshipsLastModifiedByUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   public StatusPagesComponentGroupRelationships statusPage(
@@ -130,6 +139,9 @@ public class StatusPagesComponentGroupRelationships {
 
   public void setStatusPage(StatusPagesComponentGroupRelationshipsStatusPage statusPage) {
     this.statusPage = statusPage;
+    if (statusPage != null) {
+      this.unparsed |= statusPage.unparsed;
+    }
   }
 
   /**

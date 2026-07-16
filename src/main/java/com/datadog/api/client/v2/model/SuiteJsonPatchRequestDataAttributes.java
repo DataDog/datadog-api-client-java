@@ -29,8 +29,10 @@ public class SuiteJsonPatchRequestDataAttributes {
 
   public SuiteJsonPatchRequestDataAttributes jsonPatch(List<JsonPatchOperation> jsonPatch) {
     this.jsonPatch = jsonPatch;
-    for (JsonPatchOperation item : jsonPatch) {
-      this.unparsed |= item.unparsed;
+    if (jsonPatch != null) {
+      for (JsonPatchOperation item : jsonPatch) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class SuiteJsonPatchRequestDataAttributes {
 
   public void setJsonPatch(List<JsonPatchOperation> jsonPatch) {
     this.jsonPatch = jsonPatch;
+    if (jsonPatch != null) {
+      for (JsonPatchOperation item : jsonPatch) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

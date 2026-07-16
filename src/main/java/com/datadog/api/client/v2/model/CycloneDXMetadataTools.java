@@ -35,6 +35,9 @@ public class CycloneDXMetadataTools {
       @JsonProperty(required = true, value = JSON_PROPERTY_COMPONENTS)
           List<CycloneDXToolComponent> components) {
     this.components = components;
+    for (CycloneDXToolComponent item : components) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CycloneDXMetadataTools components(List<CycloneDXToolComponent> components) {
@@ -64,6 +67,11 @@ public class CycloneDXMetadataTools {
 
   public void setComponents(List<CycloneDXToolComponent> components) {
     this.components = components;
+    if (components != null) {
+      for (CycloneDXToolComponent item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

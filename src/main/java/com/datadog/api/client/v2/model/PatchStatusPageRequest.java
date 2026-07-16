@@ -45,6 +45,9 @@ public class PatchStatusPageRequest {
 
   public void setData(PatchStatusPageRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

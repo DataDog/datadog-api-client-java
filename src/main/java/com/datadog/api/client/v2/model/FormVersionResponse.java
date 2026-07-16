@@ -54,6 +54,9 @@ public class FormVersionResponse {
 
   public void setData(FormVersionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

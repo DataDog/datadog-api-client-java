@@ -65,6 +65,9 @@ public class OrgGroupPolicyOverrideCreateRelationships {
 
   public void setOrgGroup(OrgGroupRelationshipToOne orgGroup) {
     this.orgGroup = orgGroup;
+    if (orgGroup != null) {
+      this.unparsed |= orgGroup.unparsed;
+    }
   }
 
   public OrgGroupPolicyOverrideCreateRelationships orgGroupPolicy(
@@ -87,6 +90,9 @@ public class OrgGroupPolicyOverrideCreateRelationships {
 
   public void setOrgGroupPolicy(OrgGroupPolicyRelationshipToOne orgGroupPolicy) {
     this.orgGroupPolicy = orgGroupPolicy;
+    if (orgGroupPolicy != null) {
+      this.unparsed |= orgGroupPolicy.unparsed;
+    }
   }
 
   /**

@@ -66,6 +66,9 @@ public class ApplicationSecurityPolicyUpdateData {
 
   public void setAttributes(ApplicationSecurityPolicyUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ApplicationSecurityPolicyUpdateData type(ApplicationSecurityPolicyType type) {

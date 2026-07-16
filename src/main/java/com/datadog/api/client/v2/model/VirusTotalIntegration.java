@@ -64,6 +64,9 @@ public class VirusTotalIntegration {
 
   public void setCredentials(VirusTotalCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public VirusTotalIntegration type(VirusTotalIntegrationType type) {

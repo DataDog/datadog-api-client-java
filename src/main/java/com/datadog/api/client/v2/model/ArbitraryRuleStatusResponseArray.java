@@ -35,6 +35,9 @@ public class ArbitraryRuleStatusResponseArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<ArbitraryRuleStatusResponseData> data) {
     this.data = data;
+    for (ArbitraryRuleStatusResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ArbitraryRuleStatusResponseArray data(List<ArbitraryRuleStatusResponseData> data) {
@@ -64,6 +67,11 @@ public class ArbitraryRuleStatusResponseArray {
 
   public void setData(List<ArbitraryRuleStatusResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (ArbitraryRuleStatusResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

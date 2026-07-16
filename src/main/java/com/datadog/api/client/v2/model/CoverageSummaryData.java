@@ -55,6 +55,9 @@ public class CoverageSummaryData {
 
   public void setAttributes(CoverageSummaryAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CoverageSummaryData id(String id) {

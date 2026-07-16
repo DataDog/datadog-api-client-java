@@ -136,6 +136,9 @@ public class IncidentIntegrationMetadataAttributes {
 
   public void setMetadata(IncidentIntegrationMetadataMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   /**

@@ -130,6 +130,9 @@ public class CreatePageRequestDataAttributes {
 
   public void setTarget(CreatePageRequestDataAttributesTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   public CreatePageRequestDataAttributes title(String title) {

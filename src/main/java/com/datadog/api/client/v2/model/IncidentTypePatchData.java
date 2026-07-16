@@ -70,6 +70,9 @@ public class IncidentTypePatchData {
 
   public void setAttributes(IncidentTypeUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentTypePatchData id(String id) {

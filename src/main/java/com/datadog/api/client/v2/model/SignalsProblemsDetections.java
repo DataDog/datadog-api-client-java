@@ -57,8 +57,10 @@ public class SignalsProblemsDetections {
   public SignalsProblemsDetections highFrozenFrameRates(
       List<AggregatedHighFrozenFrameRate> highFrozenFrameRates) {
     this.highFrozenFrameRates = highFrozenFrameRates;
-    for (AggregatedHighFrozenFrameRate item : highFrozenFrameRates) {
-      this.unparsed |= item.unparsed;
+    if (highFrozenFrameRates != null) {
+      for (AggregatedHighFrozenFrameRate item : highFrozenFrameRates) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -87,13 +89,20 @@ public class SignalsProblemsDetections {
 
   public void setHighFrozenFrameRates(List<AggregatedHighFrozenFrameRate> highFrozenFrameRates) {
     this.highFrozenFrameRates = highFrozenFrameRates;
+    if (highFrozenFrameRates != null) {
+      for (AggregatedHighFrozenFrameRate item : highFrozenFrameRates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections highScriptEvaluations(
       List<AggregatedHighScriptEval> highScriptEvaluations) {
     this.highScriptEvaluations = highScriptEvaluations;
-    for (AggregatedHighScriptEval item : highScriptEvaluations) {
-      this.unparsed |= item.unparsed;
+    if (highScriptEvaluations != null) {
+      for (AggregatedHighScriptEval item : highScriptEvaluations) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -122,13 +131,20 @@ public class SignalsProblemsDetections {
 
   public void setHighScriptEvaluations(List<AggregatedHighScriptEval> highScriptEvaluations) {
     this.highScriptEvaluations = highScriptEvaluations;
+    if (highScriptEvaluations != null) {
+      for (AggregatedHighScriptEval item : highScriptEvaluations) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections lowCacheHitRates(
       List<AggregatedLowCacheHitRate> lowCacheHitRates) {
     this.lowCacheHitRates = lowCacheHitRates;
-    for (AggregatedLowCacheHitRate item : lowCacheHitRates) {
-      this.unparsed |= item.unparsed;
+    if (lowCacheHitRates != null) {
+      for (AggregatedLowCacheHitRate item : lowCacheHitRates) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -157,13 +173,20 @@ public class SignalsProblemsDetections {
 
   public void setLowCacheHitRates(List<AggregatedLowCacheHitRate> lowCacheHitRates) {
     this.lowCacheHitRates = lowCacheHitRates;
+    if (lowCacheHitRates != null) {
+      for (AggregatedLowCacheHitRate item : lowCacheHitRates) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections mobileScrollFrictions(
       List<AggregatedMobileScrollFriction> mobileScrollFrictions) {
     this.mobileScrollFrictions = mobileScrollFrictions;
-    for (AggregatedMobileScrollFriction item : mobileScrollFrictions) {
-      this.unparsed |= item.unparsed;
+    if (mobileScrollFrictions != null) {
+      for (AggregatedMobileScrollFriction item : mobileScrollFrictions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -192,13 +215,20 @@ public class SignalsProblemsDetections {
 
   public void setMobileScrollFrictions(List<AggregatedMobileScrollFriction> mobileScrollFrictions) {
     this.mobileScrollFrictions = mobileScrollFrictions;
+    if (mobileScrollFrictions != null) {
+      for (AggregatedMobileScrollFriction item : mobileScrollFrictions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections slowFcpHighBytes(
       List<AggregatedSlowFCPHighBytes> slowFcpHighBytes) {
     this.slowFcpHighBytes = slowFcpHighBytes;
-    for (AggregatedSlowFCPHighBytes item : slowFcpHighBytes) {
-      this.unparsed |= item.unparsed;
+    if (slowFcpHighBytes != null) {
+      for (AggregatedSlowFCPHighBytes item : slowFcpHighBytes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -227,13 +257,20 @@ public class SignalsProblemsDetections {
 
   public void setSlowFcpHighBytes(List<AggregatedSlowFCPHighBytes> slowFcpHighBytes) {
     this.slowFcpHighBytes = slowFcpHighBytes;
+    if (slowFcpHighBytes != null) {
+      for (AggregatedSlowFCPHighBytes item : slowFcpHighBytes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections slowInteractionLongTasks(
       List<AggregatedSlowInteractionLongTask> slowInteractionLongTasks) {
     this.slowInteractionLongTasks = slowInteractionLongTasks;
-    for (AggregatedSlowInteractionLongTask item : slowInteractionLongTasks) {
-      this.unparsed |= item.unparsed;
+    if (slowInteractionLongTasks != null) {
+      for (AggregatedSlowInteractionLongTask item : slowInteractionLongTasks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -263,13 +300,20 @@ public class SignalsProblemsDetections {
   public void setSlowInteractionLongTasks(
       List<AggregatedSlowInteractionLongTask> slowInteractionLongTasks) {
     this.slowInteractionLongTasks = slowInteractionLongTasks;
+    if (slowInteractionLongTasks != null) {
+      for (AggregatedSlowInteractionLongTask item : slowInteractionLongTasks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SignalsProblemsDetections uncompressedResources(
       List<AggregatedUncompressedResource> uncompressedResources) {
     this.uncompressedResources = uncompressedResources;
-    for (AggregatedUncompressedResource item : uncompressedResources) {
-      this.unparsed |= item.unparsed;
+    if (uncompressedResources != null) {
+      for (AggregatedUncompressedResource item : uncompressedResources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -298,6 +342,11 @@ public class SignalsProblemsDetections {
 
   public void setUncompressedResources(List<AggregatedUncompressedResource> uncompressedResources) {
     this.uncompressedResources = uncompressedResources;
+    if (uncompressedResources != null) {
+      for (AggregatedUncompressedResource item : uncompressedResources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

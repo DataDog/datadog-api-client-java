@@ -52,6 +52,9 @@ public class UpdateAppProtectionLevelRequestData {
 
   public void setAttributes(UpdateAppProtectionLevelRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateAppProtectionLevelRequestData type(AppProtectionLevelType type) {

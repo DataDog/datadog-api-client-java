@@ -29,8 +29,10 @@ public class TeamRoutingRulesRequestDataAttributes {
 
   public TeamRoutingRulesRequestDataAttributes rules(List<TeamRoutingRulesRequestRule> rules) {
     this.rules = rules;
-    for (TeamRoutingRulesRequestRule item : rules) {
-      this.unparsed |= item.unparsed;
+    if (rules != null) {
+      for (TeamRoutingRulesRequestRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class TeamRoutingRulesRequestDataAttributes {
 
   public void setRules(List<TeamRoutingRulesRequestRule> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (TeamRoutingRulesRequestRule item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

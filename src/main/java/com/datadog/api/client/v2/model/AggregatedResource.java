@@ -525,6 +525,9 @@ public class AggregatedResource {
 
   public void setTimingBreakdown(AggregatedResourceTimingBreakdown timingBreakdown) {
     this.timingBreakdown = timingBreakdown;
+    if (timingBreakdown != null) {
+      this.unparsed |= timingBreakdown.unparsed;
+    }
   }
 
   public AggregatedResource totalRequests(Integer totalRequests) {

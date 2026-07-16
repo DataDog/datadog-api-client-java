@@ -67,6 +67,9 @@ public class SnapshotData {
 
   public void setAttributes(SnapshotDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

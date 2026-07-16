@@ -29,8 +29,10 @@ public class OktaAccountsResponse {
 
   public OktaAccountsResponse data(List<OktaAccountResponseData> data) {
     this.data = data;
-    for (OktaAccountResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (OktaAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class OktaAccountsResponse {
 
   public void setData(List<OktaAccountResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (OktaAccountResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

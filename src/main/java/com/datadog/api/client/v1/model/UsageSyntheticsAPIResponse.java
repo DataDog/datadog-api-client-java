@@ -32,8 +32,10 @@ public class UsageSyntheticsAPIResponse {
 
   public UsageSyntheticsAPIResponse usage(List<UsageSyntheticsAPIHour> usage) {
     this.usage = usage;
-    for (UsageSyntheticsAPIHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageSyntheticsAPIHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class UsageSyntheticsAPIResponse {
 
   public void setUsage(List<UsageSyntheticsAPIHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageSyntheticsAPIHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -45,6 +45,9 @@ public class WorkflowUserRelationship {
 
   public void setData(WorkflowUserRelationshipData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

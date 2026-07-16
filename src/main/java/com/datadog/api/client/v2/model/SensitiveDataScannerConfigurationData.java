@@ -45,6 +45,9 @@ public class SensitiveDataScannerConfigurationData {
 
   public void setData(SensitiveDataScannerConfiguration data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

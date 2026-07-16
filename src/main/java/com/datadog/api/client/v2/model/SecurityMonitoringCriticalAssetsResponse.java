@@ -29,8 +29,10 @@ public class SecurityMonitoringCriticalAssetsResponse {
 
   public SecurityMonitoringCriticalAssetsResponse data(List<SecurityMonitoringCriticalAsset> data) {
     this.data = data;
-    for (SecurityMonitoringCriticalAsset item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityMonitoringCriticalAsset item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -59,6 +61,11 @@ public class SecurityMonitoringCriticalAssetsResponse {
 
   public void setData(List<SecurityMonitoringCriticalAsset> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringCriticalAsset item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

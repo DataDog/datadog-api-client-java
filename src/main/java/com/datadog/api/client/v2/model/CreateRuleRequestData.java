@@ -52,6 +52,9 @@ public class CreateRuleRequestData {
 
   public void setAttributes(RuleAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateRuleRequestData type(RuleType type) {

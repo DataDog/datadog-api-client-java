@@ -70,6 +70,9 @@ public class UpdateOnCallNotificationRuleRequestData {
 
   public void setAttributes(UpdateOnCallNotificationRuleRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateOnCallNotificationRuleRequestData id(String id) {
@@ -114,6 +117,9 @@ public class UpdateOnCallNotificationRuleRequestData {
 
   public void setRelationships(OnCallNotificationRuleRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public UpdateOnCallNotificationRuleRequestData type(OnCallNotificationRuleType type) {

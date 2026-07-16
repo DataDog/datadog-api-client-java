@@ -65,6 +65,9 @@ public class CostRecommendationData {
 
   public void setAttributes(CostRecommendationDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CostRecommendationData id(String id) {

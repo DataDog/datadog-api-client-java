@@ -64,6 +64,9 @@ public class OrgGroupCreateData {
 
   public void setAttributes(OrgGroupCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupCreateData type(OrgGroupType type) {

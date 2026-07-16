@@ -61,6 +61,9 @@ public class CreateFormData {
 
   public void setAttributes(CreateFormDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateFormData type(FormType type) {

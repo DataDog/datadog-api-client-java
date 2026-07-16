@@ -54,6 +54,9 @@ public class OAuth2WellKnownSitesResponse {
 
   public void setData(OAuth2WellKnownSitesData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

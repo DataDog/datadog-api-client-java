@@ -45,6 +45,9 @@ public class WorklflowCancelInstanceResponse {
 
   public void setData(WorklflowCancelInstanceResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

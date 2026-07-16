@@ -180,6 +180,9 @@ public class TagIndexingRuleCreateAttributes {
 
   public void setOptions(TagIndexingRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public TagIndexingRuleCreateAttributes tags(List<String> tags) {

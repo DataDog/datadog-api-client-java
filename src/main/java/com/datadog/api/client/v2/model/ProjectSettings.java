@@ -76,6 +76,9 @@ public class ProjectSettings {
 
   public void setAutoCloseInactiveCases(AutoCloseInactiveCases autoCloseInactiveCases) {
     this.autoCloseInactiveCases = autoCloseInactiveCases;
+    if (autoCloseInactiveCases != null) {
+      this.unparsed |= autoCloseInactiveCases.unparsed;
+    }
   }
 
   public ProjectSettings autoTransitionAssignedCases(
@@ -100,6 +103,9 @@ public class ProjectSettings {
   public void setAutoTransitionAssignedCases(
       AutoTransitionAssignedCases autoTransitionAssignedCases) {
     this.autoTransitionAssignedCases = autoTransitionAssignedCases;
+    if (autoTransitionAssignedCases != null) {
+      this.unparsed |= autoTransitionAssignedCases.unparsed;
+    }
   }
 
   public ProjectSettings integrationIncident(IntegrationIncident integrationIncident) {
@@ -122,6 +128,9 @@ public class ProjectSettings {
 
   public void setIntegrationIncident(IntegrationIncident integrationIncident) {
     this.integrationIncident = integrationIncident;
+    if (integrationIncident != null) {
+      this.unparsed |= integrationIncident.unparsed;
+    }
   }
 
   public ProjectSettings integrationJira(IntegrationJira integrationJira) {
@@ -144,6 +153,9 @@ public class ProjectSettings {
 
   public void setIntegrationJira(IntegrationJira integrationJira) {
     this.integrationJira = integrationJira;
+    if (integrationJira != null) {
+      this.unparsed |= integrationJira.unparsed;
+    }
   }
 
   public ProjectSettings integrationMonitor(IntegrationMonitor integrationMonitor) {
@@ -166,6 +178,9 @@ public class ProjectSettings {
 
   public void setIntegrationMonitor(IntegrationMonitor integrationMonitor) {
     this.integrationMonitor = integrationMonitor;
+    if (integrationMonitor != null) {
+      this.unparsed |= integrationMonitor.unparsed;
+    }
   }
 
   public ProjectSettings integrationOnCall(IntegrationOnCall integrationOnCall) {
@@ -188,6 +203,9 @@ public class ProjectSettings {
 
   public void setIntegrationOnCall(IntegrationOnCall integrationOnCall) {
     this.integrationOnCall = integrationOnCall;
+    if (integrationOnCall != null) {
+      this.unparsed |= integrationOnCall.unparsed;
+    }
   }
 
   public ProjectSettings integrationServiceNow(IntegrationServiceNow integrationServiceNow) {
@@ -210,6 +228,9 @@ public class ProjectSettings {
 
   public void setIntegrationServiceNow(IntegrationServiceNow integrationServiceNow) {
     this.integrationServiceNow = integrationServiceNow;
+    if (integrationServiceNow != null) {
+      this.unparsed |= integrationServiceNow.unparsed;
+    }
   }
 
   public ProjectSettings notification(ProjectNotificationSettings notification) {
@@ -232,6 +253,9 @@ public class ProjectSettings {
 
   public void setNotification(ProjectNotificationSettings notification) {
     this.notification = notification;
+    if (notification != null) {
+      this.unparsed |= notification.unparsed;
+    }
   }
 
   /**

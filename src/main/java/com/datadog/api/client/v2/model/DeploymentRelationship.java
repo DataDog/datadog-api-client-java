@@ -51,6 +51,9 @@ public class DeploymentRelationship {
 
   public void setData(DeploymentRelationshipData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public DeploymentRelationship meta(DeploymentMetadata meta) {
@@ -73,6 +76,9 @@ public class DeploymentRelationship {
 
   public void setMeta(DeploymentMetadata meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

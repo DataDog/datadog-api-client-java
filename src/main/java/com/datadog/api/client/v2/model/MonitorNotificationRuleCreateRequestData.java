@@ -63,6 +63,9 @@ public class MonitorNotificationRuleCreateRequestData {
 
   public void setAttributes(MonitorNotificationRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorNotificationRuleCreateRequestData type(MonitorNotificationRuleResourceType type) {

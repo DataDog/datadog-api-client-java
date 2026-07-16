@@ -109,6 +109,9 @@ public class OrganizationSettings {
 
   public void setSaml(OrganizationSettingsSaml saml) {
     this.saml = saml;
+    if (saml != null) {
+      this.unparsed |= saml.unparsed;
+    }
   }
 
   public OrganizationSettings samlAutocreateAccessRole(AccessRole samlAutocreateAccessRole) {
@@ -170,6 +173,9 @@ public class OrganizationSettings {
   public void setSamlAutocreateUsersDomains(
       OrganizationSettingsSamlAutocreateUsersDomains samlAutocreateUsersDomains) {
     this.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
+    if (samlAutocreateUsersDomains != null) {
+      this.unparsed |= samlAutocreateUsersDomains.unparsed;
+    }
   }
 
   public OrganizationSettings samlCanBeEnabled(Boolean samlCanBeEnabled) {
@@ -236,6 +242,9 @@ public class OrganizationSettings {
   public void setSamlIdpInitiatedLogin(
       OrganizationSettingsSamlIdpInitiatedLogin samlIdpInitiatedLogin) {
     this.samlIdpInitiatedLogin = samlIdpInitiatedLogin;
+    if (samlIdpInitiatedLogin != null) {
+      this.unparsed |= samlIdpInitiatedLogin.unparsed;
+    }
   }
 
   public OrganizationSettings samlIdpMetadataUploaded(Boolean samlIdpMetadataUploaded) {
@@ -300,6 +309,9 @@ public class OrganizationSettings {
 
   public void setSamlStrictMode(OrganizationSettingsSamlStrictMode samlStrictMode) {
     this.samlStrictMode = samlStrictMode;
+    if (samlStrictMode != null) {
+      this.unparsed |= samlStrictMode.unparsed;
+    }
   }
 
   /**

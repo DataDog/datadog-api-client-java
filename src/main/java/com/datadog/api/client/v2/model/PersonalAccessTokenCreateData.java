@@ -64,6 +64,9 @@ public class PersonalAccessTokenCreateData {
 
   public void setAttributes(PersonalAccessTokenCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PersonalAccessTokenCreateData type(PersonalAccessTokensType type) {

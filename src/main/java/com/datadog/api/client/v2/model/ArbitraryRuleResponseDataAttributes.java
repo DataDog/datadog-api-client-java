@@ -99,6 +99,9 @@ public class ArbitraryRuleResponseDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED) OffsetDateTime updated,
       @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Integer version) {
     this.costsToAllocate = costsToAllocate;
+    for (ArbitraryRuleResponseDataAttributesCostsToAllocateItems item : costsToAllocate) {
+      this.unparsed |= item.unparsed;
+    }
     this.created = created;
     this.enabled = enabled;
     this.lastModifiedUserUuid = lastModifiedUserUuid;
@@ -142,6 +145,11 @@ public class ArbitraryRuleResponseDataAttributes {
   public void setCostsToAllocate(
       List<ArbitraryRuleResponseDataAttributesCostsToAllocateItems> costsToAllocate) {
     this.costsToAllocate = costsToAllocate;
+    if (costsToAllocate != null) {
+      for (ArbitraryRuleResponseDataAttributesCostsToAllocateItems item : costsToAllocate) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ArbitraryRuleResponseDataAttributes created(OffsetDateTime created) {
@@ -331,6 +339,9 @@ public class ArbitraryRuleResponseDataAttributes {
 
   public void setStrategy(ArbitraryRuleResponseDataAttributesStrategy strategy) {
     this.strategy = strategy;
+    if (strategy != null) {
+      this.unparsed |= strategy.unparsed;
+    }
   }
 
   public ArbitraryRuleResponseDataAttributes type(String type) {

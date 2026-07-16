@@ -70,6 +70,9 @@ public class AiCustomRulesetResponseData {
 
   public void setAttributes(AiCustomRulesetResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AiCustomRulesetResponseData id(String id) {

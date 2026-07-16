@@ -54,6 +54,9 @@ public class IssueAssigneeRelationship {
 
   public void setData(IssueUserReference data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

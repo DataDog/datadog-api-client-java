@@ -29,8 +29,10 @@ public class ProjectedCostResponse {
 
   public ProjectedCostResponse data(List<ProjectedCost> data) {
     this.data = data;
-    for (ProjectedCost item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ProjectedCost item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class ProjectedCostResponse {
 
   public void setData(List<ProjectedCost> data) {
     this.data = data;
+    if (data != null) {
+      for (ProjectedCost item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

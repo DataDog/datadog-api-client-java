@@ -124,8 +124,10 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail browserErrors(List<SyntheticsBrowserError> browserErrors) {
     this.browserErrors = browserErrors;
-    for (SyntheticsBrowserError item : browserErrors) {
-      this.unparsed |= item.unparsed;
+    if (browserErrors != null) {
+      for (SyntheticsBrowserError item : browserErrors) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -153,6 +155,11 @@ public class SyntheticsStepDetail {
 
   public void setBrowserErrors(List<SyntheticsBrowserError> browserErrors) {
     this.browserErrors = browserErrors;
+    if (browserErrors != null) {
+      for (SyntheticsBrowserError item : browserErrors) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsStepDetail checkType(SyntheticsCheckType checkType) {
@@ -263,6 +270,9 @@ public class SyntheticsStepDetail {
 
   public void setFailure(SyntheticsBrowserTestResultFailure failure) {
     this.failure = failure;
+    if (failure != null) {
+      this.unparsed |= failure.unparsed;
+    }
   }
 
   public SyntheticsStepDetail playingTab(SyntheticsPlayingTab playingTab) {
@@ -376,8 +386,10 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail subTestStepDetails(List<SyntheticsStepDetail> subTestStepDetails) {
     this.subTestStepDetails = subTestStepDetails;
-    for (SyntheticsStepDetail item : subTestStepDetails) {
-      this.unparsed |= item.unparsed;
+    if (subTestStepDetails != null) {
+      for (SyntheticsStepDetail item : subTestStepDetails) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -408,6 +420,11 @@ public class SyntheticsStepDetail {
 
   public void setSubTestStepDetails(List<SyntheticsStepDetail> subTestStepDetails) {
     this.subTestStepDetails = subTestStepDetails;
+    if (subTestStepDetails != null) {
+      for (SyntheticsStepDetail item : subTestStepDetails) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsStepDetail timeToInteractive(Double timeToInteractive) {
@@ -500,8 +517,10 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail vitalsMetrics(List<SyntheticsCoreWebVitals> vitalsMetrics) {
     this.vitalsMetrics = vitalsMetrics;
-    for (SyntheticsCoreWebVitals item : vitalsMetrics) {
-      this.unparsed |= item.unparsed;
+    if (vitalsMetrics != null) {
+      for (SyntheticsCoreWebVitals item : vitalsMetrics) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -529,12 +548,19 @@ public class SyntheticsStepDetail {
 
   public void setVitalsMetrics(List<SyntheticsCoreWebVitals> vitalsMetrics) {
     this.vitalsMetrics = vitalsMetrics;
+    if (vitalsMetrics != null) {
+      for (SyntheticsCoreWebVitals item : vitalsMetrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsStepDetail warnings(List<SyntheticsStepDetailWarning> warnings) {
     this.warnings = warnings;
-    for (SyntheticsStepDetailWarning item : warnings) {
-      this.unparsed |= item.unparsed;
+    if (warnings != null) {
+      for (SyntheticsStepDetailWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -562,6 +588,11 @@ public class SyntheticsStepDetail {
 
   public void setWarnings(List<SyntheticsStepDetailWarning> warnings) {
     this.warnings = warnings;
+    if (warnings != null) {
+      for (SyntheticsStepDetailWarning item : warnings) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

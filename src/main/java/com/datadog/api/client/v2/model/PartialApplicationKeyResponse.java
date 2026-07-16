@@ -53,12 +53,17 @@ public class PartialApplicationKeyResponse {
 
   public void setData(PartialApplicationKey data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public PartialApplicationKeyResponse included(List<ApplicationKeyResponseIncludedItem> included) {
     this.included = included;
-    for (ApplicationKeyResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ApplicationKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -87,6 +92,11 @@ public class PartialApplicationKeyResponse {
 
   public void setIncluded(List<ApplicationKeyResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (ApplicationKeyResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

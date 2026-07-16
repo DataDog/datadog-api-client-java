@@ -50,12 +50,17 @@ public class IssueResponse {
 
   public void setData(Issue data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public IssueResponse included(List<IssueIncluded> included) {
     this.included = included;
-    for (IssueIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IssueIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -83,6 +88,11 @@ public class IssueResponse {
 
   public void setIncluded(List<IssueIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (IssueIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

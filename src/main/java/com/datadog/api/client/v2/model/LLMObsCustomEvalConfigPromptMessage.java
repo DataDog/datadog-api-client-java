@@ -70,8 +70,10 @@ public class LLMObsCustomEvalConfigPromptMessage {
   public LLMObsCustomEvalConfigPromptMessage contents(
       List<LLMObsCustomEvalConfigPromptContent> contents) {
     this.contents = contents;
-    for (LLMObsCustomEvalConfigPromptContent item : contents) {
-      this.unparsed |= item.unparsed;
+    if (contents != null) {
+      for (LLMObsCustomEvalConfigPromptContent item : contents) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -100,6 +102,11 @@ public class LLMObsCustomEvalConfigPromptMessage {
 
   public void setContents(List<LLMObsCustomEvalConfigPromptContent> contents) {
     this.contents = contents;
+    if (contents != null) {
+      for (LLMObsCustomEvalConfigPromptContent item : contents) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsCustomEvalConfigPromptMessage role(String role) {

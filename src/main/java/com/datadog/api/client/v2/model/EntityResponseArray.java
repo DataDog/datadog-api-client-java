@@ -35,6 +35,9 @@ public class EntityResponseArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<PreviewEntityResponseData> data) {
     this.data = data;
+    for (PreviewEntityResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public EntityResponseArray data(List<PreviewEntityResponseData> data) {
@@ -64,6 +67,11 @@ public class EntityResponseArray {
 
   public void setData(List<PreviewEntityResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (PreviewEntityResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

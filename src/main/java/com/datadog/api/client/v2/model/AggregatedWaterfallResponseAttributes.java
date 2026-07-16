@@ -80,6 +80,9 @@ public class AggregatedWaterfallResponseAttributes {
     this.applicationId = applicationId;
     this.from = from;
     this.resources = resources;
+    for (AggregatedResource item : resources) {
+      this.unparsed |= item.unparsed;
+    }
     this.sampledViewIds = sampledViewIds;
     this.to = to;
     this.totalCacheHitRatePct = totalCacheHitRatePct;
@@ -128,6 +131,9 @@ public class AggregatedWaterfallResponseAttributes {
 
   public void setCriteria(AggregatedWaterfallPerformanceCriteria criteria) {
     this.criteria = criteria;
+    if (criteria != null) {
+      this.unparsed |= criteria.unparsed;
+    }
   }
 
   public AggregatedWaterfallResponseAttributes from(Long from) {
@@ -177,6 +183,11 @@ public class AggregatedWaterfallResponseAttributes {
 
   public void setResources(List<AggregatedResource> resources) {
     this.resources = resources;
+    if (resources != null) {
+      for (AggregatedResource item : resources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AggregatedWaterfallResponseAttributes sampledViewIds(List<String> sampledViewIds) {

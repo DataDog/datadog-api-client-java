@@ -64,6 +64,9 @@ public class ConfigCatIntegration {
 
   public void setCredentials(ConfigCatCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public ConfigCatIntegration type(ConfigCatIntegrationType type) {

@@ -55,6 +55,9 @@ public class CustomFrameworkMetadata {
 
   public void setAttributes(CustomFrameworkWithoutRequirements attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomFrameworkMetadata id(String id) {

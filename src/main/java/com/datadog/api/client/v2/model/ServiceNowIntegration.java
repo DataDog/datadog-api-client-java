@@ -64,6 +64,9 @@ public class ServiceNowIntegration {
 
   public void setCredentials(ServiceNowCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public ServiceNowIntegration type(ServiceNowIntegrationType type) {

@@ -45,6 +45,9 @@ public class CreatePageRequest {
 
   public void setData(CreatePageRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

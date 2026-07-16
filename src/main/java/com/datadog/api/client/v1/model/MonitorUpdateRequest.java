@@ -322,6 +322,9 @@ public class MonitorUpdateRequest {
 
   public void setOptions(MonitorOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

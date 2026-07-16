@@ -73,6 +73,12 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
         {%- if (schema.properties is defined or schema.oneOf is defined) and not schema|is_primitive %}
         this.unparsed |= {{ variableName }}.unparsed;
         {%- endif %}
+        {%- if "items" in schema and schema.get("items")|is_model and not schema|is_primitive %}
+        {%- set itemsDataType = get_type(schema.get("items")) %}
+        for ({{ itemsDataType }} item : {{ variableName }}) {
+          this.unparsed |= item.unparsed;
+        }
+        {%- endif %}
         {%- if isNullable %}
         }
         {%- endif %}
@@ -114,12 +120,18 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- else %}
     {%- if schema.get("items")|is_model and not schema|is_primitive %}
     {%- set itemsDataType = get_type(schema.get("items")) %}
+    {%- if not isRequired %}
+    if ({{ variableName }} != null) {
+    {%- endif %}
     for ({{ itemsDataType }} item : {{ variableName }}) {
       {%- if schema.enum is defined %}
       this.unparsed |= !item.isValid();
       {%- endif %}
       this.unparsed |= item.unparsed;
     }
+    {%- if not isRequired %}
+    }
+    {%- endif %}
     {%- endif %}
     {%- endif %}
     {%- endif %}
@@ -257,6 +269,22 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     this.{{ variableName }} = JsonNullable.<{{ dataType }}>of({{ variableName }});
     {%- else %}
     this.{{ variableName }} = {{ variableName }};
+    {%- if not isArray %}
+    {%- if schema|is_model and not schema|is_primitive %}
+    if ({{ variableName }} != null) {
+      this.unparsed |= {{ variableName }}.unparsed;
+    }
+    {%- endif %}
+    {%- else %}
+    {%- if schema.get("items")|is_model and not schema|is_primitive %}
+    {%- set itemsDataType = get_type(schema.get("items")) %}
+    if ({{ variableName }} != null) {
+      for ({{ itemsDataType }} item : {{ variableName }}) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    {%- endif %}
+    {%- endif %}
     {%- endif %}
     {%- if model.get("x-keep-typed-in-additional-properties") and model.additionalProperties is not false %}
     putAdditionalProperty(JSON_PROPERTY_{{ attr|snake_case|upper }}, {%- if not isRequired and isNullable %} this.{{ variableName }}.orElse(null){%- else %} {{ variableName }}{%- endif %});

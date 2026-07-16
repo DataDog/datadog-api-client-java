@@ -45,6 +45,9 @@ public class RunHistoricalJobRequest {
 
   public void setData(RunHistoricalJobRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

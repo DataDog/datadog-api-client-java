@@ -45,6 +45,9 @@ public class GlobalVariableResponse {
 
   public void setData(GlobalVariableData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

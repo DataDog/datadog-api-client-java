@@ -60,6 +60,9 @@ public class RetentionCurveWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           RetentionCurveWidgetDefinitionType type) {
     this.requests = requests;
+    for (RetentionCurveWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -112,6 +115,11 @@ public class RetentionCurveWidgetDefinition {
 
   public void setRequests(List<RetentionCurveWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (RetentionCurveWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RetentionCurveWidgetDefinition time(WidgetTime time) {
@@ -134,6 +142,9 @@ public class RetentionCurveWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public RetentionCurveWidgetDefinition title(String title) {

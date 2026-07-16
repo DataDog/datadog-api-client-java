@@ -70,6 +70,9 @@ public class OrgConfigRead {
 
   public void setAttributes(OrgConfigReadAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgConfigRead id(String id) {

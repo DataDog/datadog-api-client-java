@@ -44,6 +44,9 @@ public class IncidentHandlesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<IncidentHandleDataResponse> data) {
     this.data = data;
+    for (IncidentHandleDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public IncidentHandlesResponse data(List<IncidentHandleDataResponse> data) {
@@ -73,12 +76,19 @@ public class IncidentHandlesResponse {
 
   public void setData(List<IncidentHandleDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (IncidentHandleDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentHandlesResponse included(List<IncidentHandleIncludedItemResponse> included) {
     this.included = included;
-    for (IncidentHandleIncludedItemResponse item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentHandleIncludedItemResponse item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -106,6 +116,11 @@ public class IncidentHandlesResponse {
 
   public void setIncluded(List<IncidentHandleIncludedItemResponse> included) {
     this.included = included;
+    if (included != null) {
+      for (IncidentHandleIncludedItemResponse item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

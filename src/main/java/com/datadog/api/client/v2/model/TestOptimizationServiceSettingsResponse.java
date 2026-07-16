@@ -45,6 +45,9 @@ public class TestOptimizationServiceSettingsResponse {
 
   public void setData(TestOptimizationServiceSettingsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

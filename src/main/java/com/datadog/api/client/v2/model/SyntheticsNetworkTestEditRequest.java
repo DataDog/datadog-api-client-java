@@ -54,6 +54,9 @@ public class SyntheticsNetworkTestEditRequest {
 
   public void setData(SyntheticsNetworkTestEdit data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

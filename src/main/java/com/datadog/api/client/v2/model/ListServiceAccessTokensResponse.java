@@ -35,8 +35,10 @@ public class ListServiceAccessTokensResponse {
 
   public ListServiceAccessTokensResponse data(List<ServiceAccessToken> data) {
     this.data = data;
-    for (ServiceAccessToken item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ServiceAccessToken item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class ListServiceAccessTokensResponse {
 
   public void setData(List<ServiceAccessToken> data) {
     this.data = data;
+    if (data != null) {
+      for (ServiceAccessToken item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListServiceAccessTokensResponse meta(ServiceAccessTokenResponseMeta meta) {
@@ -86,6 +93,9 @@ public class ListServiceAccessTokensResponse {
 
   public void setMeta(ServiceAccessTokenResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

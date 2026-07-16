@@ -105,6 +105,9 @@ public class EventsGroupBy {
 
   public void setSort(EventsGroupBySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   /**

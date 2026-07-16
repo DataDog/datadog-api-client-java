@@ -59,6 +59,9 @@ public class OrganizationCreateResponse {
 
   public void setApiKey(ApiKey apiKey) {
     this.apiKey = apiKey;
+    if (apiKey != null) {
+      this.unparsed |= apiKey.unparsed;
+    }
   }
 
   public OrganizationCreateResponse applicationKey(ApplicationKey applicationKey) {
@@ -81,6 +84,9 @@ public class OrganizationCreateResponse {
 
   public void setApplicationKey(ApplicationKey applicationKey) {
     this.applicationKey = applicationKey;
+    if (applicationKey != null) {
+      this.unparsed |= applicationKey.unparsed;
+    }
   }
 
   public OrganizationCreateResponse org(Organization org) {
@@ -103,6 +109,9 @@ public class OrganizationCreateResponse {
 
   public void setOrg(Organization org) {
     this.org = org;
+    if (org != null) {
+      this.unparsed |= org.unparsed;
+    }
   }
 
   public OrganizationCreateResponse user(User user) {
@@ -125,6 +134,9 @@ public class OrganizationCreateResponse {
 
   public void setUser(User user) {
     this.user = user;
+    if (user != null) {
+      this.unparsed |= user.unparsed;
+    }
   }
 
   /**

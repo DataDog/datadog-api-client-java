@@ -51,6 +51,9 @@ public class SBOM {
 
   public void setAttributes(SBOMAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SBOM id(String id) {

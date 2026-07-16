@@ -75,6 +75,9 @@ public class EscalationPolicyCreateRequestData {
 
   public void setAttributes(EscalationPolicyCreateRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public EscalationPolicyCreateRequestData relationships(
@@ -99,6 +102,9 @@ public class EscalationPolicyCreateRequestData {
 
   public void setRelationships(EscalationPolicyCreateRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public EscalationPolicyCreateRequestData type(EscalationPolicyCreateRequestDataType type) {

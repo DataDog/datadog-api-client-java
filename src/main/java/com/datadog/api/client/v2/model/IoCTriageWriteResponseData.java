@@ -55,6 +55,9 @@ public class IoCTriageWriteResponseData {
 
   public void setAttributes(IoCTriageWriteResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IoCTriageWriteResponseData id(String id) {

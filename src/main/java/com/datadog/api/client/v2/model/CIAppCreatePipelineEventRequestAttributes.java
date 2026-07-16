@@ -112,6 +112,9 @@ public class CIAppCreatePipelineEventRequestAttributes {
 
   public void setResource(CIAppCreatePipelineEventRequestAttributesResource resource) {
     this.resource = resource;
+    if (resource != null) {
+      this.unparsed |= resource.unparsed;
+    }
   }
 
   public CIAppCreatePipelineEventRequestAttributes service(String service) {

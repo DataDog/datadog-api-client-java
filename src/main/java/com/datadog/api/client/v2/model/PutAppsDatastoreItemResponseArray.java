@@ -38,6 +38,9 @@ public class PutAppsDatastoreItemResponseArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<PutAppsDatastoreItemResponseData> data) {
     this.data = data;
+    for (PutAppsDatastoreItemResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public PutAppsDatastoreItemResponseArray data(List<PutAppsDatastoreItemResponseData> data) {
@@ -67,6 +70,11 @@ public class PutAppsDatastoreItemResponseArray {
 
   public void setData(List<PutAppsDatastoreItemResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (PutAppsDatastoreItemResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

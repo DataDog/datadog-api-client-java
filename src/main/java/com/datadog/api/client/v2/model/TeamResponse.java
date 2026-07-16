@@ -45,6 +45,9 @@ public class TeamResponse {
 
   public void setData(Team data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

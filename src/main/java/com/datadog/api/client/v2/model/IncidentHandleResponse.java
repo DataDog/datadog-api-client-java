@@ -64,12 +64,17 @@ public class IncidentHandleResponse {
 
   public void setData(IncidentHandleDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public IncidentHandleResponse included(List<IncidentHandleIncludedItemResponse> included) {
     this.included = included;
-    for (IncidentHandleIncludedItemResponse item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentHandleIncludedItemResponse item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -97,6 +102,11 @@ public class IncidentHandleResponse {
 
   public void setIncluded(List<IncidentHandleIncludedItemResponse> included) {
     this.included = included;
+    if (included != null) {
+      for (IncidentHandleIncludedItemResponse item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class CsmServerlessCoverageAnalysisAttributes {
 
   public void setCwsCoverage(CsmCoverageAnalysis cwsCoverage) {
     this.cwsCoverage = cwsCoverage;
+    if (cwsCoverage != null) {
+      this.unparsed |= cwsCoverage.unparsed;
+    }
   }
 
   public CsmServerlessCoverageAnalysisAttributes orgId(Long orgId) {
@@ -98,6 +101,9 @@ public class CsmServerlessCoverageAnalysisAttributes {
 
   public void setTotalCoverage(CsmCoverageAnalysis totalCoverage) {
     this.totalCoverage = totalCoverage;
+    if (totalCoverage != null) {
+      this.unparsed |= totalCoverage.unparsed;
+    }
   }
 
   /**

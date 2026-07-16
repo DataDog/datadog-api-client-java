@@ -64,6 +64,9 @@ public class FunnelWidgetRequest {
 
   public void setQuery(FunnelQuery query) {
     this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
   }
 
   public FunnelWidgetRequest requestType(FunnelRequestType requestType) {

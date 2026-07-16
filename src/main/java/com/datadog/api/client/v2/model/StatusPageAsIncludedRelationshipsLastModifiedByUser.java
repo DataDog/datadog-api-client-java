@@ -56,6 +56,9 @@ public class StatusPageAsIncludedRelationshipsLastModifiedByUser {
 
   public void setData(StatusPageAsIncludedRelationshipsLastModifiedByUserData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

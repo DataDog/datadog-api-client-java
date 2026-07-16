@@ -91,6 +91,9 @@ public class AutomationRuleAttributes {
 
   public void setAction(AutomationRuleAction action) {
     this.action = action;
+    if (action != null) {
+      this.unparsed |= action.unparsed;
+    }
   }
 
   /**
@@ -182,6 +185,9 @@ public class AutomationRuleAttributes {
 
   public void setTrigger(AutomationRuleTrigger trigger) {
     this.trigger = trigger;
+    if (trigger != null) {
+      this.unparsed |= trigger.unparsed;
+    }
   }
 
   /**

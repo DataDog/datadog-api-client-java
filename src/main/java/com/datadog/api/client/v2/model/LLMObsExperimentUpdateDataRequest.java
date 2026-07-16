@@ -65,6 +65,9 @@ public class LLMObsExperimentUpdateDataRequest {
 
   public void setAttributes(LLMObsExperimentUpdateDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LLMObsExperimentUpdateDataRequest type(LLMObsExperimentType type) {

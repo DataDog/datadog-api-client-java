@@ -46,8 +46,10 @@ public class CIAppTestsAggregateRequest {
 
   public CIAppTestsAggregateRequest compute(List<CIAppCompute> compute) {
     this.compute = compute;
-    for (CIAppCompute item : compute) {
-      this.unparsed |= item.unparsed;
+    if (compute != null) {
+      for (CIAppCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -75,6 +77,11 @@ public class CIAppTestsAggregateRequest {
 
   public void setCompute(List<CIAppCompute> compute) {
     this.compute = compute;
+    if (compute != null) {
+      for (CIAppCompute item : compute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CIAppTestsAggregateRequest filter(CIAppTestsQueryFilter filter) {
@@ -97,12 +104,17 @@ public class CIAppTestsAggregateRequest {
 
   public void setFilter(CIAppTestsQueryFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public CIAppTestsAggregateRequest groupBy(List<CIAppTestsGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (CIAppTestsGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (CIAppTestsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -130,6 +142,11 @@ public class CIAppTestsAggregateRequest {
 
   public void setGroupBy(List<CIAppTestsGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (CIAppTestsGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CIAppTestsAggregateRequest options(CIAppQueryOptions options) {
@@ -153,6 +170,9 @@ public class CIAppTestsAggregateRequest {
 
   public void setOptions(CIAppQueryOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

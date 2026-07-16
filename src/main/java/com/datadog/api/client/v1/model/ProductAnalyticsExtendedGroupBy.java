@@ -130,6 +130,9 @@ public class ProductAnalyticsExtendedGroupBy {
 
   public void setSort(FormulaAndFunctionEventQueryGroupBySort sort) {
     this.sort = sort;
+    if (sort != null) {
+      this.unparsed |= sort.unparsed;
+    }
   }
 
   /**

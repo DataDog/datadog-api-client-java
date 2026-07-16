@@ -53,12 +53,17 @@ public class TeamOnCallResponders {
 
   public void setData(TeamOnCallRespondersData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public TeamOnCallResponders included(List<TeamOnCallRespondersIncluded> included) {
     this.included = included;
-    for (TeamOnCallRespondersIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TeamOnCallRespondersIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -86,6 +91,11 @@ public class TeamOnCallResponders {
 
   public void setIncluded(List<TeamOnCallRespondersIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (TeamOnCallRespondersIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

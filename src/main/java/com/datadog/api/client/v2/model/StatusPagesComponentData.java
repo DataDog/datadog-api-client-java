@@ -71,6 +71,9 @@ public class StatusPagesComponentData {
 
   public void setAttributes(StatusPagesComponentDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public StatusPagesComponentData id(UUID id) {
@@ -115,6 +118,9 @@ public class StatusPagesComponentData {
 
   public void setRelationships(StatusPagesComponentDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public StatusPagesComponentData type(StatusPagesComponentGroupType type) {

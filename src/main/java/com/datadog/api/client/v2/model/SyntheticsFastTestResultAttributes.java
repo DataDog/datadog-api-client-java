@@ -67,6 +67,9 @@ public class SyntheticsFastTestResultAttributes {
 
   public void setDevice(SyntheticsTestResultDevice device) {
     this.device = device;
+    if (device != null) {
+      this.unparsed |= device.unparsed;
+    }
   }
 
   public SyntheticsFastTestResultAttributes location(SyntheticsTestResultLocation location) {
@@ -89,6 +92,9 @@ public class SyntheticsFastTestResultAttributes {
 
   public void setLocation(SyntheticsTestResultLocation location) {
     this.location = location;
+    if (location != null) {
+      this.unparsed |= location.unparsed;
+    }
   }
 
   public SyntheticsFastTestResultAttributes result(SyntheticsFastTestResultDetail result) {
@@ -112,6 +118,9 @@ public class SyntheticsFastTestResultAttributes {
 
   public void setResult(SyntheticsFastTestResultDetail result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public SyntheticsFastTestResultAttributes testSubType(SyntheticsFastTestSubType testSubType) {

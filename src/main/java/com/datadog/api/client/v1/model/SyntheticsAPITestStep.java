@@ -82,6 +82,9 @@ public class SyntheticsAPITestStep {
       @JsonProperty(required = true, value = JSON_PROPERTY_SUBTYPE)
           SyntheticsAPITestStepSubtype subtype) {
     this.assertions = assertions;
+    for (SyntheticsAssertion item : assertions) {
+      this.unparsed |= item.unparsed;
+    }
     this.name = name;
     this.request = request;
     this.unparsed |= request.unparsed;
@@ -137,6 +140,11 @@ public class SyntheticsAPITestStep {
 
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+    if (assertions != null) {
+      for (SyntheticsAssertion item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsAPITestStep exitIfSucceed(Boolean exitIfSucceed) {
@@ -162,8 +170,10 @@ public class SyntheticsAPITestStep {
 
   public SyntheticsAPITestStep extractedValues(List<SyntheticsParsingOptions> extractedValues) {
     this.extractedValues = extractedValues;
-    for (SyntheticsParsingOptions item : extractedValues) {
-      this.unparsed |= item.unparsed;
+    if (extractedValues != null) {
+      for (SyntheticsParsingOptions item : extractedValues) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -192,6 +202,11 @@ public class SyntheticsAPITestStep {
 
   public void setExtractedValues(List<SyntheticsParsingOptions> extractedValues) {
     this.extractedValues = extractedValues;
+    if (extractedValues != null) {
+      for (SyntheticsParsingOptions item : extractedValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsAPITestStep extractedValuesFromScript(String extractedValuesFromScript) {
@@ -288,6 +303,9 @@ public class SyntheticsAPITestStep {
 
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
+    if (request != null) {
+      this.unparsed |= request.unparsed;
+    }
   }
 
   public SyntheticsAPITestStep retry(SyntheticsTestOptionsRetry retry) {
@@ -310,6 +328,9 @@ public class SyntheticsAPITestStep {
 
   public void setRetry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
+    if (retry != null) {
+      this.unparsed |= retry.unparsed;
+    }
   }
 
   public SyntheticsAPITestStep subtype(SyntheticsAPITestStepSubtype subtype) {

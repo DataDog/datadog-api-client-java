@@ -64,6 +64,9 @@ public class LLMObsExperimentEventsV2Response {
 
   public void setData(LLMObsExperimentEventsV2DataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public LLMObsExperimentEventsV2Response meta(LLMObsCursorMeta meta) {
@@ -86,6 +89,9 @@ public class LLMObsExperimentEventsV2Response {
 
   public void setMeta(LLMObsCursorMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

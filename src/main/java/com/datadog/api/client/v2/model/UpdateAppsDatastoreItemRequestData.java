@@ -70,6 +70,9 @@ public class UpdateAppsDatastoreItemRequestData {
 
   public void setAttributes(UpdateAppsDatastoreItemRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public UpdateAppsDatastoreItemRequestData id(String id) {

@@ -55,6 +55,9 @@ public class ProjectedCost {
 
   public void setAttributes(ProjectedCostAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ProjectedCost id(String id) {

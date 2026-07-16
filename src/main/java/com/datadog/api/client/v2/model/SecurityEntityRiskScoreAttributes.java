@@ -174,6 +174,9 @@ public class SecurityEntityRiskScoreAttributes {
 
   public void setConfigRisks(SecurityEntityConfigRisks configRisks) {
     this.configRisks = configRisks;
+    if (configRisks != null) {
+      this.unparsed |= configRisks.unparsed;
+    }
   }
 
   public SecurityEntityRiskScoreAttributes entityMetadata(SecurityEntityMetadata entityMetadata) {
@@ -195,6 +198,9 @@ public class SecurityEntityRiskScoreAttributes {
 
   public void setEntityMetadata(SecurityEntityMetadata entityMetadata) {
     this.entityMetadata = entityMetadata;
+    if (entityMetadata != null) {
+      this.unparsed |= entityMetadata.unparsed;
+    }
   }
 
   public SecurityEntityRiskScoreAttributes entityName(String entityName) {

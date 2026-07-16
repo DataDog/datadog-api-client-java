@@ -56,6 +56,9 @@ public class SecurityMonitoringIntegrationConfigResponse {
 
   public void setData(SecurityMonitoringIntegrationConfigData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

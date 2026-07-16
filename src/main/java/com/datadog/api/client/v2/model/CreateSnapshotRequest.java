@@ -54,6 +54,9 @@ public class CreateSnapshotRequest {
 
   public void setData(CreateSnapshotDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -86,6 +86,9 @@ public class PowerpackInnerWidgets {
 
   public void setLayout(PowerpackInnerWidgetLayout layout) {
     this.layout = layout;
+    if (layout != null) {
+      this.unparsed |= layout.unparsed;
+    }
   }
 
   /**

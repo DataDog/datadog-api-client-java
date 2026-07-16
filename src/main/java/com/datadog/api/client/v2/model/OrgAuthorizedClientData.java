@@ -78,6 +78,9 @@ public class OrgAuthorizedClientData {
 
   public void setAttributes(OrgAuthorizedClientAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgAuthorizedClientData id(String id) {
@@ -119,6 +122,9 @@ public class OrgAuthorizedClientData {
 
   public void setRelationships(OrgAuthorizedClientRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgAuthorizedClientData type(OrgAuthorizedClientType type) {

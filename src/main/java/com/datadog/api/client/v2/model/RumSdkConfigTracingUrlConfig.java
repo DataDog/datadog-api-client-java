@@ -65,6 +65,9 @@ public class RumSdkConfigTracingUrlConfig {
 
   public void setMatch(RumSdkConfigMatchOption match) {
     this.match = match;
+    if (match != null) {
+      this.unparsed |= match.unparsed;
+    }
   }
 
   public RumSdkConfigTracingUrlConfig propagatorTypes(

@@ -70,6 +70,9 @@ public class LogsMetricCreateData {
 
   public void setAttributes(LogsMetricCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public LogsMetricCreateData id(String id) {

@@ -73,6 +73,9 @@ public class Issue {
 
   public void setAttributes(IssueAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Issue id(String id) {
@@ -115,6 +118,9 @@ public class Issue {
 
   public void setRelationships(IssueRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public Issue type(IssueType type) {

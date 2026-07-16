@@ -35,8 +35,10 @@ public class ListKindCatalogResponse {
 
   public ListKindCatalogResponse data(List<KindData> data) {
     this.data = data;
-    for (KindData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (KindData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class ListKindCatalogResponse {
 
   public void setData(List<KindData> data) {
     this.data = data;
+    if (data != null) {
+      for (KindData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListKindCatalogResponse meta(KindResponseMeta meta) {
@@ -86,6 +93,9 @@ public class ListKindCatalogResponse {
 
   public void setMeta(KindResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class DORADeploymentObject {
 
   public void setAttributes(DORADeploymentObjectAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DORADeploymentObject id(String id) {

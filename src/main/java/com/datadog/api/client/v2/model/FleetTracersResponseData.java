@@ -69,6 +69,9 @@ public class FleetTracersResponseData {
 
   public void setAttributes(FleetTracersResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FleetTracersResponseData id(String id) {

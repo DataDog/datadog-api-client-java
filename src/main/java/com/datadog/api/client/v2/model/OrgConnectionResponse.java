@@ -54,6 +54,9 @@ public class OrgConnectionResponse {
 
   public void setData(OrgConnection data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

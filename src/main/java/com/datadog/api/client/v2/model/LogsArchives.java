@@ -29,8 +29,10 @@ public class LogsArchives {
 
   public LogsArchives data(List<LogsArchiveDefinition> data) {
     this.data = data;
-    for (LogsArchiveDefinition item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (LogsArchiveDefinition item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class LogsArchives {
 
   public void setData(List<LogsArchiveDefinition> data) {
     this.data = data;
+    if (data != null) {
+      for (LogsArchiveDefinition item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

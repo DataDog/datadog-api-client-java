@@ -54,6 +54,9 @@ public class ValidateV2Response {
 
   public void setData(ValidateV2Data data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -41,6 +41,9 @@ public class CreateRulesetRequestDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_RULES)
           List<CreateRulesetRequestDataAttributesRulesItems> rules) {
     this.rules = rules;
+    for (CreateRulesetRequestDataAttributesRulesItems item : rules) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CreateRulesetRequestDataAttributes enabled(Boolean enabled) {
@@ -93,6 +96,11 @@ public class CreateRulesetRequestDataAttributes {
 
   public void setRules(List<CreateRulesetRequestDataAttributesRulesItems> rules) {
     this.rules = rules;
+    if (rules != null) {
+      for (CreateRulesetRequestDataAttributesRulesItems item : rules) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

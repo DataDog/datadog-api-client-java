@@ -45,6 +45,9 @@ public class HourlyUsageMetadata {
 
   public void setPagination(HourlyUsagePagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

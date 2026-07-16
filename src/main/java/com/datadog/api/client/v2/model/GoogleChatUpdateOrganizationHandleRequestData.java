@@ -56,6 +56,9 @@ public class GoogleChatUpdateOrganizationHandleRequestData {
 
   public void setAttributes(GoogleChatUpdateOrganizationHandleRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   /**

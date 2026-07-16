@@ -73,6 +73,9 @@ public class SecurityFilterVersionEntry {
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
       @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Integer version) {
     this.exclusionFilters = exclusionFilters;
+    for (SecurityFilterExclusionFilterResponse item : exclusionFilters) {
+      this.unparsed |= item.unparsed;
+    }
     this.filteredDataType = filteredDataType;
     this.unparsed |= !filteredDataType.isValid();
     this.id = id;
@@ -112,6 +115,11 @@ public class SecurityFilterVersionEntry {
 
   public void setExclusionFilters(List<SecurityFilterExclusionFilterResponse> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
+    if (exclusionFilters != null) {
+      for (SecurityFilterExclusionFilterResponse item : exclusionFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityFilterVersionEntry filteredDataType(

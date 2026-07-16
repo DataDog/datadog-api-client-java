@@ -54,6 +54,9 @@ public class IdentityProviderUpdateRequest {
 
   public void setData(IdentityProviderUpdateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

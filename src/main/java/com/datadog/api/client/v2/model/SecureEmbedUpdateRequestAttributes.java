@@ -69,6 +69,9 @@ public class SecureEmbedUpdateRequestAttributes {
 
   public void setGlobalTime(SecureEmbedGlobalTime globalTime) {
     this.globalTime = globalTime;
+    if (globalTime != null) {
+      this.unparsed |= globalTime.unparsed;
+    }
   }
 
   public SecureEmbedUpdateRequestAttributes globalTimeSelectable(Boolean globalTimeSelectable) {
@@ -95,8 +98,10 @@ public class SecureEmbedUpdateRequestAttributes {
   public SecureEmbedUpdateRequestAttributes selectableTemplateVars(
       List<SecureEmbedSelectableTemplateVariable> selectableTemplateVars) {
     this.selectableTemplateVars = selectableTemplateVars;
-    for (SecureEmbedSelectableTemplateVariable item : selectableTemplateVars) {
-      this.unparsed |= item.unparsed;
+    if (selectableTemplateVars != null) {
+      for (SecureEmbedSelectableTemplateVariable item : selectableTemplateVars) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -126,6 +131,11 @@ public class SecureEmbedUpdateRequestAttributes {
   public void setSelectableTemplateVars(
       List<SecureEmbedSelectableTemplateVariable> selectableTemplateVars) {
     this.selectableTemplateVars = selectableTemplateVars;
+    if (selectableTemplateVars != null) {
+      for (SecureEmbedSelectableTemplateVariable item : selectableTemplateVars) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecureEmbedUpdateRequestAttributes status(SecureEmbedStatus status) {
@@ -196,6 +206,9 @@ public class SecureEmbedUpdateRequestAttributes {
 
   public void setViewingPreferences(SecureEmbedViewingPreferences viewingPreferences) {
     this.viewingPreferences = viewingPreferences;
+    if (viewingPreferences != null) {
+      this.unparsed |= viewingPreferences.unparsed;
+    }
   }
 
   /**

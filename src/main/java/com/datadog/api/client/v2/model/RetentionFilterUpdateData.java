@@ -70,6 +70,9 @@ public class RetentionFilterUpdateData {
 
   public void setAttributes(RetentionFilterUpdateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RetentionFilterUpdateData id(String id) {

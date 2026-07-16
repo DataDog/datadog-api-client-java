@@ -113,6 +113,9 @@ public class ObservabilityPipelineGooglePubSubDestination {
 
   public void setAuth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineGooglePubSubDestination buffer(
@@ -136,6 +139,9 @@ public class ObservabilityPipelineGooglePubSubDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineGooglePubSubDestination encoding(
@@ -269,6 +275,9 @@ public class ObservabilityPipelineGooglePubSubDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineGooglePubSubDestination topic(String topic) {

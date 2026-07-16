@@ -76,6 +76,9 @@ public class IntegrationJiraSyncProperties {
 
   public void setAssignee(SyncProperty assignee) {
     this.assignee = assignee;
+    if (assignee != null) {
+      this.unparsed |= assignee.unparsed;
+    }
   }
 
   public IntegrationJiraSyncProperties comments(SyncProperty comments) {
@@ -98,6 +101,9 @@ public class IntegrationJiraSyncProperties {
 
   public void setComments(SyncProperty comments) {
     this.comments = comments;
+    if (comments != null) {
+      this.unparsed |= comments.unparsed;
+    }
   }
 
   public IntegrationJiraSyncProperties customFields(
@@ -153,6 +159,9 @@ public class IntegrationJiraSyncProperties {
 
   public void setDescription(SyncProperty description) {
     this.description = description;
+    if (description != null) {
+      this.unparsed |= description.unparsed;
+    }
   }
 
   public IntegrationJiraSyncProperties dueDate(IntegrationJiraSyncDueDate dueDate) {
@@ -175,6 +184,9 @@ public class IntegrationJiraSyncProperties {
 
   public void setDueDate(IntegrationJiraSyncDueDate dueDate) {
     this.dueDate = dueDate;
+    if (dueDate != null) {
+      this.unparsed |= dueDate.unparsed;
+    }
   }
 
   public IntegrationJiraSyncProperties priority(SyncPropertyWithMapping priority) {
@@ -197,6 +209,9 @@ public class IntegrationJiraSyncProperties {
 
   public void setPriority(SyncPropertyWithMapping priority) {
     this.priority = priority;
+    if (priority != null) {
+      this.unparsed |= priority.unparsed;
+    }
   }
 
   public IntegrationJiraSyncProperties status(SyncPropertyWithMapping status) {
@@ -219,6 +234,9 @@ public class IntegrationJiraSyncProperties {
 
   public void setStatus(SyncPropertyWithMapping status) {
     this.status = status;
+    if (status != null) {
+      this.unparsed |= status.unparsed;
+    }
   }
 
   public IntegrationJiraSyncProperties title(SyncProperty title) {
@@ -241,6 +259,9 @@ public class IntegrationJiraSyncProperties {
 
   public void setTitle(SyncProperty title) {
     this.title = title;
+    if (title != null) {
+      this.unparsed |= title.unparsed;
+    }
   }
 
   /**

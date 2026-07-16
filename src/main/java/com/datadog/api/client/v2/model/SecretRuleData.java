@@ -68,6 +68,9 @@ public class SecretRuleData {
 
   public void setAttributes(SecretRuleDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecretRuleData id(String id) {

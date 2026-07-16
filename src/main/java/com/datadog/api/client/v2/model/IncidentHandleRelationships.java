@@ -81,6 +81,9 @@ public class IncidentHandleRelationships {
 
   public void setCommanderUser(IncidentHandleRelationship commanderUser) {
     this.commanderUser = commanderUser;
+    if (commanderUser != null) {
+      this.unparsed |= commanderUser.unparsed;
+    }
   }
 
   public IncidentHandleRelationships createdByUser(IncidentHandleRelationship createdByUser) {
@@ -102,6 +105,9 @@ public class IncidentHandleRelationships {
 
   public void setCreatedByUser(IncidentHandleRelationship createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public IncidentHandleRelationships incidentType(IncidentHandleRelationship incidentType) {
@@ -123,6 +129,9 @@ public class IncidentHandleRelationships {
 
   public void setIncidentType(IncidentHandleRelationship incidentType) {
     this.incidentType = incidentType;
+    if (incidentType != null) {
+      this.unparsed |= incidentType.unparsed;
+    }
   }
 
   public IncidentHandleRelationships lastModifiedByUser(
@@ -145,6 +154,9 @@ public class IncidentHandleRelationships {
 
   public void setLastModifiedByUser(IncidentHandleRelationship lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   /**

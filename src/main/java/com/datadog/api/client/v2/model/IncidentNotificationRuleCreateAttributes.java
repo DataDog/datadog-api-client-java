@@ -59,6 +59,9 @@ public class IncidentNotificationRuleCreateAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_HANDLES) List<String> handles,
       @JsonProperty(required = true, value = JSON_PROPERTY_TRIGGER) String trigger) {
     this.conditions = conditions;
+    for (IncidentNotificationRuleConditionsItems item : conditions) {
+      this.unparsed |= item.unparsed;
+    }
     this.handles = handles;
     this.trigger = trigger;
   }
@@ -92,6 +95,11 @@ public class IncidentNotificationRuleCreateAttributes {
 
   public void setConditions(List<IncidentNotificationRuleConditionsItems> conditions) {
     this.conditions = conditions;
+    if (conditions != null) {
+      for (IncidentNotificationRuleConditionsItems item : conditions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentNotificationRuleCreateAttributes enabled(Boolean enabled) {

@@ -180,6 +180,9 @@ public class ObservabilityPipelineGeneratedMetric {
 
   public void setValue(ObservabilityPipelineMetricValue value) {
     this.value = value;
+    if (value != null) {
+      this.unparsed |= value.unparsed;
+    }
   }
 
   /**

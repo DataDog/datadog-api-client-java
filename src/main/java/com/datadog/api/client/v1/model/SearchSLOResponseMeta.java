@@ -45,6 +45,9 @@ public class SearchSLOResponseMeta {
 
   public void setPagination(SearchSLOResponseMetaPage pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

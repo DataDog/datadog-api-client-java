@@ -65,6 +65,9 @@ public class ManagedOrgsRelationships {
 
   public void setCurrentOrg(ManagedOrgsRelationshipToOrg currentOrg) {
     this.currentOrg = currentOrg;
+    if (currentOrg != null) {
+      this.unparsed |= currentOrg.unparsed;
+    }
   }
 
   public ManagedOrgsRelationships managedOrgs(ManagedOrgsRelationshipToOrgs managedOrgs) {
@@ -86,6 +89,9 @@ public class ManagedOrgsRelationships {
 
   public void setManagedOrgs(ManagedOrgsRelationshipToOrgs managedOrgs) {
     this.managedOrgs = managedOrgs;
+    if (managedOrgs != null) {
+      this.unparsed |= managedOrgs.unparsed;
+    }
   }
 
   /**

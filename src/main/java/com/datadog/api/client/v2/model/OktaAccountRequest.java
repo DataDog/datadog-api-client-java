@@ -54,6 +54,9 @@ public class OktaAccountRequest {
 
   public void setData(OktaAccount data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

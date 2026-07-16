@@ -241,6 +241,9 @@ public class TagIndexingRuleAttributes {
 
   public void setOptions(TagIndexingRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

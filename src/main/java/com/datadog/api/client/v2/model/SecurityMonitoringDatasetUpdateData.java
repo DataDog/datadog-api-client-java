@@ -66,6 +66,9 @@ public class SecurityMonitoringDatasetUpdateData {
 
   public void setAttributes(SecurityMonitoringDatasetAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringDatasetUpdateData type(SecurityMonitoringDatasetUpdateType type) {

@@ -35,8 +35,10 @@ public class SyntheticsTestLatestResultsResponse {
 
   public SyntheticsTestLatestResultsResponse data(List<SyntheticsTestResultSummaryData> data) {
     this.data = data;
-    for (SyntheticsTestResultSummaryData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SyntheticsTestResultSummaryData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,13 +66,20 @@ public class SyntheticsTestLatestResultsResponse {
 
   public void setData(List<SyntheticsTestResultSummaryData> data) {
     this.data = data;
+    if (data != null) {
+      for (SyntheticsTestResultSummaryData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestLatestResultsResponse included(
       List<SyntheticsTestResultIncludedItem> included) {
     this.included = included;
-    for (SyntheticsTestResultIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (SyntheticsTestResultIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -99,6 +108,11 @@ public class SyntheticsTestLatestResultsResponse {
 
   public void setIncluded(List<SyntheticsTestResultIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (SyntheticsTestResultIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

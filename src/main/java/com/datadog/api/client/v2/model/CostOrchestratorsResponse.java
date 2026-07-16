@@ -36,6 +36,9 @@ public class CostOrchestratorsResponse {
   public CostOrchestratorsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CostOrchestrator> data) {
     this.data = data;
+    for (CostOrchestrator item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CostOrchestratorsResponse data(List<CostOrchestrator> data) {
@@ -65,6 +68,11 @@ public class CostOrchestratorsResponse {
 
   public void setData(List<CostOrchestrator> data) {
     this.data = data;
+    if (data != null) {
+      for (CostOrchestrator item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

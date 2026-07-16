@@ -100,6 +100,9 @@ public class ObservabilityPipelineOpenSearchDestination {
 
   public void setAuth(ObservabilityPipelineElasticsearchDestinationAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineOpenSearchDestination buffer(
@@ -123,6 +126,9 @@ public class ObservabilityPipelineOpenSearchDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+    if (buffer != null) {
+      this.unparsed |= buffer.unparsed;
+    }
   }
 
   public ObservabilityPipelineOpenSearchDestination bulkIndex(String bulkIndex) {
@@ -167,6 +173,9 @@ public class ObservabilityPipelineOpenSearchDestination {
 
   public void setDataStream(ObservabilityPipelineOpenSearchDestinationDataStream dataStream) {
     this.dataStream = dataStream;
+    if (dataStream != null) {
+      this.unparsed |= dataStream.unparsed;
+    }
   }
 
   public ObservabilityPipelineOpenSearchDestination endpointUrlKey(String endpointUrlKey) {

@@ -54,6 +54,9 @@ public class OpsgenieAccountResponse {
 
   public void setData(OpsgenieAccountResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

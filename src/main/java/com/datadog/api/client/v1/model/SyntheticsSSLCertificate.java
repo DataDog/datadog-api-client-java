@@ -207,6 +207,9 @@ public class SyntheticsSSLCertificate {
 
   public void setIssuer(SyntheticsSSLCertificateIssuer issuer) {
     this.issuer = issuer;
+    if (issuer != null) {
+      this.unparsed |= issuer.unparsed;
+    }
   }
 
   public SyntheticsSSLCertificate modulus(String modulus) {
@@ -292,6 +295,9 @@ public class SyntheticsSSLCertificate {
 
   public void setSubject(SyntheticsSSLCertificateSubject subject) {
     this.subject = subject;
+    if (subject != null) {
+      this.unparsed |= subject.unparsed;
+    }
   }
 
   public SyntheticsSSLCertificate validFrom(OffsetDateTime validFrom) {

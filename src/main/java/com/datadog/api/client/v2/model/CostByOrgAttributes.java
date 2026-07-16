@@ -102,8 +102,10 @@ public class CostByOrgAttributes {
 
   public CostByOrgAttributes charges(List<ChargebackBreakdown> charges) {
     this.charges = charges;
-    for (ChargebackBreakdown item : charges) {
-      this.unparsed |= item.unparsed;
+    if (charges != null) {
+      for (ChargebackBreakdown item : charges) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -131,6 +133,11 @@ public class CostByOrgAttributes {
 
   public void setCharges(List<ChargebackBreakdown> charges) {
     this.charges = charges;
+    if (charges != null) {
+      for (ChargebackBreakdown item : charges) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public CostByOrgAttributes date(OffsetDateTime date) {

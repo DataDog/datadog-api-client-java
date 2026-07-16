@@ -34,6 +34,9 @@ public class IdentityProvidersResponse {
   public IdentityProvidersResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<IdentityProviderData> data) {
     this.data = data;
+    for (IdentityProviderData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public IdentityProvidersResponse data(List<IdentityProviderData> data) {
@@ -63,6 +66,11 @@ public class IdentityProvidersResponse {
 
   public void setData(List<IdentityProviderData> data) {
     this.data = data;
+    if (data != null) {
+      for (IdentityProviderData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

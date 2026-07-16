@@ -41,6 +41,9 @@ public class WebhooksAuthMethodsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<WebhooksAuthMethodResponseData> data) {
     this.data = data;
+    for (WebhooksAuthMethodResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public WebhooksAuthMethodsResponse data(List<WebhooksAuthMethodResponseData> data) {
@@ -70,13 +73,20 @@ public class WebhooksAuthMethodsResponse {
 
   public void setData(List<WebhooksAuthMethodResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (WebhooksAuthMethodResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public WebhooksAuthMethodsResponse included(
       List<WebhooksOAuth2ClientCredentialsResponseData> included) {
     this.included = included;
-    for (WebhooksOAuth2ClientCredentialsResponseData item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (WebhooksOAuth2ClientCredentialsResponseData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -106,6 +116,11 @@ public class WebhooksAuthMethodsResponse {
 
   public void setIncluded(List<WebhooksOAuth2ClientCredentialsResponseData> included) {
     this.included = included;
+    if (included != null) {
+      for (WebhooksOAuth2ClientCredentialsResponseData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

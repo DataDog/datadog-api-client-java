@@ -35,6 +35,9 @@ public class LLMObsDatasetVersionsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<LLMObsDatasetVersionData> data) {
     this.data = data;
+    for (LLMObsDatasetVersionData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsDatasetVersionsResponse data(List<LLMObsDatasetVersionData> data) {
@@ -64,6 +67,11 @@ public class LLMObsDatasetVersionsResponse {
 
   public void setData(List<LLMObsDatasetVersionData> data) {
     this.data = data;
+    if (data != null) {
+      for (LLMObsDatasetVersionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

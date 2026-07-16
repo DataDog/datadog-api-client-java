@@ -39,8 +39,10 @@ public class SLOListResponse {
 
   public SLOListResponse data(List<ServiceLevelObjective> data) {
     this.data = data;
-    for (ServiceLevelObjective item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ServiceLevelObjective item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,6 +70,11 @@ public class SLOListResponse {
 
   public void setData(List<ServiceLevelObjective> data) {
     this.data = data;
+    if (data != null) {
+      for (ServiceLevelObjective item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SLOListResponse errors(List<String> errors) {
@@ -119,6 +126,9 @@ public class SLOListResponse {
 
   public void setMetadata(SLOListResponseMetadata metadata) {
     this.metadata = metadata;
+    if (metadata != null) {
+      this.unparsed |= metadata.unparsed;
+    }
   }
 
   /**

@@ -34,6 +34,9 @@ public class AutomationRulesResponse {
   public AutomationRulesResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AutomationRule> data) {
     this.data = data;
+    for (AutomationRule item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AutomationRulesResponse data(List<AutomationRule> data) {
@@ -63,6 +66,11 @@ public class AutomationRulesResponse {
 
   public void setData(List<AutomationRule> data) {
     this.data = data;
+    if (data != null) {
+      for (AutomationRule item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

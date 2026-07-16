@@ -32,8 +32,10 @@ public class RolesResponse {
 
   public RolesResponse data(List<Role> data) {
     this.data = data;
-    for (Role item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (Role item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class RolesResponse {
 
   public void setData(List<Role> data) {
     this.data = data;
+    if (data != null) {
+      for (Role item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RolesResponse meta(ResponseMetaAttributes meta) {
@@ -83,6 +90,9 @@ public class RolesResponse {
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

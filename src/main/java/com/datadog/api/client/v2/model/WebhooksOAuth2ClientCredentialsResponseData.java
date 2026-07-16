@@ -74,6 +74,9 @@ public class WebhooksOAuth2ClientCredentialsResponseData {
 
   public void setAttributes(WebhooksOAuth2ClientCredentialsResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WebhooksOAuth2ClientCredentialsResponseData id(String id) {

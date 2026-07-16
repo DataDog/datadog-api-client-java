@@ -54,6 +54,9 @@ public class MaintenanceWindowCreateRequest {
 
   public void setData(MaintenanceWindowCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

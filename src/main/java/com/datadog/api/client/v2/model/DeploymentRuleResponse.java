@@ -45,6 +45,9 @@ public class DeploymentRuleResponse {
 
   public void setData(DeploymentRuleResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

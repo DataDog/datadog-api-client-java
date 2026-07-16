@@ -74,6 +74,9 @@ public class RumSdkConfigData {
 
   public void setAttributes(RumSdkConfigAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RumSdkConfigData id(String id) {
@@ -116,6 +119,9 @@ public class RumSdkConfigData {
 
   public void setMeta(RumSdkConfigMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public RumSdkConfigData type(RumSdkConfigType type) {

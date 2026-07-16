@@ -54,6 +54,9 @@ public class DowntimeUpdateRequest {
 
   public void setData(DowntimeUpdateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

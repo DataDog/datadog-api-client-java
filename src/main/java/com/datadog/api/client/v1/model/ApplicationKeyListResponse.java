@@ -29,8 +29,10 @@ public class ApplicationKeyListResponse {
 
   public ApplicationKeyListResponse applicationKeys(List<ApplicationKey> applicationKeys) {
     this.applicationKeys = applicationKeys;
-    for (ApplicationKey item : applicationKeys) {
-      this.unparsed |= item.unparsed;
+    if (applicationKeys != null) {
+      for (ApplicationKey item : applicationKeys) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class ApplicationKeyListResponse {
 
   public void setApplicationKeys(List<ApplicationKey> applicationKeys) {
     this.applicationKeys = applicationKeys;
+    if (applicationKeys != null) {
+      for (ApplicationKey item : applicationKeys) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

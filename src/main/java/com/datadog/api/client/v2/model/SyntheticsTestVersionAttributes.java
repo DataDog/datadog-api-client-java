@@ -63,13 +63,18 @@ public class SyntheticsTestVersionAttributes {
 
   public void setAuthor(SyntheticsTestVersionAuthor author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   public SyntheticsTestVersionAttributes changeMetadata(
       List<SyntheticsTestVersionChangeMetadataItem> changeMetadata) {
     this.changeMetadata = changeMetadata;
-    for (SyntheticsTestVersionChangeMetadataItem item : changeMetadata) {
-      this.unparsed |= item.unparsed;
+    if (changeMetadata != null) {
+      for (SyntheticsTestVersionChangeMetadataItem item : changeMetadata) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -99,6 +104,11 @@ public class SyntheticsTestVersionAttributes {
 
   public void setChangeMetadata(List<SyntheticsTestVersionChangeMetadataItem> changeMetadata) {
     this.changeMetadata = changeMetadata;
+    if (changeMetadata != null) {
+      for (SyntheticsTestVersionChangeMetadataItem item : changeMetadata) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestVersionAttributes payload(Map<String, Object> payload) {

@@ -59,6 +59,9 @@ public class User {
 
   public void setAttributes(UserAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public User id(String id) {
@@ -102,6 +105,9 @@ public class User {
 
   public void setRelationships(UserResponseRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public User type(UsersType type) {

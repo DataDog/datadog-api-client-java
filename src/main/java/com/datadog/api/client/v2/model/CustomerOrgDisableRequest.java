@@ -55,6 +55,9 @@ public class CustomerOrgDisableRequest {
 
   public void setData(CustomerOrgDisableRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

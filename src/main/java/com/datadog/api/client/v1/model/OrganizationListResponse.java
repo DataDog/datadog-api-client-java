@@ -29,8 +29,10 @@ public class OrganizationListResponse {
 
   public OrganizationListResponse orgs(List<Organization> orgs) {
     this.orgs = orgs;
-    for (Organization item : orgs) {
-      this.unparsed |= item.unparsed;
+    if (orgs != null) {
+      for (Organization item : orgs) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class OrganizationListResponse {
 
   public void setOrgs(List<Organization> orgs) {
     this.orgs = orgs;
+    if (orgs != null) {
+      for (Organization item : orgs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

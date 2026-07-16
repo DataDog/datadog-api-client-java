@@ -55,6 +55,9 @@ public class DORADeploymentPatchRequest {
 
   public void setData(DORADeploymentPatchRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

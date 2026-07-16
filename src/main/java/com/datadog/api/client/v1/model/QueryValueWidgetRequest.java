@@ -134,6 +134,9 @@ public class QueryValueWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    if (apmQuery != null) {
+      this.unparsed |= apmQuery.unparsed;
+    }
   }
 
   public QueryValueWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
@@ -156,6 +159,9 @@ public class QueryValueWidgetRequest {
 
   public void setAuditQuery(LogQueryDefinition auditQuery) {
     this.auditQuery = auditQuery;
+    if (auditQuery != null) {
+      this.unparsed |= auditQuery.unparsed;
+    }
   }
 
   public QueryValueWidgetRequest comparison(QueryValueWidgetComparison comparison) {
@@ -178,13 +184,18 @@ public class QueryValueWidgetRequest {
 
   public void setComparison(QueryValueWidgetComparison comparison) {
     this.comparison = comparison;
+    if (comparison != null) {
+      this.unparsed |= comparison.unparsed;
+    }
   }
 
   public QueryValueWidgetRequest conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
-    for (WidgetConditionalFormat item : conditionalFormats) {
-      this.unparsed |= item.unparsed;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -213,6 +224,11 @@ public class QueryValueWidgetRequest {
 
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    if (conditionalFormats != null) {
+      for (WidgetConditionalFormat item : conditionalFormats) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public QueryValueWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
@@ -235,12 +251,17 @@ public class QueryValueWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    if (eventQuery != null) {
+      this.unparsed |= eventQuery.unparsed;
+    }
   }
 
   public QueryValueWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
-    for (WidgetFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -268,6 +289,11 @@ public class QueryValueWidgetRequest {
 
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (WidgetFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public QueryValueWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -290,6 +316,9 @@ public class QueryValueWidgetRequest {
 
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    if (logQuery != null) {
+      this.unparsed |= logQuery.unparsed;
+    }
   }
 
   public QueryValueWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
@@ -312,6 +341,9 @@ public class QueryValueWidgetRequest {
 
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    if (networkQuery != null) {
+      this.unparsed |= networkQuery.unparsed;
+    }
   }
 
   public QueryValueWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
@@ -334,6 +366,9 @@ public class QueryValueWidgetRequest {
 
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    if (processQuery != null) {
+      this.unparsed |= processQuery.unparsed;
+    }
   }
 
   public QueryValueWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
@@ -356,6 +391,9 @@ public class QueryValueWidgetRequest {
 
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    if (profileMetricsQuery != null) {
+      this.unparsed |= profileMetricsQuery.unparsed;
+    }
   }
 
   public QueryValueWidgetRequest q(String q) {
@@ -384,8 +422,10 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
-    for (FormulaAndFunctionQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -413,6 +453,11 @@ public class QueryValueWidgetRequest {
 
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (FormulaAndFunctionQueryDefinition item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public QueryValueWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
@@ -461,6 +506,9 @@ public class QueryValueWidgetRequest {
 
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    if (rumQuery != null) {
+      this.unparsed |= rumQuery.unparsed;
+    }
   }
 
   public QueryValueWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
@@ -483,6 +531,9 @@ public class QueryValueWidgetRequest {
 
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    if (securityQuery != null) {
+      this.unparsed |= securityQuery.unparsed;
+    }
   }
 
   /**

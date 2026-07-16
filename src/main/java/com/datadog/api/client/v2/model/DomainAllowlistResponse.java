@@ -45,6 +45,9 @@ public class DomainAllowlistResponse {
 
   public void setData(DomainAllowlistResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

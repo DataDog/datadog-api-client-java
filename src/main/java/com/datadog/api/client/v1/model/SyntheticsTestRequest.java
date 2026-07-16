@@ -221,6 +221,9 @@ public class SyntheticsTestRequest {
 
   public void setBasicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
+    if (basicAuth != null) {
+      this.unparsed |= basicAuth.unparsed;
+    }
   }
 
   public SyntheticsTestRequest body(String body) {
@@ -316,6 +319,9 @@ public class SyntheticsTestRequest {
 
   public void setCertificate(SyntheticsTestRequestCertificate certificate) {
     this.certificate = certificate;
+    if (certificate != null) {
+      this.unparsed |= certificate.unparsed;
+    }
   }
 
   public SyntheticsTestRequest certificateDomains(List<String> certificateDomains) {
@@ -475,12 +481,17 @@ public class SyntheticsTestRequest {
 
   public void setDnsServerPort(SyntheticsTestRequestDNSServerPort dnsServerPort) {
     this.dnsServerPort = dnsServerPort;
+    if (dnsServerPort != null) {
+      this.unparsed |= dnsServerPort.unparsed;
+    }
   }
 
   public SyntheticsTestRequest files(List<SyntheticsTestRequestBodyFile> files) {
     this.files = files;
-    for (SyntheticsTestRequestBodyFile item : files) {
-      this.unparsed |= item.unparsed;
+    if (files != null) {
+      for (SyntheticsTestRequestBodyFile item : files) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -509,6 +520,11 @@ public class SyntheticsTestRequest {
 
   public void setFiles(List<SyntheticsTestRequestBodyFile> files) {
     this.files = files;
+    if (files != null) {
+      for (SyntheticsTestRequestBodyFile item : files) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsTestRequest followRedirects(Boolean followRedirects) {
@@ -860,6 +876,9 @@ public class SyntheticsTestRequest {
 
   public void setPort(SyntheticsTestRequestPort port) {
     this.port = port;
+    if (port != null) {
+      this.unparsed |= port.unparsed;
+    }
   }
 
   public SyntheticsTestRequest proxy(SyntheticsTestRequestProxy proxy) {
@@ -882,6 +901,9 @@ public class SyntheticsTestRequest {
 
   public void setProxy(SyntheticsTestRequestProxy proxy) {
     this.proxy = proxy;
+    if (proxy != null) {
+      this.unparsed |= proxy.unparsed;
+    }
   }
 
   public SyntheticsTestRequest query(Object query) {

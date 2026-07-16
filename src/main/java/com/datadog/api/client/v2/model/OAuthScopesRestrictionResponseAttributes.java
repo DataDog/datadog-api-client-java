@@ -103,6 +103,9 @@ public class OAuthScopesRestrictionResponseAttributes {
 
   public void setScopesRestriction(OAuthScopesRestriction scopesRestriction) {
     this.scopesRestriction = scopesRestriction;
+    if (scopesRestriction != null) {
+      this.unparsed |= scopesRestriction.unparsed;
+    }
   }
 
   /**

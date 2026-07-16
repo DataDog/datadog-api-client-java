@@ -68,6 +68,9 @@ public class TeamSyncData {
 
   public void setAttributes(TeamSyncAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public TeamSyncData id(String id) {

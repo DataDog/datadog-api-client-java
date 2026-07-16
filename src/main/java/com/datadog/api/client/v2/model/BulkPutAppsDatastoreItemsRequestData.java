@@ -65,6 +65,9 @@ public class BulkPutAppsDatastoreItemsRequestData {
 
   public void setAttributes(BulkPutAppsDatastoreItemsRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public BulkPutAppsDatastoreItemsRequestData type(DatastoreItemsDataType type) {

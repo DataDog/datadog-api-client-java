@@ -59,6 +59,9 @@ public class RestrictionQueryWithRelationships {
 
   public void setAttributes(RestrictionQueryAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public RestrictionQueryWithRelationships id(String id) {
@@ -102,6 +105,9 @@ public class RestrictionQueryWithRelationships {
 
   public void setRelationships(UserRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public RestrictionQueryWithRelationships type(LogsRestrictionQueriesType type) {

@@ -37,6 +37,9 @@ public class CostTagMetadataMonthsResponse {
   public CostTagMetadataMonthsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CostTagMetadataMonth> data) {
     this.data = data;
+    for (CostTagMetadataMonth item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CostTagMetadataMonthsResponse data(List<CostTagMetadataMonth> data) {
@@ -66,6 +69,11 @@ public class CostTagMetadataMonthsResponse {
 
   public void setData(List<CostTagMetadataMonth> data) {
     this.data = data;
+    if (data != null) {
+      for (CostTagMetadataMonth item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

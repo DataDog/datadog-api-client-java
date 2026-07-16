@@ -33,6 +33,9 @@ public class BudgetArray {
   @JsonCreator
   public BudgetArray(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Budget> data) {
     this.data = data;
+    for (Budget item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public BudgetArray data(List<Budget> data) {
@@ -62,6 +65,11 @@ public class BudgetArray {
 
   public void setData(List<Budget> data) {
     this.data = data;
+    if (data != null) {
+      for (Budget item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

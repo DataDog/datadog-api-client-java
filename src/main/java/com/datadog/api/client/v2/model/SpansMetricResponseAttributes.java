@@ -57,6 +57,9 @@ public class SpansMetricResponseAttributes {
 
   public void setCompute(SpansMetricResponseCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public SpansMetricResponseAttributes filter(SpansMetricResponseFilter filter) {
@@ -79,12 +82,17 @@ public class SpansMetricResponseAttributes {
 
   public void setFilter(SpansMetricResponseFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public SpansMetricResponseAttributes groupBy(List<SpansMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (SpansMetricResponseGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (SpansMetricResponseGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -112,6 +120,11 @@ public class SpansMetricResponseAttributes {
 
   public void setGroupBy(List<SpansMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (SpansMetricResponseGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

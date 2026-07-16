@@ -61,6 +61,9 @@ public class ApplicationSecurityWafCustomRuleConditionParameters {
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS)
           List<ApplicationSecurityWafCustomRuleConditionInput> inputs) {
     this.inputs = inputs;
+    for (ApplicationSecurityWafCustomRuleConditionInput item : inputs) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ApplicationSecurityWafCustomRuleConditionParameters data(String data) {
@@ -114,6 +117,11 @@ public class ApplicationSecurityWafCustomRuleConditionParameters {
 
   public void setInputs(List<ApplicationSecurityWafCustomRuleConditionInput> inputs) {
     this.inputs = inputs;
+    if (inputs != null) {
+      for (ApplicationSecurityWafCustomRuleConditionInput item : inputs) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ApplicationSecurityWafCustomRuleConditionParameters list(List<String> list) {
@@ -167,6 +175,9 @@ public class ApplicationSecurityWafCustomRuleConditionParameters {
 
   public void setOptions(ApplicationSecurityWafCustomRuleConditionOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public ApplicationSecurityWafCustomRuleConditionParameters regex(String regex) {

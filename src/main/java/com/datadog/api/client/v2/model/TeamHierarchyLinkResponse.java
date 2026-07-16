@@ -57,12 +57,17 @@ public class TeamHierarchyLinkResponse {
 
   public void setData(TeamHierarchyLink data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public TeamHierarchyLinkResponse included(List<TeamHierarchyLinkTeam> included) {
     this.included = included;
-    for (TeamHierarchyLinkTeam item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (TeamHierarchyLinkTeam item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -90,6 +95,11 @@ public class TeamHierarchyLinkResponse {
 
   public void setIncluded(List<TeamHierarchyLinkTeam> included) {
     this.included = included;
+    if (included != null) {
+      for (TeamHierarchyLinkTeam item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TeamHierarchyLinkResponse links(TeamsHierarchyLinksResponseLinks links) {
@@ -113,6 +123,9 @@ public class TeamHierarchyLinkResponse {
 
   public void setLinks(TeamsHierarchyLinksResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   /**

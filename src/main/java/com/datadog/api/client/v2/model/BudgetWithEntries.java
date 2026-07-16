@@ -45,6 +45,9 @@ public class BudgetWithEntries {
 
   public void setData(BudgetWithEntriesData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

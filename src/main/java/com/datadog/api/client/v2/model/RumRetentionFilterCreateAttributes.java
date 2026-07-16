@@ -83,6 +83,9 @@ public class RumRetentionFilterCreateAttributes {
 
   public void setCrossProductSampling(RumCrossProductSamplingCreate crossProductSampling) {
     this.crossProductSampling = crossProductSampling;
+    if (crossProductSampling != null) {
+      this.unparsed |= crossProductSampling.unparsed;
+    }
   }
 
   public RumRetentionFilterCreateAttributes enabled(Boolean enabled) {

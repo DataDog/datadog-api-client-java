@@ -72,6 +72,9 @@ public class NotebookDistributionCellAttributes {
 
   public void setDefinition(DistributionWidgetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public NotebookDistributionCellAttributes graphSize(NotebookGraphSize graphSize) {
@@ -119,6 +122,9 @@ public class NotebookDistributionCellAttributes {
 
   public void setSplitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
+    if (splitBy != null) {
+      this.unparsed |= splitBy.unparsed;
+    }
   }
 
   public NotebookDistributionCellAttributes time(NotebookCellTime time) {

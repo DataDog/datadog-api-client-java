@@ -206,6 +206,9 @@ public class FindingAttributes {
 
   public void setMute(FindingMute mute) {
     this.mute = mute;
+    if (mute != null) {
+      this.unparsed |= mute.unparsed;
+    }
   }
 
   public FindingAttributes resource(String resource) {
@@ -291,6 +294,9 @@ public class FindingAttributes {
 
   public void setRule(FindingRule rule) {
     this.rule = rule;
+    if (rule != null) {
+      this.unparsed |= rule.unparsed;
+    }
   }
 
   public FindingAttributes status(FindingStatus status) {

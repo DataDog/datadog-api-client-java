@@ -35,6 +35,9 @@ public class AWSCloudAuthPersonaMappingsResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<AWSCloudAuthPersonaMappingDataResponse> data) {
     this.data = data;
+    for (AWSCloudAuthPersonaMappingDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AWSCloudAuthPersonaMappingsResponse data(
@@ -66,6 +69,11 @@ public class AWSCloudAuthPersonaMappingsResponse {
 
   public void setData(List<AWSCloudAuthPersonaMappingDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (AWSCloudAuthPersonaMappingDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

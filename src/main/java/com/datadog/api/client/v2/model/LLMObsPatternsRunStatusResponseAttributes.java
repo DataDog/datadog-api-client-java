@@ -54,6 +54,9 @@ public class LLMObsPatternsRunStatusResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_STEP) String step) {
     this.createdAt = createdAt;
     this.progress = progress;
+    for (LLMObsPatternsActivityProgress item : progress) {
+      this.unparsed |= item.unparsed;
+    }
     this.status = status;
     this.step = step;
   }
@@ -107,6 +110,11 @@ public class LLMObsPatternsRunStatusResponseAttributes {
 
   public void setProgress(List<LLMObsPatternsActivityProgress> progress) {
     this.progress = progress;
+    if (progress != null) {
+      for (LLMObsPatternsActivityProgress item : progress) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsPatternsRunStatusResponseAttributes status(String status) {

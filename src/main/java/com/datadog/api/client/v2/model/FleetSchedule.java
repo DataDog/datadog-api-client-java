@@ -70,6 +70,9 @@ public class FleetSchedule {
 
   public void setAttributes(FleetScheduleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FleetSchedule id(String id) {

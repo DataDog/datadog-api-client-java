@@ -78,6 +78,9 @@ public class RumMetricCreateAttributes {
 
   public void setCompute(RumMetricCompute compute) {
     this.compute = compute;
+    if (compute != null) {
+      this.unparsed |= compute.unparsed;
+    }
   }
 
   public RumMetricCreateAttributes eventType(RumMetricEventType eventType) {
@@ -124,12 +127,17 @@ public class RumMetricCreateAttributes {
 
   public void setFilter(RumMetricFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public RumMetricCreateAttributes groupBy(List<RumMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
-    for (RumMetricGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    if (groupBy != null) {
+      for (RumMetricGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -157,6 +165,11 @@ public class RumMetricCreateAttributes {
 
   public void setGroupBy(List<RumMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (RumMetricGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public RumMetricCreateAttributes uniqueness(RumMetricUniqueness uniqueness) {
@@ -180,6 +193,9 @@ public class RumMetricCreateAttributes {
 
   public void setUniqueness(RumMetricUniqueness uniqueness) {
     this.uniqueness = uniqueness;
+    if (uniqueness != null) {
+      this.unparsed |= uniqueness.unparsed;
+    }
   }
 
   /**

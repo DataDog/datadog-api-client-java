@@ -54,6 +54,9 @@ public class AzureUCConfigPostRequest {
 
   public void setData(AzureUCConfigPostData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -54,6 +54,9 @@ public class OwnershipInferenceListResponse {
 
   public void setData(OwnershipInferenceListData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

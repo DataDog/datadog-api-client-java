@@ -64,6 +64,9 @@ public class AzureIntegration {
 
   public void setCredentials(AzureCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public AzureIntegration type(AzureIntegrationType type) {

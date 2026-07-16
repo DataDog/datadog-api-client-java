@@ -68,6 +68,9 @@ public class AnalysisRequestData {
 
   public void setAttributes(AnalysisRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AnalysisRequestData id(String id) {

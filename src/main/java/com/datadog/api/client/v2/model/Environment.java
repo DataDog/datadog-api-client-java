@@ -71,6 +71,9 @@ public class Environment {
 
   public void setAttributes(EnvironmentAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public Environment id(UUID id) {

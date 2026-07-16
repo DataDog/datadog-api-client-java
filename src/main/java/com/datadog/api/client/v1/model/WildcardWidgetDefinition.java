@@ -72,6 +72,9 @@ public class WildcardWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           WildcardWidgetDefinitionType type) {
     this.requests = requests;
+    for (WildcardWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.specification = specification;
     this.unparsed |= specification.unparsed;
     this.type = type;
@@ -80,8 +83,10 @@ public class WildcardWidgetDefinition {
 
   public WildcardWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -109,6 +114,11 @@ public class WildcardWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public WildcardWidgetDefinition requests(List<WildcardWidgetRequest> requests) {
@@ -138,6 +148,11 @@ public class WildcardWidgetDefinition {
 
   public void setRequests(List<WildcardWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (WildcardWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public WildcardWidgetDefinition specification(WildcardWidgetSpecification specification) {
@@ -160,6 +175,9 @@ public class WildcardWidgetDefinition {
 
   public void setSpecification(WildcardWidgetSpecification specification) {
     this.specification = specification;
+    if (specification != null) {
+      this.unparsed |= specification.unparsed;
+    }
   }
 
   public WildcardWidgetDefinition time(WidgetTime time) {
@@ -182,6 +200,9 @@ public class WildcardWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public WildcardWidgetDefinition title(String title) {

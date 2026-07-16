@@ -69,6 +69,9 @@ public class SecurityMonitoringDatasetAttributesRequest {
 
   public void setDefinition(SecurityMonitoringDatasetDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   public SecurityMonitoringDatasetAttributesRequest description(String description) {

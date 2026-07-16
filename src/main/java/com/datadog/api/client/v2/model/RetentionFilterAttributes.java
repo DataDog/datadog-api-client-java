@@ -196,6 +196,9 @@ public class RetentionFilterAttributes {
 
   public void setFilter(SpansFilter filter) {
     this.filter = filter;
+    if (filter != null) {
+      this.unparsed |= filter.unparsed;
+    }
   }
 
   public RetentionFilterAttributes filterType(RetentionFilterType filterType) {

@@ -120,6 +120,9 @@ public class ObservabilityPipelineOcsfMappingCustomFieldMapping {
 
   public void setLookup(ObservabilityPipelineOcsfMappingCustomLookup lookup) {
     this.lookup = lookup;
+    if (lookup != null) {
+      this.unparsed |= lookup.unparsed;
+    }
   }
 
   public ObservabilityPipelineOcsfMappingCustomFieldMapping source(Object source) {

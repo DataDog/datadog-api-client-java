@@ -57,6 +57,9 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetails {
   public void setAwsDetail(
       TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail awsDetail) {
     this.awsDetail = awsDetail;
+    if (awsDetail != null) {
+      this.unparsed |= awsDetail.unparsed;
+    }
   }
 
   public TableResultV2DataAttributesFileMetadataOneOfAccessDetails azureDetail(
@@ -81,6 +84,9 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetails {
   public void setAzureDetail(
       TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail azureDetail) {
     this.azureDetail = azureDetail;
+    if (azureDetail != null) {
+      this.unparsed |= azureDetail.unparsed;
+    }
   }
 
   public TableResultV2DataAttributesFileMetadataOneOfAccessDetails gcpDetail(
@@ -105,6 +111,9 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetails {
   public void setGcpDetail(
       TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail gcpDetail) {
     this.gcpDetail = gcpDetail;
+    if (gcpDetail != null) {
+      this.unparsed |= gcpDetail.unparsed;
+    }
   }
 
   /**

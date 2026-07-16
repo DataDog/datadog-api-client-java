@@ -102,8 +102,10 @@ public class SecurityMonitoringRuleUpdatePayload {
   public SecurityMonitoringRuleUpdatePayload calculatedFields(
       List<CalculatedField> calculatedFields) {
     this.calculatedFields = calculatedFields;
-    for (CalculatedField item : calculatedFields) {
-      this.unparsed |= item.unparsed;
+    if (calculatedFields != null) {
+      for (CalculatedField item : calculatedFields) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -133,12 +135,19 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public void setCalculatedFields(List<CalculatedField> calculatedFields) {
     this.calculatedFields = calculatedFields;
+    if (calculatedFields != null) {
+      for (CalculatedField item : calculatedFields) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleUpdatePayload cases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
-    for (SecurityMonitoringRuleCase item : cases) {
-      this.unparsed |= item.unparsed;
+    if (cases != null) {
+      for (SecurityMonitoringRuleCase item : cases) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -166,6 +175,11 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public void setCases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
+    if (cases != null) {
+      for (SecurityMonitoringRuleCase item : cases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleUpdatePayload complianceSignalOptions(
@@ -190,6 +204,9 @@ public class SecurityMonitoringRuleUpdatePayload {
   public void setComplianceSignalOptions(
       CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
     this.complianceSignalOptions = complianceSignalOptions;
+    if (complianceSignalOptions != null) {
+      this.unparsed |= complianceSignalOptions.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleUpdatePayload customMessage(String customMessage) {
@@ -236,8 +253,10 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public SecurityMonitoringRuleUpdatePayload filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
-    for (SecurityMonitoringFilter item : filters) {
-      this.unparsed |= item.unparsed;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -266,6 +285,11 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (SecurityMonitoringFilter item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleUpdatePayload groupSignalsBy(List<String> groupSignalsBy) {
@@ -402,12 +426,17 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public void setOptions(SecurityMonitoringRuleOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   public SecurityMonitoringRuleUpdatePayload queries(List<SecurityMonitoringRuleQuery> queries) {
     this.queries = queries;
-    for (SecurityMonitoringRuleQuery item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (SecurityMonitoringRuleQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -436,13 +465,20 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public void setQueries(List<SecurityMonitoringRuleQuery> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (SecurityMonitoringRuleQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleUpdatePayload referenceTables(
       List<SecurityMonitoringReferenceTable> referenceTables) {
     this.referenceTables = referenceTables;
-    for (SecurityMonitoringReferenceTable item : referenceTables) {
-      this.unparsed |= item.unparsed;
+    if (referenceTables != null) {
+      for (SecurityMonitoringReferenceTable item : referenceTables) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -471,6 +507,11 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public void setReferenceTables(List<SecurityMonitoringReferenceTable> referenceTables) {
     this.referenceTables = referenceTables;
+    if (referenceTables != null) {
+      for (SecurityMonitoringReferenceTable item : referenceTables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleUpdatePayload schedulingOptions(
@@ -541,8 +582,10 @@ public class SecurityMonitoringRuleUpdatePayload {
   public SecurityMonitoringRuleUpdatePayload thirdPartyCases(
       List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
     this.thirdPartyCases = thirdPartyCases;
-    for (SecurityMonitoringThirdPartyRuleCase item : thirdPartyCases) {
-      this.unparsed |= item.unparsed;
+    if (thirdPartyCases != null) {
+      for (SecurityMonitoringThirdPartyRuleCase item : thirdPartyCases) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -571,6 +614,11 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public void setThirdPartyCases(List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
     this.thirdPartyCases = thirdPartyCases;
+    if (thirdPartyCases != null) {
+      for (SecurityMonitoringThirdPartyRuleCase item : thirdPartyCases) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringRuleUpdatePayload version(Integer version) {

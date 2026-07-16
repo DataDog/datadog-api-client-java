@@ -70,6 +70,9 @@ public class ScorecardListResponseData {
 
   public void setAttributes(ScorecardListResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScorecardListResponseData id(String id) {

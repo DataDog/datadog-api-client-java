@@ -72,6 +72,9 @@ public class MonitorUserTemplateUpdateData {
 
   public void setAttributes(MonitorUserTemplateRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorUserTemplateUpdateData id(String id) {

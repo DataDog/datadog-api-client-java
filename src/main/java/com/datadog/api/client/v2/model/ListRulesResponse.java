@@ -32,8 +32,10 @@ public class ListRulesResponse {
 
   public ListRulesResponse data(List<ListRulesResponseDataItem> data) {
     this.data = data;
-    for (ListRulesResponseDataItem item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ListRulesResponseDataItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class ListRulesResponse {
 
   public void setData(List<ListRulesResponseDataItem> data) {
     this.data = data;
+    if (data != null) {
+      for (ListRulesResponseDataItem item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListRulesResponse links(ListRulesResponseLinks links) {
@@ -83,6 +90,9 @@ public class ListRulesResponse {
 
   public void setLinks(ListRulesResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   /**

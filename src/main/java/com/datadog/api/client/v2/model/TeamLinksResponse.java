@@ -29,8 +29,10 @@ public class TeamLinksResponse {
 
   public TeamLinksResponse data(List<TeamLink> data) {
     this.data = data;
-    for (TeamLink item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (TeamLink item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class TeamLinksResponse {
 
   public void setData(List<TeamLink> data) {
     this.data = data;
+    if (data != null) {
+      for (TeamLink item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

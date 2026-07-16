@@ -60,6 +60,9 @@ public class OktaIntegration {
 
   public void setCredentials(OktaCredentials credentials) {
     this.credentials = credentials;
+    if (credentials != null) {
+      this.unparsed |= credentials.unparsed;
+    }
   }
 
   public OktaIntegration type(OktaIntegrationType type) {

@@ -45,6 +45,9 @@ public class PostmortemCellAttributes {
 
   public void setDefinition(PostmortemCellDefinition definition) {
     this.definition = definition;
+    if (definition != null) {
+      this.unparsed |= definition.unparsed;
+    }
   }
 
   /**

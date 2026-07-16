@@ -72,6 +72,9 @@ public class OAuthScopesRestrictionResponseData {
 
   public void setAttributes(OAuthScopesRestrictionResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OAuthScopesRestrictionResponseData id(UUID id) {

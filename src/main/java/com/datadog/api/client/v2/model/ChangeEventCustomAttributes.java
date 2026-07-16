@@ -79,6 +79,9 @@ public class ChangeEventCustomAttributes {
 
   public void setAuthor(ChangeEventCustomAttributesAuthor author) {
     this.author = author;
+    if (author != null) {
+      this.unparsed |= author.unparsed;
+    }
   }
 
   public ChangeEventCustomAttributes changeMetadata(Map<String, Object> changeMetadata) {
@@ -131,13 +134,18 @@ public class ChangeEventCustomAttributes {
 
   public void setChangedResource(ChangeEventCustomAttributesChangedResource changedResource) {
     this.changedResource = changedResource;
+    if (changedResource != null) {
+      this.unparsed |= changedResource.unparsed;
+    }
   }
 
   public ChangeEventCustomAttributes impactedResources(
       List<ChangeEventCustomAttributesImpactedResourcesItems> impactedResources) {
     this.impactedResources = impactedResources;
-    for (ChangeEventCustomAttributesImpactedResourcesItems item : impactedResources) {
-      this.unparsed |= item.unparsed;
+    if (impactedResources != null) {
+      for (ChangeEventCustomAttributesImpactedResourcesItems item : impactedResources) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -169,6 +177,11 @@ public class ChangeEventCustomAttributes {
   public void setImpactedResources(
       List<ChangeEventCustomAttributesImpactedResourcesItems> impactedResources) {
     this.impactedResources = impactedResources;
+    if (impactedResources != null) {
+      for (ChangeEventCustomAttributesImpactedResourcesItems item : impactedResources) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ChangeEventCustomAttributes newValue(Map<String, Object> newValue) {

@@ -69,6 +69,9 @@ public class MonitorNotificationRuleUpdateRequestData {
 
   public void setAttributes(MonitorNotificationRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorNotificationRuleUpdateRequestData id(String id) {

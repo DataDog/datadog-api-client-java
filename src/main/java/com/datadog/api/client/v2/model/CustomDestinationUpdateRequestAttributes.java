@@ -185,6 +185,9 @@ public class CustomDestinationUpdateRequestAttributes {
 
   public void setForwarderDestination(CustomDestinationForwardDestination forwarderDestination) {
     this.forwarderDestination = forwarderDestination;
+    if (forwarderDestination != null) {
+      this.unparsed |= forwarderDestination.unparsed;
+    }
   }
 
   public CustomDestinationUpdateRequestAttributes name(String name) {

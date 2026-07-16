@@ -43,8 +43,10 @@ public class UserTeamsResponse {
 
   public UserTeamsResponse data(List<UserTeam> data) {
     this.data = data;
-    for (UserTeam item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (UserTeam item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -72,12 +74,19 @@ public class UserTeamsResponse {
 
   public void setData(List<UserTeam> data) {
     this.data = data;
+    if (data != null) {
+      for (UserTeam item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UserTeamsResponse included(List<UserTeamIncluded> included) {
     this.included = included;
-    for (UserTeamIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (UserTeamIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -105,6 +114,11 @@ public class UserTeamsResponse {
 
   public void setIncluded(List<UserTeamIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (UserTeamIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UserTeamsResponse links(TeamsResponseLinks links) {
@@ -127,6 +141,9 @@ public class UserTeamsResponse {
 
   public void setLinks(TeamsResponseLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public UserTeamsResponse meta(TeamsResponseMeta meta) {
@@ -149,6 +166,9 @@ public class UserTeamsResponse {
 
   public void setMeta(TeamsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

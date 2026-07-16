@@ -46,6 +46,9 @@ public class GoogleChatOrganizationRelationships {
 
   public void setDelegatedUser(GoogleChatOrganizationRelationshipsDelegatedUser delegatedUser) {
     this.delegatedUser = delegatedUser;
+    if (delegatedUser != null) {
+      this.unparsed |= delegatedUser.unparsed;
+    }
   }
 
   /**

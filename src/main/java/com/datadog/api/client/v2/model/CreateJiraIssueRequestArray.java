@@ -35,6 +35,9 @@ public class CreateJiraIssueRequestArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<CreateJiraIssueRequestData> data) {
     this.data = data;
+    for (CreateJiraIssueRequestData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public CreateJiraIssueRequestArray data(List<CreateJiraIssueRequestData> data) {
@@ -64,6 +67,11 @@ public class CreateJiraIssueRequestArray {
 
   public void setData(List<CreateJiraIssueRequestData> data) {
     this.data = data;
+    if (data != null) {
+      for (CreateJiraIssueRequestData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

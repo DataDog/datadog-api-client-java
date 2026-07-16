@@ -29,8 +29,10 @@ public class UpdateOutcomesAsyncAttributes {
 
   public UpdateOutcomesAsyncAttributes results(List<UpdateOutcomesAsyncRequestItem> results) {
     this.results = results;
-    for (UpdateOutcomesAsyncRequestItem item : results) {
-      this.unparsed |= item.unparsed;
+    if (results != null) {
+      for (UpdateOutcomesAsyncRequestItem item : results) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class UpdateOutcomesAsyncAttributes {
 
   public void setResults(List<UpdateOutcomesAsyncRequestItem> results) {
     this.results = results;
+    if (results != null) {
+      for (UpdateOutcomesAsyncRequestItem item : results) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

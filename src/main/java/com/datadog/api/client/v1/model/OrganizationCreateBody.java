@@ -67,6 +67,9 @@ public class OrganizationCreateBody {
   @Deprecated
   public void setBilling(OrganizationBilling billing) {
     this.billing = billing;
+    if (billing != null) {
+      this.unparsed |= billing.unparsed;
+    }
   }
 
   public OrganizationCreateBody name(String name) {
@@ -112,6 +115,9 @@ public class OrganizationCreateBody {
   @Deprecated
   public void setSubscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
+    if (subscription != null) {
+      this.unparsed |= subscription.unparsed;
+    }
   }
 
   /**

@@ -66,6 +66,9 @@ public class ApplicationSecurityPolicyCreateData {
 
   public void setAttributes(ApplicationSecurityPolicyCreateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ApplicationSecurityPolicyCreateData type(ApplicationSecurityPolicyType type) {

@@ -45,6 +45,9 @@ public class GCPSTSDelegateAccountResponse {
 
   public void setData(GCPSTSDelegateAccount data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

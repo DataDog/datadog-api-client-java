@@ -55,6 +55,9 @@ public class IncidentIntegrationMetadataCreateRequest {
 
   public void setData(IncidentIntegrationMetadataCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

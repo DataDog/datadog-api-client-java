@@ -65,6 +65,9 @@ public class ItemApiPayloadData {
 
   public void setAttributes(ItemApiPayloadDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ItemApiPayloadData id(String id) {

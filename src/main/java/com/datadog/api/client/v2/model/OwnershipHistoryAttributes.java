@@ -42,6 +42,9 @@ public class OwnershipHistoryAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_PAGINATION)
           OwnershipHistoryPagination pagination) {
     this.items = items;
+    for (OwnershipHistoryItem item : items) {
+      this.unparsed |= item.unparsed;
+    }
     this.pagination = pagination;
     this.unparsed |= pagination.unparsed;
   }
@@ -73,6 +76,11 @@ public class OwnershipHistoryAttributes {
 
   public void setItems(List<OwnershipHistoryItem> items) {
     this.items = items;
+    if (items != null) {
+      for (OwnershipHistoryItem item : items) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public OwnershipHistoryAttributes pagination(OwnershipHistoryPagination pagination) {
@@ -94,6 +102,9 @@ public class OwnershipHistoryAttributes {
 
   public void setPagination(OwnershipHistoryPagination pagination) {
     this.pagination = pagination;
+    if (pagination != null) {
+      this.unparsed |= pagination.unparsed;
+    }
   }
 
   /**

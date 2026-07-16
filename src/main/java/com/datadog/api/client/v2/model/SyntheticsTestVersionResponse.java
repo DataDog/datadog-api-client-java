@@ -45,6 +45,9 @@ public class SyntheticsTestVersionResponse {
 
   public void setData(SyntheticsTestVersionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

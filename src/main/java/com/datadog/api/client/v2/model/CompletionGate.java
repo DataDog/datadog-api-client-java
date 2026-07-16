@@ -65,6 +65,9 @@ public class CompletionGate {
 
   public void setCompletionCondition(CompletionCondition completionCondition) {
     this.completionCondition = completionCondition;
+    if (completionCondition != null) {
+      this.unparsed |= completionCondition.unparsed;
+    }
   }
 
   public CompletionGate retryStrategy(RetryStrategy retryStrategy) {
@@ -86,6 +89,9 @@ public class CompletionGate {
 
   public void setRetryStrategy(RetryStrategy retryStrategy) {
     this.retryStrategy = retryStrategy;
+    if (retryStrategy != null) {
+      this.unparsed |= retryStrategy.unparsed;
+    }
   }
 
   /**

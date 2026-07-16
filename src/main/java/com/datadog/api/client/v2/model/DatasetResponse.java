@@ -70,6 +70,9 @@ public class DatasetResponse {
 
   public void setAttributes(DatasetAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DatasetResponse id(String id) {

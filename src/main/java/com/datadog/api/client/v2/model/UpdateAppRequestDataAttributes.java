@@ -51,8 +51,10 @@ public class UpdateAppRequestDataAttributes {
 
   public UpdateAppRequestDataAttributes components(List<ComponentGrid> components) {
     this.components = components;
-    for (ComponentGrid item : components) {
-      this.unparsed |= item.unparsed;
+    if (components != null) {
+      for (ComponentGrid item : components) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -81,6 +83,11 @@ public class UpdateAppRequestDataAttributes {
 
   public void setComponents(List<ComponentGrid> components) {
     this.components = components;
+    if (components != null) {
+      for (ComponentGrid item : components) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpdateAppRequestDataAttributes description(String description) {
@@ -127,8 +134,10 @@ public class UpdateAppRequestDataAttributes {
 
   public UpdateAppRequestDataAttributes queries(List<Query> queries) {
     this.queries = queries;
-    for (Query item : queries) {
-      this.unparsed |= item.unparsed;
+    if (queries != null) {
+      for (Query item : queries) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -157,6 +166,11 @@ public class UpdateAppRequestDataAttributes {
 
   public void setQueries(List<Query> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (Query item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpdateAppRequestDataAttributes rootInstanceName(String rootInstanceName) {

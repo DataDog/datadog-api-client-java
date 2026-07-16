@@ -70,6 +70,9 @@ public class OwnershipHistoryData {
 
   public void setAttributes(OwnershipHistoryAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OwnershipHistoryData id(String id) {

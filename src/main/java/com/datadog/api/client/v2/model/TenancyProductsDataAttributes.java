@@ -33,8 +33,10 @@ public class TenancyProductsDataAttributes {
   public TenancyProductsDataAttributes products(
       List<TenancyProductsDataAttributesProductsItems> products) {
     this.products = products;
-    for (TenancyProductsDataAttributesProductsItems item : products) {
-      this.unparsed |= item.unparsed;
+    if (products != null) {
+      for (TenancyProductsDataAttributesProductsItems item : products) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -63,6 +65,11 @@ public class TenancyProductsDataAttributes {
 
   public void setProducts(List<TenancyProductsDataAttributesProductsItems> products) {
     this.products = products;
+    if (products != null) {
+      for (TenancyProductsDataAttributesProductsItems item : products) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -55,6 +55,9 @@ public class CreateIncidentNotificationRuleRequest {
 
   public void setData(IncidentNotificationRuleCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -103,6 +103,9 @@ public class ObservabilityPipelineAmazonDataFirehoseSource {
 
   public void setAuth(ObservabilityPipelineAwsAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonDataFirehoseSource id(String id) {
@@ -146,6 +149,9 @@ public class ObservabilityPipelineAmazonDataFirehoseSource {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+    if (tls != null) {
+      this.unparsed |= tls.unparsed;
+    }
   }
 
   public ObservabilityPipelineAmazonDataFirehoseSource type(

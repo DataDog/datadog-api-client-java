@@ -157,8 +157,10 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
   public ObservabilityPipelineGenerateMetricsProcessor metrics(
       List<ObservabilityPipelineGeneratedMetric> metrics) {
     this.metrics = metrics;
-    for (ObservabilityPipelineGeneratedMetric item : metrics) {
-      this.unparsed |= item.unparsed;
+    if (metrics != null) {
+      for (ObservabilityPipelineGeneratedMetric item : metrics) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -187,6 +189,11 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
 
   public void setMetrics(List<ObservabilityPipelineGeneratedMetric> metrics) {
     this.metrics = metrics;
+    if (metrics != null) {
+      for (ObservabilityPipelineGeneratedMetric item : metrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ObservabilityPipelineGenerateMetricsProcessor type(

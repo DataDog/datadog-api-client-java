@@ -62,12 +62,17 @@ public class OnCallNotificationRule {
 
   public void setData(OnCallNotificationRuleData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public OnCallNotificationRule included(List<OnCallNotificationRulesIncluded> included) {
     this.included = included;
-    for (OnCallNotificationRulesIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (OnCallNotificationRulesIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -95,6 +100,11 @@ public class OnCallNotificationRule {
 
   public void setIncluded(List<OnCallNotificationRulesIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (OnCallNotificationRulesIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -71,6 +71,9 @@ public class LLMObsPatternsTopicsResponseAttributes {
     this.previousRunId = previousRunId;
     this.runId = runId;
     this.topics = topics;
+    for (LLMObsPatternsTopic item : topics) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsPatternsTopicsResponseAttributes completedAt(OffsetDateTime completedAt) {
@@ -145,6 +148,9 @@ public class LLMObsPatternsTopicsResponseAttributes {
 
   public void setConfigSnapshot(LLMObsPatternsConfigSnapshot configSnapshot) {
     this.configSnapshot = configSnapshot;
+    if (configSnapshot != null) {
+      this.unparsed |= configSnapshot.unparsed;
+    }
   }
 
   public LLMObsPatternsTopicsResponseAttributes createdAt(OffsetDateTime createdAt) {
@@ -234,6 +240,11 @@ public class LLMObsPatternsTopicsResponseAttributes {
 
   public void setTopics(List<LLMObsPatternsTopic> topics) {
     this.topics = topics;
+    if (topics != null) {
+      for (LLMObsPatternsTopic item : topics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

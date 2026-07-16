@@ -39,8 +39,10 @@ public class UpsertCatalogEntityResponse {
 
   public UpsertCatalogEntityResponse data(List<EntityData> data) {
     this.data = data;
-    for (EntityData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (EntityData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -68,13 +70,20 @@ public class UpsertCatalogEntityResponse {
 
   public void setData(List<EntityData> data) {
     this.data = data;
+    if (data != null) {
+      for (EntityData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpsertCatalogEntityResponse included(
       List<UpsertCatalogEntityResponseIncludedItem> included) {
     this.included = included;
-    for (UpsertCatalogEntityResponseIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (UpsertCatalogEntityResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -103,6 +112,11 @@ public class UpsertCatalogEntityResponse {
 
   public void setIncluded(List<UpsertCatalogEntityResponseIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (UpsertCatalogEntityResponseIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public UpsertCatalogEntityResponse meta(EntityResponseMeta meta) {
@@ -125,6 +139,9 @@ public class UpsertCatalogEntityResponse {
 
   public void setMeta(EntityResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

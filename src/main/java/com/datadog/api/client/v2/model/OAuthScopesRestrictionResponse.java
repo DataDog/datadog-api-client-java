@@ -55,6 +55,9 @@ public class OAuthScopesRestrictionResponse {
 
   public void setData(OAuthScopesRestrictionResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

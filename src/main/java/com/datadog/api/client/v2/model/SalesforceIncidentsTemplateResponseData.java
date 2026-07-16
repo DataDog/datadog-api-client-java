@@ -73,6 +73,9 @@ public class SalesforceIncidentsTemplateResponseData {
 
   public void setAttributes(SalesforceIncidentsTemplateResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SalesforceIncidentsTemplateResponseData id(String id) {

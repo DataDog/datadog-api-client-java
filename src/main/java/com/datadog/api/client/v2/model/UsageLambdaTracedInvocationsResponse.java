@@ -29,8 +29,10 @@ public class UsageLambdaTracedInvocationsResponse {
 
   public UsageLambdaTracedInvocationsResponse data(List<UsageDataObject> data) {
     this.data = data;
-    for (UsageDataObject item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (UsageDataObject item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class UsageLambdaTracedInvocationsResponse {
 
   public void setData(List<UsageDataObject> data) {
     this.data = data;
+    if (data != null) {
+      for (UsageDataObject item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

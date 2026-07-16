@@ -472,6 +472,9 @@ public class NetworkHealthInsightAttributes {
 
   public void setTrafficVolume(NetworkHealthInsightTrafficVolume trafficVolume) {
     this.trafficVolume = trafficVolume;
+    if (trafficVolume != null) {
+      this.unparsed |= trafficVolume.unparsed;
+    }
   }
 
   public NetworkHealthInsightAttributes type(NetworkHealthInsightCategory type) {

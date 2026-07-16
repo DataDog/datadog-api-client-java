@@ -30,8 +30,10 @@ public class GetMappingResponseDataAttributes {
   public GetMappingResponseDataAttributes attributes(
       List<GetMappingResponseDataAttributesAttributesItems> attributes) {
     this.attributes = attributes;
-    for (GetMappingResponseDataAttributesAttributesItems item : attributes) {
-      this.unparsed |= item.unparsed;
+    if (attributes != null) {
+      for (GetMappingResponseDataAttributesAttributesItems item : attributes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class GetMappingResponseDataAttributes {
 
   public void setAttributes(List<GetMappingResponseDataAttributesAttributesItems> attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      for (GetMappingResponseDataAttributesAttributesItems item : attributes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

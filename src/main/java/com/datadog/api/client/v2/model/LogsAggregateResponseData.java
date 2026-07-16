@@ -29,8 +29,10 @@ public class LogsAggregateResponseData {
 
   public LogsAggregateResponseData buckets(List<LogsAggregateBucket> buckets) {
     this.buckets = buckets;
-    for (LogsAggregateBucket item : buckets) {
-      this.unparsed |= item.unparsed;
+    if (buckets != null) {
+      for (LogsAggregateBucket item : buckets) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class LogsAggregateResponseData {
 
   public void setBuckets(List<LogsAggregateBucket> buckets) {
     this.buckets = buckets;
+    if (buckets != null) {
+      for (LogsAggregateBucket item : buckets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

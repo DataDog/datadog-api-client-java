@@ -111,6 +111,9 @@ public class RumSdkConfigDynamicOption {
 
   public void setExtractor(RumSdkConfigSerializedRegex extractor) {
     this.extractor = extractor;
+    if (extractor != null) {
+      this.unparsed |= extractor.unparsed;
+    }
   }
 
   public RumSdkConfigDynamicOption key(String key) {

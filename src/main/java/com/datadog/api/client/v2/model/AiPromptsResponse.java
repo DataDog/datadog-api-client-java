@@ -34,6 +34,9 @@ public class AiPromptsResponse {
   public AiPromptsResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AiPromptResponseData> data) {
     this.data = data;
+    for (AiPromptResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AiPromptsResponse data(List<AiPromptResponseData> data) {
@@ -63,6 +66,11 @@ public class AiPromptsResponse {
 
   public void setData(List<AiPromptResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (AiPromptResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

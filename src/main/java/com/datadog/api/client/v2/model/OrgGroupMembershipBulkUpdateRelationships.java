@@ -66,6 +66,9 @@ public class OrgGroupMembershipBulkUpdateRelationships {
 
   public void setSourceOrgGroup(OrgGroupRelationshipToOne sourceOrgGroup) {
     this.sourceOrgGroup = sourceOrgGroup;
+    if (sourceOrgGroup != null) {
+      this.unparsed |= sourceOrgGroup.unparsed;
+    }
   }
 
   public OrgGroupMembershipBulkUpdateRelationships targetOrgGroup(
@@ -88,6 +91,9 @@ public class OrgGroupMembershipBulkUpdateRelationships {
 
   public void setTargetOrgGroup(OrgGroupRelationshipToOne targetOrgGroup) {
     this.targetOrgGroup = targetOrgGroup;
+    if (targetOrgGroup != null) {
+      this.unparsed |= targetOrgGroup.unparsed;
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class IncidentUserDefinedFieldCreateRelationships {
 
   public void setIncidentType(RelationshipToIncidentType incidentType) {
     this.incidentType = incidentType;
+    if (incidentType != null) {
+      this.unparsed |= incidentType.unparsed;
+    }
   }
 
   /**

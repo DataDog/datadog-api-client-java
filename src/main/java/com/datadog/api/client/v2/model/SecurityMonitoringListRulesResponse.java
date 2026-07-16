@@ -35,8 +35,10 @@ public class SecurityMonitoringListRulesResponse {
 
   public SecurityMonitoringListRulesResponse data(List<SecurityMonitoringRuleResponse> data) {
     this.data = data;
-    for (SecurityMonitoringRuleResponse item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (SecurityMonitoringRuleResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -64,6 +66,11 @@ public class SecurityMonitoringListRulesResponse {
 
   public void setData(List<SecurityMonitoringRuleResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringRuleResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SecurityMonitoringListRulesResponse meta(ResponseMetaAttributes meta) {
@@ -86,6 +93,9 @@ public class SecurityMonitoringListRulesResponse {
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

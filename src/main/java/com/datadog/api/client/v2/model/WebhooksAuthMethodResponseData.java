@@ -74,6 +74,9 @@ public class WebhooksAuthMethodResponseData {
 
   public void setAttributes(WebhooksAuthMethodAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public WebhooksAuthMethodResponseData id(String id) {
@@ -117,6 +120,9 @@ public class WebhooksAuthMethodResponseData {
 
   public void setRelationships(WebhooksAuthMethodRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public WebhooksAuthMethodResponseData type(WebhooksAuthMethodType type) {

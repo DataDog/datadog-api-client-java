@@ -83,6 +83,9 @@ public class CustomDestinationForwardDestinationElasticsearch {
 
   public void setAuth(CustomDestinationElasticsearchDestinationAuth auth) {
     this.auth = auth;
+    if (auth != null) {
+      this.unparsed |= auth.unparsed;
+    }
   }
 
   public CustomDestinationForwardDestinationElasticsearch endpoint(String endpoint) {

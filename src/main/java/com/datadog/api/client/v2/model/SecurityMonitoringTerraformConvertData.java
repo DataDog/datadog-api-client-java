@@ -70,6 +70,9 @@ public class SecurityMonitoringTerraformConvertData {
 
   public void setAttributes(SecurityMonitoringTerraformConvertAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public SecurityMonitoringTerraformConvertData id(String id) {

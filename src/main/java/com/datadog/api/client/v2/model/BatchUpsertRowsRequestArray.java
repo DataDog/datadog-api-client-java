@@ -35,6 +35,9 @@ public class BatchUpsertRowsRequestArray {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<BatchUpsertRowsRequestData> data) {
     this.data = data;
+    for (BatchUpsertRowsRequestData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public BatchUpsertRowsRequestArray data(List<BatchUpsertRowsRequestData> data) {
@@ -64,6 +67,11 @@ public class BatchUpsertRowsRequestArray {
 
   public void setData(List<BatchUpsertRowsRequestData> data) {
     this.data = data;
+    if (data != null) {
+      for (BatchUpsertRowsRequestData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

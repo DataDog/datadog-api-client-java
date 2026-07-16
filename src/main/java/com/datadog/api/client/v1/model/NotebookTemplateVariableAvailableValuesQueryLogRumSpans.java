@@ -45,6 +45,9 @@ public class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
           NotebookTemplateVariableAvailableValuesQuerySearch search) {
     this.dataSource = dataSource;
     this.groupBy = groupBy;
+    for (NotebookTemplateVariableAvailableValuesQueryGroupBy item : groupBy) {
+      this.unparsed |= item.unparsed;
+    }
     this.search = search;
     this.unparsed |= search.unparsed;
   }
@@ -99,6 +102,11 @@ public class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
 
   public void setGroupBy(List<NotebookTemplateVariableAvailableValuesQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
+    if (groupBy != null) {
+      for (NotebookTemplateVariableAvailableValuesQueryGroupBy item : groupBy) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public NotebookTemplateVariableAvailableValuesQueryLogRumSpans search(
@@ -121,6 +129,9 @@ public class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
 
   public void setSearch(NotebookTemplateVariableAvailableValuesQuerySearch search) {
     this.search = search;
+    if (search != null) {
+      this.unparsed |= search.unparsed;
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class AppVersion {
 
   public void setAttributes(AppVersionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AppVersion id(UUID id) {

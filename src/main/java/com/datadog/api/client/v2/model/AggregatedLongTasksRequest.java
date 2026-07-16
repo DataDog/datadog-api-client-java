@@ -55,6 +55,9 @@ public class AggregatedLongTasksRequest {
 
   public void setData(AggregatedLongTasksRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

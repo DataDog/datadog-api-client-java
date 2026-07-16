@@ -55,6 +55,9 @@ public class CsmAgentData {
 
   public void setAttributes(CsmAgentsAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CsmAgentData id(String id) {

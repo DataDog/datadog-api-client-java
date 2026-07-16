@@ -29,8 +29,10 @@ public class ApplicationSecurityPolicyListResponse {
 
   public ApplicationSecurityPolicyListResponse data(List<ApplicationSecurityPolicyData> data) {
     this.data = data;
-    for (ApplicationSecurityPolicyData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ApplicationSecurityPolicyData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class ApplicationSecurityPolicyListResponse {
 
   public void setData(List<ApplicationSecurityPolicyData> data) {
     this.data = data;
+    if (data != null) {
+      for (ApplicationSecurityPolicyData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

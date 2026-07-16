@@ -70,6 +70,9 @@ public class CsmAgentlessHostFacetData {
 
   public void setAttributes(CsmAgentlessHostFacetAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CsmAgentlessHostFacetData id(String id) {

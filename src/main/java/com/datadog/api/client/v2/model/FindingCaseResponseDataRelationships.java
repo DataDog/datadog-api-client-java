@@ -55,6 +55,9 @@ public class FindingCaseResponseDataRelationships {
 
   public void setCreatedBy(RelationshipToUser createdBy) {
     this.createdBy = createdBy;
+    if (createdBy != null) {
+      this.unparsed |= createdBy.unparsed;
+    }
   }
 
   public FindingCaseResponseDataRelationships modifiedBy(RelationshipToUser modifiedBy) {
@@ -77,6 +80,9 @@ public class FindingCaseResponseDataRelationships {
 
   public void setModifiedBy(RelationshipToUser modifiedBy) {
     this.modifiedBy = modifiedBy;
+    if (modifiedBy != null) {
+      this.unparsed |= modifiedBy.unparsed;
+    }
   }
 
   public FindingCaseResponseDataRelationships project(CaseManagementProject project) {
@@ -99,6 +105,9 @@ public class FindingCaseResponseDataRelationships {
 
   public void setProject(CaseManagementProject project) {
     this.project = project;
+    if (project != null) {
+      this.unparsed |= project.unparsed;
+    }
   }
 
   /**

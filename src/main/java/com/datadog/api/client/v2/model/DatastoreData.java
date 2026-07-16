@@ -65,6 +65,9 @@ public class DatastoreData {
 
   public void setAttributes(DatastoreDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DatastoreData id(String id) {

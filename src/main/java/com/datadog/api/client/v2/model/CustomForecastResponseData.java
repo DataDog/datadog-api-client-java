@@ -70,6 +70,9 @@ public class CustomForecastResponseData {
 
   public void setAttributes(CustomForecastResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CustomForecastResponseData id(String id) {

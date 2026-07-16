@@ -107,8 +107,10 @@ public class SyntheticsFastTestResultDetail {
   public SyntheticsFastTestResultDetail assertions(
       List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
-    for (SyntheticsTestResultAssertionResult item : assertions) {
-      this.unparsed |= item.unparsed;
+    if (assertions != null) {
+      for (SyntheticsTestResultAssertionResult item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -137,6 +139,11 @@ public class SyntheticsFastTestResultDetail {
 
   public void setAssertions(List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
+    if (assertions != null) {
+      for (SyntheticsTestResultAssertionResult item : assertions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsFastTestResultDetail callType(String callType) {
@@ -181,6 +188,9 @@ public class SyntheticsFastTestResultDetail {
 
   public void setCert(SyntheticsTestResultCertificate cert) {
     this.cert = cert;
+    if (cert != null) {
+      this.unparsed |= cert.unparsed;
+    }
   }
 
   public SyntheticsFastTestResultDetail duration(Double duration) {
@@ -224,6 +234,9 @@ public class SyntheticsFastTestResultDetail {
 
   public void setFailure(SyntheticsTestResultFailure failure) {
     this.failure = failure;
+    if (failure != null) {
+      this.unparsed |= failure.unparsed;
+    }
   }
 
   public SyntheticsFastTestResultDetail finishedAt(Long finishedAt) {
@@ -309,6 +322,9 @@ public class SyntheticsFastTestResultDetail {
 
   public void setRequest(SyntheticsTestResultRequestInfo request) {
     this.request = request;
+    if (request != null) {
+      this.unparsed |= request.unparsed;
+    }
   }
 
   public SyntheticsFastTestResultDetail resolvedIp(String resolvedIp) {
@@ -352,6 +368,9 @@ public class SyntheticsFastTestResultDetail {
 
   public void setResponse(SyntheticsTestResultResponseInfo response) {
     this.response = response;
+    if (response != null) {
+      this.unparsed |= response.unparsed;
+    }
   }
 
   public SyntheticsFastTestResultDetail runType(SyntheticsTestResultRunType runType) {
@@ -423,8 +442,10 @@ public class SyntheticsFastTestResultDetail {
 
   public SyntheticsFastTestResultDetail steps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
-    for (SyntheticsTestResultStep item : steps) {
-      this.unparsed |= item.unparsed;
+    if (steps != null) {
+      for (SyntheticsTestResultStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -452,6 +473,11 @@ public class SyntheticsFastTestResultDetail {
 
   public void setSteps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
+    if (steps != null) {
+      for (SyntheticsTestResultStep item : steps) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsFastTestResultDetail timings(Map<String, Object> timings) {
@@ -486,8 +512,10 @@ public class SyntheticsFastTestResultDetail {
   public SyntheticsFastTestResultDetail traceroute(
       List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
-    for (SyntheticsTestResultTracerouteHop item : traceroute) {
-      this.unparsed |= item.unparsed;
+    if (traceroute != null) {
+      for (SyntheticsTestResultTracerouteHop item : traceroute) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -516,6 +544,11 @@ public class SyntheticsFastTestResultDetail {
 
   public void setTraceroute(List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
+    if (traceroute != null) {
+      for (SyntheticsTestResultTracerouteHop item : traceroute) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SyntheticsFastTestResultDetail triggeredAt(Long triggeredAt) {

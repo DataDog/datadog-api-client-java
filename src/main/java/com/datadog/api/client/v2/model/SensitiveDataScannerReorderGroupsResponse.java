@@ -45,6 +45,9 @@ public class SensitiveDataScannerReorderGroupsResponse {
 
   public void setMeta(SensitiveDataScannerMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

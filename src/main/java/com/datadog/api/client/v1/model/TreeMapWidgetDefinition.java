@@ -74,6 +74,9 @@ public class TreeMapWidgetDefinition {
           List<TreeMapWidgetRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TreeMapWidgetDefinitionType type) {
     this.requests = requests;
+    for (TreeMapWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -108,8 +111,10 @@ public class TreeMapWidgetDefinition {
 
   public TreeMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
-    for (WidgetCustomLink item : customLinks) {
-      this.unparsed |= item.unparsed;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -137,6 +142,11 @@ public class TreeMapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    if (customLinks != null) {
+      for (WidgetCustomLink item : customLinks) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TreeMapWidgetDefinition description(String description) {
@@ -215,6 +225,11 @@ public class TreeMapWidgetDefinition {
 
   public void setRequests(List<TreeMapWidgetRequest> requests) {
     this.requests = requests;
+    if (requests != null) {
+      for (TreeMapWidgetRequest item : requests) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TreeMapWidgetDefinition sizeBy(TreeMapSizeBy sizeBy) {
@@ -265,6 +280,9 @@ public class TreeMapWidgetDefinition {
 
   public void setTime(WidgetTime time) {
     this.time = time;
+    if (time != null) {
+      this.unparsed |= time.unparsed;
+    }
   }
 
   public TreeMapWidgetDefinition title(String title) {

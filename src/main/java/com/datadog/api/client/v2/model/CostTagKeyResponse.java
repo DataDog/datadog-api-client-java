@@ -54,6 +54,9 @@ public class CostTagKeyResponse {
 
   public void setData(CostTagKey data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

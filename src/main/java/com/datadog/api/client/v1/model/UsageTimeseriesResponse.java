@@ -29,8 +29,10 @@ public class UsageTimeseriesResponse {
 
   public UsageTimeseriesResponse usage(List<UsageTimeseriesHour> usage) {
     this.usage = usage;
-    for (UsageTimeseriesHour item : usage) {
-      this.unparsed |= item.unparsed;
+    if (usage != null) {
+      for (UsageTimeseriesHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -58,6 +60,11 @@ public class UsageTimeseriesResponse {
 
   public void setUsage(List<UsageTimeseriesHour> usage) {
     this.usage = usage;
+    if (usage != null) {
+      for (UsageTimeseriesHour item : usage) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

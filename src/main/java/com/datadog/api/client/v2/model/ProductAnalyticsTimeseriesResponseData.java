@@ -57,6 +57,9 @@ public class ProductAnalyticsTimeseriesResponseData {
 
   public void setAttributes(ProductAnalyticsTimeseriesResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ProductAnalyticsTimeseriesResponseData id(String id) {

@@ -76,6 +76,9 @@ public class SyntheticsTestResultGit {
 
   public void setCommit(SyntheticsTestResultGitCommit commit) {
     this.commit = commit;
+    if (commit != null) {
+      this.unparsed |= commit.unparsed;
+    }
   }
 
   public SyntheticsTestResultGit repositoryUrl(String repositoryUrl) {

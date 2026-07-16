@@ -59,6 +59,9 @@ public class SyntheticsTestResultCI {
 
   public void setPipeline(SyntheticsTestResultCIPipeline pipeline) {
     this.pipeline = pipeline;
+    if (pipeline != null) {
+      this.unparsed |= pipeline.unparsed;
+    }
   }
 
   public SyntheticsTestResultCI provider(SyntheticsTestResultCIProvider provider) {
@@ -81,6 +84,9 @@ public class SyntheticsTestResultCI {
 
   public void setProvider(SyntheticsTestResultCIProvider provider) {
     this.provider = provider;
+    if (provider != null) {
+      this.unparsed |= provider.unparsed;
+    }
   }
 
   public SyntheticsTestResultCI stage(SyntheticsTestResultCIStage stage) {
@@ -103,6 +109,9 @@ public class SyntheticsTestResultCI {
 
   public void setStage(SyntheticsTestResultCIStage stage) {
     this.stage = stage;
+    if (stage != null) {
+      this.unparsed |= stage.unparsed;
+    }
   }
 
   public SyntheticsTestResultCI workspacePath(String workspacePath) {

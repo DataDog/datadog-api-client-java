@@ -117,6 +117,9 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
 
   public void setLlmJudgeConfig(LLMObsCustomEvalConfigLLMJudgeConfig llmJudgeConfig) {
     this.llmJudgeConfig = llmJudgeConfig;
+    if (llmJudgeConfig != null) {
+      this.unparsed |= llmJudgeConfig.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigUpdateAttributes llmProvider(
@@ -140,6 +143,9 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
 
   public void setLlmProvider(LLMObsCustomEvalConfigLLMProvider llmProvider) {
     this.llmProvider = llmProvider;
+    if (llmProvider != null) {
+      this.unparsed |= llmProvider.unparsed;
+    }
   }
 
   public LLMObsCustomEvalConfigUpdateAttributes target(LLMObsCustomEvalConfigTarget target) {
@@ -161,6 +167,9 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
 
   public void setTarget(LLMObsCustomEvalConfigTarget target) {
     this.target = target;
+    if (target != null) {
+      this.unparsed |= target.unparsed;
+    }
   }
 
   /**

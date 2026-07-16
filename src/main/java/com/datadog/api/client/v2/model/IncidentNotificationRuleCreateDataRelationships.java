@@ -52,6 +52,9 @@ public class IncidentNotificationRuleCreateDataRelationships {
 
   public void setIncidentType(RelationshipToIncidentType incidentType) {
     this.incidentType = incidentType;
+    if (incidentType != null) {
+      this.unparsed |= incidentType.unparsed;
+    }
   }
 
   public IncidentNotificationRuleCreateDataRelationships notificationTemplate(
@@ -76,6 +79,9 @@ public class IncidentNotificationRuleCreateDataRelationships {
   public void setNotificationTemplate(
       RelationshipToIncidentNotificationTemplate notificationTemplate) {
     this.notificationTemplate = notificationTemplate;
+    if (notificationTemplate != null) {
+      this.unparsed |= notificationTemplate.unparsed;
+    }
   }
 
   /**

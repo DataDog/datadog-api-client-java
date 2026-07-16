@@ -35,6 +35,9 @@ public class SecurityMonitoringSignalsBulkUpdateRequest {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<SecurityMonitoringSignalsBulkUpdateData> data) {
     this.data = data;
+    for (SecurityMonitoringSignalsBulkUpdateData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public SecurityMonitoringSignalsBulkUpdateRequest data(
@@ -66,6 +69,11 @@ public class SecurityMonitoringSignalsBulkUpdateRequest {
 
   public void setData(List<SecurityMonitoringSignalsBulkUpdateData> data) {
     this.data = data;
+    if (data != null) {
+      for (SecurityMonitoringSignalsBulkUpdateData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

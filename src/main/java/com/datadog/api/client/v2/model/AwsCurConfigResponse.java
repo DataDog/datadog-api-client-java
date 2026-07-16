@@ -45,6 +45,9 @@ public class AwsCurConfigResponse {
 
   public void setData(AwsCurConfigResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

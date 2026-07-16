@@ -70,6 +70,9 @@ public class AssigneeResponseData {
 
   public void setAttributes(AssigneeResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AssigneeResponseData id(String id) {

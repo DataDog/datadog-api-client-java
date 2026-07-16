@@ -66,6 +66,9 @@ public class ServiceRepositoryInfoRequestData {
 
   public void setAttributes(ServiceRepositoryInfoRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceRepositoryInfoRequestData type(ServiceRepositoryInfoDataType type) {

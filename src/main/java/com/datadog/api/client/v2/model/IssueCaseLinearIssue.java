@@ -76,6 +76,9 @@ public class IssueCaseLinearIssue {
 
   public void setResult(IssueCaseLinearIssueResult result) {
     this.result = result;
+    if (result != null) {
+      this.unparsed |= result.unparsed;
+    }
   }
 
   public IssueCaseLinearIssue status(String status) {

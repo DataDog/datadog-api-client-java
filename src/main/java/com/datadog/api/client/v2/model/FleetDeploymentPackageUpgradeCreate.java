@@ -65,6 +65,9 @@ public class FleetDeploymentPackageUpgradeCreate {
 
   public void setAttributes(FleetDeploymentPackageUpgradeAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public FleetDeploymentPackageUpgradeCreate type(FleetDeploymentResourceType type) {

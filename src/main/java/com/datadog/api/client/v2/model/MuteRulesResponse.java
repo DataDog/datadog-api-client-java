@@ -47,6 +47,9 @@ public class MuteRulesResponse {
           SecurityAutomationRulesLinks links,
       @JsonProperty(required = true, value = JSON_PROPERTY_META) SecurityAutomationRulesMeta meta) {
     this.data = data;
+    for (MuteRuleDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
     this.links = links;
     this.unparsed |= links.unparsed;
     this.meta = meta;
@@ -80,6 +83,11 @@ public class MuteRulesResponse {
 
   public void setData(List<MuteRuleDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (MuteRuleDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public MuteRulesResponse links(SecurityAutomationRulesLinks links) {
@@ -101,6 +109,9 @@ public class MuteRulesResponse {
 
   public void setLinks(SecurityAutomationRulesLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   public MuteRulesResponse meta(SecurityAutomationRulesMeta meta) {
@@ -122,6 +133,9 @@ public class MuteRulesResponse {
 
   public void setMeta(SecurityAutomationRulesMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

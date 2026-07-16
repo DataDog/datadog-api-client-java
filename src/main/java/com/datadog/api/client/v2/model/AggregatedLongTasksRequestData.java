@@ -66,6 +66,9 @@ public class AggregatedLongTasksRequestData {
 
   public void setAttributes(AggregatedLongTasksRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AggregatedLongTasksRequestData type(AggregatedLongTasksRequestType type) {

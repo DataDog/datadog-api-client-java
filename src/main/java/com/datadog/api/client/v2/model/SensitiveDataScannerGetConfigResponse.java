@@ -58,13 +58,18 @@ public class SensitiveDataScannerGetConfigResponse {
 
   public void setData(SensitiveDataScannerGetConfigResponseData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public SensitiveDataScannerGetConfigResponse included(
       List<SensitiveDataScannerGetConfigIncludedItem> included) {
     this.included = included;
-    for (SensitiveDataScannerGetConfigIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (SensitiveDataScannerGetConfigIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -93,6 +98,11 @@ public class SensitiveDataScannerGetConfigResponse {
 
   public void setIncluded(List<SensitiveDataScannerGetConfigIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (SensitiveDataScannerGetConfigIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public SensitiveDataScannerGetConfigResponse meta(SensitiveDataScannerMeta meta) {
@@ -115,6 +125,9 @@ public class SensitiveDataScannerGetConfigResponse {
 
   public void setMeta(SensitiveDataScannerMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

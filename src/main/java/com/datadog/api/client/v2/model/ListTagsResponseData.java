@@ -55,6 +55,9 @@ public class ListTagsResponseData {
 
   public void setAttributes(ListTagsResponseDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ListTagsResponseData id(String id) {

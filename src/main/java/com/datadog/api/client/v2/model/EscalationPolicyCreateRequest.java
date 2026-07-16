@@ -56,6 +56,9 @@ public class EscalationPolicyCreateRequest {
 
   public void setData(EscalationPolicyCreateRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

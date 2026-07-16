@@ -117,8 +117,10 @@ public class Monitor {
 
   public Monitor assets(List<MonitorAsset> assets) {
     this.assets = assets;
-    for (MonitorAsset item : assets) {
-      this.unparsed |= item.unparsed;
+    if (assets != null) {
+      for (MonitorAsset item : assets) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -147,6 +149,11 @@ public class Monitor {
 
   public void setAssets(List<MonitorAsset> assets) {
     this.assets = assets;
+    if (assets != null) {
+      for (MonitorAsset item : assets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -244,8 +251,10 @@ public class Monitor {
 
   public Monitor matchingDowntimes(List<MatchingDowntime> matchingDowntimes) {
     this.matchingDowntimes = matchingDowntimes;
-    for (MatchingDowntime item : matchingDowntimes) {
-      this.unparsed |= item.unparsed;
+    if (matchingDowntimes != null) {
+      for (MatchingDowntime item : matchingDowntimes) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -273,6 +282,11 @@ public class Monitor {
 
   public void setMatchingDowntimes(List<MatchingDowntime> matchingDowntimes) {
     this.matchingDowntimes = matchingDowntimes;
+    if (matchingDowntimes != null) {
+      for (MatchingDowntime item : matchingDowntimes) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public Monitor message(String message) {
@@ -361,6 +375,9 @@ public class Monitor {
 
   public void setOptions(MonitorOptions options) {
     this.options = options;
+    if (options != null) {
+      this.unparsed |= options.unparsed;
+    }
   }
 
   /**

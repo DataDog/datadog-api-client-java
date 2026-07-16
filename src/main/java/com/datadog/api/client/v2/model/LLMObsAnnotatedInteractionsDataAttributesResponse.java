@@ -37,6 +37,9 @@ public class LLMObsAnnotatedInteractionsDataAttributesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATED_INTERACTIONS)
           List<LLMObsAnnotatedInteractionItem> annotatedInteractions) {
     this.annotatedInteractions = annotatedInteractions;
+    for (LLMObsAnnotatedInteractionItem item : annotatedInteractions) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public LLMObsAnnotatedInteractionsDataAttributesResponse annotatedInteractions(
@@ -68,6 +71,11 @@ public class LLMObsAnnotatedInteractionsDataAttributesResponse {
 
   public void setAnnotatedInteractions(List<LLMObsAnnotatedInteractionItem> annotatedInteractions) {
     this.annotatedInteractions = annotatedInteractions;
+    if (annotatedInteractions != null) {
+      for (LLMObsAnnotatedInteractionItem item : annotatedInteractions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

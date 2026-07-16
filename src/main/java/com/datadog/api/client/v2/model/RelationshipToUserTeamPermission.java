@@ -84,6 +84,9 @@ public class RelationshipToUserTeamPermission {
 
   public void setLinks(TeamRelationshipsLinks links) {
     this.links = links;
+    if (links != null) {
+      this.unparsed |= links.unparsed;
+    }
   }
 
   /**

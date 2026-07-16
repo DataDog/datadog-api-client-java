@@ -61,6 +61,9 @@ public class CreateAppRequestData {
 
   public void setAttributes(CreateAppRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CreateAppRequestData type(AppDefinitionType type) {

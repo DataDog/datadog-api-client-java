@@ -54,6 +54,9 @@ public class OwnershipHistoryResponse {
 
   public void setData(OwnershipHistoryData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

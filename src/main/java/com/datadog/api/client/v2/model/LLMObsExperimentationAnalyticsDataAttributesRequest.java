@@ -56,6 +56,9 @@ public class LLMObsExperimentationAnalyticsDataAttributesRequest {
 
   public void setAggregate(LLMObsExperimentationAnalyticsAggregate aggregate) {
     this.aggregate = aggregate;
+    if (aggregate != null) {
+      this.unparsed |= aggregate.unparsed;
+    }
   }
 
   /**

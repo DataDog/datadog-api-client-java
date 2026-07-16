@@ -49,6 +49,9 @@ public class LLMObsPatternsClusteredPointsResponseAttributes {
     this.nextPageToken = nextPageToken;
     if (nextPageToken != null) {}
     this.points = points;
+    for (LLMObsPatternsClusteredPoint item : points) {
+      this.unparsed |= item.unparsed;
+    }
     this.topicId = topicId;
   }
 
@@ -103,6 +106,11 @@ public class LLMObsPatternsClusteredPointsResponseAttributes {
 
   public void setPoints(List<LLMObsPatternsClusteredPoint> points) {
     this.points = points;
+    if (points != null) {
+      for (LLMObsPatternsClusteredPoint item : points) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsPatternsClusteredPointsResponseAttributes topicId(String topicId) {

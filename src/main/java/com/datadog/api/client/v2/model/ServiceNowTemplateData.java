@@ -71,6 +71,9 @@ public class ServiceNowTemplateData {
 
   public void setAttributes(ServiceNowTemplateAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ServiceNowTemplateData id(UUID id) {

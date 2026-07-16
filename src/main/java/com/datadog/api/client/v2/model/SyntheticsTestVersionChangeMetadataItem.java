@@ -73,6 +73,9 @@ public class SyntheticsTestVersionChangeMetadataItem {
 
   public void setActionMetadata(SyntheticsTestVersionActionMetadata actionMetadata) {
     this.actionMetadata = actionMetadata;
+    if (actionMetadata != null) {
+      this.unparsed |= actionMetadata.unparsed;
+    }
   }
 
   /**

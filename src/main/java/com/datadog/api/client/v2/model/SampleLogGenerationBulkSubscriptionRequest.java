@@ -58,6 +58,9 @@ public class SampleLogGenerationBulkSubscriptionRequest {
 
   public void setData(SampleLogGenerationBulkSubscriptionData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

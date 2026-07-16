@@ -35,6 +35,9 @@ public class JiraIntegrationMetadata {
       @JsonProperty(required = true, value = JSON_PROPERTY_ISSUES)
           List<JiraIntegrationMetadataIssuesItem> issues) {
     this.issues = issues;
+    for (JiraIntegrationMetadataIssuesItem item : issues) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public JiraIntegrationMetadata issues(List<JiraIntegrationMetadataIssuesItem> issues) {
@@ -64,6 +67,11 @@ public class JiraIntegrationMetadata {
 
   public void setIssues(List<JiraIntegrationMetadataIssuesItem> issues) {
     this.issues = issues;
+    if (issues != null) {
+      for (JiraIntegrationMetadataIssuesItem item : issues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

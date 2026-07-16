@@ -45,6 +45,9 @@ public class AzureScanOptions {
 
   public void setData(AzureScanOptionsData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

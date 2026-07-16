@@ -76,6 +76,9 @@ public class NotificationRule {
 
   public void setAttributes(NotificationRuleAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public NotificationRule id(String id) {

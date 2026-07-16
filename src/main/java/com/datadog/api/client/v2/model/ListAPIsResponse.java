@@ -32,8 +32,10 @@ public class ListAPIsResponse {
 
   public ListAPIsResponse data(List<ListAPIsResponseData> data) {
     this.data = data;
-    for (ListAPIsResponseData item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ListAPIsResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -61,6 +63,11 @@ public class ListAPIsResponse {
 
   public void setData(List<ListAPIsResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (ListAPIsResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public ListAPIsResponse meta(ListAPIsResponseMeta meta) {
@@ -83,6 +90,9 @@ public class ListAPIsResponse {
 
   public void setMeta(ListAPIsResponseMeta meta) {
     this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   /**

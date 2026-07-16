@@ -45,6 +45,9 @@ public class ApplicationKeyRelationships {
 
   public void setOwnedBy(RelationshipToUser ownedBy) {
     this.ownedBy = ownedBy;
+    if (ownedBy != null) {
+      this.unparsed |= ownedBy.unparsed;
+    }
   }
 
   /**

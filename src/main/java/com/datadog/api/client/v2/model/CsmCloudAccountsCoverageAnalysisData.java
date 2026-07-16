@@ -56,6 +56,9 @@ public class CsmCloudAccountsCoverageAnalysisData {
 
   public void setAttributes(CsmCloudAccountsCoverageAnalysisAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public CsmCloudAccountsCoverageAnalysisData id(String id) {

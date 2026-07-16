@@ -42,6 +42,9 @@ public class LLMObsAnnotatedInteractionsByTraceDataAttributesResponse {
           List<LLMObsAnnotatedInteractionByTraceItem> annotatedInteractions,
       @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_COUNT) Integer totalCount) {
     this.annotatedInteractions = annotatedInteractions;
+    for (LLMObsAnnotatedInteractionByTraceItem item : annotatedInteractions) {
+      this.unparsed |= item.unparsed;
+    }
     this.totalCount = totalCount;
   }
 
@@ -75,6 +78,11 @@ public class LLMObsAnnotatedInteractionsByTraceDataAttributesResponse {
   public void setAnnotatedInteractions(
       List<LLMObsAnnotatedInteractionByTraceItem> annotatedInteractions) {
     this.annotatedInteractions = annotatedInteractions;
+    if (annotatedInteractions != null) {
+      for (LLMObsAnnotatedInteractionByTraceItem item : annotatedInteractions) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public LLMObsAnnotatedInteractionsByTraceDataAttributesResponse totalCount(Integer totalCount) {

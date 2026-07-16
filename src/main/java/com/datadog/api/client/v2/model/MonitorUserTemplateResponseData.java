@@ -57,6 +57,9 @@ public class MonitorUserTemplateResponseData {
 
   public void setAttributes(MonitorUserTemplateResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public MonitorUserTemplateResponseData id(String id) {

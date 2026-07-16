@@ -45,6 +45,9 @@ public class TeamRef {
 
   public void setData(TeamRefData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

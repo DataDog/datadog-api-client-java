@@ -54,6 +54,9 @@ public class CaseTypeCreateRequest {
 
   public void setData(CaseTypeCreate data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

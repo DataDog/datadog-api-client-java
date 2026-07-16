@@ -78,6 +78,9 @@ public class ScheduleUpdateRequestData {
 
   public void setAttributes(ScheduleUpdateRequestDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScheduleUpdateRequestData id(String id) {
@@ -121,6 +124,9 @@ public class ScheduleUpdateRequestData {
 
   public void setRelationships(ScheduleUpdateRequestDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ScheduleUpdateRequestData type(ScheduleUpdateRequestDataType type) {

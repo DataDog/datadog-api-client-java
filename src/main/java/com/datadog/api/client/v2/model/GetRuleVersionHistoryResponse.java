@@ -45,6 +45,9 @@ public class GetRuleVersionHistoryResponse {
 
   public void setData(GetRuleVersionHistoryData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

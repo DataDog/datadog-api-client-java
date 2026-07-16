@@ -45,6 +45,9 @@ public class ProjectResponse {
 
   public void setData(Project data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

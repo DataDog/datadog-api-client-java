@@ -55,13 +55,18 @@ public class TimeseriesFormulaRequestAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to) {
     this.from = from;
     this.queries = queries;
+    for (TimeseriesQuery item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     this.to = to;
   }
 
   public TimeseriesFormulaRequestAttributes formulas(List<QueryFormula> formulas) {
     this.formulas = formulas;
-    for (QueryFormula item : formulas) {
-      this.unparsed |= item.unparsed;
+    if (formulas != null) {
+      for (QueryFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -89,6 +94,11 @@ public class TimeseriesFormulaRequestAttributes {
 
   public void setFormulas(List<QueryFormula> formulas) {
     this.formulas = formulas;
+    if (formulas != null) {
+      for (QueryFormula item : formulas) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesFormulaRequestAttributes from(Long from) {
@@ -161,6 +171,11 @@ public class TimeseriesFormulaRequestAttributes {
 
   public void setQueries(List<TimeseriesQuery> queries) {
     this.queries = queries;
+    if (queries != null) {
+      for (TimeseriesQuery item : queries) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public TimeseriesFormulaRequestAttributes to(Long to) {

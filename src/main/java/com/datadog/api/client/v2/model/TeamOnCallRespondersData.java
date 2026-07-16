@@ -89,6 +89,9 @@ public class TeamOnCallRespondersData {
 
   public void setRelationships(TeamOnCallRespondersDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public TeamOnCallRespondersData type(TeamOnCallRespondersDataType type) {

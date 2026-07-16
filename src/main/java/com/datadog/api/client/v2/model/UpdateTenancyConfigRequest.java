@@ -55,6 +55,9 @@ public class UpdateTenancyConfigRequest {
 
   public void setData(UpdateTenancyConfigData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

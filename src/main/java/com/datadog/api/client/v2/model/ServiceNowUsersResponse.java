@@ -34,6 +34,9 @@ public class ServiceNowUsersResponse {
   public ServiceNowUsersResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<ServiceNowUserData> data) {
     this.data = data;
+    for (ServiceNowUserData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public ServiceNowUsersResponse data(List<ServiceNowUserData> data) {
@@ -63,6 +66,11 @@ public class ServiceNowUsersResponse {
 
   public void setData(List<ServiceNowUserData> data) {
     this.data = data;
+    if (data != null) {
+      for (ServiceNowUserData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

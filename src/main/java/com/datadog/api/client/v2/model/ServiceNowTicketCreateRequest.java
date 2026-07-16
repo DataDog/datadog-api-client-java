@@ -54,6 +54,9 @@ public class ServiceNowTicketCreateRequest {
 
   public void setData(ServiceNowTicketCreateData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**
