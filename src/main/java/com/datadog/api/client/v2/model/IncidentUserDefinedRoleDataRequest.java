@@ -73,6 +73,9 @@ public class IncidentUserDefinedRoleDataRequest {
 
   public void setAttributes(IncidentUserDefinedRoleDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentUserDefinedRoleDataRequest relationships(
@@ -95,6 +98,9 @@ public class IncidentUserDefinedRoleDataRequest {
 
   public void setRelationships(IncidentUserDefinedRoleRelationshipsRequest relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentUserDefinedRoleDataRequest type(IncidentUserDefinedRoleType type) {

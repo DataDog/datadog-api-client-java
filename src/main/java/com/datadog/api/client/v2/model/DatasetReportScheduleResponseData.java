@@ -80,6 +80,9 @@ public class DatasetReportScheduleResponseData {
 
   public void setAttributes(DatasetReportScheduleResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public DatasetReportScheduleResponseData id(UUID id) {
@@ -122,6 +125,9 @@ public class DatasetReportScheduleResponseData {
 
   public void setRelationships(ReportScheduleResponseRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public DatasetReportScheduleResponseData type(ReportScheduleType type) {

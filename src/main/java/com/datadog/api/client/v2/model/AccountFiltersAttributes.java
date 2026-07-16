@@ -55,6 +55,9 @@ public class AccountFiltersAttributes {
 
   public void setAccountFilters(AccountFilteringConfig accountFilters) {
     this.accountFilters = accountFilters;
+    if (accountFilters != null) {
+      this.unparsed |= accountFilters.unparsed;
+    }
   }
 
   public AccountFiltersAttributes accountId(String accountId) {

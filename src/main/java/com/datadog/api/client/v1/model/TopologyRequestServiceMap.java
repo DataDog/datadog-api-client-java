@@ -16,47 +16,47 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request that will return nodes and edges to be used by topology map. */
+/** Request that returns nodes and edges from the service map data source. */
 @JsonPropertyOrder({
-  TopologyRequest.JSON_PROPERTY_QUERY,
-  TopologyRequest.JSON_PROPERTY_REQUEST_TYPE
+  TopologyRequestServiceMap.JSON_PROPERTY_QUERY,
+  TopologyRequestServiceMap.JSON_PROPERTY_REQUEST_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TopologyRequest {
+public class TopologyRequestServiceMap {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
-  private TopologyQuery query;
+  private TopologyQueryServiceMap query;
 
   public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
   private TopologyRequestType requestType;
 
-  public TopologyRequest query(TopologyQuery query) {
+  public TopologyRequestServiceMap query(TopologyQueryServiceMap query) {
     this.query = query;
     this.unparsed |= query.unparsed;
     return this;
   }
 
   /**
-   * Query to service-based topology data sources like the service map or data streams.
+   * Query to the service map topology data source.
    *
    * @return query
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TopologyQuery getQuery() {
+  public TopologyQueryServiceMap getQuery() {
     return query;
   }
 
-  public void setQuery(TopologyQuery query) {
+  public void setQuery(TopologyQueryServiceMap query) {
     this.query = query;
     if (query != null) {
       this.unparsed |= query.unparsed;
     }
   }
 
-  public TopologyRequest requestType(TopologyRequestType requestType) {
+  public TopologyRequestServiceMap requestType(TopologyRequestType requestType) {
     this.requestType = requestType;
     this.unparsed |= !requestType.isValid();
     return this;
@@ -93,10 +93,10 @@ public class TopologyRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TopologyRequest
+   * @return TopologyRequestServiceMap
    */
   @JsonAnySetter
-  public TopologyRequest putAdditionalProperty(String key, Object value) {
+  public TopologyRequestServiceMap putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -127,7 +127,7 @@ public class TopologyRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TopologyRequest object is equal to o. */
+  /** Return true if this TopologyRequestServiceMap object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,10 +136,11 @@ public class TopologyRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TopologyRequest topologyRequest = (TopologyRequest) o;
-    return Objects.equals(this.query, topologyRequest.query)
-        && Objects.equals(this.requestType, topologyRequest.requestType)
-        && Objects.equals(this.additionalProperties, topologyRequest.additionalProperties);
+    TopologyRequestServiceMap topologyRequestServiceMap = (TopologyRequestServiceMap) o;
+    return Objects.equals(this.query, topologyRequestServiceMap.query)
+        && Objects.equals(this.requestType, topologyRequestServiceMap.requestType)
+        && Objects.equals(
+            this.additionalProperties, topologyRequestServiceMap.additionalProperties);
   }
 
   @Override
@@ -150,7 +151,7 @@ public class TopologyRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TopologyRequest {\n");
+    sb.append("class TopologyRequestServiceMap {\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    additionalProperties: ")

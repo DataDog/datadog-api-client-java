@@ -75,6 +75,9 @@ public class OrgGroupPolicySuggestionData {
 
   public void setAttributes(OrgGroupPolicySuggestionAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public OrgGroupPolicySuggestionData id(String id) {
@@ -118,6 +121,9 @@ public class OrgGroupPolicySuggestionData {
 
   public void setRelationships(OrgGroupPolicySuggestionRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public OrgGroupPolicySuggestionData type(OrgGroupPolicySuggestionType type) {

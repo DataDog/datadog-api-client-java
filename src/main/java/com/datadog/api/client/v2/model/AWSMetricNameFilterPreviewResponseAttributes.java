@@ -35,6 +35,9 @@ public class AWSMetricNameFilterPreviewResponseAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_NAMESPACES)
           List<AWSMetricNameFilterPreviewNamespace> namespaces) {
     this.namespaces = namespaces;
+    for (AWSMetricNameFilterPreviewNamespace item : namespaces) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AWSMetricNameFilterPreviewResponseAttributes namespaces(
@@ -66,6 +69,11 @@ public class AWSMetricNameFilterPreviewResponseAttributes {
 
   public void setNamespaces(List<AWSMetricNameFilterPreviewNamespace> namespaces) {
     this.namespaces = namespaces;
+    if (namespaces != null) {
+      for (AWSMetricNameFilterPreviewNamespace item : namespaces) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
