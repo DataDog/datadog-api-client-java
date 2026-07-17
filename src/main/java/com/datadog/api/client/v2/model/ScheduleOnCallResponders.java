@@ -57,12 +57,17 @@ public class ScheduleOnCallResponders {
 
   public void setData(ScheduleOnCallRespondersData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public ScheduleOnCallResponders included(List<ScheduleOnCallRespondersIncluded> included) {
     this.included = included;
-    for (ScheduleOnCallRespondersIncluded item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ScheduleOnCallRespondersIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -91,6 +96,11 @@ public class ScheduleOnCallResponders {
 
   public void setIncluded(List<ScheduleOnCallRespondersIncluded> included) {
     this.included = included;
+    if (included != null) {
+      for (ScheduleOnCallRespondersIncluded item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

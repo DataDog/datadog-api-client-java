@@ -47,6 +47,9 @@ public class ScheduleOnCallResponderDataRelationships {
 
   public void setShifts(ScheduleOnCallResponderDataRelationshipsShifts shifts) {
     this.shifts = shifts;
+    if (shifts != null) {
+      this.unparsed |= shifts.unparsed;
+    }
   }
 
   /**

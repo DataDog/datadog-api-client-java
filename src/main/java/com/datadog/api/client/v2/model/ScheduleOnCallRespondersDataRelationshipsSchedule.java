@@ -46,6 +46,9 @@ public class ScheduleOnCallRespondersDataRelationshipsSchedule {
 
   public void setData(ScheduleOnCallRespondersDataRelationshipsScheduleData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

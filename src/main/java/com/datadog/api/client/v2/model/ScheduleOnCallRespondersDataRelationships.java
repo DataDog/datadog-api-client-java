@@ -55,6 +55,9 @@ public class ScheduleOnCallRespondersDataRelationships {
 
   public void setResponders(ScheduleOnCallRespondersDataRelationshipsResponders responders) {
     this.responders = responders;
+    if (responders != null) {
+      this.unparsed |= responders.unparsed;
+    }
   }
 
   public ScheduleOnCallRespondersDataRelationships schedule(
@@ -78,6 +81,9 @@ public class ScheduleOnCallRespondersDataRelationships {
 
   public void setSchedule(ScheduleOnCallRespondersDataRelationshipsSchedule schedule) {
     this.schedule = schedule;
+    if (schedule != null) {
+      this.unparsed |= schedule.unparsed;
+    }
   }
 
   /**

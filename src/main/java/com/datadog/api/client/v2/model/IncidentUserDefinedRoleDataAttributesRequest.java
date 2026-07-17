@@ -119,6 +119,9 @@ public class IncidentUserDefinedRoleDataAttributesRequest {
 
   public void setPolicy(IncidentUserDefinedRolePolicy policy) {
     this.policy = policy;
+    if (policy != null) {
+      this.unparsed |= policy.unparsed;
+    }
   }
 
   /**

@@ -139,8 +139,10 @@ public class AWSMetricsConfig {
 
   public AWSMetricsConfig metricNameFilters(List<AWSMetricNameFilters> metricNameFilters) {
     this.metricNameFilters = metricNameFilters;
-    for (AWSMetricNameFilters item : metricNameFilters) {
-      this.unparsed |= item.unparsed;
+    if (metricNameFilters != null) {
+      for (AWSMetricNameFilters item : metricNameFilters) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -169,6 +171,11 @@ public class AWSMetricsConfig {
 
   public void setMetricNameFilters(List<AWSMetricNameFilters> metricNameFilters) {
     this.metricNameFilters = metricNameFilters;
+    if (metricNameFilters != null) {
+      for (AWSMetricNameFilters item : metricNameFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AWSMetricsConfig namespaceFilters(AWSNamespaceFilters namespaceFilters) {

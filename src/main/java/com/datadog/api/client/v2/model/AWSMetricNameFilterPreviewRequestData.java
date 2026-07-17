@@ -67,6 +67,9 @@ public class AWSMetricNameFilterPreviewRequestData {
 
   public void setAttributes(AWSMetricNameFilterPreviewRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSMetricNameFilterPreviewRequestData type(AWSMetricNameFilterPreviewType type) {

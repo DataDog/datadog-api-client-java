@@ -54,6 +54,9 @@ public class PrintReportRequest {
 
   public void setData(PrintReportRequestData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

@@ -69,6 +69,9 @@ public class IncidentUserDefinedRolePatchDataRequest {
 
   public void setAttributes(IncidentUserDefinedRolePatchDataAttributesRequest attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentUserDefinedRolePatchDataRequest id(UUID id) {

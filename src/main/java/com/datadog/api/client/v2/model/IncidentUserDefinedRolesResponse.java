@@ -41,6 +41,9 @@ public class IncidentUserDefinedRolesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<IncidentUserDefinedRoleDataResponse> data) {
     this.data = data;
+    for (IncidentUserDefinedRoleDataResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public IncidentUserDefinedRolesResponse data(List<IncidentUserDefinedRoleDataResponse> data) {
@@ -71,13 +74,20 @@ public class IncidentUserDefinedRolesResponse {
 
   public void setData(List<IncidentUserDefinedRoleDataResponse> data) {
     this.data = data;
+    if (data != null) {
+      for (IncidentUserDefinedRoleDataResponse item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public IncidentUserDefinedRolesResponse included(
       List<IncidentUserDefinedRoleIncludedItem> included) {
     this.included = included;
-    for (IncidentUserDefinedRoleIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentUserDefinedRoleIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -106,6 +116,11 @@ public class IncidentUserDefinedRolesResponse {
 
   public void setIncluded(List<IncidentUserDefinedRoleIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (IncidentUserDefinedRoleIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

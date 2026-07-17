@@ -73,6 +73,9 @@ public class AWSMetricNameFilterPreviewResponseData {
 
   public void setAttributes(AWSMetricNameFilterPreviewResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AWSMetricNameFilterPreviewResponseData id(String id) {

@@ -41,6 +41,9 @@ public class DatasetReportScheduleListResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<DatasetReportScheduleResponseData> data) {
     this.data = data;
+    for (DatasetReportScheduleResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public DatasetReportScheduleListResponse data(List<DatasetReportScheduleResponseData> data) {
@@ -70,12 +73,19 @@ public class DatasetReportScheduleListResponse {
 
   public void setData(List<DatasetReportScheduleResponseData> data) {
     this.data = data;
+    if (data != null) {
+      for (DatasetReportScheduleResponseData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public DatasetReportScheduleListResponse included(List<ReportScheduleIncludedResource> included) {
     this.included = included;
-    for (ReportScheduleIncludedResource item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (ReportScheduleIncludedResource item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -104,6 +114,11 @@ public class DatasetReportScheduleListResponse {
 
   public void setIncluded(List<ReportScheduleIncludedResource> included) {
     this.included = included;
+    if (included != null) {
+      for (ReportScheduleIncludedResource item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

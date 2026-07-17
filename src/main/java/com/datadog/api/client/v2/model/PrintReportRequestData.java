@@ -66,6 +66,9 @@ public class PrintReportRequestData {
 
   public void setAttributes(PrintReportRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PrintReportRequestData type(PrintReportType type) {

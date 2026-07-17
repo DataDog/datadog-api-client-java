@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"12345678-90ab-cdef-1234-567890abcdef\",\"type\":\"azure_scan_options\"}}"
+        "json": "{\"data\":{\"attributes\":{\"function\":true,\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"12345678-90ab-cdef-1234-567890abcdef\",\"type\":\"azure_scan_options\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"12345678-90ab-cdef-1234-567890abcdef\",\"type\":\"azure_scan_options\",\"attributes\":{\"vuln_containers_os\":true,\"vuln_host_os\":true}}}",
+      "body": "{\"data\":{\"id\":\"12345678-90ab-cdef-1234-567890abcdef\",\"type\":\"azure_scan_options\",\"attributes\":{\"compliance_host\":false,\"function\":true,\"vuln_containers_os\":true,\"vuln_host_os\":true}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e519a321-b24b-b3b9-474c-63f68735e218"
+    "id": "4b26361d-ca24-c939-a29e-6d451007f4b7"
   },
   {
     "httpRequest": {

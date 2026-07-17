@@ -21,7 +21,9 @@ public class Example {
                     .id("api-spec-test")
                     .type(GcpScanOptionsInputUpdateDataType.GCP_SCAN_OPTIONS)
                     .attributes(
-                        new GcpScanOptionsInputUpdateDataAttributes().vulnContainersOs(false)));
+                        new GcpScanOptionsInputUpdateDataAttributes()
+                            .cloudFunction(true)
+                            .vulnContainersOs(false)));
 
     try {
       GcpScanOptions result = apiInstance.updateGcpScanOptions("api-spec-test", body);
