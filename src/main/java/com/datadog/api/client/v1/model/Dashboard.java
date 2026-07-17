@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Dashboard.JSON_PROPERTY_AUTHOR_HANDLE,
   Dashboard.JSON_PROPERTY_AUTHOR_NAME,
   Dashboard.JSON_PROPERTY_CREATED_AT,
+  Dashboard.JSON_PROPERTY_DEFAULT_TIMEFRAME,
   Dashboard.JSON_PROPERTY_DESCRIPTION,
   Dashboard.JSON_PROPERTY_ID,
   Dashboard.JSON_PROPERTY_IS_READ_ONLY,
@@ -57,6 +58,9 @@ public class Dashboard {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_DEFAULT_TIMEFRAME = "default_timeframe";
+  private DashboardDefaultTimeframeSetting defaultTimeframe;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
@@ -170,6 +174,32 @@ public class Dashboard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
+  }
+
+  public Dashboard defaultTimeframe(DashboardDefaultTimeframeSetting defaultTimeframe) {
+    this.defaultTimeframe = defaultTimeframe;
+    this.unparsed |= defaultTimeframe.unparsed;
+    return this;
+  }
+
+  /**
+   * The default timeframe applied when opening the dashboard. Set to <code>null</code> to clear the
+   * dashboard's default timeframe.
+   *
+   * @return defaultTimeframe
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT_TIMEFRAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DashboardDefaultTimeframeSetting getDefaultTimeframe() {
+    return defaultTimeframe;
+  }
+
+  public void setDefaultTimeframe(DashboardDefaultTimeframeSetting defaultTimeframe) {
+    this.defaultTimeframe = defaultTimeframe;
+    if (defaultTimeframe != null) {
+      this.unparsed |= defaultTimeframe.unparsed;
+    }
   }
 
   public Dashboard description(String description) {
@@ -686,6 +716,7 @@ public class Dashboard {
     return Objects.equals(this.authorHandle, dashboard.authorHandle)
         && Objects.equals(this.authorName, dashboard.authorName)
         && Objects.equals(this.createdAt, dashboard.createdAt)
+        && Objects.equals(this.defaultTimeframe, dashboard.defaultTimeframe)
         && Objects.equals(this.description, dashboard.description)
         && Objects.equals(this.id, dashboard.id)
         && Objects.equals(this.isReadOnly, dashboard.isReadOnly)
@@ -710,6 +741,7 @@ public class Dashboard {
         authorHandle,
         authorName,
         createdAt,
+        defaultTimeframe,
         description,
         id,
         isReadOnly,
@@ -735,6 +767,7 @@ public class Dashboard {
     sb.append("    authorHandle: ").append(toIndentedString(authorHandle)).append("\n");
     sb.append("    authorName: ").append(toIndentedString(authorName)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    defaultTimeframe: ").append(toIndentedString(defaultTimeframe)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isReadOnly: ").append(toIndentedString(isReadOnly)).append("\n");
