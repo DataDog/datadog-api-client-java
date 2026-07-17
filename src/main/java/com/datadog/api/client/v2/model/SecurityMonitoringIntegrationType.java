@@ -24,8 +24,7 @@ import java.util.Set;
 public class SecurityMonitoringIntegrationType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("GOOGLE_WORKSPACE", "OKTA", "ENTRA_ID", "CROWDSTRIKE", "SENTINELONE"));
+      new HashSet<String>(Arrays.asList("GOOGLE_WORKSPACE", "OKTA", "ENTRA_ID"));
 
   public static final SecurityMonitoringIntegrationType GOOGLE_WORKSPACE =
       new SecurityMonitoringIntegrationType("GOOGLE_WORKSPACE");
@@ -33,10 +32,6 @@ public class SecurityMonitoringIntegrationType extends ModelEnum<String> {
       new SecurityMonitoringIntegrationType("OKTA");
   public static final SecurityMonitoringIntegrationType ENTRA_ID =
       new SecurityMonitoringIntegrationType("ENTRA_ID");
-  public static final SecurityMonitoringIntegrationType CROWDSTRIKE =
-      new SecurityMonitoringIntegrationType("CROWDSTRIKE");
-  public static final SecurityMonitoringIntegrationType SENTINELONE =
-      new SecurityMonitoringIntegrationType("SENTINELONE");
 
   SecurityMonitoringIntegrationType(String value) {
     super(value, allowedValues);
