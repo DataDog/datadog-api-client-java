@@ -6,289 +6,656 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** The attributes of the entity context sync configuration to create. */
-@JsonPropertyOrder({
-  SecurityMonitoringIntegrationConfigCreateAttributes.JSON_PROPERTY_DOMAIN,
-  SecurityMonitoringIntegrationConfigCreateAttributes.JSON_PROPERTY_INTEGRATION_TYPE,
-  SecurityMonitoringIntegrationConfigCreateAttributes.JSON_PROPERTY_NAME,
-  SecurityMonitoringIntegrationConfigCreateAttributes.JSON_PROPERTY_SECRETS,
-  SecurityMonitoringIntegrationConfigCreateAttributes.JSON_PROPERTY_SETTINGS
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringIntegrationConfigCreateAttributes {
+@JsonDeserialize(
+    using =
+        SecurityMonitoringIntegrationConfigCreateAttributes
+            .SecurityMonitoringIntegrationConfigCreateAttributesDeserializer.class)
+@JsonSerialize(
+    using =
+        SecurityMonitoringIntegrationConfigCreateAttributes
+            .SecurityMonitoringIntegrationConfigCreateAttributesSerializer.class)
+public class SecurityMonitoringIntegrationConfigCreateAttributes extends AbstractOpenApiSchema {
+  private static final Logger log =
+      Logger.getLogger(SecurityMonitoringIntegrationConfigCreateAttributes.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DOMAIN = "domain";
-  private String domain;
 
-  public static final String JSON_PROPERTY_INTEGRATION_TYPE = "integration_type";
-  private SecurityMonitoringIntegrationType integrationType;
+  public static class SecurityMonitoringIntegrationConfigCreateAttributesSerializer
+      extends StdSerializer<SecurityMonitoringIntegrationConfigCreateAttributes> {
+    public SecurityMonitoringIntegrationConfigCreateAttributesSerializer(
+        Class<SecurityMonitoringIntegrationConfigCreateAttributes> t) {
+      super(t);
+    }
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+    public SecurityMonitoringIntegrationConfigCreateAttributesSerializer() {
+      this(null);
+    }
 
-  public static final String JSON_PROPERTY_SECRETS = "secrets";
-  private Map<String, Object> secrets = null;
+    @Override
+    public void serialize(
+        SecurityMonitoringIntegrationConfigCreateAttributes value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
+    }
+  }
 
-  public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private Map<String, Object> settings = null;
+  public static class SecurityMonitoringIntegrationConfigCreateAttributesDeserializer
+      extends StdDeserializer<SecurityMonitoringIntegrationConfigCreateAttributes> {
+    public SecurityMonitoringIntegrationConfigCreateAttributesDeserializer() {
+      this(SecurityMonitoringIntegrationConfigCreateAttributes.class);
+    }
 
-  public SecurityMonitoringIntegrationConfigCreateAttributes() {}
+    public SecurityMonitoringIntegrationConfigCreateAttributesDeserializer(Class<?> vc) {
+      super(vc);
+    }
 
-  @JsonCreator
+    @Override
+    public SecurityMonitoringIntegrationConfigCreateAttributes deserialize(
+        JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                Integer.class)
+            || SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                Long.class)
+            || SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                Float.class)
+            || SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                Double.class)
+            || SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                Boolean.class)
+            || SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                            Integer.class)
+                        || SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class
+                            .equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                            Float.class)
+                        || SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class
+                            .equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                        Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class.equals(
+                        String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(
+                      SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes) tmp)
+              .unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema"
+                  + " 'SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes'",
+            e);
+      }
+
+      // deserialize SecurityMonitoringOktaIntegrationConfigCreateAttributes
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(Integer.class)
+            || SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(Long.class)
+            || SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(Float.class)
+            || SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(Double.class)
+            || SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(Boolean.class)
+            || SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(
+                            Integer.class)
+                        || SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(Float.class)
+                        || SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringOktaIntegrationConfigCreateAttributes.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(SecurityMonitoringOktaIntegrationConfigCreateAttributes.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringOktaIntegrationConfigCreateAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema"
+                  + " 'SecurityMonitoringOktaIntegrationConfigCreateAttributes'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'SecurityMonitoringOktaIntegrationConfigCreateAttributes'",
+            e);
+      }
+
+      // deserialize SecurityMonitoringEntraIdIntegrationConfigCreateAttributes
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(Integer.class)
+            || SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(Long.class)
+            || SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(Float.class)
+            || SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(Double.class)
+            || SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(
+                Boolean.class)
+            || SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(
+                String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(
+                            Integer.class)
+                        || SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(
+                            Float.class)
+                        || SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(
+                        Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class.equals(
+                        String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringEntraIdIntegrationConfigCreateAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema"
+                  + " 'SecurityMonitoringEntraIdIntegrationConfigCreateAttributes'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'SecurityMonitoringEntraIdIntegrationConfigCreateAttributes'",
+            e);
+      }
+
+      // deserialize SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                Integer.class)
+            || SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                Long.class)
+            || SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                Float.class)
+            || SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                Double.class)
+            || SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                Boolean.class)
+            || SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                            Integer.class)
+                        || SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class
+                            .equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                            Float.class)
+                        || SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class
+                            .equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                        Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class.equals(
+                        String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(
+                      SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema"
+                  + " 'SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes'",
+            e);
+      }
+
+      // deserialize SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                Integer.class)
+            || SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                Long.class)
+            || SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                Float.class)
+            || SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                Double.class)
+            || SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                Boolean.class)
+            || SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                            Integer.class)
+                        || SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class
+                            .equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                            Float.class)
+                        || SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class
+                            .equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                        Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class.equals(
+                        String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(
+                      SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema"
+                  + " 'SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes'",
+            e);
+      }
+
+      SecurityMonitoringIntegrationConfigCreateAttributes ret =
+          new SecurityMonitoringIntegrationConfigCreateAttributes();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
+    }
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public SecurityMonitoringIntegrationConfigCreateAttributes getNullValue(
+        DeserializationContext ctxt) throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "SecurityMonitoringIntegrationConfigCreateAttributes cannot be null");
+    }
+  }
+
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public SecurityMonitoringIntegrationConfigCreateAttributes() {
+    super("oneOf", Boolean.FALSE);
+  }
+
   public SecurityMonitoringIntegrationConfigCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) String domain,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INTEGRATION_TYPE)
-          SecurityMonitoringIntegrationType integrationType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.domain = domain;
-    this.integrationType = integrationType;
-    this.unparsed |= !integrationType.isValid();
-    this.name = name;
+      SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  public SecurityMonitoringIntegrationConfigCreateAttributes domain(String domain) {
-    this.domain = domain;
-    return this;
+  public SecurityMonitoringIntegrationConfigCreateAttributes(
+      SecurityMonitoringOktaIntegrationConfigCreateAttributes o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  /**
-   * The domain associated with the external entity source.
-   *
-   * @return domain
-   */
-  @JsonProperty(JSON_PROPERTY_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDomain() {
-    return domain;
+  public SecurityMonitoringIntegrationConfigCreateAttributes(
+      SecurityMonitoringEntraIdIntegrationConfigCreateAttributes o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  public void setDomain(String domain) {
-    this.domain = domain;
+  public SecurityMonitoringIntegrationConfigCreateAttributes(
+      SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  public SecurityMonitoringIntegrationConfigCreateAttributes integrationType(
-      SecurityMonitoringIntegrationType integrationType) {
-    this.integrationType = integrationType;
-    this.unparsed |= !integrationType.isValid();
-    return this;
+  public SecurityMonitoringIntegrationConfigCreateAttributes(
+      SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  /**
-   * The type of external source that provides entities to Cloud SIEM.
-   *
-   * @return integrationType
-   */
-  @JsonProperty(JSON_PROPERTY_INTEGRATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringIntegrationType getIntegrationType() {
-    return integrationType;
-  }
-
-  public void setIntegrationType(SecurityMonitoringIntegrationType integrationType) {
-    if (!integrationType.isValid()) {
-      this.unparsed = true;
-    }
-    this.integrationType = integrationType;
-  }
-
-  public SecurityMonitoringIntegrationConfigCreateAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The display name for the entity context sync configuration.
-   *
-   * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SecurityMonitoringIntegrationConfigCreateAttributes secrets(Map<String, Object> secrets) {
-    this.secrets = secrets;
-    return this;
-  }
-
-  public SecurityMonitoringIntegrationConfigCreateAttributes putSecretsItem(
-      String key, Object secretsItem) {
-    if (this.secrets == null) {
-      this.secrets = new HashMap<>();
-    }
-    this.secrets.put(key, secretsItem);
-    return this;
-  }
-
-  /**
-   * The secrets used to authenticate against the external entity source. The accepted keys depend
-   * on the source type (for example, <code>admin_email</code> for Google Workspace). Not required
-   * for source types that do not use secrets (for example, <code>ENTRA_ID</code>).
-   *
-   * @return secrets
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECRETS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getSecrets() {
-    return secrets;
-  }
-
-  public void setSecrets(Map<String, Object> secrets) {
-    this.secrets = secrets;
-  }
-
-  public SecurityMonitoringIntegrationConfigCreateAttributes settings(
-      Map<String, Object> settings) {
-    this.settings = settings;
-    return this;
-  }
-
-  public SecurityMonitoringIntegrationConfigCreateAttributes putSettingsItem(
-      String key, Object settingsItem) {
-    if (this.settings == null) {
-      this.settings = new HashMap<>();
-    }
-    this.settings.put(key, settingsItem);
-    return this;
-  }
-
-  /**
-   * Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the
-   * source type.
-   *
-   * @return settings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getSettings() {
-    return settings;
-  }
-
-  public void setSettings(Map<String, Object> settings) {
-    this.settings = settings;
-  }
-
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return SecurityMonitoringIntegrationConfigCreateAttributes
-   */
-  @JsonAnySetter
-  public SecurityMonitoringIntegrationConfigCreateAttributes putAdditionalProperty(
-      String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-  /**
-   * Return true if this SecurityMonitoringIntegrationConfigCreateAttributes object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SecurityMonitoringIntegrationConfigCreateAttributes
-        securityMonitoringIntegrationConfigCreateAttributes =
-            (SecurityMonitoringIntegrationConfigCreateAttributes) o;
-    return Objects.equals(this.domain, securityMonitoringIntegrationConfigCreateAttributes.domain)
-        && Objects.equals(
-            this.integrationType,
-            securityMonitoringIntegrationConfigCreateAttributes.integrationType)
-        && Objects.equals(this.name, securityMonitoringIntegrationConfigCreateAttributes.name)
-        && Objects.equals(this.secrets, securityMonitoringIntegrationConfigCreateAttributes.secrets)
-        && Objects.equals(
-            this.settings, securityMonitoringIntegrationConfigCreateAttributes.settings)
-        && Objects.equals(
-            this.additionalProperties,
-            securityMonitoringIntegrationConfigCreateAttributes.additionalProperties);
+  static {
+    schemas.put(
+        "SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes",
+        new GenericType<SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes>() {});
+    schemas.put(
+        "SecurityMonitoringOktaIntegrationConfigCreateAttributes",
+        new GenericType<SecurityMonitoringOktaIntegrationConfigCreateAttributes>() {});
+    schemas.put(
+        "SecurityMonitoringEntraIdIntegrationConfigCreateAttributes",
+        new GenericType<SecurityMonitoringEntraIdIntegrationConfigCreateAttributes>() {});
+    schemas.put(
+        "SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes",
+        new GenericType<SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes>() {});
+    schemas.put(
+        "SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes",
+        new GenericType<SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes>() {});
+    JSON.registerDescendants(
+        SecurityMonitoringIntegrationConfigCreateAttributes.class,
+        Collections.unmodifiableMap(schemas));
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(domain, integrationType, name, secrets, settings, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringIntegrationConfigCreateAttributes {\n");
-    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
-    sb.append("    integrationType: ").append(toIndentedString(integrationType)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    secrets: ").append(toIndentedString(secrets)).append("\n");
-    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
-    sb.append('}');
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return SecurityMonitoringIntegrationConfigCreateAttributes.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas:
+   * SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes,
+   * SecurityMonitoringOktaIntegrationConfigCreateAttributes,
+   * SecurityMonitoringEntraIdIntegrationConfigCreateAttributes,
+   * SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes,
+   * SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(
+        SecurityMonitoringOktaIntegrationConfigCreateAttributes.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        SecurityMonitoringEntraIdIntegrationConfigCreateAttributes.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be"
+            + " SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes,"
+            + " SecurityMonitoringOktaIntegrationConfigCreateAttributes,"
+            + " SecurityMonitoringEntraIdIntegrationConfigCreateAttributes,"
+            + " SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes,"
+            + " SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes");
+  }
+
+  /**
+   * Get the actual instance, which can be the following:
+   * SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes,
+   * SecurityMonitoringOktaIntegrationConfigCreateAttributes,
+   * SecurityMonitoringEntraIdIntegrationConfigCreateAttributes,
+   * SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes,
+   * SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes
+   *
+   * @return The actual instance
+   *     (SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes,
+   *     SecurityMonitoringOktaIntegrationConfigCreateAttributes,
+   *     SecurityMonitoringEntraIdIntegrationConfigCreateAttributes,
+   *     SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes,
+   *     SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of
+   * `SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes`. If the actual instance is
+   * not `SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of
+   *     `SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes`
+   * @throws ClassCastException if the instance is not
+   *     `SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes`
+   */
+  public SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes
+      getSecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes()
+          throws ClassCastException {
+    return (SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes)
+        super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringOktaIntegrationConfigCreateAttributes`. If the
+   * actual instance is not `SecurityMonitoringOktaIntegrationConfigCreateAttributes`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringOktaIntegrationConfigCreateAttributes`
+   * @throws ClassCastException if the instance is not
+   *     `SecurityMonitoringOktaIntegrationConfigCreateAttributes`
+   */
+  public SecurityMonitoringOktaIntegrationConfigCreateAttributes
+      getSecurityMonitoringOktaIntegrationConfigCreateAttributes() throws ClassCastException {
+    return (SecurityMonitoringOktaIntegrationConfigCreateAttributes) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringEntraIdIntegrationConfigCreateAttributes`. If the
+   * actual instance is not `SecurityMonitoringEntraIdIntegrationConfigCreateAttributes`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringEntraIdIntegrationConfigCreateAttributes`
+   * @throws ClassCastException if the instance is not
+   *     `SecurityMonitoringEntraIdIntegrationConfigCreateAttributes`
+   */
+  public SecurityMonitoringEntraIdIntegrationConfigCreateAttributes
+      getSecurityMonitoringEntraIdIntegrationConfigCreateAttributes() throws ClassCastException {
+    return (SecurityMonitoringEntraIdIntegrationConfigCreateAttributes) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes`. If
+   * the actual instance is not `SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes`,
+   * the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes`
+   * @throws ClassCastException if the instance is not
+   *     `SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes`
+   */
+  public SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes
+      getSecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes()
+          throws ClassCastException {
+    return (SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes)
+        super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes`. If
+   * the actual instance is not `SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes`,
+   * the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes`
+   * @throws ClassCastException if the instance is not
+   *     `SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes`
+   */
+  public SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes
+      getSecurityMonitoringSentinelOneIntegrationConfigCreateAttributes()
+          throws ClassCastException {
+    return (SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes)
+        super.getActualInstance();
   }
 }

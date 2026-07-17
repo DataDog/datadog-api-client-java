@@ -3,12 +3,15 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import com.datadog.api.client.v2.model.SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount;
 import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigResourceType;
 import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigUpdateAttributes;
 import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigUpdateData;
 import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationConfigUpdateRequest;
-import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationType;
+import com.datadog.api.client.v2.model.SecurityMonitoringIntegrationTypeGoogleWorkspace;
 import java.util.Map;
 
 public class Example {
@@ -22,13 +25,30 @@ public class Example {
             .data(
                 new SecurityMonitoringIntegrationConfigUpdateData()
                     .attributes(
-                        new SecurityMonitoringIntegrationConfigUpdateAttributes()
-                            .domain("siem-test.com")
-                            .enabled(true)
-                            .integrationType(SecurityMonitoringIntegrationType.GOOGLE_WORKSPACE)
-                            .name("My GWS Integration (renamed)")
-                            .secrets(Map.ofEntries(Map.entry("admin_email", "test@example.com")))
-                            .settings(Map.ofEntries(Map.entry("setting1", "value1"))))
+                        new SecurityMonitoringIntegrationConfigUpdateAttributes(
+                            new SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes()
+                                .domain("siem-test.com")
+                                .enabled(true)
+                                .integrationType(
+                                    SecurityMonitoringIntegrationTypeGoogleWorkspace
+                                        .GOOGLE_WORKSPACE)
+                                .name("My GWS Integration (renamed)")
+                                .secrets(
+                                    new SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets()
+                                        .adminEmail("admin@example.com")
+                                        .serviceAccountJson(
+                                            new SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount()
+                                                .clientEmail(
+                                                    "svc@my-project.iam.gserviceaccount.com")
+                                                .privateKey(
+                                                    """
+-----BEGIN PRIVATE KEY-----
+...
+-----END PRIVATE KEY-----
+""")
+                                                .projectId("my-project")
+                                                .type("service_account")))
+                                .settings(Map.ofEntries(Map.entry("setting1", "value1")))))
                     .type(SecurityMonitoringIntegrationConfigResourceType.INTEGRATION_CONFIG));
 
     try {
