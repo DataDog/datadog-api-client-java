@@ -55,6 +55,9 @@ public class IncidentUserDefinedRoleRequest {
 
   public void setData(IncidentUserDefinedRoleDataRequest data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

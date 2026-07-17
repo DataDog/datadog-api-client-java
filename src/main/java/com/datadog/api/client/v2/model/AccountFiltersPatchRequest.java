@@ -54,6 +54,9 @@ public class AccountFiltersPatchRequest {
 
   public void setData(AccountFiltersPatchData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

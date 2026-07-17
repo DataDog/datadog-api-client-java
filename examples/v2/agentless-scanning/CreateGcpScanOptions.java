@@ -21,6 +21,7 @@ public class Example {
                     .type(GcpScanOptionsDataType.GCP_SCAN_OPTIONS)
                     .attributes(
                         new GcpScanOptionsDataAttributes()
+                            .cloudFunction(true)
                             .vulnHostOs(true)
                             .vulnContainersOs(true)));
 

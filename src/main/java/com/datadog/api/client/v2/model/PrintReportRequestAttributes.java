@@ -72,6 +72,9 @@ public class PrintReportRequestAttributes {
     this.resourceType = resourceType;
     this.unparsed |= !resourceType.isValid();
     this.templateVariables = templateVariables;
+    for (ReportScheduleTemplateVariable item : templateVariables) {
+      this.unparsed |= item.unparsed;
+    }
     this.timezone = timezone;
   }
 
@@ -170,6 +173,11 @@ public class PrintReportRequestAttributes {
 
   public void setTemplateVariables(List<ReportScheduleTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
+    if (templateVariables != null) {
+      for (ReportScheduleTemplateVariable item : templateVariables) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public PrintReportRequestAttributes timeframe(String timeframe) {

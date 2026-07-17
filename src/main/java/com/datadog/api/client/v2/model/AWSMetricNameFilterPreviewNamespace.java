@@ -48,7 +48,13 @@ public class AWSMetricNameFilterPreviewNamespace {
           List<AWSMetricNameFilterPreviewMetric> metrics,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAMESPACE) String namespace) {
     this.filters = filters;
+    for (AWSMetricNameFilterPreviewFilterMatch item : filters) {
+      this.unparsed |= item.unparsed;
+    }
     this.metrics = metrics;
+    for (AWSMetricNameFilterPreviewMetric item : metrics) {
+      this.unparsed |= item.unparsed;
+    }
     this.namespace = namespace;
   }
 
@@ -81,6 +87,11 @@ public class AWSMetricNameFilterPreviewNamespace {
 
   public void setFilters(List<AWSMetricNameFilterPreviewFilterMatch> filters) {
     this.filters = filters;
+    if (filters != null) {
+      for (AWSMetricNameFilterPreviewFilterMatch item : filters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AWSMetricNameFilterPreviewNamespace metrics(
@@ -113,6 +124,11 @@ public class AWSMetricNameFilterPreviewNamespace {
 
   public void setMetrics(List<AWSMetricNameFilterPreviewMetric> metrics) {
     this.metrics = metrics;
+    if (metrics != null) {
+      for (AWSMetricNameFilterPreviewMetric item : metrics) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   public AWSMetricNameFilterPreviewNamespace namespace(String namespace) {

@@ -56,6 +56,9 @@ public class IncidentUserDefinedRoleRelationshipsResponse {
 
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
+    if (createdByUser != null) {
+      this.unparsed |= createdByUser.unparsed;
+    }
   }
 
   public IncidentUserDefinedRoleRelationshipsResponse incidentType(
@@ -79,6 +82,9 @@ public class IncidentUserDefinedRoleRelationshipsResponse {
 
   public void setIncidentType(IncidentUserDefinedRoleIncidentTypeRelationship incidentType) {
     this.incidentType = incidentType;
+    if (incidentType != null) {
+      this.unparsed |= incidentType.unparsed;
+    }
   }
 
   public IncidentUserDefinedRoleRelationshipsResponse lastModifiedByUser(
@@ -102,6 +108,9 @@ public class IncidentUserDefinedRoleRelationshipsResponse {
 
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    if (lastModifiedByUser != null) {
+      this.unparsed |= lastModifiedByUser.unparsed;
+    }
   }
 
   /**

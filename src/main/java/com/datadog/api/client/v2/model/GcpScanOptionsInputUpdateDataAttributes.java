@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Attributes for updating GCP scan options configuration. */
 @JsonPropertyOrder({
+  GcpScanOptionsInputUpdateDataAttributes.JSON_PROPERTY_CLOUD_FUNCTION,
   GcpScanOptionsInputUpdateDataAttributes.JSON_PROPERTY_COMPLIANCE_HOST,
   GcpScanOptionsInputUpdateDataAttributes.JSON_PROPERTY_VULN_CONTAINERS_OS,
   GcpScanOptionsInputUpdateDataAttributes.JSON_PROPERTY_VULN_HOST_OS
@@ -26,6 +27,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GcpScanOptionsInputUpdateDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CLOUD_FUNCTION = "cloud_function";
+  private Boolean cloudFunction;
+
   public static final String JSON_PROPERTY_COMPLIANCE_HOST = "compliance_host";
   private Boolean complianceHost;
 
@@ -34,6 +38,27 @@ public class GcpScanOptionsInputUpdateDataAttributes {
 
   public static final String JSON_PROPERTY_VULN_HOST_OS = "vuln_host_os";
   private Boolean vulnHostOs;
+
+  public GcpScanOptionsInputUpdateDataAttributes cloudFunction(Boolean cloudFunction) {
+    this.cloudFunction = cloudFunction;
+    return this;
+  }
+
+  /**
+   * Indicates if scanning of Cloud Functions is enabled.
+   *
+   * @return cloudFunction
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_FUNCTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCloudFunction() {
+    return cloudFunction;
+  }
+
+  public void setCloudFunction(Boolean cloudFunction) {
+    this.cloudFunction = cloudFunction;
+  }
 
   public GcpScanOptionsInputUpdateDataAttributes complianceHost(Boolean complianceHost) {
     this.complianceHost = complianceHost;
@@ -155,7 +180,8 @@ public class GcpScanOptionsInputUpdateDataAttributes {
     }
     GcpScanOptionsInputUpdateDataAttributes gcpScanOptionsInputUpdateDataAttributes =
         (GcpScanOptionsInputUpdateDataAttributes) o;
-    return Objects.equals(
+    return Objects.equals(this.cloudFunction, gcpScanOptionsInputUpdateDataAttributes.cloudFunction)
+        && Objects.equals(
             this.complianceHost, gcpScanOptionsInputUpdateDataAttributes.complianceHost)
         && Objects.equals(
             this.vulnContainersOs, gcpScanOptionsInputUpdateDataAttributes.vulnContainersOs)
@@ -167,13 +193,15 @@ public class GcpScanOptionsInputUpdateDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(complianceHost, vulnContainersOs, vulnHostOs, additionalProperties);
+    return Objects.hash(
+        cloudFunction, complianceHost, vulnContainersOs, vulnHostOs, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GcpScanOptionsInputUpdateDataAttributes {\n");
+    sb.append("    cloudFunction: ").append(toIndentedString(cloudFunction)).append("\n");
     sb.append("    complianceHost: ").append(toIndentedString(complianceHost)).append("\n");
     sb.append("    vulnContainersOs: ").append(toIndentedString(vulnContainersOs)).append("\n");
     sb.append("    vulnHostOs: ").append(toIndentedString(vulnHostOs)).append("\n");

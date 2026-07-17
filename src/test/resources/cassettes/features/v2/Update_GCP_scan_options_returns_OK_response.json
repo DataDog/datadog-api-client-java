@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"vuln_containers_os\":false},\"id\":\"api-spec-test\",\"type\":\"gcp_scan_options\"}}"
+        "json": "{\"data\":{\"attributes\":{\"cloud_function\":true,\"vuln_containers_os\":false},\"id\":\"api-spec-test\",\"type\":\"gcp_scan_options\"}}"
       },
       "headers": {},
       "method": "PATCH",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"api-spec-test\",\"type\":\"gcp_scan_options\",\"attributes\":{\"vuln_containers_os\":false,\"vuln_host_os\":true}}}",
+      "body": "{\"data\":{\"id\":\"api-spec-test\",\"type\":\"gcp_scan_options\",\"attributes\":{\"cloud_function\":true,\"compliance_host\":false,\"vuln_containers_os\":false,\"vuln_host_os\":true}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b0e82961-e316-45f9-b544-8011dda3dd99"
+    "id": "51ba6870-a197-af08-bc93-0c3fd3375f79"
   }
 ]

@@ -76,6 +76,9 @@ public class IncidentUserDefinedRoleDataResponse {
 
   public void setAttributes(IncidentUserDefinedRoleDataAttributesResponse attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public IncidentUserDefinedRoleDataResponse id(UUID id) {
@@ -119,6 +122,9 @@ public class IncidentUserDefinedRoleDataResponse {
 
   public void setRelationships(IncidentUserDefinedRoleRelationshipsResponse relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public IncidentUserDefinedRoleDataResponse type(IncidentUserDefinedRoleType type) {

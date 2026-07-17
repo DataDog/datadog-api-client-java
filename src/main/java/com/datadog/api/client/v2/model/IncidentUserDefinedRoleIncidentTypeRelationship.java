@@ -56,6 +56,9 @@ public class IncidentUserDefinedRoleIncidentTypeRelationship {
 
   public void setData(IncidentUserDefinedRoleIncidentTypeRelationshipData data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   /**

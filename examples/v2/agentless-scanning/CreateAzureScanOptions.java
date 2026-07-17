@@ -19,6 +19,7 @@ public class Example {
                 new AzureScanOptionsData()
                     .attributes(
                         new AzureScanOptionsDataAttributes()
+                            .function(true)
                             .vulnContainersOs(true)
                             .vulnHostOs(true))
                     .id("12345678-90ab-cdef-1234-567890abcdef")

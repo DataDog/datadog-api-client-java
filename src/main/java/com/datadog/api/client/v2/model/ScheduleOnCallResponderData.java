@@ -74,6 +74,9 @@ public class ScheduleOnCallResponderData {
 
   public void setAttributes(ScheduleOnCallResponderDataAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public ScheduleOnCallResponderData id(String id) {
@@ -118,6 +121,9 @@ public class ScheduleOnCallResponderData {
 
   public void setRelationships(ScheduleOnCallResponderDataRelationships relationships) {
     this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public ScheduleOnCallResponderData type(ScheduleOnCallResponderDataType type) {
