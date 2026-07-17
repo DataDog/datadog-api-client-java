@@ -35,6 +35,9 @@ public class OrgGroupPolicySuggestionListResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
           List<OrgGroupPolicySuggestionData> data) {
     this.data = data;
+    for (OrgGroupPolicySuggestionData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public OrgGroupPolicySuggestionListResponse data(List<OrgGroupPolicySuggestionData> data) {
@@ -64,6 +67,11 @@ public class OrgGroupPolicySuggestionListResponse {
 
   public void setData(List<OrgGroupPolicySuggestionData> data) {
     this.data = data;
+    if (data != null) {
+      for (OrgGroupPolicySuggestionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -43,6 +43,9 @@ public class AWSMetricNameFilterPreviewMetric {
           List<AWSMetricNameFilterPreviewDDName> ddNames) {
     this.cwName = cwName;
     this.ddNames = ddNames;
+    for (AWSMetricNameFilterPreviewDDName item : ddNames) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AWSMetricNameFilterPreviewMetric cwName(String cwName) {
@@ -93,6 +96,11 @@ public class AWSMetricNameFilterPreviewMetric {
 
   public void setDdNames(List<AWSMetricNameFilterPreviewDDName> ddNames) {
     this.ddNames = ddNames;
+    if (ddNames != null) {
+      for (AWSMetricNameFilterPreviewDDName item : ddNames) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

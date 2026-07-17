@@ -71,6 +71,9 @@ public class PrintReportResponseData {
 
   public void setAttributes(PrintReportResponseAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public PrintReportResponseData id(UUID id) {

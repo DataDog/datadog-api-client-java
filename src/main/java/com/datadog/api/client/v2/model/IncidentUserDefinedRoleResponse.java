@@ -63,13 +63,18 @@ public class IncidentUserDefinedRoleResponse {
 
   public void setData(IncidentUserDefinedRoleDataResponse data) {
     this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
   }
 
   public IncidentUserDefinedRoleResponse included(
       List<IncidentUserDefinedRoleIncludedItem> included) {
     this.included = included;
-    for (IncidentUserDefinedRoleIncludedItem item : included) {
-      this.unparsed |= item.unparsed;
+    if (included != null) {
+      for (IncidentUserDefinedRoleIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -98,6 +103,11 @@ public class IncidentUserDefinedRoleResponse {
 
   public void setIncluded(List<IncidentUserDefinedRoleIncludedItem> included) {
     this.included = included;
+    if (included != null) {
+      for (IncidentUserDefinedRoleIncludedItem item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

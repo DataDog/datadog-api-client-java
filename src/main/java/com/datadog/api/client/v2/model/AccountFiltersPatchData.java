@@ -66,6 +66,9 @@ public class AccountFiltersPatchData {
 
   public void setAttributes(AccountFiltersPatchRequestAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AccountFiltersPatchData type(AccountFiltersPatchRequestType type) {

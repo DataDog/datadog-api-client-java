@@ -68,6 +68,9 @@ public class AccountFilters {
 
   public void setAttributes(AccountFiltersAttributes attributes) {
     this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
+    }
   }
 
   public AccountFilters id(String id) {

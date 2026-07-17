@@ -269,6 +269,9 @@ public class ObservabilityPipelineTagCardinalityLimitProcessor {
   public void setTrackingMode(
       ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode trackingMode) {
     this.trackingMode = trackingMode;
+    if (trackingMode != null) {
+      this.unparsed |= trackingMode.unparsed;
+    }
   }
 
   public ObservabilityPipelineTagCardinalityLimitProcessor type(

@@ -56,6 +56,9 @@ public class AccountFiltersPatchRequestAttributes {
 
   public void setAccountFilters(AccountFilteringConfig accountFilters) {
     this.accountFilters = accountFilters;
+    if (accountFilters != null) {
+      this.unparsed |= accountFilters.unparsed;
+    }
   }
 
   /**

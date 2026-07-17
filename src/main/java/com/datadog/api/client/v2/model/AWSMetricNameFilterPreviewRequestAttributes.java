@@ -35,6 +35,9 @@ public class AWSMetricNameFilterPreviewRequestAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_METRIC_NAME_FILTERS)
           List<AWSMetricNameFilters> metricNameFilters) {
     this.metricNameFilters = metricNameFilters;
+    for (AWSMetricNameFilters item : metricNameFilters) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
   public AWSMetricNameFilterPreviewRequestAttributes metricNameFilters(
@@ -66,6 +69,11 @@ public class AWSMetricNameFilterPreviewRequestAttributes {
 
   public void setMetricNameFilters(List<AWSMetricNameFilters> metricNameFilters) {
     this.metricNameFilters = metricNameFilters;
+    if (metricNameFilters != null) {
+      for (AWSMetricNameFilters item : metricNameFilters) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**

@@ -56,6 +56,9 @@ public class IncidentUserDefinedRoleRelationshipsRequest {
 
   public void setIncidentType(IncidentUserDefinedRoleIncidentTypeRelationship incidentType) {
     this.incidentType = incidentType;
+    if (incidentType != null) {
+      this.unparsed |= incidentType.unparsed;
+    }
   }
 
   /**

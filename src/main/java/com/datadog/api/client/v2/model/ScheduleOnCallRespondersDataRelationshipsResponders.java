@@ -30,8 +30,10 @@ public class ScheduleOnCallRespondersDataRelationshipsResponders {
   public ScheduleOnCallRespondersDataRelationshipsResponders data(
       List<ScheduleOnCallRespondersDataRelationshipsRespondersDataItems> data) {
     this.data = data;
-    for (ScheduleOnCallRespondersDataRelationshipsRespondersDataItems item : data) {
-      this.unparsed |= item.unparsed;
+    if (data != null) {
+      for (ScheduleOnCallRespondersDataRelationshipsRespondersDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
     return this;
   }
@@ -60,6 +62,11 @@ public class ScheduleOnCallRespondersDataRelationshipsResponders {
 
   public void setData(List<ScheduleOnCallRespondersDataRelationshipsRespondersDataItems> data) {
     this.data = data;
+    if (data != null) {
+      for (ScheduleOnCallRespondersDataRelationshipsRespondersDataItems item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
