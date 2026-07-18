@@ -56,7 +56,9 @@ public class AwsLogsIntegrationApi {
    * @param body Check AWS Log Lambda Async request body. (required)
    * @return AWSLogsAsyncResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSLogsAsyncResponse checkAWSLogsLambdaAsync(AWSAccountAndLambdaRequest body)
       throws ApiException {
     return checkAWSLogsLambdaAsyncWithHttpInfo(body).getData();
@@ -69,7 +71,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body Check AWS Log Lambda Async request body. (required)
    * @return CompletableFuture&lt;AWSLogsAsyncResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncAsync(
       AWSAccountAndLambdaRequest body) {
     return checkAWSLogsLambdaAsyncWithHttpInfoAsync(body)
@@ -80,10 +84,10 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Test if permissions are present to add a log-forwarding triggers for the given services and AWS
-   * account. The input is the same as for Enable an AWS service log collection. Subsequent requests
-   * will always repeat the above, so this endpoint can be polled intermittently instead of
-   * blocking.
+   * <strong>This endpoint is deprecated.</strong> Test if permissions are present to add a
+   * log-forwarding triggers for the given services and AWS account. The input is the same as for
+   * Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
+   * endpoint can be polled intermittently instead of blocking.
    *
    * <ul>
    *   <li>Returns a status of 'created' when it's checking if the Lambda exists in the account.
@@ -104,7 +108,10 @@ public class AwsLogsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncWithHttpInfo(
       AWSAccountAndLambdaRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -146,7 +153,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body Check AWS Log Lambda Async request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSLogsAsyncResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSLogsAsyncResponse>>
       checkAWSLogsLambdaAsyncWithHttpInfoAsync(AWSAccountAndLambdaRequest body) {
     Object localVarPostBody = body;
@@ -199,7 +208,9 @@ public class AwsLogsIntegrationApi {
    * @param body Check AWS Logs Async Services request body. (required)
    * @return AWSLogsAsyncResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSLogsAsyncResponse checkAWSLogsServicesAsync(AWSLogsServicesRequest body)
       throws ApiException {
     return checkAWSLogsServicesAsyncWithHttpInfo(body).getData();
@@ -212,7 +223,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body Check AWS Logs Async Services request body. (required)
    * @return CompletableFuture&lt;AWSLogsAsyncResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncAsync(
       AWSLogsServicesRequest body) {
     return checkAWSLogsServicesAsyncWithHttpInfoAsync(body)
@@ -223,9 +236,10 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Test if permissions are present to add log-forwarding triggers for the given services and AWS
-   * account. Input is the same as for <code>EnableAWSLogServices</code>. Done async, so can be
-   * repeatedly polled in a non-blocking fashion until the async request completes.
+   * <strong>This endpoint is deprecated.</strong> Test if permissions are present to add
+   * log-forwarding triggers for the given services and AWS account. Input is the same as for <code>
+   * EnableAWSLogServices</code>. Done async, so can be repeatedly polled in a non-blocking fashion
+   * until the async request completes.
    *
    * <ul>
    *   <li>Returns a status of <code>created</code> when it's checking if the permissions exists in
@@ -247,7 +261,10 @@ public class AwsLogsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncWithHttpInfo(
       AWSLogsServicesRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -289,7 +306,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body Check AWS Logs Async Services request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSLogsAsyncResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSLogsAsyncResponse>>
       checkAWSLogsServicesAsyncWithHttpInfoAsync(AWSLogsServicesRequest body) {
     Object localVarPostBody = body;
@@ -342,7 +361,9 @@ public class AwsLogsIntegrationApi {
    * @param body AWS Log Lambda Async request body. (required)
    * @return Object
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Object createAWSLambdaARN(AWSAccountAndLambdaRequest body) throws ApiException {
     return createAWSLambdaARNWithHttpInfo(body).getData();
   }
@@ -354,7 +375,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body AWS Log Lambda Async request body. (required)
    * @return CompletableFuture&lt;Object&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Object> createAWSLambdaARNAsync(AWSAccountAndLambdaRequest body) {
     return createAWSLambdaARNWithHttpInfoAsync(body)
         .thenApply(
@@ -364,8 +387,8 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS
-   * account ID to enable log collection.
+   * <strong>This endpoint is deprecated.</strong> Attach the Lambda ARN of the Lambda created for
+   * the Datadog-AWS log collection to your AWS account ID to enable log collection.
    *
    * @param body AWS Log Lambda Async request body. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -379,7 +402,10 @@ public class AwsLogsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Object> createAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRequest body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -421,7 +447,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body AWS Log Lambda Async request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Object>> createAWSLambdaARNWithHttpInfoAsync(
       AWSAccountAndLambdaRequest body) {
     Object localVarPostBody = body;
@@ -474,7 +502,9 @@ public class AwsLogsIntegrationApi {
    * @param body Delete AWS Lambda ARN request body. (required)
    * @return Object
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Object deleteAWSLambdaARN(AWSAccountAndLambdaRequest body) throws ApiException {
     return deleteAWSLambdaARNWithHttpInfo(body).getData();
   }
@@ -486,7 +516,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body Delete AWS Lambda ARN request body. (required)
    * @return CompletableFuture&lt;Object&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Object> deleteAWSLambdaARNAsync(AWSAccountAndLambdaRequest body) {
     return deleteAWSLambdaARNWithHttpInfoAsync(body)
         .thenApply(
@@ -496,8 +528,8 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a
-   * given AWS account.
+   * <strong>This endpoint is deprecated.</strong> Delete a Datadog-AWS logs configuration by
+   * removing the specific Lambda ARN associated with a given AWS account.
    *
    * @param body Delete AWS Lambda ARN request body. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -511,7 +543,10 @@ public class AwsLogsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Object> deleteAWSLambdaARNWithHttpInfo(AWSAccountAndLambdaRequest body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -553,7 +588,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body Delete AWS Lambda ARN request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Object>> deleteAWSLambdaARNWithHttpInfoAsync(
       AWSAccountAndLambdaRequest body) {
     Object localVarPostBody = body;
