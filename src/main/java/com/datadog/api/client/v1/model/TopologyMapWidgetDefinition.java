@@ -6,363 +6,299 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- * This widget displays a topology of nodes and edges for different data sources. It replaces the
- * service map widget.
- */
-@JsonPropertyOrder({
-  TopologyMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
-  TopologyMapWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
-  TopologyMapWidgetDefinition.JSON_PROPERTY_REQUESTS,
-  TopologyMapWidgetDefinition.JSON_PROPERTY_TITLE,
-  TopologyMapWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
-  TopologyMapWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
-  TopologyMapWidgetDefinition.JSON_PROPERTY_TYPE
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TopologyMapWidgetDefinition {
+@JsonDeserialize(using = TopologyMapWidgetDefinition.TopologyMapWidgetDefinitionDeserializer.class)
+@JsonSerialize(using = TopologyMapWidgetDefinition.TopologyMapWidgetDefinitionSerializer.class)
+public class TopologyMapWidgetDefinition extends AbstractOpenApiSchema {
+  private static final Logger log = Logger.getLogger(TopologyMapWidgetDefinition.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
-  private List<WidgetCustomLink> customLinks = null;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
-  public static final String JSON_PROPERTY_REQUESTS = "requests";
-  private List<TopologyRequest> requests = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
-
-  public static final String JSON_PROPERTY_TITLE_ALIGN = "title_align";
-  private WidgetTextAlign titleAlign;
-
-  public static final String JSON_PROPERTY_TITLE_SIZE = "title_size";
-  private String titleSize;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TopologyMapWidgetDefinitionType type = TopologyMapWidgetDefinitionType.TOPOLOGY_MAP;
-
-  public TopologyMapWidgetDefinition() {}
-
-  @JsonCreator
-  public TopologyMapWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS) List<TopologyRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          TopologyMapWidgetDefinitionType type) {
-    this.requests = requests;
-    for (TopologyRequest item : requests) {
-      this.unparsed |= item.unparsed;
+  public static class TopologyMapWidgetDefinitionSerializer
+      extends StdSerializer<TopologyMapWidgetDefinition> {
+    public TopologyMapWidgetDefinitionSerializer(Class<TopologyMapWidgetDefinition> t) {
+      super(t);
     }
-    this.type = type;
-    this.unparsed |= !type.isValid();
+
+    public TopologyMapWidgetDefinitionSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        TopologyMapWidgetDefinition value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
+    }
   }
 
-  public TopologyMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
-    this.customLinks = customLinks;
-    if (customLinks != null) {
-      for (WidgetCustomLink item : customLinks) {
-        this.unparsed |= item.unparsed;
+  public static class TopologyMapWidgetDefinitionDeserializer
+      extends StdDeserializer<TopologyMapWidgetDefinition> {
+    public TopologyMapWidgetDefinitionDeserializer() {
+      this(TopologyMapWidgetDefinition.class);
+    }
+
+    public TopologyMapWidgetDefinitionDeserializer(Class<?> vc) {
+      super(vc);
+    }
+
+    @Override
+    public TopologyMapWidgetDefinition deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize TopologyMapWidgetDefinitionDataStreams
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (TopologyMapWidgetDefinitionDataStreams.class.equals(Integer.class)
+            || TopologyMapWidgetDefinitionDataStreams.class.equals(Long.class)
+            || TopologyMapWidgetDefinitionDataStreams.class.equals(Float.class)
+            || TopologyMapWidgetDefinitionDataStreams.class.equals(Double.class)
+            || TopologyMapWidgetDefinitionDataStreams.class.equals(Boolean.class)
+            || TopologyMapWidgetDefinitionDataStreams.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((TopologyMapWidgetDefinitionDataStreams.class.equals(Integer.class)
+                        || TopologyMapWidgetDefinitionDataStreams.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((TopologyMapWidgetDefinitionDataStreams.class.equals(Float.class)
+                        || TopologyMapWidgetDefinitionDataStreams.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (TopologyMapWidgetDefinitionDataStreams.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (TopologyMapWidgetDefinitionDataStreams.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(TopologyMapWidgetDefinitionDataStreams.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((TopologyMapWidgetDefinitionDataStreams) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'TopologyMapWidgetDefinitionDataStreams'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'TopologyMapWidgetDefinitionDataStreams'",
+            e);
       }
-    }
-    return this;
-  }
 
-  public TopologyMapWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
-    if (this.customLinks == null) {
-      this.customLinks = new ArrayList<>();
-    }
-    this.customLinks.add(customLinksItem);
-    this.unparsed |= customLinksItem.unparsed;
-    return this;
-  }
-
-  /**
-   * List of custom links.
-   *
-   * @return customLinks
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<WidgetCustomLink> getCustomLinks() {
-    return customLinks;
-  }
-
-  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
-    this.customLinks = customLinks;
-    if (customLinks != null) {
-      for (WidgetCustomLink item : customLinks) {
-        this.unparsed |= item.unparsed;
+      // deserialize TopologyMapWidgetDefinitionServiceMap
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (TopologyMapWidgetDefinitionServiceMap.class.equals(Integer.class)
+            || TopologyMapWidgetDefinitionServiceMap.class.equals(Long.class)
+            || TopologyMapWidgetDefinitionServiceMap.class.equals(Float.class)
+            || TopologyMapWidgetDefinitionServiceMap.class.equals(Double.class)
+            || TopologyMapWidgetDefinitionServiceMap.class.equals(Boolean.class)
+            || TopologyMapWidgetDefinitionServiceMap.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((TopologyMapWidgetDefinitionServiceMap.class.equals(Integer.class)
+                        || TopologyMapWidgetDefinitionServiceMap.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((TopologyMapWidgetDefinitionServiceMap.class.equals(Float.class)
+                        || TopologyMapWidgetDefinitionServiceMap.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (TopologyMapWidgetDefinitionServiceMap.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (TopologyMapWidgetDefinitionServiceMap.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(TopologyMapWidgetDefinitionServiceMap.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((TopologyMapWidgetDefinitionServiceMap) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'TopologyMapWidgetDefinitionServiceMap'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'TopologyMapWidgetDefinitionServiceMap'",
+            e);
       }
-    }
-  }
 
-  public TopologyMapWidgetDefinition description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * The description of the widget.
-   *
-   * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public TopologyMapWidgetDefinition requests(List<TopologyRequest> requests) {
-    this.requests = requests;
-    for (TopologyRequest item : requests) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public TopologyMapWidgetDefinition addRequestsItem(TopologyRequest requestsItem) {
-    this.requests.add(requestsItem);
-    this.unparsed |= requestsItem.unparsed;
-    return this;
-  }
-
-  /**
-   * One or more Topology requests.
-   *
-   * @return requests
-   */
-  @JsonProperty(JSON_PROPERTY_REQUESTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<TopologyRequest> getRequests() {
-    return requests;
-  }
-
-  public void setRequests(List<TopologyRequest> requests) {
-    this.requests = requests;
-    if (requests != null) {
-      for (TopologyRequest item : requests) {
-        this.unparsed |= item.unparsed;
+      TopologyMapWidgetDefinition ret = new TopologyMapWidgetDefinition();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
       }
+      return ret;
+    }
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public TopologyMapWidgetDefinition getNullValue(DeserializationContext ctxt)
+        throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "TopologyMapWidgetDefinition cannot be null");
     }
   }
 
-  public TopologyMapWidgetDefinition title(String title) {
-    this.title = title;
-    return this;
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public TopologyMapWidgetDefinition() {
+    super("oneOf", Boolean.FALSE);
   }
 
-  /**
-   * Title of your widget.
-   *
-   * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
+  public TopologyMapWidgetDefinition(TopologyMapWidgetDefinitionDataStreams o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  public void setTitle(String title) {
-    this.title = title;
+  public TopologyMapWidgetDefinition(TopologyMapWidgetDefinitionServiceMap o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  public TopologyMapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-    this.titleAlign = titleAlign;
-    this.unparsed |= !titleAlign.isValid();
-    return this;
-  }
-
-  /**
-   * How to align the text on the widget.
-   *
-   * @return titleAlign
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTextAlign getTitleAlign() {
-    return titleAlign;
-  }
-
-  public void setTitleAlign(WidgetTextAlign titleAlign) {
-    if (!titleAlign.isValid()) {
-      this.unparsed = true;
-    }
-    this.titleAlign = titleAlign;
-  }
-
-  public TopologyMapWidgetDefinition titleSize(String titleSize) {
-    this.titleSize = titleSize;
-    return this;
-  }
-
-  /**
-   * Size of the title.
-   *
-   * @return titleSize
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitleSize() {
-    return titleSize;
-  }
-
-  public void setTitleSize(String titleSize) {
-    this.titleSize = titleSize;
-  }
-
-  public TopologyMapWidgetDefinition type(TopologyMapWidgetDefinitionType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Type of the topology map widget.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TopologyMapWidgetDefinitionType getType() {
-    return type;
-  }
-
-  public void setType(TopologyMapWidgetDefinitionType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
-  }
-
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return TopologyMapWidgetDefinition
-   */
-  @JsonAnySetter
-  public TopologyMapWidgetDefinition putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-  /** Return true if this TopologyMapWidgetDefinition object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    TopologyMapWidgetDefinition topologyMapWidgetDefinition = (TopologyMapWidgetDefinition) o;
-    return Objects.equals(this.customLinks, topologyMapWidgetDefinition.customLinks)
-        && Objects.equals(this.description, topologyMapWidgetDefinition.description)
-        && Objects.equals(this.requests, topologyMapWidgetDefinition.requests)
-        && Objects.equals(this.title, topologyMapWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, topologyMapWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, topologyMapWidgetDefinition.titleSize)
-        && Objects.equals(this.type, topologyMapWidgetDefinition.type)
-        && Objects.equals(
-            this.additionalProperties, topologyMapWidgetDefinition.additionalProperties);
+  static {
+    schemas.put(
+        "TopologyMapWidgetDefinitionDataStreams",
+        new GenericType<TopologyMapWidgetDefinitionDataStreams>() {});
+    schemas.put(
+        "TopologyMapWidgetDefinitionServiceMap",
+        new GenericType<TopologyMapWidgetDefinitionServiceMap>() {});
+    JSON.registerDescendants(
+        TopologyMapWidgetDefinition.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(
-        customLinks,
-        description,
-        requests,
-        title,
-        titleAlign,
-        titleSize,
-        type,
-        additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class TopologyMapWidgetDefinition {\n");
-    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
-    sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
-    sb.append('}');
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return TopologyMapWidgetDefinition.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: TopologyMapWidgetDefinitionDataStreams,
+   * TopologyMapWidgetDefinitionServiceMap
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        TopologyMapWidgetDefinitionDataStreams.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(
+        TopologyMapWidgetDefinitionServiceMap.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be TopologyMapWidgetDefinitionDataStreams,"
+            + " TopologyMapWidgetDefinitionServiceMap");
+  }
+
+  /**
+   * Get the actual instance, which can be the following: TopologyMapWidgetDefinitionDataStreams,
+   * TopologyMapWidgetDefinitionServiceMap
+   *
+   * @return The actual instance (TopologyMapWidgetDefinitionDataStreams,
+   *     TopologyMapWidgetDefinitionServiceMap)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `TopologyMapWidgetDefinitionDataStreams`. If the actual instance is
+   * not `TopologyMapWidgetDefinitionDataStreams`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `TopologyMapWidgetDefinitionDataStreams`
+   * @throws ClassCastException if the instance is not `TopologyMapWidgetDefinitionDataStreams`
+   */
+  public TopologyMapWidgetDefinitionDataStreams getTopologyMapWidgetDefinitionDataStreams()
+      throws ClassCastException {
+    return (TopologyMapWidgetDefinitionDataStreams) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `TopologyMapWidgetDefinitionServiceMap`. If the actual instance is
+   * not `TopologyMapWidgetDefinitionServiceMap`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `TopologyMapWidgetDefinitionServiceMap`
+   * @throws ClassCastException if the instance is not `TopologyMapWidgetDefinitionServiceMap`
+   */
+  public TopologyMapWidgetDefinitionServiceMap getTopologyMapWidgetDefinitionServiceMap()
+      throws ClassCastException {
+    return (TopologyMapWidgetDefinitionServiceMap) super.getActualInstance();
   }
 }

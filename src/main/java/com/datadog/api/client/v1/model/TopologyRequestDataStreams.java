@@ -12,104 +12,73 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Query to service-based topology data sources like the service map or data streams. */
+/** Request that returns nodes and edges from the data streams data source. */
 @JsonPropertyOrder({
-  TopologyQuery.JSON_PROPERTY_DATA_SOURCE,
-  TopologyQuery.JSON_PROPERTY_FILTERS,
-  TopologyQuery.JSON_PROPERTY_SERVICE
+  TopologyRequestDataStreams.JSON_PROPERTY_QUERY,
+  TopologyRequestDataStreams.JSON_PROPERTY_REQUEST_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TopologyQuery {
+public class TopologyRequestDataStreams {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-  private TopologyQueryDataSource dataSource;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private TopologyQueryDataStreams query;
 
-  public static final String JSON_PROPERTY_FILTERS = "filters";
-  private List<String> filters = null;
+  public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
+  private TopologyRequestType requestType;
 
-  public static final String JSON_PROPERTY_SERVICE = "service";
-  private String service;
-
-  public TopologyQuery dataSource(TopologyQueryDataSource dataSource) {
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
+  public TopologyRequestDataStreams query(TopologyQueryDataStreams query) {
+    this.query = query;
+    this.unparsed |= query.unparsed;
     return this;
   }
 
   /**
-   * Name of the data source
+   * Query to the data streams topology data source.
    *
-   * @return dataSource
+   * @return query
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TopologyQueryDataSource getDataSource() {
-    return dataSource;
+  public TopologyQueryDataStreams getQuery() {
+    return query;
   }
 
-  public void setDataSource(TopologyQueryDataSource dataSource) {
-    if (!dataSource.isValid()) {
+  public void setQuery(TopologyQueryDataStreams query) {
+    this.query = query;
+    if (query != null) {
+      this.unparsed |= query.unparsed;
+    }
+  }
+
+  public TopologyRequestDataStreams requestType(TopologyRequestType requestType) {
+    this.requestType = requestType;
+    this.unparsed |= !requestType.isValid();
+    return this;
+  }
+
+  /**
+   * Widget request type.
+   *
+   * @return requestType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TopologyRequestType getRequestType() {
+    return requestType;
+  }
+
+  public void setRequestType(TopologyRequestType requestType) {
+    if (!requestType.isValid()) {
       this.unparsed = true;
     }
-    this.dataSource = dataSource;
-  }
-
-  public TopologyQuery filters(List<String> filters) {
-    this.filters = filters;
-    return this;
-  }
-
-  public TopologyQuery addFiltersItem(String filtersItem) {
-    if (this.filters == null) {
-      this.filters = new ArrayList<>();
-    }
-    this.filters.add(filtersItem);
-    return this;
-  }
-
-  /**
-   * Your environment and primary tag (or * if enabled for your account).
-   *
-   * @return filters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getFilters() {
-    return filters;
-  }
-
-  public void setFilters(List<String> filters) {
-    this.filters = filters;
-  }
-
-  public TopologyQuery service(String service) {
-    this.service = service;
-    return this;
-  }
-
-  /**
-   * Name of the service
-   *
-   * @return service
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getService() {
-    return service;
-  }
-
-  public void setService(String service) {
-    this.service = service;
+    this.requestType = requestType;
   }
 
   /**
@@ -124,10 +93,10 @@ public class TopologyQuery {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TopologyQuery
+   * @return TopologyRequestDataStreams
    */
   @JsonAnySetter
-  public TopologyQuery putAdditionalProperty(String key, Object value) {
+  public TopologyRequestDataStreams putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -158,7 +127,7 @@ public class TopologyQuery {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TopologyQuery object is equal to o. */
+  /** Return true if this TopologyRequestDataStreams object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -167,25 +136,24 @@ public class TopologyQuery {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TopologyQuery topologyQuery = (TopologyQuery) o;
-    return Objects.equals(this.dataSource, topologyQuery.dataSource)
-        && Objects.equals(this.filters, topologyQuery.filters)
-        && Objects.equals(this.service, topologyQuery.service)
-        && Objects.equals(this.additionalProperties, topologyQuery.additionalProperties);
+    TopologyRequestDataStreams topologyRequestDataStreams = (TopologyRequestDataStreams) o;
+    return Objects.equals(this.query, topologyRequestDataStreams.query)
+        && Objects.equals(this.requestType, topologyRequestDataStreams.requestType)
+        && Objects.equals(
+            this.additionalProperties, topologyRequestDataStreams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSource, filters, service, additionalProperties);
+    return Objects.hash(query, requestType, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TopologyQuery {\n");
-    sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
-    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
-    sb.append("    service: ").append(toIndentedString(service)).append("\n");
+    sb.append("class TopologyRequestDataStreams {\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
