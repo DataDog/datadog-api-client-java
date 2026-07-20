@@ -83,6 +83,9 @@ public class {{ name }} extends AbstractOpenApiSchema {
             {%- set parameterizedDataType = get_type(oneOf) %}
             {%- set unParameterizedDataType = parameterizedDataType|un_parameterize_type %}
             {%- set isParameterized = parameterizedDataType|is_parameterized_type %}
+            {%- set isModelMember = not oneOf|is_primitive and not unParameterizedDataType|lower|is_java_base_type and "enum" not in oneOf %}
+            {%- set isComposedMember = "oneOf" in oneOf or "anyOf" in oneOf %}
+            {%- set isModelListMember = "items" in oneOf and oneOf.get("items")|is_model and not oneOf|is_primitive %}
             // deserialize {{ parameterizedDataType }}
             try {
                 boolean attemptParsing = true;
@@ -108,12 +111,20 @@ public class {{ name }} extends AbstractOpenApiSchema {
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
-                    {%- if not oneOf|is_primitive and not unParameterizedDataType|lower|is_java_base_type and "enum" not in oneOf %}
-                    if (!(({{ unParameterizedDataType }})tmp).unparsed) {
+                    {%- if isModelMember %}
+                    if (!(({{ unParameterizedDataType }}) tmp).unparsed
+                    {%- if isComposedMember %}
+		            {#- unmatched oneOf doesn't propagate to "tmp.unparsed": we aim
+			        for today's client to be forward-compatible with future oneOf
+				branches. But a oneOf branch that it itself a oneOf? We _must_
+				respect the nested oneOf's `unparsed` or the oneOf branch will
+				always match. #}
+                            && !((({{ unParameterizedDataType }}) tmp).getActualInstance() instanceof UnparsedObject)
+                    {%- endif %}) {
                         deserialized = tmp;
                         match++;
                     }
-                    {%- elif "items" in oneOf and oneOf.get("items")|is_model and not oneOf|is_primitive %}
+                    {%- elif isModelListMember %}
                     {%- set itemsDataType = get_type(oneOf.get("items")) %}
                     // keep the matched list, but propagate 'unparsed' from any invalid item
                     boolean itemsUnparsed = false;
