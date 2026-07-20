@@ -47,7 +47,18 @@ public class TagIndexingRuleOptionsData {
   }
 
   /**
-   * Configuration for including dynamically queried tags.
+   * Options for dynamic tag indexing applied per metric, such as tags filtered by query usage.
+   *
+   * <p>Before a tag key is dropped by this rule, two grace period conditions must be met:
+   *
+   * <ol>
+   *   <li>The metric must be submitted for at least as long as the selected window.
+   *   <li>A tag key must have been submitted for at least 15 days.
+   * </ol>
+   *
+   * <p>Any metric or tag key that does not meet these conditions are excluded from this indexing
+   * rule. The <code>exclude_not_*</code> fields require <code>exclude_tags_mode</code> to be set to
+   * <code>true</code>.
    *
    * @return dynamicTags
    */

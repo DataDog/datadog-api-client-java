@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"exclude_tags_mode\":true,\"ignored_metric_name_matches\":[],\"metric_name_matches\":[\"dd.test.*\"],\"name\":\"my-indexing-rule\",\"options\":{\"data\":{\"dynamic_tags\":{\"exclude_not_queried_window_seconds\":7776001},\"manage_preexisting_metrics\":true,\"override_previous_rules\":false},\"version\":1},\"tags\":[\"env\",\"service\"]},\"type\":\"tag_indexing_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/metrics/tag-indexing-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid request body: dynamic_tags.exclude_not_queried_window_seconds cannot exceed 7776000 seconds (90 days)\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cade0bfa-85ad-9807-46f9-4afdd3feb049"
+  }
+]

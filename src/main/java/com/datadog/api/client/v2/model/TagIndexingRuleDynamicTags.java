@@ -16,8 +16,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Configuration for including dynamically queried tags. */
+/**
+ * Options for dynamic tag indexing applied per metric, such as tags filtered by query usage.
+ *
+ * <p>Before a tag key is dropped by this rule, two grace period conditions must be met:
+ *
+ * <ol>
+ *   <li>The metric must be submitted for at least as long as the selected window.
+ *   <li>A tag key must have been submitted for at least 15 days.
+ * </ol>
+ *
+ * <p>Any metric or tag key that does not meet these conditions are excluded from this indexing
+ * rule. The <code>exclude_not_*</code> fields require <code>exclude_tags_mode</code> to be set to
+ * <code>true</code>.
+ */
 @JsonPropertyOrder({
+  TagIndexingRuleDynamicTags.JSON_PROPERTY_EXCLUDE_NOT_QUERIED_WINDOW_SECONDS,
+  TagIndexingRuleDynamicTags.JSON_PROPERTY_EXCLUDE_NOT_USED_IN_ASSETS,
   TagIndexingRuleDynamicTags.JSON_PROPERTY_QUERIED_TAGS_WINDOW_SECONDS,
   TagIndexingRuleDynamicTags.JSON_PROPERTY_RELATED_ASSET_TAGS
 })
@@ -25,12 +40,64 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TagIndexingRuleDynamicTags {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EXCLUDE_NOT_QUERIED_WINDOW_SECONDS =
+      "exclude_not_queried_window_seconds";
+  private Long excludeNotQueriedWindowSeconds;
+
+  public static final String JSON_PROPERTY_EXCLUDE_NOT_USED_IN_ASSETS =
+      "exclude_not_used_in_assets";
+  private Boolean excludeNotUsedInAssets;
+
   public static final String JSON_PROPERTY_QUERIED_TAGS_WINDOW_SECONDS =
       "queried_tags_window_seconds";
   private Long queriedTagsWindowSeconds;
 
   public static final String JSON_PROPERTY_RELATED_ASSET_TAGS = "related_asset_tags";
   private Boolean relatedAssetTags;
+
+  public TagIndexingRuleDynamicTags excludeNotQueriedWindowSeconds(
+      Long excludeNotQueriedWindowSeconds) {
+    this.excludeNotQueriedWindowSeconds = excludeNotQueriedWindowSeconds;
+    return this;
+  }
+
+  /**
+   * Tags that have not been queried within this window are excluded from indexing. Maximum of
+   * <code>7776000</code> (90 days). maximum: 7776000
+   *
+   * @return excludeNotQueriedWindowSeconds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_NOT_QUERIED_WINDOW_SECONDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getExcludeNotQueriedWindowSeconds() {
+    return excludeNotQueriedWindowSeconds;
+  }
+
+  public void setExcludeNotQueriedWindowSeconds(Long excludeNotQueriedWindowSeconds) {
+    this.excludeNotQueriedWindowSeconds = excludeNotQueriedWindowSeconds;
+  }
+
+  public TagIndexingRuleDynamicTags excludeNotUsedInAssets(Boolean excludeNotUsedInAssets) {
+    this.excludeNotUsedInAssets = excludeNotUsedInAssets;
+    return this;
+  }
+
+  /**
+   * Tags not used in any dashboards, monitors, notebooks, or SLOs are excluded from indexing.
+   *
+   * @return excludeNotUsedInAssets
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_NOT_USED_IN_ASSETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getExcludeNotUsedInAssets() {
+    return excludeNotUsedInAssets;
+  }
+
+  public void setExcludeNotUsedInAssets(Boolean excludeNotUsedInAssets) {
+    this.excludeNotUsedInAssets = excludeNotUsedInAssets;
+  }
 
   public TagIndexingRuleDynamicTags queriedTagsWindowSeconds(Long queriedTagsWindowSeconds) {
     this.queriedTagsWindowSeconds = queriedTagsWindowSeconds;
@@ -131,6 +198,11 @@ public class TagIndexingRuleDynamicTags {
     }
     TagIndexingRuleDynamicTags tagIndexingRuleDynamicTags = (TagIndexingRuleDynamicTags) o;
     return Objects.equals(
+            this.excludeNotQueriedWindowSeconds,
+            tagIndexingRuleDynamicTags.excludeNotQueriedWindowSeconds)
+        && Objects.equals(
+            this.excludeNotUsedInAssets, tagIndexingRuleDynamicTags.excludeNotUsedInAssets)
+        && Objects.equals(
             this.queriedTagsWindowSeconds, tagIndexingRuleDynamicTags.queriedTagsWindowSeconds)
         && Objects.equals(this.relatedAssetTags, tagIndexingRuleDynamicTags.relatedAssetTags)
         && Objects.equals(
@@ -139,13 +211,24 @@ public class TagIndexingRuleDynamicTags {
 
   @Override
   public int hashCode() {
-    return Objects.hash(queriedTagsWindowSeconds, relatedAssetTags, additionalProperties);
+    return Objects.hash(
+        excludeNotQueriedWindowSeconds,
+        excludeNotUsedInAssets,
+        queriedTagsWindowSeconds,
+        relatedAssetTags,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TagIndexingRuleDynamicTags {\n");
+    sb.append("    excludeNotQueriedWindowSeconds: ")
+        .append(toIndentedString(excludeNotQueriedWindowSeconds))
+        .append("\n");
+    sb.append("    excludeNotUsedInAssets: ")
+        .append(toIndentedString(excludeNotUsedInAssets))
+        .append("\n");
     sb.append("    queriedTagsWindowSeconds: ")
         .append(toIndentedString(queriedTagsWindowSeconds))
         .append("\n");
