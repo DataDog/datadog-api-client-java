@@ -530,6 +530,11 @@ def format_data_with_schema_list(
             except (KeyError, ValueError):
                 continue
 
+            if matched_sub_schema.get("x-generate-alias-as-model"):
+                alias_name = schema_name(matched_sub_schema)
+                one_of_imports.add(alias_name)
+                value = f"new {alias_name}({value})"
+
             if name:
                 one_of_imports.add(f"{name}")
                 # Detect if we need to use factory method due to type erasure collision
