@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -22,6 +23,12 @@ import java.util.Objects;
 public class SpansAggregateBucketValueTimeseries
     extends ArrayList<SpansAggregateBucketValueTimeseriesPoint> {
   @JsonIgnore public boolean unparsed = false;
+
+  public SpansAggregateBucketValueTimeseries() {}
+
+  public SpansAggregateBucketValueTimeseries(List<SpansAggregateBucketValueTimeseriesPoint> items) {
+    super(items);
+  }
 
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared

@@ -1,0 +1,140 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"prompt_id\":\"Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285\",\"template\":[{\"content\":\"Hello\",\"role\":\"user\"}]},\"type\":\"prompt-templates\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/llm-obs/v1/prompts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"599ee1f4-9680-5ff8-92c9-ca31130057f3\",\"type\":\"prompt-templates\",\"attributes\":{\"author\":\"c5e19e5a-ad6b-11ed-ab4f-927130d31ef9\",\"created_at\":\"2026-07-20T12:24:46.021742711Z\",\"created_from\":\"sdk-registry\",\"in_registry\":true,\"last_version_created_at\":\"2026-07-20T12:24:46.021742711Z\",\"num_versions\":1,\"prompt_id\":\"Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285\",\"source\":\"registry\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d2e40232-6a9c-11b7-9cae-9105fc718822"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"template\":[{\"content\":\"Hello v2\",\"role\":\"user\"}]},\"type\":\"prompt-template-versions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/llm-obs/v1/prompts/Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285/versions",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d80790f5-cd99-5d57-b6e0-4d4bbbc21514\",\"type\":\"prompt-template-versions\",\"attributes\":{\"author\":\"c5e19e5a-ad6b-11ed-ab4f-927130d31ef9\",\"created_at\":\"2026-07-20T12:24:46.796641541Z\",\"prompt_id\":\"Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285\",\"prompt_uuid\":\"599ee1f4-9680-5ff8-92c9-ca31130057f3\",\"template\":[{\"content\":\"Hello v2\",\"role\":\"user\"}],\"version\":2,\"version_created_at\":\"2026-07-20T12:24:46.796641541Z\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dcd83842-4723-6580-d888-145e8c864180"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/llm-obs/v1/prompts/Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285/versions/2",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d80790f5-cd99-5d57-b6e0-4d4bbbc21514\",\"type\":\"prompt-template-versions\",\"attributes\":{\"author\":\"c5e19e5a-ad6b-11ed-ab4f-927130d31ef9\",\"created_at\":\"2026-07-20T12:24:46.796641Z\",\"prompt_id\":\"Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285\",\"prompt_uuid\":\"599ee1f4-9680-5ff8-92c9-ca31130057f3\",\"template\":[{\"role\":\"user\",\"content\":\"Hello v2\"}],\"version\":2,\"version_created_at\":\"2026-07-20T12:24:46.796641Z\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0ae2533e-a721-e8b3-4845-858cf9e60da6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/llm-obs/v1/prompts/Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"599ee1f4-9680-5ff8-92c9-ca31130057f3\",\"type\":\"prompt-templates\",\"attributes\":{\"deleted_at\":\"2026-07-20T12:24:48.753279Z\",\"prompt_id\":\"Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e98cb8fe-7cef-a49c-e959-871739cdfac6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/llm-obs/v1/prompts/Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"599ee1f4-9680-5ff8-92c9-ca31130057f3\",\"type\":\"prompt-templates\",\"attributes\":{\"deleted_at\":\"2026-07-20T12:24:49.086069Z\",\"prompt_id\":\"Test-Get_a_specific_LLM_Observability_prompt_version_returns_OK_response-1784550285\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e98cb8fe-7cef-a49c-e959-871739cdfac7"
+  }
+]
