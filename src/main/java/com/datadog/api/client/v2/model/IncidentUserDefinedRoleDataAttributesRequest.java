@@ -41,12 +41,8 @@ public class IncidentUserDefinedRoleDataAttributesRequest {
 
   @JsonCreator
   public IncidentUserDefinedRoleDataAttributesRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_POLICY)
-          IncidentUserDefinedRolePolicy policy) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
-    this.policy = policy;
-    this.unparsed |= policy.unparsed;
   }
 
   public IncidentUserDefinedRoleDataAttributesRequest description(String description) {
@@ -111,8 +107,9 @@ public class IncidentUserDefinedRoleDataAttributesRequest {
    *
    * @return policy
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POLICY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentUserDefinedRolePolicy getPolicy() {
     return policy;
   }
