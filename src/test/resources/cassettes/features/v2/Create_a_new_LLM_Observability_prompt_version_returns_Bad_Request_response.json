@@ -1,0 +1,88 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"prompt_id\":\"Test-Create_a_new_LLM_Observability_prompt_version_returns_Bad_Request_response-1784543283\",\"template\":[{\"content\":\"Hello\",\"role\":\"user\"}]},\"type\":\"prompt-templates\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/llm-obs/v1/prompts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9c67c0e2-0806-589b-8e8c-83ab2e6f76e3\",\"type\":\"prompt-templates\",\"attributes\":{\"author\":\"c5e19e5a-ad6b-11ed-ab4f-927130d31ef9\",\"created_at\":\"2026-07-20T10:28:04.139526235Z\",\"created_from\":\"sdk-registry\",\"in_registry\":true,\"last_version_created_at\":\"2026-07-20T10:28:04.139526235Z\",\"num_versions\":1,\"prompt_id\":\"Test-Create_a_new_LLM_Observability_prompt_version_returns_Bad_Request_response-1784543283\",\"source\":\"registry\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "90f27a31-2900-5344-8bcc-0e54a8c53bc4"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"template\":\" \"},\"type\":\"prompt-template-versions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/llm-obs/v1/prompts/Test-Create_a_new_LLM_Observability_prompt_version_returns_Bad_Request_response-1784543283/versions",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"invalid prompt template\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a29b15a2-0dfa-dcd1-5224-d0a44aa89a9d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/llm-obs/v1/prompts/Test-Create_a_new_LLM_Observability_prompt_version_returns_Bad_Request_response-1784543283",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9c67c0e2-0806-589b-8e8c-83ab2e6f76e3\",\"type\":\"prompt-templates\",\"attributes\":{\"deleted_at\":\"2026-07-20T10:28:05.328346Z\",\"prompt_id\":\"Test-Create_a_new_LLM_Observability_prompt_version_returns_Bad_Request_response-1784543283\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "79ed63f7-31f4-a945-ee25-f3674b36e849"
+  }
+]

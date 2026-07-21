@@ -788,6 +788,8 @@ public class ApiClient {
           put("v2.createLLMObsExperimentEvents", false);
           put("v2.createLLMObsIntegrationInference", false);
           put("v2.createLLMObsProject", false);
+          put("v2.createLLMObsPrompt", false);
+          put("v2.createLLMObsPromptVersion", false);
           put("v2.deleteLLMObsAnnotationQueue", false);
           put("v2.deleteLLMObsAnnotationQueueInteractions", false);
           put("v2.deleteLLMObsAnnotations", false);
@@ -798,6 +800,7 @@ public class ApiClient {
           put("v2.deleteLLMObsExperiments", false);
           put("v2.deleteLLMObsPatternsConfig", false);
           put("v2.deleteLLMObsProjects", false);
+          put("v2.deleteLLMObsPrompt", false);
           put("v2.exportLLMObsDataset", false);
           put("v2.getLLMObsAnnotatedInteractions", false);
           put("v2.getLLMObsAnnotatedInteractionsByTraceIDs", false);
@@ -806,6 +809,8 @@ public class ApiClient {
           put("v2.getLLMObsDatasetDraftState", false);
           put("v2.getLLMObsPatternsConfig", false);
           put("v2.getLLMObsPatternsRunStatus", false);
+          put("v2.getLLMObsPrompt", false);
+          put("v2.getLLMObsPromptVersion", false);
           put("v2.listLLMObsAnnotationQueues", false);
           put("v2.listLLMObsDatasetRecords", false);
           put("v2.listLLMObsDatasets", false);
@@ -822,6 +827,8 @@ public class ApiClient {
           put("v2.listLLMObsPatternsTopics", false);
           put("v2.listLLMObsPatternsTopicsWithClusteredPoints", false);
           put("v2.listLLMObsProjects", false);
+          put("v2.listLLMObsPrompts", false);
+          put("v2.listLLMObsPromptVersions", false);
           put("v2.listLLMObsSpans", false);
           put("v2.lockLLMObsDatasetDraftState", false);
           put("v2.restoreLLMObsDatasetVersion", false);
@@ -837,6 +844,8 @@ public class ApiClient {
           put("v2.updateLLMObsDatasetRecords", false);
           put("v2.updateLLMObsExperiment", false);
           put("v2.updateLLMObsProject", false);
+          put("v2.updateLLMObsPrompt", false);
+          put("v2.updateLLMObsPromptVersion", false);
           put("v2.uploadLLMObsDatasetRecordsFile", false);
           put("v2.upsertLLMObsAnnotations", false);
           put("v2.upsertLLMObsPatternsConfig", false);

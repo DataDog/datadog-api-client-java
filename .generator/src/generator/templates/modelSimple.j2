@@ -16,6 +16,14 @@
 public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends {% if "items" in model %}ArrayList<{{ get_type(model["items"]) }}>{% else %}{{ get_type(model) }}{% endif %}{% endif %} {
   @JsonIgnore
   public boolean unparsed = false;
+  {%- if model.get("x-generate-alias-as-model") and "items" in model %}
+
+  public {{ name }}() {}
+
+  public {{ name }}(List<{{ get_type(model["items"]) }}> items) {
+    super(items);
+  }
+  {%- endif %}
   {%- for attr, schema in model.get("properties", {}).items() %}
   {%- set attributeName = attr|attribute_name %}
   {%- set variableName = attr|variable_name %}
@@ -46,7 +54,9 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
 
   {%- set requiredAttr = model|get_required_attributes %}
   {%- if requiredAttr %}
+  {%- if not (model.get("x-generate-alias-as-model") and "items" in model) %}
   public {{ name }}() {}
+  {%- endif %}
 
   @JsonCreator
   public {{ name }}(

@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"prompt_id\":\"Test-Create_an_LLM_Observability_prompt_returns_Bad_Request_response-1784543299\",\"template\":\" \"},\"type\":\"prompt-templates\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/llm-obs/v1/prompts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"invalid prompt template\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b9aa0cdd-01ec-92ea-001e-2eed81de780e"
+  }
+]

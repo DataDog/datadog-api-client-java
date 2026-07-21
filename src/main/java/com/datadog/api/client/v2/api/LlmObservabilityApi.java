@@ -16,6 +16,8 @@ import com.datadog.api.client.v2.model.LLMObsAnnotationQueueUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueuesResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotationsRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationsResponse;
+import com.datadog.api.client.v2.model.LLMObsCreatePromptRequest;
+import com.datadog.api.client.v2.model.LLMObsCreatePromptVersionRequest;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigResponse;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsDataDeletionRequest;
@@ -41,6 +43,7 @@ import com.datadog.api.client.v2.model.LLMObsDeleteDatasetRecordsRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteDatasetsRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteExperimentsRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteProjectsRequest;
+import com.datadog.api.client.v2.model.LLMObsDeletedPromptResponse;
 import com.datadog.api.client.v2.model.LLMObsExperimentEventsRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentEventsV2Response;
 import com.datadog.api.client.v2.model.LLMObsExperimentRequest;
@@ -73,8 +76,15 @@ import com.datadog.api.client.v2.model.LLMObsProjectRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectResponse;
 import com.datadog.api.client.v2.model.LLMObsProjectUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectsResponse;
+import com.datadog.api.client.v2.model.LLMObsPromptResponse;
+import com.datadog.api.client.v2.model.LLMObsPromptSDKResponse;
+import com.datadog.api.client.v2.model.LLMObsPromptVersionResponse;
+import com.datadog.api.client.v2.model.LLMObsPromptVersionsResponse;
+import com.datadog.api.client.v2.model.LLMObsPromptsResponse;
 import com.datadog.api.client.v2.model.LLMObsSearchSpansRequest;
 import com.datadog.api.client.v2.model.LLMObsSpansResponse;
+import com.datadog.api.client.v2.model.LLMObsUpdatePromptRequest;
+import com.datadog.api.client.v2.model.LLMObsUpdatePromptVersionRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.io.File;
@@ -2138,6 +2148,339 @@ public class LlmObservabilityApi {
   }
 
   /**
+   * Create an LLM Observability prompt.
+   *
+   * <p>See {@link #createLLMObsPromptWithHttpInfo}.
+   *
+   * @param body Create prompt payload. (required)
+   * @return LLMObsPromptResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptResponse createLLMObsPrompt(LLMObsCreatePromptRequest body)
+      throws ApiException {
+    return createLLMObsPromptWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an LLM Observability prompt.
+   *
+   * <p>See {@link #createLLMObsPromptWithHttpInfoAsync}.
+   *
+   * @param body Create prompt payload. (required)
+   * @return CompletableFuture&lt;LLMObsPromptResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptResponse> createLLMObsPromptAsync(
+      LLMObsCreatePromptRequest body) {
+    return createLLMObsPromptWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new prompt (and its first version) in the LLM Observability prompt registry.
+   *
+   * @param body Create prompt payload. (required)
+   * @return ApiResponse&lt;LLMObsPromptResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPromptResponse> createLLMObsPromptWithHttpInfo(
+      LLMObsCreatePromptRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsPrompt";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createLLMObsPrompt");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/prompts";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.createLLMObsPrompt",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptResponse>() {});
+  }
+
+  /**
+   * Create an LLM Observability prompt.
+   *
+   * <p>See {@link #createLLMObsPromptWithHttpInfo}.
+   *
+   * @param body Create prompt payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPromptResponse>> createLLMObsPromptWithHttpInfoAsync(
+      LLMObsCreatePromptRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsPrompt";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createLLMObsPrompt"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/prompts";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.createLLMObsPrompt",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptResponse>() {});
+  }
+
+  /**
+   * Create a new LLM Observability prompt version.
+   *
+   * <p>See {@link #createLLMObsPromptVersionWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param body Create prompt version payload. (required)
+   * @return LLMObsPromptVersionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptVersionResponse createLLMObsPromptVersion(
+      String promptId, LLMObsCreatePromptVersionRequest body) throws ApiException {
+    return createLLMObsPromptVersionWithHttpInfo(promptId, body).getData();
+  }
+
+  /**
+   * Create a new LLM Observability prompt version.
+   *
+   * <p>See {@link #createLLMObsPromptVersionWithHttpInfoAsync}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param body Create prompt version payload. (required)
+   * @return CompletableFuture&lt;LLMObsPromptVersionResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptVersionResponse> createLLMObsPromptVersionAsync(
+      String promptId, LLMObsCreatePromptVersionRequest body) {
+    return createLLMObsPromptVersionWithHttpInfoAsync(promptId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new version of an existing LLM Observability prompt.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param body Create prompt version payload. (required)
+   * @return ApiResponse&lt;LLMObsPromptVersionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPromptVersionResponse> createLLMObsPromptVersionWithHttpInfo(
+      String promptId, LLMObsCreatePromptVersionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsPromptVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'promptId' when calling createLLMObsPromptVersion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createLLMObsPromptVersion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.createLLMObsPromptVersion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptVersionResponse>() {});
+  }
+
+  /**
+   * Create a new LLM Observability prompt version.
+   *
+   * <p>See {@link #createLLMObsPromptVersionWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param body Create prompt version payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptVersionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>>
+      createLLMObsPromptVersionWithHttpInfoAsync(
+          String promptId, LLMObsCreatePromptVersionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsPromptVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'promptId' when calling createLLMObsPromptVersion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createLLMObsPromptVersion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.createLLMObsPromptVersion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptVersionResponse>() {});
+  }
+
+  /**
    * Delete an LLM Observability annotation queue.
    *
    * <p>See {@link #deleteLLMObsAnnotationQueueWithHttpInfo}.
@@ -3791,6 +4134,163 @@ public class LlmObservabilityApi {
         null);
   }
 
+  /**
+   * Delete an LLM Observability prompt.
+   *
+   * <p>See {@link #deleteLLMObsPromptWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return LLMObsDeletedPromptResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsDeletedPromptResponse deleteLLMObsPrompt(String promptId) throws ApiException {
+    return deleteLLMObsPromptWithHttpInfo(promptId).getData();
+  }
+
+  /**
+   * Delete an LLM Observability prompt.
+   *
+   * <p>See {@link #deleteLLMObsPromptWithHttpInfoAsync}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return CompletableFuture&lt;LLMObsDeletedPromptResponse&gt;
+   */
+  public CompletableFuture<LLMObsDeletedPromptResponse> deleteLLMObsPromptAsync(String promptId) {
+    return deleteLLMObsPromptWithHttpInfoAsync(promptId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Soft-delete an LLM Observability prompt. The prompt's version rows are retained, but they are
+   * no longer accessible through the public prompt registry endpoints.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return ApiResponse&lt;LLMObsDeletedPromptResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsDeletedPromptResponse> deleteLLMObsPromptWithHttpInfo(String promptId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsPrompt";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'promptId' when calling deleteLLMObsPrompt");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.deleteLLMObsPrompt",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDeletedPromptResponse>() {});
+  }
+
+  /**
+   * Delete an LLM Observability prompt.
+   *
+   * <p>See {@link #deleteLLMObsPromptWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDeletedPromptResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsDeletedPromptResponse>>
+      deleteLLMObsPromptWithHttpInfoAsync(String promptId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsPrompt";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsDeletedPromptResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      CompletableFuture<ApiResponse<LLMObsDeletedPromptResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'promptId' when calling deleteLLMObsPrompt"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.deleteLLMObsPrompt",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsDeletedPromptResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDeletedPromptResponse>() {});
+  }
+
   /** Manage optional parameters to exportLLMObsDataset. */
   public static class ExportLLMObsDatasetOptionalParameters {
     private LLMObsDatasetExportFormat format;
@@ -5279,6 +5779,404 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsPatternsRunStatusResponse>() {});
+  }
+
+  /** Manage optional parameters to getLLMObsPrompt. */
+  public static class GetLLMObsPromptOptionalParameters {
+    private String label;
+
+    /**
+     * Set label.
+     *
+     * @param label <strong>Deprecated.</strong> Optional label of the prompt version to return. Do
+     *     not use this parameter for new integrations. If omitted, the latest version is returned.
+     *     If the prompt has no labels, the latest version is returned even when a label is
+     *     requested. If the prompt has labels but none match the requested label, a 404 response is
+     *     returned. (optional)
+     * @return GetLLMObsPromptOptionalParameters
+     */
+    public GetLLMObsPromptOptionalParameters label(String label) {
+      this.label = label;
+      return this;
+    }
+  }
+
+  /**
+   * Get an LLM Observability prompt.
+   *
+   * <p>See {@link #getLLMObsPromptWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return LLMObsPromptSDKResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptSDKResponse getLLMObsPrompt(String promptId) throws ApiException {
+    return getLLMObsPromptWithHttpInfo(promptId, new GetLLMObsPromptOptionalParameters()).getData();
+  }
+
+  /**
+   * Get an LLM Observability prompt.
+   *
+   * <p>See {@link #getLLMObsPromptWithHttpInfoAsync}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return CompletableFuture&lt;LLMObsPromptSDKResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptSDKResponse> getLLMObsPromptAsync(String promptId) {
+    return getLLMObsPromptWithHttpInfoAsync(promptId, new GetLLMObsPromptOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an LLM Observability prompt.
+   *
+   * <p>See {@link #getLLMObsPromptWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param parameters Optional parameters for the request.
+   * @return LLMObsPromptSDKResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptSDKResponse getLLMObsPrompt(
+      String promptId, GetLLMObsPromptOptionalParameters parameters) throws ApiException {
+    return getLLMObsPromptWithHttpInfo(promptId, parameters).getData();
+  }
+
+  /**
+   * Get an LLM Observability prompt.
+   *
+   * <p>See {@link #getLLMObsPromptWithHttpInfoAsync}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LLMObsPromptSDKResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptSDKResponse> getLLMObsPromptAsync(
+      String promptId, GetLLMObsPromptOptionalParameters parameters) {
+    return getLLMObsPromptWithHttpInfoAsync(promptId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the latest version of an LLM Observability prompt by prompt ID.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;LLMObsPromptSDKResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPromptSDKResponse> getLLMObsPromptWithHttpInfo(
+      String promptId, GetLLMObsPromptOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsPrompt";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'promptId' when calling getLLMObsPrompt");
+    }
+    String label = parameters.label;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "label", label));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.getLLMObsPrompt",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptSDKResponse>() {});
+  }
+
+  /**
+   * Get an LLM Observability prompt.
+   *
+   * <p>See {@link #getLLMObsPromptWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptSDKResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPromptSDKResponse>> getLLMObsPromptWithHttpInfoAsync(
+      String promptId, GetLLMObsPromptOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsPrompt";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPromptSDKResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptSDKResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'promptId' when calling getLLMObsPrompt"));
+      return result;
+    }
+    String label = parameters.label;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "label", label));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.getLLMObsPrompt",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPromptSDKResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptSDKResponse>() {});
+  }
+
+  /**
+   * Get a specific LLM Observability prompt version.
+   *
+   * <p>See {@link #getLLMObsPromptVersionWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param version The version number of the LLM Observability prompt. (required)
+   * @return LLMObsPromptVersionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptVersionResponse getLLMObsPromptVersion(String promptId, Long version)
+      throws ApiException {
+    return getLLMObsPromptVersionWithHttpInfo(promptId, version).getData();
+  }
+
+  /**
+   * Get a specific LLM Observability prompt version.
+   *
+   * <p>See {@link #getLLMObsPromptVersionWithHttpInfoAsync}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param version The version number of the LLM Observability prompt. (required)
+   * @return CompletableFuture&lt;LLMObsPromptVersionResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptVersionResponse> getLLMObsPromptVersionAsync(
+      String promptId, Long version) {
+    return getLLMObsPromptVersionWithHttpInfoAsync(promptId, version)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the full template of a single, specific version of an LLM Observability prompt.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param version The version number of the LLM Observability prompt. (required)
+   * @return ApiResponse&lt;LLMObsPromptVersionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPromptVersionResponse> getLLMObsPromptVersionWithHttpInfo(
+      String promptId, Long version) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsPromptVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'promptId' when calling getLLMObsPromptVersion");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'version' when calling getLLMObsPromptVersion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.getLLMObsPromptVersion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptVersionResponse>() {});
+  }
+
+  /**
+   * Get a specific LLM Observability prompt version.
+   *
+   * <p>See {@link #getLLMObsPromptVersionWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param version The version number of the LLM Observability prompt. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptVersionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>>
+      getLLMObsPromptVersionWithHttpInfoAsync(String promptId, Long version) {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsPromptVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'promptId' when calling getLLMObsPromptVersion"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'version' when calling getLLMObsPromptVersion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.getLLMObsPromptVersion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptVersionResponse>() {});
   }
 
   /** Manage optional parameters to listLLMObsAnnotationQueues. */
@@ -8826,6 +9724,351 @@ public class LlmObservabilityApi {
         new GenericType<LLMObsProjectsResponse>() {});
   }
 
+  /** Manage optional parameters to listLLMObsPrompts. */
+  public static class ListLLMObsPromptsOptionalParameters {
+    private String filterPromptId;
+
+    /**
+     * Set filterPromptId.
+     *
+     * @param filterPromptId Optional filter for prompts by prompt ID. (optional)
+     * @return ListLLMObsPromptsOptionalParameters
+     */
+    public ListLLMObsPromptsOptionalParameters filterPromptId(String filterPromptId) {
+      this.filterPromptId = filterPromptId;
+      return this;
+    }
+  }
+
+  /**
+   * List LLM Observability prompts.
+   *
+   * <p>See {@link #listLLMObsPromptsWithHttpInfo}.
+   *
+   * @return LLMObsPromptsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptsResponse listLLMObsPrompts() throws ApiException {
+    return listLLMObsPromptsWithHttpInfo(new ListLLMObsPromptsOptionalParameters()).getData();
+  }
+
+  /**
+   * List LLM Observability prompts.
+   *
+   * <p>See {@link #listLLMObsPromptsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LLMObsPromptsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptsResponse> listLLMObsPromptsAsync() {
+    return listLLMObsPromptsWithHttpInfoAsync(new ListLLMObsPromptsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List LLM Observability prompts.
+   *
+   * <p>See {@link #listLLMObsPromptsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return LLMObsPromptsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptsResponse listLLMObsPrompts(ListLLMObsPromptsOptionalParameters parameters)
+      throws ApiException {
+    return listLLMObsPromptsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List LLM Observability prompts.
+   *
+   * <p>See {@link #listLLMObsPromptsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LLMObsPromptsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptsResponse> listLLMObsPromptsAsync(
+      ListLLMObsPromptsOptionalParameters parameters) {
+    return listLLMObsPromptsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all LLM Observability prompts in the prompt registry for the organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;LLMObsPromptsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPromptsResponse> listLLMObsPromptsWithHttpInfo(
+      ListLLMObsPromptsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPrompts";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String filterPromptId = parameters.filterPromptId;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/prompts";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[prompt_id]", filterPromptId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsPrompts",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptsResponse>() {});
+  }
+
+  /**
+   * List LLM Observability prompts.
+   *
+   * <p>See {@link #listLLMObsPromptsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPromptsResponse>> listLLMObsPromptsWithHttpInfoAsync(
+      ListLLMObsPromptsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPrompts";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPromptsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String filterPromptId = parameters.filterPromptId;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/prompts";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[prompt_id]", filterPromptId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsPrompts",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPromptsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptsResponse>() {});
+  }
+
+  /**
+   * List versions of an LLM Observability prompt.
+   *
+   * <p>See {@link #listLLMObsPromptVersionsWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return LLMObsPromptVersionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptVersionsResponse listLLMObsPromptVersions(String promptId)
+      throws ApiException {
+    return listLLMObsPromptVersionsWithHttpInfo(promptId).getData();
+  }
+
+  /**
+   * List versions of an LLM Observability prompt.
+   *
+   * <p>See {@link #listLLMObsPromptVersionsWithHttpInfoAsync}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return CompletableFuture&lt;LLMObsPromptVersionsResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptVersionsResponse> listLLMObsPromptVersionsAsync(
+      String promptId) {
+    return listLLMObsPromptVersionsWithHttpInfoAsync(promptId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all versions of an LLM Observability prompt, ordered newest to oldest. If the prompt does
+   * not exist, is not registered, or is archived, the response contains an empty list.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return ApiResponse&lt;LLMObsPromptVersionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPromptVersionsResponse> listLLMObsPromptVersionsWithHttpInfo(
+      String promptId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPromptVersions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'promptId' when calling listLLMObsPromptVersions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsPromptVersions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptVersionsResponse>() {});
+  }
+
+  /**
+   * List versions of an LLM Observability prompt.
+   *
+   * <p>See {@link #listLLMObsPromptVersionsWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptVersionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPromptVersionsResponse>>
+      listLLMObsPromptVersionsWithHttpInfoAsync(String promptId) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsPromptVersions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'promptId' when calling listLLMObsPromptVersions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsPromptVersions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptVersionsResponse>() {});
+  }
+
   /** Manage optional parameters to listLLMObsSpans. */
   public static class ListLLMObsSpansOptionalParameters {
     private String filterFrom;
@@ -11728,6 +12971,386 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsProjectResponse>() {});
+  }
+
+  /**
+   * Update an LLM Observability prompt.
+   *
+   * <p>See {@link #updateLLMObsPromptWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param body Update prompt payload. (required)
+   * @return LLMObsPromptResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptResponse updateLLMObsPrompt(String promptId, LLMObsUpdatePromptRequest body)
+      throws ApiException {
+    return updateLLMObsPromptWithHttpInfo(promptId, body).getData();
+  }
+
+  /**
+   * Update an LLM Observability prompt.
+   *
+   * <p>See {@link #updateLLMObsPromptWithHttpInfoAsync}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param body Update prompt payload. (required)
+   * @return CompletableFuture&lt;LLMObsPromptResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptResponse> updateLLMObsPromptAsync(
+      String promptId, LLMObsUpdatePromptRequest body) {
+    return updateLLMObsPromptWithHttpInfoAsync(promptId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the title, the description, or both, for an LLM Observability prompt.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param body Update prompt payload. (required)
+   * @return ApiResponse&lt;LLMObsPromptResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPromptResponse> updateLLMObsPromptWithHttpInfo(
+      String promptId, LLMObsUpdatePromptRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateLLMObsPrompt";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'promptId' when calling updateLLMObsPrompt");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateLLMObsPrompt");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.updateLLMObsPrompt",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptResponse>() {});
+  }
+
+  /**
+   * Update an LLM Observability prompt.
+   *
+   * <p>See {@link #updateLLMObsPromptWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param body Update prompt payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPromptResponse>> updateLLMObsPromptWithHttpInfoAsync(
+      String promptId, LLMObsUpdatePromptRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateLLMObsPrompt";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'promptId' when calling updateLLMObsPrompt"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateLLMObsPrompt"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.updateLLMObsPrompt",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPromptResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptResponse>() {});
+  }
+
+  /**
+   * Update a specific LLM Observability prompt version.
+   *
+   * <p>See {@link #updateLLMObsPromptVersionWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param version The version number of the LLM Observability prompt. (required)
+   * @param body Update prompt version payload. (required)
+   * @return LLMObsPromptVersionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsPromptVersionResponse updateLLMObsPromptVersion(
+      String promptId, Long version, LLMObsUpdatePromptVersionRequest body) throws ApiException {
+    return updateLLMObsPromptVersionWithHttpInfo(promptId, version, body).getData();
+  }
+
+  /**
+   * Update a specific LLM Observability prompt version.
+   *
+   * <p>See {@link #updateLLMObsPromptVersionWithHttpInfoAsync}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param version The version number of the LLM Observability prompt. (required)
+   * @param body Update prompt version payload. (required)
+   * @return CompletableFuture&lt;LLMObsPromptVersionResponse&gt;
+   */
+  public CompletableFuture<LLMObsPromptVersionResponse> updateLLMObsPromptVersionAsync(
+      String promptId, Long version, LLMObsUpdatePromptVersionRequest body) {
+    return updateLLMObsPromptVersionWithHttpInfoAsync(promptId, version, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the description, the feature-flag environments, or both, for a specific version of an
+   * LLM Observability prompt.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param version The version number of the LLM Observability prompt. (required)
+   * @param body Update prompt version payload. (required)
+   * @return ApiResponse&lt;LLMObsPromptVersionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsPromptVersionResponse> updateLLMObsPromptVersionWithHttpInfo(
+      String promptId, Long version, LLMObsUpdatePromptVersionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateLLMObsPromptVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'promptId' when calling updateLLMObsPromptVersion");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'version' when calling updateLLMObsPromptVersion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateLLMObsPromptVersion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.updateLLMObsPromptVersion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptVersionResponse>() {});
+  }
+
+  /**
+   * Update a specific LLM Observability prompt version.
+   *
+   * <p>See {@link #updateLLMObsPromptVersionWithHttpInfo}.
+   *
+   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param version The version number of the LLM Observability prompt. (required)
+   * @param body Update prompt version payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptVersionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>>
+      updateLLMObsPromptVersionWithHttpInfoAsync(
+          String promptId, Long version, LLMObsUpdatePromptVersionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateLLMObsPromptVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'promptId' is set
+    if (promptId == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'promptId' when calling updateLLMObsPromptVersion"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'version' when calling updateLLMObsPromptVersion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateLLMObsPromptVersion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}"
+            .replaceAll("\\{" + "prompt_id" + "\\}", apiClient.escapeString(promptId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.updateLLMObsPromptVersion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsPromptVersionResponse>() {});
   }
 
   /** Manage optional parameters to uploadLLMObsDatasetRecordsFile. */

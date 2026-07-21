@@ -1,0 +1,88 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"prompt_id\":\"Test-Update_an_LLM_Observability_prompt_returns_OK_response-1784562194\",\"template\":[{\"content\":\"Hello\",\"role\":\"user\"}]},\"type\":\"prompt-templates\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/llm-obs/v1/prompts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"a36505e7-3c2f-5482-b8ac-ac51250a0116\",\"type\":\"prompt-templates\",\"attributes\":{\"author\":\"c5e19e5a-ad6b-11ed-ab4f-927130d31ef9\",\"created_at\":\"2026-07-20T15:43:14.698626703Z\",\"created_from\":\"sdk-registry\",\"in_registry\":true,\"last_version_created_at\":\"2026-07-20T15:43:14.698626703Z\",\"num_versions\":1,\"prompt_id\":\"Test-Update_an_LLM_Observability_prompt_returns_OK_response-1784562194\",\"source\":\"registry\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "38ff8857-64ed-29b6-b024-8b2da0948f28"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"title\":\"Customer Support Assistant\"},\"type\":\"prompt-templates\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/llm-obs/v1/prompts/Test-Update_an_LLM_Observability_prompt_returns_OK_response-1784562194",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"a36505e7-3c2f-5482-b8ac-ac51250a0116\",\"type\":\"prompt-templates\",\"attributes\":{\"author\":\"c5e19e5a-ad6b-11ed-ab4f-927130d31ef9\",\"created_at\":\"2026-07-20T15:43:14.698626Z\",\"created_from\":\"sdk-registry\",\"in_registry\":true,\"num_versions\":0,\"prompt_id\":\"Test-Update_an_LLM_Observability_prompt_returns_OK_response-1784562194\",\"source\":\"registry\",\"title\":\"Customer Support Assistant\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fd24dfa9-6a05-c34f-5fda-c07022f11787"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/llm-obs/v1/prompts/Test-Update_an_LLM_Observability_prompt_returns_OK_response-1784562194",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"a36505e7-3c2f-5482-b8ac-ac51250a0116\",\"type\":\"prompt-templates\",\"attributes\":{\"deleted_at\":\"2026-07-20T15:43:16.39072Z\",\"prompt_id\":\"Test-Update_an_LLM_Observability_prompt_returns_OK_response-1784562194\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "be99c933-e8d9-31d4-aa8c-9ef38ef958e7"
+  }
+]

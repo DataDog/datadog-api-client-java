@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"env_ids\":[],\"labels\":[],\"template\":[{\"content\":\"Hello v2\",\"role\":\"user\"}]},\"type\":\"prompt-template-versions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/llm-obs/v1/prompts/nonexistent-prompt/versions",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"prompt template not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "266e03cb-541a-f896-d7f3-729307c6eb4f"
+  }
+]
