@@ -30,6 +30,7 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
           Arrays.asList(
               "server.db.statement",
               "server.io.fs.file",
+              "server.io.fs.file_write",
               "server.io.net.url",
               "server.sys.shell.cmd",
               "server.request.method",
@@ -43,6 +44,7 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
               "server.request.trailers",
               "server.request.body",
               "server.request.body.filenames",
+              "server.request.body.files_content",
               "server.response.status",
               "server.response.headers.no_cookies",
               "server.response.trailers",
@@ -64,6 +66,9 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.db.statement");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_IO_FS_FILE =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.io.fs.file");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress
+      SERVER_IO_FS_FILE_WRITE =
+          new ApplicationSecurityWafCustomRuleConditionInputAddress("server.io.fs.file_write");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_IO_NET_URL =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.io.net.url");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_SYS_SHELL_CMD =
@@ -97,6 +102,10 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
       SERVER_REQUEST_BODY_FILENAMES =
           new ApplicationSecurityWafCustomRuleConditionInputAddress(
               "server.request.body.filenames");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress
+      SERVER_REQUEST_BODY_FILES_CONTENT =
+          new ApplicationSecurityWafCustomRuleConditionInputAddress(
+              "server.request.body.files_content");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_RESPONSE_STATUS =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.response.status");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress
