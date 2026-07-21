@@ -1039,6 +1039,8 @@ public class ApiClient {
           put("v2.getAllDatasets", false);
           put("v2.getDataset", false);
           put("v2.updateDataset", false);
+          put("v2.executeDdsqlTabularQuery", false);
+          put("v2.fetchDdsqlTabularQuery", false);
           put("v2.cancelDataDeletionRequest", false);
           put("v2.createDataDeletionRequest", false);
           put("v2.getDataDeletionRequests", false);
