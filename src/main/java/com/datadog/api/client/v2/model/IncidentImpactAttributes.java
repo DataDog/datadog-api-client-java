@@ -43,7 +43,7 @@ public class IncidentImpactAttributes {
   private JsonNullable<OffsetDateTime> endAt = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
-  private JsonNullable<Map<String, Object>> fields = JsonNullable.<Map<String, Object>>undefined();
+  private Map<String, Object> fields = null;
 
   public static final String JSON_PROPERTY_IMPACT_TYPE = "impact_type";
   private String impactType;
@@ -128,19 +128,15 @@ public class IncidentImpactAttributes {
   }
 
   public IncidentImpactAttributes fields(Map<String, Object> fields) {
-    this.fields = JsonNullable.<Map<String, Object>>of(fields);
+    this.fields = fields;
     return this;
   }
 
   public IncidentImpactAttributes putFieldsItem(String key, Object fieldsItem) {
-    if (this.fields == null || !this.fields.isPresent()) {
-      this.fields = JsonNullable.<Map<String, Object>>of(new HashMap<>());
+    if (this.fields == null) {
+      this.fields = new HashMap<>();
     }
-    try {
-      this.fields.get().put(key, fieldsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.fields.put(key, fieldsItem);
     return this;
   }
 
@@ -150,24 +146,14 @@ public class IncidentImpactAttributes {
    * @return fields
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Map<String, Object> getFields() {
-    return fields.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, Object>> getFields_JsonNullable() {
+  public Map<String, Object> getFields() {
     return fields;
   }
 
-  @JsonProperty(JSON_PROPERTY_FIELDS)
-  public void setFields_JsonNullable(JsonNullable<Map<String, Object>> fields) {
-    this.fields = fields;
-  }
-
   public void setFields(Map<String, Object> fields) {
-    this.fields = JsonNullable.<Map<String, Object>>of(fields);
+    this.fields = fields;
   }
 
   public IncidentImpactAttributes impactType(String impactType) {
