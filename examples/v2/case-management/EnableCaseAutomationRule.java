@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.AutomationRuleResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.enableCaseAutomationRule", true);
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     try {

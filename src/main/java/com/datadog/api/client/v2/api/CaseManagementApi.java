@@ -156,13 +156,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseResponse> addCaseInsightsWithHttpInfo(
       String caseId, CaseInsightsRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "addCaseInsights";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -214,16 +207,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseResponse>> addCaseInsightsWithHttpInfoAsync(
       String caseId, CaseInsightsRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "addCaseInsights";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -327,13 +310,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseAggregateResponse> aggregateCasesWithHttpInfo(CaseAggregateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "aggregateCases";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -376,16 +352,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseAggregateResponse>> aggregateCasesWithHttpInfoAsync(
       CaseAggregateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "aggregateCases";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseAggregateResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -785,13 +751,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> bulkUpdateCasesWithHttpInfo(CaseBulkUpdateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "bulkUpdateCases";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -834,16 +793,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> bulkUpdateCasesWithHttpInfoAsync(
       CaseBulkUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "bulkUpdateCases";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1159,13 +1108,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseCountResponse> countCasesWithHttpInfo(
       CountCasesOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "countCases";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String queryFilter = parameters.queryFilter;
     String groupBys = parameters.groupBys;
@@ -1210,16 +1152,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseCountResponse>> countCasesWithHttpInfoAsync(
       CountCasesOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "countCases";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseCountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String queryFilter = parameters.queryFilter;
     String groupBys = parameters.groupBys;
@@ -1447,13 +1379,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<AutomationRuleResponse> createCaseAutomationRuleWithHttpInfo(
       String projectId, AutomationRuleCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
@@ -1506,16 +1431,6 @@ public class CaseManagementApi {
   public CompletableFuture<ApiResponse<AutomationRuleResponse>>
       createCaseAutomationRuleWithHttpInfoAsync(
           String projectId, AutomationRuleCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AutomationRuleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
@@ -1622,13 +1537,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> createCaseJiraIssueWithHttpInfo(
       String caseId, JiraIssueCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseJiraIssue";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -1680,16 +1588,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> createCaseJiraIssueWithHttpInfoAsync(
       String caseId, JiraIssueCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseJiraIssue";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -1793,13 +1691,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseLinkResponse> createCaseLinkWithHttpInfo(CaseLinkCreateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1842,16 +1733,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseLinkResponse>> createCaseLinkWithHttpInfoAsync(
       CaseLinkCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseLinkResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1946,13 +1827,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> createCaseNotebookWithHttpInfo(String caseId, NotebookCreateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseNotebook";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -2004,16 +1878,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> createCaseNotebookWithHttpInfoAsync(
       String caseId, NotebookCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseNotebook";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -2120,13 +1984,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> createCaseServiceNowTicketWithHttpInfo(
       String caseId, ServiceNowTicketCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseServiceNowTicket";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -2178,16 +2035,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> createCaseServiceNowTicketWithHttpInfoAsync(
       String caseId, ServiceNowTicketCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseServiceNowTicket";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -2293,13 +2140,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseViewResponse> createCaseViewWithHttpInfo(CaseViewCreateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseView";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -2342,16 +2182,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseViewResponse>> createCaseViewWithHttpInfoAsync(
       CaseViewCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createCaseView";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseViewResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -2446,13 +2276,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<MaintenanceWindowResponse> createMaintenanceWindowWithHttpInfo(
       MaintenanceWindowCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createMaintenanceWindow";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -2495,16 +2318,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<MaintenanceWindowResponse>>
       createMaintenanceWindowWithHttpInfoAsync(MaintenanceWindowCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createMaintenanceWindow";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MaintenanceWindowResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -2895,13 +2708,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> deleteCaseAutomationRuleWithHttpInfo(String projectId, String ruleId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -2954,16 +2760,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteCaseAutomationRuleWithHttpInfoAsync(
       String projectId, String ruleId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -3392,13 +3188,6 @@ public class CaseManagementApi {
    *     </table>
    */
   public ApiResponse<Void> deleteCaseLinkWithHttpInfo(String linkId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteCaseLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'linkId' is set
@@ -3442,16 +3231,6 @@ public class CaseManagementApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCaseLinkWithHttpInfoAsync(String linkId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteCaseLink";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'linkId' is set
@@ -3543,13 +3322,6 @@ public class CaseManagementApi {
    *     </table>
    */
   public ApiResponse<Void> deleteCaseViewWithHttpInfo(String viewId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteCaseView";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'viewId' is set
@@ -3593,16 +3365,6 @@ public class CaseManagementApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCaseViewWithHttpInfoAsync(String viewId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteCaseView";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'viewId' is set
@@ -3695,13 +3457,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> deleteMaintenanceWindowWithHttpInfo(String maintenanceWindowId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteMaintenanceWindow";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'maintenanceWindowId' is set
@@ -3750,16 +3505,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteMaintenanceWindowWithHttpInfoAsync(
       String maintenanceWindowId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteMaintenanceWindow";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'maintenanceWindowId' is set
@@ -4163,13 +3908,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<AutomationRuleResponse> disableCaseAutomationRuleWithHttpInfo(
       String projectId, String ruleId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "disableCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -4222,16 +3960,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<AutomationRuleResponse>>
       disableCaseAutomationRuleWithHttpInfoAsync(String projectId, String ruleId) {
-    // Check if unstable operation is enabled
-    String operationId = "disableCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AutomationRuleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -4342,13 +4070,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<AutomationRuleResponse> enableCaseAutomationRuleWithHttpInfo(
       String projectId, String ruleId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "enableCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -4401,16 +4122,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<AutomationRuleResponse>>
       enableCaseAutomationRuleWithHttpInfoAsync(String projectId, String ruleId) {
-    // Check if unstable operation is enabled
-    String operationId = "enableCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AutomationRuleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -4514,13 +4225,6 @@ public class CaseManagementApi {
    *     </table>
    */
   public ApiResponse<Void> favoriteCaseProjectWithHttpInfo(String projectId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "favoriteCaseProject";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -4565,16 +4269,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> favoriteCaseProjectWithHttpInfoAsync(
       String projectId) {
-    // Check if unstable operation is enabled
-    String operationId = "favoriteCaseProject";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -4807,13 +4501,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<AutomationRuleResponse> getCaseAutomationRuleWithHttpInfo(
       String projectId, String ruleId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -4866,16 +4553,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<AutomationRuleResponse>>
       getCaseAutomationRuleWithHttpInfoAsync(String projectId, String ruleId) {
-    // Check if unstable operation is enabled
-    String operationId = "getCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AutomationRuleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -4980,13 +4657,6 @@ public class CaseManagementApi {
    *     </table>
    */
   public ApiResponse<CaseViewResponse> getCaseViewWithHttpInfo(String viewId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getCaseView";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'viewId' is set
@@ -5031,16 +4701,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseViewResponse>> getCaseViewWithHttpInfoAsync(
       String viewId) {
-    // Check if unstable operation is enabled
-    String operationId = "getCaseView";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseViewResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'viewId' is set
@@ -5531,13 +5191,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseResponse> linkIncidentWithHttpInfo(
       String caseId, RelationshipToIncidentRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "linkIncident";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -5589,16 +5242,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseResponse>> linkIncidentWithHttpInfoAsync(
       String caseId, RelationshipToIncidentRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "linkIncident";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -5704,13 +5347,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> linkJiraIssueToCaseWithHttpInfo(String caseId, JiraIssueLinkRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "linkJiraIssueToCase";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -5762,16 +5398,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> linkJiraIssueToCaseWithHttpInfoAsync(
       String caseId, JiraIssueLinkRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "linkJiraIssueToCase";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -5875,13 +5501,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<AutomationRulesResponse> listCaseAutomationRulesWithHttpInfo(String projectId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseAutomationRules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -5926,16 +5545,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<AutomationRulesResponse>>
       listCaseAutomationRulesWithHttpInfoAsync(String projectId) {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseAutomationRules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AutomationRulesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -6097,13 +5706,6 @@ public class CaseManagementApi {
   public ApiResponse<CaseLinksResponse> listCaseLinksWithHttpInfo(
       String entityType, String entityId, ListCaseLinksOptionalParameters parameters)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseLinks";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'entityType' is set
@@ -6161,16 +5763,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseLinksResponse>> listCaseLinksWithHttpInfoAsync(
       String entityType, String entityId, ListCaseLinksOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseLinks";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseLinksResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'entityType' is set
@@ -6354,13 +5946,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<TimelineResponse> listCaseTimelineWithHttpInfo(
       String caseId, ListCaseTimelineOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseTimeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
@@ -6414,16 +5999,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<TimelineResponse>> listCaseTimelineWithHttpInfoAsync(
       String caseId, ListCaseTimelineOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseTimeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TimelineResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
@@ -6526,13 +6101,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseViewsResponse> listCaseViewsWithHttpInfo(String projectId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseViews";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -6578,16 +6146,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseViewsResponse>> listCaseViewsWithHttpInfoAsync(
       String projectId) {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseViews";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseViewsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -6683,13 +6241,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseWatchersResponse> listCaseWatchersWithHttpInfo(String caseId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseWatchers";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
@@ -6734,16 +6285,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseWatchersResponse>> listCaseWatchersWithHttpInfoAsync(
       String caseId) {
-    // Check if unstable operation is enabled
-    String operationId = "listCaseWatchers";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseWatchersResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
@@ -6836,13 +6377,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<MaintenanceWindowsResponse> listMaintenanceWindowsWithHttpInfo()
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listMaintenanceWindows";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/maintenance_windows";
@@ -6878,16 +6412,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<MaintenanceWindowsResponse>>
       listMaintenanceWindowsWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "listMaintenanceWindows";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MaintenanceWindowsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/maintenance_windows";
@@ -6967,13 +6491,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<ProjectFavoritesResponse> listUserCaseProjectFavoritesWithHttpInfo()
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listUserCaseProjectFavorites";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/cases/projects/favorites";
@@ -7009,16 +6526,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<ProjectFavoritesResponse>>
       listUserCaseProjectFavoritesWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "listUserCaseProjectFavorites";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ProjectFavoritesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/cases/projects/favorites";
@@ -7106,13 +6613,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseResponse> moveCaseToProjectWithHttpInfo(
       String caseId, ProjectRelationship body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "moveCaseToProject";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -7164,16 +6664,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseResponse>> moveCaseToProjectWithHttpInfoAsync(
       String caseId, ProjectRelationship body) {
-    // Check if unstable operation is enabled
-    String operationId = "moveCaseToProject";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -7282,13 +6772,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseResponse> removeCaseInsightsWithHttpInfo(
       String caseId, CaseInsightsRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "removeCaseInsights";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -7340,16 +6823,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseResponse>> removeCaseInsightsWithHttpInfoAsync(
       String caseId, CaseInsightsRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "removeCaseInsights";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -8051,13 +7524,6 @@ public class CaseManagementApi {
    *     </table>
    */
   public ApiResponse<Void> unfavoriteCaseProjectWithHttpInfo(String projectId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "unfavoriteCaseProject";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -8102,16 +7568,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> unfavoriteCaseProjectWithHttpInfoAsync(
       String projectId) {
-    // Check if unstable operation is enabled
-    String operationId = "unfavoriteCaseProject";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -8204,13 +7660,6 @@ public class CaseManagementApi {
    *     </table>
    */
   public ApiResponse<Void> unlinkJiraIssueWithHttpInfo(String caseId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "unlinkJiraIssue";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
@@ -8254,16 +7703,6 @@ public class CaseManagementApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> unlinkJiraIssueWithHttpInfoAsync(String caseId) {
-    // Check if unstable operation is enabled
-    String operationId = "unlinkJiraIssue";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
@@ -8360,13 +7799,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> unwatchCaseWithHttpInfo(String caseId, String userUuid)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "unwatchCase";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
@@ -8419,16 +7851,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> unwatchCaseWithHttpInfoAsync(
       String caseId, String userUuid) {
-    // Check if unstable operation is enabled
-    String operationId = "unwatchCase";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
@@ -8698,13 +8120,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<AutomationRuleResponse> updateCaseAutomationRuleWithHttpInfo(
       String projectId, String ruleId, AutomationRuleUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
@@ -8765,16 +8180,6 @@ public class CaseManagementApi {
   public CompletableFuture<ApiResponse<AutomationRuleResponse>>
       updateCaseAutomationRuleWithHttpInfoAsync(
           String projectId, String ruleId, AutomationRuleUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseAutomationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AutomationRuleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
@@ -8897,13 +8302,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> updateCaseCommentWithHttpInfo(
       String caseId, String cellId, CaseUpdateCommentRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseComment";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -8963,16 +8361,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> updateCaseCommentWithHttpInfoAsync(
       String caseId, String cellId, CaseUpdateCommentRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseComment";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -9439,13 +8827,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseResponse> updateCaseDueDateWithHttpInfo(
       String caseId, CaseUpdateDueDateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseDueDate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -9497,16 +8878,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updateCaseDueDateWithHttpInfoAsync(
       String caseId, CaseUpdateDueDateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseDueDate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -9615,13 +8986,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseResponse> updateCaseResolvedReasonWithHttpInfo(
       String caseId, CaseUpdateResolvedReasonRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseResolvedReason";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -9673,16 +9037,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseResponse>> updateCaseResolvedReasonWithHttpInfoAsync(
       String caseId, CaseUpdateResolvedReasonRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseResolvedReason";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
@@ -9949,13 +9303,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<CaseViewResponse> updateCaseViewWithHttpInfo(
       String viewId, CaseViewUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseView";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'viewId' is set
@@ -10007,16 +9354,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<CaseViewResponse>> updateCaseViewWithHttpInfoAsync(
       String viewId, CaseViewUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseView";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseViewResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'viewId' is set
@@ -10124,13 +9461,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<MaintenanceWindowResponse> updateMaintenanceWindowWithHttpInfo(
       String maintenanceWindowId, MaintenanceWindowUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateMaintenanceWindow";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'maintenanceWindowId' is set
@@ -10187,16 +9517,6 @@ public class CaseManagementApi {
   public CompletableFuture<ApiResponse<MaintenanceWindowResponse>>
       updateMaintenanceWindowWithHttpInfoAsync(
           String maintenanceWindowId, MaintenanceWindowUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateMaintenanceWindow";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MaintenanceWindowResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'maintenanceWindowId' is set
@@ -10971,13 +10291,6 @@ public class CaseManagementApi {
    */
   public ApiResponse<Void> watchCaseWithHttpInfo(String caseId, String userUuid)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "watchCase";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
@@ -11029,16 +10342,6 @@ public class CaseManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> watchCaseWithHttpInfoAsync(
       String caseId, String userUuid) {
-    // Check if unstable operation is enabled
-    String operationId = "watchCase";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
