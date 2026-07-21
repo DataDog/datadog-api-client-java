@@ -7,7 +7,6 @@ import com.datadog.api.client.v2.api.CloudCostManagementApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.deleteCustomForecast", true);
     CloudCostManagementApi apiInstance = new CloudCostManagementApi(defaultClient);
 
     try {

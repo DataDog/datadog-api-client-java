@@ -1002,7 +1002,6 @@ public class ApiClient {
           put("v2.getCodeCoverageBranchSummary", false);
           put("v2.getCodeCoverageCommitSummary", false);
           put("v2.getRuleBasedView", false);
-          put("v2.deleteCustomForecast", false);
           put("v2.getCommitmentsCommitmentList", false);
           put("v2.getCommitmentsCoverageScalar", false);
           put("v2.getCommitmentsCoverageTimeseries", false);
@@ -1013,7 +1012,6 @@ public class ApiClient {
           put("v2.getCommitmentsUtilizationTimeseries", false);
           put("v2.getCostAnomaly", false);
           put("v2.getCostTagMetadataCurrency", false);
-          put("v2.getCustomForecast", false);
           put("v2.listCostAnomalies", false);
           put("v2.listCostTagKeySources", false);
           put("v2.listCostTagMetadata", false);
@@ -1021,7 +1019,6 @@ public class ApiClient {
           put("v2.listCostTagMetadataMonths", false);
           put("v2.listCostTagMetadataOrchestrators", false);
           put("v2.searchCostRecommendations", false);
-          put("v2.upsertCustomForecast", false);
           put("v2.createOwnershipFeedback", false);
           put("v2.getOwnershipEvidence", false);
           put("v2.getOwnershipInference", false);

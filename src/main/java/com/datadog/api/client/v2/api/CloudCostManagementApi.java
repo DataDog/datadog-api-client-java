@@ -1856,13 +1856,6 @@ public class CloudCostManagementApi {
    *     </table>
    */
   public ApiResponse<Void> deleteCustomForecastWithHttpInfo(String budgetId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteCustomForecast";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
@@ -1907,16 +1900,6 @@ public class CloudCostManagementApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteCustomForecastWithHttpInfoAsync(
       String budgetId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteCustomForecast";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
@@ -6811,13 +6794,6 @@ public class CloudCostManagementApi {
    */
   public ApiResponse<CustomForecastResponse> getCustomForecastWithHttpInfo(String budgetId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getCustomForecast";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
@@ -6862,16 +6838,6 @@ public class CloudCostManagementApi {
    */
   public CompletableFuture<ApiResponse<CustomForecastResponse>> getCustomForecastWithHttpInfoAsync(
       String budgetId) {
-    // Check if unstable operation is enabled
-    String operationId = "getCustomForecast";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CustomForecastResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
@@ -12370,13 +12336,6 @@ public class CloudCostManagementApi {
    */
   public ApiResponse<CustomForecastResponse> upsertCustomForecastWithHttpInfo(
       CustomForecastUpsertRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "upsertCustomForecast";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -12419,16 +12378,6 @@ public class CloudCostManagementApi {
    */
   public CompletableFuture<ApiResponse<CustomForecastResponse>>
       upsertCustomForecastWithHttpInfoAsync(CustomForecastUpsertRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "upsertCustomForecast";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CustomForecastResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
