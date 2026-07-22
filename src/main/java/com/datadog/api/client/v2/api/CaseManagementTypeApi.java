@@ -476,13 +476,6 @@ public class CaseManagementTypeApi {
    */
   public ApiResponse<CaseTypeResponse> updateCaseTypeWithHttpInfo(
       String caseTypeId, CaseTypeUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseType";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseTypeId' is set
@@ -535,16 +528,6 @@ public class CaseManagementTypeApi {
    */
   public CompletableFuture<ApiResponse<CaseTypeResponse>> updateCaseTypeWithHttpInfoAsync(
       String caseTypeId, CaseTypeUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateCaseType";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CaseTypeResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseTypeId' is set

@@ -7,7 +7,6 @@ import com.datadog.api.client.v2.api.CaseManagementApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.unwatchCase", true);
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     try {

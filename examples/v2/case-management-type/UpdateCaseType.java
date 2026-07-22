@@ -12,7 +12,6 @@ import com.datadog.api.client.v2.model.CaseTypeUpdateRequest;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.updateCaseType", true);
     CaseManagementTypeApi apiInstance = new CaseManagementTypeApi(defaultClient);
 
     CaseTypeUpdateRequest body =

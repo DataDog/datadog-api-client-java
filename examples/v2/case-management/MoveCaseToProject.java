@@ -11,7 +11,6 @@ import com.datadog.api.client.v2.model.ProjectResourceType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.moveCaseToProject", true);
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     ProjectRelationship body =

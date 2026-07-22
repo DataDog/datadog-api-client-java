@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.TimelineResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.listCaseTimeline", true);
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     try {

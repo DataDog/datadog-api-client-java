@@ -14,7 +14,6 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.aggregateCases", true);
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     CaseAggregateRequest body =
