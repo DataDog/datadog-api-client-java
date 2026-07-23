@@ -17,42 +17,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Notebook creation request */
-@JsonPropertyOrder({NotebookCreateRequest.JSON_PROPERTY_DATA})
+/** Case investigation notebook creation request. */
+@JsonPropertyOrder({CaseInvestigationNotebookCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class NotebookCreateRequest {
+public class CaseInvestigationNotebookCreateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private NotebookCreateData data;
+  private CaseInvestigationNotebookCreateData data;
 
-  public NotebookCreateRequest() {}
+  public CaseInvestigationNotebookCreateRequest() {}
 
   @JsonCreator
-  public NotebookCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) NotebookCreateData data) {
+  public CaseInvestigationNotebookCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          CaseInvestigationNotebookCreateData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public NotebookCreateRequest data(NotebookCreateData data) {
+  public CaseInvestigationNotebookCreateRequest data(CaseInvestigationNotebookCreateData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Notebook creation data
+   * Case investigation notebook creation data.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NotebookCreateData getData() {
+  public CaseInvestigationNotebookCreateData getData() {
     return data;
   }
 
-  public void setData(NotebookCreateData data) {
+  public void setData(CaseInvestigationNotebookCreateData data) {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;
@@ -71,10 +72,10 @@ public class NotebookCreateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return NotebookCreateRequest
+   * @return CaseInvestigationNotebookCreateRequest
    */
   @JsonAnySetter
-  public NotebookCreateRequest putAdditionalProperty(String key, Object value) {
+  public CaseInvestigationNotebookCreateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -105,7 +106,7 @@ public class NotebookCreateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this NotebookCreateRequest object is equal to o. */
+  /** Return true if this CaseInvestigationNotebookCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,9 +115,11 @@ public class NotebookCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookCreateRequest notebookCreateRequest = (NotebookCreateRequest) o;
-    return Objects.equals(this.data, notebookCreateRequest.data)
-        && Objects.equals(this.additionalProperties, notebookCreateRequest.additionalProperties);
+    CaseInvestigationNotebookCreateRequest caseInvestigationNotebookCreateRequest =
+        (CaseInvestigationNotebookCreateRequest) o;
+    return Objects.equals(this.data, caseInvestigationNotebookCreateRequest.data)
+        && Objects.equals(
+            this.additionalProperties, caseInvestigationNotebookCreateRequest.additionalProperties);
   }
 
   @Override
@@ -127,7 +130,7 @@ public class NotebookCreateRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NotebookCreateRequest {\n");
+    sb.append("class CaseInvestigationNotebookCreateRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
