@@ -49,7 +49,7 @@ public class ObservabilityPipelineCloudPremDestination {
   private List<String> inputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TLS = "tls";
-  private ObservabilityPipelineTls tls;
+  private ObservabilityPipelineClientTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineCloudPremDestinationType type =
@@ -161,7 +161,7 @@ public class ObservabilityPipelineCloudPremDestination {
     this.inputs = inputs;
   }
 
-  public ObservabilityPipelineCloudPremDestination tls(ObservabilityPipelineTls tls) {
+  public ObservabilityPipelineCloudPremDestination tls(ObservabilityPipelineClientTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
     return this;
@@ -175,11 +175,11 @@ public class ObservabilityPipelineCloudPremDestination {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineTls getTls() {
+  public ObservabilityPipelineClientTls getTls() {
     return tls;
   }
 
-  public void setTls(ObservabilityPipelineTls tls) {
+  public void setTls(ObservabilityPipelineClientTls tls) {
     this.tls = tls;
     if (tls != null) {
       this.unparsed |= tls.unparsed;

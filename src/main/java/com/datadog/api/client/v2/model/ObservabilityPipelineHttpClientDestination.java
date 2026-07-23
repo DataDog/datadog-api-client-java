@@ -68,7 +68,7 @@ public class ObservabilityPipelineHttpClientDestination {
   private String passwordKey;
 
   public static final String JSON_PROPERTY_TLS = "tls";
-  private ObservabilityPipelineTls tls;
+  private ObservabilityPipelineClientTls tls;
 
   public static final String JSON_PROPERTY_TOKEN_KEY = "token_key";
   private String tokenKey;
@@ -293,7 +293,7 @@ public class ObservabilityPipelineHttpClientDestination {
     this.passwordKey = passwordKey;
   }
 
-  public ObservabilityPipelineHttpClientDestination tls(ObservabilityPipelineTls tls) {
+  public ObservabilityPipelineHttpClientDestination tls(ObservabilityPipelineClientTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
     return this;
@@ -307,11 +307,11 @@ public class ObservabilityPipelineHttpClientDestination {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineTls getTls() {
+  public ObservabilityPipelineClientTls getTls() {
     return tls;
   }
 
-  public void setTls(ObservabilityPipelineTls tls) {
+  public void setTls(ObservabilityPipelineClientTls tls) {
     this.tls = tls;
     if (tls != null) {
       this.unparsed |= tls.unparsed;
