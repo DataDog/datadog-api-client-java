@@ -4265,7 +4265,8 @@ public class MetricsApi {
   /**
    * Atomically re-sequence the tag indexing rules for an org to match the supplied list of rule
    * UUIDs. The server assigns <code>rule_order</code> 1, 2, … matching each rule UUID by position
-   * in the list. Requires the <code>Manage Tags for Metrics</code> permission.
+   * in the list. The UUIDs of all active rules must be provided; omitting any active rule UUID
+   * returns a 400 error. Requires the <code>Manage Tags for Metrics</code> permission.
    *
    * @param body (required)
    * @return ApiResponse&lt;Void&gt;
