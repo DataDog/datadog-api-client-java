@@ -3820,7 +3820,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #deleteIncidentPostmortemTemplateWithHttpInfo}.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteIncidentPostmortemTemplate(String templateId) throws ApiException {
@@ -3832,7 +3832,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #deleteIncidentPostmortemTemplateWithHttpInfoAsync}.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteIncidentPostmortemTemplateAsync(String templateId) {
@@ -3846,7 +3846,7 @@ public class IncidentsApi {
   /**
    * Delete a postmortem template.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -3910,7 +3910,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #deleteIncidentPostmortemTemplateWithHttpInfo}.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteIncidentPostmortemTemplateWithHttpInfoAsync(
@@ -5602,7 +5602,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #getIncidentPostmortemTemplateWithHttpInfo}.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @return PostmortemTemplateResponse
    * @throws ApiException if fails to make API call
    */
@@ -5616,7 +5616,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #getIncidentPostmortemTemplateWithHttpInfoAsync}.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @return CompletableFuture&lt;PostmortemTemplateResponse&gt;
    */
   public CompletableFuture<PostmortemTemplateResponse> getIncidentPostmortemTemplateAsync(
@@ -5631,7 +5631,7 @@ public class IncidentsApi {
   /**
    * Retrieve details of a specific postmortem template.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @return ApiResponse&lt;PostmortemTemplateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -5694,7 +5694,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #getIncidentPostmortemTemplateWithHttpInfo}.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;PostmortemTemplateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PostmortemTemplateResponse>>
@@ -7957,6 +7957,37 @@ public class IncidentsApi {
         new GenericType<IncidentNotificationTemplateArray>() {});
   }
 
+  /** Manage optional parameters to listIncidentPostmortemTemplates. */
+  public static class ListIncidentPostmortemTemplatesOptionalParameters {
+    private UUID filterIncidentType;
+    private String sort;
+
+    /**
+     * Set filterIncidentType.
+     *
+     * @param filterIncidentType Filter postmortem templates by the associated incident type ID.
+     *     (optional)
+     * @return ListIncidentPostmortemTemplatesOptionalParameters
+     */
+    public ListIncidentPostmortemTemplatesOptionalParameters filterIncidentType(
+        UUID filterIncidentType) {
+      this.filterIncidentType = filterIncidentType;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort The attribute to sort results by. Prefix with <code>-</code> for descending
+     *     order. (optional, default to "created_at")
+     * @return ListIncidentPostmortemTemplatesOptionalParameters
+     */
+    public ListIncidentPostmortemTemplatesOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
   /**
    * List postmortem templates.
    *
@@ -7966,7 +7997,9 @@ public class IncidentsApi {
    * @throws ApiException if fails to make API call
    */
   public PostmortemTemplatesResponse listIncidentPostmortemTemplates() throws ApiException {
-    return listIncidentPostmortemTemplatesWithHttpInfo().getData();
+    return listIncidentPostmortemTemplatesWithHttpInfo(
+            new ListIncidentPostmortemTemplatesOptionalParameters())
+        .getData();
   }
 
   /**
@@ -7977,7 +8010,39 @@ public class IncidentsApi {
    * @return CompletableFuture&lt;PostmortemTemplatesResponse&gt;
    */
   public CompletableFuture<PostmortemTemplatesResponse> listIncidentPostmortemTemplatesAsync() {
-    return listIncidentPostmortemTemplatesWithHttpInfoAsync()
+    return listIncidentPostmortemTemplatesWithHttpInfoAsync(
+            new ListIncidentPostmortemTemplatesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List postmortem templates.
+   *
+   * <p>See {@link #listIncidentPostmortemTemplatesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return PostmortemTemplatesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PostmortemTemplatesResponse listIncidentPostmortemTemplates(
+      ListIncidentPostmortemTemplatesOptionalParameters parameters) throws ApiException {
+    return listIncidentPostmortemTemplatesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List postmortem templates.
+   *
+   * <p>See {@link #listIncidentPostmortemTemplatesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;PostmortemTemplatesResponse&gt;
+   */
+  public CompletableFuture<PostmortemTemplatesResponse> listIncidentPostmortemTemplatesAsync(
+      ListIncidentPostmortemTemplatesOptionalParameters parameters) {
+    return listIncidentPostmortemTemplatesWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -7987,6 +8052,7 @@ public class IncidentsApi {
   /**
    * Retrieve a list of all postmortem templates for incidents.
    *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;PostmortemTemplatesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -7998,8 +8064,8 @@ public class IncidentsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<PostmortemTemplatesResponse> listIncidentPostmortemTemplatesWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<PostmortemTemplatesResponse> listIncidentPostmortemTemplatesWithHttpInfo(
+      ListIncidentPostmortemTemplatesOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "listIncidentPostmortemTemplates";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -8008,16 +8074,23 @@ public class IncidentsApi {
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
+    UUID filterIncidentType = parameters.filterIncidentType;
+    String sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/incidents/config/postmortem-templates";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[incident-type]", filterIncidentType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.IncidentsApi.listIncidentPostmortemTemplates",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -8038,10 +8111,12 @@ public class IncidentsApi {
    *
    * <p>See {@link #listIncidentPostmortemTemplatesWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;PostmortemTemplatesResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PostmortemTemplatesResponse>>
-      listIncidentPostmortemTemplatesWithHttpInfoAsync() {
+      listIncidentPostmortemTemplatesWithHttpInfoAsync(
+          ListIncidentPostmortemTemplatesOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "listIncidentPostmortemTemplates";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -8054,10 +8129,17 @@ public class IncidentsApi {
       return result;
     }
     Object localVarPostBody = null;
+    UUID filterIncidentType = parameters.filterIncidentType;
+    String sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/incidents/config/postmortem-templates";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[incident-type]", filterIncidentType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder;
     try {
@@ -8065,7 +8147,7 @@ public class IncidentsApi {
           apiClient.createBuilder(
               "v2.IncidentsApi.listIncidentPostmortemTemplates",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
@@ -11166,7 +11248,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #updateIncidentPostmortemTemplateWithHttpInfo}.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @param body (required)
    * @return PostmortemTemplateResponse
    * @throws ApiException if fails to make API call
@@ -11181,7 +11263,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #updateIncidentPostmortemTemplateWithHttpInfoAsync}.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @param body (required)
    * @return CompletableFuture&lt;PostmortemTemplateResponse&gt;
    */
@@ -11197,7 +11279,7 @@ public class IncidentsApi {
   /**
    * Update an existing postmortem template.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @param body (required)
    * @return ApiResponse&lt;PostmortemTemplateResponse&gt;
    * @throws ApiException if fails to make API call
@@ -11269,7 +11351,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #updateIncidentPostmortemTemplateWithHttpInfo}.
    *
-   * @param templateId The ID of the postmortem template (required)
+   * @param templateId The ID of the postmortem template. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;PostmortemTemplateResponse&gt;&gt;
    */

@@ -21,6 +21,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   PostmortemTemplateDataResponse.JSON_PROPERTY_ATTRIBUTES,
   PostmortemTemplateDataResponse.JSON_PROPERTY_ID,
+  PostmortemTemplateDataResponse.JSON_PROPERTY_RELATIONSHIPS,
   PostmortemTemplateDataResponse.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -32,6 +33,9 @@ public class PostmortemTemplateDataResponse {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private PostmortemTemplateResponseRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private PostmortemTemplateType type;
@@ -82,7 +86,7 @@ public class PostmortemTemplateDataResponse {
   }
 
   /**
-   * The ID of the template
+   * The ID of the template.
    *
    * @return id
    */
@@ -96,6 +100,32 @@ public class PostmortemTemplateDataResponse {
     this.id = id;
   }
 
+  public PostmortemTemplateDataResponse relationships(
+      PostmortemTemplateResponseRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationships of a postmortem template returned in a response.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PostmortemTemplateResponseRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(PostmortemTemplateResponseRelationships relationships) {
+    this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
+  }
+
   public PostmortemTemplateDataResponse type(PostmortemTemplateType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -103,7 +133,7 @@ public class PostmortemTemplateDataResponse {
   }
 
   /**
-   * Postmortem template resource type
+   * Postmortem template resource type.
    *
    * @return type
    */
@@ -179,6 +209,7 @@ public class PostmortemTemplateDataResponse {
         (PostmortemTemplateDataResponse) o;
     return Objects.equals(this.attributes, postmortemTemplateDataResponse.attributes)
         && Objects.equals(this.id, postmortemTemplateDataResponse.id)
+        && Objects.equals(this.relationships, postmortemTemplateDataResponse.relationships)
         && Objects.equals(this.type, postmortemTemplateDataResponse.type)
         && Objects.equals(
             this.additionalProperties, postmortemTemplateDataResponse.additionalProperties);
@@ -186,7 +217,7 @@ public class PostmortemTemplateDataResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -195,6 +226,7 @@ public class PostmortemTemplateDataResponse {
     sb.append("class PostmortemTemplateDataResponse {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
