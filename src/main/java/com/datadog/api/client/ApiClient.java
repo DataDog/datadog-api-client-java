@@ -979,9 +979,12 @@ public class ApiClient {
           put("v2.createOwnershipFeedback", false);
           put("v2.getOwnershipEvidence", false);
           put("v2.getOwnershipInference", false);
+          put("v2.getOwnershipSettings", false);
+          put("v2.getOwnershipUntaggedFindings", false);
           put("v2.listOwnershipHistory", false);
           put("v2.listOwnershipHistoryByOwnerType", false);
           put("v2.listOwnershipInferences", false);
+          put("v2.postOwnershipSettings", false);
           put("v2.getCSMAgentlessHostFacetInfo", false);
           put("v2.getCSMUnifiedHostFacetInfo", false);
           put("v2.listCSMAgentlessHostFacets", false);
