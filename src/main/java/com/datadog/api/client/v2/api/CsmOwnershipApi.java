@@ -11,6 +11,9 @@ import com.datadog.api.client.v2.model.OwnershipHistoryResponse;
 import com.datadog.api.client.v2.model.OwnershipInferenceListResponse;
 import com.datadog.api.client.v2.model.OwnershipInferenceResponse;
 import com.datadog.api.client.v2.model.OwnershipOwnerType;
+import com.datadog.api.client.v2.model.OwnershipSettingsRequest;
+import com.datadog.api.client.v2.model.OwnershipSettingsResponse;
+import com.datadog.api.client.v2.model.OwnershipUntaggedFindingsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -791,6 +794,266 @@ public class CsmOwnershipApi {
         new GenericType<OwnershipInferenceResponse>() {});
   }
 
+  /**
+   * Get ownership settings for the org.
+   *
+   * <p>See {@link #getOwnershipSettingsWithHttpInfo}.
+   *
+   * @return OwnershipSettingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OwnershipSettingsResponse getOwnershipSettings() throws ApiException {
+    return getOwnershipSettingsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get ownership settings for the org.
+   *
+   * <p>See {@link #getOwnershipSettingsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OwnershipSettingsResponse&gt;
+   */
+  public CompletableFuture<OwnershipSettingsResponse> getOwnershipSettingsAsync() {
+    return getOwnershipSettingsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get ownership settings for the org. When settings are unset, the API returns the default
+   * opt-out configuration with <code>auto_tag</code> set to <code>true</code> and <code>
+   * confidence_level</code> set to <code>high</code>.
+   *
+   * @return ApiResponse&lt;OwnershipSettingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OwnershipSettingsResponse> getOwnershipSettingsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getOwnershipSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/csm/ownership/settings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CsmOwnershipApi.getOwnershipSettings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OwnershipSettingsResponse>() {});
+  }
+
+  /**
+   * Get ownership settings for the org.
+   *
+   * <p>See {@link #getOwnershipSettingsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;OwnershipSettingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OwnershipSettingsResponse>>
+      getOwnershipSettingsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getOwnershipSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OwnershipSettingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/csm/ownership/settings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CsmOwnershipApi.getOwnershipSettings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OwnershipSettingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OwnershipSettingsResponse>() {});
+  }
+
+  /**
+   * Count untagged findings by ownership confidence.
+   *
+   * <p>See {@link #getOwnershipUntaggedFindingsWithHttpInfo}.
+   *
+   * @return OwnershipUntaggedFindingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OwnershipUntaggedFindingsResponse getOwnershipUntaggedFindings() throws ApiException {
+    return getOwnershipUntaggedFindingsWithHttpInfo().getData();
+  }
+
+  /**
+   * Count untagged findings by ownership confidence.
+   *
+   * <p>See {@link #getOwnershipUntaggedFindingsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OwnershipUntaggedFindingsResponse&gt;
+   */
+  public CompletableFuture<OwnershipUntaggedFindingsResponse> getOwnershipUntaggedFindingsAsync() {
+    return getOwnershipUntaggedFindingsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Count findings with no team tag, grouped by ownership confidence level.
+   *
+   * @return ApiResponse&lt;OwnershipUntaggedFindingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OwnershipUntaggedFindingsResponse> getOwnershipUntaggedFindingsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getOwnershipUntaggedFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/csm/ownership/settings/untagged";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CsmOwnershipApi.getOwnershipUntaggedFindings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OwnershipUntaggedFindingsResponse>() {});
+  }
+
+  /**
+   * Count untagged findings by ownership confidence.
+   *
+   * <p>See {@link #getOwnershipUntaggedFindingsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;OwnershipUntaggedFindingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OwnershipUntaggedFindingsResponse>>
+      getOwnershipUntaggedFindingsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getOwnershipUntaggedFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OwnershipUntaggedFindingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/csm/ownership/settings/untagged";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CsmOwnershipApi.getOwnershipUntaggedFindings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OwnershipUntaggedFindingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OwnershipUntaggedFindingsResponse>() {});
+  }
+
   /** Manage optional parameters to listOwnershipHistory. */
   public static class ListOwnershipHistoryOptionalParameters {
     private String cursor;
@@ -1471,5 +1734,155 @@ public class CsmOwnershipApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OwnershipInferenceListResponse>() {});
+  }
+
+  /**
+   * Update ownership settings for the org.
+   *
+   * <p>See {@link #postOwnershipSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return OwnershipSettingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OwnershipSettingsResponse postOwnershipSettings(OwnershipSettingsRequest body)
+      throws ApiException {
+    return postOwnershipSettingsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Update ownership settings for the org.
+   *
+   * <p>See {@link #postOwnershipSettingsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;OwnershipSettingsResponse&gt;
+   */
+  public CompletableFuture<OwnershipSettingsResponse> postOwnershipSettingsAsync(
+      OwnershipSettingsRequest body) {
+    return postOwnershipSettingsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update ownership settings for the org.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;OwnershipSettingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OwnershipSettingsResponse> postOwnershipSettingsWithHttpInfo(
+      OwnershipSettingsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "postOwnershipSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling postOwnershipSettings");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/csm/ownership/settings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CsmOwnershipApi.postOwnershipSettings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OwnershipSettingsResponse>() {});
+  }
+
+  /**
+   * Update ownership settings for the org.
+   *
+   * <p>See {@link #postOwnershipSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OwnershipSettingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OwnershipSettingsResponse>>
+      postOwnershipSettingsWithHttpInfoAsync(OwnershipSettingsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "postOwnershipSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<OwnershipSettingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<OwnershipSettingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling postOwnershipSettings"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/csm/ownership/settings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CsmOwnershipApi.postOwnershipSettings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OwnershipSettingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OwnershipSettingsResponse>() {});
   }
 }
