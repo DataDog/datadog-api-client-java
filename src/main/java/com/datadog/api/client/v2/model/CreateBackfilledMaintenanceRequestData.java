@@ -20,6 +20,7 @@ import java.util.Objects;
 /** The data object for creating a backfilled maintenance. */
 @JsonPropertyOrder({
   CreateBackfilledMaintenanceRequestData.JSON_PROPERTY_ATTRIBUTES,
+  CreateBackfilledMaintenanceRequestData.JSON_PROPERTY_RELATIONSHIPS,
   CreateBackfilledMaintenanceRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +29,9 @@ public class CreateBackfilledMaintenanceRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateBackfilledMaintenanceRequestDataAttributes attributes;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private CreateBackfilledMaintenanceRequestDataRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private PatchMaintenanceRequestDataType type = PatchMaintenanceRequestDataType.MAINTENANCES;
@@ -65,6 +69,32 @@ public class CreateBackfilledMaintenanceRequestData {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
+    }
+  }
+
+  public CreateBackfilledMaintenanceRequestData relationships(
+      CreateBackfilledMaintenanceRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * The supported relationships for creating a backfilled maintenance.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateBackfilledMaintenanceRequestDataRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(CreateBackfilledMaintenanceRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
     }
   }
 
@@ -150,6 +180,7 @@ public class CreateBackfilledMaintenanceRequestData {
     CreateBackfilledMaintenanceRequestData createBackfilledMaintenanceRequestData =
         (CreateBackfilledMaintenanceRequestData) o;
     return Objects.equals(this.attributes, createBackfilledMaintenanceRequestData.attributes)
+        && Objects.equals(this.relationships, createBackfilledMaintenanceRequestData.relationships)
         && Objects.equals(this.type, createBackfilledMaintenanceRequestData.type)
         && Objects.equals(
             this.additionalProperties, createBackfilledMaintenanceRequestData.additionalProperties);
@@ -157,7 +188,7 @@ public class CreateBackfilledMaintenanceRequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, relationships, type, additionalProperties);
   }
 
   @Override
@@ -165,6 +196,7 @@ public class CreateBackfilledMaintenanceRequestData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBackfilledMaintenanceRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

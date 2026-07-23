@@ -20,6 +20,7 @@ import java.util.Objects;
 /** The data object for creating a backfilled degradation. */
 @JsonPropertyOrder({
   CreateBackfilledDegradationRequestData.JSON_PROPERTY_ATTRIBUTES,
+  CreateBackfilledDegradationRequestData.JSON_PROPERTY_RELATIONSHIPS,
   CreateBackfilledDegradationRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +29,9 @@ public class CreateBackfilledDegradationRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateBackfilledDegradationRequestDataAttributes attributes;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private CreateBackfilledDegradationRequestDataRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private PatchDegradationRequestDataType type = PatchDegradationRequestDataType.DEGRADATIONS;
@@ -65,6 +69,32 @@ public class CreateBackfilledDegradationRequestData {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
+    }
+  }
+
+  public CreateBackfilledDegradationRequestData relationships(
+      CreateBackfilledDegradationRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * The supported relationships for creating a backfilled degradation.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateBackfilledDegradationRequestDataRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(CreateBackfilledDegradationRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
     }
   }
 
@@ -150,6 +180,7 @@ public class CreateBackfilledDegradationRequestData {
     CreateBackfilledDegradationRequestData createBackfilledDegradationRequestData =
         (CreateBackfilledDegradationRequestData) o;
     return Objects.equals(this.attributes, createBackfilledDegradationRequestData.attributes)
+        && Objects.equals(this.relationships, createBackfilledDegradationRequestData.relationships)
         && Objects.equals(this.type, createBackfilledDegradationRequestData.type)
         && Objects.equals(
             this.additionalProperties, createBackfilledDegradationRequestData.additionalProperties);
@@ -157,7 +188,7 @@ public class CreateBackfilledDegradationRequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, relationships, type, additionalProperties);
   }
 
   @Override
@@ -165,6 +196,7 @@ public class CreateBackfilledDegradationRequestData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBackfilledDegradationRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
