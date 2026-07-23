@@ -20,7 +20,7 @@ import java.util.Objects;
 /**
  * A processor for extracting, aggregating, or transforming values from JSON arrays within your
  * logs. Supported operations are: - Select value from matching element - Compute array length -
- * Append a value to an array
+ * Append a value to an array - Extract key-value pairs from an array
  */
 @JsonPropertyOrder({
   LogsArrayProcessor.JSON_PROPERTY_IS_ENABLED,

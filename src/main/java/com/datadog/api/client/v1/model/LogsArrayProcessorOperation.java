@@ -218,6 +218,58 @@ public class LogsArrayProcessorOperation extends AbstractOpenApiSchema {
             Level.FINER, "Input data does not match schema 'LogsArrayProcessorOperationSelect'", e);
       }
 
+      // deserialize LogsArrayProcessorOperationExtractKeyValue
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (LogsArrayProcessorOperationExtractKeyValue.class.equals(Integer.class)
+            || LogsArrayProcessorOperationExtractKeyValue.class.equals(Long.class)
+            || LogsArrayProcessorOperationExtractKeyValue.class.equals(Float.class)
+            || LogsArrayProcessorOperationExtractKeyValue.class.equals(Double.class)
+            || LogsArrayProcessorOperationExtractKeyValue.class.equals(Boolean.class)
+            || LogsArrayProcessorOperationExtractKeyValue.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((LogsArrayProcessorOperationExtractKeyValue.class.equals(Integer.class)
+                        || LogsArrayProcessorOperationExtractKeyValue.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((LogsArrayProcessorOperationExtractKeyValue.class.equals(Float.class)
+                        || LogsArrayProcessorOperationExtractKeyValue.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (LogsArrayProcessorOperationExtractKeyValue.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (LogsArrayProcessorOperationExtractKeyValue.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(LogsArrayProcessorOperationExtractKeyValue.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((LogsArrayProcessorOperationExtractKeyValue) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'LogsArrayProcessorOperationExtractKeyValue'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'LogsArrayProcessorOperationExtractKeyValue'",
+            e);
+      }
+
       LogsArrayProcessorOperation ret = new LogsArrayProcessorOperation();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -263,6 +315,11 @@ public class LogsArrayProcessorOperation extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public LogsArrayProcessorOperation(LogsArrayProcessorOperationExtractKeyValue o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "LogsArrayProcessorOperationAppend",
@@ -273,6 +330,9 @@ public class LogsArrayProcessorOperation extends AbstractOpenApiSchema {
     schemas.put(
         "LogsArrayProcessorOperationSelect",
         new GenericType<LogsArrayProcessorOperationSelect>() {});
+    schemas.put(
+        "LogsArrayProcessorOperationExtractKeyValue",
+        new GenericType<LogsArrayProcessorOperationExtractKeyValue>() {});
     JSON.registerDescendants(
         LogsArrayProcessorOperation.class, Collections.unmodifiableMap(schemas));
   }
@@ -285,7 +345,8 @@ public class LogsArrayProcessorOperation extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: LogsArrayProcessorOperationAppend,
-   * LogsArrayProcessorOperationLength, LogsArrayProcessorOperationSelect
+   * LogsArrayProcessorOperationLength, LogsArrayProcessorOperationSelect,
+   * LogsArrayProcessorOperationExtractKeyValue
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -307,6 +368,11 @@ public class LogsArrayProcessorOperation extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        LogsArrayProcessorOperationExtractKeyValue.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -314,15 +380,18 @@ public class LogsArrayProcessorOperation extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be LogsArrayProcessorOperationAppend,"
-            + " LogsArrayProcessorOperationLength, LogsArrayProcessorOperationSelect");
+            + " LogsArrayProcessorOperationLength, LogsArrayProcessorOperationSelect,"
+            + " LogsArrayProcessorOperationExtractKeyValue");
   }
 
   /**
    * Get the actual instance, which can be the following: LogsArrayProcessorOperationAppend,
-   * LogsArrayProcessorOperationLength, LogsArrayProcessorOperationSelect
+   * LogsArrayProcessorOperationLength, LogsArrayProcessorOperationSelect,
+   * LogsArrayProcessorOperationExtractKeyValue
    *
    * @return The actual instance (LogsArrayProcessorOperationAppend,
-   *     LogsArrayProcessorOperationLength, LogsArrayProcessorOperationSelect)
+   *     LogsArrayProcessorOperationLength, LogsArrayProcessorOperationSelect,
+   *     LogsArrayProcessorOperationExtractKeyValue)
    */
   @Override
   public Object getActualInstance() {
@@ -363,5 +432,17 @@ public class LogsArrayProcessorOperation extends AbstractOpenApiSchema {
   public LogsArrayProcessorOperationSelect getLogsArrayProcessorOperationSelect()
       throws ClassCastException {
     return (LogsArrayProcessorOperationSelect) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsArrayProcessorOperationExtractKeyValue`. If the actual instance
+   * is not `LogsArrayProcessorOperationExtractKeyValue`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsArrayProcessorOperationExtractKeyValue`
+   * @throws ClassCastException if the instance is not `LogsArrayProcessorOperationExtractKeyValue`
+   */
+  public LogsArrayProcessorOperationExtractKeyValue getLogsArrayProcessorOperationExtractKeyValue()
+      throws ClassCastException {
+    return (LogsArrayProcessorOperationExtractKeyValue) super.getActualInstance();
   }
 }
