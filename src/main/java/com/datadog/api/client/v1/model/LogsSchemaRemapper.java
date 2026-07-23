@@ -95,7 +95,7 @@ public class LogsSchemaRemapper {
   }
 
   /**
-   * Override or not the target element if already set.
+   * Whether to override the target element if it's already set.
    *
    * @return overrideOnConflict
    */
