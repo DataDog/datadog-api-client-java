@@ -1214,6 +1214,16 @@ public class ApiClient {
           put("v2.deleteRumRateLimitConfig", false);
           put("v2.getRumRateLimitConfig", false);
           put("v2.updateRumRateLimitConfig", false);
+          put("v2.createRUMOperation", false);
+          put("v2.createRUMOperationStrongLink", false);
+          put("v2.deleteRUMOperation", false);
+          put("v2.deleteRUMOperationStrongLink", false);
+          put("v2.getRUMOperation", false);
+          put("v2.getRUMOperationByName", false);
+          put("v2.listRUMOperations", false);
+          put("v2.listRUMOperationStrongLinks", false);
+          put("v2.updateRUMOperation", false);
+          put("v2.updateRUMOperationStrongLink", false);
           put("v2.queryAggregatedLongTasks", false);
           put("v2.queryAggregatedSignalsProblems", false);
           put("v2.queryAggregatedWaterfall", false);
