@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.FormPublicationResponse;
 import com.datadog.api.client.v2.model.FormResponse;
 import com.datadog.api.client.v2.model.FormVersionResponse;
 import com.datadog.api.client.v2.model.FormsResponse;
+import com.datadog.api.client.v2.model.ListFormVersionsResponse;
 import com.datadog.api.client.v2.model.PublishFormRequest;
 import com.datadog.api.client.v2.model.UpdateFormRequest;
 import com.datadog.api.client.v2.model.UpsertAndPublishFormVersionRequest;
@@ -1010,6 +1011,159 @@ public class FormsApi {
   }
 
   /**
+   * List form versions.
+   *
+   * <p>See {@link #listFormVersionsWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @return ListFormVersionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListFormVersionsResponse listFormVersions(UUID formId) throws ApiException {
+    return listFormVersionsWithHttpInfo(formId).getData();
+  }
+
+  /**
+   * List form versions.
+   *
+   * <p>See {@link #listFormVersionsWithHttpInfoAsync}.
+   *
+   * @param formId The ID of the form. (required)
+   * @return CompletableFuture&lt;ListFormVersionsResponse&gt;
+   */
+  public CompletableFuture<ListFormVersionsResponse> listFormVersionsAsync(UUID formId) {
+    return listFormVersionsWithHttpInfoAsync(formId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all versions of a form.
+   *
+   * @param formId The ID of the form. (required)
+   * @return ApiResponse&lt;ListFormVersionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListFormVersionsResponse> listFormVersionsWithHttpInfo(UUID formId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listFormVersions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'formId' when calling listFormVersions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/versions"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FormsApi.listFormVersions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFormVersionsResponse>() {});
+  }
+
+  /**
+   * List form versions.
+   *
+   * <p>See {@link #listFormVersionsWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ListFormVersionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListFormVersionsResponse>> listFormVersionsWithHttpInfoAsync(
+      UUID formId) {
+    // Check if unstable operation is enabled
+    String operationId = "listFormVersions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListFormVersionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      CompletableFuture<ApiResponse<ListFormVersionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'formId' when calling listFormVersions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/versions"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FormsApi.listFormVersions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListFormVersionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFormVersionsResponse>() {});
+  }
+
+  /**
    * Publish a form version.
    *
    * <p>See {@link #publishFormWithHttpInfo}.
@@ -1179,6 +1333,185 @@ public class FormsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FormPublicationResponse>() {});
+  }
+
+  /**
+   * Revert a form to a prior version.
+   *
+   * <p>See {@link #revertFormVersionWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param version The version number to revert to. (required)
+   * @return FormVersionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FormVersionResponse revertFormVersion(UUID formId, Long version) throws ApiException {
+    return revertFormVersionWithHttpInfo(formId, version).getData();
+  }
+
+  /**
+   * Revert a form to a prior version.
+   *
+   * <p>See {@link #revertFormVersionWithHttpInfoAsync}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param version The version number to revert to. (required)
+   * @return CompletableFuture&lt;FormVersionResponse&gt;
+   */
+  public CompletableFuture<FormVersionResponse> revertFormVersionAsync(UUID formId, Long version) {
+    return revertFormVersionWithHttpInfoAsync(formId, version)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Revert a form to a prior version by creating a new draft version copied from it.
+   *
+   * @param formId The ID of the form. (required)
+   * @param version The version number to revert to. (required)
+   * @return ApiResponse&lt;FormVersionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FormVersionResponse> revertFormVersionWithHttpInfo(UUID formId, Long version)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "revertFormVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'formId' when calling revertFormVersion");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'version' when calling revertFormVersion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/versions/revert"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FormsApi.revertFormVersion",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormVersionResponse>() {});
+  }
+
+  /**
+   * Revert a form to a prior version.
+   *
+   * <p>See {@link #revertFormVersionWithHttpInfo}.
+   *
+   * @param formId The ID of the form. (required)
+   * @param version The version number to revert to. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FormVersionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FormVersionResponse>> revertFormVersionWithHttpInfoAsync(
+      UUID formId, Long version) {
+    // Check if unstable operation is enabled
+    String operationId = "revertFormVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FormVersionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'formId' is set
+    if (formId == null) {
+      CompletableFuture<ApiResponse<FormVersionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'formId' when calling revertFormVersion"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<FormVersionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'version' when calling revertFormVersion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/forms/{form_id}/versions/revert"
+            .replaceAll("\\{" + "form_id" + "\\}", apiClient.escapeString(formId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FormsApi.revertFormVersion",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FormVersionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FormVersionResponse>() {});
   }
 
   /**
