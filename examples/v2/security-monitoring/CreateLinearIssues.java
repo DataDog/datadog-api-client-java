@@ -21,7 +21,6 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.createLinearIssues", true);
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     CreateLinearIssueRequestArray body =
