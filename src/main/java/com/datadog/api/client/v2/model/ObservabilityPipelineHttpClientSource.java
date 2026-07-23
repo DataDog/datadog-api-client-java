@@ -65,7 +65,7 @@ public class ObservabilityPipelineHttpClientSource {
   private Long scrapeTimeoutSecs;
 
   public static final String JSON_PROPERTY_TLS = "tls";
-  private ObservabilityPipelineTls tls;
+  private ObservabilityPipelineClientTls tls;
 
   public static final String JSON_PROPERTY_TOKEN_KEY = "token_key";
   private String tokenKey;
@@ -271,7 +271,7 @@ public class ObservabilityPipelineHttpClientSource {
     this.scrapeTimeoutSecs = scrapeTimeoutSecs;
   }
 
-  public ObservabilityPipelineHttpClientSource tls(ObservabilityPipelineTls tls) {
+  public ObservabilityPipelineHttpClientSource tls(ObservabilityPipelineClientTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
     return this;
@@ -285,11 +285,11 @@ public class ObservabilityPipelineHttpClientSource {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineTls getTls() {
+  public ObservabilityPipelineClientTls getTls() {
     return tls;
   }
 
-  public void setTls(ObservabilityPipelineTls tls) {
+  public void setTls(ObservabilityPipelineClientTls tls) {
     this.tls = tls;
     if (tls != null) {
       this.unparsed |= tls.unparsed;

@@ -61,7 +61,7 @@ public class ObservabilityPipelineSocketDestination {
   private ObservabilityPipelineSocketDestinationMode mode;
 
   public static final String JSON_PROPERTY_TLS = "tls";
-  private ObservabilityPipelineTls tls;
+  private ObservabilityPipelineClientTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineSocketDestinationType type =
@@ -259,7 +259,7 @@ public class ObservabilityPipelineSocketDestination {
     this.mode = mode;
   }
 
-  public ObservabilityPipelineSocketDestination tls(ObservabilityPipelineTls tls) {
+  public ObservabilityPipelineSocketDestination tls(ObservabilityPipelineClientTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
     return this;
@@ -273,11 +273,11 @@ public class ObservabilityPipelineSocketDestination {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineTls getTls() {
+  public ObservabilityPipelineClientTls getTls() {
     return tls;
   }
 
-  public void setTls(ObservabilityPipelineTls tls) {
+  public void setTls(ObservabilityPipelineClientTls tls) {
     this.tls = tls;
     if (tls != null) {
       this.unparsed |= tls.unparsed;
