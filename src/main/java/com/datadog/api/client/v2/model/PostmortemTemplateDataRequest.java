@@ -20,6 +20,8 @@ import java.util.Objects;
 /** Data object for creating or updating a postmortem template. */
 @JsonPropertyOrder({
   PostmortemTemplateDataRequest.JSON_PROPERTY_ATTRIBUTES,
+  PostmortemTemplateDataRequest.JSON_PROPERTY_ID,
+  PostmortemTemplateDataRequest.JSON_PROPERTY_RELATIONSHIPS,
   PostmortemTemplateDataRequest.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +30,12 @@ public class PostmortemTemplateDataRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private PostmortemTemplateAttributesRequest attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private PostmortemTemplateCreateRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private PostmortemTemplateType type;
@@ -69,6 +77,54 @@ public class PostmortemTemplateDataRequest {
     }
   }
 
+  public PostmortemTemplateDataRequest id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the template. Required when updating.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public PostmortemTemplateDataRequest relationships(
+      PostmortemTemplateCreateRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationships for a postmortem template. <code>incident_type</code> is required when creating a
+   * template and is immutable afterwards.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PostmortemTemplateCreateRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(PostmortemTemplateCreateRelationships relationships) {
+    this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
+  }
+
   public PostmortemTemplateDataRequest type(PostmortemTemplateType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -76,7 +132,7 @@ public class PostmortemTemplateDataRequest {
   }
 
   /**
-   * Postmortem template resource type
+   * Postmortem template resource type.
    *
    * @return type
    */
@@ -150,6 +206,8 @@ public class PostmortemTemplateDataRequest {
     }
     PostmortemTemplateDataRequest postmortemTemplateDataRequest = (PostmortemTemplateDataRequest) o;
     return Objects.equals(this.attributes, postmortemTemplateDataRequest.attributes)
+        && Objects.equals(this.id, postmortemTemplateDataRequest.id)
+        && Objects.equals(this.relationships, postmortemTemplateDataRequest.relationships)
         && Objects.equals(this.type, postmortemTemplateDataRequest.type)
         && Objects.equals(
             this.additionalProperties, postmortemTemplateDataRequest.additionalProperties);
@@ -157,7 +215,7 @@ public class PostmortemTemplateDataRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -165,6 +223,8 @@ public class PostmortemTemplateDataRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class PostmortemTemplateDataRequest {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

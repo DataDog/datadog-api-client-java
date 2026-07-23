@@ -18,15 +18,15 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Postmortem template resource type */
+/** Postmortem template resource type. */
 @JsonSerialize(using = PostmortemTemplateType.PostmortemTemplateTypeSerializer.class)
 public class PostmortemTemplateType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("postmortem_template"));
+      new HashSet<String>(Arrays.asList("postmortem_templates"));
 
-  public static final PostmortemTemplateType POSTMORTEM_TEMPLATE =
-      new PostmortemTemplateType("postmortem_template");
+  public static final PostmortemTemplateType POSTMORTEM_TEMPLATES =
+      new PostmortemTemplateType("postmortem_templates");
 
   PostmortemTemplateType(String value) {
     super(value, allowedValues);
