@@ -20,6 +20,7 @@ import java.util.Objects;
 /** The data object for creating a degradation. */
 @JsonPropertyOrder({
   CreateDegradationRequestData.JSON_PROPERTY_ATTRIBUTES,
+  CreateDegradationRequestData.JSON_PROPERTY_RELATIONSHIPS,
   CreateDegradationRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +29,9 @@ public class CreateDegradationRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateDegradationRequestDataAttributes attributes;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private CreateDegradationRequestDataRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private PatchDegradationRequestDataType type = PatchDegradationRequestDataType.DEGRADATIONS;
@@ -68,6 +72,32 @@ public class CreateDegradationRequestData {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
+    }
+  }
+
+  public CreateDegradationRequestData relationships(
+      CreateDegradationRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * The supported relationships for creating a degradation.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateDegradationRequestDataRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(CreateDegradationRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
     }
   }
 
@@ -152,6 +182,7 @@ public class CreateDegradationRequestData {
     }
     CreateDegradationRequestData createDegradationRequestData = (CreateDegradationRequestData) o;
     return Objects.equals(this.attributes, createDegradationRequestData.attributes)
+        && Objects.equals(this.relationships, createDegradationRequestData.relationships)
         && Objects.equals(this.type, createDegradationRequestData.type)
         && Objects.equals(
             this.additionalProperties, createDegradationRequestData.additionalProperties);
@@ -159,7 +190,7 @@ public class CreateDegradationRequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, relationships, type, additionalProperties);
   }
 
   @Override
@@ -167,6 +198,7 @@ public class CreateDegradationRequestData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDegradationRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -22,6 +22,7 @@ import java.util.UUID;
 @JsonPropertyOrder({
   PatchDegradationRequestData.JSON_PROPERTY_ATTRIBUTES,
   PatchDegradationRequestData.JSON_PROPERTY_ID,
+  PatchDegradationRequestData.JSON_PROPERTY_RELATIONSHIPS,
   PatchDegradationRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -33,6 +34,9 @@ public class PatchDegradationRequestData {
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private PatchDegradationRequestDataRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private PatchDegradationRequestDataType type = PatchDegradationRequestDataType.DEGRADATIONS;
@@ -95,6 +99,32 @@ public class PatchDegradationRequestData {
 
   public void setId(UUID id) {
     this.id = id;
+  }
+
+  public PatchDegradationRequestData relationships(
+      PatchDegradationRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * The supported relationships for updating a degradation.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PatchDegradationRequestDataRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(PatchDegradationRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
+    }
   }
 
   public PatchDegradationRequestData type(PatchDegradationRequestDataType type) {
@@ -179,6 +209,7 @@ public class PatchDegradationRequestData {
     PatchDegradationRequestData patchDegradationRequestData = (PatchDegradationRequestData) o;
     return Objects.equals(this.attributes, patchDegradationRequestData.attributes)
         && Objects.equals(this.id, patchDegradationRequestData.id)
+        && Objects.equals(this.relationships, patchDegradationRequestData.relationships)
         && Objects.equals(this.type, patchDegradationRequestData.type)
         && Objects.equals(
             this.additionalProperties, patchDegradationRequestData.additionalProperties);
@@ -186,7 +217,7 @@ public class PatchDegradationRequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -195,6 +226,7 @@ public class PatchDegradationRequestData {
     sb.append("class PatchDegradationRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

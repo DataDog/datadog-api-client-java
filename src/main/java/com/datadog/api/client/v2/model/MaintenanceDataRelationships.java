@@ -20,7 +20,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MaintenanceDataRelationships.JSON_PROPERTY_CREATED_BY_USER,
   MaintenanceDataRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
-  MaintenanceDataRelationships.JSON_PROPERTY_STATUS_PAGE
+  MaintenanceDataRelationships.JSON_PROPERTY_STATUS_PAGE,
+  MaintenanceDataRelationships.JSON_PROPERTY_TEMPLATE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -34,6 +35,9 @@ public class MaintenanceDataRelationships {
 
   public static final String JSON_PROPERTY_STATUS_PAGE = "status_page";
   private MaintenanceDataRelationshipsStatusPage statusPage;
+
+  public static final String JSON_PROPERTY_TEMPLATE = "template";
+  private MaintenanceDataRelationshipsTemplate template;
 
   public MaintenanceDataRelationships createdByUser(
       MaintenanceDataRelationshipsCreatedByUser createdByUser) {
@@ -114,6 +118,31 @@ public class MaintenanceDataRelationships {
     }
   }
 
+  public MaintenanceDataRelationships template(MaintenanceDataRelationshipsTemplate template) {
+    this.template = template;
+    this.unparsed |= template.unparsed;
+    return this;
+  }
+
+  /**
+   * The template the maintenance was created from.
+   *
+   * @return template
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MaintenanceDataRelationshipsTemplate getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(MaintenanceDataRelationshipsTemplate template) {
+    this.template = template;
+    if (template != null) {
+      this.unparsed |= template.unparsed;
+    }
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -173,13 +202,15 @@ public class MaintenanceDataRelationships {
     return Objects.equals(this.createdByUser, maintenanceDataRelationships.createdByUser)
         && Objects.equals(this.lastModifiedByUser, maintenanceDataRelationships.lastModifiedByUser)
         && Objects.equals(this.statusPage, maintenanceDataRelationships.statusPage)
+        && Objects.equals(this.template, maintenanceDataRelationships.template)
         && Objects.equals(
             this.additionalProperties, maintenanceDataRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdByUser, lastModifiedByUser, statusPage, additionalProperties);
+    return Objects.hash(
+        createdByUser, lastModifiedByUser, statusPage, template, additionalProperties);
   }
 
   @Override
@@ -189,6 +220,7 @@ public class MaintenanceDataRelationships {
     sb.append("    createdByUser: ").append(toIndentedString(createdByUser)).append("\n");
     sb.append("    lastModifiedByUser: ").append(toIndentedString(lastModifiedByUser)).append("\n");
     sb.append("    statusPage: ").append(toIndentedString(statusPage)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

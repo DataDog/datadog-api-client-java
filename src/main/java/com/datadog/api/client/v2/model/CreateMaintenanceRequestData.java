@@ -20,6 +20,7 @@ import java.util.Objects;
 /** The data object for creating a maintenance. */
 @JsonPropertyOrder({
   CreateMaintenanceRequestData.JSON_PROPERTY_ATTRIBUTES,
+  CreateMaintenanceRequestData.JSON_PROPERTY_RELATIONSHIPS,
   CreateMaintenanceRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +29,9 @@ public class CreateMaintenanceRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateMaintenanceRequestDataAttributes attributes;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private CreateMaintenanceRequestDataRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private PatchMaintenanceRequestDataType type = PatchMaintenanceRequestDataType.MAINTENANCES;
@@ -68,6 +72,32 @@ public class CreateMaintenanceRequestData {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
+    }
+  }
+
+  public CreateMaintenanceRequestData relationships(
+      CreateMaintenanceRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * The supported relationships for creating a maintenance.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateMaintenanceRequestDataRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(CreateMaintenanceRequestDataRelationships relationships) {
+    this.relationships = relationships;
+    if (relationships != null) {
+      this.unparsed |= relationships.unparsed;
     }
   }
 
@@ -152,6 +182,7 @@ public class CreateMaintenanceRequestData {
     }
     CreateMaintenanceRequestData createMaintenanceRequestData = (CreateMaintenanceRequestData) o;
     return Objects.equals(this.attributes, createMaintenanceRequestData.attributes)
+        && Objects.equals(this.relationships, createMaintenanceRequestData.relationships)
         && Objects.equals(this.type, createMaintenanceRequestData.type)
         && Objects.equals(
             this.additionalProperties, createMaintenanceRequestData.additionalProperties);
@@ -159,7 +190,7 @@ public class CreateMaintenanceRequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, relationships, type, additionalProperties);
   }
 
   @Override
@@ -167,6 +198,7 @@ public class CreateMaintenanceRequestData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateMaintenanceRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
