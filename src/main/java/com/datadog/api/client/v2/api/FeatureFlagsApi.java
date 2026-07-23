@@ -1996,6 +1996,7 @@ public class FeatureFlagsApi {
   public static class ListFeatureFlagsEnvironmentsOptionalParameters {
     private String name;
     private String key;
+    private String ddEnv;
     private Long limit;
     private Long offset;
 
@@ -2018,6 +2019,18 @@ public class FeatureFlagsApi {
      */
     public ListFeatureFlagsEnvironmentsOptionalParameters key(String key) {
       this.key = key;
+      return this;
+    }
+
+    /**
+     * Set ddEnv.
+     *
+     * @param ddEnv Filter environments by queries that contain the provided DD_ENV value.
+     *     (optional)
+     * @return ListFeatureFlagsEnvironmentsOptionalParameters
+     */
+    public ListFeatureFlagsEnvironmentsOptionalParameters ddEnv(String ddEnv) {
+      this.ddEnv = ddEnv;
       return this;
     }
 
@@ -2106,7 +2119,8 @@ public class FeatureFlagsApi {
   }
 
   /**
-   * Returns a list of environments for the organization. Supports filtering by name and key.
+   * Returns a list of environments for the organization. Supports filtering by name, key, and
+   * DD_ENV.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListEnvironmentsResponse&gt;
@@ -2125,6 +2139,7 @@ public class FeatureFlagsApi {
     Object localVarPostBody = null;
     String name = parameters.name;
     String key = parameters.key;
+    String ddEnv = parameters.ddEnv;
     Long limit = parameters.limit;
     Long offset = parameters.offset;
     // create path and map variables
@@ -2135,6 +2150,7 @@ public class FeatureFlagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "key", key));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dd_env", ddEnv));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
 
@@ -2172,6 +2188,7 @@ public class FeatureFlagsApi {
     Object localVarPostBody = null;
     String name = parameters.name;
     String key = parameters.key;
+    String ddEnv = parameters.ddEnv;
     Long limit = parameters.limit;
     Long offset = parameters.offset;
     // create path and map variables
@@ -2182,6 +2199,7 @@ public class FeatureFlagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "key", key));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dd_env", ddEnv));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
 
