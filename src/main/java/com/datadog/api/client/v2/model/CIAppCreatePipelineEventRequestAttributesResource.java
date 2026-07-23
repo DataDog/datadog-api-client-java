@@ -124,7 +124,9 @@ public class CIAppCreatePipelineEventRequestAttributesResource extends AbstractO
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((CIAppPipelineEventPipeline) tmp).unparsed) {
+          if (!((CIAppPipelineEventPipeline) tmp).unparsed
+              && !(((CIAppPipelineEventPipeline) tmp).getActualInstance()
+                  instanceof UnparsedObject)) {
             deserialized = tmp;
             match++;
           }
@@ -214,7 +216,8 @@ public class CIAppCreatePipelineEventRequestAttributesResource extends AbstractO
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((CIAppPipelineEventJob) tmp).unparsed) {
+          if (!((CIAppPipelineEventJob) tmp).unparsed
+              && !(((CIAppPipelineEventJob) tmp).getActualInstance() instanceof UnparsedObject)) {
             deserialized = tmp;
             match++;
           }
