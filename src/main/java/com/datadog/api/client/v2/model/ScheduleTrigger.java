@@ -18,11 +18,18 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Trigger a workflow from a Schedule. The workflow must be published. */
-@JsonPropertyOrder({ScheduleTrigger.JSON_PROPERTY_RRULE_EXPRESSION})
+@JsonPropertyOrder({
+  ScheduleTrigger.JSON_PROPERTY_OVERLAP_BEHAVIOR,
+  ScheduleTrigger.JSON_PROPERTY_RRULE_EXPRESSION
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScheduleTrigger {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_OVERLAP_BEHAVIOR = "overlapBehavior";
+  private ScheduleTriggerOverlapBehavior overlapBehavior =
+      ScheduleTriggerOverlapBehavior.EXCLUSIVE_RUN;
+
   public static final String JSON_PROPERTY_RRULE_EXPRESSION = "rruleExpression";
   private String rruleExpression;
 
@@ -33,6 +40,31 @@ public class ScheduleTrigger {
       @JsonProperty(required = true, value = JSON_PROPERTY_RRULE_EXPRESSION)
           String rruleExpression) {
     this.rruleExpression = rruleExpression;
+  }
+
+  public ScheduleTrigger overlapBehavior(ScheduleTriggerOverlapBehavior overlapBehavior) {
+    this.overlapBehavior = overlapBehavior;
+    this.unparsed |= !overlapBehavior.isValid();
+    return this;
+  }
+
+  /**
+   * Controls whether a scheduled workflow run may start while another instance is still running.
+   *
+   * @return overlapBehavior
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OVERLAP_BEHAVIOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScheduleTriggerOverlapBehavior getOverlapBehavior() {
+    return overlapBehavior;
+  }
+
+  public void setOverlapBehavior(ScheduleTriggerOverlapBehavior overlapBehavior) {
+    if (!overlapBehavior.isValid()) {
+      this.unparsed = true;
+    }
+    this.overlapBehavior = overlapBehavior;
   }
 
   public ScheduleTrigger rruleExpression(String rruleExpression) {
@@ -111,19 +143,21 @@ public class ScheduleTrigger {
       return false;
     }
     ScheduleTrigger scheduleTrigger = (ScheduleTrigger) o;
-    return Objects.equals(this.rruleExpression, scheduleTrigger.rruleExpression)
+    return Objects.equals(this.overlapBehavior, scheduleTrigger.overlapBehavior)
+        && Objects.equals(this.rruleExpression, scheduleTrigger.rruleExpression)
         && Objects.equals(this.additionalProperties, scheduleTrigger.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rruleExpression, additionalProperties);
+    return Objects.hash(overlapBehavior, rruleExpression, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScheduleTrigger {\n");
+    sb.append("    overlapBehavior: ").append(toIndentedString(overlapBehavior)).append("\n");
     sb.append("    rruleExpression: ").append(toIndentedString(rruleExpression)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
