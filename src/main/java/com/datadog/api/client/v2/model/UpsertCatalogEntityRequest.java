@@ -111,7 +111,8 @@ public class UpsertCatalogEntityRequest extends AbstractOpenApiSchema {
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((EntityV3) tmp).unparsed) {
+          if (!((EntityV3) tmp).unparsed
+              && !(((EntityV3) tmp).getActualInstance() instanceof UnparsedObject)) {
             deserialized = tmp;
             match++;
           }
