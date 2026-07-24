@@ -83,8 +83,8 @@ public class GovernanceInsightQueryConfig {
   }
 
   /**
-   * The window used for the previous value comparison, for example <code>week</code> or <code>month
-   * </code>.
+   * The window used for the previous value comparison; for example, <code>week</code> or <code>
+   * month</code>.
    *
    * @return comparisonShift
    */
