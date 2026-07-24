@@ -25,7 +25,14 @@ public class SecurityMonitoringContentPackStatus extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("install", "activate", "initializing", "active", "warning", "broken"));
+          Arrays.asList(
+              "install",
+              "activate",
+              "initializing",
+              "active",
+              "warning",
+              "broken",
+              "not_configured"));
 
   public static final SecurityMonitoringContentPackStatus INSTALL =
       new SecurityMonitoringContentPackStatus("install");
@@ -39,6 +46,8 @@ public class SecurityMonitoringContentPackStatus extends ModelEnum<String> {
       new SecurityMonitoringContentPackStatus("warning");
   public static final SecurityMonitoringContentPackStatus BROKEN =
       new SecurityMonitoringContentPackStatus("broken");
+  public static final SecurityMonitoringContentPackStatus NOT_CONFIGURED =
+      new SecurityMonitoringContentPackStatus("not_configured");
 
   SecurityMonitoringContentPackStatus(String value) {
     super(value, allowedValues);

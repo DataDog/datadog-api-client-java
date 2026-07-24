@@ -24,13 +24,21 @@ public class SecurityMonitoringSKU extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("per_gb_analyzed", "per_event_in_siem_index_2023", "add_on_2024"));
+          Arrays.asList(
+              "per_gb_analyzed",
+              "per_event_in_siem_index_2023",
+              "add_on_2024",
+              "standalone_indexed",
+              "unknown"));
 
   public static final SecurityMonitoringSKU PER_GB_ANALYZED =
       new SecurityMonitoringSKU("per_gb_analyzed");
   public static final SecurityMonitoringSKU PER_EVENT_IN_SIEM_INDEX_2023 =
       new SecurityMonitoringSKU("per_event_in_siem_index_2023");
   public static final SecurityMonitoringSKU ADD_ON_2024 = new SecurityMonitoringSKU("add_on_2024");
+  public static final SecurityMonitoringSKU STANDALONE_INDEXED =
+      new SecurityMonitoringSKU("standalone_indexed");
+  public static final SecurityMonitoringSKU UNKNOWN = new SecurityMonitoringSKU("unknown");
 
   SecurityMonitoringSKU(String value) {
     super(value, allowedValues);

@@ -17,237 +17,86 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of a content pack state */
+/** Attributes of a content pack state. */
 @JsonPropertyOrder({
-  SecurityMonitoringContentPackStateAttributes.JSON_PROPERTY_CLOUD_SIEM_INDEX_INCORRECT,
-  SecurityMonitoringContentPackStateAttributes.JSON_PROPERTY_CP_ACTIVATION,
-  SecurityMonitoringContentPackStateAttributes.JSON_PROPERTY_FILTERS_CONFIGURED_FOR_LOGS,
-  SecurityMonitoringContentPackStateAttributes.JSON_PROPERTY_INTEGRATION_INSTALLED_STATUS,
-  SecurityMonitoringContentPackStateAttributes.JSON_PROPERTY_LOGS_LAST_COLLECTED,
-  SecurityMonitoringContentPackStateAttributes.JSON_PROPERTY_LOGS_SEEN_FROM_ANY_INDEX,
-  SecurityMonitoringContentPackStateAttributes.JSON_PROPERTY_STATE
+  SecurityMonitoringContentPackStateAttributes.JSON_PROPERTY_DETAILS,
+  SecurityMonitoringContentPackStateAttributes.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringContentPackStateAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CLOUD_SIEM_INDEX_INCORRECT =
-      "cloud_siem_index_incorrect";
-  private Boolean cloudSiemIndexIncorrect;
+  public static final String JSON_PROPERTY_DETAILS = "details";
+  private SecurityMonitoringContentPackStateDetails details;
 
-  public static final String JSON_PROPERTY_CP_ACTIVATION = "cp_activation";
-  private SecurityMonitoringContentPackActivation cpActivation;
-
-  public static final String JSON_PROPERTY_FILTERS_CONFIGURED_FOR_LOGS =
-      "filters_configured_for_logs";
-  private Boolean filtersConfiguredForLogs;
-
-  public static final String JSON_PROPERTY_INTEGRATION_INSTALLED_STATUS =
-      "integration_installed_status";
-  private SecurityMonitoringContentPackIntegrationStatus integrationInstalledStatus;
-
-  public static final String JSON_PROPERTY_LOGS_LAST_COLLECTED = "logs_last_collected";
-  private SecurityMonitoringContentPackTimestampBucket logsLastCollected;
-
-  public static final String JSON_PROPERTY_LOGS_SEEN_FROM_ANY_INDEX = "logs_seen_from_any_index";
-  private Boolean logsSeenFromAnyIndex;
-
-  public static final String JSON_PROPERTY_STATE = "state";
-  private SecurityMonitoringContentPackStatus state;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private SecurityMonitoringContentPackStatus status;
 
   public SecurityMonitoringContentPackStateAttributes() {}
 
   @JsonCreator
   public SecurityMonitoringContentPackStateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CLOUD_SIEM_INDEX_INCORRECT)
-          Boolean cloudSiemIndexIncorrect,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CP_ACTIVATION)
-          SecurityMonitoringContentPackActivation cpActivation,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FILTERS_CONFIGURED_FOR_LOGS)
-          Boolean filtersConfiguredForLogs,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LOGS_LAST_COLLECTED)
-          SecurityMonitoringContentPackTimestampBucket logsLastCollected,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LOGS_SEEN_FROM_ANY_INDEX)
-          Boolean logsSeenFromAnyIndex,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATE)
-          SecurityMonitoringContentPackStatus state) {
-    this.cloudSiemIndexIncorrect = cloudSiemIndexIncorrect;
-    this.cpActivation = cpActivation;
-    this.unparsed |= !cpActivation.isValid();
-    this.filtersConfiguredForLogs = filtersConfiguredForLogs;
-    this.logsLastCollected = logsLastCollected;
-    this.unparsed |= !logsLastCollected.isValid();
-    this.logsSeenFromAnyIndex = logsSeenFromAnyIndex;
-    this.state = state;
-    this.unparsed |= !state.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_DETAILS)
+          SecurityMonitoringContentPackStateDetails details,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
+          SecurityMonitoringContentPackStatus status) {
+    this.details = details;
+    this.unparsed |= details.unparsed;
+    this.status = status;
+    this.unparsed |= !status.isValid();
   }
 
-  public SecurityMonitoringContentPackStateAttributes cloudSiemIndexIncorrect(
-      Boolean cloudSiemIndexIncorrect) {
-    this.cloudSiemIndexIncorrect = cloudSiemIndexIncorrect;
+  public SecurityMonitoringContentPackStateAttributes details(
+      SecurityMonitoringContentPackStateDetails details) {
+    this.details = details;
+    this.unparsed |= details.unparsed;
     return this;
   }
 
   /**
-   * Whether the cloud SIEM index configuration is incorrect (only applies to certain pricing
-   * models)
+   * Type-specific details for a content pack state. The set of fields present depends on the
+   * content pack's <code>type</code>. When Cloud SIEM is inactive for the requesting organization,
+   * <code>onboarding</code> is returned instead of the content pack's usual type, such as <code>
+   * logs</code> or <code>vulnerability</code>.`
    *
-   * @return cloudSiemIndexIncorrect
+   * @return details
    */
-  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_INDEX_INCORRECT)
+  @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getCloudSiemIndexIncorrect() {
-    return cloudSiemIndexIncorrect;
+  public SecurityMonitoringContentPackStateDetails getDetails() {
+    return details;
   }
 
-  public void setCloudSiemIndexIncorrect(Boolean cloudSiemIndexIncorrect) {
-    this.cloudSiemIndexIncorrect = cloudSiemIndexIncorrect;
-  }
-
-  public SecurityMonitoringContentPackStateAttributes cpActivation(
-      SecurityMonitoringContentPackActivation cpActivation) {
-    this.cpActivation = cpActivation;
-    this.unparsed |= !cpActivation.isValid();
-    return this;
-  }
-
-  /**
-   * The activation status of a content pack.
-   *
-   * @return cpActivation
-   */
-  @JsonProperty(JSON_PROPERTY_CP_ACTIVATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringContentPackActivation getCpActivation() {
-    return cpActivation;
-  }
-
-  public void setCpActivation(SecurityMonitoringContentPackActivation cpActivation) {
-    if (!cpActivation.isValid()) {
-      this.unparsed = true;
+  public void setDetails(SecurityMonitoringContentPackStateDetails details) {
+    this.details = details;
+    if (details != null) {
+      this.unparsed |= details.unparsed;
     }
-    this.cpActivation = cpActivation;
   }
 
-  public SecurityMonitoringContentPackStateAttributes filtersConfiguredForLogs(
-      Boolean filtersConfiguredForLogs) {
-    this.filtersConfiguredForLogs = filtersConfiguredForLogs;
-    return this;
-  }
-
-  /**
-   * Whether filters (Security Filters or Index Query depending on the pricing model) are present
-   * and correctly configured to route logs into Cloud SIEM.
-   *
-   * @return filtersConfiguredForLogs
-   */
-  @JsonProperty(JSON_PROPERTY_FILTERS_CONFIGURED_FOR_LOGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getFiltersConfiguredForLogs() {
-    return filtersConfiguredForLogs;
-  }
-
-  public void setFiltersConfiguredForLogs(Boolean filtersConfiguredForLogs) {
-    this.filtersConfiguredForLogs = filtersConfiguredForLogs;
-  }
-
-  public SecurityMonitoringContentPackStateAttributes integrationInstalledStatus(
-      SecurityMonitoringContentPackIntegrationStatus integrationInstalledStatus) {
-    this.integrationInstalledStatus = integrationInstalledStatus;
-    this.unparsed |= !integrationInstalledStatus.isValid();
-    return this;
-  }
-
-  /**
-   * The installation status of the related integration.
-   *
-   * @return integrationInstalledStatus
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTEGRATION_INSTALLED_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringContentPackIntegrationStatus getIntegrationInstalledStatus() {
-    return integrationInstalledStatus;
-  }
-
-  public void setIntegrationInstalledStatus(
-      SecurityMonitoringContentPackIntegrationStatus integrationInstalledStatus) {
-    if (!integrationInstalledStatus.isValid()) {
-      this.unparsed = true;
-    }
-    this.integrationInstalledStatus = integrationInstalledStatus;
-  }
-
-  public SecurityMonitoringContentPackStateAttributes logsLastCollected(
-      SecurityMonitoringContentPackTimestampBucket logsLastCollected) {
-    this.logsLastCollected = logsLastCollected;
-    this.unparsed |= !logsLastCollected.isValid();
-    return this;
-  }
-
-  /**
-   * Timestamp bucket indicating when logs were last collected.
-   *
-   * @return logsLastCollected
-   */
-  @JsonProperty(JSON_PROPERTY_LOGS_LAST_COLLECTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringContentPackTimestampBucket getLogsLastCollected() {
-    return logsLastCollected;
-  }
-
-  public void setLogsLastCollected(SecurityMonitoringContentPackTimestampBucket logsLastCollected) {
-    if (!logsLastCollected.isValid()) {
-      this.unparsed = true;
-    }
-    this.logsLastCollected = logsLastCollected;
-  }
-
-  public SecurityMonitoringContentPackStateAttributes logsSeenFromAnyIndex(
-      Boolean logsSeenFromAnyIndex) {
-    this.logsSeenFromAnyIndex = logsSeenFromAnyIndex;
-    return this;
-  }
-
-  /**
-   * Whether logs for this content pack have been seen in any Datadog index within the last 72
-   * hours.
-   *
-   * @return logsSeenFromAnyIndex
-   */
-  @JsonProperty(JSON_PROPERTY_LOGS_SEEN_FROM_ANY_INDEX)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getLogsSeenFromAnyIndex() {
-    return logsSeenFromAnyIndex;
-  }
-
-  public void setLogsSeenFromAnyIndex(Boolean logsSeenFromAnyIndex) {
-    this.logsSeenFromAnyIndex = logsSeenFromAnyIndex;
-  }
-
-  public SecurityMonitoringContentPackStateAttributes state(
-      SecurityMonitoringContentPackStatus state) {
-    this.state = state;
-    this.unparsed |= !state.isValid();
+  public SecurityMonitoringContentPackStateAttributes status(
+      SecurityMonitoringContentPackStatus status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
   /**
    * The current operational status of a content pack.
    *
-   * @return state
+   * @return status
    */
-  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringContentPackStatus getState() {
-    return state;
+  public SecurityMonitoringContentPackStatus getStatus() {
+    return status;
   }
 
-  public void setState(SecurityMonitoringContentPackStatus state) {
-    if (!state.isValid()) {
+  public void setStatus(SecurityMonitoringContentPackStatus status) {
+    if (!status.isValid()) {
       this.unparsed = true;
     }
-    this.state = state;
+    this.status = status;
   }
 
   /**
@@ -308,23 +157,8 @@ public class SecurityMonitoringContentPackStateAttributes {
     }
     SecurityMonitoringContentPackStateAttributes securityMonitoringContentPackStateAttributes =
         (SecurityMonitoringContentPackStateAttributes) o;
-    return Objects.equals(
-            this.cloudSiemIndexIncorrect,
-            securityMonitoringContentPackStateAttributes.cloudSiemIndexIncorrect)
-        && Objects.equals(
-            this.cpActivation, securityMonitoringContentPackStateAttributes.cpActivation)
-        && Objects.equals(
-            this.filtersConfiguredForLogs,
-            securityMonitoringContentPackStateAttributes.filtersConfiguredForLogs)
-        && Objects.equals(
-            this.integrationInstalledStatus,
-            securityMonitoringContentPackStateAttributes.integrationInstalledStatus)
-        && Objects.equals(
-            this.logsLastCollected, securityMonitoringContentPackStateAttributes.logsLastCollected)
-        && Objects.equals(
-            this.logsSeenFromAnyIndex,
-            securityMonitoringContentPackStateAttributes.logsSeenFromAnyIndex)
-        && Objects.equals(this.state, securityMonitoringContentPackStateAttributes.state)
+    return Objects.equals(this.details, securityMonitoringContentPackStateAttributes.details)
+        && Objects.equals(this.status, securityMonitoringContentPackStateAttributes.status)
         && Objects.equals(
             this.additionalProperties,
             securityMonitoringContentPackStateAttributes.additionalProperties);
@@ -332,36 +166,15 @@ public class SecurityMonitoringContentPackStateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        cloudSiemIndexIncorrect,
-        cpActivation,
-        filtersConfiguredForLogs,
-        integrationInstalledStatus,
-        logsLastCollected,
-        logsSeenFromAnyIndex,
-        state,
-        additionalProperties);
+    return Objects.hash(details, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringContentPackStateAttributes {\n");
-    sb.append("    cloudSiemIndexIncorrect: ")
-        .append(toIndentedString(cloudSiemIndexIncorrect))
-        .append("\n");
-    sb.append("    cpActivation: ").append(toIndentedString(cpActivation)).append("\n");
-    sb.append("    filtersConfiguredForLogs: ")
-        .append(toIndentedString(filtersConfiguredForLogs))
-        .append("\n");
-    sb.append("    integrationInstalledStatus: ")
-        .append(toIndentedString(integrationInstalledStatus))
-        .append("\n");
-    sb.append("    logsLastCollected: ").append(toIndentedString(logsLastCollected)).append("\n");
-    sb.append("    logsSeenFromAnyIndex: ")
-        .append(toIndentedString(logsSeenFromAnyIndex))
-        .append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
