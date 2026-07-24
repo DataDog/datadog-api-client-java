@@ -55,7 +55,9 @@ public class ServiceLevelObjectivesApi {
    * @param body Create SLO report job request body. (required)
    * @return SLOReportPostResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SLOReportPostResponse createSLOReportJob(SloReportCreateRequest body) throws ApiException {
     return createSLOReportJobWithHttpInfo(body).getData();
   }
@@ -67,7 +69,9 @@ public class ServiceLevelObjectivesApi {
    *
    * @param body Create SLO report job request body. (required)
    * @return CompletableFuture&lt;SLOReportPostResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<SLOReportPostResponse> createSLOReportJobAsync(
       SloReportCreateRequest body) {
     return createSLOReportJobWithHttpInfoAsync(body)
@@ -96,7 +100,10 @@ public class ServiceLevelObjectivesApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SLOReportPostResponse> createSLOReportJobWithHttpInfo(
       SloReportCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
@@ -145,7 +152,9 @@ public class ServiceLevelObjectivesApi {
    *
    * @param body Create SLO report job request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SLOReportPostResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<SLOReportPostResponse>> createSLOReportJobWithHttpInfoAsync(
       SloReportCreateRequest body) {
     // Check if unstable operation is enabled
@@ -208,7 +217,9 @@ public class ServiceLevelObjectivesApi {
    * @param reportId The ID of the report job. (required)
    * @return String
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public String getSLOReport(String reportId) throws ApiException {
     return getSLOReportWithHttpInfo(reportId).getData();
   }
@@ -220,7 +231,9 @@ public class ServiceLevelObjectivesApi {
    *
    * @param reportId The ID of the report job. (required)
    * @return CompletableFuture&lt;String&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<String> getSLOReportAsync(String reportId) {
     return getSLOReportWithHttpInfoAsync(reportId)
         .thenApply(
@@ -248,7 +261,10 @@ public class ServiceLevelObjectivesApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<String> getSLOReportWithHttpInfo(String reportId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getSLOReport";
@@ -298,7 +314,9 @@ public class ServiceLevelObjectivesApi {
    *
    * @param reportId The ID of the report job. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;String&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<String>> getSLOReportWithHttpInfoAsync(String reportId) {
     // Check if unstable operation is enabled
     String operationId = "getSLOReport";
@@ -362,7 +380,9 @@ public class ServiceLevelObjectivesApi {
    * @param reportId The ID of the report job. (required)
    * @return SLOReportStatusGetResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SLOReportStatusGetResponse getSLOReportJobStatus(String reportId) throws ApiException {
     return getSLOReportJobStatusWithHttpInfo(reportId).getData();
   }
@@ -374,7 +394,9 @@ public class ServiceLevelObjectivesApi {
    *
    * @param reportId The ID of the report job. (required)
    * @return CompletableFuture&lt;SLOReportStatusGetResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<SLOReportStatusGetResponse> getSLOReportJobStatusAsync(String reportId) {
     return getSLOReportJobStatusWithHttpInfoAsync(reportId)
         .thenApply(
@@ -399,7 +421,10 @@ public class ServiceLevelObjectivesApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SLOReportStatusGetResponse> getSLOReportJobStatusWithHttpInfo(String reportId)
       throws ApiException {
     // Check if unstable operation is enabled
@@ -450,7 +475,9 @@ public class ServiceLevelObjectivesApi {
    *
    * @param reportId The ID of the report job. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SLOReportStatusGetResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<SLOReportStatusGetResponse>>
       getSLOReportJobStatusWithHttpInfoAsync(String reportId) {
     // Check if unstable operation is enabled
