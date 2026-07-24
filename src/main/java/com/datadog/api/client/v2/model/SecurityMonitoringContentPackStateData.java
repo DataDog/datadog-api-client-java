@@ -60,7 +60,7 @@ public class SecurityMonitoringContentPackStateData {
   }
 
   /**
-   * Attributes of a content pack state
+   * Attributes of a content pack state.
    *
    * @return attributes
    */

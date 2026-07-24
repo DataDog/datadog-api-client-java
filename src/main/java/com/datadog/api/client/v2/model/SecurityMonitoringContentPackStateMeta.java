@@ -17,9 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Metadata for content pack states */
+/** Metadata for content pack states. */
 @JsonPropertyOrder({
   SecurityMonitoringContentPackStateMeta.JSON_PROPERTY_CLOUD_SIEM_INDEX_INCORRECT,
+  SecurityMonitoringContentPackStateMeta.JSON_PROPERTY_RETENTION_MONTHS,
   SecurityMonitoringContentPackStateMeta.JSON_PROPERTY_SKU
 })
 @jakarta.annotation.Generated(
@@ -29,6 +30,9 @@ public class SecurityMonitoringContentPackStateMeta {
   public static final String JSON_PROPERTY_CLOUD_SIEM_INDEX_INCORRECT =
       "cloud_siem_index_incorrect";
   private Boolean cloudSiemIndexIncorrect;
+
+  public static final String JSON_PROPERTY_RETENTION_MONTHS = "retention_months";
+  private Integer retentionMonths;
 
   public static final String JSON_PROPERTY_SKU = "sku";
   private SecurityMonitoringSKU sku;
@@ -52,7 +56,7 @@ public class SecurityMonitoringContentPackStateMeta {
   }
 
   /**
-   * Whether the cloud SIEM index configuration is incorrect at the organization level
+   * Whether the Cloud SIEM index configuration is incorrect for the organization.
    *
    * @return cloudSiemIndexIncorrect
    */
@@ -64,6 +68,28 @@ public class SecurityMonitoringContentPackStateMeta {
 
   public void setCloudSiemIndexIncorrect(Boolean cloudSiemIndexIncorrect) {
     this.cloudSiemIndexIncorrect = cloudSiemIndexIncorrect;
+  }
+
+  public SecurityMonitoringContentPackStateMeta retentionMonths(Integer retentionMonths) {
+    this.retentionMonths = retentionMonths;
+    return this;
+  }
+
+  /**
+   * The number of months that standard logs are retained for organizations on the
+   * standalone_indexed` pricing model. This field is omitted for other pricing models. maximum: 60
+   *
+   * @return retentionMonths
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RETENTION_MONTHS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getRetentionMonths() {
+    return retentionMonths;
+  }
+
+  public void setRetentionMonths(Integer retentionMonths) {
+    this.retentionMonths = retentionMonths;
   }
 
   public SecurityMonitoringContentPackStateMeta sku(SecurityMonitoringSKU sku) {
@@ -150,6 +176,8 @@ public class SecurityMonitoringContentPackStateMeta {
     return Objects.equals(
             this.cloudSiemIndexIncorrect,
             securityMonitoringContentPackStateMeta.cloudSiemIndexIncorrect)
+        && Objects.equals(
+            this.retentionMonths, securityMonitoringContentPackStateMeta.retentionMonths)
         && Objects.equals(this.sku, securityMonitoringContentPackStateMeta.sku)
         && Objects.equals(
             this.additionalProperties, securityMonitoringContentPackStateMeta.additionalProperties);
@@ -157,7 +185,7 @@ public class SecurityMonitoringContentPackStateMeta {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudSiemIndexIncorrect, sku, additionalProperties);
+    return Objects.hash(cloudSiemIndexIncorrect, retentionMonths, sku, additionalProperties);
   }
 
   @Override
@@ -167,6 +195,7 @@ public class SecurityMonitoringContentPackStateMeta {
     sb.append("    cloudSiemIndexIncorrect: ")
         .append(toIndentedString(cloudSiemIndexIncorrect))
         .append("\n");
+    sb.append("    retentionMonths: ").append(toIndentedString(retentionMonths)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

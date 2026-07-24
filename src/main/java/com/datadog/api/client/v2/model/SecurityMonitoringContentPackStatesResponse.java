@@ -94,7 +94,7 @@ public class SecurityMonitoringContentPackStatesResponse {
   }
 
   /**
-   * Metadata for content pack states
+   * Metadata for content pack states.
    *
    * @return meta
    */
