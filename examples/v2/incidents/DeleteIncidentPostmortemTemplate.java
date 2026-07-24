@@ -11,7 +11,7 @@ public class Example {
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
     try {
-      apiInstance.deleteIncidentPostmortemTemplate("template-456");
+      apiInstance.deleteIncidentPostmortemTemplate("00000000-0000-0000-0000-000000000000");
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#deleteIncidentPostmortemTemplate");
       System.err.println("Status code: " + e.getCode());
