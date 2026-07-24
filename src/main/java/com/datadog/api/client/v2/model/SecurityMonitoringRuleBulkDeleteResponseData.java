@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,71 +16,58 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data for bulk deleting security monitoring rules. */
+/** Data for the bulk delete response. */
 @JsonPropertyOrder({
-  SecurityMonitoringRuleBulkDeleteData.JSON_PROPERTY_ATTRIBUTES,
-  SecurityMonitoringRuleBulkDeleteData.JSON_PROPERTY_ID,
-  SecurityMonitoringRuleBulkDeleteData.JSON_PROPERTY_TYPE
+  SecurityMonitoringRuleBulkDeleteResponseData.JSON_PROPERTY_ATTRIBUTES,
+  SecurityMonitoringRuleBulkDeleteResponseData.JSON_PROPERTY_ID,
+  SecurityMonitoringRuleBulkDeleteResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringRuleBulkDeleteData {
+public class SecurityMonitoringRuleBulkDeleteResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private SecurityMonitoringRuleBulkDeleteAttributes attributes;
+  private SecurityMonitoringRuleBulkDeleteResponseAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SecurityMonitoringRuleBulkDeleteRequestDataType type;
+  private SecurityMonitoringRuleBulkDeleteResponseDataType type;
 
-  public SecurityMonitoringRuleBulkDeleteData() {}
-
-  @JsonCreator
-  public SecurityMonitoringRuleBulkDeleteData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          SecurityMonitoringRuleBulkDeleteAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          SecurityMonitoringRuleBulkDeleteRequestDataType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public SecurityMonitoringRuleBulkDeleteData attributes(
-      SecurityMonitoringRuleBulkDeleteAttributes attributes) {
+  public SecurityMonitoringRuleBulkDeleteResponseData attributes(
+      SecurityMonitoringRuleBulkDeleteResponseAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for bulk deleting security monitoring rules.
+   * Attributes for the bulk delete response.
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringRuleBulkDeleteAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleBulkDeleteResponseAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(SecurityMonitoringRuleBulkDeleteAttributes attributes) {
+  public void setAttributes(SecurityMonitoringRuleBulkDeleteResponseAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public SecurityMonitoringRuleBulkDeleteData id(String id) {
+  public SecurityMonitoringRuleBulkDeleteResponseData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Request ID. This value is echoed back as the response's resource ID.
+   * The identifier of the bulk delete response.
    *
    * @return id
    */
@@ -96,25 +82,26 @@ public class SecurityMonitoringRuleBulkDeleteData {
     this.id = id;
   }
 
-  public SecurityMonitoringRuleBulkDeleteData type(
-      SecurityMonitoringRuleBulkDeleteRequestDataType type) {
+  public SecurityMonitoringRuleBulkDeleteResponseData type(
+      SecurityMonitoringRuleBulkDeleteResponseDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The resource type for a bulk delete request.
+   * The resource type for a bulk delete response.
    *
    * @return type
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringRuleBulkDeleteRequestDataType getType() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleBulkDeleteResponseDataType getType() {
     return type;
   }
 
-  public void setType(SecurityMonitoringRuleBulkDeleteRequestDataType type) {
+  public void setType(SecurityMonitoringRuleBulkDeleteResponseDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -133,10 +120,11 @@ public class SecurityMonitoringRuleBulkDeleteData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SecurityMonitoringRuleBulkDeleteData
+   * @return SecurityMonitoringRuleBulkDeleteResponseData
    */
   @JsonAnySetter
-  public SecurityMonitoringRuleBulkDeleteData putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringRuleBulkDeleteResponseData putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -167,7 +155,7 @@ public class SecurityMonitoringRuleBulkDeleteData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringRuleBulkDeleteData object is equal to o. */
+  /** Return true if this SecurityMonitoringRuleBulkDeleteResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -176,13 +164,14 @@ public class SecurityMonitoringRuleBulkDeleteData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleBulkDeleteData securityMonitoringRuleBulkDeleteData =
-        (SecurityMonitoringRuleBulkDeleteData) o;
-    return Objects.equals(this.attributes, securityMonitoringRuleBulkDeleteData.attributes)
-        && Objects.equals(this.id, securityMonitoringRuleBulkDeleteData.id)
-        && Objects.equals(this.type, securityMonitoringRuleBulkDeleteData.type)
+    SecurityMonitoringRuleBulkDeleteResponseData securityMonitoringRuleBulkDeleteResponseData =
+        (SecurityMonitoringRuleBulkDeleteResponseData) o;
+    return Objects.equals(this.attributes, securityMonitoringRuleBulkDeleteResponseData.attributes)
+        && Objects.equals(this.id, securityMonitoringRuleBulkDeleteResponseData.id)
+        && Objects.equals(this.type, securityMonitoringRuleBulkDeleteResponseData.type)
         && Objects.equals(
-            this.additionalProperties, securityMonitoringRuleBulkDeleteData.additionalProperties);
+            this.additionalProperties,
+            securityMonitoringRuleBulkDeleteResponseData.additionalProperties);
   }
 
   @Override
@@ -193,7 +182,7 @@ public class SecurityMonitoringRuleBulkDeleteData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringRuleBulkDeleteData {\n");
+    sb.append("class SecurityMonitoringRuleBulkDeleteResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

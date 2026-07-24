@@ -12,83 +12,43 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Response for bulk deleting security monitoring rules. */
-@JsonPropertyOrder({
-  SecurityMonitoringRuleBulkDeleteResponse.JSON_PROPERTY_DELETED_RULES,
-  SecurityMonitoringRuleBulkDeleteResponse.JSON_PROPERTY_FAILED_RULES
-})
+@JsonPropertyOrder({SecurityMonitoringRuleBulkDeleteResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleBulkDeleteResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DELETED_RULES = "deletedRules";
-  private List<String> deletedRules = null;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private SecurityMonitoringRuleBulkDeleteResponseData data;
 
-  public static final String JSON_PROPERTY_FAILED_RULES = "failedRules";
-  private List<String> failedRules = null;
-
-  public SecurityMonitoringRuleBulkDeleteResponse deletedRules(List<String> deletedRules) {
-    this.deletedRules = deletedRules;
-    return this;
-  }
-
-  public SecurityMonitoringRuleBulkDeleteResponse addDeletedRulesItem(String deletedRulesItem) {
-    if (this.deletedRules == null) {
-      this.deletedRules = new ArrayList<>();
-    }
-    this.deletedRules.add(deletedRulesItem);
+  public SecurityMonitoringRuleBulkDeleteResponse data(
+      SecurityMonitoringRuleBulkDeleteResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * List of successfully deleted rule IDs.
+   * Data for the bulk delete response.
    *
-   * @return deletedRules
+   * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETED_RULES)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDeletedRules() {
-    return deletedRules;
+  public SecurityMonitoringRuleBulkDeleteResponseData getData() {
+    return data;
   }
 
-  public void setDeletedRules(List<String> deletedRules) {
-    this.deletedRules = deletedRules;
-  }
-
-  public SecurityMonitoringRuleBulkDeleteResponse failedRules(List<String> failedRules) {
-    this.failedRules = failedRules;
-    return this;
-  }
-
-  public SecurityMonitoringRuleBulkDeleteResponse addFailedRulesItem(String failedRulesItem) {
-    if (this.failedRules == null) {
-      this.failedRules = new ArrayList<>();
+  public void setData(SecurityMonitoringRuleBulkDeleteResponseData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
     }
-    this.failedRules.add(failedRulesItem);
-    return this;
-  }
-
-  /**
-   * List of rule IDs that could not be deleted.
-   *
-   * @return failedRules
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAILED_RULES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getFailedRules() {
-    return failedRules;
-  }
-
-  public void setFailedRules(List<String> failedRules) {
-    this.failedRules = failedRules;
   }
 
   /**
@@ -148,8 +108,7 @@ public class SecurityMonitoringRuleBulkDeleteResponse {
     }
     SecurityMonitoringRuleBulkDeleteResponse securityMonitoringRuleBulkDeleteResponse =
         (SecurityMonitoringRuleBulkDeleteResponse) o;
-    return Objects.equals(this.deletedRules, securityMonitoringRuleBulkDeleteResponse.deletedRules)
-        && Objects.equals(this.failedRules, securityMonitoringRuleBulkDeleteResponse.failedRules)
+    return Objects.equals(this.data, securityMonitoringRuleBulkDeleteResponse.data)
         && Objects.equals(
             this.additionalProperties,
             securityMonitoringRuleBulkDeleteResponse.additionalProperties);
@@ -157,15 +116,14 @@ public class SecurityMonitoringRuleBulkDeleteResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletedRules, failedRules, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleBulkDeleteResponse {\n");
-    sb.append("    deletedRules: ").append(toIndentedString(deletedRules)).append("\n");
-    sb.append("    failedRules: ").append(toIndentedString(failedRules)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

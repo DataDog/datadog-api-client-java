@@ -22,6 +22,7 @@ public class Example {
                     .attributes(
                         new SecurityMonitoringRuleBulkDeleteAttributes()
                             .ruleIds(Arrays.asList("abc-000-u7q", "abc-000-7dd")))
+                    .id("bulk_delete")
                     .type(SecurityMonitoringRuleBulkDeleteRequestDataType.BULK_DELETE_RULES));
 
     try {
