@@ -60,7 +60,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRestrictionPolicy(String resourceId) throws ApiException {
@@ -82,7 +82,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteRestrictionPolicyAsync(String resourceId) {
@@ -106,7 +106,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -171,7 +171,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteRestrictionPolicyWithHttpInfoAsync(
@@ -237,7 +237,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @return RestrictionPolicyResponse
    * @throws ApiException if fails to make API call
    */
@@ -260,7 +260,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
    */
   public CompletableFuture<RestrictionPolicyResponse> getRestrictionPolicyAsync(String resourceId) {
@@ -284,7 +284,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @return ApiResponse&lt;RestrictionPolicyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -349,7 +349,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RestrictionPolicyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RestrictionPolicyResponse>>
@@ -434,7 +434,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @param body Restriction policy payload (required)
    * @return RestrictionPolicyResponse
    * @throws ApiException if fails to make API call
@@ -461,7 +461,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @param body Restriction policy payload (required)
    * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
    */
@@ -490,7 +490,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return RestrictionPolicyResponse
@@ -519,7 +519,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
@@ -555,7 +555,7 @@ public class RestrictionPoliciesApi {
    * on-call-escalation-policy</code> - On-Call Team Routing Rules: <code>on-call-team-routing-rules
    * </code> - Logs Pipelines: <code>logs-pipeline</code> - Case Management Projects: <code>
    * case-management-project</code> - Monitor Notification Rules: <code>monitor-notification-rule
-   * </code> - Status Pages: <code>status-page</code>
+   * </code> - Status Pages: <code>status-page</code> - Feature Flags: <code>feature-flag</code>
    *
    * <h3>Supported relations for resources</h3>
    *
@@ -579,6 +579,7 @@ public class RestrictionPoliciesApi {
    * </code>, <code>editor</code> Case Management Projects | <code>viewer</code>, <code>contributor
    * </code>, <code>manager</code> Monitor Notification Rules | <code>viewer</code>, <code>editor
    * </code> Status Pages | <code>viewer</code>, <code>responder</code>, <code>manager</code>
+   * Feature Flags | <code>viewer</code>, <code>contributor</code>, <code>editor</code>
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
@@ -590,7 +591,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RestrictionPolicyResponse&gt;
@@ -671,7 +672,7 @@ public class RestrictionPoliciesApi {
    *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
    *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
    *     case-management-project</code>, <code>monitor-notification-rule</code>, <code>status-page
-   *     </code>. (required)
+   *     </code>, <code>feature-flag</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;RestrictionPolicyResponse&gt;&gt;
