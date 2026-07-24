@@ -1026,7 +1026,9 @@ public class ApiClient {
           put("v2.deleteForm", false);
           put("v2.getForm", false);
           put("v2.listForms", false);
+          put("v2.listFormVersions", false);
           put("v2.publishForm", false);
+          put("v2.revertFormVersion", false);
           put("v2.updateForm", false);
           put("v2.upsertAndPublishFormVersion", false);
           put("v2.upsertFormVersion", false);
