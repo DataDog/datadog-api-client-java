@@ -8806,6 +8806,7 @@ public class CloudCostManagementApi {
   /** Manage optional parameters to listCostTagMetadataMetrics. */
   public static class ListCostTagMetadataMetricsOptionalParameters {
     private String filterProvider;
+    private Boolean filterEnabledMetricsOnly;
 
     /**
      * Set filterProvider.
@@ -8819,6 +8820,20 @@ public class CloudCostManagementApi {
      */
     public ListCostTagMetadataMetricsOptionalParameters filterProvider(String filterProvider) {
       this.filterProvider = filterProvider;
+      return this;
+    }
+
+    /**
+     * Set filterEnabledMetricsOnly.
+     *
+     * @param filterEnabledMetricsOnly When <code>true</code>, only return metrics for currently
+     *     enabled accounts. When omitted or <code>false</code>, return all metrics present in tag
+     *     metadata. Metrics not recognized by Cloud Cost Management are always excluded. (optional)
+     * @return ListCostTagMetadataMetricsOptionalParameters
+     */
+    public ListCostTagMetadataMetricsOptionalParameters filterEnabledMetricsOnly(
+        Boolean filterEnabledMetricsOnly) {
+      this.filterEnabledMetricsOnly = filterEnabledMetricsOnly;
       return this;
     }
   }
@@ -8926,6 +8941,7 @@ public class CloudCostManagementApi {
           "Missing the required parameter 'filterMonth' when calling listCostTagMetadataMetrics");
     }
     String filterProvider = parameters.filterProvider;
+    Boolean filterEnabledMetricsOnly = parameters.filterEnabledMetricsOnly;
     // create path and map variables
     String localVarPath = "/api/v2/cost/tag_metadata/metrics";
 
@@ -8934,6 +8950,8 @@ public class CloudCostManagementApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[enabled_metrics_only]", filterEnabledMetricsOnly));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -8990,6 +9008,7 @@ public class CloudCostManagementApi {
       return result;
     }
     String filterProvider = parameters.filterProvider;
+    Boolean filterEnabledMetricsOnly = parameters.filterEnabledMetricsOnly;
     // create path and map variables
     String localVarPath = "/api/v2/cost/tag_metadata/metrics";
 
@@ -8998,6 +9017,8 @@ public class CloudCostManagementApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[provider]", filterProvider));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[enabled_metrics_only]", filterEnabledMetricsOnly));
 
     Invocation.Builder builder;
     try {
