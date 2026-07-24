@@ -1046,6 +1046,7 @@ public class ApiClient {
           put("v2.createIncidentIntegration", false);
           put("v2.createIncidentNotificationRule", false);
           put("v2.createIncidentNotificationTemplate", false);
+          put("v2.createIncidentPostmortem", false);
           put("v2.createIncidentPostmortemAttachment", false);
           put("v2.createIncidentPostmortemTemplate", false);
           put("v2.createIncidentTodo", false);
@@ -1058,6 +1059,7 @@ public class ApiClient {
           put("v2.deleteIncidentIntegration", false);
           put("v2.deleteIncidentNotificationRule", false);
           put("v2.deleteIncidentNotificationTemplate", false);
+          put("v2.deleteIncidentPostmortem", false);
           put("v2.deleteIncidentPostmortemTemplate", false);
           put("v2.deleteIncidentTodo", false);
           put("v2.deleteIncidentType", false);
@@ -1068,6 +1070,7 @@ public class ApiClient {
           put("v2.getIncidentIntegration", false);
           put("v2.getIncidentNotificationRule", false);
           put("v2.getIncidentNotificationTemplate", false);
+          put("v2.getIncidentPostmortem", false);
           put("v2.getIncidentPostmortemTemplate", false);
           put("v2.getIncidentTodo", false);
           put("v2.getIncidentType", false);
@@ -1093,6 +1096,7 @@ public class ApiClient {
           put("v2.updateIncidentIntegration", false);
           put("v2.updateIncidentNotificationRule", false);
           put("v2.updateIncidentNotificationTemplate", false);
+          put("v2.updateIncidentPostmortem", false);
           put("v2.updateIncidentPostmortemTemplate", false);
           put("v2.updateIncidentTodo", false);
           put("v2.updateIncidentType", false);
