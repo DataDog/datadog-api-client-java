@@ -13,16 +13,42 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes for creating or updating a postmortem template. */
-@JsonPropertyOrder({PostmortemTemplateAttributesRequest.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({
+  PostmortemTemplateAttributesRequest.JSON_PROPERTY_CONFLUENCE_POSTMORTEM_SETTINGS,
+  PostmortemTemplateAttributesRequest.JSON_PROPERTY_CONTENT,
+  PostmortemTemplateAttributesRequest.JSON_PROPERTY_GOOGLE_DOCS_POSTMORTEM_SETTINGS,
+  PostmortemTemplateAttributesRequest.JSON_PROPERTY_IS_DEFAULT,
+  PostmortemTemplateAttributesRequest.JSON_PROPERTY_LOCATION,
+  PostmortemTemplateAttributesRequest.JSON_PROPERTY_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PostmortemTemplateAttributesRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONFLUENCE_POSTMORTEM_SETTINGS =
+      "confluence_postmortem_settings";
+  private ConfluencePostmortemSettings confluencePostmortemSettings;
+
+  public static final String JSON_PROPERTY_CONTENT = "content";
+  private String content;
+
+  public static final String JSON_PROPERTY_GOOGLE_DOCS_POSTMORTEM_SETTINGS =
+      "google_docs_postmortem_settings";
+  private GoogleDocsPostmortemSettings googleDocsPostmortemSettings;
+
+  public static final String JSON_PROPERTY_IS_DEFAULT = "is_default";
+  private JsonNullable<OffsetDateTime> isDefault = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_LOCATION = "location";
+  private PostmortemTemplateLocation location = PostmortemTemplateLocation.DATADOG_NOTEBOOKS;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -34,13 +60,148 @@ public class PostmortemTemplateAttributesRequest {
     this.name = name;
   }
 
+  public PostmortemTemplateAttributesRequest confluencePostmortemSettings(
+      ConfluencePostmortemSettings confluencePostmortemSettings) {
+    this.confluencePostmortemSettings = confluencePostmortemSettings;
+    this.unparsed |= confluencePostmortemSettings.unparsed;
+    return this;
+  }
+
+  /**
+   * Settings for a postmortem template stored in Confluence. Required when <code>location</code> is
+   * <code>confluence</code>.
+   *
+   * @return confluencePostmortemSettings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFLUENCE_POSTMORTEM_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ConfluencePostmortemSettings getConfluencePostmortemSettings() {
+    return confluencePostmortemSettings;
+  }
+
+  public void setConfluencePostmortemSettings(
+      ConfluencePostmortemSettings confluencePostmortemSettings) {
+    this.confluencePostmortemSettings = confluencePostmortemSettings;
+    if (confluencePostmortemSettings != null) {
+      this.unparsed |= confluencePostmortemSettings.unparsed;
+    }
+  }
+
+  public PostmortemTemplateAttributesRequest content(String content) {
+    this.content = content;
+    return this;
+  }
+
+  /**
+   * The templated content of the postmortem, supporting Markdown and incident template variables.
+   *
+   * @return content
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public PostmortemTemplateAttributesRequest googleDocsPostmortemSettings(
+      GoogleDocsPostmortemSettings googleDocsPostmortemSettings) {
+    this.googleDocsPostmortemSettings = googleDocsPostmortemSettings;
+    this.unparsed |= googleDocsPostmortemSettings.unparsed;
+    return this;
+  }
+
+  /**
+   * Settings for a postmortem template stored in Google Docs. Required when <code>location</code>
+   * is <code>google_docs</code>.
+   *
+   * @return googleDocsPostmortemSettings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GOOGLE_DOCS_POSTMORTEM_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GoogleDocsPostmortemSettings getGoogleDocsPostmortemSettings() {
+    return googleDocsPostmortemSettings;
+  }
+
+  public void setGoogleDocsPostmortemSettings(
+      GoogleDocsPostmortemSettings googleDocsPostmortemSettings) {
+    this.googleDocsPostmortemSettings = googleDocsPostmortemSettings;
+    if (googleDocsPostmortemSettings != null) {
+      this.unparsed |= googleDocsPostmortemSettings.unparsed;
+    }
+  }
+
+  public PostmortemTemplateAttributesRequest isDefault(OffsetDateTime isDefault) {
+    this.isDefault = JsonNullable.<OffsetDateTime>of(isDefault);
+    return this;
+  }
+
+  /**
+   * When set, marks this template as a default. The effective default for an incident type is the
+   * template with the most recent <code>is_default</code> timestamp. Set to <code>null</code> to
+   * unset.
+   *
+   * @return isDefault
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getIsDefault() {
+    return isDefault.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getIsDefault_JsonNullable() {
+    return isDefault;
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  public void setIsDefault_JsonNullable(JsonNullable<OffsetDateTime> isDefault) {
+    this.isDefault = isDefault;
+  }
+
+  public void setIsDefault(OffsetDateTime isDefault) {
+    this.isDefault = JsonNullable.<OffsetDateTime>of(isDefault);
+  }
+
+  public PostmortemTemplateAttributesRequest location(PostmortemTemplateLocation location) {
+    this.location = location;
+    this.unparsed |= !location.isValid();
+    return this;
+  }
+
+  /**
+   * The location where the postmortem is created and stored.
+   *
+   * @return location
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PostmortemTemplateLocation getLocation() {
+    return location;
+  }
+
+  public void setLocation(PostmortemTemplateLocation location) {
+    if (!location.isValid()) {
+      this.unparsed = true;
+    }
+    this.location = location;
+  }
+
   public PostmortemTemplateAttributesRequest name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the template
+   * The name of the template.
    *
    * @return name
    */
@@ -111,20 +272,45 @@ public class PostmortemTemplateAttributesRequest {
     }
     PostmortemTemplateAttributesRequest postmortemTemplateAttributesRequest =
         (PostmortemTemplateAttributesRequest) o;
-    return Objects.equals(this.name, postmortemTemplateAttributesRequest.name)
+    return Objects.equals(
+            this.confluencePostmortemSettings,
+            postmortemTemplateAttributesRequest.confluencePostmortemSettings)
+        && Objects.equals(this.content, postmortemTemplateAttributesRequest.content)
+        && Objects.equals(
+            this.googleDocsPostmortemSettings,
+            postmortemTemplateAttributesRequest.googleDocsPostmortemSettings)
+        && Objects.equals(this.isDefault, postmortemTemplateAttributesRequest.isDefault)
+        && Objects.equals(this.location, postmortemTemplateAttributesRequest.location)
+        && Objects.equals(this.name, postmortemTemplateAttributesRequest.name)
         && Objects.equals(
             this.additionalProperties, postmortemTemplateAttributesRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, additionalProperties);
+    return Objects.hash(
+        confluencePostmortemSettings,
+        content,
+        googleDocsPostmortemSettings,
+        isDefault,
+        location,
+        name,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PostmortemTemplateAttributesRequest {\n");
+    sb.append("    confluencePostmortemSettings: ")
+        .append(toIndentedString(confluencePostmortemSettings))
+        .append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    googleDocsPostmortemSettings: ")
+        .append(toIndentedString(googleDocsPostmortemSettings))
+        .append("\n");
+    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
