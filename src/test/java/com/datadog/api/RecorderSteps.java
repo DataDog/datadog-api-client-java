@@ -61,6 +61,14 @@ public class RecorderSteps {
 
   @Before(order = 1)
   public void setupClock(Scenario scenario) throws java.io.IOException {
+    if (TestRunner.serverEnabled()) {
+      try {
+        TestRunner.startSession(world, scenario);
+      } catch (Exception error) {
+        throw new IOException(error);
+      }
+      return;
+    }
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)
         || scenario.getSourceTagNames().contains("@integration-only")) {
       world.now = OffsetDateTime.now();
@@ -108,8 +116,16 @@ public class RecorderSteps {
     }
   }
 
-  @After
+  @After(order = 0)
   public void cleanAndSendExpectations(Scenario scenario) throws IOException {
+    if (TestRunner.serverEnabled()) {
+      try {
+        TestRunner.stopSession(world);
+      } catch (Exception error) {
+        throw new IOException(error);
+      }
+      return;
+    }
     // Cleanup the recorded requests from sensitive information (API keys in headers and query
     // params),
     // create the associated expectations and save them to disk in the `cassettes/**/*.json` files
@@ -168,11 +184,15 @@ public class RecorderSteps {
 
   @When("the request is sent")
   public void theRequestIsSent() throws Exception {
+    TestRunner.applyPlan(world, false);
     world.sendRequest();
+    TestRunner.markMainComplete(world);
   }
 
   @When("the request with pagination is sent")
   public void theRequestSentWithPagination() throws Exception {
+    TestRunner.applyPlan(world, true);
     world.sendPaginatedRequest();
+    TestRunner.markMainComplete(world);
   }
 }
