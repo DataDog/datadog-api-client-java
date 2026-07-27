@@ -1829,7 +1829,9 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((TopologyMapWidgetDefinition) tmp).unparsed) {
+          if (!((TopologyMapWidgetDefinition) tmp).unparsed
+              && !(((TopologyMapWidgetDefinition) tmp).getActualInstance()
+                  instanceof UnparsedObject)) {
             deserialized = tmp;
             match++;
           }
