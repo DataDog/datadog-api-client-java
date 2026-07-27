@@ -13,9 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Target application configuration for a custom evaluator. */
@@ -23,6 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   LLMObsCustomEvalConfigTarget.JSON_PROPERTY_APPLICATION_NAME,
   LLMObsCustomEvalConfigTarget.JSON_PROPERTY_ENABLED,
   LLMObsCustomEvalConfigTarget.JSON_PROPERTY_EVAL_SCOPE,
+  LLMObsCustomEvalConfigTarget.JSON_PROPERTY_EXPERIMENT_PROJECT_IDS,
   LLMObsCustomEvalConfigTarget.JSON_PROPERTY_FILTER,
   LLMObsCustomEvalConfigTarget.JSON_PROPERTY_ROOT_SPANS_ONLY,
   LLMObsCustomEvalConfigTarget.JSON_PROPERTY_SAMPLING_PERCENTAGE
@@ -39,6 +43,9 @@ public class LLMObsCustomEvalConfigTarget {
 
   public static final String JSON_PROPERTY_EVAL_SCOPE = "eval_scope";
   private LLMObsCustomEvalConfigEvalScope evalScope;
+
+  public static final String JSON_PROPERTY_EXPERIMENT_PROJECT_IDS = "experiment_project_ids";
+  private List<UUID> experimentProjectIds = null;
 
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<String> filter = JsonNullable.<String>undefined();
@@ -122,6 +129,35 @@ public class LLMObsCustomEvalConfigTarget {
       this.unparsed = true;
     }
     this.evalScope = evalScope;
+  }
+
+  public LLMObsCustomEvalConfigTarget experimentProjectIds(List<UUID> experimentProjectIds) {
+    this.experimentProjectIds = experimentProjectIds;
+    return this;
+  }
+
+  public LLMObsCustomEvalConfigTarget addExperimentProjectIdsItem(UUID experimentProjectIdsItem) {
+    if (this.experimentProjectIds == null) {
+      this.experimentProjectIds = new ArrayList<>();
+    }
+    this.experimentProjectIds.add(experimentProjectIdsItem);
+    return this;
+  }
+
+  /**
+   * Experiment project IDs this evaluator is scoped to.
+   *
+   * @return experimentProjectIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPERIMENT_PROJECT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UUID> getExperimentProjectIds() {
+    return experimentProjectIds;
+  }
+
+  public void setExperimentProjectIds(List<UUID> experimentProjectIds) {
+    this.experimentProjectIds = experimentProjectIds;
   }
 
   public LLMObsCustomEvalConfigTarget filter(String filter) {
@@ -276,6 +312,8 @@ public class LLMObsCustomEvalConfigTarget {
     return Objects.equals(this.applicationName, llmObsCustomEvalConfigTarget.applicationName)
         && Objects.equals(this.enabled, llmObsCustomEvalConfigTarget.enabled)
         && Objects.equals(this.evalScope, llmObsCustomEvalConfigTarget.evalScope)
+        && Objects.equals(
+            this.experimentProjectIds, llmObsCustomEvalConfigTarget.experimentProjectIds)
         && Objects.equals(this.filter, llmObsCustomEvalConfigTarget.filter)
         && Objects.equals(this.rootSpansOnly, llmObsCustomEvalConfigTarget.rootSpansOnly)
         && Objects.equals(this.samplingPercentage, llmObsCustomEvalConfigTarget.samplingPercentage)
@@ -289,6 +327,7 @@ public class LLMObsCustomEvalConfigTarget {
         applicationName,
         enabled,
         evalScope,
+        experimentProjectIds,
         filter,
         rootSpansOnly,
         samplingPercentage,
@@ -302,6 +341,9 @@ public class LLMObsCustomEvalConfigTarget {
     sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    evalScope: ").append(toIndentedString(evalScope)).append("\n");
+    sb.append("    experimentProjectIds: ")
+        .append(toIndentedString(experimentProjectIds))
+        .append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    rootSpansOnly: ").append(toIndentedString(rootSpansOnly)).append("\n");
     sb.append("    samplingPercentage: ").append(toIndentedString(samplingPercentage)).append("\n");

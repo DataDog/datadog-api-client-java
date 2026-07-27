@@ -812,6 +812,7 @@ public class ApiClient {
           put("v2.getLLMObsPrompt", false);
           put("v2.getLLMObsPromptVersion", false);
           put("v2.listLLMObsAnnotationQueues", false);
+          put("v2.listLLMObsCustomEvalConfigs", false);
           put("v2.listLLMObsDatasetRecords", false);
           put("v2.listLLMObsDatasets", false);
           put("v2.listLLMObsDatasetVersions", false);

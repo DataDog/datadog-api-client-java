@@ -47,6 +47,7 @@ public class Example {
                                             .minThreshold(0.7)
                                             .passValues(Arrays.asList("pass", "yes"))
                                             .passWhen(true))
+                                    .contextQuery("@input.context")
                                     .inferenceParams(
                                         new LLMObsCustomEvalConfigInferenceParams()
                                             .maxTokens(1024L)
@@ -87,11 +88,15 @@ public class Example {
                                                                             .result("sunny, 72F")
                                                                             .toolId("call_abc123")
                                                                             .type("function")))))
-                                                .role("user"))))
+                                                .role("user")))
+                                    .targetQuery("@output.value")
+                                    .userSpecifiedJsonPostProcessingFunction(null))
                             .llmProvider(
                                 new LLMObsCustomEvalConfigLLMProvider()
                                     .bedrock(
                                         new LLMObsCustomEvalConfigBedrockOptions()
+                                            .inferenceProfile(
+                                                "arn:aws:bedrock:us-east-1:123456789012:application-inference-profile/abc123")
                                             .region("us-east-1"))
                                     .integrationAccountId("my-account-id")
                                     .integrationProvider(
