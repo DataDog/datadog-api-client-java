@@ -8,69 +8,70 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Bedrock-specific options for LLM provider configuration. */
-@JsonPropertyOrder({
-  LLMObsCustomEvalConfigBedrockOptions.JSON_PROPERTY_INFERENCE_PROFILE,
-  LLMObsCustomEvalConfigBedrockOptions.JSON_PROPERTY_REGION
-})
+/** Response containing a list of custom LLM Observability evaluator configurations. */
+@JsonPropertyOrder({LLMObsCustomEvalConfigListResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class LLMObsCustomEvalConfigBedrockOptions {
+public class LLMObsCustomEvalConfigListResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INFERENCE_PROFILE = "inference_profile";
-  private String inferenceProfile;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<LLMObsCustomEvalConfigData> data = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_REGION = "region";
-  private String region;
+  public LLMObsCustomEvalConfigListResponse() {}
 
-  public LLMObsCustomEvalConfigBedrockOptions inferenceProfile(String inferenceProfile) {
-    this.inferenceProfile = inferenceProfile;
+  @JsonCreator
+  public LLMObsCustomEvalConfigListResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<LLMObsCustomEvalConfigData> data) {
+    this.data = data;
+    for (LLMObsCustomEvalConfigData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+  }
+
+  public LLMObsCustomEvalConfigListResponse data(List<LLMObsCustomEvalConfigData> data) {
+    this.data = data;
+    for (LLMObsCustomEvalConfigData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public LLMObsCustomEvalConfigListResponse addDataItem(LLMObsCustomEvalConfigData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * Bedrock inference profile identifier, such as an application inference profile ARN.
+   * List of custom evaluator configuration data objects.
    *
-   * @return inferenceProfile
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFERENCE_PROFILE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getInferenceProfile() {
-    return inferenceProfile;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<LLMObsCustomEvalConfigData> getData() {
+    return data;
   }
 
-  public void setInferenceProfile(String inferenceProfile) {
-    this.inferenceProfile = inferenceProfile;
-  }
-
-  public LLMObsCustomEvalConfigBedrockOptions region(String region) {
-    this.region = region;
-    return this;
-  }
-
-  /**
-   * AWS region for Bedrock.
-   *
-   * @return region
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REGION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRegion() {
-    return region;
-  }
-
-  public void setRegion(String region) {
-    this.region = region;
+  public void setData(List<LLMObsCustomEvalConfigData> data) {
+    this.data = data;
+    if (data != null) {
+      for (LLMObsCustomEvalConfigData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -85,10 +86,10 @@ public class LLMObsCustomEvalConfigBedrockOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return LLMObsCustomEvalConfigBedrockOptions
+   * @return LLMObsCustomEvalConfigListResponse
    */
   @JsonAnySetter
-  public LLMObsCustomEvalConfigBedrockOptions putAdditionalProperty(String key, Object value) {
+  public LLMObsCustomEvalConfigListResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -119,7 +120,7 @@ public class LLMObsCustomEvalConfigBedrockOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsCustomEvalConfigBedrockOptions object is equal to o. */
+  /** Return true if this LLMObsCustomEvalConfigListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,26 +129,23 @@ public class LLMObsCustomEvalConfigBedrockOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsCustomEvalConfigBedrockOptions llmObsCustomEvalConfigBedrockOptions =
-        (LLMObsCustomEvalConfigBedrockOptions) o;
-    return Objects.equals(
-            this.inferenceProfile, llmObsCustomEvalConfigBedrockOptions.inferenceProfile)
-        && Objects.equals(this.region, llmObsCustomEvalConfigBedrockOptions.region)
+    LLMObsCustomEvalConfigListResponse llmObsCustomEvalConfigListResponse =
+        (LLMObsCustomEvalConfigListResponse) o;
+    return Objects.equals(this.data, llmObsCustomEvalConfigListResponse.data)
         && Objects.equals(
-            this.additionalProperties, llmObsCustomEvalConfigBedrockOptions.additionalProperties);
+            this.additionalProperties, llmObsCustomEvalConfigListResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inferenceProfile, region, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LLMObsCustomEvalConfigBedrockOptions {\n");
-    sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
-    sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("class LLMObsCustomEvalConfigListResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

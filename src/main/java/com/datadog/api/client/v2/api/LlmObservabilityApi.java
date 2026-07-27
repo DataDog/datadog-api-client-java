@@ -18,6 +18,7 @@ import com.datadog.api.client.v2.model.LLMObsAnnotationsRequest;
 import com.datadog.api.client.v2.model.LLMObsAnnotationsResponse;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptRequest;
 import com.datadog.api.client.v2.model.LLMObsCreatePromptVersionRequest;
+import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigListResponse;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigResponse;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsDataDeletionRequest;
@@ -6389,6 +6390,137 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsAnnotationQueuesResponse>() {});
+  }
+
+  /**
+   * List custom evaluator configurations.
+   *
+   * <p>See {@link #listLLMObsCustomEvalConfigsWithHttpInfo}.
+   *
+   * @return LLMObsCustomEvalConfigListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsCustomEvalConfigListResponse listLLMObsCustomEvalConfigs() throws ApiException {
+    return listLLMObsCustomEvalConfigsWithHttpInfo().getData();
+  }
+
+  /**
+   * List custom evaluator configurations.
+   *
+   * <p>See {@link #listLLMObsCustomEvalConfigsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LLMObsCustomEvalConfigListResponse&gt;
+   */
+  public CompletableFuture<LLMObsCustomEvalConfigListResponse> listLLMObsCustomEvalConfigsAsync() {
+    return listLLMObsCustomEvalConfigsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all custom LLM Observability evaluator configurations for the organization.
+   *
+   * @return ApiResponse&lt;LLMObsCustomEvalConfigListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsCustomEvalConfigListResponse> listLLMObsCustomEvalConfigsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsCustomEvalConfigs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/unstable/llm-obs/config/evaluators/custom";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsCustomEvalConfigs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsCustomEvalConfigListResponse>() {});
+  }
+
+  /**
+   * List custom evaluator configurations.
+   *
+   * <p>See {@link #listLLMObsCustomEvalConfigsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsCustomEvalConfigListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsCustomEvalConfigListResponse>>
+      listLLMObsCustomEvalConfigsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsCustomEvalConfigs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsCustomEvalConfigListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/unstable/llm-obs/config/evaluators/custom";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsCustomEvalConfigs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsCustomEvalConfigListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsCustomEvalConfigListResponse>() {});
   }
 
   /** Manage optional parameters to listLLMObsDatasetRecords. */
