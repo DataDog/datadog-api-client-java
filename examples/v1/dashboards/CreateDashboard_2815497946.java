@@ -1,4 +1,4 @@
-// Create a new dashboard with topology_map widget
+// Create a new dashboard with topology_map data_streams widget
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -6,17 +6,16 @@ import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.TopologyMapWidgetDefinition;
-import com.datadog.api.client.v1.model.TopologyMapWidgetDefinitionServiceMap;
+import com.datadog.api.client.v1.model.TopologyMapWidgetDefinitionDataStreams;
 import com.datadog.api.client.v1.model.TopologyMapWidgetDefinitionType;
-import com.datadog.api.client.v1.model.TopologyQueryServiceMap;
-import com.datadog.api.client.v1.model.TopologyQueryServiceMapDataSource;
-import com.datadog.api.client.v1.model.TopologyRequestServiceMap;
+import com.datadog.api.client.v1.model.TopologyQueryDataStreams;
+import com.datadog.api.client.v1.model.TopologyQueryDataStreamsDataSource;
+import com.datadog.api.client.v1.model.TopologyRequestDataStreams;
 import com.datadog.api.client.v1.model.TopologyRequestType;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetLayout;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -35,25 +34,26 @@ public class Example {
                         .definition(
                             new WidgetDefinition(
                                 new TopologyMapWidgetDefinition(
-                                    new TopologyMapWidgetDefinitionServiceMap()
+                                    new TopologyMapWidgetDefinitionDataStreams()
                                         .title("")
                                         .titleSize("16")
                                         .titleAlign(WidgetTextAlign.LEFT)
                                         .type(TopologyMapWidgetDefinitionType.TOPOLOGY_MAP)
                                         .requests(
                                             Collections.singletonList(
-                                                new TopologyRequestServiceMap()
+                                                new TopologyRequestDataStreams()
                                                     .requestType(TopologyRequestType.TOPOLOGY)
                                                     .query(
-                                                        new TopologyQueryServiceMap()
+                                                        new TopologyQueryDataStreams()
                                                             .dataSource(
-                                                                TopologyQueryServiceMapDataSource
-                                                                    .SERVICE_MAP)
+                                                                TopologyQueryDataStreamsDataSource
+                                                                    .DATA_STREAMS)
                                                             .service("")
                                                             .filters(
-                                                                Arrays.asList(
-                                                                    "env:none",
-                                                                    "environment:*"))))))))))
+                                                                Collections.singletonList(
+                                                                    "env:prod"))
+                                                            .queryString(
+                                                                "service:myservice")))))))))
             .layoutType(DashboardLayoutType.FREE);
 
     try {

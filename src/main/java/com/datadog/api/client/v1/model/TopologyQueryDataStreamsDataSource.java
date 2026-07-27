@@ -18,42 +18,42 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Name of the data source */
-@JsonSerialize(using = TopologyQueryDataSource.TopologyQueryDataSourceSerializer.class)
-public class TopologyQueryDataSource extends ModelEnum<String> {
+/** Name of the data source. */
+@JsonSerialize(
+    using = TopologyQueryDataStreamsDataSource.TopologyQueryDataStreamsDataSourceSerializer.class)
+public class TopologyQueryDataStreamsDataSource extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("data_streams", "service_map"));
+      new HashSet<String>(Arrays.asList("data_streams"));
 
-  public static final TopologyQueryDataSource DATA_STREAMS =
-      new TopologyQueryDataSource("data_streams");
-  public static final TopologyQueryDataSource SERVICE_MAP =
-      new TopologyQueryDataSource("service_map");
+  public static final TopologyQueryDataStreamsDataSource DATA_STREAMS =
+      new TopologyQueryDataStreamsDataSource("data_streams");
 
-  TopologyQueryDataSource(String value) {
+  TopologyQueryDataStreamsDataSource(String value) {
     super(value, allowedValues);
   }
 
-  public static class TopologyQueryDataSourceSerializer
-      extends StdSerializer<TopologyQueryDataSource> {
-    public TopologyQueryDataSourceSerializer(Class<TopologyQueryDataSource> t) {
+  public static class TopologyQueryDataStreamsDataSourceSerializer
+      extends StdSerializer<TopologyQueryDataStreamsDataSource> {
+    public TopologyQueryDataStreamsDataSourceSerializer(
+        Class<TopologyQueryDataStreamsDataSource> t) {
       super(t);
     }
 
-    public TopologyQueryDataSourceSerializer() {
+    public TopologyQueryDataStreamsDataSourceSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        TopologyQueryDataSource value, JsonGenerator jgen, SerializerProvider provider)
+        TopologyQueryDataStreamsDataSource value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static TopologyQueryDataSource fromValue(String value) {
-    return new TopologyQueryDataSource(value);
+  public static TopologyQueryDataStreamsDataSource fromValue(String value) {
+    return new TopologyQueryDataStreamsDataSource(value);
   }
 }
