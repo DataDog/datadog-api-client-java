@@ -105,9 +105,19 @@ public class DdsqlTabularQueryColumn {
   }
 
   /**
-   * Column values in row order. The element type matches the column's <code>type</code>; for
-   * example a <code>VARCHAR</code> column carries strings, a <code>TIMESTAMP</code> column carries
-   * Unix-millisecond integers. <code>null</code> is allowed for missing values.
+   * Column values in row order, one entry per result row. The element type follows the column's
+   * <code>type</code>. The following serialization rules should be taken into account:
+   *
+   * <ul>
+   *   <li><code>BIGINT</code> values are encoded as JSON numbers in the signed 64-bit integer
+   *       range.
+   *   <li><code>DECIMAL</code> values are encoded as JSON numbers with 64-bit double precision.
+   *   <li><code>TIMESTAMP</code> and <code>DATE</code> values are encoded as Unix-millisecond
+   *       integers; a <code>DATE</code> resolves to midnight UTC.
+   *   <li><code>JSON</code> values are returned as a JSON-encoded string.
+   * </ul>
+   *
+   * <p><code>null</code> is allowed for any column type where a value is missing.
    *
    * @return values
    */
