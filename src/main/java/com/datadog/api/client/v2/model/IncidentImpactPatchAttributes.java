@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,23 +18,17 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The incident impact's attributes. */
+/** The incident impact's attributes for a patch request. All fields are optional. */
 @JsonPropertyOrder({
-  IncidentImpactAttributes.JSON_PROPERTY_CREATED,
-  IncidentImpactAttributes.JSON_PROPERTY_DESCRIPTION,
-  IncidentImpactAttributes.JSON_PROPERTY_END_AT,
-  IncidentImpactAttributes.JSON_PROPERTY_FIELDS,
-  IncidentImpactAttributes.JSON_PROPERTY_IMPACT_TYPE,
-  IncidentImpactAttributes.JSON_PROPERTY_MODIFIED,
-  IncidentImpactAttributes.JSON_PROPERTY_START_AT
+  IncidentImpactPatchAttributes.JSON_PROPERTY_DESCRIPTION,
+  IncidentImpactPatchAttributes.JSON_PROPERTY_END_AT,
+  IncidentImpactPatchAttributes.JSON_PROPERTY_FIELDS,
+  IncidentImpactPatchAttributes.JSON_PROPERTY_START_AT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentImpactAttributes {
+public class IncidentImpactPatchAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CREATED = "created";
-  private OffsetDateTime created;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -45,38 +38,10 @@ public class IncidentImpactAttributes {
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private Map<String, Object> fields = null;
 
-  public static final String JSON_PROPERTY_IMPACT_TYPE = "impact_type";
-  private String impactType;
-
-  public static final String JSON_PROPERTY_MODIFIED = "modified";
-  private OffsetDateTime modified;
-
   public static final String JSON_PROPERTY_START_AT = "start_at";
   private OffsetDateTime startAt;
 
-  public IncidentImpactAttributes() {}
-
-  @JsonCreator
-  public IncidentImpactAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_START_AT) OffsetDateTime startAt) {
-    this.description = description;
-    this.startAt = startAt;
-  }
-
-  /**
-   * Timestamp when the impact was created.
-   *
-   * @return created
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreated() {
-    return created;
-  }
-
-  public IncidentImpactAttributes description(String description) {
+  public IncidentImpactPatchAttributes description(String description) {
     this.description = description;
     return this;
   }
@@ -86,8 +51,9 @@ public class IncidentImpactAttributes {
    *
    * @return description
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
@@ -96,7 +62,7 @@ public class IncidentImpactAttributes {
     this.description = description;
   }
 
-  public IncidentImpactAttributes endAt(OffsetDateTime endAt) {
+  public IncidentImpactPatchAttributes endAt(OffsetDateTime endAt) {
     this.endAt = JsonNullable.<OffsetDateTime>of(endAt);
     return this;
   }
@@ -127,12 +93,12 @@ public class IncidentImpactAttributes {
     this.endAt = JsonNullable.<OffsetDateTime>of(endAt);
   }
 
-  public IncidentImpactAttributes fields(Map<String, Object> fields) {
+  public IncidentImpactPatchAttributes fields(Map<String, Object> fields) {
     this.fields = fields;
     return this;
   }
 
-  public IncidentImpactAttributes putFieldsItem(String key, Object fieldsItem) {
+  public IncidentImpactPatchAttributes putFieldsItem(String key, Object fieldsItem) {
     if (this.fields == null) {
       this.fields = new HashMap<>();
     }
@@ -156,51 +122,19 @@ public class IncidentImpactAttributes {
     this.fields = fields;
   }
 
-  public IncidentImpactAttributes impactType(String impactType) {
-    this.impactType = impactType;
-    return this;
-  }
-
-  /**
-   * The type of impact.
-   *
-   * @return impactType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMPACT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getImpactType() {
-    return impactType;
-  }
-
-  public void setImpactType(String impactType) {
-    this.impactType = impactType;
-  }
-
-  /**
-   * Timestamp when the impact was last modified.
-   *
-   * @return modified
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModified() {
-    return modified;
-  }
-
-  public IncidentImpactAttributes startAt(OffsetDateTime startAt) {
+  public IncidentImpactPatchAttributes startAt(OffsetDateTime startAt) {
     this.startAt = startAt;
     return this;
   }
 
   /**
-   * Timestamp representing when the impact started.
+   * Timestamp when the impact started.
    *
    * @return startAt
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getStartAt() {
     return startAt;
   }
@@ -221,10 +155,10 @@ public class IncidentImpactAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentImpactAttributes
+   * @return IncidentImpactPatchAttributes
    */
   @JsonAnySetter
-  public IncidentImpactAttributes putAdditionalProperty(String key, Object value) {
+  public IncidentImpactPatchAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -255,7 +189,7 @@ public class IncidentImpactAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentImpactAttributes object is equal to o. */
+  /** Return true if this IncidentImpactPatchAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -264,33 +198,27 @@ public class IncidentImpactAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentImpactAttributes incidentImpactAttributes = (IncidentImpactAttributes) o;
-    return Objects.equals(this.created, incidentImpactAttributes.created)
-        && Objects.equals(this.description, incidentImpactAttributes.description)
-        && Objects.equals(this.endAt, incidentImpactAttributes.endAt)
-        && Objects.equals(this.fields, incidentImpactAttributes.fields)
-        && Objects.equals(this.impactType, incidentImpactAttributes.impactType)
-        && Objects.equals(this.modified, incidentImpactAttributes.modified)
-        && Objects.equals(this.startAt, incidentImpactAttributes.startAt)
-        && Objects.equals(this.additionalProperties, incidentImpactAttributes.additionalProperties);
+    IncidentImpactPatchAttributes incidentImpactPatchAttributes = (IncidentImpactPatchAttributes) o;
+    return Objects.equals(this.description, incidentImpactPatchAttributes.description)
+        && Objects.equals(this.endAt, incidentImpactPatchAttributes.endAt)
+        && Objects.equals(this.fields, incidentImpactPatchAttributes.fields)
+        && Objects.equals(this.startAt, incidentImpactPatchAttributes.startAt)
+        && Objects.equals(
+            this.additionalProperties, incidentImpactPatchAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        created, description, endAt, fields, impactType, modified, startAt, additionalProperties);
+    return Objects.hash(description, endAt, fields, startAt, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentImpactAttributes {\n");
-    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("class IncidentImpactPatchAttributes {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    endAt: ").append(toIndentedString(endAt)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
-    sb.append("    impactType: ").append(toIndentedString(impactType)).append("\n");
-    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    startAt: ").append(toIndentedString(startAt)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
