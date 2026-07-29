@@ -117,7 +117,7 @@ public class TagPoliciesApi {
           400, "Missing the required parameter 'body' when calling createTagPolicy");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/tag-policies";
+    String localVarPath = "/api/v2/tag_policies";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -172,7 +172,7 @@ public class TagPoliciesApi {
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/tag-policies";
+    String localVarPath = "/api/v2/tag_policies";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -320,7 +320,7 @@ public class TagPoliciesApi {
     Boolean hardDelete = parameters.hardDelete;
     // create path and map variables
     String localVarPath =
-        "/api/v2/tag-policies/{policy_id}"
+        "/api/v2/tag_policies/{policy_id}"
             .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -382,7 +382,7 @@ public class TagPoliciesApi {
     Boolean hardDelete = parameters.hardDelete;
     // create path and map variables
     String localVarPath =
-        "/api/v2/tag-policies/{policy_id}"
+        "/api/v2/tag_policies/{policy_id}"
             .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -565,7 +565,7 @@ public class TagPoliciesApi {
     Long tsEnd = parameters.tsEnd;
     // create path and map variables
     String localVarPath =
-        "/api/v2/tag-policies/{policy_id}"
+        "/api/v2/tag_policies/{policy_id}"
             .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -631,7 +631,7 @@ public class TagPoliciesApi {
     Long tsEnd = parameters.tsEnd;
     // create path and map variables
     String localVarPath =
-        "/api/v2/tag-policies/{policy_id}"
+        "/api/v2/tag_policies/{policy_id}"
             .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -804,7 +804,7 @@ public class TagPoliciesApi {
     Long tsEnd = parameters.tsEnd;
     // create path and map variables
     String localVarPath =
-        "/api/v2/tag-policies/{policy_id}/score"
+        "/api/v2/tag_policies/{policy_id}/score"
             .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -868,7 +868,7 @@ public class TagPoliciesApi {
     Long tsEnd = parameters.tsEnd;
     // create path and map variables
     String localVarPath =
-        "/api/v2/tag-policies/{policy_id}/score"
+        "/api/v2/tag_policies/{policy_id}/score"
             .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1082,7 +1082,7 @@ public class TagPoliciesApi {
     Long tsStart = parameters.tsStart;
     Long tsEnd = parameters.tsEnd;
     // create path and map variables
-    String localVarPath = "/api/v2/tag-policies";
+    String localVarPath = "/api/v2/tag_policies";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1142,7 +1142,7 @@ public class TagPoliciesApi {
     Long tsStart = parameters.tsStart;
     Long tsEnd = parameters.tsEnd;
     // create path and map variables
-    String localVarPath = "/api/v2/tag-policies";
+    String localVarPath = "/api/v2/tag_policies";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1259,7 +1259,7 @@ public class TagPoliciesApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/tag-policies/{policy_id}"
+        "/api/v2/tag_policies/{policy_id}"
             .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1326,7 +1326,7 @@ public class TagPoliciesApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/tag-policies/{policy_id}"
+        "/api/v2/tag_policies/{policy_id}"
             .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
