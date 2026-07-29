@@ -5,6 +5,8 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.HistoricalMetricsConfigurationCreateRequest;
+import com.datadog.api.client.v2.model.HistoricalMetricsConfigurationResponse;
 import com.datadog.api.client.v2.model.IntakePayloadAccepted;
 import com.datadog.api.client.v2.model.MetricAllTagsResponse;
 import com.datadog.api.client.v2.model.MetricAssetsResponse;
@@ -232,6 +234,169 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricBulkTagConfigResponse>() {});
+  }
+
+  /**
+   * Enable historical metrics ingestion.
+   *
+   * <p>See {@link #createHistoricalMetricsConfigurationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return HistoricalMetricsConfigurationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public HistoricalMetricsConfigurationResponse createHistoricalMetricsConfiguration(
+      HistoricalMetricsConfigurationCreateRequest body) throws ApiException {
+    return createHistoricalMetricsConfigurationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Enable historical metrics ingestion.
+   *
+   * <p>See {@link #createHistoricalMetricsConfigurationWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;HistoricalMetricsConfigurationResponse&gt;
+   */
+  public CompletableFuture<HistoricalMetricsConfigurationResponse>
+      createHistoricalMetricsConfigurationAsync(HistoricalMetricsConfigurationCreateRequest body) {
+    return createHistoricalMetricsConfigurationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Enable historical metrics ingestion (late data ingestion) for a metric. Idempotent: enabling an
+   * already-enabled metric returns 200 instead of 201. Not supported for distribution metrics,
+   * metrics with an existing tag configuration, or most standard (non-custom) metrics.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;HistoricalMetricsConfigurationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<HistoricalMetricsConfigurationResponse>
+      createHistoricalMetricsConfigurationWithHttpInfo(
+          HistoricalMetricsConfigurationCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createHistoricalMetricsConfiguration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createHistoricalMetricsConfiguration");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/historical-metrics-configurations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.createHistoricalMetricsConfiguration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HistoricalMetricsConfigurationResponse>() {});
+  }
+
+  /**
+   * Enable historical metrics ingestion.
+   *
+   * <p>See {@link #createHistoricalMetricsConfigurationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;HistoricalMetricsConfigurationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>>
+      createHistoricalMetricsConfigurationWithHttpInfoAsync(
+          HistoricalMetricsConfigurationCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createHistoricalMetricsConfiguration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createHistoricalMetricsConfiguration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/historical-metrics-configurations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.createHistoricalMetricsConfiguration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HistoricalMetricsConfigurationResponse>() {});
   }
 
   /**
@@ -894,6 +1059,164 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricBulkTagConfigResponse>() {});
+  }
+
+  /**
+   * Delete a historical metrics configuration.
+   *
+   * <p>See {@link #deleteHistoricalMetricsConfigurationWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteHistoricalMetricsConfiguration(String metricName) throws ApiException {
+    deleteHistoricalMetricsConfigurationWithHttpInfo(metricName);
+  }
+
+  /**
+   * Delete a historical metrics configuration.
+   *
+   * <p>See {@link #deleteHistoricalMetricsConfigurationWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteHistoricalMetricsConfigurationAsync(String metricName) {
+    return deleteHistoricalMetricsConfigurationWithHttpInfoAsync(metricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Disable historical metrics ingestion for a metric. Idempotent: always returns 204, whether or
+   * not the configuration existed or the metric itself still exists, so that Terraform destroy
+   * succeeds for a metric removed out-of-band.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteHistoricalMetricsConfigurationWithHttpInfo(String metricName)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteHistoricalMetricsConfiguration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling"
+              + " deleteHistoricalMetricsConfiguration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/historical-metrics-configurations/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.deleteHistoricalMetricsConfiguration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a historical metrics configuration.
+   *
+   * <p>See {@link #deleteHistoricalMetricsConfigurationWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteHistoricalMetricsConfigurationWithHttpInfoAsync(
+      String metricName) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteHistoricalMetricsConfiguration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " deleteHistoricalMetricsConfiguration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/historical-metrics-configurations/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.deleteHistoricalMetricsConfiguration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -1625,6 +1948,171 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricEstimateResponse>() {});
+  }
+
+  /**
+   * Get a historical metrics configuration.
+   *
+   * <p>See {@link #getHistoricalMetricsConfigurationWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return HistoricalMetricsConfigurationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public HistoricalMetricsConfigurationResponse getHistoricalMetricsConfiguration(String metricName)
+      throws ApiException {
+    return getHistoricalMetricsConfigurationWithHttpInfo(metricName).getData();
+  }
+
+  /**
+   * Get a historical metrics configuration.
+   *
+   * <p>See {@link #getHistoricalMetricsConfigurationWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;HistoricalMetricsConfigurationResponse&gt;
+   */
+  public CompletableFuture<HistoricalMetricsConfigurationResponse>
+      getHistoricalMetricsConfigurationAsync(String metricName) {
+    return getHistoricalMetricsConfigurationWithHttpInfoAsync(metricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the historical metrics ingestion configuration for a metric. Existence of the resource
+   * means historical metrics ingestion is enabled; returns 404 when it is not enabled for the
+   * metric.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return ApiResponse&lt;HistoricalMetricsConfigurationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<HistoricalMetricsConfigurationResponse>
+      getHistoricalMetricsConfigurationWithHttpInfo(String metricName) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getHistoricalMetricsConfiguration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling"
+              + " getHistoricalMetricsConfiguration");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/historical-metrics-configurations/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.getHistoricalMetricsConfiguration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HistoricalMetricsConfigurationResponse>() {});
+  }
+
+  /**
+   * Get a historical metrics configuration.
+   *
+   * <p>See {@link #getHistoricalMetricsConfigurationWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;HistoricalMetricsConfigurationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>>
+      getHistoricalMetricsConfigurationWithHttpInfoAsync(String metricName) {
+    // Check if unstable operation is enabled
+    String operationId = "getHistoricalMetricsConfiguration";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " getHistoricalMetricsConfiguration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/historical-metrics-configurations/{metric_name}"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.getHistoricalMetricsConfiguration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HistoricalMetricsConfigurationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HistoricalMetricsConfigurationResponse>() {});
   }
 
   /**
