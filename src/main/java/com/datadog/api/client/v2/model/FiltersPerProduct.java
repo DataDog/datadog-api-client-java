@@ -79,7 +79,7 @@ public class FiltersPerProduct {
 
   /**
    * Name of the product the dataset is for. Possible values are 'apm', 'rum', 'metrics', 'logs',
-   * 'error_tracking', 'cloud_cost', 'sd_repoinfo', and 'secruntime'.
+   * 'error_tracking', 'cloud_cost', 'sd_repoinfo', 'secruntime', and 'signal'.
    *
    * @return product
    */
