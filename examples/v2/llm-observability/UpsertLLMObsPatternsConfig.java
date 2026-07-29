@@ -23,6 +23,7 @@ public class Example {
                         new LLMObsPatternsConfigUpsertRequestAttributes()
                             .accountId("1000000001")
                             .configId("a7c8d9e0-1234-5678-9abc-def012345678")
+                            .curationEnabled(true)
                             .evpQuery("@ml_app:support-bot")
                             .hierarchyDepth(2)
                             .integrationProvider("openai")
