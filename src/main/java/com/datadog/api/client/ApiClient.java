@@ -1004,8 +1004,6 @@ public class ApiClient {
           put("v2.getAllDatasets", false);
           put("v2.getDataset", false);
           put("v2.updateDataset", false);
-          put("v2.executeDdsqlTabularQuery", false);
-          put("v2.fetchDdsqlTabularQuery", false);
           put("v2.cancelDataDeletionRequest", false);
           put("v2.createDataDeletionRequest", false);
           put("v2.getDataDeletionRequests", false);
@@ -1115,6 +1113,11 @@ public class ApiClient {
           put("v2.updateJiraIssueTemplate", false);
           put("v2.createTenancyConfig", false);
           put("v2.getTenancyConfigs", false);
+          put("v2.createIntegrationAccount", false);
+          put("v2.deleteIntegrationAccount", false);
+          put("v2.getIntegrationAccount", false);
+          put("v2.listIntegrationAccounts", false);
+          put("v2.updateIntegrationAccount", false);
           put("v2.addRoleToRestrictionQuery", false);
           put("v2.createRestrictionQuery", false);
           put("v2.deleteRestrictionQuery", false);
