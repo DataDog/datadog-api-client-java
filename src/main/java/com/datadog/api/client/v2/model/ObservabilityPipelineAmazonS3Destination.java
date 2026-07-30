@@ -33,6 +33,8 @@ import java.util.Objects;
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_KEY_PREFIX,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_REGION,
+  ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_SERVER_SIDE_ENCRYPTION,
+  ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_SSEKMS_KEY_ID,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_STORAGE_CLASS,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_TLS,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_TYPE
@@ -61,6 +63,12 @@ public class ObservabilityPipelineAmazonS3Destination {
 
   public static final String JSON_PROPERTY_REGION = "region";
   private String region;
+
+  public static final String JSON_PROPERTY_SERVER_SIDE_ENCRYPTION = "server_side_encryption";
+  private ObservabilityPipelineAmazonS3DestinationServerSideEncryption serverSideEncryption;
+
+  public static final String JSON_PROPERTY_SSEKMS_KEY_ID = "ssekms_key_id";
+  private String ssekmsKeyId;
 
   public static final String JSON_PROPERTY_STORAGE_CLASS = "storage_class";
   private ObservabilityPipelineAmazonS3DestinationStorageClass storageClass;
@@ -252,6 +260,55 @@ public class ObservabilityPipelineAmazonS3Destination {
     this.region = region;
   }
 
+  public ObservabilityPipelineAmazonS3Destination serverSideEncryption(
+      ObservabilityPipelineAmazonS3DestinationServerSideEncryption serverSideEncryption) {
+    this.serverSideEncryption = serverSideEncryption;
+    this.unparsed |= !serverSideEncryption.isValid();
+    return this;
+  }
+
+  /**
+   * Server-side encryption type for Amazon S3.
+   *
+   * @return serverSideEncryption
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVER_SIDE_ENCRYPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineAmazonS3DestinationServerSideEncryption getServerSideEncryption() {
+    return serverSideEncryption;
+  }
+
+  public void setServerSideEncryption(
+      ObservabilityPipelineAmazonS3DestinationServerSideEncryption serverSideEncryption) {
+    if (!serverSideEncryption.isValid()) {
+      this.unparsed = true;
+    }
+    this.serverSideEncryption = serverSideEncryption;
+  }
+
+  public ObservabilityPipelineAmazonS3Destination ssekmsKeyId(String ssekmsKeyId) {
+    this.ssekmsKeyId = ssekmsKeyId;
+    return this;
+  }
+
+  /**
+   * The AWS KMS key ID used for SSE-KMS encryption. Only applies when <code>server_side_encryption
+   * </code> is set to <code>aws:kms</code>.
+   *
+   * @return ssekmsKeyId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SSEKMS_KEY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSsekmsKeyId() {
+    return ssekmsKeyId;
+  }
+
+  public void setSsekmsKeyId(String ssekmsKeyId) {
+    this.ssekmsKeyId = ssekmsKeyId;
+  }
+
   public ObservabilityPipelineAmazonS3Destination storageClass(
       ObservabilityPipelineAmazonS3DestinationStorageClass storageClass) {
     this.storageClass = storageClass;
@@ -391,6 +448,10 @@ public class ObservabilityPipelineAmazonS3Destination {
         && Objects.equals(this.inputs, observabilityPipelineAmazonS3Destination.inputs)
         && Objects.equals(this.keyPrefix, observabilityPipelineAmazonS3Destination.keyPrefix)
         && Objects.equals(this.region, observabilityPipelineAmazonS3Destination.region)
+        && Objects.equals(
+            this.serverSideEncryption,
+            observabilityPipelineAmazonS3Destination.serverSideEncryption)
+        && Objects.equals(this.ssekmsKeyId, observabilityPipelineAmazonS3Destination.ssekmsKeyId)
         && Objects.equals(this.storageClass, observabilityPipelineAmazonS3Destination.storageClass)
         && Objects.equals(this.tls, observabilityPipelineAmazonS3Destination.tls)
         && Objects.equals(this.type, observabilityPipelineAmazonS3Destination.type)
@@ -409,6 +470,8 @@ public class ObservabilityPipelineAmazonS3Destination {
         inputs,
         keyPrefix,
         region,
+        serverSideEncryption,
+        ssekmsKeyId,
         storageClass,
         tls,
         type,
@@ -426,6 +489,10 @@ public class ObservabilityPipelineAmazonS3Destination {
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    keyPrefix: ").append(toIndentedString(keyPrefix)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    serverSideEncryption: ")
+        .append(toIndentedString(serverSideEncryption))
+        .append("\n");
+    sb.append("    ssekmsKeyId: ").append(toIndentedString(ssekmsKeyId)).append("\n");
     sb.append("    storageClass: ").append(toIndentedString(storageClass)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
