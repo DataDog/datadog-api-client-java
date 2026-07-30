@@ -23,6 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   LLMObsPatternsConfigItem.JSON_PROPERTY_ACCOUNT_ID,
   LLMObsPatternsConfigItem.JSON_PROPERTY_CREATED_AT,
+  LLMObsPatternsConfigItem.JSON_PROPERTY_CURATION_ENABLED,
   LLMObsPatternsConfigItem.JSON_PROPERTY_EVP_QUERY,
   LLMObsPatternsConfigItem.JSON_PROPERTY_HIERARCHY_DEPTH,
   LLMObsPatternsConfigItem.JSON_PROPERTY_ID,
@@ -44,6 +45,9 @@ public class LLMObsPatternsConfigItem {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_CURATION_ENABLED = "curation_enabled";
+  private Boolean curationEnabled;
 
   public static final String JSON_PROPERTY_EVP_QUERY = "evp_query";
   private String evpQuery;
@@ -151,6 +155,27 @@ public class LLMObsPatternsConfigItem {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public LLMObsPatternsConfigItem curationEnabled(Boolean curationEnabled) {
+    this.curationEnabled = curationEnabled;
+    return this;
+  }
+
+  /**
+   * Whether automatic dataset curation is enabled for this configuration.
+   *
+   * @return curationEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CURATION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCurationEnabled() {
+    return curationEnabled;
+  }
+
+  public void setCurationEnabled(Boolean curationEnabled) {
+    this.curationEnabled = curationEnabled;
   }
 
   public LLMObsPatternsConfigItem evpQuery(String evpQuery) {
@@ -464,6 +489,7 @@ public class LLMObsPatternsConfigItem {
     LLMObsPatternsConfigItem llmObsPatternsConfigItem = (LLMObsPatternsConfigItem) o;
     return Objects.equals(this.accountId, llmObsPatternsConfigItem.accountId)
         && Objects.equals(this.createdAt, llmObsPatternsConfigItem.createdAt)
+        && Objects.equals(this.curationEnabled, llmObsPatternsConfigItem.curationEnabled)
         && Objects.equals(this.evpQuery, llmObsPatternsConfigItem.evpQuery)
         && Objects.equals(this.hierarchyDepth, llmObsPatternsConfigItem.hierarchyDepth)
         && Objects.equals(this.id, llmObsPatternsConfigItem.id)
@@ -483,6 +509,7 @@ public class LLMObsPatternsConfigItem {
     return Objects.hash(
         accountId,
         createdAt,
+        curationEnabled,
         evpQuery,
         hierarchyDepth,
         id,
@@ -503,6 +530,7 @@ public class LLMObsPatternsConfigItem {
     sb.append("class LLMObsPatternsConfigItem {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    curationEnabled: ").append(toIndentedString(curationEnabled)).append("\n");
     sb.append("    evpQuery: ").append(toIndentedString(evpQuery)).append("\n");
     sb.append("    hierarchyDepth: ").append(toIndentedString(hierarchyDepth)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
