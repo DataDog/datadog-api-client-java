@@ -1113,6 +1113,16 @@ public class ApiClient {
           put("v2.updateJiraIssueTemplate", false);
           put("v2.createTenancyConfig", false);
           put("v2.getTenancyConfigs", false);
+          put("v2.createElasticCloudIntegrationAccount", false);
+          put("v2.deleteElasticCloudIntegrationAccount", false);
+          put("v2.getElasticCloudIntegrationAccount", false);
+          put("v2.listElasticCloudIntegrationAccounts", false);
+          put("v2.updateElasticCloudIntegrationAccount", false);
+          put("v2.createTwilioIntegrationAccount", false);
+          put("v2.deleteTwilioIntegrationAccount", false);
+          put("v2.getTwilioIntegrationAccount", false);
+          put("v2.listTwilioIntegrationAccounts", false);
+          put("v2.updateTwilioIntegrationAccount", false);
           put("v2.addRoleToRestrictionQuery", false);
           put("v2.createRestrictionQuery", false);
           put("v2.deleteRestrictionQuery", false);
