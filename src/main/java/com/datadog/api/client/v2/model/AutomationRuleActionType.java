@@ -19,19 +19,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The type of automated action to perform when the rule triggers. <code>execute_workflow</code>
- * runs a Datadog workflow; <code>assign_agent</code> assigns an AI agent to the case.
+ * The type of automated action to perform when the rule triggers. <code>EXECUTE_WORKFLOW</code>
+ * runs a Datadog workflow; <code>ASSIGN_AGENT</code> assigns an AI agent to the case.
  */
 @JsonSerialize(using = AutomationRuleActionType.AutomationRuleActionTypeSerializer.class)
 public class AutomationRuleActionType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("execute_workflow", "assign_agent"));
+      new HashSet<String>(Arrays.asList("EXECUTE_WORKFLOW", "ASSIGN_AGENT"));
 
   public static final AutomationRuleActionType EXECUTE_WORKFLOW =
-      new AutomationRuleActionType("execute_workflow");
+      new AutomationRuleActionType("EXECUTE_WORKFLOW");
   public static final AutomationRuleActionType ASSIGN_AGENT =
-      new AutomationRuleActionType("assign_agent");
+      new AutomationRuleActionType("ASSIGN_AGENT");
 
   AutomationRuleActionType(String value) {
     super(value, allowedValues);

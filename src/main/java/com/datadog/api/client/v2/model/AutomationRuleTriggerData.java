@@ -18,8 +18,8 @@ import java.util.Objects;
 
 /**
  * Additional configuration for the trigger, dependent on the trigger type. For <code>
- * status_transitioned</code> triggers, specify <code>from_status_name</code> and <code>
- * to_status_name</code>. For <code>attribute_value_changed</code> triggers, specify <code>field
+ * STATUS_TRANSITIONED</code> triggers, specify <code>from_status_name</code> and <code>
+ * to_status_name</code>. For <code>ATTRIBUTE_VALUE_CHANGED</code> triggers, specify <code>field
  * </code> and <code>change_type</code>.
  */
 @JsonPropertyOrder({
@@ -54,7 +54,7 @@ public class AutomationRuleTriggerData {
   }
 
   /**
-   * The approval outcome to match. Used with <code>case_review_approved</code> triggers.
+   * The approval outcome to match. Used with <code>CASE_REVIEW_APPROVED</code> triggers.
    *
    * @return approvalType
    */
@@ -76,7 +76,7 @@ public class AutomationRuleTriggerData {
 
   /**
    * The kind of attribute change to match. Allowed values: <code>VALUE_ADDED</code>, <code>
-   * VALUE_DELETED</code>, <code>ANY_CHANGES</code>. Used with <code>attribute_value_changed</code>
+   * VALUE_DELETED</code>, <code>ANY_CHANGES</code>. Used with <code>ATTRIBUTE_VALUE_CHANGED</code>
    * triggers.
    *
    * @return changeType
@@ -98,7 +98,7 @@ public class AutomationRuleTriggerData {
   }
 
   /**
-   * The case attribute field name to monitor for changes. Used with <code>attribute_value_changed
+   * The case attribute field name to monitor for changes. Used with <code>ATTRIBUTE_VALUE_CHANGED
    * </code> triggers.
    *
    * @return field
@@ -120,7 +120,7 @@ public class AutomationRuleTriggerData {
   }
 
   /**
-   * The originating status name. Used with <code>status_transitioned</code> triggers to match
+   * The originating status name. Used with <code>STATUS_TRANSITIONED</code> triggers to match
    * transitions from this status.
    *
    * @return fromStatusName
@@ -142,7 +142,7 @@ public class AutomationRuleTriggerData {
   }
 
   /**
-   * The destination status name. Used with <code>status_transitioned</code> triggers to match
+   * The destination status name. Used with <code>STATUS_TRANSITIONED</code> triggers to match
    * transitions to this status.
    *
    * @return toStatusName
