@@ -24,7 +24,8 @@ import java.util.Objects;
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_CUSTOM_SQL,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_CUSTOM_WHERE,
   MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_GROUP_BY_COLUMNS,
-  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_MODEL_TYPE_OVERRIDE
+  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_MODEL_TYPE_OVERRIDE,
+  MonitorFormulaAndFunctionDataQualityMonitorOptions.JSON_PROPERTY_SENSITIVITY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,6 +45,9 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
 
   public static final String JSON_PROPERTY_MODEL_TYPE_OVERRIDE = "model_type_override";
   private MonitorFormulaAndFunctionDataQualityModelTypeOverride modelTypeOverride;
+
+  public static final String JSON_PROPERTY_SENSITIVITY = "sensitivity";
+  private Double sensitivity;
 
   public MonitorFormulaAndFunctionDataQualityMonitorOptions crontabOverride(
       String crontabOverride) {
@@ -167,6 +171,29 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
     this.modelTypeOverride = modelTypeOverride;
   }
 
+  public MonitorFormulaAndFunctionDataQualityMonitorOptions sensitivity(Double sensitivity) {
+    this.sensitivity = sensitivity;
+    return this;
+  }
+
+  /**
+   * Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the
+   * predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten
+   * them and produce more alerts. Defaults to <code>3.0</code>.
+   *
+   * @return sensitivity
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SENSITIVITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSensitivity() {
+    return sensitivity;
+  }
+
+  public void setSensitivity(Double sensitivity) {
+    this.sensitivity = sensitivity;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -241,6 +268,8 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
             this.modelTypeOverride,
             monitorFormulaAndFunctionDataQualityMonitorOptions.modelTypeOverride)
         && Objects.equals(
+            this.sensitivity, monitorFormulaAndFunctionDataQualityMonitorOptions.sensitivity)
+        && Objects.equals(
             this.additionalProperties,
             monitorFormulaAndFunctionDataQualityMonitorOptions.additionalProperties);
   }
@@ -253,6 +282,7 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
         customWhere,
         groupByColumns,
         modelTypeOverride,
+        sensitivity,
         additionalProperties);
   }
 
@@ -265,6 +295,7 @@ public class MonitorFormulaAndFunctionDataQualityMonitorOptions {
     sb.append("    customWhere: ").append(toIndentedString(customWhere)).append("\n");
     sb.append("    groupByColumns: ").append(toIndentedString(groupByColumns)).append("\n");
     sb.append("    modelTypeOverride: ").append(toIndentedString(modelTypeOverride)).append("\n");
+    sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
