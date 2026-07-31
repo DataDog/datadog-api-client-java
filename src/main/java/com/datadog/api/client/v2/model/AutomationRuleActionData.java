@@ -41,7 +41,7 @@ public class AutomationRuleActionData {
   }
 
   /**
-   * The type of AI agent to assign. Required when the action type is <code>assign_agent</code>.
+   * The type of AI agent to assign. Required when the action type is <code>ASSIGN_AGENT</code>.
    *
    * @return agentType
    */
@@ -63,7 +63,7 @@ public class AutomationRuleActionData {
 
   /**
    * The identifier of the AI agent to assign to the case. Required when the action type is <code>
-   * assign_agent</code>.
+   * ASSIGN_AGENT</code>.
    *
    * @return assignedAgentId
    */
@@ -85,7 +85,7 @@ public class AutomationRuleActionData {
 
   /**
    * The handle of the Datadog workflow to execute. Required when the action type is <code>
-   * execute_workflow</code>.
+   * EXECUTE_WORKFLOW</code>.
    *
    * @return handle
    */

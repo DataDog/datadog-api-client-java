@@ -52,8 +52,8 @@ public class AutomationRuleTrigger {
 
   /**
    * Additional configuration for the trigger, dependent on the trigger type. For <code>
-   * status_transitioned</code> triggers, specify <code>from_status_name</code> and <code>
-   * to_status_name</code>. For <code>attribute_value_changed</code> triggers, specify <code>field
+   * STATUS_TRANSITIONED</code> triggers, specify <code>from_status_name</code> and <code>
+   * to_status_name</code>. For <code>ATTRIBUTE_VALUE_CHANGED</code> triggers, specify <code>field
    * </code> and <code>change_type</code>.
    *
    * @return data

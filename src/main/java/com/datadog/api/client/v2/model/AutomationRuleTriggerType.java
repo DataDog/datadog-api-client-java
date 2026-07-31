@@ -25,25 +25,25 @@ public class AutomationRuleTriggerType extends ModelEnum<String> {
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
-              "case_created",
-              "status_transitioned",
-              "attribute_value_changed",
-              "event_correlation_signal_correlated",
-              "case_review_approved",
-              "comment_added"));
+              "CASE_CREATED",
+              "STATUS_TRANSITIONED",
+              "ATTRIBUTE_VALUE_CHANGED",
+              "EVENT_CORRELATION_SIGNAL_CORRELATED",
+              "CASE_REVIEW_APPROVED",
+              "COMMENT_ADDED"));
 
   public static final AutomationRuleTriggerType CASE_CREATED =
-      new AutomationRuleTriggerType("case_created");
+      new AutomationRuleTriggerType("CASE_CREATED");
   public static final AutomationRuleTriggerType STATUS_TRANSITIONED =
-      new AutomationRuleTriggerType("status_transitioned");
+      new AutomationRuleTriggerType("STATUS_TRANSITIONED");
   public static final AutomationRuleTriggerType ATTRIBUTE_VALUE_CHANGED =
-      new AutomationRuleTriggerType("attribute_value_changed");
+      new AutomationRuleTriggerType("ATTRIBUTE_VALUE_CHANGED");
   public static final AutomationRuleTriggerType EVENT_CORRELATION_SIGNAL_CORRELATED =
-      new AutomationRuleTriggerType("event_correlation_signal_correlated");
+      new AutomationRuleTriggerType("EVENT_CORRELATION_SIGNAL_CORRELATED");
   public static final AutomationRuleTriggerType CASE_REVIEW_APPROVED =
-      new AutomationRuleTriggerType("case_review_approved");
+      new AutomationRuleTriggerType("CASE_REVIEW_APPROVED");
   public static final AutomationRuleTriggerType COMMENT_ADDED =
-      new AutomationRuleTriggerType("comment_added");
+      new AutomationRuleTriggerType("COMMENT_ADDED");
 
   AutomationRuleTriggerType(String value) {
     super(value, allowedValues);
