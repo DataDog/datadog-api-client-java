@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Available values query for the metrics data source. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Available values query for the metrics data source.</p>
+ */
 @JsonPropertyOrder({
   NotebookTemplateVariableAvailableValuesQueryMetrics.JSON_PROPERTY_DATA_SOURCE,
   NotebookTemplateVariableAvailableValuesQueryMetrics.JSON_PROPERTY_QUERY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookTemplateVariableAvailableValuesQueryMetrics {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private String dataSource;
 
@@ -32,48 +52,44 @@ public class NotebookTemplateVariableAvailableValuesQueryMetrics {
 
   @JsonCreator
   public NotebookTemplateVariableAvailableValuesQueryMetrics(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) String dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.dataSource = dataSource;
-    this.query = query;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)String dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query) {
+        this.dataSource = dataSource;
+        this.query = query;
   }
-
   public NotebookTemplateVariableAvailableValuesQueryMetrics dataSource(String dataSource) {
     this.dataSource = dataSource;
     return this;
   }
 
   /**
-   * The data source for the query. Must be <code>metrics</code>.
-   *
+   * <p>The data source for the query. Must be <code>metrics</code>.</p>
    * @return dataSource
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDataSource() {
-    return dataSource;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDataSource() {
+        return dataSource;
+      }
   public void setDataSource(String dataSource) {
     this.dataSource = dataSource;
   }
-
   public NotebookTemplateVariableAvailableValuesQueryMetrics query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * The metrics query string.
-   *
+   * <p>The metrics query string.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
@@ -89,17 +105,14 @@ public class NotebookTemplateVariableAvailableValuesQueryMetrics {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookTemplateVariableAvailableValuesQueryMetrics
-        notebookTemplateVariableAvailableValuesQueryMetrics =
-            (NotebookTemplateVariableAvailableValuesQueryMetrics) o;
-    return Objects.equals(
-            this.dataSource, notebookTemplateVariableAvailableValuesQueryMetrics.dataSource)
-        && Objects.equals(this.query, notebookTemplateVariableAvailableValuesQueryMetrics.query);
+    NotebookTemplateVariableAvailableValuesQueryMetrics notebookTemplateVariableAvailableValuesQueryMetrics = (NotebookTemplateVariableAvailableValuesQueryMetrics) o;
+    return Objects.equals(this.dataSource, notebookTemplateVariableAvailableValuesQueryMetrics.dataSource) && Objects.equals(this.query, notebookTemplateVariableAvailableValuesQueryMetrics.query);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSource, query);
+    return Objects.hash(dataSource,query);
   }
 
   @Override
@@ -113,7 +126,8 @@ public class NotebookTemplateVariableAvailableValuesQueryMetrics {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

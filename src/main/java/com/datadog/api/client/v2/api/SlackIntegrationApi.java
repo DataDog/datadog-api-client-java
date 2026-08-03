@@ -1,24 +1,31 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.SlackUserBindingsResponse;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.SlackUserBindingsResponse;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SlackIntegrationApi {
   private ApiClient apiClient;
-
   public SlackIntegrationApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -46,42 +53,41 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * List Slack user bindings.
-   *
-   * <p>See {@link #listSlackUserBindingsWithHttpInfo}.
-   *
-   * @param userUuid The UUID of the Datadog user to list Slack bindings for. (required)
-   * @return SlackUserBindingsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public SlackUserBindingsResponse listSlackUserBindings(UUID userUuid) throws ApiException {
+ * List Slack user bindings.
+ *
+ * See {@link #listSlackUserBindingsWithHttpInfo}.
+ *
+ * @param userUuid The UUID of the Datadog user to list Slack bindings for. (required)
+ * @return SlackUserBindingsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public SlackUserBindingsResponse  listSlackUserBindings(UUID userUuid) throws ApiException {
     return listSlackUserBindingsWithHttpInfo(userUuid).getData();
   }
 
   /**
-   * List Slack user bindings.
-   *
-   * <p>See {@link #listSlackUserBindingsWithHttpInfoAsync}.
-   *
-   * @param userUuid The UUID of the Datadog user to list Slack bindings for. (required)
-   * @return CompletableFuture&lt;SlackUserBindingsResponse&gt;
-   */
-  public CompletableFuture<SlackUserBindingsResponse> listSlackUserBindingsAsync(UUID userUuid) {
-    return listSlackUserBindingsWithHttpInfoAsync(userUuid)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List Slack user bindings.
+ *
+ * See {@link #listSlackUserBindingsWithHttpInfoAsync}.
+ *
+ * @param userUuid The UUID of the Datadog user to list Slack bindings for. (required)
+ * @return CompletableFuture&lt;SlackUserBindingsResponse&gt;
+ */
+  public CompletableFuture<SlackUserBindingsResponse>listSlackUserBindingsAsync(UUID userUuid) {
+    return listSlackUserBindingsWithHttpInfoAsync(userUuid).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * List all Slack user bindings for a given Datadog user from the Datadog Slack integration.
+   * <p>List all Slack user bindings for a given Datadog user from the Datadog Slack integration.</p>
    *
    * @param userUuid The UUID of the Datadog user to list Slack bindings for. (required)
    * @return ApiResponse&lt;SlackUserBindingsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -90,66 +96,47 @@ public class SlackIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SlackUserBindingsResponse> listSlackUserBindingsWithHttpInfo(UUID userUuid)
-      throws ApiException {
+  public ApiResponse<SlackUserBindingsResponse> listSlackUserBindingsWithHttpInfo(UUID userUuid) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'userUuid' is set
     if (userUuid == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'userUuid' when calling listSlackUserBindings");
+      throw new ApiException(400, "Missing the required parameter 'userUuid' when calling listSlackUserBindings");
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/slack/user-bindings";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "user_uuid", userUuid));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.SlackIntegrationApi.listSlackUserBindings",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SlackUserBindingsResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.SlackIntegrationApi.listSlackUserBindings", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SlackUserBindingsResponse>() {});
   }
 
   /**
    * List Slack user bindings.
    *
-   * <p>See {@link #listSlackUserBindingsWithHttpInfo}.
+   * See {@link #listSlackUserBindingsWithHttpInfo}.
    *
    * @param userUuid The UUID of the Datadog user to list Slack bindings for. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SlackUserBindingsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SlackUserBindingsResponse>>
-      listSlackUserBindingsWithHttpInfoAsync(UUID userUuid) {
+  public CompletableFuture<ApiResponse<SlackUserBindingsResponse>> listSlackUserBindingsWithHttpInfoAsync(UUID userUuid) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'userUuid' is set
     if (userUuid == null) {
-      CompletableFuture<ApiResponse<SlackUserBindingsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'userUuid' when calling listSlackUserBindings"));
-      return result;
+        CompletableFuture<ApiResponse<SlackUserBindingsResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'userUuid' when calling listSlackUserBindings"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/slack/user-bindings";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -157,28 +144,12 @@ public class SlackIntegrationApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.SlackIntegrationApi.listSlackUserBindings",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.SlackIntegrationApi.listSlackUserBindings", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SlackUserBindingsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SlackUserBindingsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SlackUserBindingsResponse>() {});
   }
 }

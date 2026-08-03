@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of an LLM Observability experiment. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of an LLM Observability experiment.</p>
+ */
 @JsonPropertyOrder({
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_AGGREGATE_DATA,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_AUTHOR,
@@ -40,13 +54,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_STATUS,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_UPDATED_AT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentDataAttributesResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATE_DATA = "aggregate_data";
-  private JsonNullable<Map<String, Object>> aggregateData =
-      JsonNullable.<Map<String, Object>>undefined();
+  private JsonNullable<Map<String, Object>> aggregateData = JsonNullable.<Map<String, Object>>undefined();
 
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private LLMObsExperimentUser author;
@@ -103,34 +116,34 @@ public class LLMObsExperimentDataAttributesResponse {
 
   @JsonCreator
   public LLMObsExperimentDataAttributesResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) Map<String, Object> config,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATASET_ID) String datasetId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METADATA) Map<String, Object> metadata,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt) {
-    this.config = config;
-    if (config != null) {}
-    this.createdAt = createdAt;
-    this.datasetId = datasetId;
-    this.description = description;
-    if (description != null) {}
-    this.metadata = metadata;
-    if (metadata != null) {}
-    this.name = name;
-    this.projectId = projectId;
-    this.updatedAt = updatedAt;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CONFIG)Map<String, Object> config,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATASET_ID)String datasetId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESCRIPTION)String description,
+            @JsonProperty(required=true, value=JSON_PROPERTY_METADATA)Map<String, Object> metadata,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PROJECT_ID)String projectId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_UPDATED_AT)OffsetDateTime updatedAt) {
+        this.config = config;
+        if (config != null) {
+        }
+        this.createdAt = createdAt;
+        this.datasetId = datasetId;
+        this.description = description;
+        if (description != null) {
+        }
+        this.metadata = metadata;
+        if (metadata != null) {
+        }
+        this.name = name;
+        this.projectId = projectId;
+        this.updatedAt = updatedAt;
   }
-
   public LLMObsExperimentDataAttributesResponse aggregateData(Map<String, Object> aggregateData) {
     this.aggregateData = JsonNullable.<Map<String, Object>>of(aggregateData);
     return this;
   }
-
-  public LLMObsExperimentDataAttributesResponse putAggregateDataItem(
-      String key, Object aggregateDataItem) {
+  public LLMObsExperimentDataAttributesResponse putAggregateDataItem(String key, Object aggregateDataItem) {
     if (this.aggregateData == null || !this.aggregateData.isPresent()) {
       this.aggregateData = JsonNullable.<Map<String, Object>>of(new HashMap<>());
     }
@@ -143,32 +156,26 @@ public class LLMObsExperimentDataAttributesResponse {
   }
 
   /**
-   * Pre-computed aggregate metrics for this experiment run, including eval score distributions,
-   * token costs, and error rates.
-   *
+   * <p>Pre-computed aggregate metrics for this experiment run, including eval score distributions, token costs, and error rates.</p>
    * @return aggregateData
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Map<String, Object> getAggregateData() {
-    return aggregateData.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Map<String, Object> getAggregateData() {
+        return aggregateData.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_AGGREGATE_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Map<String, Object>> getAggregateData_JsonNullable() {
     return aggregateData;
   }
-
-  @JsonProperty(JSON_PROPERTY_AGGREGATE_DATA)
-  public void setAggregateData_JsonNullable(JsonNullable<Map<String, Object>> aggregateData) {
+  @JsonProperty(JSON_PROPERTY_AGGREGATE_DATA)public void setAggregateData_JsonNullable(JsonNullable<Map<String, Object>> aggregateData) {
     this.aggregateData = aggregateData;
   }
-
   public void setAggregateData(Map<String, Object> aggregateData) {
     this.aggregateData = JsonNullable.<Map<String, Object>>of(aggregateData);
   }
-
   public LLMObsExperimentDataAttributesResponse author(LLMObsExperimentUser author) {
     this.author = author;
     this.unparsed |= author.unparsed;
@@ -176,369 +183,328 @@ public class LLMObsExperimentDataAttributesResponse {
   }
 
   /**
-   * User data for the author of an experiment. Only present when <code>include[user_data]</code> is
-   * <code>true</code>.
-   *
+   * <p>User data for the author of an experiment. Only present when <code>include[user_data]</code> is <code>true</code>.</p>
    * @return author
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LLMObsExperimentUser getAuthor() {
-    return author;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUTHOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LLMObsExperimentUser getAuthor() {
+        return author;
+      }
   public void setAuthor(LLMObsExperimentUser author) {
     this.author = author;
     if (author != null) {
       this.unparsed |= author.unparsed;
     }
   }
-
   public LLMObsExperimentDataAttributesResponse config(Map<String, Object> config) {
     this.config = config;
-    if (config != null) {}
+        if (config != null) {
+    }
     return this;
   }
-
   public LLMObsExperimentDataAttributesResponse putConfigItem(String key, Object configItem) {
     this.config.put(key, configItem);
     return this;
   }
 
   /**
-   * Configuration parameters for the experiment.
-   *
+   * <p>Configuration parameters for the experiment.</p>
    * @return config
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Map<String, Object> getConfig() {
-    return config;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONFIG)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Map<String, Object> getConfig() {
+        return config;
+      }
   public void setConfig(Map<String, Object> config) {
     this.config = config;
   }
-
   public LLMObsExperimentDataAttributesResponse createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Timestamp when the experiment was created.
-   *
+   * <p>Timestamp when the experiment was created.</p>
    * @return createdAt
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public LLMObsExperimentDataAttributesResponse datasetId(String datasetId) {
     this.datasetId = datasetId;
     return this;
   }
 
   /**
-   * Identifier of the dataset used in this experiment.
-   *
+   * <p>Identifier of the dataset used in this experiment.</p>
    * @return datasetId
-   */
-  @JsonProperty(JSON_PROPERTY_DATASET_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDatasetId() {
-    return datasetId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATASET_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDatasetId() {
+        return datasetId;
+      }
   public void setDatasetId(String datasetId) {
     this.datasetId = datasetId;
   }
-
   public LLMObsExperimentDataAttributesResponse datasetName(String datasetName) {
     this.datasetName = JsonNullable.<String>of(datasetName);
     return this;
   }
 
   /**
-   * Name of the dataset used in this experiment. Only present when <code>include[dataset_names]
-   * </code> is <code>true</code>.
-   *
+   * <p>Name of the dataset used in this experiment.
+   * Only present when <code>include[dataset_names]</code> is <code>true</code>.</p>
    * @return datasetName
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getDatasetName() {
-    return datasetName.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getDatasetName() {
+        return datasetName.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DATASET_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getDatasetName_JsonNullable() {
     return datasetName;
   }
-
-  @JsonProperty(JSON_PROPERTY_DATASET_NAME)
-  public void setDatasetName_JsonNullable(JsonNullable<String> datasetName) {
+  @JsonProperty(JSON_PROPERTY_DATASET_NAME)public void setDatasetName_JsonNullable(JsonNullable<String> datasetName) {
     this.datasetName = datasetName;
   }
-
   public void setDatasetName(String datasetName) {
     this.datasetName = JsonNullable.<String>of(datasetName);
   }
-
   public LLMObsExperimentDataAttributesResponse datasetVersion(Long datasetVersion) {
     this.datasetVersion = datasetVersion;
     return this;
   }
 
   /**
-   * Version of the dataset used in this experiment.
-   *
+   * <p>Version of the dataset used in this experiment.</p>
    * @return datasetVersion
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATASET_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDatasetVersion() {
-    return datasetVersion;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATASET_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDatasetVersion() {
+        return datasetVersion;
+      }
   public void setDatasetVersion(Long datasetVersion) {
     this.datasetVersion = datasetVersion;
   }
-
   public LLMObsExperimentDataAttributesResponse deletedAt(OffsetDateTime deletedAt) {
     this.deletedAt = JsonNullable.<OffsetDateTime>of(deletedAt);
     return this;
   }
 
   /**
-   * Timestamp when the experiment was soft-deleted, if applicable.
-   *
+   * <p>Timestamp when the experiment was soft-deleted, if applicable.</p>
    * @return deletedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getDeletedAt() {
-    return deletedAt.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public OffsetDateTime getDeletedAt() {
+        return deletedAt.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DELETED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<OffsetDateTime> getDeletedAt_JsonNullable() {
     return deletedAt;
   }
-
-  @JsonProperty(JSON_PROPERTY_DELETED_AT)
-  public void setDeletedAt_JsonNullable(JsonNullable<OffsetDateTime> deletedAt) {
+  @JsonProperty(JSON_PROPERTY_DELETED_AT)public void setDeletedAt_JsonNullable(JsonNullable<OffsetDateTime> deletedAt) {
     this.deletedAt = deletedAt;
   }
-
   public void setDeletedAt(OffsetDateTime deletedAt) {
     this.deletedAt = JsonNullable.<OffsetDateTime>of(deletedAt);
   }
-
   public LLMObsExperimentDataAttributesResponse description(String description) {
     this.description = description;
-    if (description != null) {}
+        if (description != null) {
+    }
     return this;
   }
 
   /**
-   * Description of the experiment.
-   *
+   * <p>Description of the experiment.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public LLMObsExperimentDataAttributesResponse error(String error) {
     this.error = JsonNullable.<String>of(error);
     return this;
   }
 
   /**
-   * Error message describing why the experiment failed, if applicable.
-   *
+   * <p>Error message describing why the experiment failed, if applicable.</p>
    * @return error
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getError() {
-    return error.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getError() {
+        return error.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getError_JsonNullable() {
     return error;
   }
-
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  public void setError_JsonNullable(JsonNullable<String> error) {
+  @JsonProperty(JSON_PROPERTY_ERROR)public void setError_JsonNullable(JsonNullable<String> error) {
     this.error = error;
   }
-
   public void setError(String error) {
     this.error = JsonNullable.<String>of(error);
   }
-
   public LLMObsExperimentDataAttributesResponse experiment(String experiment) {
     this.experiment = experiment;
     return this;
   }
 
   /**
-   * Logical name of the experiment, shared across all runs of the same pipeline.
-   *
+   * <p>Logical name of the experiment, shared across all runs of the same pipeline.</p>
    * @return experiment
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPERIMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getExperiment() {
-    return experiment;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EXPERIMENT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getExperiment() {
+        return experiment;
+      }
   public void setExperiment(String experiment) {
     this.experiment = experiment;
   }
-
   public LLMObsExperimentDataAttributesResponse metadata(Map<String, Object> metadata) {
     this.metadata = metadata;
-    if (metadata != null) {}
+        if (metadata != null) {
+    }
     return this;
   }
-
   public LLMObsExperimentDataAttributesResponse putMetadataItem(String key, Object metadataItem) {
     this.metadata.put(key, metadataItem);
     return this;
   }
 
   /**
-   * Arbitrary metadata associated with the experiment.
-   *
+   * <p>Arbitrary metadata associated with the experiment.</p>
    * @return metadata
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Map<String, Object> getMetadata() {
-    return metadata;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Map<String, Object> getMetadata() {
+        return metadata;
+      }
   public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }
-
   public LLMObsExperimentDataAttributesResponse name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the experiment.
-   *
+   * <p>Name of the experiment.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public LLMObsExperimentDataAttributesResponse parentExperimentId(String parentExperimentId) {
     this.parentExperimentId = JsonNullable.<String>of(parentExperimentId);
     return this;
   }
 
   /**
-   * Identifier of the parent (baseline) experiment this experiment was run against, if any.
-   *
+   * <p>Identifier of the parent (baseline) experiment this experiment was run against, if any.</p>
    * @return parentExperimentId
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getParentExperimentId() {
-    return parentExperimentId.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getParentExperimentId() {
+        return parentExperimentId.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PARENT_EXPERIMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getParentExperimentId_JsonNullable() {
     return parentExperimentId;
   }
-
-  @JsonProperty(JSON_PROPERTY_PARENT_EXPERIMENT_ID)
-  public void setParentExperimentId_JsonNullable(JsonNullable<String> parentExperimentId) {
+  @JsonProperty(JSON_PROPERTY_PARENT_EXPERIMENT_ID)public void setParentExperimentId_JsonNullable(JsonNullable<String> parentExperimentId) {
     this.parentExperimentId = parentExperimentId;
   }
-
   public void setParentExperimentId(String parentExperimentId) {
     this.parentExperimentId = JsonNullable.<String>of(parentExperimentId);
   }
-
   public LLMObsExperimentDataAttributesResponse projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
 
   /**
-   * Identifier of the project this experiment belongs to.
-   *
+   * <p>Identifier of the project this experiment belongs to.</p>
    * @return projectId
-   */
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getProjectId() {
-    return projectId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getProjectId() {
+        return projectId;
+      }
   public void setProjectId(String projectId) {
     this.projectId = projectId;
   }
-
   public LLMObsExperimentDataAttributesResponse runCount(Integer runCount) {
     this.runCount = runCount;
     return this;
   }
 
   /**
-   * Expected number of runs for this experiment. maximum: 2147483647
-   *
+   * <p>Expected number of runs for this experiment.</p>
+   * maximum: 2147483647
    * @return runCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUN_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getRunCount() {
-    return runCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUN_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getRunCount() {
+        return runCount;
+      }
   public void setRunCount(Integer runCount) {
     this.runCount = runCount;
   }
-
   public LLMObsExperimentDataAttributesResponse status(LLMObsExperimentStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -546,53 +512,51 @@ public class LLMObsExperimentDataAttributesResponse {
   }
 
   /**
-   * Execution status of an LLM Observability experiment.
-   *
+   * <p>Execution status of an LLM Observability experiment.</p>
    * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LLMObsExperimentStatus getStatus() {
-    return status;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LLMObsExperimentStatus getStatus() {
+        return status;
+      }
   public void setStatus(LLMObsExperimentStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
-
   public LLMObsExperimentDataAttributesResponse updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * Timestamp when the experiment was last updated.
-   *
+   * <p>Timestamp when the experiment was last updated.</p>
    * @return updatedAt
-   */
-  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+      }
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -601,7 +565,7 @@ public class LLMObsExperimentDataAttributesResponse {
   @JsonAnySetter
   public LLMObsExperimentDataAttributesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -625,12 +589,14 @@ public class LLMObsExperimentDataAttributesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsExperimentDataAttributesResponse object is equal to o. */
+  /**
+   * Return true if this LLMObsExperimentDataAttributesResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -639,54 +605,14 @@ public class LLMObsExperimentDataAttributesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsExperimentDataAttributesResponse llmObsExperimentDataAttributesResponse =
-        (LLMObsExperimentDataAttributesResponse) o;
-    return Objects.equals(this.aggregateData, llmObsExperimentDataAttributesResponse.aggregateData)
-        && Objects.equals(this.author, llmObsExperimentDataAttributesResponse.author)
-        && Objects.equals(this.config, llmObsExperimentDataAttributesResponse.config)
-        && Objects.equals(this.createdAt, llmObsExperimentDataAttributesResponse.createdAt)
-        && Objects.equals(this.datasetId, llmObsExperimentDataAttributesResponse.datasetId)
-        && Objects.equals(this.datasetName, llmObsExperimentDataAttributesResponse.datasetName)
-        && Objects.equals(
-            this.datasetVersion, llmObsExperimentDataAttributesResponse.datasetVersion)
-        && Objects.equals(this.deletedAt, llmObsExperimentDataAttributesResponse.deletedAt)
-        && Objects.equals(this.description, llmObsExperimentDataAttributesResponse.description)
-        && Objects.equals(this.error, llmObsExperimentDataAttributesResponse.error)
-        && Objects.equals(this.experiment, llmObsExperimentDataAttributesResponse.experiment)
-        && Objects.equals(this.metadata, llmObsExperimentDataAttributesResponse.metadata)
-        && Objects.equals(this.name, llmObsExperimentDataAttributesResponse.name)
-        && Objects.equals(
-            this.parentExperimentId, llmObsExperimentDataAttributesResponse.parentExperimentId)
-        && Objects.equals(this.projectId, llmObsExperimentDataAttributesResponse.projectId)
-        && Objects.equals(this.runCount, llmObsExperimentDataAttributesResponse.runCount)
-        && Objects.equals(this.status, llmObsExperimentDataAttributesResponse.status)
-        && Objects.equals(this.updatedAt, llmObsExperimentDataAttributesResponse.updatedAt)
-        && Objects.equals(
-            this.additionalProperties, llmObsExperimentDataAttributesResponse.additionalProperties);
+    LLMObsExperimentDataAttributesResponse llmObsExperimentDataAttributesResponse = (LLMObsExperimentDataAttributesResponse) o;
+    return Objects.equals(this.aggregateData, llmObsExperimentDataAttributesResponse.aggregateData) && Objects.equals(this.author, llmObsExperimentDataAttributesResponse.author) && Objects.equals(this.config, llmObsExperimentDataAttributesResponse.config) && Objects.equals(this.createdAt, llmObsExperimentDataAttributesResponse.createdAt) && Objects.equals(this.datasetId, llmObsExperimentDataAttributesResponse.datasetId) && Objects.equals(this.datasetName, llmObsExperimentDataAttributesResponse.datasetName) && Objects.equals(this.datasetVersion, llmObsExperimentDataAttributesResponse.datasetVersion) && Objects.equals(this.deletedAt, llmObsExperimentDataAttributesResponse.deletedAt) && Objects.equals(this.description, llmObsExperimentDataAttributesResponse.description) && Objects.equals(this.error, llmObsExperimentDataAttributesResponse.error) && Objects.equals(this.experiment, llmObsExperimentDataAttributesResponse.experiment) && Objects.equals(this.metadata, llmObsExperimentDataAttributesResponse.metadata) && Objects.equals(this.name, llmObsExperimentDataAttributesResponse.name) && Objects.equals(this.parentExperimentId, llmObsExperimentDataAttributesResponse.parentExperimentId) && Objects.equals(this.projectId, llmObsExperimentDataAttributesResponse.projectId) && Objects.equals(this.runCount, llmObsExperimentDataAttributesResponse.runCount) && Objects.equals(this.status, llmObsExperimentDataAttributesResponse.status) && Objects.equals(this.updatedAt, llmObsExperimentDataAttributesResponse.updatedAt) && Objects.equals(this.additionalProperties, llmObsExperimentDataAttributesResponse.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        aggregateData,
-        author,
-        config,
-        createdAt,
-        datasetId,
-        datasetName,
-        datasetVersion,
-        deletedAt,
-        description,
-        error,
-        experiment,
-        metadata,
-        name,
-        parentExperimentId,
-        projectId,
-        runCount,
-        status,
-        updatedAt,
-        additionalProperties);
+    return Objects.hash(aggregateData,author,config,createdAt,datasetId,datasetName,datasetVersion,deletedAt,description,error,experiment,metadata,name,parentExperimentId,projectId,runCount,status,updatedAt, additionalProperties);
   }
 
   @Override
@@ -719,7 +645,8 @@ public class LLMObsExperimentDataAttributesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

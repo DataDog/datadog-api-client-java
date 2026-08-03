@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating or updating a custom LLM Observability evaluator configuration. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for creating or updating a custom LLM Observability evaluator configuration.</p>
+ */
 @JsonPropertyOrder({
   LLMObsCustomEvalConfigUpdateAttributes.JSON_PROPERTY_CATEGORY,
   LLMObsCustomEvalConfigUpdateAttributes.JSON_PROPERTY_EVAL_NAME,
@@ -25,10 +41,10 @@ import java.util.Objects;
   LLMObsCustomEvalConfigUpdateAttributes.JSON_PROPERTY_LLM_PROVIDER,
   LLMObsCustomEvalConfigUpdateAttributes.JSON_PROPERTY_TARGET
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsCustomEvalConfigUpdateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
@@ -48,106 +64,94 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
 
   @JsonCreator
   public LLMObsCustomEvalConfigUpdateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET)
-          LLMObsCustomEvalConfigTarget target) {
-    this.target = target;
-    this.unparsed |= target.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET)LLMObsCustomEvalConfigTarget target) {
+        this.target = target;
+        this.unparsed |= target.unparsed;
   }
-
   public LLMObsCustomEvalConfigUpdateAttributes category(String category) {
     this.category = category;
     return this;
   }
 
   /**
-   * Category of the evaluator.
-   *
+   * <p>Category of the evaluator.</p>
    * @return category
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCategory() {
-    return category;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CATEGORY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCategory() {
+        return category;
+      }
   public void setCategory(String category) {
     this.category = category;
   }
-
   public LLMObsCustomEvalConfigUpdateAttributes evalName(String evalName) {
     this.evalName = evalName;
     return this;
   }
 
   /**
-   * Name of the custom evaluator. If provided, must match the eval_name path parameter.
-   *
+   * <p>Name of the custom evaluator. If provided, must match the eval_name path parameter.</p>
    * @return evalName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVAL_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEvalName() {
-    return evalName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EVAL_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEvalName() {
+        return evalName;
+      }
   public void setEvalName(String evalName) {
     this.evalName = evalName;
   }
-
-  public LLMObsCustomEvalConfigUpdateAttributes llmJudgeConfig(
-      LLMObsCustomEvalConfigLLMJudgeConfig llmJudgeConfig) {
+  public LLMObsCustomEvalConfigUpdateAttributes llmJudgeConfig(LLMObsCustomEvalConfigLLMJudgeConfig llmJudgeConfig) {
     this.llmJudgeConfig = llmJudgeConfig;
     this.unparsed |= llmJudgeConfig.unparsed;
     return this;
   }
 
   /**
-   * LLM judge configuration for a custom evaluator.
-   *
+   * <p>LLM judge configuration for a custom evaluator.</p>
    * @return llmJudgeConfig
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LLM_JUDGE_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LLMObsCustomEvalConfigLLMJudgeConfig getLlmJudgeConfig() {
-    return llmJudgeConfig;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LLM_JUDGE_CONFIG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LLMObsCustomEvalConfigLLMJudgeConfig getLlmJudgeConfig() {
+        return llmJudgeConfig;
+      }
   public void setLlmJudgeConfig(LLMObsCustomEvalConfigLLMJudgeConfig llmJudgeConfig) {
     this.llmJudgeConfig = llmJudgeConfig;
     if (llmJudgeConfig != null) {
       this.unparsed |= llmJudgeConfig.unparsed;
     }
   }
-
-  public LLMObsCustomEvalConfigUpdateAttributes llmProvider(
-      LLMObsCustomEvalConfigLLMProvider llmProvider) {
+  public LLMObsCustomEvalConfigUpdateAttributes llmProvider(LLMObsCustomEvalConfigLLMProvider llmProvider) {
     this.llmProvider = llmProvider;
     this.unparsed |= llmProvider.unparsed;
     return this;
   }
 
   /**
-   * LLM provider configuration for a custom evaluator.
-   *
+   * <p>LLM provider configuration for a custom evaluator.</p>
    * @return llmProvider
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LLM_PROVIDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LLMObsCustomEvalConfigLLMProvider getLlmProvider() {
-    return llmProvider;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LLM_PROVIDER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LLMObsCustomEvalConfigLLMProvider getLlmProvider() {
+        return llmProvider;
+      }
   public void setLlmProvider(LLMObsCustomEvalConfigLLMProvider llmProvider) {
     this.llmProvider = llmProvider;
     if (llmProvider != null) {
       this.unparsed |= llmProvider.unparsed;
     }
   }
-
   public LLMObsCustomEvalConfigUpdateAttributes target(LLMObsCustomEvalConfigTarget target) {
     this.target = target;
     this.unparsed |= target.unparsed;
@@ -155,16 +159,15 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
   }
 
   /**
-   * Target application configuration for a custom evaluator.
-   *
+   * <p>Target application configuration for a custom evaluator.</p>
    * @return target
-   */
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsCustomEvalConfigTarget getTarget() {
-    return target;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public LLMObsCustomEvalConfigTarget getTarget() {
+        return target;
+      }
   public void setTarget(LLMObsCustomEvalConfigTarget target) {
     this.target = target;
     if (target != null) {
@@ -173,14 +176,15 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -189,7 +193,7 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
   @JsonAnySetter
   public LLMObsCustomEvalConfigUpdateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -213,12 +217,14 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsCustomEvalConfigUpdateAttributes object is equal to o. */
+  /**
+   * Return true if this LLMObsCustomEvalConfigUpdateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -227,22 +233,14 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsCustomEvalConfigUpdateAttributes llmObsCustomEvalConfigUpdateAttributes =
-        (LLMObsCustomEvalConfigUpdateAttributes) o;
-    return Objects.equals(this.category, llmObsCustomEvalConfigUpdateAttributes.category)
-        && Objects.equals(this.evalName, llmObsCustomEvalConfigUpdateAttributes.evalName)
-        && Objects.equals(
-            this.llmJudgeConfig, llmObsCustomEvalConfigUpdateAttributes.llmJudgeConfig)
-        && Objects.equals(this.llmProvider, llmObsCustomEvalConfigUpdateAttributes.llmProvider)
-        && Objects.equals(this.target, llmObsCustomEvalConfigUpdateAttributes.target)
-        && Objects.equals(
-            this.additionalProperties, llmObsCustomEvalConfigUpdateAttributes.additionalProperties);
+    LLMObsCustomEvalConfigUpdateAttributes llmObsCustomEvalConfigUpdateAttributes = (LLMObsCustomEvalConfigUpdateAttributes) o;
+    return Objects.equals(this.category, llmObsCustomEvalConfigUpdateAttributes.category) && Objects.equals(this.evalName, llmObsCustomEvalConfigUpdateAttributes.evalName) && Objects.equals(this.llmJudgeConfig, llmObsCustomEvalConfigUpdateAttributes.llmJudgeConfig) && Objects.equals(this.llmProvider, llmObsCustomEvalConfigUpdateAttributes.llmProvider) && Objects.equals(this.target, llmObsCustomEvalConfigUpdateAttributes.target) && Objects.equals(this.additionalProperties, llmObsCustomEvalConfigUpdateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        category, evalName, llmJudgeConfig, llmProvider, target, additionalProperties);
+    return Objects.hash(category,evalName,llmJudgeConfig,llmProvider,target, additionalProperties);
   }
 
   @Override
@@ -262,7 +260,8 @@ public class LLMObsCustomEvalConfigUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

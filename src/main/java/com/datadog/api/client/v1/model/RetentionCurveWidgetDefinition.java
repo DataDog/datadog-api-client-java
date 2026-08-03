@@ -6,16 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The retention curve widget visualizes user retention rates over time. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The retention curve widget visualizes user retention rates over time.</p>
+ */
 @JsonPropertyOrder({
   RetentionCurveWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   RetentionCurveWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -25,10 +43,10 @@ import java.util.Objects;
   RetentionCurveWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   RetentionCurveWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionCurveWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -48,46 +66,40 @@ public class RetentionCurveWidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private RetentionCurveWidgetDefinitionType type =
-      RetentionCurveWidgetDefinitionType.RETENTION_CURVE;
+  private RetentionCurveWidgetDefinitionType type = RetentionCurveWidgetDefinitionType.RETENTION_CURVE;
 
   public RetentionCurveWidgetDefinition() {}
 
   @JsonCreator
   public RetentionCurveWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<RetentionCurveWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          RetentionCurveWidgetDefinitionType type) {
-    this.requests = requests;
-    for (RetentionCurveWidgetRequest item : requests) {
-      this.unparsed |= item.unparsed;
-    }
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<RetentionCurveWidgetRequest> requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)RetentionCurveWidgetDefinitionType type) {
+        this.requests = requests;
+        for (RetentionCurveWidgetRequest item : requests) {
+          this.unparsed |= item.unparsed;
+        }
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public RetentionCurveWidgetDefinition description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * The description of the widget.
-   *
+   * <p>The description of the widget.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public RetentionCurveWidgetDefinition requests(List<RetentionCurveWidgetRequest> requests) {
     this.requests = requests;
     for (RetentionCurveWidgetRequest item : requests) {
@@ -95,7 +107,6 @@ public class RetentionCurveWidgetDefinition {
     }
     return this;
   }
-
   public RetentionCurveWidgetDefinition addRequestsItem(RetentionCurveWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
@@ -103,16 +114,15 @@ public class RetentionCurveWidgetDefinition {
   }
 
   /**
-   * List of Retention Curve widget requests.
-   *
+   * <p>List of Retention Curve widget requests.</p>
    * @return requests
-   */
-  @JsonProperty(JSON_PROPERTY_REQUESTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<RetentionCurveWidgetRequest> getRequests() {
-    return requests;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_REQUESTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<RetentionCurveWidgetRequest> getRequests() {
+        return requests;
+      }
   public void setRequests(List<RetentionCurveWidgetRequest> requests) {
     this.requests = requests;
     if (requests != null) {
@@ -121,7 +131,6 @@ public class RetentionCurveWidgetDefinition {
       }
     }
   }
-
   public RetentionCurveWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -129,45 +138,41 @@ public class RetentionCurveWidgetDefinition {
   }
 
   /**
-   * Time setting for the widget.
-   *
+   * <p>Time setting for the widget.</p>
    * @return time
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTime getTime() {
-    return time;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTime getTime() {
+        return time;
+      }
   public void setTime(WidgetTime time) {
     this.time = time;
     if (time != null) {
       this.unparsed |= time.unparsed;
     }
   }
-
   public RetentionCurveWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * Title of your widget.
-   *
+   * <p>Title of your widget.</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
-
   public RetentionCurveWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -175,45 +180,41 @@ public class RetentionCurveWidgetDefinition {
   }
 
   /**
-   * How to align the text on the widget.
-   *
+   * <p>How to align the text on the widget.</p>
    * @return titleAlign
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTextAlign getTitleAlign() {
-    return titleAlign;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTextAlign getTitleAlign() {
+        return titleAlign;
+      }
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
-
   public RetentionCurveWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * Size of the title.
-   *
+   * <p>Size of the title.</p>
    * @return titleSize
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitleSize() {
-    return titleSize;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitleSize() {
+        return titleSize;
+      }
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
   public RetentionCurveWidgetDefinition type(RetentionCurveWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -221,24 +222,25 @@ public class RetentionCurveWidgetDefinition {
   }
 
   /**
-   * Type of the Retention Curve widget.
-   *
+   * <p>Type of the Retention Curve widget.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionCurveWidgetDefinitionType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetentionCurveWidgetDefinitionType getType() {
+        return type;
+      }
   public void setType(RetentionCurveWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this RetentionCurveWidgetDefinition object is equal to o. */
+  /**
+   * Return true if this RetentionCurveWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -247,20 +249,14 @@ public class RetentionCurveWidgetDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RetentionCurveWidgetDefinition retentionCurveWidgetDefinition =
-        (RetentionCurveWidgetDefinition) o;
-    return Objects.equals(this.description, retentionCurveWidgetDefinition.description)
-        && Objects.equals(this.requests, retentionCurveWidgetDefinition.requests)
-        && Objects.equals(this.time, retentionCurveWidgetDefinition.time)
-        && Objects.equals(this.title, retentionCurveWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, retentionCurveWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, retentionCurveWidgetDefinition.titleSize)
-        && Objects.equals(this.type, retentionCurveWidgetDefinition.type);
+    RetentionCurveWidgetDefinition retentionCurveWidgetDefinition = (RetentionCurveWidgetDefinition) o;
+    return Objects.equals(this.description, retentionCurveWidgetDefinition.description) && Objects.equals(this.requests, retentionCurveWidgetDefinition.requests) && Objects.equals(this.time, retentionCurveWidgetDefinition.time) && Objects.equals(this.title, retentionCurveWidgetDefinition.title) && Objects.equals(this.titleAlign, retentionCurveWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, retentionCurveWidgetDefinition.titleSize) && Objects.equals(this.type, retentionCurveWidgetDefinition.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, requests, time, title, titleAlign, titleSize, type);
+    return Objects.hash(description,requests,time,title,titleAlign,titleSize,type);
   }
 
   @Override
@@ -279,7 +275,8 @@ public class RetentionCurveWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

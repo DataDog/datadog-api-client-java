@@ -6,96 +6,106 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for patching a Google Meet configuration. All fields are optional. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for patching a Google Meet configuration. All fields are optional.</p>
+ */
 @JsonPropertyOrder({
-  IncidentGoogleMeetConfigurationPatchDataAttributesRequest
-      .JSON_PROPERTY_ALLOW_MANUAL_MEETING_CREATION,
+  IncidentGoogleMeetConfigurationPatchDataAttributesRequest.JSON_PROPERTY_ALLOW_MANUAL_MEETING_CREATION,
   IncidentGoogleMeetConfigurationPatchDataAttributesRequest.JSON_PROPERTY_AUTO_SUMMARIZE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentGoogleMeetConfigurationPatchDataAttributesRequest {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ALLOW_MANUAL_MEETING_CREATION =
-      "allow_manual_meeting_creation";
+  @JsonIgnore
+  public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ALLOW_MANUAL_MEETING_CREATION = "allow_manual_meeting_creation";
   private Boolean allowManualMeetingCreation;
 
   public static final String JSON_PROPERTY_AUTO_SUMMARIZE = "auto_summarize";
   private Boolean autoSummarize;
 
-  public IncidentGoogleMeetConfigurationPatchDataAttributesRequest allowManualMeetingCreation(
-      Boolean allowManualMeetingCreation) {
+  public IncidentGoogleMeetConfigurationPatchDataAttributesRequest allowManualMeetingCreation(Boolean allowManualMeetingCreation) {
     this.allowManualMeetingCreation = allowManualMeetingCreation;
     return this;
   }
 
   /**
-   * Whether to allow manual meeting creation.
-   *
+   * <p>Whether to allow manual meeting creation.</p>
    * @return allowManualMeetingCreation
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_MANUAL_MEETING_CREATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getAllowManualMeetingCreation() {
-    return allowManualMeetingCreation;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ALLOW_MANUAL_MEETING_CREATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getAllowManualMeetingCreation() {
+        return allowManualMeetingCreation;
+      }
   public void setAllowManualMeetingCreation(Boolean allowManualMeetingCreation) {
     this.allowManualMeetingCreation = allowManualMeetingCreation;
   }
-
-  public IncidentGoogleMeetConfigurationPatchDataAttributesRequest autoSummarize(
-      Boolean autoSummarize) {
+  public IncidentGoogleMeetConfigurationPatchDataAttributesRequest autoSummarize(Boolean autoSummarize) {
     this.autoSummarize = autoSummarize;
     return this;
   }
 
   /**
-   * Whether to auto-summarize meetings.
-   *
+   * <p>Whether to auto-summarize meetings.</p>
    * @return autoSummarize
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTO_SUMMARIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getAutoSummarize() {
-    return autoSummarize;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUTO_SUMMARIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getAutoSummarize() {
+        return autoSummarize;
+      }
   public void setAutoSummarize(Boolean autoSummarize) {
     this.autoSummarize = autoSummarize;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return IncidentGoogleMeetConfigurationPatchDataAttributesRequest
    */
   @JsonAnySetter
-  public IncidentGoogleMeetConfigurationPatchDataAttributesRequest putAdditionalProperty(
-      String key, Object value) {
+  public IncidentGoogleMeetConfigurationPatchDataAttributesRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -119,14 +129,13 @@ public class IncidentGoogleMeetConfigurationPatchDataAttributesRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this IncidentGoogleMeetConfigurationPatchDataAttributesRequest object is equal
-   * to o.
+   * Return true if this IncidentGoogleMeetConfigurationPatchDataAttributesRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -136,32 +145,21 @@ public class IncidentGoogleMeetConfigurationPatchDataAttributesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentGoogleMeetConfigurationPatchDataAttributesRequest
-        incidentGoogleMeetConfigurationPatchDataAttributesRequest =
-            (IncidentGoogleMeetConfigurationPatchDataAttributesRequest) o;
-    return Objects.equals(
-            this.allowManualMeetingCreation,
-            incidentGoogleMeetConfigurationPatchDataAttributesRequest.allowManualMeetingCreation)
-        && Objects.equals(
-            this.autoSummarize,
-            incidentGoogleMeetConfigurationPatchDataAttributesRequest.autoSummarize)
-        && Objects.equals(
-            this.additionalProperties,
-            incidentGoogleMeetConfigurationPatchDataAttributesRequest.additionalProperties);
+    IncidentGoogleMeetConfigurationPatchDataAttributesRequest incidentGoogleMeetConfigurationPatchDataAttributesRequest = (IncidentGoogleMeetConfigurationPatchDataAttributesRequest) o;
+    return Objects.equals(this.allowManualMeetingCreation, incidentGoogleMeetConfigurationPatchDataAttributesRequest.allowManualMeetingCreation) && Objects.equals(this.autoSummarize, incidentGoogleMeetConfigurationPatchDataAttributesRequest.autoSummarize) && Objects.equals(this.additionalProperties, incidentGoogleMeetConfigurationPatchDataAttributesRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowManualMeetingCreation, autoSummarize, additionalProperties);
+    return Objects.hash(allowManualMeetingCreation,autoSummarize, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentGoogleMeetConfigurationPatchDataAttributesRequest {\n");
-    sb.append("    allowManualMeetingCreation: ")
-        .append(toIndentedString(allowManualMeetingCreation))
-        .append("\n");
+    sb.append("    allowManualMeetingCreation: ").append(toIndentedString(allowManualMeetingCreation)).append("\n");
     sb.append("    autoSummarize: ").append(toIndentedString(autoSummarize)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -171,7 +169,8 @@ public class IncidentGoogleMeetConfigurationPatchDataAttributesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

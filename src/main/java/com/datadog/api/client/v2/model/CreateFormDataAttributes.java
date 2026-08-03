@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes for creating a form. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes for creating a form.</p>
+ */
 @JsonPropertyOrder({
   CreateFormDataAttributes.JSON_PROPERTY_ANONYMOUS,
   CreateFormDataAttributes.JSON_PROPERTY_DATA_DEFINITION,
@@ -27,10 +43,10 @@ import java.util.Objects;
   CreateFormDataAttributes.JSON_PROPERTY_SINGLE_RESPONSE,
   CreateFormDataAttributes.JSON_PROPERTY_UI_DEFINITION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateFormDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANONYMOUS = "anonymous";
   private Boolean anonymous = false;
 
@@ -56,39 +72,34 @@ public class CreateFormDataAttributes {
 
   @JsonCreator
   public CreateFormDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_DEFINITION)
-          FormDataDefinition dataDefinition,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UI_DEFINITION)
-          FormUiDefinition uiDefinition) {
-    this.dataDefinition = dataDefinition;
-    this.unparsed |= dataDefinition.unparsed;
-    this.name = name;
-    this.uiDefinition = uiDefinition;
-    this.unparsed |= uiDefinition.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_DEFINITION)FormDataDefinition dataDefinition,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_UI_DEFINITION)FormUiDefinition uiDefinition) {
+        this.dataDefinition = dataDefinition;
+        this.unparsed |= dataDefinition.unparsed;
+        this.name = name;
+        this.uiDefinition = uiDefinition;
+        this.unparsed |= uiDefinition.unparsed;
   }
-
   public CreateFormDataAttributes anonymous(Boolean anonymous) {
     this.anonymous = anonymous;
     return this;
   }
 
   /**
-   * Whether the form accepts anonymous submissions.
-   *
+   * <p>Whether the form accepts anonymous submissions.</p>
    * @return anonymous
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ANONYMOUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getAnonymous() {
-    return anonymous;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ANONYMOUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getAnonymous() {
+        return anonymous;
+      }
   public void setAnonymous(Boolean anonymous) {
     this.anonymous = anonymous;
   }
-
   public CreateFormDataAttributes dataDefinition(FormDataDefinition dataDefinition) {
     this.dataDefinition = dataDefinition;
     this.unparsed |= dataDefinition.unparsed;
@@ -96,106 +107,96 @@ public class CreateFormDataAttributes {
   }
 
   /**
-   * A JSON Schema definition that describes the form's data fields.
-   *
+   * <p>A JSON Schema definition that describes the form's data fields.</p>
    * @return dataDefinition
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_DEFINITION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public FormDataDefinition getDataDefinition() {
-    return dataDefinition;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_DEFINITION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public FormDataDefinition getDataDefinition() {
+        return dataDefinition;
+      }
   public void setDataDefinition(FormDataDefinition dataDefinition) {
     this.dataDefinition = dataDefinition;
     if (dataDefinition != null) {
       this.unparsed |= dataDefinition.unparsed;
     }
   }
-
   public CreateFormDataAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * The description of the form.
-   *
+   * <p>The description of the form.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public CreateFormDataAttributes idpSurvey(Boolean idpSurvey) {
     this.idpSurvey = idpSurvey;
     return this;
   }
 
   /**
-   * Whether the form is an IDP survey.
-   *
+   * <p>Whether the form is an IDP survey.</p>
    * @return idpSurvey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IDP_SURVEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIdpSurvey() {
-    return idpSurvey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IDP_SURVEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIdpSurvey() {
+        return idpSurvey;
+      }
   public void setIdpSurvey(Boolean idpSurvey) {
     this.idpSurvey = idpSurvey;
   }
-
   public CreateFormDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the form.
-   *
+   * <p>The name of the form.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public CreateFormDataAttributes singleResponse(Boolean singleResponse) {
     this.singleResponse = singleResponse;
     return this;
   }
 
   /**
-   * Whether each user can only submit one response.
-   *
+   * <p>Whether each user can only submit one response.</p>
    * @return singleResponse
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SINGLE_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getSingleResponse() {
-    return singleResponse;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SINGLE_RESPONSE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getSingleResponse() {
+        return singleResponse;
+      }
   public void setSingleResponse(Boolean singleResponse) {
     this.singleResponse = singleResponse;
   }
-
   public CreateFormDataAttributes uiDefinition(FormUiDefinition uiDefinition) {
     this.uiDefinition = uiDefinition;
     this.unparsed |= uiDefinition.unparsed;
@@ -203,17 +204,15 @@ public class CreateFormDataAttributes {
   }
 
   /**
-   * UI configuration for rendering form fields, including widget overrides, field ordering, and
-   * themes.
-   *
+   * <p>UI configuration for rendering form fields, including widget overrides, field ordering, and themes.</p>
    * @return uiDefinition
-   */
-  @JsonProperty(JSON_PROPERTY_UI_DEFINITION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public FormUiDefinition getUiDefinition() {
-    return uiDefinition;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UI_DEFINITION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public FormUiDefinition getUiDefinition() {
+        return uiDefinition;
+      }
   public void setUiDefinition(FormUiDefinition uiDefinition) {
     this.uiDefinition = uiDefinition;
     if (uiDefinition != null) {
@@ -222,14 +221,15 @@ public class CreateFormDataAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -238,7 +238,7 @@ public class CreateFormDataAttributes {
   @JsonAnySetter
   public CreateFormDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -262,12 +262,14 @@ public class CreateFormDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CreateFormDataAttributes object is equal to o. */
+  /**
+   * Return true if this CreateFormDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -277,27 +279,13 @@ public class CreateFormDataAttributes {
       return false;
     }
     CreateFormDataAttributes createFormDataAttributes = (CreateFormDataAttributes) o;
-    return Objects.equals(this.anonymous, createFormDataAttributes.anonymous)
-        && Objects.equals(this.dataDefinition, createFormDataAttributes.dataDefinition)
-        && Objects.equals(this.description, createFormDataAttributes.description)
-        && Objects.equals(this.idpSurvey, createFormDataAttributes.idpSurvey)
-        && Objects.equals(this.name, createFormDataAttributes.name)
-        && Objects.equals(this.singleResponse, createFormDataAttributes.singleResponse)
-        && Objects.equals(this.uiDefinition, createFormDataAttributes.uiDefinition)
-        && Objects.equals(this.additionalProperties, createFormDataAttributes.additionalProperties);
+    return Objects.equals(this.anonymous, createFormDataAttributes.anonymous) && Objects.equals(this.dataDefinition, createFormDataAttributes.dataDefinition) && Objects.equals(this.description, createFormDataAttributes.description) && Objects.equals(this.idpSurvey, createFormDataAttributes.idpSurvey) && Objects.equals(this.name, createFormDataAttributes.name) && Objects.equals(this.singleResponse, createFormDataAttributes.singleResponse) && Objects.equals(this.uiDefinition, createFormDataAttributes.uiDefinition) && Objects.equals(this.additionalProperties, createFormDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        anonymous,
-        dataDefinition,
-        description,
-        idpSurvey,
-        name,
-        singleResponse,
-        uiDefinition,
-        additionalProperties);
+    return Objects.hash(anonymous,dataDefinition,description,idpSurvey,name,singleResponse,uiDefinition, additionalProperties);
   }
 
   @Override
@@ -319,7 +307,8 @@ public class CreateFormDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

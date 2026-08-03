@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,12 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A record update payload as part of a batch update on an LLM Observability dataset. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A record update payload as part of a batch update on an LLM Observability dataset.</p>
+ */
 @JsonPropertyOrder({
   LLMObsDatasetBatchUpdateUpdateRecord.JSON_PROPERTY_EXPECTED_OUTPUT,
   LLMObsDatasetBatchUpdateUpdateRecord.JSON_PROPERTY_ID,
@@ -26,10 +41,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   LLMObsDatasetBatchUpdateUpdateRecord.JSON_PROPERTY_METADATA,
   LLMObsDatasetBatchUpdateUpdateRecord.JSON_PROPERTY_TAG_OPERATIONS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsDatasetBatchUpdateUpdateRecord {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXPECTED_OUTPUT = "expected_output";
   private JsonNullable<AnyValue> expectedOutput = JsonNullable.<AnyValue>undefined();
 
@@ -49,97 +64,83 @@ public class LLMObsDatasetBatchUpdateUpdateRecord {
 
   @JsonCreator
   public LLMObsDatasetBatchUpdateUpdateRecord(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id) {
-    this.id = id;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id) {
+        this.id = id;
   }
-
   public LLMObsDatasetBatchUpdateUpdateRecord expectedOutput(AnyValue expectedOutput) {
     this.expectedOutput = JsonNullable.<AnyValue>of(expectedOutput);
     return this;
   }
 
   /**
-   * Represents any valid JSON value.
-   *
+   * <p>Represents any valid JSON value.</p>
    * @return expectedOutput
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public AnyValue getExpectedOutput() {
-    return expectedOutput.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public AnyValue getExpectedOutput() {
+        return expectedOutput.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_EXPECTED_OUTPUT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<AnyValue> getExpectedOutput_JsonNullable() {
     return expectedOutput;
   }
-
-  @JsonProperty(JSON_PROPERTY_EXPECTED_OUTPUT)
-  public void setExpectedOutput_JsonNullable(JsonNullable<AnyValue> expectedOutput) {
+  @JsonProperty(JSON_PROPERTY_EXPECTED_OUTPUT)public void setExpectedOutput_JsonNullable(JsonNullable<AnyValue> expectedOutput) {
     this.expectedOutput = expectedOutput;
   }
-
   public void setExpectedOutput(AnyValue expectedOutput) {
     this.expectedOutput = JsonNullable.<AnyValue>of(expectedOutput);
   }
-
   public LLMObsDatasetBatchUpdateUpdateRecord id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Unique identifier of the record to update.
-   *
+   * <p>Unique identifier of the record to update.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public LLMObsDatasetBatchUpdateUpdateRecord input(AnyValue input) {
     this.input = JsonNullable.<AnyValue>of(input);
     return this;
   }
 
   /**
-   * Represents any valid JSON value.
-   *
+   * <p>Represents any valid JSON value.</p>
    * @return input
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public AnyValue getInput() {
-    return input.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public AnyValue getInput() {
+        return input.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_INPUT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<AnyValue> getInput_JsonNullable() {
     return input;
   }
-
-  @JsonProperty(JSON_PROPERTY_INPUT)
-  public void setInput_JsonNullable(JsonNullable<AnyValue> input) {
+  @JsonProperty(JSON_PROPERTY_INPUT)public void setInput_JsonNullable(JsonNullable<AnyValue> input) {
     this.input = input;
   }
-
   public void setInput(AnyValue input) {
     this.input = JsonNullable.<AnyValue>of(input);
   }
-
   public LLMObsDatasetBatchUpdateUpdateRecord metadata(Map<String, Object> metadata) {
     this.metadata = metadata;
     return this;
   }
-
   public LLMObsDatasetBatchUpdateUpdateRecord putMetadataItem(String key, Object metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
@@ -149,42 +150,36 @@ public class LLMObsDatasetBatchUpdateUpdateRecord {
   }
 
   /**
-   * Updated metadata associated with the record.
-   *
+   * <p>Updated metadata associated with the record.</p>
    * @return metadata
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getMetadata() {
-    return metadata;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getMetadata() {
+        return metadata;
+      }
   public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }
-
-  public LLMObsDatasetBatchUpdateUpdateRecord tagOperations(
-      LLMObsDatasetRecordTagOperations tagOperations) {
+  public LLMObsDatasetBatchUpdateUpdateRecord tagOperations(LLMObsDatasetRecordTagOperations tagOperations) {
     this.tagOperations = tagOperations;
     this.unparsed |= tagOperations.unparsed;
     return this;
   }
 
   /**
-   * Explicit tag operations for updating records. Operations are applied in order, Remove then Add
-   * then Set. <code>set</code> is the final override; if specified, the result of <code>remove
-   * </code> and <code>add</code> is discarded.
-   *
+   * <p>Explicit tag operations for updating records. Operations are applied in order, Remove then Add then Set. <code>set</code> is the final override; if specified, the result of <code>remove</code> and <code>add</code> is discarded.</p>
    * @return tagOperations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAG_OPERATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LLMObsDatasetRecordTagOperations getTagOperations() {
-    return tagOperations;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAG_OPERATIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LLMObsDatasetRecordTagOperations getTagOperations() {
+        return tagOperations;
+      }
   public void setTagOperations(LLMObsDatasetRecordTagOperations tagOperations) {
     this.tagOperations = tagOperations;
     if (tagOperations != null) {
@@ -193,14 +188,15 @@ public class LLMObsDatasetBatchUpdateUpdateRecord {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -209,7 +205,7 @@ public class LLMObsDatasetBatchUpdateUpdateRecord {
   @JsonAnySetter
   public LLMObsDatasetBatchUpdateUpdateRecord putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -233,12 +229,14 @@ public class LLMObsDatasetBatchUpdateUpdateRecord {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsDatasetBatchUpdateUpdateRecord object is equal to o. */
+  /**
+   * Return true if this LLMObsDatasetBatchUpdateUpdateRecord object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -247,20 +245,14 @@ public class LLMObsDatasetBatchUpdateUpdateRecord {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsDatasetBatchUpdateUpdateRecord llmObsDatasetBatchUpdateUpdateRecord =
-        (LLMObsDatasetBatchUpdateUpdateRecord) o;
-    return Objects.equals(this.expectedOutput, llmObsDatasetBatchUpdateUpdateRecord.expectedOutput)
-        && Objects.equals(this.id, llmObsDatasetBatchUpdateUpdateRecord.id)
-        && Objects.equals(this.input, llmObsDatasetBatchUpdateUpdateRecord.input)
-        && Objects.equals(this.metadata, llmObsDatasetBatchUpdateUpdateRecord.metadata)
-        && Objects.equals(this.tagOperations, llmObsDatasetBatchUpdateUpdateRecord.tagOperations)
-        && Objects.equals(
-            this.additionalProperties, llmObsDatasetBatchUpdateUpdateRecord.additionalProperties);
+    LLMObsDatasetBatchUpdateUpdateRecord llmObsDatasetBatchUpdateUpdateRecord = (LLMObsDatasetBatchUpdateUpdateRecord) o;
+    return Objects.equals(this.expectedOutput, llmObsDatasetBatchUpdateUpdateRecord.expectedOutput) && Objects.equals(this.id, llmObsDatasetBatchUpdateUpdateRecord.id) && Objects.equals(this.input, llmObsDatasetBatchUpdateUpdateRecord.input) && Objects.equals(this.metadata, llmObsDatasetBatchUpdateUpdateRecord.metadata) && Objects.equals(this.tagOperations, llmObsDatasetBatchUpdateUpdateRecord.tagOperations) && Objects.equals(this.additionalProperties, llmObsDatasetBatchUpdateUpdateRecord.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(expectedOutput, id, input, metadata, tagOperations, additionalProperties);
+    return Objects.hash(expectedOutput,id,input,metadata,tagOperations, additionalProperties);
   }
 
   @Override
@@ -280,7 +272,8 @@ public class LLMObsDatasetBatchUpdateUpdateRecord {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

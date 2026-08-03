@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,27 +25,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A backfilled maintenance update entry. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A backfilled maintenance update entry.</p>
+ */
 @JsonPropertyOrder({
   CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems.JSON_PROPERTY_COMPONENTS_AFFECTED,
   CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems.JSON_PROPERTY_DESCRIPTION,
   CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems.JSON_PROPERTY_STARTED_AT,
   CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPONENTS_AFFECTED = "components_affected";
-  private List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected =
-      null;
+  private List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected = null;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -48,30 +60,24 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
 
   @JsonCreator
   public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) OffsetDateTime startedAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
-          CreateMaintenanceRequestDataAttributesUpdatesItemsStatus status) {
-    this.description = description;
-    this.startedAt = startedAt;
-    this.status = status;
-    this.unparsed |= !status.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESCRIPTION)String description,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STARTED_AT)OffsetDateTime startedAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STATUS)CreateMaintenanceRequestDataAttributesUpdatesItemsStatus status) {
+        this.description = description;
+        this.startedAt = startedAt;
+        this.status = status;
+        this.unparsed |= !status.isValid();
   }
-
-  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems componentsAffected(
-      List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
+  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems componentsAffected(List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
     if (componentsAffected != null) {
-      for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item :
-          componentsAffected) {
-        this.unparsed |= item.unparsed;
-      }
+    for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems addComponentsAffectedItem(
-      CreateMaintenanceRequestDataAttributesComponentsAffectedItems componentsAffectedItem) {
+  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems addComponentsAffectedItem(CreateMaintenanceRequestDataAttributesComponentsAffectedItems componentsAffectedItem) {
     if (this.componentsAffected == null) {
       this.componentsAffected = new ArrayList<>();
     }
@@ -81,115 +87,102 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
   }
 
   /**
-   * The components affected.
-   *
+   * <p>The components affected.</p>
    * @return componentsAffected
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPONENTS_AFFECTED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>
-      getComponentsAffected() {
-    return componentsAffected;
-  }
-
-  public void setComponentsAffected(
-      List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPONENTS_AFFECTED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> getComponentsAffected() {
+        return componentsAffected;
+      }
+  public void setComponentsAffected(List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
     if (componentsAffected != null) {
-      for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item :
-          componentsAffected) {
+      for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
         this.unparsed |= item.unparsed;
       }
     }
   }
-
-  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems description(
-      String description) {
+  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * A description of the update.
-   *
+   * <p>A description of the update.</p>
    * @return description
-   */
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
-  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems startedAt(
-      OffsetDateTime startedAt) {
+  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems startedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
     return this;
   }
 
   /**
-   * Timestamp of when the update occurred.
-   *
+   * <p>Timestamp of when the update occurred.</p>
    * @return startedAt
-   */
-  @JsonProperty(JSON_PROPERTY_STARTED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getStartedAt() {
-    return startedAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STARTED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getStartedAt() {
+        return startedAt;
+      }
   public void setStartedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
   }
-
-  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems status(
-      CreateMaintenanceRequestDataAttributesUpdatesItemsStatus status) {
+  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems status(CreateMaintenanceRequestDataAttributesUpdatesItemsStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
     return this;
   }
 
   /**
-   * The status of a maintenance update.
-   *
+   * <p>The status of a maintenance update.</p>
    * @return status
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreateMaintenanceRequestDataAttributesUpdatesItemsStatus getStatus() {
-    return status;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CreateMaintenanceRequestDataAttributesUpdatesItemsStatus getStatus() {
+        return status;
+      }
   public void setStatus(CreateMaintenanceRequestDataAttributesUpdatesItemsStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems
    */
   @JsonAnySetter
-  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems putAdditionalProperty(
-      String key, Object value) {
+  public CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -213,14 +206,13 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems object is
-   * equal to o.
+   * Return true if this CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -230,27 +222,14 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems
-        createBackfilledMaintenanceRequestDataAttributesUpdatesItems =
-            (CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems) o;
-    return Objects.equals(
-            this.componentsAffected,
-            createBackfilledMaintenanceRequestDataAttributesUpdatesItems.componentsAffected)
-        && Objects.equals(
-            this.description,
-            createBackfilledMaintenanceRequestDataAttributesUpdatesItems.description)
-        && Objects.equals(
-            this.startedAt, createBackfilledMaintenanceRequestDataAttributesUpdatesItems.startedAt)
-        && Objects.equals(
-            this.status, createBackfilledMaintenanceRequestDataAttributesUpdatesItems.status)
-        && Objects.equals(
-            this.additionalProperties,
-            createBackfilledMaintenanceRequestDataAttributesUpdatesItems.additionalProperties);
+    CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems createBackfilledMaintenanceRequestDataAttributesUpdatesItems = (CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems) o;
+    return Objects.equals(this.componentsAffected, createBackfilledMaintenanceRequestDataAttributesUpdatesItems.componentsAffected) && Objects.equals(this.description, createBackfilledMaintenanceRequestDataAttributesUpdatesItems.description) && Objects.equals(this.startedAt, createBackfilledMaintenanceRequestDataAttributesUpdatesItems.startedAt) && Objects.equals(this.status, createBackfilledMaintenanceRequestDataAttributesUpdatesItems.status) && Objects.equals(this.additionalProperties, createBackfilledMaintenanceRequestDataAttributesUpdatesItems.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(componentsAffected, description, startedAt, status, additionalProperties);
+    return Objects.hash(componentsAffected,description,startedAt,status, additionalProperties);
   }
 
   @Override
@@ -269,7 +248,8 @@ public class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

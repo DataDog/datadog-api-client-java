@@ -6,56 +6,72 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Encoding format for log events. */
-@JsonSerialize(
-    using =
-        ObservabilityPipelineSplunkHecDestinationEncoding
-            .ObservabilityPipelineSplunkHecDestinationEncodingSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Encoding format for log events.</p>
+ */
+@JsonSerialize(using = ObservabilityPipelineSplunkHecDestinationEncoding.ObservabilityPipelineSplunkHecDestinationEncodingSerializer.class)
 public class ObservabilityPipelineSplunkHecDestinationEncoding extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("json", "raw_message"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("json", "raw_message"));
 
-  public static final ObservabilityPipelineSplunkHecDestinationEncoding JSON =
-      new ObservabilityPipelineSplunkHecDestinationEncoding("json");
-  public static final ObservabilityPipelineSplunkHecDestinationEncoding RAW_MESSAGE =
-      new ObservabilityPipelineSplunkHecDestinationEncoding("raw_message");
+  public static final ObservabilityPipelineSplunkHecDestinationEncoding JSON = new ObservabilityPipelineSplunkHecDestinationEncoding("json");
+  public static final ObservabilityPipelineSplunkHecDestinationEncoding RAW_MESSAGE = new ObservabilityPipelineSplunkHecDestinationEncoding("raw_message");
+
 
   ObservabilityPipelineSplunkHecDestinationEncoding(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineSplunkHecDestinationEncodingSerializer
-      extends StdSerializer<ObservabilityPipelineSplunkHecDestinationEncoding> {
-    public ObservabilityPipelineSplunkHecDestinationEncodingSerializer(
-        Class<ObservabilityPipelineSplunkHecDestinationEncoding> t) {
-      super(t);
-    }
+  public static class ObservabilityPipelineSplunkHecDestinationEncodingSerializer extends StdSerializer<ObservabilityPipelineSplunkHecDestinationEncoding> {
+      public ObservabilityPipelineSplunkHecDestinationEncodingSerializer(Class<ObservabilityPipelineSplunkHecDestinationEncoding> t) {
+          super(t);
+      }
 
-    public ObservabilityPipelineSplunkHecDestinationEncodingSerializer() {
-      this(null);
-    }
+      public ObservabilityPipelineSplunkHecDestinationEncodingSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ObservabilityPipelineSplunkHecDestinationEncoding value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ObservabilityPipelineSplunkHecDestinationEncoding value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

@@ -6,28 +6,44 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Coverage statistics for a specific service. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Coverage statistics for a specific service.</p>
+ */
 @JsonPropertyOrder({
   CoverageSummaryServiceStats.JSON_PROPERTY_EVALUATED_FLAGS_COUNT,
   CoverageSummaryServiceStats.JSON_PROPERTY_EVALUATED_REPORTS_COUNT,
   CoverageSummaryServiceStats.JSON_PROPERTY_PATCH_COVERAGE,
   CoverageSummaryServiceStats.JSON_PROPERTY_TOTAL_COVERAGE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CoverageSummaryServiceStats {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVALUATED_FLAGS_COUNT = "evaluated_flags_count";
   private Long evaluatedFlagsCount;
 
@@ -46,113 +62,101 @@ public class CoverageSummaryServiceStats {
   }
 
   /**
-   * Number of coverage flags evaluated for the service.
-   *
+   * <p>Number of coverage flags evaluated for the service.</p>
    * @return evaluatedFlagsCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVALUATED_FLAGS_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEvaluatedFlagsCount() {
-    return evaluatedFlagsCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EVALUATED_FLAGS_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEvaluatedFlagsCount() {
+        return evaluatedFlagsCount;
+      }
   public void setEvaluatedFlagsCount(Long evaluatedFlagsCount) {
     this.evaluatedFlagsCount = evaluatedFlagsCount;
   }
-
   public CoverageSummaryServiceStats evaluatedReportsCount(Long evaluatedReportsCount) {
     this.evaluatedReportsCount = evaluatedReportsCount;
     return this;
   }
 
   /**
-   * Number of coverage reports evaluated for the service.
-   *
+   * <p>Number of coverage reports evaluated for the service.</p>
    * @return evaluatedReportsCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVALUATED_REPORTS_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEvaluatedReportsCount() {
-    return evaluatedReportsCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EVALUATED_REPORTS_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEvaluatedReportsCount() {
+        return evaluatedReportsCount;
+      }
   public void setEvaluatedReportsCount(Long evaluatedReportsCount) {
     this.evaluatedReportsCount = evaluatedReportsCount;
   }
-
   public CoverageSummaryServiceStats patchCoverage(Double patchCoverage) {
     this.patchCoverage = JsonNullable.<Double>of(patchCoverage);
     return this;
   }
 
   /**
-   * Patch coverage percentage for the service.
-   *
+   * <p>Patch coverage percentage for the service.</p>
    * @return patchCoverage
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Double getPatchCoverage() {
-    return patchCoverage.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Double getPatchCoverage() {
+        return patchCoverage.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PATCH_COVERAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Double> getPatchCoverage_JsonNullable() {
     return patchCoverage;
   }
-
-  @JsonProperty(JSON_PROPERTY_PATCH_COVERAGE)
-  public void setPatchCoverage_JsonNullable(JsonNullable<Double> patchCoverage) {
+  @JsonProperty(JSON_PROPERTY_PATCH_COVERAGE)public void setPatchCoverage_JsonNullable(JsonNullable<Double> patchCoverage) {
     this.patchCoverage = patchCoverage;
   }
-
   public void setPatchCoverage(Double patchCoverage) {
     this.patchCoverage = JsonNullable.<Double>of(patchCoverage);
   }
-
   public CoverageSummaryServiceStats totalCoverage(Double totalCoverage) {
     this.totalCoverage = JsonNullable.<Double>of(totalCoverage);
     return this;
   }
 
   /**
-   * Total coverage percentage for the service.
-   *
+   * <p>Total coverage percentage for the service.</p>
    * @return totalCoverage
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Double getTotalCoverage() {
-    return totalCoverage.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Double getTotalCoverage() {
+        return totalCoverage.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_TOTAL_COVERAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Double> getTotalCoverage_JsonNullable() {
     return totalCoverage;
   }
-
-  @JsonProperty(JSON_PROPERTY_TOTAL_COVERAGE)
-  public void setTotalCoverage_JsonNullable(JsonNullable<Double> totalCoverage) {
+  @JsonProperty(JSON_PROPERTY_TOTAL_COVERAGE)public void setTotalCoverage_JsonNullable(JsonNullable<Double> totalCoverage) {
     this.totalCoverage = totalCoverage;
   }
-
   public void setTotalCoverage(Double totalCoverage) {
     this.totalCoverage = JsonNullable.<Double>of(totalCoverage);
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -161,7 +165,7 @@ public class CoverageSummaryServiceStats {
   @JsonAnySetter
   public CoverageSummaryServiceStats putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -185,12 +189,14 @@ public class CoverageSummaryServiceStats {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CoverageSummaryServiceStats object is equal to o. */
+  /**
+   * Return true if this CoverageSummaryServiceStats object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -200,35 +206,21 @@ public class CoverageSummaryServiceStats {
       return false;
     }
     CoverageSummaryServiceStats coverageSummaryServiceStats = (CoverageSummaryServiceStats) o;
-    return Objects.equals(this.evaluatedFlagsCount, coverageSummaryServiceStats.evaluatedFlagsCount)
-        && Objects.equals(
-            this.evaluatedReportsCount, coverageSummaryServiceStats.evaluatedReportsCount)
-        && Objects.equals(this.patchCoverage, coverageSummaryServiceStats.patchCoverage)
-        && Objects.equals(this.totalCoverage, coverageSummaryServiceStats.totalCoverage)
-        && Objects.equals(
-            this.additionalProperties, coverageSummaryServiceStats.additionalProperties);
+    return Objects.equals(this.evaluatedFlagsCount, coverageSummaryServiceStats.evaluatedFlagsCount) && Objects.equals(this.evaluatedReportsCount, coverageSummaryServiceStats.evaluatedReportsCount) && Objects.equals(this.patchCoverage, coverageSummaryServiceStats.patchCoverage) && Objects.equals(this.totalCoverage, coverageSummaryServiceStats.totalCoverage) && Objects.equals(this.additionalProperties, coverageSummaryServiceStats.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        evaluatedFlagsCount,
-        evaluatedReportsCount,
-        patchCoverage,
-        totalCoverage,
-        additionalProperties);
+    return Objects.hash(evaluatedFlagsCount,evaluatedReportsCount,patchCoverage,totalCoverage, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CoverageSummaryServiceStats {\n");
-    sb.append("    evaluatedFlagsCount: ")
-        .append(toIndentedString(evaluatedFlagsCount))
-        .append("\n");
-    sb.append("    evaluatedReportsCount: ")
-        .append(toIndentedString(evaluatedReportsCount))
-        .append("\n");
+    sb.append("    evaluatedFlagsCount: ").append(toIndentedString(evaluatedFlagsCount)).append("\n");
+    sb.append("    evaluatedReportsCount: ").append(toIndentedString(evaluatedReportsCount)).append("\n");
     sb.append("    patchCoverage: ").append(toIndentedString(patchCoverage)).append("\n");
     sb.append("    totalCoverage: ").append(toIndentedString(totalCoverage)).append("\n");
     sb.append("    additionalProperties: ")
@@ -239,7 +231,8 @@ public class CoverageSummaryServiceStats {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

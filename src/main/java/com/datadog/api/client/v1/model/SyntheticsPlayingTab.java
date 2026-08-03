@@ -6,24 +6,50 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Navigate between different tabs for your browser test. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Navigate between different tabs for your browser test.</p>
+ */
 @JsonSerialize(using = SyntheticsPlayingTab.SyntheticsPlayingTabSerializer.class)
 public class SyntheticsPlayingTab extends ModelEnum<Long> {
 
-  private static final Set<Long> allowedValues =
-      new HashSet<Long>(Arrays.asList(-1l, 0l, 1l, 2l, 3l));
+  private static final Set<Long> allowedValues = new HashSet<Long>(Arrays.asList(-1l, 0l, 1l, 2l, 3l));
 
   public static final SyntheticsPlayingTab MAIN_TAB = new SyntheticsPlayingTab(-1l);
   public static final SyntheticsPlayingTab NEW_TAB = new SyntheticsPlayingTab(0l);
@@ -31,25 +57,24 @@ public class SyntheticsPlayingTab extends ModelEnum<Long> {
   public static final SyntheticsPlayingTab TAB_2 = new SyntheticsPlayingTab(2l);
   public static final SyntheticsPlayingTab TAB_3 = new SyntheticsPlayingTab(3l);
 
+
   SyntheticsPlayingTab(Long value) {
     super(value, allowedValues);
   }
 
   public static class SyntheticsPlayingTabSerializer extends StdSerializer<SyntheticsPlayingTab> {
-    public SyntheticsPlayingTabSerializer(Class<SyntheticsPlayingTab> t) {
-      super(t);
-    }
+      public SyntheticsPlayingTabSerializer(Class<SyntheticsPlayingTab> t) {
+          super(t);
+      }
 
-    public SyntheticsPlayingTabSerializer() {
-      this(null);
-    }
+      public SyntheticsPlayingTabSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SyntheticsPlayingTab value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SyntheticsPlayingTab value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

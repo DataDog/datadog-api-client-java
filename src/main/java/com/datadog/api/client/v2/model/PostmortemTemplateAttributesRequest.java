@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating or updating a postmortem template. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for creating or updating a postmortem template.</p>
+ */
 @JsonPropertyOrder({
   PostmortemTemplateAttributesRequest.JSON_PROPERTY_CONFLUENCE_POSTMORTEM_SETTINGS,
   PostmortemTemplateAttributesRequest.JSON_PROPERTY_CONTENT,
@@ -28,19 +42,17 @@ import org.openapitools.jackson.nullable.JsonNullable;
   PostmortemTemplateAttributesRequest.JSON_PROPERTY_LOCATION,
   PostmortemTemplateAttributesRequest.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PostmortemTemplateAttributesRequest {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CONFLUENCE_POSTMORTEM_SETTINGS =
-      "confluence_postmortem_settings";
+  @JsonIgnore
+  public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONFLUENCE_POSTMORTEM_SETTINGS = "confluence_postmortem_settings";
   private ConfluencePostmortemSettings confluencePostmortemSettings;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
   private String content;
 
-  public static final String JSON_PROPERTY_GOOGLE_DOCS_POSTMORTEM_SETTINGS =
-      "google_docs_postmortem_settings";
+  public static final String JSON_PROPERTY_GOOGLE_DOCS_POSTMORTEM_SETTINGS = "google_docs_postmortem_settings";
   private GoogleDocsPostmortemSettings googleDocsPostmortemSettings;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "is_default";
@@ -56,120 +68,100 @@ public class PostmortemTemplateAttributesRequest {
 
   @JsonCreator
   public PostmortemTemplateAttributesRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.name = name;
   }
-
-  public PostmortemTemplateAttributesRequest confluencePostmortemSettings(
-      ConfluencePostmortemSettings confluencePostmortemSettings) {
+  public PostmortemTemplateAttributesRequest confluencePostmortemSettings(ConfluencePostmortemSettings confluencePostmortemSettings) {
     this.confluencePostmortemSettings = confluencePostmortemSettings;
     this.unparsed |= confluencePostmortemSettings.unparsed;
     return this;
   }
 
   /**
-   * Settings for a postmortem template stored in Confluence. Required when <code>location</code> is
-   * <code>confluence</code>.
-   *
+   * <p>Settings for a postmortem template stored in Confluence. Required when <code>location</code> is <code>confluence</code>.</p>
    * @return confluencePostmortemSettings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFLUENCE_POSTMORTEM_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ConfluencePostmortemSettings getConfluencePostmortemSettings() {
-    return confluencePostmortemSettings;
-  }
-
-  public void setConfluencePostmortemSettings(
-      ConfluencePostmortemSettings confluencePostmortemSettings) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONFLUENCE_POSTMORTEM_SETTINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ConfluencePostmortemSettings getConfluencePostmortemSettings() {
+        return confluencePostmortemSettings;
+      }
+  public void setConfluencePostmortemSettings(ConfluencePostmortemSettings confluencePostmortemSettings) {
     this.confluencePostmortemSettings = confluencePostmortemSettings;
     if (confluencePostmortemSettings != null) {
       this.unparsed |= confluencePostmortemSettings.unparsed;
     }
   }
-
   public PostmortemTemplateAttributesRequest content(String content) {
     this.content = content;
     return this;
   }
 
   /**
-   * The templated content of the postmortem, supporting Markdown and incident template variables.
-   *
+   * <p>The templated content of the postmortem, supporting Markdown and incident template variables.</p>
    * @return content
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getContent() {
-    return content;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONTENT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getContent() {
+        return content;
+      }
   public void setContent(String content) {
     this.content = content;
   }
-
-  public PostmortemTemplateAttributesRequest googleDocsPostmortemSettings(
-      GoogleDocsPostmortemSettings googleDocsPostmortemSettings) {
+  public PostmortemTemplateAttributesRequest googleDocsPostmortemSettings(GoogleDocsPostmortemSettings googleDocsPostmortemSettings) {
     this.googleDocsPostmortemSettings = googleDocsPostmortemSettings;
     this.unparsed |= googleDocsPostmortemSettings.unparsed;
     return this;
   }
 
   /**
-   * Settings for a postmortem template stored in Google Docs. Required when <code>location</code>
-   * is <code>google_docs</code>.
-   *
+   * <p>Settings for a postmortem template stored in Google Docs. Required when <code>location</code> is <code>google_docs</code>.</p>
    * @return googleDocsPostmortemSettings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GOOGLE_DOCS_POSTMORTEM_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GoogleDocsPostmortemSettings getGoogleDocsPostmortemSettings() {
-    return googleDocsPostmortemSettings;
-  }
-
-  public void setGoogleDocsPostmortemSettings(
-      GoogleDocsPostmortemSettings googleDocsPostmortemSettings) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GOOGLE_DOCS_POSTMORTEM_SETTINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public GoogleDocsPostmortemSettings getGoogleDocsPostmortemSettings() {
+        return googleDocsPostmortemSettings;
+      }
+  public void setGoogleDocsPostmortemSettings(GoogleDocsPostmortemSettings googleDocsPostmortemSettings) {
     this.googleDocsPostmortemSettings = googleDocsPostmortemSettings;
     if (googleDocsPostmortemSettings != null) {
       this.unparsed |= googleDocsPostmortemSettings.unparsed;
     }
   }
-
   public PostmortemTemplateAttributesRequest isDefault(OffsetDateTime isDefault) {
     this.isDefault = JsonNullable.<OffsetDateTime>of(isDefault);
     return this;
   }
 
   /**
-   * When set, marks this template as a default. The effective default for an incident type is the
-   * template with the most recent <code>is_default</code> timestamp. Set to <code>null</code> to
-   * unset.
-   *
+   * <p>When set, marks this template as a default. The effective default for an incident type is the template with the most recent <code>is_default</code> timestamp. Set to <code>null</code> to unset.</p>
    * @return isDefault
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getIsDefault() {
-    return isDefault.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public OffsetDateTime getIsDefault() {
+        return isDefault.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<OffsetDateTime> getIsDefault_JsonNullable() {
     return isDefault;
   }
-
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
-  public void setIsDefault_JsonNullable(JsonNullable<OffsetDateTime> isDefault) {
+  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)public void setIsDefault_JsonNullable(JsonNullable<OffsetDateTime> isDefault) {
     this.isDefault = isDefault;
   }
-
   public void setIsDefault(OffsetDateTime isDefault) {
     this.isDefault = JsonNullable.<OffsetDateTime>of(isDefault);
   }
-
   public PostmortemTemplateAttributesRequest location(PostmortemTemplateLocation location) {
     this.location = location;
     this.unparsed |= !location.isValid();
@@ -177,53 +169,51 @@ public class PostmortemTemplateAttributesRequest {
   }
 
   /**
-   * The location where the postmortem is created and stored.
-   *
+   * <p>The location where the postmortem is created and stored.</p>
    * @return location
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOCATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PostmortemTemplateLocation getLocation() {
-    return location;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOCATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public PostmortemTemplateLocation getLocation() {
+        return location;
+      }
   public void setLocation(PostmortemTemplateLocation location) {
     if (!location.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.location = location;
   }
-
   public PostmortemTemplateAttributesRequest name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the template.
-   *
+   * <p>The name of the template.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -232,7 +222,7 @@ public class PostmortemTemplateAttributesRequest {
   @JsonAnySetter
   public PostmortemTemplateAttributesRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -256,12 +246,14 @@ public class PostmortemTemplateAttributesRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this PostmortemTemplateAttributesRequest object is equal to o. */
+  /**
+   * Return true if this PostmortemTemplateAttributesRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -270,45 +262,23 @@ public class PostmortemTemplateAttributesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PostmortemTemplateAttributesRequest postmortemTemplateAttributesRequest =
-        (PostmortemTemplateAttributesRequest) o;
-    return Objects.equals(
-            this.confluencePostmortemSettings,
-            postmortemTemplateAttributesRequest.confluencePostmortemSettings)
-        && Objects.equals(this.content, postmortemTemplateAttributesRequest.content)
-        && Objects.equals(
-            this.googleDocsPostmortemSettings,
-            postmortemTemplateAttributesRequest.googleDocsPostmortemSettings)
-        && Objects.equals(this.isDefault, postmortemTemplateAttributesRequest.isDefault)
-        && Objects.equals(this.location, postmortemTemplateAttributesRequest.location)
-        && Objects.equals(this.name, postmortemTemplateAttributesRequest.name)
-        && Objects.equals(
-            this.additionalProperties, postmortemTemplateAttributesRequest.additionalProperties);
+    PostmortemTemplateAttributesRequest postmortemTemplateAttributesRequest = (PostmortemTemplateAttributesRequest) o;
+    return Objects.equals(this.confluencePostmortemSettings, postmortemTemplateAttributesRequest.confluencePostmortemSettings) && Objects.equals(this.content, postmortemTemplateAttributesRequest.content) && Objects.equals(this.googleDocsPostmortemSettings, postmortemTemplateAttributesRequest.googleDocsPostmortemSettings) && Objects.equals(this.isDefault, postmortemTemplateAttributesRequest.isDefault) && Objects.equals(this.location, postmortemTemplateAttributesRequest.location) && Objects.equals(this.name, postmortemTemplateAttributesRequest.name) && Objects.equals(this.additionalProperties, postmortemTemplateAttributesRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        confluencePostmortemSettings,
-        content,
-        googleDocsPostmortemSettings,
-        isDefault,
-        location,
-        name,
-        additionalProperties);
+    return Objects.hash(confluencePostmortemSettings,content,googleDocsPostmortemSettings,isDefault,location,name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PostmortemTemplateAttributesRequest {\n");
-    sb.append("    confluencePostmortemSettings: ")
-        .append(toIndentedString(confluencePostmortemSettings))
-        .append("\n");
+    sb.append("    confluencePostmortemSettings: ").append(toIndentedString(confluencePostmortemSettings)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    googleDocsPostmortemSettings: ")
-        .append(toIndentedString(googleDocsPostmortemSettings))
-        .append("\n");
+    sb.append("    googleDocsPostmortemSettings: ").append(toIndentedString(googleDocsPostmortemSettings)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -320,7 +290,8 @@ public class PostmortemTemplateAttributesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

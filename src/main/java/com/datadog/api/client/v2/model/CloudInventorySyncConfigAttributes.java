@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Attributes for a Storage Management configuration. Fields other than <code>id</code> may be empty
- * in the response immediately after a create or update; subsequent reads return the full
- * configuration.
+   * <p>Attributes for a Storage Management configuration. Fields other than <code>id</code> may be empty in the response immediately after a create or update; subsequent reads return the full configuration.</p>
  */
 @JsonPropertyOrder({
   CloudInventorySyncConfigAttributes.JSON_PROPERTY_AWS_ACCOUNT_ID,
@@ -38,10 +50,10 @@ import java.util.Objects;
   CloudInventorySyncConfigAttributes.JSON_PROPERTY_GCP_SERVICE_ACCOUNT_EMAIL,
   CloudInventorySyncConfigAttributes.JSON_PROPERTY_PREFIX
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudInventorySyncConfigAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AWS_ACCOUNT_ID = "aws_account_id";
   private String awsAccountId;
 
@@ -57,8 +69,7 @@ public class CloudInventorySyncConfigAttributes {
   public static final String JSON_PROPERTY_AZURE_CONTAINER_NAME = "azure_container_name";
   private String azureContainerName;
 
-  public static final String JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME =
-      "azure_storage_account_name";
+  public static final String JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME = "azure_storage_account_name";
   private String azureStorageAccountName;
 
   public static final String JSON_PROPERTY_AZURE_TENANT_ID = "azure_tenant_id";
@@ -89,311 +100,282 @@ public class CloudInventorySyncConfigAttributes {
 
   @JsonCreator
   public CloudInventorySyncConfigAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AWS_ACCOUNT_ID) String awsAccountId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AWS_BUCKET_NAME) String awsBucketName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AWS_REGION) String awsRegion,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AZURE_CLIENT_ID) String azureClientId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AZURE_CONTAINER_NAME)
-          String azureContainerName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME)
-          String azureStorageAccountName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AZURE_TENANT_ID) String azureTenantId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CLOUD_PROVIDER)
-          CloudInventoryCloudProviderId cloudProvider,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ERROR) String error,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ERROR_CODE) String errorCode,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GCP_BUCKET_NAME) String gcpBucketName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GCP_PROJECT_ID) String gcpProjectId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GCP_SERVICE_ACCOUNT_EMAIL)
-          String gcpServiceAccountEmail,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PREFIX) String prefix) {
-    this.awsAccountId = awsAccountId;
-    this.awsBucketName = awsBucketName;
-    this.awsRegion = awsRegion;
-    this.azureClientId = azureClientId;
-    this.azureContainerName = azureContainerName;
-    this.azureStorageAccountName = azureStorageAccountName;
-    this.azureTenantId = azureTenantId;
-    this.cloudProvider = cloudProvider;
-    this.unparsed |= !cloudProvider.isValid();
-    this.error = error;
-    this.errorCode = errorCode;
-    this.gcpBucketName = gcpBucketName;
-    this.gcpProjectId = gcpProjectId;
-    this.gcpServiceAccountEmail = gcpServiceAccountEmail;
-    this.prefix = prefix;
+            @JsonProperty(required=true, value=JSON_PROPERTY_AWS_ACCOUNT_ID)String awsAccountId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AWS_BUCKET_NAME)String awsBucketName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AWS_REGION)String awsRegion,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AZURE_CLIENT_ID)String azureClientId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AZURE_CONTAINER_NAME)String azureContainerName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME)String azureStorageAccountName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_AZURE_TENANT_ID)String azureTenantId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CLOUD_PROVIDER)CloudInventoryCloudProviderId cloudProvider,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ERROR)String error,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ERROR_CODE)String errorCode,
+            @JsonProperty(required=true, value=JSON_PROPERTY_GCP_BUCKET_NAME)String gcpBucketName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_GCP_PROJECT_ID)String gcpProjectId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_GCP_SERVICE_ACCOUNT_EMAIL)String gcpServiceAccountEmail,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PREFIX)String prefix) {
+        this.awsAccountId = awsAccountId;
+        this.awsBucketName = awsBucketName;
+        this.awsRegion = awsRegion;
+        this.azureClientId = azureClientId;
+        this.azureContainerName = azureContainerName;
+        this.azureStorageAccountName = azureStorageAccountName;
+        this.azureTenantId = azureTenantId;
+        this.cloudProvider = cloudProvider;
+        this.unparsed |= !cloudProvider.isValid();
+        this.error = error;
+        this.errorCode = errorCode;
+        this.gcpBucketName = gcpBucketName;
+        this.gcpProjectId = gcpProjectId;
+        this.gcpServiceAccountEmail = gcpServiceAccountEmail;
+        this.prefix = prefix;
   }
-
   public CloudInventorySyncConfigAttributes awsAccountId(String awsAccountId) {
     this.awsAccountId = awsAccountId;
     return this;
   }
 
   /**
-   * AWS account ID for the inventory bucket.
-   *
+   * <p>AWS account ID for the inventory bucket.</p>
    * @return awsAccountId
-   */
-  @JsonProperty(JSON_PROPERTY_AWS_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAwsAccountId() {
-    return awsAccountId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AWS_ACCOUNT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAwsAccountId() {
+        return awsAccountId;
+      }
   public void setAwsAccountId(String awsAccountId) {
     this.awsAccountId = awsAccountId;
   }
-
   public CloudInventorySyncConfigAttributes awsBucketName(String awsBucketName) {
     this.awsBucketName = awsBucketName;
     return this;
   }
 
   /**
-   * AWS S3 bucket name for inventory files.
-   *
+   * <p>AWS S3 bucket name for inventory files.</p>
    * @return awsBucketName
-   */
-  @JsonProperty(JSON_PROPERTY_AWS_BUCKET_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAwsBucketName() {
-    return awsBucketName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AWS_BUCKET_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAwsBucketName() {
+        return awsBucketName;
+      }
   public void setAwsBucketName(String awsBucketName) {
     this.awsBucketName = awsBucketName;
   }
-
   public CloudInventorySyncConfigAttributes awsRegion(String awsRegion) {
     this.awsRegion = awsRegion;
     return this;
   }
 
   /**
-   * AWS Region for the inventory bucket.
-   *
+   * <p>AWS Region for the inventory bucket.</p>
    * @return awsRegion
-   */
-  @JsonProperty(JSON_PROPERTY_AWS_REGION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAwsRegion() {
-    return awsRegion;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AWS_REGION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAwsRegion() {
+        return awsRegion;
+      }
   public void setAwsRegion(String awsRegion) {
     this.awsRegion = awsRegion;
   }
-
   public CloudInventorySyncConfigAttributes azureClientId(String azureClientId) {
     this.azureClientId = azureClientId;
     return this;
   }
 
   /**
-   * Azure AD application (client) ID.
-   *
+   * <p>Azure AD application (client) ID.</p>
    * @return azureClientId
-   */
-  @JsonProperty(JSON_PROPERTY_AZURE_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAzureClientId() {
-    return azureClientId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AZURE_CLIENT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAzureClientId() {
+        return azureClientId;
+      }
   public void setAzureClientId(String azureClientId) {
     this.azureClientId = azureClientId;
   }
-
   public CloudInventorySyncConfigAttributes azureContainerName(String azureContainerName) {
     this.azureContainerName = azureContainerName;
     return this;
   }
 
   /**
-   * Azure blob container name.
-   *
+   * <p>Azure blob container name.</p>
    * @return azureContainerName
-   */
-  @JsonProperty(JSON_PROPERTY_AZURE_CONTAINER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAzureContainerName() {
-    return azureContainerName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AZURE_CONTAINER_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAzureContainerName() {
+        return azureContainerName;
+      }
   public void setAzureContainerName(String azureContainerName) {
     this.azureContainerName = azureContainerName;
   }
-
-  public CloudInventorySyncConfigAttributes azureStorageAccountName(
-      String azureStorageAccountName) {
+  public CloudInventorySyncConfigAttributes azureStorageAccountName(String azureStorageAccountName) {
     this.azureStorageAccountName = azureStorageAccountName;
     return this;
   }
 
   /**
-   * Azure storage account name.
-   *
+   * <p>Azure storage account name.</p>
    * @return azureStorageAccountName
-   */
-  @JsonProperty(JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAzureStorageAccountName() {
-    return azureStorageAccountName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AZURE_STORAGE_ACCOUNT_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAzureStorageAccountName() {
+        return azureStorageAccountName;
+      }
   public void setAzureStorageAccountName(String azureStorageAccountName) {
     this.azureStorageAccountName = azureStorageAccountName;
   }
-
   public CloudInventorySyncConfigAttributes azureTenantId(String azureTenantId) {
     this.azureTenantId = azureTenantId;
     return this;
   }
 
   /**
-   * Azure AD tenant ID.
-   *
+   * <p>Azure AD tenant ID.</p>
    * @return azureTenantId
-   */
-  @JsonProperty(JSON_PROPERTY_AZURE_TENANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAzureTenantId() {
-    return azureTenantId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AZURE_TENANT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAzureTenantId() {
+        return azureTenantId;
+      }
   public void setAzureTenantId(String azureTenantId) {
     this.azureTenantId = azureTenantId;
   }
-
-  public CloudInventorySyncConfigAttributes cloudProvider(
-      CloudInventoryCloudProviderId cloudProvider) {
+  public CloudInventorySyncConfigAttributes cloudProvider(CloudInventoryCloudProviderId cloudProvider) {
     this.cloudProvider = cloudProvider;
     this.unparsed |= !cloudProvider.isValid();
     return this;
   }
 
   /**
-   * Cloud provider for this sync configuration (<code>aws</code>, <code>gcp</code>, or <code>azure
-   * </code>). For requests, must match the provider block supplied under <code>attributes</code>.
-   *
+   * <p>Cloud provider for this sync configuration (<code>aws</code>, <code>gcp</code>, or <code>azure</code>). For requests, must match the provider block supplied under <code>attributes</code>.</p>
    * @return cloudProvider
-   */
-  @JsonProperty(JSON_PROPERTY_CLOUD_PROVIDER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CloudInventoryCloudProviderId getCloudProvider() {
-    return cloudProvider;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CLOUD_PROVIDER)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CloudInventoryCloudProviderId getCloudProvider() {
+        return cloudProvider;
+      }
   public void setCloudProvider(CloudInventoryCloudProviderId cloudProvider) {
     if (!cloudProvider.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.cloudProvider = cloudProvider;
   }
 
   /**
-   * Human-readable error detail when sync is unhealthy.
-   *
+   * <p>Human-readable error detail when sync is unhealthy.</p>
    * @return error
-   */
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getError() {
-    return error;
-  }
+  **/
+      @JsonProperty(JSON_PROPERTY_ERROR)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getError() {
+        return error;
+      }
 
   /**
-   * Machine-readable error code when sync is unhealthy.
-   *
+   * <p>Machine-readable error code when sync is unhealthy.</p>
    * @return errorCode
-   */
-  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getErrorCode() {
-    return errorCode;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getErrorCode() {
+        return errorCode;
+      }
   public CloudInventorySyncConfigAttributes gcpBucketName(String gcpBucketName) {
     this.gcpBucketName = gcpBucketName;
     return this;
   }
 
   /**
-   * GCS bucket name for inventory files Datadog reads.
-   *
+   * <p>GCS bucket name for inventory files Datadog reads.</p>
    * @return gcpBucketName
-   */
-  @JsonProperty(JSON_PROPERTY_GCP_BUCKET_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getGcpBucketName() {
-    return gcpBucketName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_GCP_BUCKET_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getGcpBucketName() {
+        return gcpBucketName;
+      }
   public void setGcpBucketName(String gcpBucketName) {
     this.gcpBucketName = gcpBucketName;
   }
-
   public CloudInventorySyncConfigAttributes gcpProjectId(String gcpProjectId) {
     this.gcpProjectId = gcpProjectId;
     return this;
   }
 
   /**
-   * GCP project ID.
-   *
+   * <p>GCP project ID.</p>
    * @return gcpProjectId
-   */
-  @JsonProperty(JSON_PROPERTY_GCP_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getGcpProjectId() {
-    return gcpProjectId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_GCP_PROJECT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getGcpProjectId() {
+        return gcpProjectId;
+      }
   public void setGcpProjectId(String gcpProjectId) {
     this.gcpProjectId = gcpProjectId;
   }
-
   public CloudInventorySyncConfigAttributes gcpServiceAccountEmail(String gcpServiceAccountEmail) {
     this.gcpServiceAccountEmail = gcpServiceAccountEmail;
     return this;
   }
 
   /**
-   * Service account email for bucket access.
-   *
+   * <p>Service account email for bucket access.</p>
    * @return gcpServiceAccountEmail
-   */
-  @JsonProperty(JSON_PROPERTY_GCP_SERVICE_ACCOUNT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getGcpServiceAccountEmail() {
-    return gcpServiceAccountEmail;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_GCP_SERVICE_ACCOUNT_EMAIL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getGcpServiceAccountEmail() {
+        return gcpServiceAccountEmail;
+      }
   public void setGcpServiceAccountEmail(String gcpServiceAccountEmail) {
     this.gcpServiceAccountEmail = gcpServiceAccountEmail;
   }
 
   /**
-   * Object key prefix where inventory reports are written. Returns <code>/</code> when reports are
-   * written at the bucket root.
-   *
+   * <p>Object key prefix where inventory reports are written. Returns <code>/</code> when reports are written at the bucket root.</p>
    * @return prefix
-   */
-  @JsonProperty(JSON_PROPERTY_PREFIX)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPrefix() {
-    return prefix;
-  }
+  **/
+      @JsonProperty(JSON_PROPERTY_PREFIX)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getPrefix() {
+        return prefix;
+      }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -402,7 +384,7 @@ public class CloudInventorySyncConfigAttributes {
   @JsonAnySetter
   public CloudInventorySyncConfigAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -426,12 +408,14 @@ public class CloudInventorySyncConfigAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CloudInventorySyncConfigAttributes object is equal to o. */
+  /**
+   * Return true if this CloudInventorySyncConfigAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -440,48 +424,14 @@ public class CloudInventorySyncConfigAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudInventorySyncConfigAttributes cloudInventorySyncConfigAttributes =
-        (CloudInventorySyncConfigAttributes) o;
-    return Objects.equals(this.awsAccountId, cloudInventorySyncConfigAttributes.awsAccountId)
-        && Objects.equals(this.awsBucketName, cloudInventorySyncConfigAttributes.awsBucketName)
-        && Objects.equals(this.awsRegion, cloudInventorySyncConfigAttributes.awsRegion)
-        && Objects.equals(this.azureClientId, cloudInventorySyncConfigAttributes.azureClientId)
-        && Objects.equals(
-            this.azureContainerName, cloudInventorySyncConfigAttributes.azureContainerName)
-        && Objects.equals(
-            this.azureStorageAccountName,
-            cloudInventorySyncConfigAttributes.azureStorageAccountName)
-        && Objects.equals(this.azureTenantId, cloudInventorySyncConfigAttributes.azureTenantId)
-        && Objects.equals(this.cloudProvider, cloudInventorySyncConfigAttributes.cloudProvider)
-        && Objects.equals(this.error, cloudInventorySyncConfigAttributes.error)
-        && Objects.equals(this.errorCode, cloudInventorySyncConfigAttributes.errorCode)
-        && Objects.equals(this.gcpBucketName, cloudInventorySyncConfigAttributes.gcpBucketName)
-        && Objects.equals(this.gcpProjectId, cloudInventorySyncConfigAttributes.gcpProjectId)
-        && Objects.equals(
-            this.gcpServiceAccountEmail, cloudInventorySyncConfigAttributes.gcpServiceAccountEmail)
-        && Objects.equals(this.prefix, cloudInventorySyncConfigAttributes.prefix)
-        && Objects.equals(
-            this.additionalProperties, cloudInventorySyncConfigAttributes.additionalProperties);
+    CloudInventorySyncConfigAttributes cloudInventorySyncConfigAttributes = (CloudInventorySyncConfigAttributes) o;
+    return Objects.equals(this.awsAccountId, cloudInventorySyncConfigAttributes.awsAccountId) && Objects.equals(this.awsBucketName, cloudInventorySyncConfigAttributes.awsBucketName) && Objects.equals(this.awsRegion, cloudInventorySyncConfigAttributes.awsRegion) && Objects.equals(this.azureClientId, cloudInventorySyncConfigAttributes.azureClientId) && Objects.equals(this.azureContainerName, cloudInventorySyncConfigAttributes.azureContainerName) && Objects.equals(this.azureStorageAccountName, cloudInventorySyncConfigAttributes.azureStorageAccountName) && Objects.equals(this.azureTenantId, cloudInventorySyncConfigAttributes.azureTenantId) && Objects.equals(this.cloudProvider, cloudInventorySyncConfigAttributes.cloudProvider) && Objects.equals(this.error, cloudInventorySyncConfigAttributes.error) && Objects.equals(this.errorCode, cloudInventorySyncConfigAttributes.errorCode) && Objects.equals(this.gcpBucketName, cloudInventorySyncConfigAttributes.gcpBucketName) && Objects.equals(this.gcpProjectId, cloudInventorySyncConfigAttributes.gcpProjectId) && Objects.equals(this.gcpServiceAccountEmail, cloudInventorySyncConfigAttributes.gcpServiceAccountEmail) && Objects.equals(this.prefix, cloudInventorySyncConfigAttributes.prefix) && Objects.equals(this.additionalProperties, cloudInventorySyncConfigAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        awsAccountId,
-        awsBucketName,
-        awsRegion,
-        azureClientId,
-        azureContainerName,
-        azureStorageAccountName,
-        azureTenantId,
-        cloudProvider,
-        error,
-        errorCode,
-        gcpBucketName,
-        gcpProjectId,
-        gcpServiceAccountEmail,
-        prefix,
-        additionalProperties);
+    return Objects.hash(awsAccountId,awsBucketName,awsRegion,azureClientId,azureContainerName,azureStorageAccountName,azureTenantId,cloudProvider,error,errorCode,gcpBucketName,gcpProjectId,gcpServiceAccountEmail,prefix, additionalProperties);
   }
 
   @Override
@@ -493,18 +443,14 @@ public class CloudInventorySyncConfigAttributes {
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureContainerName: ").append(toIndentedString(azureContainerName)).append("\n");
-    sb.append("    azureStorageAccountName: ")
-        .append(toIndentedString(azureStorageAccountName))
-        .append("\n");
+    sb.append("    azureStorageAccountName: ").append(toIndentedString(azureStorageAccountName)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    gcpBucketName: ").append(toIndentedString(gcpBucketName)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
-    sb.append("    gcpServiceAccountEmail: ")
-        .append(toIndentedString(gcpServiceAccountEmail))
-        .append("\n");
+    sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -514,7 +460,8 @@ public class CloudInventorySyncConfigAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,24 +6,50 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The telemetry source that a tag policy applies to. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The telemetry source that a tag policy applies to.</p>
+ */
 @JsonSerialize(using = TagPolicySource.TagPolicySourceSerializer.class)
 public class TagPolicySource extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("logs", "spans", "metrics", "rum", "feed"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("logs", "spans", "metrics", "rum", "feed"));
 
   public static final TagPolicySource LOGS = new TagPolicySource("logs");
   public static final TagPolicySource SPANS = new TagPolicySource("spans");
@@ -31,24 +57,24 @@ public class TagPolicySource extends ModelEnum<String> {
   public static final TagPolicySource RUM = new TagPolicySource("rum");
   public static final TagPolicySource FEED = new TagPolicySource("feed");
 
+
   TagPolicySource(String value) {
     super(value, allowedValues);
   }
 
   public static class TagPolicySourceSerializer extends StdSerializer<TagPolicySource> {
-    public TagPolicySourceSerializer(Class<TagPolicySource> t) {
-      super(t);
-    }
+      public TagPolicySourceSerializer(Class<TagPolicySource> t) {
+          super(t);
+      }
 
-    public TagPolicySourceSerializer() {
-      this(null);
-    }
+      public TagPolicySourceSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(TagPolicySource value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(TagPolicySource value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

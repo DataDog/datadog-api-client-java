@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,12 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Campaign attributes. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Campaign attributes.</p>
+ */
 @JsonPropertyOrder({
   CampaignResponseAttributes.JSON_PROPERTY_CREATED_AT,
   CampaignResponseAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -32,10 +47,10 @@ import java.util.Objects;
   CampaignResponseAttributes.JSON_PROPERTY_START_DATE,
   CampaignResponseAttributes.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CampaignResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -73,255 +88,234 @@ public class CampaignResponseAttributes {
 
   @JsonCreator
   public CampaignResponseAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_KEY) String key,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) OffsetDateTime modifiedAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_OWNER) String owner,
-      @JsonProperty(required = true, value = JSON_PROPERTY_START_DATE) OffsetDateTime startDate,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS) String status) {
-    this.createdAt = createdAt;
-    this.key = key;
-    this.modifiedAt = modifiedAt;
-    this.name = name;
-    this.owner = owner;
-    this.startDate = startDate;
-    this.status = status;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_KEY)String key,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MODIFIED_AT)OffsetDateTime modifiedAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_OWNER)String owner,
+            @JsonProperty(required=true, value=JSON_PROPERTY_START_DATE)OffsetDateTime startDate,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STATUS)String status) {
+        this.createdAt = createdAt;
+        this.key = key;
+        this.modifiedAt = modifiedAt;
+        this.name = name;
+        this.owner = owner;
+        this.startDate = startDate;
+        this.status = status;
   }
-
   public CampaignResponseAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Creation time of the campaign.
-   *
+   * <p>Creation time of the campaign.</p>
    * @return createdAt
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public CampaignResponseAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * The description of the campaign.
-   *
+   * <p>The description of the campaign.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public CampaignResponseAttributes dueDate(OffsetDateTime dueDate) {
     this.dueDate = dueDate;
     return this;
   }
 
   /**
-   * The due date of the campaign.
-   *
+   * <p>The due date of the campaign.</p>
    * @return dueDate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getDueDate() {
-    return dueDate;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DUE_DATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getDueDate() {
+        return dueDate;
+      }
   public void setDueDate(OffsetDateTime dueDate) {
     this.dueDate = dueDate;
   }
-
   public CampaignResponseAttributes entityScope(String entityScope) {
     this.entityScope = entityScope;
     return this;
   }
 
   /**
-   * Entity scope query to filter entities for this campaign.
-   *
+   * <p>Entity scope query to filter entities for this campaign.</p>
    * @return entityScope
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENTITY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEntityScope() {
-    return entityScope;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENTITY_SCOPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEntityScope() {
+        return entityScope;
+      }
   public void setEntityScope(String entityScope) {
     this.entityScope = entityScope;
   }
-
   public CampaignResponseAttributes guidance(String guidance) {
     this.guidance = guidance;
     return this;
   }
 
   /**
-   * Guidance for the campaign.
-   *
+   * <p>Guidance for the campaign.</p>
    * @return guidance
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GUIDANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getGuidance() {
-    return guidance;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GUIDANCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getGuidance() {
+        return guidance;
+      }
   public void setGuidance(String guidance) {
     this.guidance = guidance;
   }
-
   public CampaignResponseAttributes key(String key) {
     this.key = key;
     return this;
   }
 
   /**
-   * The unique key for the campaign.
-   *
+   * <p>The unique key for the campaign.</p>
    * @return key
-   */
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getKey() {
-    return key;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getKey() {
+        return key;
+      }
   public void setKey(String key) {
     this.key = key;
   }
-
   public CampaignResponseAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * Time of last campaign modification.
-   *
+   * <p>Time of last campaign modification.</p>
    * @return modifiedAt
-   */
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
   public CampaignResponseAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the campaign.
-   *
+   * <p>The name of the campaign.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public CampaignResponseAttributes owner(String owner) {
     this.owner = owner;
     return this;
   }
 
   /**
-   * The UUID of the campaign owner.
-   *
+   * <p>The UUID of the campaign owner.</p>
    * @return owner
-   */
-  @JsonProperty(JSON_PROPERTY_OWNER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getOwner() {
-    return owner;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_OWNER)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getOwner() {
+        return owner;
+      }
   public void setOwner(String owner) {
     this.owner = owner;
   }
-
   public CampaignResponseAttributes startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
 
   /**
-   * The start date of the campaign.
-   *
+   * <p>The start date of the campaign.</p>
    * @return startDate
-   */
-  @JsonProperty(JSON_PROPERTY_START_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getStartDate() {
-    return startDate;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_START_DATE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getStartDate() {
+        return startDate;
+      }
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
-
   public CampaignResponseAttributes status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * The status of the campaign.
-   *
+   * <p>The status of the campaign.</p>
    * @return status
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getStatus() {
-    return status;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getStatus() {
+        return status;
+      }
   public void setStatus(String status) {
     this.status = status;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -330,7 +324,7 @@ public class CampaignResponseAttributes {
   @JsonAnySetter
   public CampaignResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -354,12 +348,14 @@ public class CampaignResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CampaignResponseAttributes object is equal to o. */
+  /**
+   * Return true if this CampaignResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -369,36 +365,13 @@ public class CampaignResponseAttributes {
       return false;
     }
     CampaignResponseAttributes campaignResponseAttributes = (CampaignResponseAttributes) o;
-    return Objects.equals(this.createdAt, campaignResponseAttributes.createdAt)
-        && Objects.equals(this.description, campaignResponseAttributes.description)
-        && Objects.equals(this.dueDate, campaignResponseAttributes.dueDate)
-        && Objects.equals(this.entityScope, campaignResponseAttributes.entityScope)
-        && Objects.equals(this.guidance, campaignResponseAttributes.guidance)
-        && Objects.equals(this.key, campaignResponseAttributes.key)
-        && Objects.equals(this.modifiedAt, campaignResponseAttributes.modifiedAt)
-        && Objects.equals(this.name, campaignResponseAttributes.name)
-        && Objects.equals(this.owner, campaignResponseAttributes.owner)
-        && Objects.equals(this.startDate, campaignResponseAttributes.startDate)
-        && Objects.equals(this.status, campaignResponseAttributes.status)
-        && Objects.equals(
-            this.additionalProperties, campaignResponseAttributes.additionalProperties);
+    return Objects.equals(this.createdAt, campaignResponseAttributes.createdAt) && Objects.equals(this.description, campaignResponseAttributes.description) && Objects.equals(this.dueDate, campaignResponseAttributes.dueDate) && Objects.equals(this.entityScope, campaignResponseAttributes.entityScope) && Objects.equals(this.guidance, campaignResponseAttributes.guidance) && Objects.equals(this.key, campaignResponseAttributes.key) && Objects.equals(this.modifiedAt, campaignResponseAttributes.modifiedAt) && Objects.equals(this.name, campaignResponseAttributes.name) && Objects.equals(this.owner, campaignResponseAttributes.owner) && Objects.equals(this.startDate, campaignResponseAttributes.startDate) && Objects.equals(this.status, campaignResponseAttributes.status) && Objects.equals(this.additionalProperties, campaignResponseAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdAt,
-        description,
-        dueDate,
-        entityScope,
-        guidance,
-        key,
-        modifiedAt,
-        name,
-        owner,
-        startDate,
-        status,
-        additionalProperties);
+    return Objects.hash(createdAt,description,dueDate,entityScope,guidance,key,modifiedAt,name,owner,startDate,status, additionalProperties);
   }
 
   @Override
@@ -424,7 +397,8 @@ public class CampaignResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The configuration and derived state of a report schedule in a list response. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The configuration and derived state of a report schedule in a list response.</p>
+ */
 @JsonPropertyOrder({
   ReportScheduleListResponseAttributes.JSON_PROPERTY_DELIVERY_FORMAT,
   ReportScheduleListResponseAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -35,13 +48,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ReportScheduleListResponseAttributes.JSON_PROPERTY_TIMEZONE,
   ReportScheduleListResponseAttributes.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ReportScheduleListResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELIVERY_FORMAT = "delivery_format";
-  private JsonNullable<ReportScheduleResponseAttributesDeliveryFormat> deliveryFormat =
-      JsonNullable.<ReportScheduleResponseAttributesDeliveryFormat>undefined();
+  private JsonNullable<ReportScheduleResponseAttributesDeliveryFormat> deliveryFormat = JsonNullable.<ReportScheduleResponseAttributesDeliveryFormat>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -80,212 +92,186 @@ public class ReportScheduleListResponseAttributes {
 
   @JsonCreator
   public ReportScheduleListResponseAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NEXT_RECURRENCE) Long nextRecurrence,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RECIPIENTS) List<String> recipients,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_ID) String resourceId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE)
-          ReportScheduleResourceType resourceType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RRULE) String rrule,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS) ReportScheduleStatus status,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TEMPLATE_VARIABLES)
-          List<ReportScheduleTemplateVariable> templateVariables,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEFRAME) String timeframe,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEZONE) String timezone,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
-    this.description = description;
-    this.nextRecurrence = nextRecurrence;
-    if (nextRecurrence != null) {}
-    this.recipients = recipients;
-    this.resourceId = resourceId;
-    this.resourceType = resourceType;
-    this.unparsed |= !resourceType.isValid();
-    this.rrule = rrule;
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    this.templateVariables = templateVariables;
-    for (ReportScheduleTemplateVariable item : templateVariables) {
-      this.unparsed |= item.unparsed;
-    }
-    this.timeframe = timeframe;
-    if (timeframe != null) {}
-    this.timezone = timezone;
-    this.title = title;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESCRIPTION)String description,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NEXT_RECURRENCE)Long nextRecurrence,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RECIPIENTS)List<String> recipients,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RESOURCE_ID)String resourceId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RESOURCE_TYPE)ReportScheduleResourceType resourceType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RRULE)String rrule,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STATUS)ReportScheduleStatus status,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TEMPLATE_VARIABLES)List<ReportScheduleTemplateVariable> templateVariables,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TIMEFRAME)String timeframe,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TIMEZONE)String timezone,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TITLE)String title) {
+        this.description = description;
+        this.nextRecurrence = nextRecurrence;
+        if (nextRecurrence != null) {
+        }
+        this.recipients = recipients;
+        this.resourceId = resourceId;
+        this.resourceType = resourceType;
+        this.unparsed |= !resourceType.isValid();
+        this.rrule = rrule;
+        this.status = status;
+        this.unparsed |= !status.isValid();
+        this.templateVariables = templateVariables;
+        for (ReportScheduleTemplateVariable item : templateVariables) {
+          this.unparsed |= item.unparsed;
+        }
+        this.timeframe = timeframe;
+        if (timeframe != null) {
+        }
+        this.timezone = timezone;
+        this.title = title;
   }
-
-  public ReportScheduleListResponseAttributes deliveryFormat(
-      ReportScheduleResponseAttributesDeliveryFormat deliveryFormat) {
-    this.deliveryFormat =
-        JsonNullable.<ReportScheduleResponseAttributesDeliveryFormat>of(deliveryFormat);
+  public ReportScheduleListResponseAttributes deliveryFormat(ReportScheduleResponseAttributesDeliveryFormat deliveryFormat) {
+    this.deliveryFormat = JsonNullable.<ReportScheduleResponseAttributesDeliveryFormat>of(deliveryFormat);
     return this;
   }
 
   /**
-   * The delivery format for dashboard report schedules, or <code>null</code> if not set.
-   *
+   * <p>The delivery format for dashboard report schedules, or <code>null</code> if not set.</p>
    * @return deliveryFormat
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public ReportScheduleResponseAttributesDeliveryFormat getDeliveryFormat() {
-    return deliveryFormat.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public ReportScheduleResponseAttributesDeliveryFormat getDeliveryFormat() {
+        return deliveryFormat.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DELIVERY_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<ReportScheduleResponseAttributesDeliveryFormat>
-      getDeliveryFormat_JsonNullable() {
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<ReportScheduleResponseAttributesDeliveryFormat> getDeliveryFormat_JsonNullable() {
     return deliveryFormat;
   }
-
-  @JsonProperty(JSON_PROPERTY_DELIVERY_FORMAT)
-  public void setDeliveryFormat_JsonNullable(
-      JsonNullable<ReportScheduleResponseAttributesDeliveryFormat> deliveryFormat) {
+  @JsonProperty(JSON_PROPERTY_DELIVERY_FORMAT)public void setDeliveryFormat_JsonNullable(JsonNullable<ReportScheduleResponseAttributesDeliveryFormat> deliveryFormat) {
     this.deliveryFormat = deliveryFormat;
   }
-
   public void setDeliveryFormat(ReportScheduleResponseAttributesDeliveryFormat deliveryFormat) {
     if (!deliveryFormat.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
-    this.deliveryFormat =
-        JsonNullable.<ReportScheduleResponseAttributesDeliveryFormat>of(deliveryFormat);
+    this.deliveryFormat = JsonNullable.<ReportScheduleResponseAttributesDeliveryFormat>of(deliveryFormat);
   }
-
   public ReportScheduleListResponseAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * The description of the report.
-   *
+   * <p>The description of the report.</p>
    * @return description
-   */
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public ReportScheduleListResponseAttributes nextRecurrence(Long nextRecurrence) {
     this.nextRecurrence = nextRecurrence;
-    if (nextRecurrence != null) {}
+        if (nextRecurrence != null) {
+    }
     return this;
   }
 
   /**
-   * The Unix timestamp, in milliseconds, of the next scheduled delivery, or <code>null</code> if
-   * none is scheduled.
-   *
+   * <p>The Unix timestamp, in milliseconds, of the next scheduled delivery, or <code>null</code> if none is scheduled.</p>
    * @return nextRecurrence
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NEXT_RECURRENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getNextRecurrence() {
-    return nextRecurrence;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NEXT_RECURRENCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getNextRecurrence() {
+        return nextRecurrence;
+      }
   public void setNextRecurrence(Long nextRecurrence) {
     this.nextRecurrence = nextRecurrence;
   }
-
   public ReportScheduleListResponseAttributes recipients(List<String> recipients) {
     this.recipients = recipients;
     return this;
   }
-
   public ReportScheduleListResponseAttributes addRecipientsItem(String recipientsItem) {
     this.recipients.add(recipientsItem);
     return this;
   }
 
   /**
-   * The recipients of the report (email addresses, Slack channel references, or Microsoft Teams
-   * channel references).
-   *
+   * <p>The recipients of the report (email addresses, Slack channel references, or Microsoft Teams channel references).</p>
    * @return recipients
-   */
-  @JsonProperty(JSON_PROPERTY_RECIPIENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getRecipients() {
-    return recipients;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RECIPIENTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getRecipients() {
+        return recipients;
+      }
   public void setRecipients(List<String> recipients) {
     this.recipients = recipients;
   }
-
   public ReportScheduleListResponseAttributes resourceId(String resourceId) {
     this.resourceId = resourceId;
     return this;
   }
 
   /**
-   * The identifier of the resource rendered in the report.
-   *
+   * <p>The identifier of the resource rendered in the report.</p>
    * @return resourceId
-   */
-  @JsonProperty(JSON_PROPERTY_RESOURCE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getResourceId() {
-    return resourceId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RESOURCE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getResourceId() {
+        return resourceId;
+      }
   public void setResourceId(String resourceId) {
     this.resourceId = resourceId;
   }
-
-  public ReportScheduleListResponseAttributes resourceType(
-      ReportScheduleResourceType resourceType) {
+  public ReportScheduleListResponseAttributes resourceType(ReportScheduleResourceType resourceType) {
     this.resourceType = resourceType;
     this.unparsed |= !resourceType.isValid();
     return this;
   }
 
   /**
-   * The type of dashboard resource the report schedule targets.
-   *
+   * <p>The type of dashboard resource the report schedule targets.</p>
    * @return resourceType
-   */
-  @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ReportScheduleResourceType getResourceType() {
-    return resourceType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ReportScheduleResourceType getResourceType() {
+        return resourceType;
+      }
   public void setResourceType(ReportScheduleResourceType resourceType) {
     if (!resourceType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.resourceType = resourceType;
   }
-
   public ReportScheduleListResponseAttributes rrule(String rrule) {
     this.rrule = rrule;
     return this;
   }
 
   /**
-   * The recurrence rule for the schedule, expressed as an iCalendar <code>RRULE</code> string.
-   *
+   * <p>The recurrence rule for the schedule, expressed as an iCalendar <code>RRULE</code> string.</p>
    * @return rrule
-   */
-  @JsonProperty(JSON_PROPERTY_RRULE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getRrule() {
-    return rrule;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RRULE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getRrule() {
+        return rrule;
+      }
   public void setRrule(String rrule) {
     this.rrule = rrule;
   }
-
   public ReportScheduleListResponseAttributes status(ReportScheduleStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -293,51 +279,44 @@ public class ReportScheduleListResponseAttributes {
   }
 
   /**
-   * Whether the schedule is currently delivering reports (<code>active</code>) or paused (<code>
-   * inactive</code>).
-   *
+   * <p>Whether the schedule is currently delivering reports (<code>active</code>) or paused (<code>inactive</code>).</p>
    * @return status
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ReportScheduleStatus getStatus() {
-    return status;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ReportScheduleStatus getStatus() {
+        return status;
+      }
   public void setStatus(ReportScheduleStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
-
-  public ReportScheduleListResponseAttributes templateVariables(
-      List<ReportScheduleTemplateVariable> templateVariables) {
+  public ReportScheduleListResponseAttributes templateVariables(List<ReportScheduleTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
     for (ReportScheduleTemplateVariable item : templateVariables) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public ReportScheduleListResponseAttributes addTemplateVariablesItem(
-      ReportScheduleTemplateVariable templateVariablesItem) {
+  public ReportScheduleListResponseAttributes addTemplateVariablesItem(ReportScheduleTemplateVariable templateVariablesItem) {
     this.templateVariables.add(templateVariablesItem);
     this.unparsed |= templateVariablesItem.unparsed;
     return this;
   }
 
   /**
-   * The dashboard template variables applied when rendering the report.
-   *
+   * <p>The dashboard template variables applied when rendering the report.</p>
    * @return templateVariables
-   */
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ReportScheduleTemplateVariable> getTemplateVariables() {
-    return templateVariables;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<ReportScheduleTemplateVariable> getTemplateVariables() {
+        return templateVariables;
+      }
   public void setTemplateVariables(List<ReportScheduleTemplateVariable> templateVariables) {
     this.templateVariables = templateVariables;
     if (templateVariables != null) {
@@ -346,78 +325,74 @@ public class ReportScheduleListResponseAttributes {
       }
     }
   }
-
   public ReportScheduleListResponseAttributes timeframe(String timeframe) {
     this.timeframe = timeframe;
-    if (timeframe != null) {}
+        if (timeframe != null) {
+    }
     return this;
   }
 
   /**
-   * The relative timeframe of data included in the report, or <code>null</code> if not set.
-   *
+   * <p>The relative timeframe of data included in the report, or <code>null</code> if not set.</p>
    * @return timeframe
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMEFRAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTimeframe() {
-    return timeframe;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIMEFRAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTimeframe() {
+        return timeframe;
+      }
   public void setTimeframe(String timeframe) {
     this.timeframe = timeframe;
   }
-
   public ReportScheduleListResponseAttributes timezone(String timezone) {
     this.timezone = timezone;
     return this;
   }
 
   /**
-   * The IANA time zone identifier the recurrence rule is evaluated in.
-   *
+   * <p>The IANA time zone identifier the recurrence rule is evaluated in.</p>
    * @return timezone
-   */
-  @JsonProperty(JSON_PROPERTY_TIMEZONE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTimezone() {
-    return timezone;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TIMEZONE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTimezone() {
+        return timezone;
+      }
   public void setTimezone(String timezone) {
     this.timezone = timezone;
   }
-
   public ReportScheduleListResponseAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The title of the report.
-   *
+   * <p>The title of the report.</p>
    * @return title
-   */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -426,7 +401,7 @@ public class ReportScheduleListResponseAttributes {
   @JsonAnySetter
   public ReportScheduleListResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -450,12 +425,14 @@ public class ReportScheduleListResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ReportScheduleListResponseAttributes object is equal to o. */
+  /**
+   * Return true if this ReportScheduleListResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -464,41 +441,14 @@ public class ReportScheduleListResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReportScheduleListResponseAttributes reportScheduleListResponseAttributes =
-        (ReportScheduleListResponseAttributes) o;
-    return Objects.equals(this.deliveryFormat, reportScheduleListResponseAttributes.deliveryFormat)
-        && Objects.equals(this.description, reportScheduleListResponseAttributes.description)
-        && Objects.equals(this.nextRecurrence, reportScheduleListResponseAttributes.nextRecurrence)
-        && Objects.equals(this.recipients, reportScheduleListResponseAttributes.recipients)
-        && Objects.equals(this.resourceId, reportScheduleListResponseAttributes.resourceId)
-        && Objects.equals(this.resourceType, reportScheduleListResponseAttributes.resourceType)
-        && Objects.equals(this.rrule, reportScheduleListResponseAttributes.rrule)
-        && Objects.equals(this.status, reportScheduleListResponseAttributes.status)
-        && Objects.equals(
-            this.templateVariables, reportScheduleListResponseAttributes.templateVariables)
-        && Objects.equals(this.timeframe, reportScheduleListResponseAttributes.timeframe)
-        && Objects.equals(this.timezone, reportScheduleListResponseAttributes.timezone)
-        && Objects.equals(this.title, reportScheduleListResponseAttributes.title)
-        && Objects.equals(
-            this.additionalProperties, reportScheduleListResponseAttributes.additionalProperties);
+    ReportScheduleListResponseAttributes reportScheduleListResponseAttributes = (ReportScheduleListResponseAttributes) o;
+    return Objects.equals(this.deliveryFormat, reportScheduleListResponseAttributes.deliveryFormat) && Objects.equals(this.description, reportScheduleListResponseAttributes.description) && Objects.equals(this.nextRecurrence, reportScheduleListResponseAttributes.nextRecurrence) && Objects.equals(this.recipients, reportScheduleListResponseAttributes.recipients) && Objects.equals(this.resourceId, reportScheduleListResponseAttributes.resourceId) && Objects.equals(this.resourceType, reportScheduleListResponseAttributes.resourceType) && Objects.equals(this.rrule, reportScheduleListResponseAttributes.rrule) && Objects.equals(this.status, reportScheduleListResponseAttributes.status) && Objects.equals(this.templateVariables, reportScheduleListResponseAttributes.templateVariables) && Objects.equals(this.timeframe, reportScheduleListResponseAttributes.timeframe) && Objects.equals(this.timezone, reportScheduleListResponseAttributes.timezone) && Objects.equals(this.title, reportScheduleListResponseAttributes.title) && Objects.equals(this.additionalProperties, reportScheduleListResponseAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        deliveryFormat,
-        description,
-        nextRecurrence,
-        recipients,
-        resourceId,
-        resourceType,
-        rrule,
-        status,
-        templateVariables,
-        timeframe,
-        timezone,
-        title,
-        additionalProperties);
+    return Objects.hash(deliveryFormat,description,nextRecurrence,recipients,resourceId,resourceType,rrule,status,templateVariables,timeframe,timezone,title, additionalProperties);
   }
 
   @Override
@@ -525,7 +475,8 @@ public class ReportScheduleListResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

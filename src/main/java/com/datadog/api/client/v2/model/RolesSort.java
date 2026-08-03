@@ -6,26 +6,50 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Sorting options for roles. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Sorting options for roles.</p>
+ */
 @JsonSerialize(using = RolesSort.RolesSortSerializer.class)
 public class RolesSort extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "name", "-name", "modified_at", "-modified_at", "user_count", "-user_count"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("name", "-name", "modified_at", "-modified_at", "user_count", "-user_count"));
 
   public static final RolesSort NAME_ASCENDING = new RolesSort("name");
   public static final RolesSort NAME_DESCENDING = new RolesSort("-name");
@@ -34,24 +58,24 @@ public class RolesSort extends ModelEnum<String> {
   public static final RolesSort USER_COUNT_ASCENDING = new RolesSort("user_count");
   public static final RolesSort USER_COUNT_DESCENDING = new RolesSort("-user_count");
 
+
   RolesSort(String value) {
     super(value, allowedValues);
   }
 
   public static class RolesSortSerializer extends StdSerializer<RolesSort> {
-    public RolesSortSerializer(Class<RolesSort> t) {
-      super(t);
-    }
+      public RolesSortSerializer(Class<RolesSort> t) {
+          super(t);
+      }
 
-    public RolesSortSerializer() {
-      this(null);
-    }
+      public RolesSortSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(RolesSort value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(RolesSort value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

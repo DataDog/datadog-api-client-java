@@ -6,21 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Additional configuration for the trigger, dependent on the trigger type. For <code>
- * STATUS_TRANSITIONED</code> triggers, specify <code>from_status_name</code> and <code>
- * to_status_name</code>. For <code>ATTRIBUTE_VALUE_CHANGED</code> triggers, specify <code>field
- * </code> and <code>change_type</code>.
+   * <p>Additional configuration for the trigger, dependent on the trigger type. For <code>STATUS_TRANSITIONED</code> triggers, specify <code>from_status_name</code> and <code>to_status_name</code>. For <code>ATTRIBUTE_VALUE_CHANGED</code> triggers, specify <code>field</code> and <code>change_type</code>.</p>
  */
 @JsonPropertyOrder({
   AutomationRuleTriggerData.JSON_PROPERTY_APPROVAL_TYPE,
@@ -29,10 +41,10 @@ import java.util.Objects;
   AutomationRuleTriggerData.JSON_PROPERTY_FROM_STATUS_NAME,
   AutomationRuleTriggerData.JSON_PROPERTY_TO_STATUS_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AutomationRuleTriggerData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPROVAL_TYPE = "approval_type";
   private String approvalType;
 
@@ -54,119 +66,106 @@ public class AutomationRuleTriggerData {
   }
 
   /**
-   * The approval outcome to match. Used with <code>CASE_REVIEW_APPROVED</code> triggers.
-   *
+   * <p>The approval outcome to match. Used with <code>CASE_REVIEW_APPROVED</code> triggers.</p>
    * @return approvalType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPROVAL_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApprovalType() {
-    return approvalType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APPROVAL_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getApprovalType() {
+        return approvalType;
+      }
   public void setApprovalType(String approvalType) {
     this.approvalType = approvalType;
   }
-
   public AutomationRuleTriggerData changeType(String changeType) {
     this.changeType = changeType;
     return this;
   }
 
   /**
-   * The kind of attribute change to match. Allowed values: <code>VALUE_ADDED</code>, <code>
-   * VALUE_DELETED</code>, <code>ANY_CHANGES</code>. Used with <code>ATTRIBUTE_VALUE_CHANGED</code>
-   * triggers.
-   *
+   * <p>The kind of attribute change to match. Allowed values: <code>VALUE_ADDED</code>, <code>VALUE_DELETED</code>, <code>ANY_CHANGES</code>. Used with <code>ATTRIBUTE_VALUE_CHANGED</code> triggers.</p>
    * @return changeType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getChangeType() {
-    return changeType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CHANGE_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getChangeType() {
+        return changeType;
+      }
   public void setChangeType(String changeType) {
     this.changeType = changeType;
   }
-
   public AutomationRuleTriggerData field(String field) {
     this.field = field;
     return this;
   }
 
   /**
-   * The case attribute field name to monitor for changes. Used with <code>ATTRIBUTE_VALUE_CHANGED
-   * </code> triggers.
-   *
+   * <p>The case attribute field name to monitor for changes. Used with <code>ATTRIBUTE_VALUE_CHANGED</code> triggers.</p>
    * @return field
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getField() {
-    return field;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIELD)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getField() {
+        return field;
+      }
   public void setField(String field) {
     this.field = field;
   }
-
   public AutomationRuleTriggerData fromStatusName(String fromStatusName) {
     this.fromStatusName = fromStatusName;
     return this;
   }
 
   /**
-   * The originating status name. Used with <code>STATUS_TRANSITIONED</code> triggers to match
-   * transitions from this status.
-   *
+   * <p>The originating status name. Used with <code>STATUS_TRANSITIONED</code> triggers to match transitions from this status.</p>
    * @return fromStatusName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FROM_STATUS_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getFromStatusName() {
-    return fromStatusName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FROM_STATUS_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getFromStatusName() {
+        return fromStatusName;
+      }
   public void setFromStatusName(String fromStatusName) {
     this.fromStatusName = fromStatusName;
   }
-
   public AutomationRuleTriggerData toStatusName(String toStatusName) {
     this.toStatusName = toStatusName;
     return this;
   }
 
   /**
-   * The destination status name. Used with <code>STATUS_TRANSITIONED</code> triggers to match
-   * transitions to this status.
-   *
+   * <p>The destination status name. Used with <code>STATUS_TRANSITIONED</code> triggers to match transitions to this status.</p>
    * @return toStatusName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TO_STATUS_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getToStatusName() {
-    return toStatusName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TO_STATUS_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getToStatusName() {
+        return toStatusName;
+      }
   public void setToStatusName(String toStatusName) {
     this.toStatusName = toStatusName;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -175,7 +174,7 @@ public class AutomationRuleTriggerData {
   @JsonAnySetter
   public AutomationRuleTriggerData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -199,12 +198,14 @@ public class AutomationRuleTriggerData {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AutomationRuleTriggerData object is equal to o. */
+  /**
+   * Return true if this AutomationRuleTriggerData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -214,19 +215,13 @@ public class AutomationRuleTriggerData {
       return false;
     }
     AutomationRuleTriggerData automationRuleTriggerData = (AutomationRuleTriggerData) o;
-    return Objects.equals(this.approvalType, automationRuleTriggerData.approvalType)
-        && Objects.equals(this.changeType, automationRuleTriggerData.changeType)
-        && Objects.equals(this.field, automationRuleTriggerData.field)
-        && Objects.equals(this.fromStatusName, automationRuleTriggerData.fromStatusName)
-        && Objects.equals(this.toStatusName, automationRuleTriggerData.toStatusName)
-        && Objects.equals(
-            this.additionalProperties, automationRuleTriggerData.additionalProperties);
+    return Objects.equals(this.approvalType, automationRuleTriggerData.approvalType) && Objects.equals(this.changeType, automationRuleTriggerData.changeType) && Objects.equals(this.field, automationRuleTriggerData.field) && Objects.equals(this.fromStatusName, automationRuleTriggerData.fromStatusName) && Objects.equals(this.toStatusName, automationRuleTriggerData.toStatusName) && Objects.equals(this.additionalProperties, automationRuleTriggerData.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        approvalType, changeType, field, fromStatusName, toStatusName, additionalProperties);
+    return Objects.hash(approvalType,changeType,field,fromStatusName,toStatusName, additionalProperties);
   }
 
   @Override
@@ -246,7 +241,8 @@ public class AutomationRuleTriggerData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

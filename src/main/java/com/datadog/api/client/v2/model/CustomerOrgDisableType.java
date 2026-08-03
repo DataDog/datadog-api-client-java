@@ -6,48 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** JSON:API resource type for a customer org disable request. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>JSON:API resource type for a customer org disable request.</p>
+ */
 @JsonSerialize(using = CustomerOrgDisableType.CustomerOrgDisableTypeSerializer.class)
 public class CustomerOrgDisableType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("customer_org_disable"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("customer_org_disable"));
 
-  public static final CustomerOrgDisableType CUSTOMER_ORG_DISABLE =
-      new CustomerOrgDisableType("customer_org_disable");
+  public static final CustomerOrgDisableType CUSTOMER_ORG_DISABLE = new CustomerOrgDisableType("customer_org_disable");
+
 
   CustomerOrgDisableType(String value) {
     super(value, allowedValues);
   }
 
-  public static class CustomerOrgDisableTypeSerializer
-      extends StdSerializer<CustomerOrgDisableType> {
-    public CustomerOrgDisableTypeSerializer(Class<CustomerOrgDisableType> t) {
-      super(t);
-    }
+  public static class CustomerOrgDisableTypeSerializer extends StdSerializer<CustomerOrgDisableType> {
+      public CustomerOrgDisableTypeSerializer(Class<CustomerOrgDisableType> t) {
+          super(t);
+      }
 
-    public CustomerOrgDisableTypeSerializer() {
-      this(null);
-    }
+      public CustomerOrgDisableTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        CustomerOrgDisableType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(CustomerOrgDisableType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

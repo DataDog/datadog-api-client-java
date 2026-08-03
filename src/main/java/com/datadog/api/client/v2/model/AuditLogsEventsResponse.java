@@ -6,28 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response object with all events matching the request and pagination information. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response object with all events matching the request and pagination information.</p>
+ */
 @JsonPropertyOrder({
   AuditLogsEventsResponse.JSON_PROPERTY_DATA,
   AuditLogsEventsResponse.JSON_PROPERTY_LINKS,
   AuditLogsEventsResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsEventsResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<AuditLogsEvent> data = null;
 
@@ -40,13 +55,12 @@ public class AuditLogsEventsResponse {
   public AuditLogsEventsResponse data(List<AuditLogsEvent> data) {
     this.data = data;
     if (data != null) {
-      for (AuditLogsEvent item : data) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AuditLogsEvent item : data) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public AuditLogsEventsResponse addDataItem(AuditLogsEvent dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -57,17 +71,16 @@ public class AuditLogsEventsResponse {
   }
 
   /**
-   * Array of events matching the request.
-   *
+   * <p>Array of events matching the request.</p>
    * @return data
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AuditLogsEvent> getData() {
-    return data;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AuditLogsEvent> getData() {
+        return data;
+      }
   public void setData(List<AuditLogsEvent> data) {
     this.data = data;
     if (data != null) {
@@ -76,7 +89,6 @@ public class AuditLogsEventsResponse {
       }
     }
   }
-
   public AuditLogsEventsResponse links(AuditLogsResponseLinks links) {
     this.links = links;
     this.unparsed |= links.unparsed;
@@ -84,24 +96,22 @@ public class AuditLogsEventsResponse {
   }
 
   /**
-   * Links attributes.
-   *
+   * <p>Links attributes.</p>
    * @return links
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AuditLogsResponseLinks getLinks() {
-    return links;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LINKS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public AuditLogsResponseLinks getLinks() {
+        return links;
+      }
   public void setLinks(AuditLogsResponseLinks links) {
     this.links = links;
     if (links != null) {
       this.unparsed |= links.unparsed;
     }
   }
-
   public AuditLogsEventsResponse meta(AuditLogsResponseMetadata meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -109,17 +119,16 @@ public class AuditLogsEventsResponse {
   }
 
   /**
-   * The metadata associated with a request.
-   *
+   * <p>The metadata associated with a request.</p>
    * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AuditLogsResponseMetadata getMeta() {
-    return meta;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public AuditLogsResponseMetadata getMeta() {
+        return meta;
+      }
   public void setMeta(AuditLogsResponseMetadata meta) {
     this.meta = meta;
     if (meta != null) {
@@ -128,14 +137,15 @@ public class AuditLogsEventsResponse {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -144,7 +154,7 @@ public class AuditLogsEventsResponse {
   @JsonAnySetter
   public AuditLogsEventsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -168,12 +178,14 @@ public class AuditLogsEventsResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AuditLogsEventsResponse object is equal to o. */
+  /**
+   * Return true if this AuditLogsEventsResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -183,15 +195,13 @@ public class AuditLogsEventsResponse {
       return false;
     }
     AuditLogsEventsResponse auditLogsEventsResponse = (AuditLogsEventsResponse) o;
-    return Objects.equals(this.data, auditLogsEventsResponse.data)
-        && Objects.equals(this.links, auditLogsEventsResponse.links)
-        && Objects.equals(this.meta, auditLogsEventsResponse.meta)
-        && Objects.equals(this.additionalProperties, auditLogsEventsResponse.additionalProperties);
+    return Objects.equals(this.data, auditLogsEventsResponse.data) && Objects.equals(this.links, auditLogsEventsResponse.links) && Objects.equals(this.meta, auditLogsEventsResponse.meta) && Objects.equals(this.additionalProperties, auditLogsEventsResponse.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, meta, additionalProperties);
+    return Objects.hash(data,links,meta, additionalProperties);
   }
 
   @Override
@@ -209,7 +219,8 @@ public class AuditLogsEventsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

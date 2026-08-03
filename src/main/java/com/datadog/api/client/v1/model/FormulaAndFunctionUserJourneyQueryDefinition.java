@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,15 +25,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * A formula and functions User Journey query for defining funnel, timeseries, and scalar
- * visualizations over journey data.
+   * <p>A formula and functions User Journey query for defining funnel, timeseries, and scalar visualizations over journey data.</p>
  */
 @JsonPropertyOrder({
   FormulaAndFunctionUserJourneyQueryDefinition.JSON_PROPERTY_COMPUTE,
@@ -30,10 +41,10 @@ import java.util.Objects;
   FormulaAndFunctionUserJourneyQueryDefinition.JSON_PROPERTY_NAME,
   FormulaAndFunctionUserJourneyQueryDefinition.JSON_PROPERTY_SEARCH
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionUserJourneyQueryDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private UserJourneyFormulaCompute compute;
 
@@ -53,21 +64,18 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
 
   @JsonCreator
   public FormulaAndFunctionUserJourneyQueryDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE)
-          UserJourneyFormulaCompute compute,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
-          ProductAnalyticsFunnelDataSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH) UserJourneySearch search) {
-    this.compute = compute;
-    this.unparsed |= compute.unparsed;
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    this.name = name;
-    this.search = search;
-    this.unparsed |= search.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_COMPUTE)UserJourneyFormulaCompute compute,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)ProductAnalyticsFunnelDataSource dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SEARCH)UserJourneySearch search) {
+        this.compute = compute;
+        this.unparsed |= compute.unparsed;
+        this.dataSource = dataSource;
+        this.unparsed |= !dataSource.isValid();
+        this.name = name;
+        this.search = search;
+        this.unparsed |= search.unparsed;
   }
-
   public FormulaAndFunctionUserJourneyQueryDefinition compute(UserJourneyFormulaCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
@@ -75,61 +83,53 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
   }
 
   /**
-   * Compute configuration for User Journey formula queries.
-   *
+   * <p>Compute configuration for User Journey formula queries.</p>
    * @return compute
-   */
-  @JsonProperty(JSON_PROPERTY_COMPUTE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public UserJourneyFormulaCompute getCompute() {
-    return compute;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_COMPUTE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public UserJourneyFormulaCompute getCompute() {
+        return compute;
+      }
   public void setCompute(UserJourneyFormulaCompute compute) {
     this.compute = compute;
     if (compute != null) {
       this.unparsed |= compute.unparsed;
     }
   }
-
-  public FormulaAndFunctionUserJourneyQueryDefinition dataSource(
-      ProductAnalyticsFunnelDataSource dataSource) {
+  public FormulaAndFunctionUserJourneyQueryDefinition dataSource(ProductAnalyticsFunnelDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
   }
 
   /**
-   * Data source for user journey funnel queries.
-   *
+   * <p>Data source for user journey funnel queries.</p>
    * @return dataSource
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsFunnelDataSource getDataSource() {
-    return dataSource;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsFunnelDataSource getDataSource() {
+        return dataSource;
+      }
   public void setDataSource(ProductAnalyticsFunnelDataSource dataSource) {
     if (!dataSource.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
-
-  public FormulaAndFunctionUserJourneyQueryDefinition groupBy(
-      List<UserJourneyFormulaGroupBy> groupBy) {
+  public FormulaAndFunctionUserJourneyQueryDefinition groupBy(List<UserJourneyFormulaGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
-      for (UserJourneyFormulaGroupBy item : groupBy) {
-        this.unparsed |= item.unparsed;
-      }
+    for (UserJourneyFormulaGroupBy item : groupBy) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public FormulaAndFunctionUserJourneyQueryDefinition addGroupByItem(
-      UserJourneyFormulaGroupBy groupByItem) {
+  public FormulaAndFunctionUserJourneyQueryDefinition addGroupByItem(UserJourneyFormulaGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
     }
@@ -139,17 +139,16 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
   }
 
   /**
-   * Group by configuration.
-   *
+   * <p>Group by configuration.</p>
    * @return groupBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<UserJourneyFormulaGroupBy> getGroupBy() {
-    return groupBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GROUP_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<UserJourneyFormulaGroupBy> getGroupBy() {
+        return groupBy;
+      }
   public void setGroupBy(List<UserJourneyFormulaGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
@@ -158,27 +157,24 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
       }
     }
   }
-
   public FormulaAndFunctionUserJourneyQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the query for use in formulas.
-   *
+   * <p>Name of the query for use in formulas.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public FormulaAndFunctionUserJourneyQueryDefinition search(UserJourneySearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
@@ -186,16 +182,15 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
   }
 
   /**
-   * User journey search configuration.
-   *
+   * <p>User journey search configuration.</p>
    * @return search
-   */
-  @JsonProperty(JSON_PROPERTY_SEARCH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public UserJourneySearch getSearch() {
-    return search;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SEARCH)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public UserJourneySearch getSearch() {
+        return search;
+      }
   public void setSearch(UserJourneySearch search) {
     this.search = search;
     if (search != null) {
@@ -204,24 +199,24 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return FormulaAndFunctionUserJourneyQueryDefinition
    */
   @JsonAnySetter
-  public FormulaAndFunctionUserJourneyQueryDefinition putAdditionalProperty(
-      String key, Object value) {
+  public FormulaAndFunctionUserJourneyQueryDefinition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -245,12 +240,14 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FormulaAndFunctionUserJourneyQueryDefinition object is equal to o. */
+  /**
+   * Return true if this FormulaAndFunctionUserJourneyQueryDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -259,21 +256,14 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionUserJourneyQueryDefinition formulaAndFunctionUserJourneyQueryDefinition =
-        (FormulaAndFunctionUserJourneyQueryDefinition) o;
-    return Objects.equals(this.compute, formulaAndFunctionUserJourneyQueryDefinition.compute)
-        && Objects.equals(this.dataSource, formulaAndFunctionUserJourneyQueryDefinition.dataSource)
-        && Objects.equals(this.groupBy, formulaAndFunctionUserJourneyQueryDefinition.groupBy)
-        && Objects.equals(this.name, formulaAndFunctionUserJourneyQueryDefinition.name)
-        && Objects.equals(this.search, formulaAndFunctionUserJourneyQueryDefinition.search)
-        && Objects.equals(
-            this.additionalProperties,
-            formulaAndFunctionUserJourneyQueryDefinition.additionalProperties);
+    FormulaAndFunctionUserJourneyQueryDefinition formulaAndFunctionUserJourneyQueryDefinition = (FormulaAndFunctionUserJourneyQueryDefinition) o;
+    return Objects.equals(this.compute, formulaAndFunctionUserJourneyQueryDefinition.compute) && Objects.equals(this.dataSource, formulaAndFunctionUserJourneyQueryDefinition.dataSource) && Objects.equals(this.groupBy, formulaAndFunctionUserJourneyQueryDefinition.groupBy) && Objects.equals(this.name, formulaAndFunctionUserJourneyQueryDefinition.name) && Objects.equals(this.search, formulaAndFunctionUserJourneyQueryDefinition.search) && Objects.equals(this.additionalProperties, formulaAndFunctionUserJourneyQueryDefinition.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute, dataSource, groupBy, name, search, additionalProperties);
+    return Objects.hash(compute,dataSource,groupBy,name,search, additionalProperties);
   }
 
   @Override
@@ -293,7 +283,8 @@ public class FormulaAndFunctionUserJourneyQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

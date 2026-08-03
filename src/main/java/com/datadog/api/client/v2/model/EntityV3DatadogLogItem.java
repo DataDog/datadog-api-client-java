@@ -6,21 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Log association item. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Log association item.</p>
+ */
 @JsonPropertyOrder({
   EntityV3DatadogLogItem.JSON_PROPERTY_NAME,
   EntityV3DatadogLogItem.JSON_PROPERTY_QUERY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EntityV3DatadogLogItem {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -33,43 +54,42 @@ public class EntityV3DatadogLogItem {
   }
 
   /**
-   * The name of the query.
-   *
+   * <p>The name of the query.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public EntityV3DatadogLogItem query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * The query to run.
-   *
+   * <p>The query to run.</p>
    * @return query
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
 
-  /** Return true if this EntityV3DatadogLogItem object is equal to o. */
+  /**
+   * Return true if this EntityV3DatadogLogItem object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,13 +99,13 @@ public class EntityV3DatadogLogItem {
       return false;
     }
     EntityV3DatadogLogItem entityV3DatadogLogItem = (EntityV3DatadogLogItem) o;
-    return Objects.equals(this.name, entityV3DatadogLogItem.name)
-        && Objects.equals(this.query, entityV3DatadogLogItem.query);
+    return Objects.equals(this.name, entityV3DatadogLogItem.name) && Objects.equals(this.query, entityV3DatadogLogItem.query);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, query);
+    return Objects.hash(name,query);
   }
 
   @Override
@@ -99,7 +119,8 @@ public class EntityV3DatadogLogItem {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Compute configuration for retention queries. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Compute configuration for retention queries.</p>
+ */
 @JsonPropertyOrder({
   RetentionCompute.JSON_PROPERTY_AGGREGATION,
   RetentionCompute.JSON_PROPERTY_METRIC
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionCompute {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private EventsAggregation aggregation;
 
@@ -32,15 +52,13 @@ public class RetentionCompute {
 
   @JsonCreator
   public RetentionCompute(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
-          EventsAggregation aggregation,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) RetentionComputeMetric metric) {
-    this.aggregation = aggregation;
-    this.unparsed |= aggregation.unparsed;
-    this.metric = metric;
-    this.unparsed |= !metric.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)EventsAggregation aggregation,
+            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC)RetentionComputeMetric metric) {
+        this.aggregation = aggregation;
+        this.unparsed |= aggregation.unparsed;
+        this.metric = metric;
+        this.unparsed |= !metric.isValid();
   }
-
   public RetentionCompute aggregation(EventsAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= aggregation.unparsed;
@@ -48,23 +66,21 @@ public class RetentionCompute {
   }
 
   /**
-   * The type of aggregation that can be performed on events-based queries.
-   *
+   * <p>The type of aggregation that can be performed on events-based queries.</p>
    * @return aggregation
-   */
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public EventsAggregation getAggregation() {
-    return aggregation;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public EventsAggregation getAggregation() {
+        return aggregation;
+      }
   public void setAggregation(EventsAggregation aggregation) {
     this.aggregation = aggregation;
     if (aggregation != null) {
       this.unparsed |= aggregation.unparsed;
     }
   }
-
   public RetentionCompute metric(RetentionComputeMetric metric) {
     this.metric = metric;
     this.unparsed |= !metric.isValid();
@@ -72,24 +88,25 @@ public class RetentionCompute {
   }
 
   /**
-   * Metric for retention compute.
-   *
+   * <p>Metric for retention compute.</p>
    * @return metric
-   */
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionComputeMetric getMetric() {
-    return metric;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetentionComputeMetric getMetric() {
+        return metric;
+      }
   public void setMetric(RetentionComputeMetric metric) {
     if (!metric.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.metric = metric;
   }
 
-  /** Return true if this RetentionCompute object is equal to o. */
+  /**
+   * Return true if this RetentionCompute object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,13 +116,13 @@ public class RetentionCompute {
       return false;
     }
     RetentionCompute retentionCompute = (RetentionCompute) o;
-    return Objects.equals(this.aggregation, retentionCompute.aggregation)
-        && Objects.equals(this.metric, retentionCompute.metric);
+    return Objects.equals(this.aggregation, retentionCompute.aggregation) && Objects.equals(this.metric, retentionCompute.metric);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, metric);
+    return Objects.hash(aggregation,metric);
   }
 
   @Override
@@ -119,7 +136,8 @@ public class RetentionCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

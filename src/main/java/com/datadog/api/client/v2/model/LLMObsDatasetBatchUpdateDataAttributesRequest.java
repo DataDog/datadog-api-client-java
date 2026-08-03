@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for batch-updating records in an LLM Observability dataset. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for batch-updating records in an LLM Observability dataset.</p>
+ */
 @JsonPropertyOrder({
   LLMObsDatasetBatchUpdateDataAttributesRequest.JSON_PROPERTY_CREATE_NEW_VERSION,
   LLMObsDatasetBatchUpdateDataAttributesRequest.JSON_PROPERTY_DELETE_RECORDS,
@@ -26,10 +41,10 @@ import java.util.Objects;
   LLMObsDatasetBatchUpdateDataAttributesRequest.JSON_PROPERTY_TAGS,
   LLMObsDatasetBatchUpdateDataAttributesRequest.JSON_PROPERTY_UPDATE_RECORDS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsDatasetBatchUpdateDataAttributesRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATE_NEW_VERSION = "create_new_version";
   private Boolean createNewVersion;
 
@@ -51,29 +66,24 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
   }
 
   /**
-   * Whether to create a new dataset version when applying the batch update. Defaults to <code>true
-   * </code>.
-   *
+   * <p>Whether to create a new dataset version when applying the batch update. Defaults to <code>true</code>.</p>
    * @return createNewVersion
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATE_NEW_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getCreateNewVersion() {
-    return createNewVersion;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATE_NEW_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getCreateNewVersion() {
+        return createNewVersion;
+      }
   public void setCreateNewVersion(Boolean createNewVersion) {
     this.createNewVersion = createNewVersion;
   }
-
   public LLMObsDatasetBatchUpdateDataAttributesRequest deleteRecords(List<String> deleteRecords) {
     this.deleteRecords = deleteRecords;
     return this;
   }
-
-  public LLMObsDatasetBatchUpdateDataAttributesRequest addDeleteRecordsItem(
-      String deleteRecordsItem) {
+  public LLMObsDatasetBatchUpdateDataAttributesRequest addDeleteRecordsItem(String deleteRecordsItem) {
     if (this.deleteRecords == null) {
       this.deleteRecords = new ArrayList<>();
     }
@@ -82,34 +92,29 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
   }
 
   /**
-   * Record IDs to delete.
-   *
+   * <p>Record IDs to delete.</p>
    * @return deleteRecords
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETE_RECORDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDeleteRecords() {
-    return deleteRecords;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DELETE_RECORDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getDeleteRecords() {
+        return deleteRecords;
+      }
   public void setDeleteRecords(List<String> deleteRecords) {
     this.deleteRecords = deleteRecords;
   }
-
-  public LLMObsDatasetBatchUpdateDataAttributesRequest insertRecords(
-      List<LLMObsDatasetBatchUpdateInsertRecord> insertRecords) {
+  public LLMObsDatasetBatchUpdateDataAttributesRequest insertRecords(List<LLMObsDatasetBatchUpdateInsertRecord> insertRecords) {
     this.insertRecords = insertRecords;
     if (insertRecords != null) {
-      for (LLMObsDatasetBatchUpdateInsertRecord item : insertRecords) {
-        this.unparsed |= item.unparsed;
-      }
+    for (LLMObsDatasetBatchUpdateInsertRecord item : insertRecords) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public LLMObsDatasetBatchUpdateDataAttributesRequest addInsertRecordsItem(
-      LLMObsDatasetBatchUpdateInsertRecord insertRecordsItem) {
+  public LLMObsDatasetBatchUpdateDataAttributesRequest addInsertRecordsItem(LLMObsDatasetBatchUpdateInsertRecord insertRecordsItem) {
     if (this.insertRecords == null) {
       this.insertRecords = new ArrayList<>();
     }
@@ -119,17 +124,16 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
   }
 
   /**
-   * Records to insert.
-   *
+   * <p>Records to insert.</p>
    * @return insertRecords
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INSERT_RECORDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LLMObsDatasetBatchUpdateInsertRecord> getInsertRecords() {
-    return insertRecords;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INSERT_RECORDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<LLMObsDatasetBatchUpdateInsertRecord> getInsertRecords() {
+        return insertRecords;
+      }
   public void setInsertRecords(List<LLMObsDatasetBatchUpdateInsertRecord> insertRecords) {
     this.insertRecords = insertRecords;
     if (insertRecords != null) {
@@ -138,12 +142,10 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
       }
     }
   }
-
   public LLMObsDatasetBatchUpdateDataAttributesRequest tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public LLMObsDatasetBatchUpdateDataAttributesRequest addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -153,34 +155,29 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
   }
 
   /**
-   * List of tag strings.
-   *
+   * <p>List of tag strings.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
-  public LLMObsDatasetBatchUpdateDataAttributesRequest updateRecords(
-      List<LLMObsDatasetBatchUpdateUpdateRecord> updateRecords) {
+  public LLMObsDatasetBatchUpdateDataAttributesRequest updateRecords(List<LLMObsDatasetBatchUpdateUpdateRecord> updateRecords) {
     this.updateRecords = updateRecords;
     if (updateRecords != null) {
-      for (LLMObsDatasetBatchUpdateUpdateRecord item : updateRecords) {
-        this.unparsed |= item.unparsed;
-      }
+    for (LLMObsDatasetBatchUpdateUpdateRecord item : updateRecords) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public LLMObsDatasetBatchUpdateDataAttributesRequest addUpdateRecordsItem(
-      LLMObsDatasetBatchUpdateUpdateRecord updateRecordsItem) {
+  public LLMObsDatasetBatchUpdateDataAttributesRequest addUpdateRecordsItem(LLMObsDatasetBatchUpdateUpdateRecord updateRecordsItem) {
     if (this.updateRecords == null) {
       this.updateRecords = new ArrayList<>();
     }
@@ -190,17 +187,16 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
   }
 
   /**
-   * Records to update by ID.
-   *
+   * <p>Records to update by ID.</p>
    * @return updateRecords
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPDATE_RECORDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LLMObsDatasetBatchUpdateUpdateRecord> getUpdateRecords() {
-    return updateRecords;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UPDATE_RECORDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<LLMObsDatasetBatchUpdateUpdateRecord> getUpdateRecords() {
+        return updateRecords;
+      }
   public void setUpdateRecords(List<LLMObsDatasetBatchUpdateUpdateRecord> updateRecords) {
     this.updateRecords = updateRecords;
     if (updateRecords != null) {
@@ -211,24 +207,24 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return LLMObsDatasetBatchUpdateDataAttributesRequest
    */
   @JsonAnySetter
-  public LLMObsDatasetBatchUpdateDataAttributesRequest putAdditionalProperty(
-      String key, Object value) {
+  public LLMObsDatasetBatchUpdateDataAttributesRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -252,12 +248,14 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsDatasetBatchUpdateDataAttributesRequest object is equal to o. */
+  /**
+   * Return true if this LLMObsDatasetBatchUpdateDataAttributesRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -266,26 +264,14 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsDatasetBatchUpdateDataAttributesRequest llmObsDatasetBatchUpdateDataAttributesRequest =
-        (LLMObsDatasetBatchUpdateDataAttributesRequest) o;
-    return Objects.equals(
-            this.createNewVersion, llmObsDatasetBatchUpdateDataAttributesRequest.createNewVersion)
-        && Objects.equals(
-            this.deleteRecords, llmObsDatasetBatchUpdateDataAttributesRequest.deleteRecords)
-        && Objects.equals(
-            this.insertRecords, llmObsDatasetBatchUpdateDataAttributesRequest.insertRecords)
-        && Objects.equals(this.tags, llmObsDatasetBatchUpdateDataAttributesRequest.tags)
-        && Objects.equals(
-            this.updateRecords, llmObsDatasetBatchUpdateDataAttributesRequest.updateRecords)
-        && Objects.equals(
-            this.additionalProperties,
-            llmObsDatasetBatchUpdateDataAttributesRequest.additionalProperties);
+    LLMObsDatasetBatchUpdateDataAttributesRequest llmObsDatasetBatchUpdateDataAttributesRequest = (LLMObsDatasetBatchUpdateDataAttributesRequest) o;
+    return Objects.equals(this.createNewVersion, llmObsDatasetBatchUpdateDataAttributesRequest.createNewVersion) && Objects.equals(this.deleteRecords, llmObsDatasetBatchUpdateDataAttributesRequest.deleteRecords) && Objects.equals(this.insertRecords, llmObsDatasetBatchUpdateDataAttributesRequest.insertRecords) && Objects.equals(this.tags, llmObsDatasetBatchUpdateDataAttributesRequest.tags) && Objects.equals(this.updateRecords, llmObsDatasetBatchUpdateDataAttributesRequest.updateRecords) && Objects.equals(this.additionalProperties, llmObsDatasetBatchUpdateDataAttributesRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createNewVersion, deleteRecords, insertRecords, tags, updateRecords, additionalProperties);
+    return Objects.hash(createNewVersion,deleteRecords,insertRecords,tags,updateRecords, additionalProperties);
   }
 
   @Override
@@ -305,7 +291,8 @@ public class LLMObsDatasetBatchUpdateDataAttributesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

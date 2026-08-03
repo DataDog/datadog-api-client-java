@@ -6,21 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Attributes of a flattened prompt version returned for SDK consumption. Exactly one of <code>
- * template</code> and <code>chat_template</code> is returned.
+   * <p>Attributes of a flattened prompt version returned for SDK consumption. Exactly one of <code>template</code> and <code>chat_template</code> is returned.</p>
  */
 @JsonPropertyOrder({
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_CHAT_TEMPLATE,
@@ -30,10 +42,10 @@ import java.util.Objects;
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_TEMPLATE,
   LLMObsPromptSDKDataAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsPromptSDKDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHAT_TEMPLATE = "chat_template";
   private List<LLMObsPromptChatMessage> chatTemplate = null;
 
@@ -55,15 +67,13 @@ public class LLMObsPromptSDKDataAttributes {
   public LLMObsPromptSDKDataAttributes chatTemplate(List<LLMObsPromptChatMessage> chatTemplate) {
     this.chatTemplate = chatTemplate;
     if (chatTemplate != null) {
-      for (LLMObsPromptChatMessage item : chatTemplate) {
-        this.unparsed |= item.unparsed;
-      }
+    for (LLMObsPromptChatMessage item : chatTemplate) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public LLMObsPromptSDKDataAttributes addChatTemplateItem(
-      LLMObsPromptChatMessage chatTemplateItem) {
+  public LLMObsPromptSDKDataAttributes addChatTemplateItem(LLMObsPromptChatMessage chatTemplateItem) {
     if (this.chatTemplate == null) {
       this.chatTemplate = new ArrayList<>();
     }
@@ -73,18 +83,16 @@ public class LLMObsPromptSDKDataAttributes {
   }
 
   /**
-   * Chat template for this prompt version, as a list of role and content messages. Omitted for text
-   * templates.
-   *
+   * <p>Chat template for this prompt version, as a list of role and content messages. Omitted for text templates.</p>
    * @return chatTemplate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHAT_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LLMObsPromptChatMessage> getChatTemplate() {
-    return chatTemplate;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CHAT_TEMPLATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<LLMObsPromptChatMessage> getChatTemplate() {
+        return chatTemplate;
+      }
   public void setChatTemplate(List<LLMObsPromptChatMessage> chatTemplate) {
     this.chatTemplate = chatTemplate;
     if (chatTemplate != null) {
@@ -93,12 +101,10 @@ public class LLMObsPromptSDKDataAttributes {
       }
     }
   }
-
   public LLMObsPromptSDKDataAttributes labels(List<String> labels) {
     this.labels = labels;
     return this;
   }
-
   public LLMObsPromptSDKDataAttributes addLabelsItem(String labelsItem) {
     if (this.labels == null) {
       this.labels = new ArrayList<>();
@@ -108,118 +114,109 @@ public class LLMObsPromptSDKDataAttributes {
   }
 
   /**
-   * Labels attached to the selected version.
-   *
+   * <p>Labels attached to the selected version.</p>
    * @return labels
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LABELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getLabels() {
-    return labels;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LABELS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getLabels() {
+        return labels;
+      }
   @Deprecated
   public void setLabels(List<String> labels) {
     this.labels = labels;
   }
-
   public LLMObsPromptSDKDataAttributes promptId(String promptId) {
     this.promptId = promptId;
     return this;
   }
 
   /**
-   * Customer-provided identifier of the prompt.
-   *
+   * <p>Customer-provided identifier of the prompt.</p>
    * @return promptId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROMPT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPromptId() {
-    return promptId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROMPT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPromptId() {
+        return promptId;
+      }
   public void setPromptId(String promptId) {
     this.promptId = promptId;
   }
-
   public LLMObsPromptSDKDataAttributes promptVersionUuid(String promptVersionUuid) {
     this.promptVersionUuid = promptVersionUuid;
     return this;
   }
 
   /**
-   * Unique identifier of this prompt version.
-   *
+   * <p>Unique identifier of this prompt version.</p>
    * @return promptVersionUuid
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROMPT_VERSION_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPromptVersionUuid() {
-    return promptVersionUuid;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROMPT_VERSION_UUID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPromptVersionUuid() {
+        return promptVersionUuid;
+      }
   public void setPromptVersionUuid(String promptVersionUuid) {
     this.promptVersionUuid = promptVersionUuid;
   }
-
   public LLMObsPromptSDKDataAttributes template(String template) {
     this.template = template;
     return this;
   }
 
   /**
-   * Text template for this prompt version. Omitted for chat templates.
-   *
+   * <p>Text template for this prompt version. Omitted for chat templates.</p>
    * @return template
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTemplate() {
-    return template;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEMPLATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTemplate() {
+        return template;
+      }
   public void setTemplate(String template) {
     this.template = template;
   }
-
   public LLMObsPromptSDKDataAttributes version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * Version identifier for this prompt version. This is the sequential version number unless a
-   * user-supplied version identifier was set, in which case that identifier is used instead.
-   *
+   * <p>Version identifier for this prompt version. This is the sequential version number unless a user-supplied version identifier was set, in which case that identifier is used instead.</p>
    * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getVersion() {
-    return version;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getVersion() {
+        return version;
+      }
   public void setVersion(String version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -228,7 +225,7 @@ public class LLMObsPromptSDKDataAttributes {
   @JsonAnySetter
   public LLMObsPromptSDKDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -252,12 +249,14 @@ public class LLMObsPromptSDKDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsPromptSDKDataAttributes object is equal to o. */
+  /**
+   * Return true if this LLMObsPromptSDKDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -267,20 +266,13 @@ public class LLMObsPromptSDKDataAttributes {
       return false;
     }
     LLMObsPromptSDKDataAttributes llmObsPromptSdkDataAttributes = (LLMObsPromptSDKDataAttributes) o;
-    return Objects.equals(this.chatTemplate, llmObsPromptSdkDataAttributes.chatTemplate)
-        && Objects.equals(this.labels, llmObsPromptSdkDataAttributes.labels)
-        && Objects.equals(this.promptId, llmObsPromptSdkDataAttributes.promptId)
-        && Objects.equals(this.promptVersionUuid, llmObsPromptSdkDataAttributes.promptVersionUuid)
-        && Objects.equals(this.template, llmObsPromptSdkDataAttributes.template)
-        && Objects.equals(this.version, llmObsPromptSdkDataAttributes.version)
-        && Objects.equals(
-            this.additionalProperties, llmObsPromptSdkDataAttributes.additionalProperties);
+    return Objects.equals(this.chatTemplate, llmObsPromptSdkDataAttributes.chatTemplate) && Objects.equals(this.labels, llmObsPromptSdkDataAttributes.labels) && Objects.equals(this.promptId, llmObsPromptSdkDataAttributes.promptId) && Objects.equals(this.promptVersionUuid, llmObsPromptSdkDataAttributes.promptVersionUuid) && Objects.equals(this.template, llmObsPromptSdkDataAttributes.template) && Objects.equals(this.version, llmObsPromptSdkDataAttributes.version) && Objects.equals(this.additionalProperties, llmObsPromptSdkDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        chatTemplate, labels, promptId, promptVersionUuid, template, version, additionalProperties);
+    return Objects.hash(chatTemplate,labels,promptId,promptVersionUuid,template,version, additionalProperties);
   }
 
   @Override
@@ -301,7 +293,8 @@ public class LLMObsPromptSDKDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

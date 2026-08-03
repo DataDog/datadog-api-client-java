@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a governance insight. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes of a governance insight.</p>
+ */
 @JsonPropertyOrder({
   GovernanceInsightAttributes.JSON_PROPERTY_AUDIT_QUERY,
   GovernanceInsightAttributes.JSON_PROPERTY_BEST_PRACTICE,
@@ -38,10 +54,10 @@ import java.util.Objects;
   GovernanceInsightAttributes.JSON_PROPERTY_USAGE_QUERY,
   GovernanceInsightAttributes.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GovernanceInsightAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUDIT_QUERY = "audit_query";
   private GovernanceInsightAuditQuery auditQuery;
 
@@ -100,54 +116,49 @@ public class GovernanceInsightAttributes {
 
   @JsonCreator
   public GovernanceInsightAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUDIT_QUERY)
-          GovernanceInsightAuditQuery auditQuery,
-      @JsonProperty(required = true, value = JSON_PROPERTY_BEST_PRACTICE)
-          GovernanceBestPracticeDefinition bestPractice,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DEEP_LINK) String deepLink,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DISPLAY_NAME) String displayName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_EVENT_QUERY)
-          GovernanceInsightEventQuery eventQuery,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC_QUERY)
-          GovernanceInsightMetricQuery metricQuery,
-      @JsonProperty(required = true, value = JSON_PROPERTY_OLD_VALUE) Double oldValue,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PERCENTAGE_QUERY)
-          GovernanceInsightPercentageQuery percentageQuery,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PRODUCT) String product,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATE) String state,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SUB_PRODUCT) String subProduct,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIME_RANGE) String timeRange,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UNIT_NAME) String unitName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_USAGE_QUERY)
-          GovernanceInsightUsageQuery usageQuery,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) Double value) {
-    this.auditQuery = auditQuery;
-    this.unparsed |= auditQuery.unparsed;
-    this.bestPractice = bestPractice;
-    this.unparsed |= bestPractice.unparsed;
-    this.deepLink = deepLink;
-    this.description = description;
-    this.displayName = displayName;
-    this.eventQuery = eventQuery;
-    this.unparsed |= eventQuery.unparsed;
-    this.metricQuery = metricQuery;
-    this.unparsed |= metricQuery.unparsed;
-    this.oldValue = oldValue;
-    if (oldValue != null) {}
-    this.percentageQuery = percentageQuery;
-    this.unparsed |= percentageQuery.unparsed;
-    this.product = product;
-    this.state = state;
-    this.subProduct = subProduct;
-    this.timeRange = timeRange;
-    this.unitName = unitName;
-    this.usageQuery = usageQuery;
-    this.unparsed |= usageQuery.unparsed;
-    this.value = value;
-    if (value != null) {}
+            @JsonProperty(required=true, value=JSON_PROPERTY_AUDIT_QUERY)GovernanceInsightAuditQuery auditQuery,
+            @JsonProperty(required=true, value=JSON_PROPERTY_BEST_PRACTICE)GovernanceBestPracticeDefinition bestPractice,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DEEP_LINK)String deepLink,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESCRIPTION)String description,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DISPLAY_NAME)String displayName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_EVENT_QUERY)GovernanceInsightEventQuery eventQuery,
+            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC_QUERY)GovernanceInsightMetricQuery metricQuery,
+            @JsonProperty(required=true, value=JSON_PROPERTY_OLD_VALUE)Double oldValue,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PERCENTAGE_QUERY)GovernanceInsightPercentageQuery percentageQuery,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PRODUCT)String product,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STATE)String state,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SUB_PRODUCT)String subProduct,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TIME_RANGE)String timeRange,
+            @JsonProperty(required=true, value=JSON_PROPERTY_UNIT_NAME)String unitName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_USAGE_QUERY)GovernanceInsightUsageQuery usageQuery,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VALUE)Double value) {
+        this.auditQuery = auditQuery;
+        this.unparsed |= auditQuery.unparsed;
+        this.bestPractice = bestPractice;
+        this.unparsed |= bestPractice.unparsed;
+        this.deepLink = deepLink;
+        this.description = description;
+        this.displayName = displayName;
+        this.eventQuery = eventQuery;
+        this.unparsed |= eventQuery.unparsed;
+        this.metricQuery = metricQuery;
+        this.unparsed |= metricQuery.unparsed;
+        this.oldValue = oldValue;
+        if (oldValue != null) {
+        }
+        this.percentageQuery = percentageQuery;
+        this.unparsed |= percentageQuery.unparsed;
+        this.product = product;
+        this.state = state;
+        this.subProduct = subProduct;
+        this.timeRange = timeRange;
+        this.unitName = unitName;
+        this.usageQuery = usageQuery;
+        this.unparsed |= usageQuery.unparsed;
+        this.value = value;
+        if (value != null) {
+        }
   }
-
   public GovernanceInsightAttributes auditQuery(GovernanceInsightAuditQuery auditQuery) {
     this.auditQuery = auditQuery;
     this.unparsed |= auditQuery.unparsed;
@@ -155,23 +166,21 @@ public class GovernanceInsightAttributes {
   }
 
   /**
-   * An audit log query used to compute an insight value.
-   *
+   * <p>An audit log query used to compute an insight value.</p>
    * @return auditQuery
-   */
-  @JsonProperty(JSON_PROPERTY_AUDIT_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceInsightAuditQuery getAuditQuery() {
-    return auditQuery;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AUDIT_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public GovernanceInsightAuditQuery getAuditQuery() {
+        return auditQuery;
+      }
   public void setAuditQuery(GovernanceInsightAuditQuery auditQuery) {
     this.auditQuery = auditQuery;
     if (auditQuery != null) {
       this.unparsed |= auditQuery.unparsed;
     }
   }
-
   public GovernanceInsightAttributes bestPractice(GovernanceBestPracticeDefinition bestPractice) {
     this.bestPractice = bestPractice;
     this.unparsed |= bestPractice.unparsed;
@@ -179,84 +188,76 @@ public class GovernanceInsightAttributes {
   }
 
   /**
-   * The best practice associated with an insight. Populated with the first active best practice
-   * matched to the insight; <code>null</code> when no best practice is attached.
-   *
+   * <p>The best practice associated with an insight. Populated with the first active best practice
+   * matched to the insight; <code>null</code> when no best practice is attached.</p>
    * @return bestPractice
-   */
-  @JsonProperty(JSON_PROPERTY_BEST_PRACTICE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceBestPracticeDefinition getBestPractice() {
-    return bestPractice;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_BEST_PRACTICE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public GovernanceBestPracticeDefinition getBestPractice() {
+        return bestPractice;
+      }
   public void setBestPractice(GovernanceBestPracticeDefinition bestPractice) {
     this.bestPractice = bestPractice;
     if (bestPractice != null) {
       this.unparsed |= bestPractice.unparsed;
     }
   }
-
   public GovernanceInsightAttributes deepLink(String deepLink) {
     this.deepLink = deepLink;
     return this;
   }
 
   /**
-   * A relative link to the product surface where the insight can be acted upon.
-   *
+   * <p>A relative link to the product surface where the insight can be acted upon.</p>
    * @return deepLink
-   */
-  @JsonProperty(JSON_PROPERTY_DEEP_LINK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDeepLink() {
-    return deepLink;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DEEP_LINK)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDeepLink() {
+        return deepLink;
+      }
   public void setDeepLink(String deepLink) {
     this.deepLink = deepLink;
   }
-
   public GovernanceInsightAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * A human-readable description of what the insight measures.
-   *
+   * <p>A human-readable description of what the insight measures.</p>
    * @return description
-   */
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public GovernanceInsightAttributes displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
 
   /**
-   * Human-readable name of the insight.
-   *
+   * <p>Human-readable name of the insight.</p>
    * @return displayName
-   */
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDisplayName() {
-    return displayName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDisplayName() {
+        return displayName;
+      }
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
-
   public GovernanceInsightAttributes eventQuery(GovernanceInsightEventQuery eventQuery) {
     this.eventQuery = eventQuery;
     this.unparsed |= eventQuery.unparsed;
@@ -264,23 +265,21 @@ public class GovernanceInsightAttributes {
   }
 
   /**
-   * An event query used to compute an insight value.
-   *
+   * <p>An event query used to compute an insight value.</p>
    * @return eventQuery
-   */
-  @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceInsightEventQuery getEventQuery() {
-    return eventQuery;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public GovernanceInsightEventQuery getEventQuery() {
+        return eventQuery;
+      }
   public void setEventQuery(GovernanceInsightEventQuery eventQuery) {
     this.eventQuery = eventQuery;
     if (eventQuery != null) {
       this.unparsed |= eventQuery.unparsed;
     }
   }
-
   public GovernanceInsightAttributes metricQuery(GovernanceInsightMetricQuery metricQuery) {
     this.metricQuery = metricQuery;
     this.unparsed |= metricQuery.unparsed;
@@ -288,91 +287,83 @@ public class GovernanceInsightAttributes {
   }
 
   /**
-   * A metric query used to compute an insight value.
-   *
+   * <p>A metric query used to compute an insight value.</p>
    * @return metricQuery
-   */
-  @JsonProperty(JSON_PROPERTY_METRIC_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceInsightMetricQuery getMetricQuery() {
-    return metricQuery;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_METRIC_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public GovernanceInsightMetricQuery getMetricQuery() {
+        return metricQuery;
+      }
   public void setMetricQuery(GovernanceInsightMetricQuery metricQuery) {
     this.metricQuery = metricQuery;
     if (metricQuery != null) {
       this.unparsed |= metricQuery.unparsed;
     }
   }
-
   public GovernanceInsightAttributes oldValue(Double oldValue) {
     this.oldValue = oldValue;
-    if (oldValue != null) {}
+        if (oldValue != null) {
+    }
     return this;
   }
 
   /**
-   * The value of the insight over the previous comparison window. <code>null</code> when values
-   * were not requested or could not be computed.
-   *
+   * <p>The value of the insight over the previous comparison window. <code>null</code> when values were
+   * not requested or could not be computed.</p>
    * @return oldValue
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getOldValue() {
-    return oldValue;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getOldValue() {
+        return oldValue;
+      }
   public void setOldValue(Double oldValue) {
     this.oldValue = oldValue;
   }
-
-  public GovernanceInsightAttributes percentageQuery(
-      GovernanceInsightPercentageQuery percentageQuery) {
+  public GovernanceInsightAttributes percentageQuery(GovernanceInsightPercentageQuery percentageQuery) {
     this.percentageQuery = percentageQuery;
     this.unparsed |= percentageQuery.unparsed;
     return this;
   }
 
   /**
-   * A percentage query that computes an insight value as a ratio of two metric queries.
-   *
+   * <p>A percentage query that computes an insight value as a ratio of two metric queries.</p>
    * @return percentageQuery
-   */
-  @JsonProperty(JSON_PROPERTY_PERCENTAGE_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceInsightPercentageQuery getPercentageQuery() {
-    return percentageQuery;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PERCENTAGE_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public GovernanceInsightPercentageQuery getPercentageQuery() {
+        return percentageQuery;
+      }
   public void setPercentageQuery(GovernanceInsightPercentageQuery percentageQuery) {
     this.percentageQuery = percentageQuery;
     if (percentageQuery != null) {
       this.unparsed |= percentageQuery.unparsed;
     }
   }
-
   public GovernanceInsightAttributes product(String product) {
     this.product = product;
     return this;
   }
 
   /**
-   * The product the insight belongs to.
-   *
+   * <p>The product the insight belongs to.</p>
    * @return product
-   */
-  @JsonProperty(JSON_PROPERTY_PRODUCT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getProduct() {
-    return product;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PRODUCT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getProduct() {
+        return product;
+      }
   public void setProduct(String product) {
     this.product = product;
   }
-
   public GovernanceInsightAttributes queryConfig(GovernanceInsightQueryConfig queryConfig) {
     this.queryConfig = queryConfig;
     this.unparsed |= queryConfig.unparsed;
@@ -380,126 +371,114 @@ public class GovernanceInsightAttributes {
   }
 
   /**
-   * Query execution context that allows the frontend to execute insight queries directly.
-   *
+   * <p>Query execution context that allows the frontend to execute insight queries directly.</p>
    * @return queryConfig
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GovernanceInsightQueryConfig getQueryConfig() {
-    return queryConfig;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_QUERY_CONFIG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public GovernanceInsightQueryConfig getQueryConfig() {
+        return queryConfig;
+      }
   public void setQueryConfig(GovernanceInsightQueryConfig queryConfig) {
     this.queryConfig = queryConfig;
     if (queryConfig != null) {
       this.unparsed |= queryConfig.unparsed;
     }
   }
-
   public GovernanceInsightAttributes sortOrder(Long sortOrder) {
     this.sortOrder = sortOrder;
     return this;
   }
 
   /**
-   * The relative order in which the insight should be displayed.
-   *
+   * <p>The relative order in which the insight should be displayed.</p>
    * @return sortOrder
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT_ORDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSortOrder() {
-    return sortOrder;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SORT_ORDER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSortOrder() {
+        return sortOrder;
+      }
   public void setSortOrder(Long sortOrder) {
     this.sortOrder = sortOrder;
   }
-
   public GovernanceInsightAttributes state(String state) {
     this.state = state;
     return this;
   }
 
   /**
-   * The state of the insight. A <code>critical</code> insight receives extra UI treatment to draw
-   * attention to it.
-   *
+   * <p>The state of the insight. A <code>critical</code> insight receives extra UI treatment to draw
+   * attention to it.</p>
    * @return state
-   */
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getState() {
-    return state;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STATE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getState() {
+        return state;
+      }
   public void setState(String state) {
     this.state = state;
   }
-
   public GovernanceInsightAttributes subProduct(String subProduct) {
     this.subProduct = subProduct;
     return this;
   }
 
   /**
-   * The sub-product the insight belongs to, if any.
-   *
+   * <p>The sub-product the insight belongs to, if any.</p>
    * @return subProduct
-   */
-  @JsonProperty(JSON_PROPERTY_SUB_PRODUCT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSubProduct() {
-    return subProduct;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SUB_PRODUCT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getSubProduct() {
+        return subProduct;
+      }
   public void setSubProduct(String subProduct) {
     this.subProduct = subProduct;
   }
-
   public GovernanceInsightAttributes timeRange(String timeRange) {
     this.timeRange = timeRange;
     return this;
   }
 
   /**
-   * The time range the insight value is computed over, if applicable.
-   *
+   * <p>The time range the insight value is computed over, if applicable.</p>
    * @return timeRange
-   */
-  @JsonProperty(JSON_PROPERTY_TIME_RANGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTimeRange() {
-    return timeRange;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TIME_RANGE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTimeRange() {
+        return timeRange;
+      }
   public void setTimeRange(String timeRange) {
     this.timeRange = timeRange;
   }
-
   public GovernanceInsightAttributes unitName(String unitName) {
     this.unitName = unitName;
     return this;
   }
 
   /**
-   * The unit that the insight's value is measured in.
-   *
+   * <p>The unit that the insight's value is measured in.</p>
    * @return unitName
-   */
-  @JsonProperty(JSON_PROPERTY_UNIT_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUnitName() {
-    return unitName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UNIT_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getUnitName() {
+        return unitName;
+      }
   public void setUnitName(String unitName) {
     this.unitName = unitName;
   }
-
   public GovernanceInsightAttributes usageQuery(GovernanceInsightUsageQuery usageQuery) {
     this.usageQuery = usageQuery;
     this.unparsed |= usageQuery.unparsed;
@@ -507,55 +486,53 @@ public class GovernanceInsightAttributes {
   }
 
   /**
-   * A usage query used to compute an insight value.
-   *
+   * <p>A usage query used to compute an insight value.</p>
    * @return usageQuery
-   */
-  @JsonProperty(JSON_PROPERTY_USAGE_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceInsightUsageQuery getUsageQuery() {
-    return usageQuery;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_USAGE_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public GovernanceInsightUsageQuery getUsageQuery() {
+        return usageQuery;
+      }
   public void setUsageQuery(GovernanceInsightUsageQuery usageQuery) {
     this.usageQuery = usageQuery;
     if (usageQuery != null) {
       this.unparsed |= usageQuery.unparsed;
     }
   }
-
   public GovernanceInsightAttributes value(Double value) {
     this.value = value;
-    if (value != null) {}
+        if (value != null) {
+    }
     return this;
   }
 
   /**
-   * The current value of the insight. <code>null</code> when values were not requested or could not
-   * be computed.
-   *
+   * <p>The current value of the insight. <code>null</code> when values were not requested or could not be computed.</p>
    * @return value
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getValue() {
-    return value;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getValue() {
+        return value;
+      }
   public void setValue(Double value) {
     this.value = value;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -564,7 +541,7 @@ public class GovernanceInsightAttributes {
   @JsonAnySetter
   public GovernanceInsightAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -588,12 +565,14 @@ public class GovernanceInsightAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GovernanceInsightAttributes object is equal to o. */
+  /**
+   * Return true if this GovernanceInsightAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -603,50 +582,13 @@ public class GovernanceInsightAttributes {
       return false;
     }
     GovernanceInsightAttributes governanceInsightAttributes = (GovernanceInsightAttributes) o;
-    return Objects.equals(this.auditQuery, governanceInsightAttributes.auditQuery)
-        && Objects.equals(this.bestPractice, governanceInsightAttributes.bestPractice)
-        && Objects.equals(this.deepLink, governanceInsightAttributes.deepLink)
-        && Objects.equals(this.description, governanceInsightAttributes.description)
-        && Objects.equals(this.displayName, governanceInsightAttributes.displayName)
-        && Objects.equals(this.eventQuery, governanceInsightAttributes.eventQuery)
-        && Objects.equals(this.metricQuery, governanceInsightAttributes.metricQuery)
-        && Objects.equals(this.oldValue, governanceInsightAttributes.oldValue)
-        && Objects.equals(this.percentageQuery, governanceInsightAttributes.percentageQuery)
-        && Objects.equals(this.product, governanceInsightAttributes.product)
-        && Objects.equals(this.queryConfig, governanceInsightAttributes.queryConfig)
-        && Objects.equals(this.sortOrder, governanceInsightAttributes.sortOrder)
-        && Objects.equals(this.state, governanceInsightAttributes.state)
-        && Objects.equals(this.subProduct, governanceInsightAttributes.subProduct)
-        && Objects.equals(this.timeRange, governanceInsightAttributes.timeRange)
-        && Objects.equals(this.unitName, governanceInsightAttributes.unitName)
-        && Objects.equals(this.usageQuery, governanceInsightAttributes.usageQuery)
-        && Objects.equals(this.value, governanceInsightAttributes.value)
-        && Objects.equals(
-            this.additionalProperties, governanceInsightAttributes.additionalProperties);
+    return Objects.equals(this.auditQuery, governanceInsightAttributes.auditQuery) && Objects.equals(this.bestPractice, governanceInsightAttributes.bestPractice) && Objects.equals(this.deepLink, governanceInsightAttributes.deepLink) && Objects.equals(this.description, governanceInsightAttributes.description) && Objects.equals(this.displayName, governanceInsightAttributes.displayName) && Objects.equals(this.eventQuery, governanceInsightAttributes.eventQuery) && Objects.equals(this.metricQuery, governanceInsightAttributes.metricQuery) && Objects.equals(this.oldValue, governanceInsightAttributes.oldValue) && Objects.equals(this.percentageQuery, governanceInsightAttributes.percentageQuery) && Objects.equals(this.product, governanceInsightAttributes.product) && Objects.equals(this.queryConfig, governanceInsightAttributes.queryConfig) && Objects.equals(this.sortOrder, governanceInsightAttributes.sortOrder) && Objects.equals(this.state, governanceInsightAttributes.state) && Objects.equals(this.subProduct, governanceInsightAttributes.subProduct) && Objects.equals(this.timeRange, governanceInsightAttributes.timeRange) && Objects.equals(this.unitName, governanceInsightAttributes.unitName) && Objects.equals(this.usageQuery, governanceInsightAttributes.usageQuery) && Objects.equals(this.value, governanceInsightAttributes.value) && Objects.equals(this.additionalProperties, governanceInsightAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        auditQuery,
-        bestPractice,
-        deepLink,
-        description,
-        displayName,
-        eventQuery,
-        metricQuery,
-        oldValue,
-        percentageQuery,
-        product,
-        queryConfig,
-        sortOrder,
-        state,
-        subProduct,
-        timeRange,
-        unitName,
-        usageQuery,
-        value,
-        additionalProperties);
+    return Objects.hash(auditQuery,bestPractice,deepLink,description,displayName,eventQuery,metricQuery,oldValue,percentageQuery,product,queryConfig,sortOrder,state,subProduct,timeRange,unitName,usageQuery,value, additionalProperties);
   }
 
   @Override
@@ -679,7 +621,8 @@ public class GovernanceInsightAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

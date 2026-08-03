@@ -6,48 +6,74 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Specifies the order of the returned teams */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Specifies the order of the returned teams</p>
+ */
 @JsonSerialize(using = ListTeamsSort.ListTeamsSortSerializer.class)
 public class ListTeamsSort extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("name", "-name", "user_count", "-user_count"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("name", "-name", "user_count", "-user_count"));
 
   public static final ListTeamsSort NAME = new ListTeamsSort("name");
   public static final ListTeamsSort _NAME = new ListTeamsSort("-name");
   public static final ListTeamsSort USER_COUNT = new ListTeamsSort("user_count");
   public static final ListTeamsSort _USER_COUNT = new ListTeamsSort("-user_count");
 
+
   ListTeamsSort(String value) {
     super(value, allowedValues);
   }
 
   public static class ListTeamsSortSerializer extends StdSerializer<ListTeamsSort> {
-    public ListTeamsSortSerializer(Class<ListTeamsSort> t) {
-      super(t);
-    }
+      public ListTeamsSortSerializer(Class<ListTeamsSort> t) {
+          super(t);
+      }
 
-    public ListTeamsSortSerializer() {
-      this(null);
-    }
+      public ListTeamsSortSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(ListTeamsSort value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ListTeamsSort value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

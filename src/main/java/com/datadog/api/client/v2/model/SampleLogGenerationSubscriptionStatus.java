@@ -6,73 +6,77 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The status of the subscription. */
-@JsonSerialize(
-    using =
-        SampleLogGenerationSubscriptionStatus.SampleLogGenerationSubscriptionStatusSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The status of the subscription.</p>
+ */
+@JsonSerialize(using = SampleLogGenerationSubscriptionStatus.SampleLogGenerationSubscriptionStatusSerializer.class)
 public class SampleLogGenerationSubscriptionStatus extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "subscribed",
-              "renewed",
-              "unsubscribed",
-              "no_active_subscription",
-              "not_available",
-              "active",
-              "expired"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("subscribed", "renewed", "unsubscribed", "no_active_subscription", "not_available", "active", "expired"));
 
-  public static final SampleLogGenerationSubscriptionStatus SUBSCRIBED =
-      new SampleLogGenerationSubscriptionStatus("subscribed");
-  public static final SampleLogGenerationSubscriptionStatus RENEWED =
-      new SampleLogGenerationSubscriptionStatus("renewed");
-  public static final SampleLogGenerationSubscriptionStatus UNSUBSCRIBED =
-      new SampleLogGenerationSubscriptionStatus("unsubscribed");
-  public static final SampleLogGenerationSubscriptionStatus NO_ACTIVE_SUBSCRIPTION =
-      new SampleLogGenerationSubscriptionStatus("no_active_subscription");
-  public static final SampleLogGenerationSubscriptionStatus NOT_AVAILABLE =
-      new SampleLogGenerationSubscriptionStatus("not_available");
-  public static final SampleLogGenerationSubscriptionStatus ACTIVE =
-      new SampleLogGenerationSubscriptionStatus("active");
-  public static final SampleLogGenerationSubscriptionStatus EXPIRED =
-      new SampleLogGenerationSubscriptionStatus("expired");
+  public static final SampleLogGenerationSubscriptionStatus SUBSCRIBED = new SampleLogGenerationSubscriptionStatus("subscribed");
+  public static final SampleLogGenerationSubscriptionStatus RENEWED = new SampleLogGenerationSubscriptionStatus("renewed");
+  public static final SampleLogGenerationSubscriptionStatus UNSUBSCRIBED = new SampleLogGenerationSubscriptionStatus("unsubscribed");
+  public static final SampleLogGenerationSubscriptionStatus NO_ACTIVE_SUBSCRIPTION = new SampleLogGenerationSubscriptionStatus("no_active_subscription");
+  public static final SampleLogGenerationSubscriptionStatus NOT_AVAILABLE = new SampleLogGenerationSubscriptionStatus("not_available");
+  public static final SampleLogGenerationSubscriptionStatus ACTIVE = new SampleLogGenerationSubscriptionStatus("active");
+  public static final SampleLogGenerationSubscriptionStatus EXPIRED = new SampleLogGenerationSubscriptionStatus("expired");
+
 
   SampleLogGenerationSubscriptionStatus(String value) {
     super(value, allowedValues);
   }
 
-  public static class SampleLogGenerationSubscriptionStatusSerializer
-      extends StdSerializer<SampleLogGenerationSubscriptionStatus> {
-    public SampleLogGenerationSubscriptionStatusSerializer(
-        Class<SampleLogGenerationSubscriptionStatus> t) {
-      super(t);
-    }
+  public static class SampleLogGenerationSubscriptionStatusSerializer extends StdSerializer<SampleLogGenerationSubscriptionStatus> {
+      public SampleLogGenerationSubscriptionStatusSerializer(Class<SampleLogGenerationSubscriptionStatus> t) {
+          super(t);
+      }
 
-    public SampleLogGenerationSubscriptionStatusSerializer() {
-      this(null);
-    }
+      public SampleLogGenerationSubscriptionStatusSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SampleLogGenerationSubscriptionStatus value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SampleLogGenerationSubscriptionStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

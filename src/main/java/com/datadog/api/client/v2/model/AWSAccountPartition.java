@@ -6,52 +6,75 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * AWS partition your AWS account is scoped to. Defaults to <code>aws</code>. See <a
- * href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html">Partitions</a>
- * in the AWS documentation for more information.
+   * <p>AWS partition your AWS account is scoped to. Defaults to <code>aws</code>.
+   * See <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html">Partitions</a>
+   * in the AWS documentation for more information.</p>
  */
 @JsonSerialize(using = AWSAccountPartition.AWSAccountPartitionSerializer.class)
 public class AWSAccountPartition extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("aws", "aws-cn", "aws-us-gov"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("aws", "aws-cn", "aws-us-gov"));
 
   public static final AWSAccountPartition AWS = new AWSAccountPartition("aws");
   public static final AWSAccountPartition AWS_CN = new AWSAccountPartition("aws-cn");
   public static final AWSAccountPartition AWS_US_GOV = new AWSAccountPartition("aws-us-gov");
+
 
   AWSAccountPartition(String value) {
     super(value, allowedValues);
   }
 
   public static class AWSAccountPartitionSerializer extends StdSerializer<AWSAccountPartition> {
-    public AWSAccountPartitionSerializer(Class<AWSAccountPartition> t) {
-      super(t);
-    }
+      public AWSAccountPartitionSerializer(Class<AWSAccountPartition> t) {
+          super(t);
+      }
 
-    public AWSAccountPartitionSerializer() {
-      this(null);
-    }
+      public AWSAccountPartitionSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        AWSAccountPartition value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(AWSAccountPartition value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

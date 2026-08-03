@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,20 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Configuration for Anthropic extended thinking feature. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Configuration for Anthropic extended thinking feature.</p>
+ */
 @JsonPropertyOrder({
   LLMObsAnthropicThinkingConfig.JSON_PROPERTY_BUDGET_TOKENS,
   LLMObsAnthropicThinkingConfig.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsAnthropicThinkingConfig {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUDGET_TOKENS = "budget_tokens";
   private JsonNullable<Long> budgetTokens = JsonNullable.<Long>undefined();
 
@@ -37,42 +52,36 @@ public class LLMObsAnthropicThinkingConfig {
 
   @JsonCreator
   public LLMObsAnthropicThinkingConfig(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsAnthropicThinkingType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)LLMObsAnthropicThinkingType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public LLMObsAnthropicThinkingConfig budgetTokens(Long budgetTokens) {
     this.budgetTokens = JsonNullable.<Long>of(budgetTokens);
     return this;
   }
 
   /**
-   * Maximum token budget for extended thinking. Required when type is <code>enabled</code>.
-   *
+   * <p>Maximum token budget for extended thinking. Required when type is <code>enabled</code>.</p>
    * @return budgetTokens
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getBudgetTokens() {
-    return budgetTokens.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getBudgetTokens() {
+        return budgetTokens.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_BUDGET_TOKENS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getBudgetTokens_JsonNullable() {
     return budgetTokens;
   }
-
-  @JsonProperty(JSON_PROPERTY_BUDGET_TOKENS)
-  public void setBudgetTokens_JsonNullable(JsonNullable<Long> budgetTokens) {
+  @JsonProperty(JSON_PROPERTY_BUDGET_TOKENS)public void setBudgetTokens_JsonNullable(JsonNullable<Long> budgetTokens) {
     this.budgetTokens = budgetTokens;
   }
-
   public void setBudgetTokens(Long budgetTokens) {
     this.budgetTokens = JsonNullable.<Long>of(budgetTokens);
   }
-
   public LLMObsAnthropicThinkingConfig type(LLMObsAnthropicThinkingType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -80,32 +89,32 @@ public class LLMObsAnthropicThinkingConfig {
   }
 
   /**
-   * The thinking mode for Anthropic extended thinking.
-   *
+   * <p>The thinking mode for Anthropic extended thinking.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsAnthropicThinkingType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public LLMObsAnthropicThinkingType getType() {
+        return type;
+      }
   public void setType(LLMObsAnthropicThinkingType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -114,7 +123,7 @@ public class LLMObsAnthropicThinkingConfig {
   @JsonAnySetter
   public LLMObsAnthropicThinkingConfig putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -138,12 +147,14 @@ public class LLMObsAnthropicThinkingConfig {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsAnthropicThinkingConfig object is equal to o. */
+  /**
+   * Return true if this LLMObsAnthropicThinkingConfig object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,15 +164,13 @@ public class LLMObsAnthropicThinkingConfig {
       return false;
     }
     LLMObsAnthropicThinkingConfig llmObsAnthropicThinkingConfig = (LLMObsAnthropicThinkingConfig) o;
-    return Objects.equals(this.budgetTokens, llmObsAnthropicThinkingConfig.budgetTokens)
-        && Objects.equals(this.type, llmObsAnthropicThinkingConfig.type)
-        && Objects.equals(
-            this.additionalProperties, llmObsAnthropicThinkingConfig.additionalProperties);
+    return Objects.equals(this.budgetTokens, llmObsAnthropicThinkingConfig.budgetTokens) && Objects.equals(this.type, llmObsAnthropicThinkingConfig.type) && Objects.equals(this.additionalProperties, llmObsAnthropicThinkingConfig.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(budgetTokens, type, additionalProperties);
+    return Objects.hash(budgetTokens,type, additionalProperties);
   }
 
   @Override
@@ -178,7 +187,8 @@ public class LLMObsAnthropicThinkingConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

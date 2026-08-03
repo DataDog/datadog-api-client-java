@@ -6,17 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Relationships of a degradation update resource. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Relationships of a degradation update resource.</p>
+ */
 @JsonPropertyOrder({
   DegradationUpdateDataRelationships.JSON_PROPERTY_CREATED_BY_USER,
   DegradationUpdateDataRelationships.JSON_PROPERTY_DEGRADATION,
@@ -24,10 +41,10 @@ import java.util.Objects;
   DegradationUpdateDataRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
   DegradationUpdateDataRelationships.JSON_PROPERTY_STATUS_PAGE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DegradationUpdateDataRelationships {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_BY_USER = "created_by_user";
   private DegradationUpdateDataRelationshipsUser createdByUser;
 
@@ -43,129 +60,115 @@ public class DegradationUpdateDataRelationships {
   public static final String JSON_PROPERTY_STATUS_PAGE = "status_page";
   private DegradationUpdateDataRelationshipsStatusPage statusPage;
 
-  public DegradationUpdateDataRelationships createdByUser(
-      DegradationUpdateDataRelationshipsUser createdByUser) {
+  public DegradationUpdateDataRelationships createdByUser(DegradationUpdateDataRelationshipsUser createdByUser) {
     this.createdByUser = createdByUser;
     this.unparsed |= createdByUser.unparsed;
     return this;
   }
 
   /**
-   * A user relationship of a degradation update.
-   *
+   * <p>A user relationship of a degradation update.</p>
    * @return createdByUser
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DegradationUpdateDataRelationshipsUser getCreatedByUser() {
-    return createdByUser;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public DegradationUpdateDataRelationshipsUser getCreatedByUser() {
+        return createdByUser;
+      }
   public void setCreatedByUser(DegradationUpdateDataRelationshipsUser createdByUser) {
     this.createdByUser = createdByUser;
     if (createdByUser != null) {
       this.unparsed |= createdByUser.unparsed;
     }
   }
-
-  public DegradationUpdateDataRelationships degradation(
-      DegradationUpdateDataRelationshipsDegradation degradation) {
+  public DegradationUpdateDataRelationships degradation(DegradationUpdateDataRelationshipsDegradation degradation) {
     this.degradation = degradation;
     this.unparsed |= degradation.unparsed;
     return this;
   }
 
   /**
-   * The degradation relationship of a degradation update.
-   *
+   * <p>The degradation relationship of a degradation update.</p>
    * @return degradation
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEGRADATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DegradationUpdateDataRelationshipsDegradation getDegradation() {
-    return degradation;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DEGRADATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public DegradationUpdateDataRelationshipsDegradation getDegradation() {
+        return degradation;
+      }
   public void setDegradation(DegradationUpdateDataRelationshipsDegradation degradation) {
     this.degradation = degradation;
     if (degradation != null) {
       this.unparsed |= degradation.unparsed;
     }
   }
-
-  public DegradationUpdateDataRelationships deletedByUser(
-      DegradationUpdateDataRelationshipsUser deletedByUser) {
+  public DegradationUpdateDataRelationships deletedByUser(DegradationUpdateDataRelationshipsUser deletedByUser) {
     this.deletedByUser = deletedByUser;
     this.unparsed |= deletedByUser.unparsed;
     return this;
   }
 
   /**
-   * A user relationship of a degradation update.
-   *
+   * <p>A user relationship of a degradation update.</p>
    * @return deletedByUser
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETED_BY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DegradationUpdateDataRelationshipsUser getDeletedByUser() {
-    return deletedByUser;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DELETED_BY_USER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public DegradationUpdateDataRelationshipsUser getDeletedByUser() {
+        return deletedByUser;
+      }
   public void setDeletedByUser(DegradationUpdateDataRelationshipsUser deletedByUser) {
     this.deletedByUser = deletedByUser;
     if (deletedByUser != null) {
       this.unparsed |= deletedByUser.unparsed;
     }
   }
-
-  public DegradationUpdateDataRelationships lastModifiedByUser(
-      DegradationUpdateDataRelationshipsUser lastModifiedByUser) {
+  public DegradationUpdateDataRelationships lastModifiedByUser(DegradationUpdateDataRelationshipsUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
     this.unparsed |= lastModifiedByUser.unparsed;
     return this;
   }
 
   /**
-   * A user relationship of a degradation update.
-   *
+   * <p>A user relationship of a degradation update.</p>
    * @return lastModifiedByUser
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DegradationUpdateDataRelationshipsUser getLastModifiedByUser() {
-    return lastModifiedByUser;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public DegradationUpdateDataRelationshipsUser getLastModifiedByUser() {
+        return lastModifiedByUser;
+      }
   public void setLastModifiedByUser(DegradationUpdateDataRelationshipsUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
     if (lastModifiedByUser != null) {
       this.unparsed |= lastModifiedByUser.unparsed;
     }
   }
-
-  public DegradationUpdateDataRelationships statusPage(
-      DegradationUpdateDataRelationshipsStatusPage statusPage) {
+  public DegradationUpdateDataRelationships statusPage(DegradationUpdateDataRelationshipsStatusPage statusPage) {
     this.statusPage = statusPage;
     this.unparsed |= statusPage.unparsed;
     return this;
   }
 
   /**
-   * The status page relationship of a degradation update.
-   *
+   * <p>The status page relationship of a degradation update.</p>
    * @return statusPage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS_PAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DegradationUpdateDataRelationshipsStatusPage getStatusPage() {
-    return statusPage;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATUS_PAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public DegradationUpdateDataRelationshipsStatusPage getStatusPage() {
+        return statusPage;
+      }
   public void setStatusPage(DegradationUpdateDataRelationshipsStatusPage statusPage) {
     this.statusPage = statusPage;
     if (statusPage != null) {
@@ -174,14 +177,15 @@ public class DegradationUpdateDataRelationships {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -190,7 +194,7 @@ public class DegradationUpdateDataRelationships {
   @JsonAnySetter
   public DegradationUpdateDataRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -214,12 +218,14 @@ public class DegradationUpdateDataRelationships {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DegradationUpdateDataRelationships object is equal to o. */
+  /**
+   * Return true if this DegradationUpdateDataRelationships object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -228,27 +234,14 @@ public class DegradationUpdateDataRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DegradationUpdateDataRelationships degradationUpdateDataRelationships =
-        (DegradationUpdateDataRelationships) o;
-    return Objects.equals(this.createdByUser, degradationUpdateDataRelationships.createdByUser)
-        && Objects.equals(this.degradation, degradationUpdateDataRelationships.degradation)
-        && Objects.equals(this.deletedByUser, degradationUpdateDataRelationships.deletedByUser)
-        && Objects.equals(
-            this.lastModifiedByUser, degradationUpdateDataRelationships.lastModifiedByUser)
-        && Objects.equals(this.statusPage, degradationUpdateDataRelationships.statusPage)
-        && Objects.equals(
-            this.additionalProperties, degradationUpdateDataRelationships.additionalProperties);
+    DegradationUpdateDataRelationships degradationUpdateDataRelationships = (DegradationUpdateDataRelationships) o;
+    return Objects.equals(this.createdByUser, degradationUpdateDataRelationships.createdByUser) && Objects.equals(this.degradation, degradationUpdateDataRelationships.degradation) && Objects.equals(this.deletedByUser, degradationUpdateDataRelationships.deletedByUser) && Objects.equals(this.lastModifiedByUser, degradationUpdateDataRelationships.lastModifiedByUser) && Objects.equals(this.statusPage, degradationUpdateDataRelationships.statusPage) && Objects.equals(this.additionalProperties, degradationUpdateDataRelationships.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdByUser,
-        degradation,
-        deletedByUser,
-        lastModifiedByUser,
-        statusPage,
-        additionalProperties);
+    return Objects.hash(createdByUser,degradation,deletedByUser,lastModifiedByUser,statusPage, additionalProperties);
   }
 
   @Override
@@ -268,7 +261,8 @@ public class DegradationUpdateDataRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

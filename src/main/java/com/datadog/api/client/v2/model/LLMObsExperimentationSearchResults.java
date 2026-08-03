@@ -6,20 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The matching experimentation entities grouped by type. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The matching experimentation entities grouped by type.</p>
+ */
 @JsonPropertyOrder({
   LLMObsExperimentationSearchResults.JSON_PROPERTY_DATASET_RECORDS,
   LLMObsExperimentationSearchResults.JSON_PROPERTY_DATASETS,
@@ -27,41 +41,32 @@ import org.openapitools.jackson.nullable.JsonNullable;
   LLMObsExperimentationSearchResults.JSON_PROPERTY_EXPERIMENTS,
   LLMObsExperimentationSearchResults.JSON_PROPERTY_PROJECTS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentationSearchResults {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATASET_RECORDS = "dataset_records";
-  private JsonNullable<List<LLMObsDatasetRecordDataResponse>> datasetRecords =
-      JsonNullable.<List<LLMObsDatasetRecordDataResponse>>undefined();
+  private JsonNullable<List<LLMObsDatasetRecordDataResponse>> datasetRecords = JsonNullable.<List<LLMObsDatasetRecordDataResponse>>undefined();
 
   public static final String JSON_PROPERTY_DATASETS = "datasets";
-  private JsonNullable<List<LLMObsDatasetDataResponse>> datasets =
-      JsonNullable.<List<LLMObsDatasetDataResponse>>undefined();
+  private JsonNullable<List<LLMObsDatasetDataResponse>> datasets = JsonNullable.<List<LLMObsDatasetDataResponse>>undefined();
 
   public static final String JSON_PROPERTY_EXPERIMENT_RUNS = "experiment_runs";
-  private JsonNullable<List<LLMObsExperimentRunDataResponse>> experimentRuns =
-      JsonNullable.<List<LLMObsExperimentRunDataResponse>>undefined();
+  private JsonNullable<List<LLMObsExperimentRunDataResponse>> experimentRuns = JsonNullable.<List<LLMObsExperimentRunDataResponse>>undefined();
 
   public static final String JSON_PROPERTY_EXPERIMENTS = "experiments";
-  private JsonNullable<List<LLMObsExperimentDataAttributesResponse>> experiments =
-      JsonNullable.<List<LLMObsExperimentDataAttributesResponse>>undefined();
+  private JsonNullable<List<LLMObsExperimentDataAttributesResponse>> experiments = JsonNullable.<List<LLMObsExperimentDataAttributesResponse>>undefined();
 
   public static final String JSON_PROPERTY_PROJECTS = "projects";
-  private JsonNullable<List<LLMObsProjectDataResponse>> projects =
-      JsonNullable.<List<LLMObsProjectDataResponse>>undefined();
+  private JsonNullable<List<LLMObsProjectDataResponse>> projects = JsonNullable.<List<LLMObsProjectDataResponse>>undefined();
 
-  public LLMObsExperimentationSearchResults datasetRecords(
-      List<LLMObsDatasetRecordDataResponse> datasetRecords) {
+  public LLMObsExperimentationSearchResults datasetRecords(List<LLMObsDatasetRecordDataResponse> datasetRecords) {
     this.datasetRecords = JsonNullable.<List<LLMObsDatasetRecordDataResponse>>of(datasetRecords);
     return this;
   }
-
-  public LLMObsExperimentationSearchResults addDatasetRecordsItem(
-      LLMObsDatasetRecordDataResponse datasetRecordsItem) {
+  public LLMObsExperimentationSearchResults addDatasetRecordsItem(LLMObsDatasetRecordDataResponse datasetRecordsItem) {
     if (this.datasetRecords == null || !this.datasetRecords.isPresent()) {
-      this.datasetRecords =
-          JsonNullable.<List<LLMObsDatasetRecordDataResponse>>of(new ArrayList<>());
+      this.datasetRecords = JsonNullable.<List<LLMObsDatasetRecordDataResponse>>of(new ArrayList<>());
     }
     try {
       this.datasetRecords.get().add(datasetRecordsItem);
@@ -72,40 +77,31 @@ public class LLMObsExperimentationSearchResults {
   }
 
   /**
-   * Matching dataset records. Present when <code>dataset_records</code> is included in <code>
-   * filter.scope</code>.
-   *
+   * <p>Matching dataset records. Present when <code>dataset_records</code> is included in <code>filter.scope</code>.</p>
    * @return datasetRecords
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<LLMObsDatasetRecordDataResponse> getDatasetRecords() {
-    return datasetRecords.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<LLMObsDatasetRecordDataResponse> getDatasetRecords() {
+        return datasetRecords.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DATASET_RECORDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<LLMObsDatasetRecordDataResponse>> getDatasetRecords_JsonNullable() {
     return datasetRecords;
   }
-
-  @JsonProperty(JSON_PROPERTY_DATASET_RECORDS)
-  public void setDatasetRecords_JsonNullable(
-      JsonNullable<List<LLMObsDatasetRecordDataResponse>> datasetRecords) {
+  @JsonProperty(JSON_PROPERTY_DATASET_RECORDS)public void setDatasetRecords_JsonNullable(JsonNullable<List<LLMObsDatasetRecordDataResponse>> datasetRecords) {
     this.datasetRecords = datasetRecords;
   }
-
   public void setDatasetRecords(List<LLMObsDatasetRecordDataResponse> datasetRecords) {
     this.datasetRecords = JsonNullable.<List<LLMObsDatasetRecordDataResponse>>of(datasetRecords);
   }
-
   public LLMObsExperimentationSearchResults datasets(List<LLMObsDatasetDataResponse> datasets) {
     this.datasets = JsonNullable.<List<LLMObsDatasetDataResponse>>of(datasets);
     return this;
   }
-
-  public LLMObsExperimentationSearchResults addDatasetsItem(
-      LLMObsDatasetDataResponse datasetsItem) {
+  public LLMObsExperimentationSearchResults addDatasetsItem(LLMObsDatasetDataResponse datasetsItem) {
     if (this.datasets == null || !this.datasets.isPresent()) {
       this.datasets = JsonNullable.<List<LLMObsDatasetDataResponse>>of(new ArrayList<>());
     }
@@ -118,42 +114,33 @@ public class LLMObsExperimentationSearchResults {
   }
 
   /**
-   * Matching datasets. Present when <code>datasets</code> is included in <code>filter.scope</code>.
-   *
+   * <p>Matching datasets. Present when <code>datasets</code> is included in <code>filter.scope</code>.</p>
    * @return datasets
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<LLMObsDatasetDataResponse> getDatasets() {
-    return datasets.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<LLMObsDatasetDataResponse> getDatasets() {
+        return datasets.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DATASETS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<LLMObsDatasetDataResponse>> getDatasets_JsonNullable() {
     return datasets;
   }
-
-  @JsonProperty(JSON_PROPERTY_DATASETS)
-  public void setDatasets_JsonNullable(JsonNullable<List<LLMObsDatasetDataResponse>> datasets) {
+  @JsonProperty(JSON_PROPERTY_DATASETS)public void setDatasets_JsonNullable(JsonNullable<List<LLMObsDatasetDataResponse>> datasets) {
     this.datasets = datasets;
   }
-
   public void setDatasets(List<LLMObsDatasetDataResponse> datasets) {
     this.datasets = JsonNullable.<List<LLMObsDatasetDataResponse>>of(datasets);
   }
-
-  public LLMObsExperimentationSearchResults experimentRuns(
-      List<LLMObsExperimentRunDataResponse> experimentRuns) {
+  public LLMObsExperimentationSearchResults experimentRuns(List<LLMObsExperimentRunDataResponse> experimentRuns) {
     this.experimentRuns = JsonNullable.<List<LLMObsExperimentRunDataResponse>>of(experimentRuns);
     return this;
   }
-
-  public LLMObsExperimentationSearchResults addExperimentRunsItem(
-      LLMObsExperimentRunDataResponse experimentRunsItem) {
+  public LLMObsExperimentationSearchResults addExperimentRunsItem(LLMObsExperimentRunDataResponse experimentRunsItem) {
     if (this.experimentRuns == null || !this.experimentRuns.isPresent()) {
-      this.experimentRuns =
-          JsonNullable.<List<LLMObsExperimentRunDataResponse>>of(new ArrayList<>());
+      this.experimentRuns = JsonNullable.<List<LLMObsExperimentRunDataResponse>>of(new ArrayList<>());
     }
     try {
       this.experimentRuns.get().add(experimentRunsItem);
@@ -164,44 +151,33 @@ public class LLMObsExperimentationSearchResults {
   }
 
   /**
-   * Matching experiment runs. Present when <code>experiment_runs</code> is included in <code>
-   * filter.scope</code>.
-   *
+   * <p>Matching experiment runs. Present when <code>experiment_runs</code> is included in <code>filter.scope</code>.</p>
    * @return experimentRuns
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<LLMObsExperimentRunDataResponse> getExperimentRuns() {
-    return experimentRuns.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<LLMObsExperimentRunDataResponse> getExperimentRuns() {
+        return experimentRuns.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_EXPERIMENT_RUNS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<LLMObsExperimentRunDataResponse>> getExperimentRuns_JsonNullable() {
     return experimentRuns;
   }
-
-  @JsonProperty(JSON_PROPERTY_EXPERIMENT_RUNS)
-  public void setExperimentRuns_JsonNullable(
-      JsonNullable<List<LLMObsExperimentRunDataResponse>> experimentRuns) {
+  @JsonProperty(JSON_PROPERTY_EXPERIMENT_RUNS)public void setExperimentRuns_JsonNullable(JsonNullable<List<LLMObsExperimentRunDataResponse>> experimentRuns) {
     this.experimentRuns = experimentRuns;
   }
-
   public void setExperimentRuns(List<LLMObsExperimentRunDataResponse> experimentRuns) {
     this.experimentRuns = JsonNullable.<List<LLMObsExperimentRunDataResponse>>of(experimentRuns);
   }
-
-  public LLMObsExperimentationSearchResults experiments(
-      List<LLMObsExperimentDataAttributesResponse> experiments) {
+  public LLMObsExperimentationSearchResults experiments(List<LLMObsExperimentDataAttributesResponse> experiments) {
     this.experiments = JsonNullable.<List<LLMObsExperimentDataAttributesResponse>>of(experiments);
     return this;
   }
-
-  public LLMObsExperimentationSearchResults addExperimentsItem(
-      LLMObsExperimentDataAttributesResponse experimentsItem) {
+  public LLMObsExperimentationSearchResults addExperimentsItem(LLMObsExperimentDataAttributesResponse experimentsItem) {
     if (this.experiments == null || !this.experiments.isPresent()) {
-      this.experiments =
-          JsonNullable.<List<LLMObsExperimentDataAttributesResponse>>of(new ArrayList<>());
+      this.experiments = JsonNullable.<List<LLMObsExperimentDataAttributesResponse>>of(new ArrayList<>());
     }
     try {
       this.experiments.get().add(experimentsItem);
@@ -212,40 +188,31 @@ public class LLMObsExperimentationSearchResults {
   }
 
   /**
-   * Matching experiments. Present when <code>experiments</code> is included in <code>filter.scope
-   * </code>.
-   *
+   * <p>Matching experiments. Present when <code>experiments</code> is included in <code>filter.scope</code>.</p>
    * @return experiments
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<LLMObsExperimentDataAttributesResponse> getExperiments() {
-    return experiments.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<LLMObsExperimentDataAttributesResponse> getExperiments() {
+        return experiments.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_EXPERIMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<LLMObsExperimentDataAttributesResponse>> getExperiments_JsonNullable() {
     return experiments;
   }
-
-  @JsonProperty(JSON_PROPERTY_EXPERIMENTS)
-  public void setExperiments_JsonNullable(
-      JsonNullable<List<LLMObsExperimentDataAttributesResponse>> experiments) {
+  @JsonProperty(JSON_PROPERTY_EXPERIMENTS)public void setExperiments_JsonNullable(JsonNullable<List<LLMObsExperimentDataAttributesResponse>> experiments) {
     this.experiments = experiments;
   }
-
   public void setExperiments(List<LLMObsExperimentDataAttributesResponse> experiments) {
     this.experiments = JsonNullable.<List<LLMObsExperimentDataAttributesResponse>>of(experiments);
   }
-
   public LLMObsExperimentationSearchResults projects(List<LLMObsProjectDataResponse> projects) {
     this.projects = JsonNullable.<List<LLMObsProjectDataResponse>>of(projects);
     return this;
   }
-
-  public LLMObsExperimentationSearchResults addProjectsItem(
-      LLMObsProjectDataResponse projectsItem) {
+  public LLMObsExperimentationSearchResults addProjectsItem(LLMObsProjectDataResponse projectsItem) {
     if (this.projects == null || !this.projects.isPresent()) {
       this.projects = JsonNullable.<List<LLMObsProjectDataResponse>>of(new ArrayList<>());
     }
@@ -258,40 +225,37 @@ public class LLMObsExperimentationSearchResults {
   }
 
   /**
-   * Matching projects. Present when <code>projects</code> is included in <code>filter.scope</code>.
-   *
+   * <p>Matching projects. Present when <code>projects</code> is included in <code>filter.scope</code>.</p>
    * @return projects
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<LLMObsProjectDataResponse> getProjects() {
-    return projects.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<LLMObsProjectDataResponse> getProjects() {
+        return projects.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PROJECTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<LLMObsProjectDataResponse>> getProjects_JsonNullable() {
     return projects;
   }
-
-  @JsonProperty(JSON_PROPERTY_PROJECTS)
-  public void setProjects_JsonNullable(JsonNullable<List<LLMObsProjectDataResponse>> projects) {
+  @JsonProperty(JSON_PROPERTY_PROJECTS)public void setProjects_JsonNullable(JsonNullable<List<LLMObsProjectDataResponse>> projects) {
     this.projects = projects;
   }
-
   public void setProjects(List<LLMObsProjectDataResponse> projects) {
     this.projects = JsonNullable.<List<LLMObsProjectDataResponse>>of(projects);
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -300,7 +264,7 @@ public class LLMObsExperimentationSearchResults {
   @JsonAnySetter
   public LLMObsExperimentationSearchResults putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -324,12 +288,14 @@ public class LLMObsExperimentationSearchResults {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsExperimentationSearchResults object is equal to o. */
+  /**
+   * Return true if this LLMObsExperimentationSearchResults object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -338,21 +304,14 @@ public class LLMObsExperimentationSearchResults {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsExperimentationSearchResults llmObsExperimentationSearchResults =
-        (LLMObsExperimentationSearchResults) o;
-    return Objects.equals(this.datasetRecords, llmObsExperimentationSearchResults.datasetRecords)
-        && Objects.equals(this.datasets, llmObsExperimentationSearchResults.datasets)
-        && Objects.equals(this.experimentRuns, llmObsExperimentationSearchResults.experimentRuns)
-        && Objects.equals(this.experiments, llmObsExperimentationSearchResults.experiments)
-        && Objects.equals(this.projects, llmObsExperimentationSearchResults.projects)
-        && Objects.equals(
-            this.additionalProperties, llmObsExperimentationSearchResults.additionalProperties);
+    LLMObsExperimentationSearchResults llmObsExperimentationSearchResults = (LLMObsExperimentationSearchResults) o;
+    return Objects.equals(this.datasetRecords, llmObsExperimentationSearchResults.datasetRecords) && Objects.equals(this.datasets, llmObsExperimentationSearchResults.datasets) && Objects.equals(this.experimentRuns, llmObsExperimentationSearchResults.experimentRuns) && Objects.equals(this.experiments, llmObsExperimentationSearchResults.experiments) && Objects.equals(this.projects, llmObsExperimentationSearchResults.projects) && Objects.equals(this.additionalProperties, llmObsExperimentationSearchResults.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        datasetRecords, datasets, experimentRuns, experiments, projects, additionalProperties);
+    return Objects.hash(datasetRecords,datasets,experimentRuns,experiments,projects, additionalProperties);
   }
 
   @Override
@@ -372,7 +331,8 @@ public class LLMObsExperimentationSearchResults {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

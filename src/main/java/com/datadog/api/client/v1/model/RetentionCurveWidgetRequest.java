@@ -6,23 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Retention curve widget request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Retention curve widget request.</p>
+ */
 @JsonPropertyOrder({
   RetentionCurveWidgetRequest.JSON_PROPERTY_QUERY,
   RetentionCurveWidgetRequest.JSON_PROPERTY_REQUEST_TYPE,
   RetentionCurveWidgetRequest.JSON_PROPERTY_STYLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionCurveWidgetRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private RetentionQuery query;
 
@@ -36,15 +56,13 @@ public class RetentionCurveWidgetRequest {
 
   @JsonCreator
   public RetentionCurveWidgetRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) RetentionQuery query,
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST_TYPE)
-          RetentionCurveRequestType requestType) {
-    this.query = query;
-    this.unparsed |= query.unparsed;
-    this.requestType = requestType;
-    this.unparsed |= !requestType.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)RetentionQuery query,
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUEST_TYPE)RetentionCurveRequestType requestType) {
+        this.query = query;
+        this.unparsed |= query.unparsed;
+        this.requestType = requestType;
+        this.unparsed |= !requestType.isValid();
   }
-
   public RetentionCurveWidgetRequest query(RetentionQuery query) {
     this.query = query;
     this.unparsed |= query.unparsed;
@@ -52,23 +70,21 @@ public class RetentionCurveWidgetRequest {
   }
 
   /**
-   * Retention query definition.
-   *
+   * <p>Retention query definition.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionQuery getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetentionQuery getQuery() {
+        return query;
+      }
   public void setQuery(RetentionQuery query) {
     this.query = query;
     if (query != null) {
       this.unparsed |= query.unparsed;
     }
   }
-
   public RetentionCurveWidgetRequest requestType(RetentionCurveRequestType requestType) {
     this.requestType = requestType;
     this.unparsed |= !requestType.isValid();
@@ -76,23 +92,21 @@ public class RetentionCurveWidgetRequest {
   }
 
   /**
-   * Request type for retention curve widget.
-   *
+   * <p>Request type for retention curve widget.</p>
    * @return requestType
-   */
-  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionCurveRequestType getRequestType() {
-    return requestType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetentionCurveRequestType getRequestType() {
+        return requestType;
+      }
   public void setRequestType(RetentionCurveRequestType requestType) {
     if (!requestType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.requestType = requestType;
   }
-
   public RetentionCurveWidgetRequest style(RetentionCurveStyle style) {
     this.style = style;
     this.unparsed |= style.unparsed;
@@ -100,17 +114,16 @@ public class RetentionCurveWidgetRequest {
   }
 
   /**
-   * Style configuration for retention curve.
-   *
+   * <p>Style configuration for retention curve.</p>
    * @return style
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STYLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RetentionCurveStyle getStyle() {
-    return style;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STYLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RetentionCurveStyle getStyle() {
+        return style;
+      }
   public void setStyle(RetentionCurveStyle style) {
     this.style = style;
     if (style != null) {
@@ -118,7 +131,9 @@ public class RetentionCurveWidgetRequest {
     }
   }
 
-  /** Return true if this RetentionCurveWidgetRequest object is equal to o. */
+  /**
+   * Return true if this RetentionCurveWidgetRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,14 +143,13 @@ public class RetentionCurveWidgetRequest {
       return false;
     }
     RetentionCurveWidgetRequest retentionCurveWidgetRequest = (RetentionCurveWidgetRequest) o;
-    return Objects.equals(this.query, retentionCurveWidgetRequest.query)
-        && Objects.equals(this.requestType, retentionCurveWidgetRequest.requestType)
-        && Objects.equals(this.style, retentionCurveWidgetRequest.style);
+    return Objects.equals(this.query, retentionCurveWidgetRequest.query) && Objects.equals(this.requestType, retentionCurveWidgetRequest.requestType) && Objects.equals(this.style, retentionCurveWidgetRequest.style);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, requestType, style);
+    return Objects.hash(query,requestType,style);
   }
 
   @Override
@@ -150,7 +164,8 @@ public class RetentionCurveWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

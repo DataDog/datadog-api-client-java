@@ -6,48 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Resource type for an LLM Observability data deletion request. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Resource type for an LLM Observability data deletion request.</p>
+ */
 @JsonSerialize(using = LLMObsDataDeletionRequestType.LLMObsDataDeletionRequestTypeSerializer.class)
 public class LLMObsDataDeletionRequestType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("create_deletion_req"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("create_deletion_req"));
 
-  public static final LLMObsDataDeletionRequestType CREATE_DELETION_REQ =
-      new LLMObsDataDeletionRequestType("create_deletion_req");
+  public static final LLMObsDataDeletionRequestType CREATE_DELETION_REQ = new LLMObsDataDeletionRequestType("create_deletion_req");
+
 
   LLMObsDataDeletionRequestType(String value) {
     super(value, allowedValues);
   }
 
-  public static class LLMObsDataDeletionRequestTypeSerializer
-      extends StdSerializer<LLMObsDataDeletionRequestType> {
-    public LLMObsDataDeletionRequestTypeSerializer(Class<LLMObsDataDeletionRequestType> t) {
-      super(t);
-    }
+  public static class LLMObsDataDeletionRequestTypeSerializer extends StdSerializer<LLMObsDataDeletionRequestType> {
+      public LLMObsDataDeletionRequestTypeSerializer(Class<LLMObsDataDeletionRequestType> t) {
+          super(t);
+      }
 
-    public LLMObsDataDeletionRequestTypeSerializer() {
-      this(null);
-    }
+      public LLMObsDataDeletionRequestTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        LLMObsDataDeletionRequestType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(LLMObsDataDeletionRequestType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

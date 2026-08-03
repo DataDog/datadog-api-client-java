@@ -6,24 +6,44 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Compute configuration for User Journey formula queries. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Compute configuration for User Journey formula queries.</p>
+ */
 @JsonPropertyOrder({
   UserJourneyFormulaCompute.JSON_PROPERTY_AGGREGATION,
   UserJourneyFormulaCompute.JSON_PROPERTY_INTERVAL,
   UserJourneyFormulaCompute.JSON_PROPERTY_METRIC,
   UserJourneyFormulaCompute.JSON_PROPERTY_TARGET
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserJourneyFormulaCompute {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private FormulaAndFunctionEventAggregation aggregation;
 
@@ -40,12 +60,10 @@ public class UserJourneyFormulaCompute {
 
   @JsonCreator
   public UserJourneyFormulaCompute(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
-          FormulaAndFunctionEventAggregation aggregation) {
-    this.aggregation = aggregation;
-    this.unparsed |= !aggregation.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)FormulaAndFunctionEventAggregation aggregation) {
+        this.aggregation = aggregation;
+        this.unparsed |= !aggregation.isValid();
   }
-
   public UserJourneyFormulaCompute aggregation(FormulaAndFunctionEventAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
@@ -53,44 +71,40 @@ public class UserJourneyFormulaCompute {
   }
 
   /**
-   * Aggregation methods for event platform queries.
-   *
+   * <p>Aggregation methods for event platform queries.</p>
    * @return aggregation
-   */
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public FormulaAndFunctionEventAggregation getAggregation() {
-    return aggregation;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public FormulaAndFunctionEventAggregation getAggregation() {
+        return aggregation;
+      }
   public void setAggregation(FormulaAndFunctionEventAggregation aggregation) {
     if (!aggregation.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
-
   public UserJourneyFormulaCompute interval(Double interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * Time bucket interval in milliseconds for time series queries.
-   *
+   * <p>Time bucket interval in milliseconds for time series queries.</p>
    * @return interval
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getInterval() {
-    return interval;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INTERVAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getInterval() {
+        return interval;
+      }
   public void setInterval(Double interval) {
     this.interval = interval;
   }
-
   public UserJourneyFormulaCompute metric(UserJourneyFormulaComputeMetric metric) {
     this.metric = metric;
     this.unparsed |= !metric.isValid();
@@ -98,28 +112,22 @@ public class UserJourneyFormulaCompute {
   }
 
   /**
-   * Metric for User Journey formula compute. <code>__dd.conversion</code> and <code>
-   * __dd.conversion_rate</code> accept <code>count</code> and <code>cardinality</code> as
-   * aggregations. <code>__dd.time_to_convert</code> accepts <code>avg</code>, <code>median</code>,
-   * <code>pc75</code>, <code>pc95</code>, <code>pc98</code>, <code>pc99</code>, <code>min</code>,
-   * and <code>max</code>.
-   *
+   * <p>Metric for User Journey formula compute. <code>__dd.conversion</code> and <code>__dd.conversion_rate</code> accept <code>count</code> and <code>cardinality</code> as aggregations. <code>__dd.time_to_convert</code> accepts <code>avg</code>, <code>median</code>, <code>pc75</code>, <code>pc95</code>, <code>pc98</code>, <code>pc99</code>, <code>min</code>, and <code>max</code>.</p>
    * @return metric
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UserJourneyFormulaComputeMetric getMetric() {
-    return metric;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public UserJourneyFormulaComputeMetric getMetric() {
+        return metric;
+      }
   public void setMetric(UserJourneyFormulaComputeMetric metric) {
     if (!metric.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.metric = metric;
   }
-
   public UserJourneyFormulaCompute target(UserJourneySearchTarget target) {
     this.target = target;
     this.unparsed |= target.unparsed;
@@ -127,17 +135,16 @@ public class UserJourneyFormulaCompute {
   }
 
   /**
-   * Target for user journey search.
-   *
+   * <p>Target for user journey search.</p>
    * @return target
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UserJourneySearchTarget getTarget() {
-    return target;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public UserJourneySearchTarget getTarget() {
+        return target;
+      }
   public void setTarget(UserJourneySearchTarget target) {
     this.target = target;
     if (target != null) {
@@ -145,7 +152,9 @@ public class UserJourneyFormulaCompute {
     }
   }
 
-  /** Return true if this UserJourneyFormulaCompute object is equal to o. */
+  /**
+   * Return true if this UserJourneyFormulaCompute object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -155,15 +164,13 @@ public class UserJourneyFormulaCompute {
       return false;
     }
     UserJourneyFormulaCompute userJourneyFormulaCompute = (UserJourneyFormulaCompute) o;
-    return Objects.equals(this.aggregation, userJourneyFormulaCompute.aggregation)
-        && Objects.equals(this.interval, userJourneyFormulaCompute.interval)
-        && Objects.equals(this.metric, userJourneyFormulaCompute.metric)
-        && Objects.equals(this.target, userJourneyFormulaCompute.target);
+    return Objects.equals(this.aggregation, userJourneyFormulaCompute.aggregation) && Objects.equals(this.interval, userJourneyFormulaCompute.interval) && Objects.equals(this.metric, userJourneyFormulaCompute.metric) && Objects.equals(this.target, userJourneyFormulaCompute.target);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, interval, metric, target);
+    return Objects.hash(aggregation,interval,metric,target);
   }
 
   @Override
@@ -179,7 +186,8 @@ public class UserJourneyFormulaCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

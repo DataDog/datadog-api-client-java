@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Grouped detection results by detection type. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Grouped detection results by detection type.</p>
+ */
 @JsonPropertyOrder({
   SignalsProblemsDetections.JSON_PROPERTY_HIGH_FROZEN_FRAME_RATES,
   SignalsProblemsDetections.JSON_PROPERTY_HIGH_SCRIPT_EVALUATIONS,
@@ -28,10 +43,10 @@ import java.util.Objects;
   SignalsProblemsDetections.JSON_PROPERTY_SLOW_INTERACTION_LONG_TASKS,
   SignalsProblemsDetections.JSON_PROPERTY_UNCOMPRESSED_RESOURCES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SignalsProblemsDetections {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_HIGH_FROZEN_FRAME_RATES = "high_frozen_frame_rates";
   private List<AggregatedHighFrozenFrameRate> highFrozenFrameRates = null;
 
@@ -47,26 +62,22 @@ public class SignalsProblemsDetections {
   public static final String JSON_PROPERTY_SLOW_FCP_HIGH_BYTES = "slow_fcp_high_bytes";
   private List<AggregatedSlowFCPHighBytes> slowFcpHighBytes = null;
 
-  public static final String JSON_PROPERTY_SLOW_INTERACTION_LONG_TASKS =
-      "slow_interaction_long_tasks";
+  public static final String JSON_PROPERTY_SLOW_INTERACTION_LONG_TASKS = "slow_interaction_long_tasks";
   private List<AggregatedSlowInteractionLongTask> slowInteractionLongTasks = null;
 
   public static final String JSON_PROPERTY_UNCOMPRESSED_RESOURCES = "uncompressed_resources";
   private List<AggregatedUncompressedResource> uncompressedResources = null;
 
-  public SignalsProblemsDetections highFrozenFrameRates(
-      List<AggregatedHighFrozenFrameRate> highFrozenFrameRates) {
+  public SignalsProblemsDetections highFrozenFrameRates(List<AggregatedHighFrozenFrameRate> highFrozenFrameRates) {
     this.highFrozenFrameRates = highFrozenFrameRates;
     if (highFrozenFrameRates != null) {
-      for (AggregatedHighFrozenFrameRate item : highFrozenFrameRates) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AggregatedHighFrozenFrameRate item : highFrozenFrameRates) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public SignalsProblemsDetections addHighFrozenFrameRatesItem(
-      AggregatedHighFrozenFrameRate highFrozenFrameRatesItem) {
+  public SignalsProblemsDetections addHighFrozenFrameRatesItem(AggregatedHighFrozenFrameRate highFrozenFrameRatesItem) {
     if (this.highFrozenFrameRates == null) {
       this.highFrozenFrameRates = new ArrayList<>();
     }
@@ -76,17 +87,16 @@ public class SignalsProblemsDetections {
   }
 
   /**
-   * Detected high frozen frame rate issues.
-   *
+   * <p>Detected high frozen frame rate issues.</p>
    * @return highFrozenFrameRates
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIGH_FROZEN_FRAME_RATES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AggregatedHighFrozenFrameRate> getHighFrozenFrameRates() {
-    return highFrozenFrameRates;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HIGH_FROZEN_FRAME_RATES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AggregatedHighFrozenFrameRate> getHighFrozenFrameRates() {
+        return highFrozenFrameRates;
+      }
   public void setHighFrozenFrameRates(List<AggregatedHighFrozenFrameRate> highFrozenFrameRates) {
     this.highFrozenFrameRates = highFrozenFrameRates;
     if (highFrozenFrameRates != null) {
@@ -95,20 +105,16 @@ public class SignalsProblemsDetections {
       }
     }
   }
-
-  public SignalsProblemsDetections highScriptEvaluations(
-      List<AggregatedHighScriptEval> highScriptEvaluations) {
+  public SignalsProblemsDetections highScriptEvaluations(List<AggregatedHighScriptEval> highScriptEvaluations) {
     this.highScriptEvaluations = highScriptEvaluations;
     if (highScriptEvaluations != null) {
-      for (AggregatedHighScriptEval item : highScriptEvaluations) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AggregatedHighScriptEval item : highScriptEvaluations) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public SignalsProblemsDetections addHighScriptEvaluationsItem(
-      AggregatedHighScriptEval highScriptEvaluationsItem) {
+  public SignalsProblemsDetections addHighScriptEvaluationsItem(AggregatedHighScriptEval highScriptEvaluationsItem) {
     if (this.highScriptEvaluations == null) {
       this.highScriptEvaluations = new ArrayList<>();
     }
@@ -118,17 +124,16 @@ public class SignalsProblemsDetections {
   }
 
   /**
-   * Detected high script evaluation issues.
-   *
+   * <p>Detected high script evaluation issues.</p>
    * @return highScriptEvaluations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIGH_SCRIPT_EVALUATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AggregatedHighScriptEval> getHighScriptEvaluations() {
-    return highScriptEvaluations;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HIGH_SCRIPT_EVALUATIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AggregatedHighScriptEval> getHighScriptEvaluations() {
+        return highScriptEvaluations;
+      }
   public void setHighScriptEvaluations(List<AggregatedHighScriptEval> highScriptEvaluations) {
     this.highScriptEvaluations = highScriptEvaluations;
     if (highScriptEvaluations != null) {
@@ -137,20 +142,16 @@ public class SignalsProblemsDetections {
       }
     }
   }
-
-  public SignalsProblemsDetections lowCacheHitRates(
-      List<AggregatedLowCacheHitRate> lowCacheHitRates) {
+  public SignalsProblemsDetections lowCacheHitRates(List<AggregatedLowCacheHitRate> lowCacheHitRates) {
     this.lowCacheHitRates = lowCacheHitRates;
     if (lowCacheHitRates != null) {
-      for (AggregatedLowCacheHitRate item : lowCacheHitRates) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AggregatedLowCacheHitRate item : lowCacheHitRates) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public SignalsProblemsDetections addLowCacheHitRatesItem(
-      AggregatedLowCacheHitRate lowCacheHitRatesItem) {
+  public SignalsProblemsDetections addLowCacheHitRatesItem(AggregatedLowCacheHitRate lowCacheHitRatesItem) {
     if (this.lowCacheHitRates == null) {
       this.lowCacheHitRates = new ArrayList<>();
     }
@@ -160,17 +161,16 @@ public class SignalsProblemsDetections {
   }
 
   /**
-   * Detected low cache hit rate issues.
-   *
+   * <p>Detected low cache hit rate issues.</p>
    * @return lowCacheHitRates
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOW_CACHE_HIT_RATES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AggregatedLowCacheHitRate> getLowCacheHitRates() {
-    return lowCacheHitRates;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOW_CACHE_HIT_RATES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AggregatedLowCacheHitRate> getLowCacheHitRates() {
+        return lowCacheHitRates;
+      }
   public void setLowCacheHitRates(List<AggregatedLowCacheHitRate> lowCacheHitRates) {
     this.lowCacheHitRates = lowCacheHitRates;
     if (lowCacheHitRates != null) {
@@ -179,20 +179,16 @@ public class SignalsProblemsDetections {
       }
     }
   }
-
-  public SignalsProblemsDetections mobileScrollFrictions(
-      List<AggregatedMobileScrollFriction> mobileScrollFrictions) {
+  public SignalsProblemsDetections mobileScrollFrictions(List<AggregatedMobileScrollFriction> mobileScrollFrictions) {
     this.mobileScrollFrictions = mobileScrollFrictions;
     if (mobileScrollFrictions != null) {
-      for (AggregatedMobileScrollFriction item : mobileScrollFrictions) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AggregatedMobileScrollFriction item : mobileScrollFrictions) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public SignalsProblemsDetections addMobileScrollFrictionsItem(
-      AggregatedMobileScrollFriction mobileScrollFrictionsItem) {
+  public SignalsProblemsDetections addMobileScrollFrictionsItem(AggregatedMobileScrollFriction mobileScrollFrictionsItem) {
     if (this.mobileScrollFrictions == null) {
       this.mobileScrollFrictions = new ArrayList<>();
     }
@@ -202,17 +198,16 @@ public class SignalsProblemsDetections {
   }
 
   /**
-   * Detected mobile scroll friction issues.
-   *
+   * <p>Detected mobile scroll friction issues.</p>
    * @return mobileScrollFrictions
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_SCROLL_FRICTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AggregatedMobileScrollFriction> getMobileScrollFrictions() {
-    return mobileScrollFrictions;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MOBILE_SCROLL_FRICTIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AggregatedMobileScrollFriction> getMobileScrollFrictions() {
+        return mobileScrollFrictions;
+      }
   public void setMobileScrollFrictions(List<AggregatedMobileScrollFriction> mobileScrollFrictions) {
     this.mobileScrollFrictions = mobileScrollFrictions;
     if (mobileScrollFrictions != null) {
@@ -221,20 +216,16 @@ public class SignalsProblemsDetections {
       }
     }
   }
-
-  public SignalsProblemsDetections slowFcpHighBytes(
-      List<AggregatedSlowFCPHighBytes> slowFcpHighBytes) {
+  public SignalsProblemsDetections slowFcpHighBytes(List<AggregatedSlowFCPHighBytes> slowFcpHighBytes) {
     this.slowFcpHighBytes = slowFcpHighBytes;
     if (slowFcpHighBytes != null) {
-      for (AggregatedSlowFCPHighBytes item : slowFcpHighBytes) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AggregatedSlowFCPHighBytes item : slowFcpHighBytes) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public SignalsProblemsDetections addSlowFcpHighBytesItem(
-      AggregatedSlowFCPHighBytes slowFcpHighBytesItem) {
+  public SignalsProblemsDetections addSlowFcpHighBytesItem(AggregatedSlowFCPHighBytes slowFcpHighBytesItem) {
     if (this.slowFcpHighBytes == null) {
       this.slowFcpHighBytes = new ArrayList<>();
     }
@@ -244,17 +235,16 @@ public class SignalsProblemsDetections {
   }
 
   /**
-   * Detected slow first contentful paint with high byte count issues.
-   *
+   * <p>Detected slow first contentful paint with high byte count issues.</p>
    * @return slowFcpHighBytes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLOW_FCP_HIGH_BYTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AggregatedSlowFCPHighBytes> getSlowFcpHighBytes() {
-    return slowFcpHighBytes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SLOW_FCP_HIGH_BYTES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AggregatedSlowFCPHighBytes> getSlowFcpHighBytes() {
+        return slowFcpHighBytes;
+      }
   public void setSlowFcpHighBytes(List<AggregatedSlowFCPHighBytes> slowFcpHighBytes) {
     this.slowFcpHighBytes = slowFcpHighBytes;
     if (slowFcpHighBytes != null) {
@@ -263,20 +253,16 @@ public class SignalsProblemsDetections {
       }
     }
   }
-
-  public SignalsProblemsDetections slowInteractionLongTasks(
-      List<AggregatedSlowInteractionLongTask> slowInteractionLongTasks) {
+  public SignalsProblemsDetections slowInteractionLongTasks(List<AggregatedSlowInteractionLongTask> slowInteractionLongTasks) {
     this.slowInteractionLongTasks = slowInteractionLongTasks;
     if (slowInteractionLongTasks != null) {
-      for (AggregatedSlowInteractionLongTask item : slowInteractionLongTasks) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AggregatedSlowInteractionLongTask item : slowInteractionLongTasks) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public SignalsProblemsDetections addSlowInteractionLongTasksItem(
-      AggregatedSlowInteractionLongTask slowInteractionLongTasksItem) {
+  public SignalsProblemsDetections addSlowInteractionLongTasksItem(AggregatedSlowInteractionLongTask slowInteractionLongTasksItem) {
     if (this.slowInteractionLongTasks == null) {
       this.slowInteractionLongTasks = new ArrayList<>();
     }
@@ -286,19 +272,17 @@ public class SignalsProblemsDetections {
   }
 
   /**
-   * Detected slow interaction with long task issues.
-   *
+   * <p>Detected slow interaction with long task issues.</p>
    * @return slowInteractionLongTasks
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLOW_INTERACTION_LONG_TASKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AggregatedSlowInteractionLongTask> getSlowInteractionLongTasks() {
-    return slowInteractionLongTasks;
-  }
-
-  public void setSlowInteractionLongTasks(
-      List<AggregatedSlowInteractionLongTask> slowInteractionLongTasks) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SLOW_INTERACTION_LONG_TASKS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AggregatedSlowInteractionLongTask> getSlowInteractionLongTasks() {
+        return slowInteractionLongTasks;
+      }
+  public void setSlowInteractionLongTasks(List<AggregatedSlowInteractionLongTask> slowInteractionLongTasks) {
     this.slowInteractionLongTasks = slowInteractionLongTasks;
     if (slowInteractionLongTasks != null) {
       for (AggregatedSlowInteractionLongTask item : slowInteractionLongTasks) {
@@ -306,20 +290,16 @@ public class SignalsProblemsDetections {
       }
     }
   }
-
-  public SignalsProblemsDetections uncompressedResources(
-      List<AggregatedUncompressedResource> uncompressedResources) {
+  public SignalsProblemsDetections uncompressedResources(List<AggregatedUncompressedResource> uncompressedResources) {
     this.uncompressedResources = uncompressedResources;
     if (uncompressedResources != null) {
-      for (AggregatedUncompressedResource item : uncompressedResources) {
-        this.unparsed |= item.unparsed;
-      }
+    for (AggregatedUncompressedResource item : uncompressedResources) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public SignalsProblemsDetections addUncompressedResourcesItem(
-      AggregatedUncompressedResource uncompressedResourcesItem) {
+  public SignalsProblemsDetections addUncompressedResourcesItem(AggregatedUncompressedResource uncompressedResourcesItem) {
     if (this.uncompressedResources == null) {
       this.uncompressedResources = new ArrayList<>();
     }
@@ -329,17 +309,16 @@ public class SignalsProblemsDetections {
   }
 
   /**
-   * Detected uncompressed resource issues.
-   *
+   * <p>Detected uncompressed resource issues.</p>
    * @return uncompressedResources
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNCOMPRESSED_RESOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AggregatedUncompressedResource> getUncompressedResources() {
-    return uncompressedResources;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UNCOMPRESSED_RESOURCES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AggregatedUncompressedResource> getUncompressedResources() {
+        return uncompressedResources;
+      }
   public void setUncompressedResources(List<AggregatedUncompressedResource> uncompressedResources) {
     this.uncompressedResources = uncompressedResources;
     if (uncompressedResources != null) {
@@ -350,14 +329,15 @@ public class SignalsProblemsDetections {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -366,7 +346,7 @@ public class SignalsProblemsDetections {
   @JsonAnySetter
   public SignalsProblemsDetections putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -390,12 +370,14 @@ public class SignalsProblemsDetections {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SignalsProblemsDetections object is equal to o. */
+  /**
+   * Return true if this SignalsProblemsDetections object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -405,55 +387,26 @@ public class SignalsProblemsDetections {
       return false;
     }
     SignalsProblemsDetections signalsProblemsDetections = (SignalsProblemsDetections) o;
-    return Objects.equals(this.highFrozenFrameRates, signalsProblemsDetections.highFrozenFrameRates)
-        && Objects.equals(
-            this.highScriptEvaluations, signalsProblemsDetections.highScriptEvaluations)
-        && Objects.equals(this.lowCacheHitRates, signalsProblemsDetections.lowCacheHitRates)
-        && Objects.equals(
-            this.mobileScrollFrictions, signalsProblemsDetections.mobileScrollFrictions)
-        && Objects.equals(this.slowFcpHighBytes, signalsProblemsDetections.slowFcpHighBytes)
-        && Objects.equals(
-            this.slowInteractionLongTasks, signalsProblemsDetections.slowInteractionLongTasks)
-        && Objects.equals(
-            this.uncompressedResources, signalsProblemsDetections.uncompressedResources)
-        && Objects.equals(
-            this.additionalProperties, signalsProblemsDetections.additionalProperties);
+    return Objects.equals(this.highFrozenFrameRates, signalsProblemsDetections.highFrozenFrameRates) && Objects.equals(this.highScriptEvaluations, signalsProblemsDetections.highScriptEvaluations) && Objects.equals(this.lowCacheHitRates, signalsProblemsDetections.lowCacheHitRates) && Objects.equals(this.mobileScrollFrictions, signalsProblemsDetections.mobileScrollFrictions) && Objects.equals(this.slowFcpHighBytes, signalsProblemsDetections.slowFcpHighBytes) && Objects.equals(this.slowInteractionLongTasks, signalsProblemsDetections.slowInteractionLongTasks) && Objects.equals(this.uncompressedResources, signalsProblemsDetections.uncompressedResources) && Objects.equals(this.additionalProperties, signalsProblemsDetections.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        highFrozenFrameRates,
-        highScriptEvaluations,
-        lowCacheHitRates,
-        mobileScrollFrictions,
-        slowFcpHighBytes,
-        slowInteractionLongTasks,
-        uncompressedResources,
-        additionalProperties);
+    return Objects.hash(highFrozenFrameRates,highScriptEvaluations,lowCacheHitRates,mobileScrollFrictions,slowFcpHighBytes,slowInteractionLongTasks,uncompressedResources, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignalsProblemsDetections {\n");
-    sb.append("    highFrozenFrameRates: ")
-        .append(toIndentedString(highFrozenFrameRates))
-        .append("\n");
-    sb.append("    highScriptEvaluations: ")
-        .append(toIndentedString(highScriptEvaluations))
-        .append("\n");
+    sb.append("    highFrozenFrameRates: ").append(toIndentedString(highFrozenFrameRates)).append("\n");
+    sb.append("    highScriptEvaluations: ").append(toIndentedString(highScriptEvaluations)).append("\n");
     sb.append("    lowCacheHitRates: ").append(toIndentedString(lowCacheHitRates)).append("\n");
-    sb.append("    mobileScrollFrictions: ")
-        .append(toIndentedString(mobileScrollFrictions))
-        .append("\n");
+    sb.append("    mobileScrollFrictions: ").append(toIndentedString(mobileScrollFrictions)).append("\n");
     sb.append("    slowFcpHighBytes: ").append(toIndentedString(slowFcpHighBytes)).append("\n");
-    sb.append("    slowInteractionLongTasks: ")
-        .append(toIndentedString(slowInteractionLongTasks))
-        .append("\n");
-    sb.append("    uncompressedResources: ")
-        .append(toIndentedString(uncompressedResources))
-        .append("\n");
+    sb.append("    slowInteractionLongTasks: ").append(toIndentedString(slowInteractionLongTasks)).append("\n");
+    sb.append("    uncompressedResources: ").append(toIndentedString(uncompressedResources)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -462,7 +415,8 @@ public class SignalsProblemsDetections {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

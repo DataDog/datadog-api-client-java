@@ -6,18 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Status of the SLO's primary timeframe. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Status of the SLO's primary timeframe.</p>
+ */
 @JsonPropertyOrder({
   SLOStatus.JSON_PROPERTY_CALCULATION_ERROR,
   SLOStatus.JSON_PROPERTY_ERROR_BUDGET_REMAINING,
@@ -27,10 +43,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOStatus.JSON_PROPERTY_SPAN_PRECISION,
   SLOStatus.JSON_PROPERTY_STATE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOStatus {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CALCULATION_ERROR = "calculation_error";
   private JsonNullable<String> calculationError = JsonNullable.<String>undefined();
 
@@ -40,10 +56,8 @@ public class SLOStatus {
   public static final String JSON_PROPERTY_INDEXED_AT = "indexed_at";
   private Long indexedAt;
 
-  public static final String JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING =
-      "raw_error_budget_remaining";
-  private JsonNullable<SLORawErrorBudgetRemaining> rawErrorBudgetRemaining =
-      JsonNullable.<SLORawErrorBudgetRemaining>undefined();
+  public static final String JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING = "raw_error_budget_remaining";
+  private JsonNullable<SLORawErrorBudgetRemaining> rawErrorBudgetRemaining = JsonNullable.<SLORawErrorBudgetRemaining>undefined();
 
   public static final String JSON_PROPERTY_SLI = "sli";
   private JsonNullable<Double> sli = JsonNullable.<Double>undefined();
@@ -60,180 +74,150 @@ public class SLOStatus {
   }
 
   /**
-   * Error message if SLO status or error budget could not be calculated.
-   *
+   * <p>Error message if SLO status or error budget could not be calculated.</p>
    * @return calculationError
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getCalculationError() {
-    return calculationError.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getCalculationError() {
+        return calculationError.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_CALCULATION_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getCalculationError_JsonNullable() {
     return calculationError;
   }
-
-  @JsonProperty(JSON_PROPERTY_CALCULATION_ERROR)
-  public void setCalculationError_JsonNullable(JsonNullable<String> calculationError) {
+  @JsonProperty(JSON_PROPERTY_CALCULATION_ERROR)public void setCalculationError_JsonNullable(JsonNullable<String> calculationError) {
     this.calculationError = calculationError;
   }
-
   public void setCalculationError(String calculationError) {
     this.calculationError = JsonNullable.<String>of(calculationError);
   }
-
   public SLOStatus errorBudgetRemaining(Double errorBudgetRemaining) {
     this.errorBudgetRemaining = JsonNullable.<Double>of(errorBudgetRemaining);
     return this;
   }
 
   /**
-   * Remaining error budget of the SLO in percentage.
-   *
+   * <p>Remaining error budget of the SLO in percentage.</p>
    * @return errorBudgetRemaining
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Double getErrorBudgetRemaining() {
-    return errorBudgetRemaining.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Double getErrorBudgetRemaining() {
+        return errorBudgetRemaining.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_ERROR_BUDGET_REMAINING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Double> getErrorBudgetRemaining_JsonNullable() {
     return errorBudgetRemaining;
   }
-
-  @JsonProperty(JSON_PROPERTY_ERROR_BUDGET_REMAINING)
-  public void setErrorBudgetRemaining_JsonNullable(JsonNullable<Double> errorBudgetRemaining) {
+  @JsonProperty(JSON_PROPERTY_ERROR_BUDGET_REMAINING)public void setErrorBudgetRemaining_JsonNullable(JsonNullable<Double> errorBudgetRemaining) {
     this.errorBudgetRemaining = errorBudgetRemaining;
   }
-
   public void setErrorBudgetRemaining(Double errorBudgetRemaining) {
     this.errorBudgetRemaining = JsonNullable.<Double>of(errorBudgetRemaining);
   }
-
   public SLOStatus indexedAt(Long indexedAt) {
     this.indexedAt = indexedAt;
     return this;
   }
 
   /**
-   * timestamp (UNIX time in seconds) of when the SLO status and error budget were calculated.
-   *
+   * <p>timestamp (UNIX time in seconds) of when the SLO status and error budget
+   * were calculated.</p>
    * @return indexedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedAt() {
-    return indexedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INDEXED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIndexedAt() {
+        return indexedAt;
+      }
   public void setIndexedAt(Long indexedAt) {
     this.indexedAt = indexedAt;
   }
-
   public SLOStatus rawErrorBudgetRemaining(SLORawErrorBudgetRemaining rawErrorBudgetRemaining) {
-    this.rawErrorBudgetRemaining =
-        JsonNullable.<SLORawErrorBudgetRemaining>of(rawErrorBudgetRemaining);
+    this.rawErrorBudgetRemaining = JsonNullable.<SLORawErrorBudgetRemaining>of(rawErrorBudgetRemaining);
     return this;
   }
 
   /**
-   * Error budget remaining for an SLO.
-   *
+   * <p>Error budget remaining for an SLO.</p>
    * @return rawErrorBudgetRemaining
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public SLORawErrorBudgetRemaining getRawErrorBudgetRemaining() {
-    return rawErrorBudgetRemaining.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public SLORawErrorBudgetRemaining getRawErrorBudgetRemaining() {
+        return rawErrorBudgetRemaining.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<SLORawErrorBudgetRemaining> getRawErrorBudgetRemaining_JsonNullable() {
     return rawErrorBudgetRemaining;
   }
-
-  @JsonProperty(JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING)
-  public void setRawErrorBudgetRemaining_JsonNullable(
-      JsonNullable<SLORawErrorBudgetRemaining> rawErrorBudgetRemaining) {
+  @JsonProperty(JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING)public void setRawErrorBudgetRemaining_JsonNullable(JsonNullable<SLORawErrorBudgetRemaining> rawErrorBudgetRemaining) {
     this.rawErrorBudgetRemaining = rawErrorBudgetRemaining;
   }
-
   public void setRawErrorBudgetRemaining(SLORawErrorBudgetRemaining rawErrorBudgetRemaining) {
-    this.rawErrorBudgetRemaining =
-        JsonNullable.<SLORawErrorBudgetRemaining>of(rawErrorBudgetRemaining);
+    this.rawErrorBudgetRemaining = JsonNullable.<SLORawErrorBudgetRemaining>of(rawErrorBudgetRemaining);
   }
-
   public SLOStatus sli(Double sli) {
     this.sli = JsonNullable.<Double>of(sli);
     return this;
   }
 
   /**
-   * The current service level indicator (SLI) of the SLO, also known as 'status'. This is a
-   * percentage value from 0-100 (inclusive).
-   *
+   * <p>The current service level indicator (SLI) of the SLO, also known as 'status'. This is a percentage value from 0-100 (inclusive).</p>
    * @return sli
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Double getSli() {
-    return sli.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Double getSli() {
+        return sli.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_SLI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Double> getSli_JsonNullable() {
     return sli;
   }
-
-  @JsonProperty(JSON_PROPERTY_SLI)
-  public void setSli_JsonNullable(JsonNullable<Double> sli) {
+  @JsonProperty(JSON_PROPERTY_SLI)public void setSli_JsonNullable(JsonNullable<Double> sli) {
     this.sli = sli;
   }
-
   public void setSli(Double sli) {
     this.sli = JsonNullable.<Double>of(sli);
   }
-
   public SLOStatus spanPrecision(Long spanPrecision) {
     this.spanPrecision = JsonNullable.<Long>of(spanPrecision);
     return this;
   }
 
   /**
-   * The number of decimal places the SLI value is accurate to.
-   *
+   * <p>The number of decimal places the SLI value is accurate to.</p>
    * @return spanPrecision
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getSpanPrecision() {
-    return spanPrecision.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getSpanPrecision() {
+        return spanPrecision.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_SPAN_PRECISION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getSpanPrecision_JsonNullable() {
     return spanPrecision;
   }
-
-  @JsonProperty(JSON_PROPERTY_SPAN_PRECISION)
-  public void setSpanPrecision_JsonNullable(JsonNullable<Long> spanPrecision) {
+  @JsonProperty(JSON_PROPERTY_SPAN_PRECISION)public void setSpanPrecision_JsonNullable(JsonNullable<Long> spanPrecision) {
     this.spanPrecision = spanPrecision;
   }
-
   public void setSpanPrecision(Long spanPrecision) {
     this.spanPrecision = JsonNullable.<Long>of(spanPrecision);
   }
-
   public SLOStatus state(SLOState state) {
     this.state = state;
     this.unparsed |= !state.isValid();
@@ -241,33 +225,33 @@ public class SLOStatus {
   }
 
   /**
-   * State of the SLO.
-   *
+   * <p>State of the SLO.</p>
    * @return state
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SLOState getState() {
-    return state;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SLOState getState() {
+        return state;
+      }
   public void setState(SLOState state) {
     if (!state.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.state = state;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -276,7 +260,7 @@ public class SLOStatus {
   @JsonAnySetter
   public SLOStatus putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -300,12 +284,14 @@ public class SLOStatus {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SLOStatus object is equal to o. */
+  /**
+   * Return true if this SLOStatus object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -315,27 +301,13 @@ public class SLOStatus {
       return false;
     }
     SLOStatus sloStatus = (SLOStatus) o;
-    return Objects.equals(this.calculationError, sloStatus.calculationError)
-        && Objects.equals(this.errorBudgetRemaining, sloStatus.errorBudgetRemaining)
-        && Objects.equals(this.indexedAt, sloStatus.indexedAt)
-        && Objects.equals(this.rawErrorBudgetRemaining, sloStatus.rawErrorBudgetRemaining)
-        && Objects.equals(this.sli, sloStatus.sli)
-        && Objects.equals(this.spanPrecision, sloStatus.spanPrecision)
-        && Objects.equals(this.state, sloStatus.state)
-        && Objects.equals(this.additionalProperties, sloStatus.additionalProperties);
+    return Objects.equals(this.calculationError, sloStatus.calculationError) && Objects.equals(this.errorBudgetRemaining, sloStatus.errorBudgetRemaining) && Objects.equals(this.indexedAt, sloStatus.indexedAt) && Objects.equals(this.rawErrorBudgetRemaining, sloStatus.rawErrorBudgetRemaining) && Objects.equals(this.sli, sloStatus.sli) && Objects.equals(this.spanPrecision, sloStatus.spanPrecision) && Objects.equals(this.state, sloStatus.state) && Objects.equals(this.additionalProperties, sloStatus.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        calculationError,
-        errorBudgetRemaining,
-        indexedAt,
-        rawErrorBudgetRemaining,
-        sli,
-        spanPrecision,
-        state,
-        additionalProperties);
+    return Objects.hash(calculationError,errorBudgetRemaining,indexedAt,rawErrorBudgetRemaining,sli,spanPrecision,state, additionalProperties);
   }
 
   @Override
@@ -343,13 +315,9 @@ public class SLOStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class SLOStatus {\n");
     sb.append("    calculationError: ").append(toIndentedString(calculationError)).append("\n");
-    sb.append("    errorBudgetRemaining: ")
-        .append(toIndentedString(errorBudgetRemaining))
-        .append("\n");
+    sb.append("    errorBudgetRemaining: ").append(toIndentedString(errorBudgetRemaining)).append("\n");
     sb.append("    indexedAt: ").append(toIndentedString(indexedAt)).append("\n");
-    sb.append("    rawErrorBudgetRemaining: ")
-        .append(toIndentedString(rawErrorBudgetRemaining))
-        .append("\n");
+    sb.append("    rawErrorBudgetRemaining: ").append(toIndentedString(rawErrorBudgetRemaining)).append("\n");
     sb.append("    sli: ").append(toIndentedString(sli)).append("\n");
     sb.append("    spanPrecision: ").append(toIndentedString(spanPrecision)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
@@ -361,7 +329,8 @@ public class SLOStatus {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

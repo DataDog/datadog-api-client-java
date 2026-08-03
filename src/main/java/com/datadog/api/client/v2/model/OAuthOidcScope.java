@@ -6,48 +6,74 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** OIDC scope a client may be restricted to. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>OIDC scope a client may be restricted to.</p>
+ */
 @JsonSerialize(using = OAuthOidcScope.OAuthOidcScopeSerializer.class)
 public class OAuthOidcScope extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("openid", "profile", "email", "offline_access"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("openid", "profile", "email", "offline_access"));
 
   public static final OAuthOidcScope OPENID = new OAuthOidcScope("openid");
   public static final OAuthOidcScope PROFILE = new OAuthOidcScope("profile");
   public static final OAuthOidcScope EMAIL = new OAuthOidcScope("email");
   public static final OAuthOidcScope OFFLINE_ACCESS = new OAuthOidcScope("offline_access");
 
+
   OAuthOidcScope(String value) {
     super(value, allowedValues);
   }
 
   public static class OAuthOidcScopeSerializer extends StdSerializer<OAuthOidcScope> {
-    public OAuthOidcScopeSerializer(Class<OAuthOidcScope> t) {
-      super(t);
-    }
+      public OAuthOidcScopeSerializer(Class<OAuthOidcScope> t) {
+          super(t);
+      }
 
-    public OAuthOidcScopeSerializer() {
-      this(null);
-    }
+      public OAuthOidcScopeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(OAuthOidcScope value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(OAuthOidcScope value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

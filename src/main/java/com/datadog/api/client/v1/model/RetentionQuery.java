@@ -6,16 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Retention query definition. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Retention query definition.</p>
+ */
 @JsonPropertyOrder({
   RetentionQuery.JSON_PROPERTY_COMPUTE,
   RetentionQuery.JSON_PROPERTY_DATA_SOURCE,
@@ -24,10 +42,10 @@ import java.util.Objects;
   RetentionQuery.JSON_PROPERTY_NAME,
   RetentionQuery.JSON_PROPERTY_SEARCH
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private RetentionCompute compute;
 
@@ -50,18 +68,16 @@ public class RetentionQuery {
 
   @JsonCreator
   public RetentionQuery(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE) RetentionCompute compute,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
-          RetentionDataSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH) RetentionSearch search) {
-    this.compute = compute;
-    this.unparsed |= compute.unparsed;
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    this.search = search;
-    this.unparsed |= search.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_COMPUTE)RetentionCompute compute,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)RetentionDataSource dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SEARCH)RetentionSearch search) {
+        this.compute = compute;
+        this.unparsed |= compute.unparsed;
+        this.dataSource = dataSource;
+        this.unparsed |= !dataSource.isValid();
+        this.search = search;
+        this.unparsed |= search.unparsed;
   }
-
   public RetentionQuery compute(RetentionCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
@@ -69,23 +85,21 @@ public class RetentionQuery {
   }
 
   /**
-   * Compute configuration for retention queries.
-   *
+   * <p>Compute configuration for retention queries.</p>
    * @return compute
-   */
-  @JsonProperty(JSON_PROPERTY_COMPUTE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionCompute getCompute() {
-    return compute;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_COMPUTE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetentionCompute getCompute() {
+        return compute;
+      }
   public void setCompute(RetentionCompute compute) {
     this.compute = compute;
     if (compute != null) {
       this.unparsed |= compute.unparsed;
     }
   }
-
   public RetentionQuery dataSource(RetentionDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -93,23 +107,21 @@ public class RetentionQuery {
   }
 
   /**
-   * Data source for retention queries.
-   *
+   * <p>Data source for retention queries.</p>
    * @return dataSource
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionDataSource getDataSource() {
-    return dataSource;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetentionDataSource getDataSource() {
+        return dataSource;
+      }
   public void setDataSource(RetentionDataSource dataSource) {
     if (!dataSource.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
-
   public RetentionQuery filters(RetentionFilters filters) {
     this.filters = filters;
     this.unparsed |= filters.unparsed;
@@ -117,34 +129,31 @@ public class RetentionQuery {
   }
 
   /**
-   * Filters for retention queries.
-   *
+   * <p>Filters for retention queries.</p>
    * @return filters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RetentionFilters getFilters() {
-    return filters;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FILTERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RetentionFilters getFilters() {
+        return filters;
+      }
   public void setFilters(RetentionFilters filters) {
     this.filters = filters;
     if (filters != null) {
       this.unparsed |= filters.unparsed;
     }
   }
-
   public RetentionQuery groupBy(List<RetentionGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
-      for (RetentionGroupBy item : groupBy) {
-        this.unparsed |= item.unparsed;
-      }
+    for (RetentionGroupBy item : groupBy) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public RetentionQuery addGroupByItem(RetentionGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -155,17 +164,16 @@ public class RetentionQuery {
   }
 
   /**
-   * Group by configuration.
-   *
+   * <p>Group by configuration.</p>
    * @return groupBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<RetentionGroupBy> getGroupBy() {
-    return groupBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GROUP_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<RetentionGroupBy> getGroupBy() {
+        return groupBy;
+      }
   public void setGroupBy(List<RetentionGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
@@ -174,28 +182,25 @@ public class RetentionQuery {
       }
     }
   }
-
   public RetentionQuery name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the query.
-   *
+   * <p>Name of the query.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public RetentionQuery search(RetentionSearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
@@ -203,16 +208,15 @@ public class RetentionQuery {
   }
 
   /**
-   * Search configuration for retention queries.
-   *
+   * <p>Search configuration for retention queries.</p>
    * @return search
-   */
-  @JsonProperty(JSON_PROPERTY_SEARCH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionSearch getSearch() {
-    return search;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SEARCH)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetentionSearch getSearch() {
+        return search;
+      }
   public void setSearch(RetentionSearch search) {
     this.search = search;
     if (search != null) {
@@ -220,7 +224,9 @@ public class RetentionQuery {
     }
   }
 
-  /** Return true if this RetentionQuery object is equal to o. */
+  /**
+   * Return true if this RetentionQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,17 +236,13 @@ public class RetentionQuery {
       return false;
     }
     RetentionQuery retentionQuery = (RetentionQuery) o;
-    return Objects.equals(this.compute, retentionQuery.compute)
-        && Objects.equals(this.dataSource, retentionQuery.dataSource)
-        && Objects.equals(this.filters, retentionQuery.filters)
-        && Objects.equals(this.groupBy, retentionQuery.groupBy)
-        && Objects.equals(this.name, retentionQuery.name)
-        && Objects.equals(this.search, retentionQuery.search);
+    return Objects.equals(this.compute, retentionQuery.compute) && Objects.equals(this.dataSource, retentionQuery.dataSource) && Objects.equals(this.filters, retentionQuery.filters) && Objects.equals(this.groupBy, retentionQuery.groupBy) && Objects.equals(this.name, retentionQuery.name) && Objects.equals(this.search, retentionQuery.search);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute, dataSource, filters, groupBy, name, search);
+    return Objects.hash(compute,dataSource,filters,groupBy,name,search);
   }
 
   @Override
@@ -258,7 +260,8 @@ public class RetentionQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

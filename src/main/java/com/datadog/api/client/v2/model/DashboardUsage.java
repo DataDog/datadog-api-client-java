@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,20 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A single dashboard usage record. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A single dashboard usage record.</p>
+ */
 @JsonPropertyOrder({
   DashboardUsage.JSON_PROPERTY_ATTRIBUTES,
   DashboardUsage.JSON_PROPERTY_ID,
   DashboardUsage.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardUsage {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private DashboardUsageAttributes attributes;
 
@@ -40,17 +56,15 @@ public class DashboardUsage {
 
   @JsonCreator
   public DashboardUsage(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DashboardUsageAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DashboardUsageType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES)DashboardUsageAttributes attributes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)DashboardUsageType type) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public DashboardUsage attributes(DashboardUsageAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -58,45 +72,39 @@ public class DashboardUsage {
   }
 
   /**
-   * Usage statistics for a dashboard. The <code>viewer</code> field and all view-count fields (
-   * <code>total_views</code>, <code>viewed_at</code>, <code>total_views_by_type</code>) are
-   * populated only when Real User Monitoring (RUM) is active for the org.
-   *
+   * <p>Usage statistics for a dashboard. The <code>viewer</code> field and all view-count fields (<code>total_views</code>, <code>viewed_at</code>, <code>total_views_by_type</code>) are populated only when Real User Monitoring (RUM) is active for the org.</p>
    * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DashboardUsageAttributes getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public DashboardUsageAttributes getAttributes() {
+        return attributes;
+      }
   public void setAttributes(DashboardUsageAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
-
   public DashboardUsage id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The dashboard ID.
-   *
+   * <p>The dashboard ID.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public DashboardUsage type(DashboardUsageType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -104,32 +112,32 @@ public class DashboardUsage {
   }
 
   /**
-   * The type of the resource. Always <code>dashboards-usages</code>.
-   *
+   * <p>The type of the resource. Always <code>dashboards-usages</code>.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DashboardUsageType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public DashboardUsageType getType() {
+        return type;
+      }
   public void setType(DashboardUsageType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -138,7 +146,7 @@ public class DashboardUsage {
   @JsonAnySetter
   public DashboardUsage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -162,12 +170,14 @@ public class DashboardUsage {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DashboardUsage object is equal to o. */
+  /**
+   * Return true if this DashboardUsage object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -177,15 +187,13 @@ public class DashboardUsage {
       return false;
     }
     DashboardUsage dashboardUsage = (DashboardUsage) o;
-    return Objects.equals(this.attributes, dashboardUsage.attributes)
-        && Objects.equals(this.id, dashboardUsage.id)
-        && Objects.equals(this.type, dashboardUsage.type)
-        && Objects.equals(this.additionalProperties, dashboardUsage.additionalProperties);
+    return Objects.equals(this.attributes, dashboardUsage.attributes) && Objects.equals(this.id, dashboardUsage.id) && Objects.equals(this.type, dashboardUsage.type) && Objects.equals(this.additionalProperties, dashboardUsage.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes,id,type, additionalProperties);
   }
 
   @Override
@@ -203,7 +211,8 @@ public class DashboardUsage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

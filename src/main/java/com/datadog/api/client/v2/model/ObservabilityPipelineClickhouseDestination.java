@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,18 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
+import com.datadog.api.client.JsonTimeSerializer;
+
+
 /**
- * The <code>clickhouse</code> destination sends log events to a ClickHouse database table over
- * HTTP.
- *
- * <p><strong>Supported pipeline types:</strong> logs.
+   * <p>The <code>clickhouse</code> destination sends log events to a ClickHouse database table over HTTP.</p>
+   * <p><strong>Supported pipeline types:</strong> logs.</p>
  */
 @JsonPropertyOrder({
   ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_AUTH,
@@ -43,10 +52,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_TLS,
   ObservabilityPipelineClickhouseDestination.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineClickhouseDestination {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH = "auth";
   private ObservabilityPipelineClickhouseDestinationAuth auth;
 
@@ -90,358 +99,311 @@ public class ObservabilityPipelineClickhouseDestination {
   private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineClickhouseDestinationType type =
-      ObservabilityPipelineClickhouseDestinationType.CLICKHOUSE;
+  private ObservabilityPipelineClickhouseDestinationType type = ObservabilityPipelineClickhouseDestinationType.CLICKHOUSE;
 
   public ObservabilityPipelineClickhouseDestination() {}
 
   @JsonCreator
   public ObservabilityPipelineClickhouseDestination(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TABLE) String table,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineClickhouseDestinationType type) {
-    this.id = id;
-    this.inputs = inputs;
-    this.table = table;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_INPUTS)List<String> inputs,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TABLE)String table,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineClickhouseDestinationType type) {
+        this.id = id;
+        this.inputs = inputs;
+        this.table = table;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
-  public ObservabilityPipelineClickhouseDestination auth(
-      ObservabilityPipelineClickhouseDestinationAuth auth) {
+  public ObservabilityPipelineClickhouseDestination auth(ObservabilityPipelineClickhouseDestinationAuth auth) {
     this.auth = auth;
     this.unparsed |= auth.unparsed;
     return this;
   }
 
   /**
-   * HTTP Basic Authentication credentials for the ClickHouse destination. When <code>strategy
-   * </code> is <code>basic</code>, provide <code>username_key</code> and <code>password_key</code>
-   * that reference environment variables or secrets containing the credentials.
-   *
+   * <p>HTTP Basic Authentication credentials for the ClickHouse destination.
+   * When <code>strategy</code> is <code>basic</code>, provide <code>username_key</code> and <code>password_key</code> that reference environment variables or secrets containing the credentials.</p>
    * @return auth
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineClickhouseDestinationAuth getAuth() {
-    return auth;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUTH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineClickhouseDestinationAuth getAuth() {
+        return auth;
+      }
   public void setAuth(ObservabilityPipelineClickhouseDestinationAuth auth) {
     this.auth = auth;
     if (auth != null) {
       this.unparsed |= auth.unparsed;
     }
   }
-
-  public ObservabilityPipelineClickhouseDestination batch(
-      ObservabilityPipelineClickhouseDestinationBatch batch) {
+  public ObservabilityPipelineClickhouseDestination batch(ObservabilityPipelineClickhouseDestinationBatch batch) {
     this.batch = batch;
     this.unparsed |= batch.unparsed;
     return this;
   }
 
   /**
-   * Batching configuration for ClickHouse inserts.
-   *
+   * <p>Batching configuration for ClickHouse inserts.</p>
    * @return batch
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BATCH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineClickhouseDestinationBatch getBatch() {
-    return batch;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BATCH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineClickhouseDestinationBatch getBatch() {
+        return batch;
+      }
   public void setBatch(ObservabilityPipelineClickhouseDestinationBatch batch) {
     this.batch = batch;
     if (batch != null) {
       this.unparsed |= batch.unparsed;
     }
   }
-
-  public ObservabilityPipelineClickhouseDestination batchEncoding(
-      ObservabilityPipelineClickhouseDestinationBatchEncoding batchEncoding) {
+  public ObservabilityPipelineClickhouseDestination batchEncoding(ObservabilityPipelineClickhouseDestinationBatchEncoding batchEncoding) {
     this.batchEncoding = batchEncoding;
     this.unparsed |= batchEncoding.unparsed;
     return this;
   }
 
   /**
-   * Batch encoding configuration for the ClickHouse destination. Required when <code>format</code>
-   * is <code>arrow_stream</code>. The <code>codec</code> field must be set to <code>arrow_stream
-   * </code>.
-   *
+   * <p>Batch encoding configuration for the ClickHouse destination.
+   * Required when <code>format</code> is <code>arrow_stream</code>. The <code>codec</code> field must be set to <code>arrow_stream</code>.</p>
    * @return batchEncoding
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BATCH_ENCODING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineClickhouseDestinationBatchEncoding getBatchEncoding() {
-    return batchEncoding;
-  }
-
-  public void setBatchEncoding(
-      ObservabilityPipelineClickhouseDestinationBatchEncoding batchEncoding) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BATCH_ENCODING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineClickhouseDestinationBatchEncoding getBatchEncoding() {
+        return batchEncoding;
+      }
+  public void setBatchEncoding(ObservabilityPipelineClickhouseDestinationBatchEncoding batchEncoding) {
     this.batchEncoding = batchEncoding;
     if (batchEncoding != null) {
       this.unparsed |= batchEncoding.unparsed;
     }
   }
-
-  public ObservabilityPipelineClickhouseDestination buffer(
-      ObservabilityPipelineBufferOptions buffer) {
+  public ObservabilityPipelineClickhouseDestination buffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
     this.unparsed |= buffer.unparsed;
     return this;
   }
 
   /**
-   * Configuration for buffer settings on destination components.
-   *
+   * <p>Configuration for buffer settings on destination components.</p>
    * @return buffer
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BUFFER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineBufferOptions getBuffer() {
-    return buffer;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BUFFER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineBufferOptions getBuffer() {
+        return buffer;
+      }
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
     if (buffer != null) {
       this.unparsed |= buffer.unparsed;
     }
   }
-
-  public ObservabilityPipelineClickhouseDestination compression(
-      ObservabilityPipelineClickhouseDestinationCompression compression) {
+  public ObservabilityPipelineClickhouseDestination compression(ObservabilityPipelineClickhouseDestinationCompression compression) {
     this.compression = compression;
     this.unparsed |= compression.unparsed;
     return this;
   }
 
   /**
-   * Compression setting for outbound HTTP requests to ClickHouse. Can be specified as a shorthand
-   * string (<code>"gzip"</code> or <code>"none"</code>) or as an object with an <code>algorithm
-   * </code> field and an optional <code>level</code> (gzip only, 1–9).
-   *
+   * <p>Compression setting for outbound HTTP requests to ClickHouse.
+   * Can be specified as a shorthand string (<code>"gzip"</code> or <code>"none"</code>) or as an object
+   * with an <code>algorithm</code> field and an optional <code>level</code> (gzip only, 1–9).</p>
    * @return compression
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPRESSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineClickhouseDestinationCompression getCompression() {
-    return compression;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPRESSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineClickhouseDestinationCompression getCompression() {
+        return compression;
+      }
   public void setCompression(ObservabilityPipelineClickhouseDestinationCompression compression) {
     this.compression = compression;
     if (compression != null) {
       this.unparsed |= compression.unparsed;
     }
   }
-
   public ObservabilityPipelineClickhouseDestination database(String database) {
     this.database = database;
     return this;
   }
 
   /**
-   * Optional ClickHouse database name. If omitted, the user's default database on the ClickHouse
-   * server is used.
-   *
+   * <p>Optional ClickHouse database name. If omitted, the user's default database on the ClickHouse server is used.</p>
    * @return database
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATABASE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDatabase() {
-    return database;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATABASE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDatabase() {
+        return database;
+      }
   public void setDatabase(String database) {
     this.database = database;
   }
-
   public ObservabilityPipelineClickhouseDestination dateTimeBestEffort(Boolean dateTimeBestEffort) {
     this.dateTimeBestEffort = dateTimeBestEffort;
     return this;
   }
 
   /**
-   * When <code>true</code>, enables flexible DateTime parsing on the ClickHouse server side.
-   *
+   * <p>When <code>true</code>, enables flexible DateTime parsing on the ClickHouse server side.</p>
    * @return dateTimeBestEffort
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATE_TIME_BEST_EFFORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getDateTimeBestEffort() {
-    return dateTimeBestEffort;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATE_TIME_BEST_EFFORT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getDateTimeBestEffort() {
+        return dateTimeBestEffort;
+      }
   public void setDateTimeBestEffort(Boolean dateTimeBestEffort) {
     this.dateTimeBestEffort = dateTimeBestEffort;
   }
-
   public ObservabilityPipelineClickhouseDestination endpointUrlKey(String endpointUrlKey) {
     this.endpointUrlKey = endpointUrlKey;
     return this;
   }
 
   /**
-   * Name of the environment variable or secret that contains the ClickHouse HTTP endpoint URL.
-   * Defaults to <code>DESTINATION_CLICKHOUSE_ENDPOINT_URL</code> (prefixed with <code>DD_OP_</code>
-   * at runtime).
-   *
+   * <p>Name of the environment variable or secret that contains the ClickHouse HTTP endpoint URL.
+   * Defaults to <code>DESTINATION_CLICKHOUSE_ENDPOINT_URL</code> (prefixed with <code>DD_OP_</code> at runtime).</p>
    * @return endpointUrlKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEndpointUrlKey() {
-    return endpointUrlKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEndpointUrlKey() {
+        return endpointUrlKey;
+      }
   public void setEndpointUrlKey(String endpointUrlKey) {
     this.endpointUrlKey = endpointUrlKey;
   }
-
-  public ObservabilityPipelineClickhouseDestination format(
-      ObservabilityPipelineClickhouseDestinationFormat format) {
+  public ObservabilityPipelineClickhouseDestination format(ObservabilityPipelineClickhouseDestinationFormat format) {
     this.format = format;
     this.unparsed |= !format.isValid();
     return this;
   }
 
   /**
-   * Insert format for events sent to ClickHouse. - <code>json_each_row</code>: Maps event fields to
-   * columns by name (ClickHouse <code>JSONEachRow</code>). - <code>json_as_object</code>: Inserts
-   * each event into a single <code>Object('json')</code> / <code>JSON</code> column (ClickHouse
-   * <code>JSONAsObject</code>). - <code>json_as_string</code>: Inserts each event into a single
-   * <code>String</code>-typed column as raw JSON (ClickHouse <code>JSONAsString</code>). - <code>
-   * arrow_stream</code>: Batches events using Apache Arrow IPC streaming format. Requires <code>
-   * batch_encoding</code>.
-   *
+   * <p>Insert format for events sent to ClickHouse.
+   * - <code>json_each_row</code>: Maps event fields to columns by name (ClickHouse <code>JSONEachRow</code>).
+   * - <code>json_as_object</code>: Inserts each event into a single <code>Object('json')</code> / <code>JSON</code> column (ClickHouse <code>JSONAsObject</code>).
+   * - <code>json_as_string</code>: Inserts each event into a single <code>String</code>-typed column as raw JSON (ClickHouse <code>JSONAsString</code>).
+   * - <code>arrow_stream</code>: Batches events using Apache Arrow IPC streaming format. Requires <code>batch_encoding</code>.</p>
    * @return format
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineClickhouseDestinationFormat getFormat() {
-    return format;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FORMAT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineClickhouseDestinationFormat getFormat() {
+        return format;
+      }
   public void setFormat(ObservabilityPipelineClickhouseDestinationFormat format) {
     if (!format.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.format = format;
   }
-
   public ObservabilityPipelineClickhouseDestination id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier for this component.
-   *
+   * <p>The unique identifier for this component.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public ObservabilityPipelineClickhouseDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
   }
-
   public ObservabilityPipelineClickhouseDestination addInputsItem(String inputsItem) {
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
-   *
+   * <p>A list of component IDs whose output is used as the <code>input</code> for this component.</p>
    * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INPUTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getInputs() {
+        return inputs;
+      }
   public void setInputs(List<String> inputs) {
     this.inputs = inputs;
   }
-
   public ObservabilityPipelineClickhouseDestination skipUnknownFields(Boolean skipUnknownFields) {
     this.skipUnknownFields = JsonNullable.<Boolean>of(skipUnknownFields);
     return this;
   }
 
   /**
-   * When <code>true</code>, fields not present in the target table schema are dropped instead of
-   * causing insert errors. When unset, the ClickHouse server's own <code>
-   * input_format_skip_unknown_fields</code> setting applies.
-   *
+   * <p>When <code>true</code>, fields not present in the target table schema are dropped instead of causing insert errors.
+   * When unset, the ClickHouse server's own <code>input_format_skip_unknown_fields</code> setting applies.</p>
    * @return skipUnknownFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Boolean getSkipUnknownFields() {
-    return skipUnknownFields.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Boolean getSkipUnknownFields() {
+        return skipUnknownFields.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_SKIP_UNKNOWN_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Boolean> getSkipUnknownFields_JsonNullable() {
     return skipUnknownFields;
   }
-
-  @JsonProperty(JSON_PROPERTY_SKIP_UNKNOWN_FIELDS)
-  public void setSkipUnknownFields_JsonNullable(JsonNullable<Boolean> skipUnknownFields) {
+  @JsonProperty(JSON_PROPERTY_SKIP_UNKNOWN_FIELDS)public void setSkipUnknownFields_JsonNullable(JsonNullable<Boolean> skipUnknownFields) {
     this.skipUnknownFields = skipUnknownFields;
   }
-
   public void setSkipUnknownFields(Boolean skipUnknownFields) {
     this.skipUnknownFields = JsonNullable.<Boolean>of(skipUnknownFields);
   }
-
   public ObservabilityPipelineClickhouseDestination table(String table) {
     this.table = table;
     return this;
   }
 
   /**
-   * Target ClickHouse table name. Events are inserted into this table.
-   *
+   * <p>Target ClickHouse table name. Events are inserted into this table.</p>
    * @return table
-   */
-  @JsonProperty(JSON_PROPERTY_TABLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTable() {
-    return table;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TABLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTable() {
+        return table;
+      }
   public void setTable(String table) {
     this.table = table;
   }
-
   public ObservabilityPipelineClickhouseDestination tls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
@@ -449,68 +411,64 @@ public class ObservabilityPipelineClickhouseDestination {
   }
 
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
-   *
+   * <p>Configuration for enabling TLS encryption between the pipeline component and external services.</p>
    * @return tls
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TLS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineTls getTls() {
-    return tls;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TLS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineTls getTls() {
+        return tls;
+      }
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     if (tls != null) {
       this.unparsed |= tls.unparsed;
     }
   }
-
-  public ObservabilityPipelineClickhouseDestination type(
-      ObservabilityPipelineClickhouseDestinationType type) {
+  public ObservabilityPipelineClickhouseDestination type(ObservabilityPipelineClickhouseDestinationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The destination type. The value must be <code>clickhouse</code>.
-   *
+   * <p>The destination type. The value must be <code>clickhouse</code>.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineClickhouseDestinationType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineClickhouseDestinationType getType() {
+        return type;
+      }
   public void setType(ObservabilityPipelineClickhouseDestinationType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineClickhouseDestination
    */
   @JsonAnySetter
-  public ObservabilityPipelineClickhouseDestination putAdditionalProperty(
-      String key, Object value) {
+  public ObservabilityPipelineClickhouseDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -534,12 +492,14 @@ public class ObservabilityPipelineClickhouseDestination {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineClickhouseDestination object is equal to o. */
+  /**
+   * Return true if this ObservabilityPipelineClickhouseDestination object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -548,51 +508,14 @@ public class ObservabilityPipelineClickhouseDestination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineClickhouseDestination observabilityPipelineClickhouseDestination =
-        (ObservabilityPipelineClickhouseDestination) o;
-    return Objects.equals(this.auth, observabilityPipelineClickhouseDestination.auth)
-        && Objects.equals(this.batch, observabilityPipelineClickhouseDestination.batch)
-        && Objects.equals(
-            this.batchEncoding, observabilityPipelineClickhouseDestination.batchEncoding)
-        && Objects.equals(this.buffer, observabilityPipelineClickhouseDestination.buffer)
-        && Objects.equals(this.compression, observabilityPipelineClickhouseDestination.compression)
-        && Objects.equals(this.database, observabilityPipelineClickhouseDestination.database)
-        && Objects.equals(
-            this.dateTimeBestEffort, observabilityPipelineClickhouseDestination.dateTimeBestEffort)
-        && Objects.equals(
-            this.endpointUrlKey, observabilityPipelineClickhouseDestination.endpointUrlKey)
-        && Objects.equals(this.format, observabilityPipelineClickhouseDestination.format)
-        && Objects.equals(this.id, observabilityPipelineClickhouseDestination.id)
-        && Objects.equals(this.inputs, observabilityPipelineClickhouseDestination.inputs)
-        && Objects.equals(
-            this.skipUnknownFields, observabilityPipelineClickhouseDestination.skipUnknownFields)
-        && Objects.equals(this.table, observabilityPipelineClickhouseDestination.table)
-        && Objects.equals(this.tls, observabilityPipelineClickhouseDestination.tls)
-        && Objects.equals(this.type, observabilityPipelineClickhouseDestination.type)
-        && Objects.equals(
-            this.additionalProperties,
-            observabilityPipelineClickhouseDestination.additionalProperties);
+    ObservabilityPipelineClickhouseDestination observabilityPipelineClickhouseDestination = (ObservabilityPipelineClickhouseDestination) o;
+    return Objects.equals(this.auth, observabilityPipelineClickhouseDestination.auth) && Objects.equals(this.batch, observabilityPipelineClickhouseDestination.batch) && Objects.equals(this.batchEncoding, observabilityPipelineClickhouseDestination.batchEncoding) && Objects.equals(this.buffer, observabilityPipelineClickhouseDestination.buffer) && Objects.equals(this.compression, observabilityPipelineClickhouseDestination.compression) && Objects.equals(this.database, observabilityPipelineClickhouseDestination.database) && Objects.equals(this.dateTimeBestEffort, observabilityPipelineClickhouseDestination.dateTimeBestEffort) && Objects.equals(this.endpointUrlKey, observabilityPipelineClickhouseDestination.endpointUrlKey) && Objects.equals(this.format, observabilityPipelineClickhouseDestination.format) && Objects.equals(this.id, observabilityPipelineClickhouseDestination.id) && Objects.equals(this.inputs, observabilityPipelineClickhouseDestination.inputs) && Objects.equals(this.skipUnknownFields, observabilityPipelineClickhouseDestination.skipUnknownFields) && Objects.equals(this.table, observabilityPipelineClickhouseDestination.table) && Objects.equals(this.tls, observabilityPipelineClickhouseDestination.tls) && Objects.equals(this.type, observabilityPipelineClickhouseDestination.type) && Objects.equals(this.additionalProperties, observabilityPipelineClickhouseDestination.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        auth,
-        batch,
-        batchEncoding,
-        buffer,
-        compression,
-        database,
-        dateTimeBestEffort,
-        endpointUrlKey,
-        format,
-        id,
-        inputs,
-        skipUnknownFields,
-        table,
-        tls,
-        type,
-        additionalProperties);
+    return Objects.hash(auth,batch,batchEncoding,buffer,compression,database,dateTimeBestEffort,endpointUrlKey,format,id,inputs,skipUnknownFields,table,tls,type, additionalProperties);
   }
 
   @Override
@@ -622,7 +545,8 @@ public class ObservabilityPipelineClickhouseDestination {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

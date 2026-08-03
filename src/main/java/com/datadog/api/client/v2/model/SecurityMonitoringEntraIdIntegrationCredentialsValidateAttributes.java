@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The Entra ID credentials to validate against the external entity source. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The Entra ID credentials to validate against the external entity source.</p>
+ */
 @JsonPropertyOrder({
   SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes.JSON_PROPERTY_DOMAIN,
   SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes.JSON_PROPERTY_INTEGRATION_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOMAIN = "domain";
   private String domain;
 
@@ -36,78 +52,72 @@ public class SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes {
 
   @JsonCreator
   public SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) String domain,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INTEGRATION_TYPE)
-          SecurityMonitoringIntegrationTypeEntraId integrationType) {
-    this.domain = domain;
-    this.integrationType = integrationType;
-    this.unparsed |= !integrationType.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_DOMAIN)String domain,
+            @JsonProperty(required=true, value=JSON_PROPERTY_INTEGRATION_TYPE)SecurityMonitoringIntegrationTypeEntraId integrationType) {
+        this.domain = domain;
+        this.integrationType = integrationType;
+        this.unparsed |= !integrationType.isValid();
   }
-
   public SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes domain(String domain) {
     this.domain = domain;
     return this;
   }
 
   /**
-   * The domain associated with the external entity source.
-   *
+   * <p>The domain associated with the external entity source.</p>
    * @return domain
-   */
-  @JsonProperty(JSON_PROPERTY_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDomain() {
-    return domain;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DOMAIN)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDomain() {
+        return domain;
+      }
   public void setDomain(String domain) {
     this.domain = domain;
   }
-
-  public SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes integrationType(
-      SecurityMonitoringIntegrationTypeEntraId integrationType) {
+  public SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes integrationType(SecurityMonitoringIntegrationTypeEntraId integrationType) {
     this.integrationType = integrationType;
     this.unparsed |= !integrationType.isValid();
     return this;
   }
 
   /**
-   * The source type for an Entra ID entity context sync.
-   *
+   * <p>The source type for an Entra ID entity context sync.</p>
    * @return integrationType
-   */
-  @JsonProperty(JSON_PROPERTY_INTEGRATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringIntegrationTypeEntraId getIntegrationType() {
-    return integrationType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INTEGRATION_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SecurityMonitoringIntegrationTypeEntraId getIntegrationType() {
+        return integrationType;
+      }
   public void setIntegrationType(SecurityMonitoringIntegrationTypeEntraId integrationType) {
     if (!integrationType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.integrationType = integrationType;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes
    */
   @JsonAnySetter
-  public SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes putAdditionalProperty(
-      String key, Object value) {
+  public SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -131,14 +141,13 @@ public class SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes object is
-   * equal to o.
+   * Return true if this SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -148,22 +157,14 @@ public class SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes
-        securityMonitoringEntraIdIntegrationCredentialsValidateAttributes =
-            (SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes) o;
-    return Objects.equals(
-            this.domain, securityMonitoringEntraIdIntegrationCredentialsValidateAttributes.domain)
-        && Objects.equals(
-            this.integrationType,
-            securityMonitoringEntraIdIntegrationCredentialsValidateAttributes.integrationType)
-        && Objects.equals(
-            this.additionalProperties,
-            securityMonitoringEntraIdIntegrationCredentialsValidateAttributes.additionalProperties);
+    SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes securityMonitoringEntraIdIntegrationCredentialsValidateAttributes = (SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes) o;
+    return Objects.equals(this.domain, securityMonitoringEntraIdIntegrationCredentialsValidateAttributes.domain) && Objects.equals(this.integrationType, securityMonitoringEntraIdIntegrationCredentialsValidateAttributes.integrationType) && Objects.equals(this.additionalProperties, securityMonitoringEntraIdIntegrationCredentialsValidateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, integrationType, additionalProperties);
+    return Objects.hash(domain,integrationType, additionalProperties);
   }
 
   @Override
@@ -180,7 +181,8 @@ public class SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

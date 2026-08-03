@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of an org authorized client. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of an org authorized client.</p>
+ */
 @JsonPropertyOrder({
   OrgAuthorizedClientAttributes.JSON_PROPERTY_DISABLED,
   OrgAuthorizedClientAttributes.JSON_PROPERTY_LAST_EXERCISED,
   OrgAuthorizedClientAttributes.JSON_PROPERTY_USER_COUNT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrgAuthorizedClientAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
 
@@ -41,87 +56,83 @@ public class OrgAuthorizedClientAttributes {
 
   @JsonCreator
   public OrgAuthorizedClientAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DISABLED) Boolean disabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LAST_EXERCISED)
-          OffsetDateTime lastExercised,
-      @JsonProperty(required = true, value = JSON_PROPERTY_USER_COUNT) Long userCount) {
-    this.disabled = disabled;
-    this.lastExercised = lastExercised;
-    if (lastExercised != null) {}
-    this.userCount = userCount;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DISABLED)Boolean disabled,
+            @JsonProperty(required=true, value=JSON_PROPERTY_LAST_EXERCISED)OffsetDateTime lastExercised,
+            @JsonProperty(required=true, value=JSON_PROPERTY_USER_COUNT)Long userCount) {
+        this.disabled = disabled;
+        this.lastExercised = lastExercised;
+        if (lastExercised != null) {
+        }
+        this.userCount = userCount;
   }
-
   public OrgAuthorizedClientAttributes disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
 
   /**
-   * Whether the organization has disabled this client.
-   *
+   * <p>Whether the organization has disabled this client.</p>
    * @return disabled
-   */
-  @JsonProperty(JSON_PROPERTY_DISABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getDisabled() {
-    return disabled;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DISABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getDisabled() {
+        return disabled;
+      }
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
-
   public OrgAuthorizedClientAttributes lastExercised(OffsetDateTime lastExercised) {
     this.lastExercised = lastExercised;
-    if (lastExercised != null) {}
+        if (lastExercised != null) {
+    }
     return this;
   }
 
   /**
-   * The date and time this client was last exercised.
-   *
+   * <p>The date and time this client was last exercised.</p>
    * @return lastExercised
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_EXERCISED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getLastExercised() {
-    return lastExercised;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_EXERCISED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getLastExercised() {
+        return lastExercised;
+      }
   public void setLastExercised(OffsetDateTime lastExercised) {
     this.lastExercised = lastExercised;
   }
-
   public OrgAuthorizedClientAttributes userCount(Long userCount) {
     this.userCount = userCount;
     return this;
   }
 
   /**
-   * The number of users in the organization who have authorized this client.
-   *
+   * <p>The number of users in the organization who have authorized this client.</p>
    * @return userCount
-   */
-  @JsonProperty(JSON_PROPERTY_USER_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getUserCount() {
-    return userCount;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_USER_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getUserCount() {
+        return userCount;
+      }
   public void setUserCount(Long userCount) {
     this.userCount = userCount;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -130,7 +141,7 @@ public class OrgAuthorizedClientAttributes {
   @JsonAnySetter
   public OrgAuthorizedClientAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -154,12 +165,14 @@ public class OrgAuthorizedClientAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this OrgAuthorizedClientAttributes object is equal to o. */
+  /**
+   * Return true if this OrgAuthorizedClientAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,16 +182,13 @@ public class OrgAuthorizedClientAttributes {
       return false;
     }
     OrgAuthorizedClientAttributes orgAuthorizedClientAttributes = (OrgAuthorizedClientAttributes) o;
-    return Objects.equals(this.disabled, orgAuthorizedClientAttributes.disabled)
-        && Objects.equals(this.lastExercised, orgAuthorizedClientAttributes.lastExercised)
-        && Objects.equals(this.userCount, orgAuthorizedClientAttributes.userCount)
-        && Objects.equals(
-            this.additionalProperties, orgAuthorizedClientAttributes.additionalProperties);
+    return Objects.equals(this.disabled, orgAuthorizedClientAttributes.disabled) && Objects.equals(this.lastExercised, orgAuthorizedClientAttributes.lastExercised) && Objects.equals(this.userCount, orgAuthorizedClientAttributes.userCount) && Objects.equals(this.additionalProperties, orgAuthorizedClientAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(disabled, lastExercised, userCount, additionalProperties);
+    return Objects.hash(disabled,lastExercised,userCount, additionalProperties);
   }
 
   @Override
@@ -196,7 +206,8 @@ public class OrgAuthorizedClientAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

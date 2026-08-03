@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of an ownership feedback result. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes of an ownership feedback result.</p>
+ */
 @JsonPropertyOrder({
   OwnershipFeedbackResultAttributes.JSON_PROPERTY_ACTION,
   OwnershipFeedbackResultAttributes.JSON_PROPERTY_CHECKSUM,
@@ -29,10 +43,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   OwnershipFeedbackResultAttributes.JSON_PROPERTY_PRIMARY_CONTACT_REF,
   OwnershipFeedbackResultAttributes.JSON_PROPERTY_UPDATED_AT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OwnershipFeedbackResultAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
   private OwnershipFeedbackAction action;
 
@@ -58,26 +72,23 @@ public class OwnershipFeedbackResultAttributes {
 
   @JsonCreator
   public OwnershipFeedbackResultAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACTION) OwnershipFeedbackAction action,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CHECKSUM) String checksum,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NEW_STATUS)
-          OwnershipInferenceStatus newStatus,
-      @JsonProperty(required = true, value = JSON_PROPERTY_OWNER_TYPE) OwnershipOwnerType ownerType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PREVIOUS_STATUS)
-          OwnershipInferenceStatus previousStatus,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt) {
-    this.action = action;
-    this.unparsed |= !action.isValid();
-    this.checksum = checksum;
-    this.newStatus = newStatus;
-    this.unparsed |= !newStatus.isValid();
-    this.ownerType = ownerType;
-    this.unparsed |= !ownerType.isValid();
-    this.previousStatus = previousStatus;
-    this.unparsed |= !previousStatus.isValid();
-    this.updatedAt = updatedAt;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ACTION)OwnershipFeedbackAction action,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CHECKSUM)String checksum,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NEW_STATUS)OwnershipInferenceStatus newStatus,
+            @JsonProperty(required=true, value=JSON_PROPERTY_OWNER_TYPE)OwnershipOwnerType ownerType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PREVIOUS_STATUS)OwnershipInferenceStatus previousStatus,
+            @JsonProperty(required=true, value=JSON_PROPERTY_UPDATED_AT)OffsetDateTime updatedAt) {
+        this.action = action;
+        this.unparsed |= !action.isValid();
+        this.checksum = checksum;
+        this.newStatus = newStatus;
+        this.unparsed |= !newStatus.isValid();
+        this.ownerType = ownerType;
+        this.unparsed |= !ownerType.isValid();
+        this.previousStatus = previousStatus;
+        this.unparsed |= !previousStatus.isValid();
+        this.updatedAt = updatedAt;
   }
-
   public OwnershipFeedbackResultAttributes action(OwnershipFeedbackAction action) {
     this.action = action;
     this.unparsed |= !action.isValid();
@@ -85,43 +96,39 @@ public class OwnershipFeedbackResultAttributes {
   }
 
   /**
-   * The feedback action to apply to an inference.
-   *
+   * <p>The feedback action to apply to an inference.</p>
    * @return action
-   */
-  @JsonProperty(JSON_PROPERTY_ACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OwnershipFeedbackAction getAction() {
-    return action;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ACTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OwnershipFeedbackAction getAction() {
+        return action;
+      }
   public void setAction(OwnershipFeedbackAction action) {
     if (!action.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.action = action;
   }
-
   public OwnershipFeedbackResultAttributes checksum(String checksum) {
     this.checksum = checksum;
     return this;
   }
 
   /**
-   * The checksum of the inference after the feedback was applied.
-   *
+   * <p>The checksum of the inference after the feedback was applied.</p>
    * @return checksum
-   */
-  @JsonProperty(JSON_PROPERTY_CHECKSUM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getChecksum() {
-    return checksum;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CHECKSUM)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getChecksum() {
+        return checksum;
+      }
   public void setChecksum(String checksum) {
     this.checksum = checksum;
   }
-
   public OwnershipFeedbackResultAttributes newStatus(OwnershipInferenceStatus newStatus) {
     this.newStatus = newStatus;
     this.unparsed |= !newStatus.isValid();
@@ -129,23 +136,21 @@ public class OwnershipFeedbackResultAttributes {
   }
 
   /**
-   * The lifecycle status of an ownership inference.
-   *
+   * <p>The lifecycle status of an ownership inference.</p>
    * @return newStatus
-   */
-  @JsonProperty(JSON_PROPERTY_NEW_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OwnershipInferenceStatus getNewStatus() {
-    return newStatus;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NEW_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OwnershipInferenceStatus getNewStatus() {
+        return newStatus;
+      }
   public void setNewStatus(OwnershipInferenceStatus newStatus) {
     if (!newStatus.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.newStatus = newStatus;
   }
-
   public OwnershipFeedbackResultAttributes ownerType(OwnershipOwnerType ownerType) {
     this.ownerType = ownerType;
     this.unparsed |= !ownerType.isValid();
@@ -153,23 +158,21 @@ public class OwnershipFeedbackResultAttributes {
   }
 
   /**
-   * The owner type for an ownership inference.
-   *
+   * <p>The owner type for an ownership inference.</p>
    * @return ownerType
-   */
-  @JsonProperty(JSON_PROPERTY_OWNER_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OwnershipOwnerType getOwnerType() {
-    return ownerType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_OWNER_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OwnershipOwnerType getOwnerType() {
+        return ownerType;
+      }
   public void setOwnerType(OwnershipOwnerType ownerType) {
     if (!ownerType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.ownerType = ownerType;
   }
-
   public OwnershipFeedbackResultAttributes previousStatus(OwnershipInferenceStatus previousStatus) {
     this.previousStatus = previousStatus;
     this.unparsed |= !previousStatus.isValid();
@@ -177,84 +180,76 @@ public class OwnershipFeedbackResultAttributes {
   }
 
   /**
-   * The lifecycle status of an ownership inference.
-   *
+   * <p>The lifecycle status of an ownership inference.</p>
    * @return previousStatus
-   */
-  @JsonProperty(JSON_PROPERTY_PREVIOUS_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OwnershipInferenceStatus getPreviousStatus() {
-    return previousStatus;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PREVIOUS_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OwnershipInferenceStatus getPreviousStatus() {
+        return previousStatus;
+      }
   public void setPreviousStatus(OwnershipInferenceStatus previousStatus) {
     if (!previousStatus.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.previousStatus = previousStatus;
   }
-
   public OwnershipFeedbackResultAttributes primaryContactRef(String primaryContactRef) {
     this.primaryContactRef = JsonNullable.<String>of(primaryContactRef);
     return this;
   }
 
   /**
-   * The primary contact reference for the inferred owner after the feedback was applied, formatted
-   * as <code>ref:handle/&lt;owner_handle&gt;</code>.
-   *
+   * <p>The primary contact reference for the inferred owner after the feedback was applied, formatted as <code>ref:handle/&lt;owner_handle&gt;</code>.</p>
    * @return primaryContactRef
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getPrimaryContactRef() {
-    return primaryContactRef.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getPrimaryContactRef() {
+        return primaryContactRef.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PRIMARY_CONTACT_REF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getPrimaryContactRef_JsonNullable() {
     return primaryContactRef;
   }
-
-  @JsonProperty(JSON_PROPERTY_PRIMARY_CONTACT_REF)
-  public void setPrimaryContactRef_JsonNullable(JsonNullable<String> primaryContactRef) {
+  @JsonProperty(JSON_PROPERTY_PRIMARY_CONTACT_REF)public void setPrimaryContactRef_JsonNullable(JsonNullable<String> primaryContactRef) {
     this.primaryContactRef = primaryContactRef;
   }
-
   public void setPrimaryContactRef(String primaryContactRef) {
     this.primaryContactRef = JsonNullable.<String>of(primaryContactRef);
   }
-
   public OwnershipFeedbackResultAttributes updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * The time when the inference was updated by the feedback.
-   *
+   * <p>The time when the inference was updated by the feedback.</p>
    * @return updatedAt
-   */
-  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+      }
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -263,7 +258,7 @@ public class OwnershipFeedbackResultAttributes {
   @JsonAnySetter
   public OwnershipFeedbackResultAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -287,12 +282,14 @@ public class OwnershipFeedbackResultAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this OwnershipFeedbackResultAttributes object is equal to o. */
+  /**
+   * Return true if this OwnershipFeedbackResultAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -301,31 +298,14 @@ public class OwnershipFeedbackResultAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OwnershipFeedbackResultAttributes ownershipFeedbackResultAttributes =
-        (OwnershipFeedbackResultAttributes) o;
-    return Objects.equals(this.action, ownershipFeedbackResultAttributes.action)
-        && Objects.equals(this.checksum, ownershipFeedbackResultAttributes.checksum)
-        && Objects.equals(this.newStatus, ownershipFeedbackResultAttributes.newStatus)
-        && Objects.equals(this.ownerType, ownershipFeedbackResultAttributes.ownerType)
-        && Objects.equals(this.previousStatus, ownershipFeedbackResultAttributes.previousStatus)
-        && Objects.equals(
-            this.primaryContactRef, ownershipFeedbackResultAttributes.primaryContactRef)
-        && Objects.equals(this.updatedAt, ownershipFeedbackResultAttributes.updatedAt)
-        && Objects.equals(
-            this.additionalProperties, ownershipFeedbackResultAttributes.additionalProperties);
+    OwnershipFeedbackResultAttributes ownershipFeedbackResultAttributes = (OwnershipFeedbackResultAttributes) o;
+    return Objects.equals(this.action, ownershipFeedbackResultAttributes.action) && Objects.equals(this.checksum, ownershipFeedbackResultAttributes.checksum) && Objects.equals(this.newStatus, ownershipFeedbackResultAttributes.newStatus) && Objects.equals(this.ownerType, ownershipFeedbackResultAttributes.ownerType) && Objects.equals(this.previousStatus, ownershipFeedbackResultAttributes.previousStatus) && Objects.equals(this.primaryContactRef, ownershipFeedbackResultAttributes.primaryContactRef) && Objects.equals(this.updatedAt, ownershipFeedbackResultAttributes.updatedAt) && Objects.equals(this.additionalProperties, ownershipFeedbackResultAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        action,
-        checksum,
-        newStatus,
-        ownerType,
-        previousStatus,
-        primaryContactRef,
-        updatedAt,
-        additionalProperties);
+    return Objects.hash(action,checksum,newStatus,ownerType,previousStatus,primaryContactRef,updatedAt, additionalProperties);
   }
 
   @Override
@@ -347,7 +327,8 @@ public class OwnershipFeedbackResultAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

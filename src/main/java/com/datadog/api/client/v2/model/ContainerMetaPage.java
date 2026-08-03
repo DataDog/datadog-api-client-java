@@ -6,18 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Paging attributes. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Paging attributes.</p>
+ */
 @JsonPropertyOrder({
   ContainerMetaPage.JSON_PROPERTY_CURSOR,
   ContainerMetaPage.JSON_PROPERTY_LIMIT,
@@ -26,10 +42,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ContainerMetaPage.JSON_PROPERTY_TOTAL,
   ContainerMetaPage.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ContainerMetaPage {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CURSOR = "cursor";
   private String cursor;
 
@@ -54,115 +70,104 @@ public class ContainerMetaPage {
   }
 
   /**
-   * The cursor used to get the current results, if any.
-   *
+   * <p>The cursor used to get the current results, if any.</p>
    * @return cursor
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CURSOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCursor() {
-    return cursor;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CURSOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCursor() {
+        return cursor;
+      }
   public void setCursor(String cursor) {
     this.cursor = cursor;
   }
-
   public ContainerMetaPage limit(Integer limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * Number of results returned minimum: 0 maximum: 10000
-   *
+   * <p>Number of results returned</p>
+   * minimum: 0
+   * maximum: 10000
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getLimit() {
+        return limit;
+      }
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
-
   public ContainerMetaPage nextCursor(String nextCursor) {
     this.nextCursor = nextCursor;
     return this;
   }
 
   /**
-   * The cursor used to get the next results, if any.
-   *
+   * <p>The cursor used to get the next results, if any.</p>
    * @return nextCursor
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NEXT_CURSOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getNextCursor() {
-    return nextCursor;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NEXT_CURSOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getNextCursor() {
+        return nextCursor;
+      }
   public void setNextCursor(String nextCursor) {
     this.nextCursor = nextCursor;
   }
-
   public ContainerMetaPage prevCursor(String prevCursor) {
     this.prevCursor = JsonNullable.<String>of(prevCursor);
     return this;
   }
 
   /**
-   * The cursor used to get the previous results, if any.
-   *
+   * <p>The cursor used to get the previous results, if any.</p>
    * @return prevCursor
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getPrevCursor() {
-    return prevCursor.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getPrevCursor() {
+        return prevCursor.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PREV_CURSOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getPrevCursor_JsonNullable() {
     return prevCursor;
   }
-
-  @JsonProperty(JSON_PROPERTY_PREV_CURSOR)
-  public void setPrevCursor_JsonNullable(JsonNullable<String> prevCursor) {
+  @JsonProperty(JSON_PROPERTY_PREV_CURSOR)public void setPrevCursor_JsonNullable(JsonNullable<String> prevCursor) {
     this.prevCursor = prevCursor;
   }
-
   public void setPrevCursor(String prevCursor) {
     this.prevCursor = JsonNullable.<String>of(prevCursor);
   }
-
   public ContainerMetaPage total(Long total) {
     this.total = total;
     return this;
   }
 
   /**
-   * Total number of records that match the query.
-   *
+   * <p>Total number of records that match the query.</p>
    * @return total
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTotal() {
-    return total;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TOTAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTotal() {
+        return total;
+      }
   public void setTotal(Long total) {
     this.total = total;
   }
-
   public ContainerMetaPage type(ContainerMetaPageType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -170,33 +175,33 @@ public class ContainerMetaPage {
   }
 
   /**
-   * Type of Container pagination.
-   *
+   * <p>Type of Container pagination.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ContainerMetaPageType getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ContainerMetaPageType getType() {
+        return type;
+      }
   public void setType(ContainerMetaPageType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -205,7 +210,7 @@ public class ContainerMetaPage {
   @JsonAnySetter
   public ContainerMetaPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -229,12 +234,14 @@ public class ContainerMetaPage {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ContainerMetaPage object is equal to o. */
+  /**
+   * Return true if this ContainerMetaPage object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -244,18 +251,13 @@ public class ContainerMetaPage {
       return false;
     }
     ContainerMetaPage containerMetaPage = (ContainerMetaPage) o;
-    return Objects.equals(this.cursor, containerMetaPage.cursor)
-        && Objects.equals(this.limit, containerMetaPage.limit)
-        && Objects.equals(this.nextCursor, containerMetaPage.nextCursor)
-        && Objects.equals(this.prevCursor, containerMetaPage.prevCursor)
-        && Objects.equals(this.total, containerMetaPage.total)
-        && Objects.equals(this.type, containerMetaPage.type)
-        && Objects.equals(this.additionalProperties, containerMetaPage.additionalProperties);
+    return Objects.equals(this.cursor, containerMetaPage.cursor) && Objects.equals(this.limit, containerMetaPage.limit) && Objects.equals(this.nextCursor, containerMetaPage.nextCursor) && Objects.equals(this.prevCursor, containerMetaPage.prevCursor) && Objects.equals(this.total, containerMetaPage.total) && Objects.equals(this.type, containerMetaPage.type) && Objects.equals(this.additionalProperties, containerMetaPage.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(cursor, limit, nextCursor, prevCursor, total, type, additionalProperties);
+    return Objects.hash(cursor,limit,nextCursor,prevCursor,total,type, additionalProperties);
   }
 
   @Override
@@ -276,7 +278,8 @@ public class ContainerMetaPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

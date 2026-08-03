@@ -6,49 +6,73 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * How the policy is enforced. <code>blocking</code> rejects telemetry that violates the policy.
- * <code>surfacing</code> only highlights non-compliant telemetry without blocking it.
+   * <p>How the policy is enforced. <code>blocking</code> rejects telemetry that violates the policy.
+   * <code>surfacing</code> only highlights non-compliant telemetry without blocking it.</p>
  */
 @JsonSerialize(using = TagPolicyType.TagPolicyTypeSerializer.class)
 public class TagPolicyType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("blocking", "surfacing"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("blocking", "surfacing"));
 
   public static final TagPolicyType BLOCKING = new TagPolicyType("blocking");
   public static final TagPolicyType SURFACING = new TagPolicyType("surfacing");
+
 
   TagPolicyType(String value) {
     super(value, allowedValues);
   }
 
   public static class TagPolicyTypeSerializer extends StdSerializer<TagPolicyType> {
-    public TagPolicyTypeSerializer(Class<TagPolicyType> t) {
-      super(t);
-    }
+      public TagPolicyTypeSerializer(Class<TagPolicyType> t) {
+          super(t);
+      }
 
-    public TagPolicyTypeSerializer() {
-      this(null);
-    }
+      public TagPolicyTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(TagPolicyType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(TagPolicyType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

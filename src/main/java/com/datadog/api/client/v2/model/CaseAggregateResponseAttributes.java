@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,24 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Attributes of the aggregation result, including the total count across all groups and the
- * per-group breakdowns.
+   * <p>Attributes of the aggregation result, including the total count across all groups and the per-group breakdowns.</p>
  */
 @JsonPropertyOrder({
   CaseAggregateResponseAttributes.JSON_PROPERTY_GROUPS,
   CaseAggregateResponseAttributes.JSON_PROPERTY_TOTAL
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CaseAggregateResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROUPS = "groups";
   private List<CaseAggregateGroup> groups = new ArrayList<>();
 
@@ -41,15 +52,14 @@ public class CaseAggregateResponseAttributes {
 
   @JsonCreator
   public CaseAggregateResponseAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_GROUPS) List<CaseAggregateGroup> groups,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL) Double total) {
-    this.groups = groups;
-    for (CaseAggregateGroup item : groups) {
-      this.unparsed |= item.unparsed;
-    }
-    this.total = total;
+            @JsonProperty(required=true, value=JSON_PROPERTY_GROUPS)List<CaseAggregateGroup> groups,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TOTAL)Double total) {
+        this.groups = groups;
+        for (CaseAggregateGroup item : groups) {
+          this.unparsed |= item.unparsed;
+        }
+        this.total = total;
   }
-
   public CaseAggregateResponseAttributes groups(List<CaseAggregateGroup> groups) {
     this.groups = groups;
     for (CaseAggregateGroup item : groups) {
@@ -57,7 +67,6 @@ public class CaseAggregateResponseAttributes {
     }
     return this;
   }
-
   public CaseAggregateResponseAttributes addGroupsItem(CaseAggregateGroup groupsItem) {
     this.groups.add(groupsItem);
     this.unparsed |= groupsItem.unparsed;
@@ -65,16 +74,15 @@ public class CaseAggregateResponseAttributes {
   }
 
   /**
-   * Aggregated groups.
-   *
+   * <p>Aggregated groups.</p>
    * @return groups
-   */
-  @JsonProperty(JSON_PROPERTY_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CaseAggregateGroup> getGroups() {
-    return groups;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_GROUPS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<CaseAggregateGroup> getGroups() {
+        return groups;
+      }
   public void setGroups(List<CaseAggregateGroup> groups) {
     this.groups = groups;
     if (groups != null) {
@@ -83,36 +91,35 @@ public class CaseAggregateResponseAttributes {
       }
     }
   }
-
   public CaseAggregateResponseAttributes total(Double total) {
     this.total = total;
     return this;
   }
 
   /**
-   * Total count of aggregated cases.
-   *
+   * <p>Total count of aggregated cases.</p>
    * @return total
-   */
-  @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getTotal() {
-    return total;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TOTAL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getTotal() {
+        return total;
+      }
   public void setTotal(Double total) {
     this.total = total;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -121,7 +128,7 @@ public class CaseAggregateResponseAttributes {
   @JsonAnySetter
   public CaseAggregateResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -145,12 +152,14 @@ public class CaseAggregateResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CaseAggregateResponseAttributes object is equal to o. */
+  /**
+   * Return true if this CaseAggregateResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -159,17 +168,14 @@ public class CaseAggregateResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CaseAggregateResponseAttributes caseAggregateResponseAttributes =
-        (CaseAggregateResponseAttributes) o;
-    return Objects.equals(this.groups, caseAggregateResponseAttributes.groups)
-        && Objects.equals(this.total, caseAggregateResponseAttributes.total)
-        && Objects.equals(
-            this.additionalProperties, caseAggregateResponseAttributes.additionalProperties);
+    CaseAggregateResponseAttributes caseAggregateResponseAttributes = (CaseAggregateResponseAttributes) o;
+    return Objects.equals(this.groups, caseAggregateResponseAttributes.groups) && Objects.equals(this.total, caseAggregateResponseAttributes.total) && Objects.equals(this.additionalProperties, caseAggregateResponseAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(groups, total, additionalProperties);
+    return Objects.hash(groups,total, additionalProperties);
   }
 
   @Override
@@ -186,7 +192,8 @@ public class CaseAggregateResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

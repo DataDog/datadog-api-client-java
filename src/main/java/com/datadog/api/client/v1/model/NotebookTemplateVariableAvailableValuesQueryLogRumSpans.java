@@ -6,25 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Available values query for logs, RUM, or spans data sources. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Available values query for logs, RUM, or spans data sources.</p>
+ */
 @JsonPropertyOrder({
   NotebookTemplateVariableAvailableValuesQueryLogRumSpans.JSON_PROPERTY_DATA_SOURCE,
   NotebookTemplateVariableAvailableValuesQueryLogRumSpans.JSON_PROPERTY_GROUP_BY,
   NotebookTemplateVariableAvailableValuesQueryLogRumSpans.JSON_PROPERTY_SEARCH
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private String dataSource;
 
@@ -38,68 +56,58 @@ public class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
 
   @JsonCreator
   public NotebookTemplateVariableAvailableValuesQueryLogRumSpans(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) String dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GROUP_BY)
-          List<NotebookTemplateVariableAvailableValuesQueryGroupBy> groupBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH)
-          NotebookTemplateVariableAvailableValuesQuerySearch search) {
-    this.dataSource = dataSource;
-    this.groupBy = groupBy;
-    for (NotebookTemplateVariableAvailableValuesQueryGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
-    }
-    this.search = search;
-    this.unparsed |= search.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)String dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_GROUP_BY)List<NotebookTemplateVariableAvailableValuesQueryGroupBy> groupBy,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SEARCH)NotebookTemplateVariableAvailableValuesQuerySearch search) {
+        this.dataSource = dataSource;
+        this.groupBy = groupBy;
+        for (NotebookTemplateVariableAvailableValuesQueryGroupBy item : groupBy) {
+          this.unparsed |= item.unparsed;
+        }
+        this.search = search;
+        this.unparsed |= search.unparsed;
   }
-
   public NotebookTemplateVariableAvailableValuesQueryLogRumSpans dataSource(String dataSource) {
     this.dataSource = dataSource;
     return this;
   }
 
   /**
-   * The data source for the query. Must be one of <code>logs</code>, <code>rum</code>, or <code>
-   * spans</code>.
-   *
+   * <p>The data source for the query. Must be one of <code>logs</code>, <code>rum</code>, or <code>spans</code>.</p>
    * @return dataSource
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDataSource() {
-    return dataSource;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDataSource() {
+        return dataSource;
+      }
   public void setDataSource(String dataSource) {
     this.dataSource = dataSource;
   }
-
-  public NotebookTemplateVariableAvailableValuesQueryLogRumSpans groupBy(
-      List<NotebookTemplateVariableAvailableValuesQueryGroupBy> groupBy) {
+  public NotebookTemplateVariableAvailableValuesQueryLogRumSpans groupBy(List<NotebookTemplateVariableAvailableValuesQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
     for (NotebookTemplateVariableAvailableValuesQueryGroupBy item : groupBy) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public NotebookTemplateVariableAvailableValuesQueryLogRumSpans addGroupByItem(
-      NotebookTemplateVariableAvailableValuesQueryGroupBy groupByItem) {
+  public NotebookTemplateVariableAvailableValuesQueryLogRumSpans addGroupByItem(NotebookTemplateVariableAvailableValuesQueryGroupBy groupByItem) {
     this.groupBy.add(groupByItem);
     this.unparsed |= groupByItem.unparsed;
     return this;
   }
 
   /**
-   * Group-by fields for the query.
-   *
+   * <p>Group-by fields for the query.</p>
    * @return groupBy
-   */
-  @JsonProperty(JSON_PROPERTY_GROUP_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<NotebookTemplateVariableAvailableValuesQueryGroupBy> getGroupBy() {
-    return groupBy;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_GROUP_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<NotebookTemplateVariableAvailableValuesQueryGroupBy> getGroupBy() {
+        return groupBy;
+      }
   public void setGroupBy(List<NotebookTemplateVariableAvailableValuesQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
     if (groupBy != null) {
@@ -108,25 +116,22 @@ public class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
       }
     }
   }
-
-  public NotebookTemplateVariableAvailableValuesQueryLogRumSpans search(
-      NotebookTemplateVariableAvailableValuesQuerySearch search) {
+  public NotebookTemplateVariableAvailableValuesQueryLogRumSpans search(NotebookTemplateVariableAvailableValuesQuerySearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
     return this;
   }
 
   /**
-   * Search parameters for an available values query.
-   *
+   * <p>Search parameters for an available values query.</p>
    * @return search
-   */
-  @JsonProperty(JSON_PROPERTY_SEARCH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NotebookTemplateVariableAvailableValuesQuerySearch getSearch() {
-    return search;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SEARCH)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public NotebookTemplateVariableAvailableValuesQuerySearch getSearch() {
+        return search;
+      }
   public void setSearch(NotebookTemplateVariableAvailableValuesQuerySearch search) {
     this.search = search;
     if (search != null) {
@@ -135,8 +140,7 @@ public class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
   }
 
   /**
-   * Return true if this NotebookTemplateVariableAvailableValuesQueryLogRumSpans object is equal to
-   * o.
+   * Return true if this NotebookTemplateVariableAvailableValuesQueryLogRumSpans object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -146,20 +150,14 @@ public class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookTemplateVariableAvailableValuesQueryLogRumSpans
-        notebookTemplateVariableAvailableValuesQueryLogRumSpans =
-            (NotebookTemplateVariableAvailableValuesQueryLogRumSpans) o;
-    return Objects.equals(
-            this.dataSource, notebookTemplateVariableAvailableValuesQueryLogRumSpans.dataSource)
-        && Objects.equals(
-            this.groupBy, notebookTemplateVariableAvailableValuesQueryLogRumSpans.groupBy)
-        && Objects.equals(
-            this.search, notebookTemplateVariableAvailableValuesQueryLogRumSpans.search);
+    NotebookTemplateVariableAvailableValuesQueryLogRumSpans notebookTemplateVariableAvailableValuesQueryLogRumSpans = (NotebookTemplateVariableAvailableValuesQueryLogRumSpans) o;
+    return Objects.equals(this.dataSource, notebookTemplateVariableAvailableValuesQueryLogRumSpans.dataSource) && Objects.equals(this.groupBy, notebookTemplateVariableAvailableValuesQueryLogRumSpans.groupBy) && Objects.equals(this.search, notebookTemplateVariableAvailableValuesQueryLogRumSpans.search);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSource, groupBy, search);
+    return Objects.hash(dataSource,groupBy,search);
   }
 
   @Override
@@ -174,7 +172,8 @@ public class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

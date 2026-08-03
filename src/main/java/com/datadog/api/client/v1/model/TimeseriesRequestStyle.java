@@ -6,17 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Define request widget style for timeseries widgets. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Define request widget style for timeseries widgets.</p>
+ */
 @JsonPropertyOrder({
   TimeseriesRequestStyle.JSON_PROPERTY_HAS_VALUE_LABELS,
   TimeseriesRequestStyle.JSON_PROPERTY_LINE_TYPE,
@@ -24,10 +41,10 @@ import java.util.Objects;
   TimeseriesRequestStyle.JSON_PROPERTY_ORDER_BY,
   TimeseriesRequestStyle.JSON_PROPERTY_PALETTE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TimeseriesRequestStyle {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_HAS_VALUE_LABELS = "has_value_labels";
   private Boolean hasValueLabels;
 
@@ -49,21 +66,19 @@ public class TimeseriesRequestStyle {
   }
 
   /**
-   * If true, the value is displayed as a label relative to the data point.
-   *
+   * <p>If true, the value is displayed as a label relative to the data point.</p>
    * @return hasValueLabels
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAS_VALUE_LABELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getHasValueLabels() {
-    return hasValueLabels;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HAS_VALUE_LABELS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getHasValueLabels() {
+        return hasValueLabels;
+      }
   public void setHasValueLabels(Boolean hasValueLabels) {
     this.hasValueLabels = hasValueLabels;
   }
-
   public TimeseriesRequestStyle lineType(WidgetLineType lineType) {
     this.lineType = lineType;
     this.unparsed |= !lineType.isValid();
@@ -71,24 +86,22 @@ public class TimeseriesRequestStyle {
   }
 
   /**
-   * Type of lines displayed.
-   *
+   * <p>Type of lines displayed.</p>
    * @return lineType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetLineType getLineType() {
-    return lineType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LINE_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetLineType getLineType() {
+        return lineType;
+      }
   public void setLineType(WidgetLineType lineType) {
     if (!lineType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.lineType = lineType;
   }
-
   public TimeseriesRequestStyle lineWidth(WidgetLineWidth lineWidth) {
     this.lineWidth = lineWidth;
     this.unparsed |= !lineWidth.isValid();
@@ -96,24 +109,22 @@ public class TimeseriesRequestStyle {
   }
 
   /**
-   * Width of line displayed.
-   *
+   * <p>Width of line displayed.</p>
    * @return lineWidth
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINE_WIDTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetLineWidth getLineWidth() {
-    return lineWidth;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LINE_WIDTH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetLineWidth getLineWidth() {
+        return lineWidth;
+      }
   public void setLineWidth(WidgetLineWidth lineWidth) {
     if (!lineWidth.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.lineWidth = lineWidth;
   }
-
   public TimeseriesRequestStyle orderBy(WidgetStyleOrderBy orderBy) {
     this.orderBy = orderBy;
     this.unparsed |= !orderBy.isValid();
@@ -121,56 +132,54 @@ public class TimeseriesRequestStyle {
   }
 
   /**
-   * How to order series in timeseries visualizations. - <code>tags</code>: Order series
-   * alphabetically by tag name (default behavior) - <code>values</code>: Order series by their
-   * current metric values (typically descending)
-   *
+   * <p>How to order series in timeseries visualizations.
+   * - <code>tags</code>: Order series alphabetically by tag name (default behavior)
+   * - <code>values</code>: Order series by their current metric values (typically descending)</p>
    * @return orderBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORDER_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetStyleOrderBy getOrderBy() {
-    return orderBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ORDER_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetStyleOrderBy getOrderBy() {
+        return orderBy;
+      }
   public void setOrderBy(WidgetStyleOrderBy orderBy) {
     if (!orderBy.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.orderBy = orderBy;
   }
-
   public TimeseriesRequestStyle palette(String palette) {
     this.palette = palette;
     return this;
   }
 
   /**
-   * Color palette to apply to the widget.
-   *
+   * <p>Color palette to apply to the widget.</p>
    * @return palette
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PALETTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPalette() {
-    return palette;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PALETTE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPalette() {
+        return palette;
+      }
   public void setPalette(String palette) {
     this.palette = palette;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -179,7 +188,7 @@ public class TimeseriesRequestStyle {
   @JsonAnySetter
   public TimeseriesRequestStyle putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -203,12 +212,14 @@ public class TimeseriesRequestStyle {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TimeseriesRequestStyle object is equal to o. */
+  /**
+   * Return true if this TimeseriesRequestStyle object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -218,18 +229,13 @@ public class TimeseriesRequestStyle {
       return false;
     }
     TimeseriesRequestStyle timeseriesRequestStyle = (TimeseriesRequestStyle) o;
-    return Objects.equals(this.hasValueLabels, timeseriesRequestStyle.hasValueLabels)
-        && Objects.equals(this.lineType, timeseriesRequestStyle.lineType)
-        && Objects.equals(this.lineWidth, timeseriesRequestStyle.lineWidth)
-        && Objects.equals(this.orderBy, timeseriesRequestStyle.orderBy)
-        && Objects.equals(this.palette, timeseriesRequestStyle.palette)
-        && Objects.equals(this.additionalProperties, timeseriesRequestStyle.additionalProperties);
+    return Objects.equals(this.hasValueLabels, timeseriesRequestStyle.hasValueLabels) && Objects.equals(this.lineType, timeseriesRequestStyle.lineType) && Objects.equals(this.lineWidth, timeseriesRequestStyle.lineWidth) && Objects.equals(this.orderBy, timeseriesRequestStyle.orderBy) && Objects.equals(this.palette, timeseriesRequestStyle.palette) && Objects.equals(this.additionalProperties, timeseriesRequestStyle.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        hasValueLabels, lineType, lineWidth, orderBy, palette, additionalProperties);
+    return Objects.hash(hasValueLabels,lineType,lineWidth,orderBy,palette, additionalProperties);
   }
 
   @Override
@@ -249,7 +255,8 @@ public class TimeseriesRequestStyle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

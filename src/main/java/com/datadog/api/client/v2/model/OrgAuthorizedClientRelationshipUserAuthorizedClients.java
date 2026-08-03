@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Relationship to the user authorized clients for this org authorized client. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Relationship to the user authorized clients for this org authorized client.</p>
+ */
 @JsonPropertyOrder({
   OrgAuthorizedClientRelationshipUserAuthorizedClients.JSON_PROPERTY_DATA,
   OrgAuthorizedClientRelationshipUserAuthorizedClients.JSON_PROPERTY_LINKS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<OrgAuthorizedClientRelationshipUserAuthorizedClientsData> data = new ArrayList<>();
 
@@ -38,45 +52,38 @@ public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
 
   @JsonCreator
   public OrgAuthorizedClientRelationshipUserAuthorizedClients(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<OrgAuthorizedClientRelationshipUserAuthorizedClientsData> data,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LINKS)
-          OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks links) {
-    this.data = data;
-    for (OrgAuthorizedClientRelationshipUserAuthorizedClientsData item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    this.links = links;
-    this.unparsed |= links.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<OrgAuthorizedClientRelationshipUserAuthorizedClientsData> data,
+            @JsonProperty(required=true, value=JSON_PROPERTY_LINKS)OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks links) {
+        this.data = data;
+        for (OrgAuthorizedClientRelationshipUserAuthorizedClientsData item : data) {
+          this.unparsed |= item.unparsed;
+        }
+        this.links = links;
+        this.unparsed |= links.unparsed;
   }
-
-  public OrgAuthorizedClientRelationshipUserAuthorizedClients data(
-      List<OrgAuthorizedClientRelationshipUserAuthorizedClientsData> data) {
+  public OrgAuthorizedClientRelationshipUserAuthorizedClients data(List<OrgAuthorizedClientRelationshipUserAuthorizedClientsData> data) {
     this.data = data;
     for (OrgAuthorizedClientRelationshipUserAuthorizedClientsData item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public OrgAuthorizedClientRelationshipUserAuthorizedClients addDataItem(
-      OrgAuthorizedClientRelationshipUserAuthorizedClientsData dataItem) {
+  public OrgAuthorizedClientRelationshipUserAuthorizedClients addDataItem(OrgAuthorizedClientRelationshipUserAuthorizedClientsData dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * List of user authorized client relationship data objects.
-   *
+   * <p>List of user authorized client relationship data objects.</p>
    * @return data
-   */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<OrgAuthorizedClientRelationshipUserAuthorizedClientsData> getData() {
-    return data;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<OrgAuthorizedClientRelationshipUserAuthorizedClientsData> getData() {
+        return data;
+      }
   public void setData(List<OrgAuthorizedClientRelationshipUserAuthorizedClientsData> data) {
     this.data = data;
     if (data != null) {
@@ -85,25 +92,22 @@ public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
       }
     }
   }
-
-  public OrgAuthorizedClientRelationshipUserAuthorizedClients links(
-      OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks links) {
+  public OrgAuthorizedClientRelationshipUserAuthorizedClients links(OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks links) {
     this.links = links;
     this.unparsed |= links.unparsed;
     return this;
   }
 
   /**
-   * Links for the user authorized clients relationship.
-   *
+   * <p>Links for the user authorized clients relationship.</p>
    * @return links
-   */
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks getLinks() {
-    return links;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_LINKS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks getLinks() {
+        return links;
+      }
   public void setLinks(OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks links) {
     this.links = links;
     if (links != null) {
@@ -112,24 +116,24 @@ public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return OrgAuthorizedClientRelationshipUserAuthorizedClients
    */
   @JsonAnySetter
-  public OrgAuthorizedClientRelationshipUserAuthorizedClients putAdditionalProperty(
-      String key, Object value) {
+  public OrgAuthorizedClientRelationshipUserAuthorizedClients putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -153,7 +157,7 @@ public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
@@ -169,19 +173,14 @@ public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrgAuthorizedClientRelationshipUserAuthorizedClients
-        orgAuthorizedClientRelationshipUserAuthorizedClients =
-            (OrgAuthorizedClientRelationshipUserAuthorizedClients) o;
-    return Objects.equals(this.data, orgAuthorizedClientRelationshipUserAuthorizedClients.data)
-        && Objects.equals(this.links, orgAuthorizedClientRelationshipUserAuthorizedClients.links)
-        && Objects.equals(
-            this.additionalProperties,
-            orgAuthorizedClientRelationshipUserAuthorizedClients.additionalProperties);
+    OrgAuthorizedClientRelationshipUserAuthorizedClients orgAuthorizedClientRelationshipUserAuthorizedClients = (OrgAuthorizedClientRelationshipUserAuthorizedClients) o;
+    return Objects.equals(this.data, orgAuthorizedClientRelationshipUserAuthorizedClients.data) && Objects.equals(this.links, orgAuthorizedClientRelationshipUserAuthorizedClients.links) && Objects.equals(this.additionalProperties, orgAuthorizedClientRelationshipUserAuthorizedClients.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, additionalProperties);
+    return Objects.hash(data,links, additionalProperties);
   }
 
   @Override
@@ -198,7 +197,8 @@ public class OrgAuthorizedClientRelationshipUserAuthorizedClients {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

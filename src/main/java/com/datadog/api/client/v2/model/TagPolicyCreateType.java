@@ -6,21 +6,46 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * The policy type allowed when creating a tag policy. Only <code>surfacing</code> is accepted at
- * creation time.
+   * <p>The policy type allowed when creating a tag policy. Only <code>surfacing</code> is accepted at
+   * creation time.</p>
  */
 @JsonSerialize(using = TagPolicyCreateType.TagPolicyCreateTypeSerializer.class)
 public class TagPolicyCreateType extends ModelEnum<String> {
@@ -29,25 +54,24 @@ public class TagPolicyCreateType extends ModelEnum<String> {
 
   public static final TagPolicyCreateType SURFACING = new TagPolicyCreateType("surfacing");
 
+
   TagPolicyCreateType(String value) {
     super(value, allowedValues);
   }
 
   public static class TagPolicyCreateTypeSerializer extends StdSerializer<TagPolicyCreateType> {
-    public TagPolicyCreateTypeSerializer(Class<TagPolicyCreateType> t) {
-      super(t);
-    }
+      public TagPolicyCreateTypeSerializer(Class<TagPolicyCreateType> t) {
+          super(t);
+      }
 
-    public TagPolicyCreateTypeSerializer() {
-      this(null);
-    }
+      public TagPolicyCreateTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        TagPolicyCreateType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(TagPolicyCreateType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

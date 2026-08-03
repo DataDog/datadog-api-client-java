@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A time slot returned in a Synthetics downtime response. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A time slot returned in a Synthetics downtime response.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsDowntimeTimeSlotResponse.JSON_PROPERTY_DURATION,
   SyntheticsDowntimeTimeSlotResponse.JSON_PROPERTY_ID,
@@ -26,10 +42,10 @@ import java.util.Objects;
   SyntheticsDowntimeTimeSlotResponse.JSON_PROPERTY_START,
   SyntheticsDowntimeTimeSlotResponse.JSON_PROPERTY_TIMEZONE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsDowntimeTimeSlotResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Long duration;
 
@@ -52,105 +68,94 @@ public class SyntheticsDowntimeTimeSlotResponse {
 
   @JsonCreator
   public SyntheticsDowntimeTimeSlotResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DURATION) Long duration,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_START)
-          SyntheticsDowntimeTimeSlotDate start,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEZONE) String timezone) {
-    this.duration = duration;
-    this.id = id;
-    this.start = start;
-    this.unparsed |= start.unparsed;
-    this.timezone = timezone;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DURATION)Long duration,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_START)SyntheticsDowntimeTimeSlotDate start,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TIMEZONE)String timezone) {
+        this.duration = duration;
+        this.id = id;
+        this.start = start;
+        this.unparsed |= start.unparsed;
+        this.timezone = timezone;
   }
-
   public SyntheticsDowntimeTimeSlotResponse duration(Long duration) {
     this.duration = duration;
     return this;
   }
 
   /**
-   * The duration of the time slot in seconds.
-   *
+   * <p>The duration of the time slot in seconds.</p>
    * @return duration
-   */
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getDuration() {
-    return duration;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DURATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getDuration() {
+        return duration;
+      }
   public void setDuration(Long duration) {
     this.duration = duration;
   }
-
   public SyntheticsDowntimeTimeSlotResponse id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier of the time slot.
-   *
+   * <p>The unique identifier of the time slot.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public SyntheticsDowntimeTimeSlotResponse name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The label for the time slot.
-   *
+   * <p>The label for the time slot.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
-  public SyntheticsDowntimeTimeSlotResponse recurrence(
-      SyntheticsDowntimeTimeSlotRecurrenceResponse recurrence) {
+  public SyntheticsDowntimeTimeSlotResponse recurrence(SyntheticsDowntimeTimeSlotRecurrenceResponse recurrence) {
     this.recurrence = recurrence;
     this.unparsed |= recurrence.unparsed;
     return this;
   }
 
   /**
-   * Recurrence settings returned in a Synthetics downtime time slot response.
-   *
+   * <p>Recurrence settings returned in a Synthetics downtime time slot response.</p>
    * @return recurrence
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECURRENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsDowntimeTimeSlotRecurrenceResponse getRecurrence() {
-    return recurrence;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RECURRENCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsDowntimeTimeSlotRecurrenceResponse getRecurrence() {
+        return recurrence;
+      }
   public void setRecurrence(SyntheticsDowntimeTimeSlotRecurrenceResponse recurrence) {
     this.recurrence = recurrence;
     if (recurrence != null) {
       this.unparsed |= recurrence.unparsed;
     }
   }
-
   public SyntheticsDowntimeTimeSlotResponse start(SyntheticsDowntimeTimeSlotDate start) {
     this.start = start;
     this.unparsed |= start.unparsed;
@@ -158,52 +163,50 @@ public class SyntheticsDowntimeTimeSlotResponse {
   }
 
   /**
-   * A specific date and time used to define the start or end of a Synthetics downtime time slot.
-   *
+   * <p>A specific date and time used to define the start or end of a Synthetics downtime time slot.</p>
    * @return start
-   */
-  @JsonProperty(JSON_PROPERTY_START)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsDowntimeTimeSlotDate getStart() {
-    return start;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_START)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SyntheticsDowntimeTimeSlotDate getStart() {
+        return start;
+      }
   public void setStart(SyntheticsDowntimeTimeSlotDate start) {
     this.start = start;
     if (start != null) {
       this.unparsed |= start.unparsed;
     }
   }
-
   public SyntheticsDowntimeTimeSlotResponse timezone(String timezone) {
     this.timezone = timezone;
     return this;
   }
 
   /**
-   * The IANA timezone name for the time slot.
-   *
+   * <p>The IANA timezone name for the time slot.</p>
    * @return timezone
-   */
-  @JsonProperty(JSON_PROPERTY_TIMEZONE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTimezone() {
-    return timezone;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TIMEZONE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTimezone() {
+        return timezone;
+      }
   public void setTimezone(String timezone) {
     this.timezone = timezone;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -212,7 +215,7 @@ public class SyntheticsDowntimeTimeSlotResponse {
   @JsonAnySetter
   public SyntheticsDowntimeTimeSlotResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -236,12 +239,14 @@ public class SyntheticsDowntimeTimeSlotResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsDowntimeTimeSlotResponse object is equal to o. */
+  /**
+   * Return true if this SyntheticsDowntimeTimeSlotResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -250,21 +255,14 @@ public class SyntheticsDowntimeTimeSlotResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsDowntimeTimeSlotResponse syntheticsDowntimeTimeSlotResponse =
-        (SyntheticsDowntimeTimeSlotResponse) o;
-    return Objects.equals(this.duration, syntheticsDowntimeTimeSlotResponse.duration)
-        && Objects.equals(this.id, syntheticsDowntimeTimeSlotResponse.id)
-        && Objects.equals(this.name, syntheticsDowntimeTimeSlotResponse.name)
-        && Objects.equals(this.recurrence, syntheticsDowntimeTimeSlotResponse.recurrence)
-        && Objects.equals(this.start, syntheticsDowntimeTimeSlotResponse.start)
-        && Objects.equals(this.timezone, syntheticsDowntimeTimeSlotResponse.timezone)
-        && Objects.equals(
-            this.additionalProperties, syntheticsDowntimeTimeSlotResponse.additionalProperties);
+    SyntheticsDowntimeTimeSlotResponse syntheticsDowntimeTimeSlotResponse = (SyntheticsDowntimeTimeSlotResponse) o;
+    return Objects.equals(this.duration, syntheticsDowntimeTimeSlotResponse.duration) && Objects.equals(this.id, syntheticsDowntimeTimeSlotResponse.id) && Objects.equals(this.name, syntheticsDowntimeTimeSlotResponse.name) && Objects.equals(this.recurrence, syntheticsDowntimeTimeSlotResponse.recurrence) && Objects.equals(this.start, syntheticsDowntimeTimeSlotResponse.start) && Objects.equals(this.timezone, syntheticsDowntimeTimeSlotResponse.timezone) && Objects.equals(this.additionalProperties, syntheticsDowntimeTimeSlotResponse.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, id, name, recurrence, start, timezone, additionalProperties);
+    return Objects.hash(duration,id,name,recurrence,start,timezone, additionalProperties);
   }
 
   @Override
@@ -285,7 +283,8 @@ public class SyntheticsDowntimeTimeSlotResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,53 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The compression type. Always <code>gzip</code>. */
-@JsonSerialize(
-    using =
-        ObservabilityPipelineAmazonS3GenericCompressionGzipType
-            .ObservabilityPipelineAmazonS3GenericCompressionGzipTypeSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The compression type. Always <code>gzip</code>.</p>
+ */
+@JsonSerialize(using = ObservabilityPipelineAmazonS3GenericCompressionGzipType.ObservabilityPipelineAmazonS3GenericCompressionGzipTypeSerializer.class)
 public class ObservabilityPipelineAmazonS3GenericCompressionGzipType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("gzip"));
 
-  public static final ObservabilityPipelineAmazonS3GenericCompressionGzipType GZIP =
-      new ObservabilityPipelineAmazonS3GenericCompressionGzipType("gzip");
+  public static final ObservabilityPipelineAmazonS3GenericCompressionGzipType GZIP = new ObservabilityPipelineAmazonS3GenericCompressionGzipType("gzip");
+
 
   ObservabilityPipelineAmazonS3GenericCompressionGzipType(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineAmazonS3GenericCompressionGzipTypeSerializer
-      extends StdSerializer<ObservabilityPipelineAmazonS3GenericCompressionGzipType> {
-    public ObservabilityPipelineAmazonS3GenericCompressionGzipTypeSerializer(
-        Class<ObservabilityPipelineAmazonS3GenericCompressionGzipType> t) {
-      super(t);
-    }
+  public static class ObservabilityPipelineAmazonS3GenericCompressionGzipTypeSerializer extends StdSerializer<ObservabilityPipelineAmazonS3GenericCompressionGzipType> {
+      public ObservabilityPipelineAmazonS3GenericCompressionGzipTypeSerializer(Class<ObservabilityPipelineAmazonS3GenericCompressionGzipType> t) {
+          super(t);
+      }
 
-    public ObservabilityPipelineAmazonS3GenericCompressionGzipTypeSerializer() {
-      this(null);
-    }
+      public ObservabilityPipelineAmazonS3GenericCompressionGzipTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ObservabilityPipelineAmazonS3GenericCompressionGzipType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ObservabilityPipelineAmazonS3GenericCompressionGzipType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

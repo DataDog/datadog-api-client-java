@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,20 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Dimension mapping for the point plot projection. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Dimension mapping for the point plot projection.</p>
+ */
 @JsonPropertyOrder({
   PointPlotProjectionDimension.JSON_PROPERTY_ALIAS,
   PointPlotProjectionDimension.JSON_PROPERTY_COLUMN,
   PointPlotProjectionDimension.JSON_PROPERTY_DIMENSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PointPlotProjectionDimension {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
 
@@ -40,55 +56,49 @@ public class PointPlotProjectionDimension {
 
   @JsonCreator
   public PointPlotProjectionDimension(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COLUMN) String column,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DIMENSION)
-          PointPlotDimension dimension) {
-    this.column = column;
-    this.dimension = dimension;
-    this.unparsed |= !dimension.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_COLUMN)String column,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DIMENSION)PointPlotDimension dimension) {
+        this.column = column;
+        this.dimension = dimension;
+        this.unparsed |= !dimension.isValid();
   }
-
   public PointPlotProjectionDimension alias(String alias) {
     this.alias = alias;
     return this;
   }
 
   /**
-   * Alias for the column.
-   *
+   * <p>Alias for the column.</p>
    * @return alias
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALIAS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAlias() {
-    return alias;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ALIAS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAlias() {
+        return alias;
+      }
   public void setAlias(String alias) {
     this.alias = alias;
   }
-
   public PointPlotProjectionDimension column(String column) {
     this.column = column;
     return this;
   }
 
   /**
-   * Source column name from the dataset.
-   *
+   * <p>Source column name from the dataset.</p>
    * @return column
-   */
-  @JsonProperty(JSON_PROPERTY_COLUMN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getColumn() {
-    return column;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_COLUMN)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getColumn() {
+        return column;
+      }
   public void setColumn(String column) {
     this.column = column;
   }
-
   public PointPlotProjectionDimension dimension(PointPlotDimension dimension) {
     this.dimension = dimension;
     this.unparsed |= !dimension.isValid();
@@ -96,32 +106,32 @@ public class PointPlotProjectionDimension {
   }
 
   /**
-   * Dimension of the point plot.
-   *
+   * <p>Dimension of the point plot.</p>
    * @return dimension
-   */
-  @JsonProperty(JSON_PROPERTY_DIMENSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public PointPlotDimension getDimension() {
-    return dimension;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DIMENSION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public PointPlotDimension getDimension() {
+        return dimension;
+      }
   public void setDimension(PointPlotDimension dimension) {
     if (!dimension.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dimension = dimension;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -130,7 +140,7 @@ public class PointPlotProjectionDimension {
   @JsonAnySetter
   public PointPlotProjectionDimension putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -154,12 +164,14 @@ public class PointPlotProjectionDimension {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this PointPlotProjectionDimension object is equal to o. */
+  /**
+   * Return true if this PointPlotProjectionDimension object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,16 +181,13 @@ public class PointPlotProjectionDimension {
       return false;
     }
     PointPlotProjectionDimension pointPlotProjectionDimension = (PointPlotProjectionDimension) o;
-    return Objects.equals(this.alias, pointPlotProjectionDimension.alias)
-        && Objects.equals(this.column, pointPlotProjectionDimension.column)
-        && Objects.equals(this.dimension, pointPlotProjectionDimension.dimension)
-        && Objects.equals(
-            this.additionalProperties, pointPlotProjectionDimension.additionalProperties);
+    return Objects.equals(this.alias, pointPlotProjectionDimension.alias) && Objects.equals(this.column, pointPlotProjectionDimension.column) && Objects.equals(this.dimension, pointPlotProjectionDimension.dimension) && Objects.equals(this.additionalProperties, pointPlotProjectionDimension.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(alias, column, dimension, additionalProperties);
+    return Objects.hash(alias,column,dimension, additionalProperties);
   }
 
   @Override
@@ -196,7 +205,8 @@ public class PointPlotProjectionDimension {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
