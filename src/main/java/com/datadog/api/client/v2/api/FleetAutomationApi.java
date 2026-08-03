@@ -4,17 +4,22 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.FleetAgentInfoResponse;
-import com.datadog.api.client.v2.model.FleetAgentVersionsResponse;
-import com.datadog.api.client.v2.model.FleetAgentsResponse;
-import com.datadog.api.client.v2.model.FleetDeploymentConfigureCreateRequest;
-import com.datadog.api.client.v2.model.FleetDeploymentPackageUpgradeCreateRequest;
+import com.datadog.api.client.v2.model.FleetAgentDetailV2Response;
+import com.datadog.api.client.v2.model.FleetAgentVersionsV2Response;
+import com.datadog.api.client.v2.model.FleetAgentsV2Response;
+import com.datadog.api.client.v2.model.FleetDeploymentConfigureV2CreateRequest;
+import com.datadog.api.client.v2.model.FleetDeploymentConfigureV2DryRunResponse;
+import com.datadog.api.client.v2.model.FleetDeploymentPackageUpgradeV2CreateRequest;
 import com.datadog.api.client.v2.model.FleetDeploymentResponse;
-import com.datadog.api.client.v2.model.FleetDeploymentsResponse;
+import com.datadog.api.client.v2.model.FleetDeploymentV2CancelResponse;
+import com.datadog.api.client.v2.model.FleetDeploymentV2CreateResponse;
+import com.datadog.api.client.v2.model.FleetDeploymentV2DetailResponse;
+import com.datadog.api.client.v2.model.FleetDeploymentsV2Response;
 import com.datadog.api.client.v2.model.FleetScheduleCreateRequest;
 import com.datadog.api.client.v2.model.FleetSchedulePatchRequest;
 import com.datadog.api.client.v2.model.FleetScheduleResponse;
-import com.datadog.api.client.v2.model.FleetSchedulesResponse;
+import com.datadog.api.client.v2.model.FleetScheduleV2Response;
+import com.datadog.api.client.v2.model.FleetSchedulesV2Response;
 import com.datadog.api.client.v2.model.FleetTracersResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -58,25 +63,28 @@ public class FleetAutomationApi {
   /**
    * Cancel a deployment.
    *
-   * <p>See {@link #cancelFleetDeploymentWithHttpInfo}.
+   * <p>See {@link #cancelFleetDeploymentV2WithHttpInfo}.
    *
    * @param deploymentId The unique identifier of the deployment to cancel. (required)
+   * @return FleetDeploymentV2CancelResponse
    * @throws ApiException if fails to make API call
    */
-  public void cancelFleetDeployment(String deploymentId) throws ApiException {
-    cancelFleetDeploymentWithHttpInfo(deploymentId);
+  public FleetDeploymentV2CancelResponse cancelFleetDeploymentV2(String deploymentId)
+      throws ApiException {
+    return cancelFleetDeploymentV2WithHttpInfo(deploymentId).getData();
   }
 
   /**
    * Cancel a deployment.
    *
-   * <p>See {@link #cancelFleetDeploymentWithHttpInfoAsync}.
+   * <p>See {@link #cancelFleetDeploymentV2WithHttpInfoAsync}.
    *
    * @param deploymentId The unique identifier of the deployment to cancel. (required)
-   * @return CompletableFuture
+   * @return CompletableFuture&lt;FleetDeploymentV2CancelResponse&gt;
    */
-  public CompletableFuture<Void> cancelFleetDeploymentAsync(String deploymentId) {
-    return cancelFleetDeploymentWithHttpInfoAsync(deploymentId)
+  public CompletableFuture<FleetDeploymentV2CancelResponse> cancelFleetDeploymentV2Async(
+      String deploymentId) {
+    return cancelFleetDeploymentV2WithHttpInfoAsync(deploymentId)
         .thenApply(
             response -> {
               return response.getData();
@@ -85,21 +93,25 @@ public class FleetAutomationApi {
 
   /**
    * Cancel an active deployment and stop all pending operations. When you cancel a deployment: -
-   * All pending operations on hosts that haven't started yet are stopped - Operations currently in
-   * progress on hosts may complete or be interrupted, depending on their current state -
-   * Configuration changes or package upgrades already applied to hosts are not rolled back
+   * All pending operations on hosts that haven't started yet are stopped. - Operations currently in
+   * progress on hosts may complete or be interrupted, depending on their current status. -
+   * Configuration changes or package upgrades already applied to hosts are not rolled back.
    *
    * <p>After cancellation, you can view the final state of the deployment using the GET endpoint to
    * see which hosts were successfully updated before the cancellation.
    *
+   * <p>Only deployments with a <code>pending</code> or <code>running</code> status can be canceled.
+   * Returns a 400 if the deployment is not in a cancelable status. Returns a 404 if no deployment
+   * matches the specified ID or if you do not have access to it.
+   *
    * @param deploymentId The unique identifier of the deployment to cancel. (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;FleetDeploymentV2CancelResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> Deployment successfully canceled. </td><td>  -  </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -107,25 +119,19 @@ public class FleetAutomationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> cancelFleetDeploymentWithHttpInfo(String deploymentId)
-      throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "cancelFleetDeployment";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+  public ApiResponse<FleetDeploymentV2CancelResponse> cancelFleetDeploymentV2WithHttpInfo(
+      String deploymentId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'deploymentId' is set
     if (deploymentId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'deploymentId' when calling cancelFleetDeployment");
+          400,
+          "Missing the required parameter 'deploymentId' when calling cancelFleetDeploymentV2");
     }
     // create path and map variables
     String localVarPath =
-        "/api/unstable/fleet/deployments/{deployment_id}/cancel"
+        "/api/v2/fleet/deployments/{deployment_id}/cancel"
             .replaceAll(
                 "\\{" + "deployment_id" + "\\}", apiClient.escapeString(deploymentId.toString()));
 
@@ -133,12 +139,12 @@ public class FleetAutomationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.FleetAutomationApi.cancelFleetDeployment",
+            "v2.FleetAutomationApi.cancelFleetDeploymentV2",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"*/*"},
+            new String[] {"application/json"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
@@ -148,43 +154,35 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        null);
+        new GenericType<FleetDeploymentV2CancelResponse>() {});
   }
 
   /**
    * Cancel a deployment.
    *
-   * <p>See {@link #cancelFleetDeploymentWithHttpInfo}.
+   * <p>See {@link #cancelFleetDeploymentV2WithHttpInfo}.
    *
    * @param deploymentId The unique identifier of the deployment to cancel. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetDeploymentV2CancelResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> cancelFleetDeploymentWithHttpInfoAsync(
-      String deploymentId) {
-    // Check if unstable operation is enabled
-    String operationId = "cancelFleetDeployment";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+  public CompletableFuture<ApiResponse<FleetDeploymentV2CancelResponse>>
+      cancelFleetDeploymentV2WithHttpInfoAsync(String deploymentId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'deploymentId' is set
     if (deploymentId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetDeploymentV2CancelResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'deploymentId' when calling cancelFleetDeployment"));
+              "Missing the required parameter 'deploymentId' when calling"
+                  + " cancelFleetDeploymentV2"));
       return result;
     }
     // create path and map variables
     String localVarPath =
-        "/api/unstable/fleet/deployments/{deployment_id}/cancel"
+        "/api/v2/fleet/deployments/{deployment_id}/cancel"
             .replaceAll(
                 "\\{" + "deployment_id" + "\\}", apiClient.escapeString(deploymentId.toString()));
 
@@ -194,15 +192,16 @@ public class FleetAutomationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.FleetAutomationApi.cancelFleetDeployment",
+              "v2.FleetAutomationApi.cancelFleetDeploymentV2",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"*/*"},
+              new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetDeploymentV2CancelResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -214,34 +213,34 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        null);
+        new GenericType<FleetDeploymentV2CancelResponse>() {});
   }
 
   /**
    * Create a configuration deployment.
    *
-   * <p>See {@link #createFleetDeploymentConfigureWithHttpInfo}.
+   * <p>See {@link #createFleetDeploymentConfigureV2WithHttpInfo}.
    *
    * @param body Request payload containing the deployment details. (required)
-   * @return FleetDeploymentResponse
+   * @return FleetDeploymentConfigureV2DryRunResponse
    * @throws ApiException if fails to make API call
    */
-  public FleetDeploymentResponse createFleetDeploymentConfigure(
-      FleetDeploymentConfigureCreateRequest body) throws ApiException {
-    return createFleetDeploymentConfigureWithHttpInfo(body).getData();
+  public FleetDeploymentConfigureV2DryRunResponse createFleetDeploymentConfigureV2(
+      FleetDeploymentConfigureV2CreateRequest body) throws ApiException {
+    return createFleetDeploymentConfigureV2WithHttpInfo(body).getData();
   }
 
   /**
    * Create a configuration deployment.
    *
-   * <p>See {@link #createFleetDeploymentConfigureWithHttpInfoAsync}.
+   * <p>See {@link #createFleetDeploymentConfigureV2WithHttpInfoAsync}.
    *
    * @param body Request payload containing the deployment details. (required)
-   * @return CompletableFuture&lt;FleetDeploymentResponse&gt;
+   * @return CompletableFuture&lt;FleetDeploymentConfigureV2DryRunResponse&gt;
    */
-  public CompletableFuture<FleetDeploymentResponse> createFleetDeploymentConfigureAsync(
-      FleetDeploymentConfigureCreateRequest body) {
-    return createFleetDeploymentConfigureWithHttpInfoAsync(body)
+  public CompletableFuture<FleetDeploymentConfigureV2DryRunResponse>
+      createFleetDeploymentConfigureV2Async(FleetDeploymentConfigureV2CreateRequest body) {
+    return createFleetDeploymentConfigureV2WithHttpInfoAsync(body)
         .thenApply(
             response -> {
               return response.getData();
@@ -254,20 +253,32 @@ public class FleetAutomationApi {
    *
    * <p>This endpoint supports two types of configuration operations: - <code>merge-patch</code>:
    * Merges the provided patch data with the existing configuration file, creating the file if it
-   * doesn't exist - <code>delete</code>: Removes the specified configuration file from the target
-   * hosts
+   * doesn't exist. - <code>delete</code>: Removes the specified configuration file from the target
+   * hosts.
+   *
+   * <p>You can optionally use <code>target_packages</code> to apply the configuration change only
+   * to specific package versions.
    *
    * <p>The deployment is created and started automatically. You can specify multiple configuration
-   * operations that will be executed in order on each target host. Use the filter query to target
-   * specific hosts using the Datadog query syntax.
+   * operations to execute in order on each target host. Use the filter query to target specific
+   * hosts using the Datadog query syntax.
+   *
+   * <p>Set <code>dry_run</code> to <code>true</code> to validate the configuration and resolve
+   * target hosts and packages without deploying anything. A dry run returns a 200 with the
+   * validation result instead of creating and starting a deployment.
+   *
+   * <p>Returns a 400 if <code>filter_query</code> or <code>config_operations</code> is missing, a
+   * target package is missing a name or version or cannot be resolved, the configuration fails
+   * validation, or the filter query does not match any host eligible for the deployment.
    *
    * @param body Request payload containing the deployment details. (required)
-   * @return ApiResponse&lt;FleetDeploymentResponse&gt;
+   * @return ApiResponse&lt;FleetDeploymentConfigureV2DryRunResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -275,30 +286,25 @@ public class FleetAutomationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FleetDeploymentResponse> createFleetDeploymentConfigureWithHttpInfo(
-      FleetDeploymentConfigureCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createFleetDeploymentConfigure";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+  public ApiResponse<FleetDeploymentConfigureV2DryRunResponse>
+      createFleetDeploymentConfigureV2WithHttpInfo(FleetDeploymentConfigureV2CreateRequest body)
+          throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createFleetDeploymentConfigure");
+          400,
+          "Missing the required parameter 'body' when calling createFleetDeploymentConfigureV2");
     }
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/deployments/configure";
+    String localVarPath = "/api/v2/fleet/deployments/configure";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.FleetAutomationApi.createFleetDeploymentConfigure",
+            "v2.FleetAutomationApi.createFleetDeploymentConfigureV2",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -313,42 +319,35 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetDeploymentResponse>() {});
+        new GenericType<FleetDeploymentConfigureV2DryRunResponse>() {});
   }
 
   /**
    * Create a configuration deployment.
    *
-   * <p>See {@link #createFleetDeploymentConfigureWithHttpInfo}.
+   * <p>See {@link #createFleetDeploymentConfigureV2WithHttpInfo}.
    *
    * @param body Request payload containing the deployment details. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;FleetDeploymentResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetDeploymentConfigureV2DryRunResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FleetDeploymentResponse>>
-      createFleetDeploymentConfigureWithHttpInfoAsync(FleetDeploymentConfigureCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createFleetDeploymentConfigure";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FleetDeploymentResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+  public CompletableFuture<ApiResponse<FleetDeploymentConfigureV2DryRunResponse>>
+      createFleetDeploymentConfigureV2WithHttpInfoAsync(
+          FleetDeploymentConfigureV2CreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<FleetDeploymentResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetDeploymentConfigureV2DryRunResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'body' when calling createFleetDeploymentConfigure"));
+              "Missing the required parameter 'body' when calling"
+                  + " createFleetDeploymentConfigureV2"));
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/deployments/configure";
+    String localVarPath = "/api/v2/fleet/deployments/configure";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -356,7 +355,7 @@ public class FleetAutomationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.FleetAutomationApi.createFleetDeploymentConfigure",
+              "v2.FleetAutomationApi.createFleetDeploymentConfigureV2",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -364,7 +363,8 @@ public class FleetAutomationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FleetDeploymentResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetDeploymentConfigureV2DryRunResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -376,34 +376,34 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetDeploymentResponse>() {});
+        new GenericType<FleetDeploymentConfigureV2DryRunResponse>() {});
   }
 
   /**
    * Upgrade hosts.
    *
-   * <p>See {@link #createFleetDeploymentUpgradeWithHttpInfo}.
+   * <p>See {@link #createFleetDeploymentUpgradeV2WithHttpInfo}.
    *
    * @param body Request payload containing the package upgrade details. (required)
-   * @return FleetDeploymentResponse
+   * @return FleetDeploymentV2CreateResponse
    * @throws ApiException if fails to make API call
    */
-  public FleetDeploymentResponse createFleetDeploymentUpgrade(
-      FleetDeploymentPackageUpgradeCreateRequest body) throws ApiException {
-    return createFleetDeploymentUpgradeWithHttpInfo(body).getData();
+  public FleetDeploymentV2CreateResponse createFleetDeploymentUpgradeV2(
+      FleetDeploymentPackageUpgradeV2CreateRequest body) throws ApiException {
+    return createFleetDeploymentUpgradeV2WithHttpInfo(body).getData();
   }
 
   /**
    * Upgrade hosts.
    *
-   * <p>See {@link #createFleetDeploymentUpgradeWithHttpInfoAsync}.
+   * <p>See {@link #createFleetDeploymentUpgradeV2WithHttpInfoAsync}.
    *
    * @param body Request payload containing the package upgrade details. (required)
-   * @return CompletableFuture&lt;FleetDeploymentResponse&gt;
+   * @return CompletableFuture&lt;FleetDeploymentV2CreateResponse&gt;
    */
-  public CompletableFuture<FleetDeploymentResponse> createFleetDeploymentUpgradeAsync(
-      FleetDeploymentPackageUpgradeCreateRequest body) {
-    return createFleetDeploymentUpgradeWithHttpInfoAsync(body)
+  public CompletableFuture<FleetDeploymentV2CreateResponse> createFleetDeploymentUpgradeV2Async(
+      FleetDeploymentPackageUpgradeV2CreateRequest body) {
+    return createFleetDeploymentUpgradeV2WithHttpInfoAsync(body)
         .thenApply(
             response -> {
               return response.getData();
@@ -417,12 +417,17 @@ public class FleetAutomationApi {
    * <p>This endpoint allows you to upgrade the Datadog Agent to a specific version on hosts
    * matching the specified filter query.
    *
-   * <p>The deployment is created and started automatically. The system will: 1. Identify all hosts
-   * matching the filter query 2. Validate that the specified version is available 3. Begin rolling
-   * out the package upgrade to the target hosts
+   * <p>The deployment is created and started automatically. The system: 1. Identifies all hosts
+   * matching the filter query. 2. Validates that the specified version is available. 3. Begins
+   * rolling out the package upgrade to the target hosts.
+   *
+   * <p>Returns a 400 if <code>filter_query</code> or <code>target_packages</code> is missing, a
+   * target package is missing a name or version, or the filter query does not match any host
+   * eligible for the upgrade. Returns a 409 if a conflicting upgrade is already running on one or
+   * more target hosts.
    *
    * @param body Request payload containing the package upgrade details. (required)
-   * @return ApiResponse&lt;FleetDeploymentResponse&gt;
+   * @return ApiResponse&lt;FleetDeploymentV2CreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -432,34 +437,27 @@ public class FleetAutomationApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FleetDeploymentResponse> createFleetDeploymentUpgradeWithHttpInfo(
-      FleetDeploymentPackageUpgradeCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createFleetDeploymentUpgrade";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+  public ApiResponse<FleetDeploymentV2CreateResponse> createFleetDeploymentUpgradeV2WithHttpInfo(
+      FleetDeploymentPackageUpgradeV2CreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createFleetDeploymentUpgrade");
+          400, "Missing the required parameter 'body' when calling createFleetDeploymentUpgradeV2");
     }
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/deployments/upgrade";
+    String localVarPath = "/api/v2/fleet/deployments/upgrade";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.FleetAutomationApi.createFleetDeploymentUpgrade",
+            "v2.FleetAutomationApi.createFleetDeploymentUpgradeV2",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -474,43 +472,34 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetDeploymentResponse>() {});
+        new GenericType<FleetDeploymentV2CreateResponse>() {});
   }
 
   /**
    * Upgrade hosts.
    *
-   * <p>See {@link #createFleetDeploymentUpgradeWithHttpInfo}.
+   * <p>See {@link #createFleetDeploymentUpgradeV2WithHttpInfo}.
    *
    * @param body Request payload containing the package upgrade details. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;FleetDeploymentResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetDeploymentV2CreateResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FleetDeploymentResponse>>
-      createFleetDeploymentUpgradeWithHttpInfoAsync(
-          FleetDeploymentPackageUpgradeCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createFleetDeploymentUpgrade";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FleetDeploymentResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+  public CompletableFuture<ApiResponse<FleetDeploymentV2CreateResponse>>
+      createFleetDeploymentUpgradeV2WithHttpInfoAsync(
+          FleetDeploymentPackageUpgradeV2CreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<FleetDeploymentResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetDeploymentV2CreateResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
-              "Missing the required parameter 'body' when calling createFleetDeploymentUpgrade"));
+              "Missing the required parameter 'body' when calling createFleetDeploymentUpgradeV2"));
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/deployments/upgrade";
+    String localVarPath = "/api/v2/fleet/deployments/upgrade";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -518,7 +507,7 @@ public class FleetAutomationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.FleetAutomationApi.createFleetDeploymentUpgrade",
+              "v2.FleetAutomationApi.createFleetDeploymentUpgradeV2",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -526,7 +515,8 @@ public class FleetAutomationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FleetDeploymentResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetDeploymentV2CreateResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -538,7 +528,7 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetDeploymentResponse>() {});
+        new GenericType<FleetDeploymentV2CreateResponse>() {});
   }
 
   /**
@@ -858,218 +848,53 @@ public class FleetAutomationApi {
         null);
   }
 
-  /**
-   * Get detailed information about an agent.
-   *
-   * <p>See {@link #getFleetAgentInfoWithHttpInfo}.
-   *
-   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
-   * @return FleetAgentInfoResponse
-   * @throws ApiException if fails to make API call
-   */
-  public FleetAgentInfoResponse getFleetAgentInfo(String agentKey) throws ApiException {
-    return getFleetAgentInfoWithHttpInfo(agentKey).getData();
-  }
-
-  /**
-   * Get detailed information about an agent.
-   *
-   * <p>See {@link #getFleetAgentInfoWithHttpInfoAsync}.
-   *
-   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
-   * @return CompletableFuture&lt;FleetAgentInfoResponse&gt;
-   */
-  public CompletableFuture<FleetAgentInfoResponse> getFleetAgentInfoAsync(String agentKey) {
-    return getFleetAgentInfoWithHttpInfoAsync(agentKey)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Retrieve detailed information about a specific Datadog Agent. This endpoint returns
-   * comprehensive information about an agent including: - Agent details and metadata - Configured
-   * integrations organized by status (working, warning, error, missing) - Detected integrations -
-   * Configuration files and layers
-   *
-   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
-   * @return ApiResponse&lt;FleetAgentInfoResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<FleetAgentInfoResponse> getFleetAgentInfoWithHttpInfo(String agentKey)
-      throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getFleetAgentInfo";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'agentKey' is set
-    if (agentKey == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'agentKey' when calling getFleetAgentInfo");
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/unstable/fleet/agents/{agent_key}"
-            .replaceAll("\\{" + "agent_key" + "\\}", apiClient.escapeString(agentKey.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.FleetAutomationApi.getFleetAgentInfo",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<FleetAgentInfoResponse>() {});
-  }
-
-  /**
-   * Get detailed information about an agent.
-   *
-   * <p>See {@link #getFleetAgentInfoWithHttpInfo}.
-   *
-   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;FleetAgentInfoResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<FleetAgentInfoResponse>> getFleetAgentInfoWithHttpInfoAsync(
-      String agentKey) {
-    // Check if unstable operation is enabled
-    String operationId = "getFleetAgentInfo";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FleetAgentInfoResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'agentKey' is set
-    if (agentKey == null) {
-      CompletableFuture<ApiResponse<FleetAgentInfoResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'agentKey' when calling getFleetAgentInfo"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/unstable/fleet/agents/{agent_key}"
-            .replaceAll("\\{" + "agent_key" + "\\}", apiClient.escapeString(agentKey.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.FleetAutomationApi.getFleetAgentInfo",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FleetAgentInfoResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<FleetAgentInfoResponse>() {});
-  }
-
-  /** Manage optional parameters to getFleetDeployment. */
-  public static class GetFleetDeploymentOptionalParameters {
-    private Long limit;
-    private Long page;
+  /** Manage optional parameters to getFleetAgentDetailV2. */
+  public static class GetFleetAgentDetailV2OptionalParameters {
+    private String include;
 
     /**
-     * Set limit.
+     * Set include.
      *
-     * @param limit Maximum number of hosts to return per page. Default is 50, maximum is 100.
-     *     (optional, default to 50)
-     * @return GetFleetDeploymentOptionalParameters
+     * @param include Comma-separated list of additional fields to include in the response. Valid
+     *     values are <code>integrations</code> and <code>configuration_files</code>. Omitting this
+     *     parameter returns only <code>agent_infos</code>. Unrecognized values are silently ignored
+     *     rather than causing an error. (optional)
+     * @return GetFleetAgentDetailV2OptionalParameters
      */
-    public GetFleetDeploymentOptionalParameters limit(Long limit) {
-      this.limit = limit;
-      return this;
-    }
-
-    /**
-     * Set page.
-     *
-     * @param page Page index for pagination (zero-based). Use this to retrieve subsequent pages of
-     *     hosts. (optional, default to 0)
-     * @return GetFleetDeploymentOptionalParameters
-     */
-    public GetFleetDeploymentOptionalParameters page(Long page) {
-      this.page = page;
+    public GetFleetAgentDetailV2OptionalParameters include(String include) {
+      this.include = include;
       return this;
     }
   }
 
   /**
-   * Get a configuration deployment by ID.
+   * Get detailed information about an agent.
    *
-   * <p>See {@link #getFleetDeploymentWithHttpInfo}.
+   * <p>See {@link #getFleetAgentDetailV2WithHttpInfo}.
    *
-   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
-   * @return FleetDeploymentResponse
+   * @param agentKey The unique identifier (Agent key) for the Datadog Agent. Must be a 32-character
+   *     lowercase hexadecimal string. (required)
+   * @return FleetAgentDetailV2Response
    * @throws ApiException if fails to make API call
    */
-  public FleetDeploymentResponse getFleetDeployment(String deploymentId) throws ApiException {
-    return getFleetDeploymentWithHttpInfo(deploymentId, new GetFleetDeploymentOptionalParameters())
+  public FleetAgentDetailV2Response getFleetAgentDetailV2(String agentKey) throws ApiException {
+    return getFleetAgentDetailV2WithHttpInfo(
+            agentKey, new GetFleetAgentDetailV2OptionalParameters())
         .getData();
   }
 
   /**
-   * Get a configuration deployment by ID.
+   * Get detailed information about an agent.
    *
-   * <p>See {@link #getFleetDeploymentWithHttpInfoAsync}.
+   * <p>See {@link #getFleetAgentDetailV2WithHttpInfoAsync}.
    *
-   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
-   * @return CompletableFuture&lt;FleetDeploymentResponse&gt;
+   * @param agentKey The unique identifier (Agent key) for the Datadog Agent. Must be a 32-character
+   *     lowercase hexadecimal string. (required)
+   * @return CompletableFuture&lt;FleetAgentDetailV2Response&gt;
    */
-  public CompletableFuture<FleetDeploymentResponse> getFleetDeploymentAsync(String deploymentId) {
-    return getFleetDeploymentWithHttpInfoAsync(
-            deploymentId, new GetFleetDeploymentOptionalParameters())
+  public CompletableFuture<FleetAgentDetailV2Response> getFleetAgentDetailV2Async(String agentKey) {
+    return getFleetAgentDetailV2WithHttpInfoAsync(
+            agentKey, new GetFleetAgentDetailV2OptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -1077,32 +902,34 @@ public class FleetAutomationApi {
   }
 
   /**
-   * Get a configuration deployment by ID.
+   * Get detailed information about an agent.
    *
-   * <p>See {@link #getFleetDeploymentWithHttpInfo}.
+   * <p>See {@link #getFleetAgentDetailV2WithHttpInfo}.
    *
-   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
+   * @param agentKey The unique identifier (Agent key) for the Datadog Agent. Must be a 32-character
+   *     lowercase hexadecimal string. (required)
    * @param parameters Optional parameters for the request.
-   * @return FleetDeploymentResponse
+   * @return FleetAgentDetailV2Response
    * @throws ApiException if fails to make API call
    */
-  public FleetDeploymentResponse getFleetDeployment(
-      String deploymentId, GetFleetDeploymentOptionalParameters parameters) throws ApiException {
-    return getFleetDeploymentWithHttpInfo(deploymentId, parameters).getData();
+  public FleetAgentDetailV2Response getFleetAgentDetailV2(
+      String agentKey, GetFleetAgentDetailV2OptionalParameters parameters) throws ApiException {
+    return getFleetAgentDetailV2WithHttpInfo(agentKey, parameters).getData();
   }
 
   /**
-   * Get a configuration deployment by ID.
+   * Get detailed information about an agent.
    *
-   * <p>See {@link #getFleetDeploymentWithHttpInfoAsync}.
+   * <p>See {@link #getFleetAgentDetailV2WithHttpInfoAsync}.
    *
-   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
+   * @param agentKey The unique identifier (Agent key) for the Datadog Agent. Must be a 32-character
+   *     lowercase hexadecimal string. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;FleetDeploymentResponse&gt;
+   * @return CompletableFuture&lt;FleetAgentDetailV2Response&gt;
    */
-  public CompletableFuture<FleetDeploymentResponse> getFleetDeploymentAsync(
-      String deploymentId, GetFleetDeploymentOptionalParameters parameters) {
-    return getFleetDeploymentWithHttpInfoAsync(deploymentId, parameters)
+  public CompletableFuture<FleetAgentDetailV2Response> getFleetAgentDetailV2Async(
+      String agentKey, GetFleetAgentDetailV2OptionalParameters parameters) {
+    return getFleetAgentDetailV2WithHttpInfoAsync(agentKey, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -1110,26 +937,16 @@ public class FleetAutomationApi {
   }
 
   /**
-   * Retrieve detailed information about a specific deployment using its unique identifier. This
-   * endpoint returns comprehensive information about a deployment, including: - Deployment metadata
-   * (ID, type, filter query) - Total number of target hosts - Current high-level status (pending,
-   * running, succeeded, failed) - Estimated completion time - Configuration operations that were or
-   * are being applied - Detailed host list: A paginated array of hosts included in this deployment
-   * with individual host status, current package versions, and any errors
+   * Retrieve detailed information about a specific Datadog Agent.
    *
-   * <p>The host list provides visibility into the per-host execution status, allowing you to: -
-   * Monitor which hosts have completed successfully - Identify hosts that are still in progress -
-   * Investigate failures on specific hosts - View current package versions installed on each host
-   * (including initial, target, and current versions for each package)
+   * <p>By default, only <code>agent_infos</code> is returned. Use the <code>include</code> query
+   * parameter to request additional data: <code>integrations</code> and/or <code>
+   * configuration_files</code>.
    *
-   * <p>Pagination: Use the <code>limit</code> and <code>page</code> query parameters to paginate
-   * through hosts. The response includes pagination metadata in the <code>meta.hosts</code> field
-   * with information about the current page, total pages, and total host count. The default page
-   * size is 50 hosts, with a maximum of 100.
-   *
-   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
+   * @param agentKey The unique identifier (Agent key) for the Datadog Agent. Must be a 32-character
+   *     lowercase hexadecimal string. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;FleetDeploymentResponse&gt;
+   * @return ApiResponse&lt;FleetAgentDetailV2Response&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -1143,39 +960,29 @@ public class FleetAutomationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FleetDeploymentResponse> getFleetDeploymentWithHttpInfo(
-      String deploymentId, GetFleetDeploymentOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getFleetDeployment";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+  public ApiResponse<FleetAgentDetailV2Response> getFleetAgentDetailV2WithHttpInfo(
+      String agentKey, GetFleetAgentDetailV2OptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
-    // verify the required parameter 'deploymentId' is set
-    if (deploymentId == null) {
+    // verify the required parameter 'agentKey' is set
+    if (agentKey == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'deploymentId' when calling getFleetDeployment");
+          400, "Missing the required parameter 'agentKey' when calling getFleetAgentDetailV2");
     }
-    Long limit = parameters.limit;
-    Long page = parameters.page;
+    String include = parameters.include;
     // create path and map variables
     String localVarPath =
-        "/api/unstable/fleet/deployments/{deployment_id}"
-            .replaceAll(
-                "\\{" + "deployment_id" + "\\}", apiClient.escapeString(deploymentId.toString()));
+        "/api/v2/fleet/agents/{agent_key}"
+            .replaceAll("\\{" + "agent_key" + "\\}", apiClient.escapeString(agentKey.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.FleetAutomationApi.getFleetDeployment",
+            "v2.FleetAutomationApi.getFleetAgentDetailV2",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1190,61 +997,48 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetDeploymentResponse>() {});
+        new GenericType<FleetAgentDetailV2Response>() {});
   }
 
   /**
-   * Get a configuration deployment by ID.
+   * Get detailed information about an agent.
    *
-   * <p>See {@link #getFleetDeploymentWithHttpInfo}.
+   * <p>See {@link #getFleetAgentDetailV2WithHttpInfo}.
    *
-   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
+   * @param agentKey The unique identifier (Agent key) for the Datadog Agent. Must be a 32-character
+   *     lowercase hexadecimal string. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;FleetDeploymentResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetAgentDetailV2Response&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FleetDeploymentResponse>>
-      getFleetDeploymentWithHttpInfoAsync(
-          String deploymentId, GetFleetDeploymentOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getFleetDeployment";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FleetDeploymentResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+  public CompletableFuture<ApiResponse<FleetAgentDetailV2Response>>
+      getFleetAgentDetailV2WithHttpInfoAsync(
+          String agentKey, GetFleetAgentDetailV2OptionalParameters parameters) {
     Object localVarPostBody = null;
 
-    // verify the required parameter 'deploymentId' is set
-    if (deploymentId == null) {
-      CompletableFuture<ApiResponse<FleetDeploymentResponse>> result = new CompletableFuture<>();
+    // verify the required parameter 'agentKey' is set
+    if (agentKey == null) {
+      CompletableFuture<ApiResponse<FleetAgentDetailV2Response>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400,
-              "Missing the required parameter 'deploymentId' when calling getFleetDeployment"));
+              400, "Missing the required parameter 'agentKey' when calling getFleetAgentDetailV2"));
       return result;
     }
-    Long limit = parameters.limit;
-    Long page = parameters.page;
+    String include = parameters.include;
     // create path and map variables
     String localVarPath =
-        "/api/unstable/fleet/deployments/{deployment_id}"
-            .replaceAll(
-                "\\{" + "deployment_id" + "\\}", apiClient.escapeString(deploymentId.toString()));
+        "/api/v2/fleet/agents/{agent_key}"
+            .replaceAll("\\{" + "agent_key" + "\\}", apiClient.escapeString(agentKey.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
     try {
       builder =
           apiClient.createBuilder(
-              "v2.FleetAutomationApi.getFleetDeployment",
+              "v2.FleetAutomationApi.getFleetAgentDetailV2",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1252,7 +1046,7 @@ public class FleetAutomationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FleetDeploymentResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetAgentDetailV2Response>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1264,32 +1058,34 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetDeploymentResponse>() {});
+        new GenericType<FleetAgentDetailV2Response>() {});
   }
 
   /**
-   * Get a schedule by ID.
+   * Get a deployment by ID.
    *
-   * <p>See {@link #getFleetScheduleWithHttpInfo}.
+   * <p>See {@link #getFleetDeploymentV2WithHttpInfo}.
    *
-   * @param id The unique identifier of the schedule to retrieve. (required)
-   * @return FleetScheduleResponse
+   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
+   * @return FleetDeploymentV2DetailResponse
    * @throws ApiException if fails to make API call
    */
-  public FleetScheduleResponse getFleetSchedule(String id) throws ApiException {
-    return getFleetScheduleWithHttpInfo(id).getData();
+  public FleetDeploymentV2DetailResponse getFleetDeploymentV2(String deploymentId)
+      throws ApiException {
+    return getFleetDeploymentV2WithHttpInfo(deploymentId).getData();
   }
 
   /**
-   * Get a schedule by ID.
+   * Get a deployment by ID.
    *
-   * <p>See {@link #getFleetScheduleWithHttpInfoAsync}.
+   * <p>See {@link #getFleetDeploymentV2WithHttpInfoAsync}.
    *
-   * @param id The unique identifier of the schedule to retrieve. (required)
-   * @return CompletableFuture&lt;FleetScheduleResponse&gt;
+   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
+   * @return CompletableFuture&lt;FleetDeploymentV2DetailResponse&gt;
    */
-  public CompletableFuture<FleetScheduleResponse> getFleetScheduleAsync(String id) {
-    return getFleetScheduleWithHttpInfoAsync(id)
+  public CompletableFuture<FleetDeploymentV2DetailResponse> getFleetDeploymentV2Async(
+      String deploymentId) {
+    return getFleetDeploymentV2WithHttpInfoAsync(deploymentId)
         .thenApply(
             response -> {
               return response.getData();
@@ -1297,15 +1093,13 @@ public class FleetAutomationApi {
   }
 
   /**
-   * Retrieve detailed information about a specific schedule using its unique identifier.
+   * Retrieve detailed information about a specific deployment, including its current status,
+   * configuration operations, and per-host execution status.
    *
-   * <p>This endpoint returns comprehensive information about a schedule, including: - Schedule
-   * metadata (ID, name, creation/update timestamps) - Filter query for selecting target hosts -
-   * Recurrence rule defining when deployments are triggered - Version strategy for package upgrades
-   * - Current status (active or inactive)
+   * <p>Returns a 404 if no deployment matches the given ID or if you do not have access to it.
    *
-   * @param id The unique identifier of the schedule to retrieve. (required)
-   * @return ApiResponse&lt;FleetScheduleResponse&gt;
+   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
+   * @return ApiResponse&lt;FleetDeploymentV2DetailResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -1319,32 +1113,26 @@ public class FleetAutomationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FleetScheduleResponse> getFleetScheduleWithHttpInfo(String id)
-      throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getFleetSchedule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+  public ApiResponse<FleetDeploymentV2DetailResponse> getFleetDeploymentV2WithHttpInfo(
+      String deploymentId) throws ApiException {
     Object localVarPostBody = null;
 
-    // verify the required parameter 'id' is set
-    if (id == null) {
+    // verify the required parameter 'deploymentId' is set
+    if (deploymentId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'id' when calling getFleetSchedule");
+          400, "Missing the required parameter 'deploymentId' when calling getFleetDeploymentV2");
     }
     // create path and map variables
     String localVarPath =
-        "/api/unstable/fleet/schedules/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        "/api/v2/fleet/deployments/{deployment_id}"
+            .replaceAll(
+                "\\{" + "deployment_id" + "\\}", apiClient.escapeString(deploymentId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.FleetAutomationApi.getFleetSchedule",
+            "v2.FleetAutomationApi.getFleetDeploymentV2",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1359,43 +1147,36 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetScheduleResponse>() {});
+        new GenericType<FleetDeploymentV2DetailResponse>() {});
   }
 
   /**
-   * Get a schedule by ID.
+   * Get a deployment by ID.
    *
-   * <p>See {@link #getFleetScheduleWithHttpInfo}.
+   * <p>See {@link #getFleetDeploymentV2WithHttpInfo}.
    *
-   * @param id The unique identifier of the schedule to retrieve. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;FleetScheduleResponse&gt;&gt;
+   * @param deploymentId The unique identifier of the deployment to retrieve. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetDeploymentV2DetailResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FleetScheduleResponse>> getFleetScheduleWithHttpInfoAsync(
-      String id) {
-    // Check if unstable operation is enabled
-    String operationId = "getFleetSchedule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FleetScheduleResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+  public CompletableFuture<ApiResponse<FleetDeploymentV2DetailResponse>>
+      getFleetDeploymentV2WithHttpInfoAsync(String deploymentId) {
     Object localVarPostBody = null;
 
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      CompletableFuture<ApiResponse<FleetScheduleResponse>> result = new CompletableFuture<>();
+    // verify the required parameter 'deploymentId' is set
+    if (deploymentId == null) {
+      CompletableFuture<ApiResponse<FleetDeploymentV2DetailResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'id' when calling getFleetSchedule"));
+              400,
+              "Missing the required parameter 'deploymentId' when calling getFleetDeploymentV2"));
       return result;
     }
     // create path and map variables
     String localVarPath =
-        "/api/unstable/fleet/schedules/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        "/api/v2/fleet/deployments/{deployment_id}"
+            .replaceAll(
+                "\\{" + "deployment_id" + "\\}", apiClient.escapeString(deploymentId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1403,7 +1184,7 @@ public class FleetAutomationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.FleetAutomationApi.getFleetSchedule",
+              "v2.FleetAutomationApi.getFleetDeploymentV2",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1411,7 +1192,8 @@ public class FleetAutomationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FleetScheduleResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetDeploymentV2DetailResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1423,25 +1205,162 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetScheduleResponse>() {});
+        new GenericType<FleetDeploymentV2DetailResponse>() {});
   }
 
-  /** Manage optional parameters to listFleetAgents. */
-  public static class ListFleetAgentsOptionalParameters {
+  /**
+   * Get a schedule by ID.
+   *
+   * <p>See {@link #getFleetScheduleV2WithHttpInfo}.
+   *
+   * @param id The unique identifier of the schedule to retrieve. (required)
+   * @return FleetScheduleV2Response
+   * @throws ApiException if fails to make API call
+   */
+  public FleetScheduleV2Response getFleetScheduleV2(String id) throws ApiException {
+    return getFleetScheduleV2WithHttpInfo(id).getData();
+  }
+
+  /**
+   * Get a schedule by ID.
+   *
+   * <p>See {@link #getFleetScheduleV2WithHttpInfoAsync}.
+   *
+   * @param id The unique identifier of the schedule to retrieve. (required)
+   * @return CompletableFuture&lt;FleetScheduleV2Response&gt;
+   */
+  public CompletableFuture<FleetScheduleV2Response> getFleetScheduleV2Async(String id) {
+    return getFleetScheduleV2WithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve detailed information about a specific schedule by its unique identifier.
+   *
+   * @param id The unique identifier of the schedule to retrieve. (required)
+   * @return ApiResponse&lt;FleetScheduleV2Response&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetScheduleV2Response> getFleetScheduleV2WithHttpInfo(String id)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getFleetScheduleV2");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/fleet/schedules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.getFleetScheduleV2",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetScheduleV2Response>() {});
+  }
+
+  /**
+   * Get a schedule by ID.
+   *
+   * <p>See {@link #getFleetScheduleV2WithHttpInfo}.
+   *
+   * @param id The unique identifier of the schedule to retrieve. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetScheduleV2Response&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetScheduleV2Response>>
+      getFleetScheduleV2WithHttpInfoAsync(String id) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<FleetScheduleV2Response>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling getFleetScheduleV2"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/fleet/schedules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.getFleetScheduleV2",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetScheduleV2Response>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetScheduleV2Response>() {});
+  }
+
+  /** Manage optional parameters to listFleetAgentsV2. */
+  public static class ListFleetAgentsV2OptionalParameters {
     private Long pageNumber;
     private Long pageSize;
+    private String filter;
+    private String tags;
     private String sortAttribute;
     private Boolean sortDescending;
-    private String tags;
-    private String filter;
 
     /**
      * Set pageNumber.
      *
-     * @param pageNumber Page number for pagination (starts at 0). (optional, default to 0)
-     * @return ListFleetAgentsOptionalParameters
+     * @param pageNumber Page number for pagination, starting at 0. (optional, default to 0)
+     * @return ListFleetAgentsV2OptionalParameters
      */
-    public ListFleetAgentsOptionalParameters pageNumber(Long pageNumber) {
+    public ListFleetAgentsV2OptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -1449,22 +1368,47 @@ public class FleetAutomationApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Number of results per page (must be greater than 0 and less than or equal to
-     *     100). (optional, default to 10)
-     * @return ListFleetAgentsOptionalParameters
+     * @param pageSize Number of agents to return per page. Maximum value is 100. Defaults to 10.
+     *     (optional, default to 10)
+     * @return ListFleetAgentsV2OptionalParameters
      */
-    public ListFleetAgentsOptionalParameters pageSize(Long pageSize) {
+    public ListFleetAgentsV2OptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set filter.
+     *
+     * @param filter Filter string to narrow down agent results. (optional)
+     * @return ListFleetAgentsV2OptionalParameters
+     */
+    public ListFleetAgentsV2OptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+
+    /**
+     * Set tags.
+     *
+     * @param tags Comma-separated list of tag keys to select which tags are included in each
+     *     agent's <code>tags</code> attribute. Does not filter which agents are returned.
+     *     (optional)
+     * @return ListFleetAgentsV2OptionalParameters
+     */
+    public ListFleetAgentsV2OptionalParameters tags(String tags) {
+      this.tags = tags;
       return this;
     }
 
     /**
      * Set sortAttribute.
      *
-     * @param sortAttribute Attribute to sort by. (optional)
-     * @return ListFleetAgentsOptionalParameters
+     * @param sortAttribute Agent attribute to sort results by. Must be a supported attribute name;
+     *     unsupported values return a 400 error. (optional)
+     * @return ListFleetAgentsV2OptionalParameters
      */
-    public ListFleetAgentsOptionalParameters sortAttribute(String sortAttribute) {
+    public ListFleetAgentsV2OptionalParameters sortAttribute(String sortAttribute) {
       this.sortAttribute = sortAttribute;
       return this;
     }
@@ -1472,58 +1416,37 @@ public class FleetAutomationApi {
     /**
      * Set sortDescending.
      *
-     * @param sortDescending Sort order (true for descending, false for ascending). (optional)
-     * @return ListFleetAgentsOptionalParameters
+     * @param sortDescending Set to <code>true</code> to sort results in descending order. Defaults
+     *     to ascending. (optional)
+     * @return ListFleetAgentsV2OptionalParameters
      */
-    public ListFleetAgentsOptionalParameters sortDescending(Boolean sortDescending) {
+    public ListFleetAgentsV2OptionalParameters sortDescending(Boolean sortDescending) {
       this.sortDescending = sortDescending;
       return this;
     }
-
-    /**
-     * Set tags.
-     *
-     * @param tags Comma-separated list of tags to filter agents. (optional)
-     * @return ListFleetAgentsOptionalParameters
-     */
-    public ListFleetAgentsOptionalParameters tags(String tags) {
-      this.tags = tags;
-      return this;
-    }
-
-    /**
-     * Set filter.
-     *
-     * @param filter Filter string for narrowing down agent results. (optional)
-     * @return ListFleetAgentsOptionalParameters
-     */
-    public ListFleetAgentsOptionalParameters filter(String filter) {
-      this.filter = filter;
-      return this;
-    }
   }
 
   /**
    * List all Datadog Agents.
    *
-   * <p>See {@link #listFleetAgentsWithHttpInfo}.
+   * <p>See {@link #listFleetAgentsV2WithHttpInfo}.
    *
-   * @return FleetAgentsResponse
+   * @return FleetAgentsV2Response
    * @throws ApiException if fails to make API call
    */
-  public FleetAgentsResponse listFleetAgents() throws ApiException {
-    return listFleetAgentsWithHttpInfo(new ListFleetAgentsOptionalParameters()).getData();
+  public FleetAgentsV2Response listFleetAgentsV2() throws ApiException {
+    return listFleetAgentsV2WithHttpInfo(new ListFleetAgentsV2OptionalParameters()).getData();
   }
 
   /**
    * List all Datadog Agents.
    *
-   * <p>See {@link #listFleetAgentsWithHttpInfoAsync}.
+   * <p>See {@link #listFleetAgentsV2WithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;FleetAgentsResponse&gt;
+   * @return CompletableFuture&lt;FleetAgentsV2Response&gt;
    */
-  public CompletableFuture<FleetAgentsResponse> listFleetAgentsAsync() {
-    return listFleetAgentsWithHttpInfoAsync(new ListFleetAgentsOptionalParameters())
+  public CompletableFuture<FleetAgentsV2Response> listFleetAgentsV2Async() {
+    return listFleetAgentsV2WithHttpInfoAsync(new ListFleetAgentsV2OptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -1533,28 +1456,28 @@ public class FleetAutomationApi {
   /**
    * List all Datadog Agents.
    *
-   * <p>See {@link #listFleetAgentsWithHttpInfo}.
+   * <p>See {@link #listFleetAgentsV2WithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return FleetAgentsResponse
+   * @return FleetAgentsV2Response
    * @throws ApiException if fails to make API call
    */
-  public FleetAgentsResponse listFleetAgents(ListFleetAgentsOptionalParameters parameters)
+  public FleetAgentsV2Response listFleetAgentsV2(ListFleetAgentsV2OptionalParameters parameters)
       throws ApiException {
-    return listFleetAgentsWithHttpInfo(parameters).getData();
+    return listFleetAgentsV2WithHttpInfo(parameters).getData();
   }
 
   /**
    * List all Datadog Agents.
    *
-   * <p>See {@link #listFleetAgentsWithHttpInfoAsync}.
+   * <p>See {@link #listFleetAgentsV2WithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;FleetAgentsResponse&gt;
+   * @return CompletableFuture&lt;FleetAgentsV2Response&gt;
    */
-  public CompletableFuture<FleetAgentsResponse> listFleetAgentsAsync(
-      ListFleetAgentsOptionalParameters parameters) {
-    return listFleetAgentsWithHttpInfoAsync(parameters)
+  public CompletableFuture<FleetAgentsV2Response> listFleetAgentsV2Async(
+      ListFleetAgentsV2OptionalParameters parameters) {
+    return listFleetAgentsV2WithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -1562,12 +1485,14 @@ public class FleetAutomationApi {
   }
 
   /**
-   * Retrieve a paginated list of all Datadog Agents. This endpoint returns a paginated list of all
-   * Datadog Agents with support for pagination, sorting, and filtering. Use the <code>page_number
-   * </code> and <code>page_size</code> query parameters to paginate through results.
+   * Retrieve a paginated list of Datadog Agents.
+   *
+   * <p>Returns agents with support for pagination, sorting, and filtering. Use <code>page_number
+   * </code> and <code>page_size</code> to navigate pages, <code>filter</code> to narrow by field
+   * values, and <code>tags</code> to filter by agent tags.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;FleetAgentsResponse&gt;
+   * @return ApiResponse&lt;FleetAgentsV2Response&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -1577,42 +1502,34 @@ public class FleetAutomationApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FleetAgentsResponse> listFleetAgentsWithHttpInfo(
-      ListFleetAgentsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listFleetAgents";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+  public ApiResponse<FleetAgentsV2Response> listFleetAgentsV2WithHttpInfo(
+      ListFleetAgentsV2OptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
+    String filter = parameters.filter;
+    String tags = parameters.tags;
     String sortAttribute = parameters.sortAttribute;
     Boolean sortDescending = parameters.sortDescending;
-    String tags = parameters.tags;
-    String filter = parameters.filter;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/agents";
+    String localVarPath = "/api/v2/fleet/agents";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.FleetAutomationApi.listFleetAgents",
+            "v2.FleetAutomationApi.listFleetAgentsV2",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1627,54 +1544,44 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetAgentsResponse>() {});
+        new GenericType<FleetAgentsV2Response>() {});
   }
 
   /**
    * List all Datadog Agents.
    *
-   * <p>See {@link #listFleetAgentsWithHttpInfo}.
+   * <p>See {@link #listFleetAgentsV2WithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;FleetAgentsResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetAgentsV2Response&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FleetAgentsResponse>> listFleetAgentsWithHttpInfoAsync(
-      ListFleetAgentsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listFleetAgents";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FleetAgentsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+  public CompletableFuture<ApiResponse<FleetAgentsV2Response>> listFleetAgentsV2WithHttpInfoAsync(
+      ListFleetAgentsV2OptionalParameters parameters) {
     Object localVarPostBody = null;
     Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
+    String filter = parameters.filter;
+    String tags = parameters.tags;
     String sortAttribute = parameters.sortAttribute;
     Boolean sortDescending = parameters.sortDescending;
-    String tags = parameters.tags;
-    String filter = parameters.filter;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/agents";
+    String localVarPath = "/api/v2/fleet/agents";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     Invocation.Builder builder;
     try {
       builder =
           apiClient.createBuilder(
-              "v2.FleetAutomationApi.listFleetAgents",
+              "v2.FleetAutomationApi.listFleetAgentsV2",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1682,7 +1589,7 @@ public class FleetAutomationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FleetAgentsResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetAgentsV2Response>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1694,7 +1601,7 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetAgentsResponse>() {});
+        new GenericType<FleetAgentsV2Response>() {});
   }
 
   /** Manage optional parameters to listFleetAgentTracers. */
@@ -1968,26 +1875,26 @@ public class FleetAutomationApi {
   }
 
   /**
-   * List all available Agent versions.
+   * List available Datadog Agent versions.
    *
-   * <p>See {@link #listFleetAgentVersionsWithHttpInfo}.
+   * <p>See {@link #listFleetAgentVersionsV2WithHttpInfo}.
    *
-   * @return FleetAgentVersionsResponse
+   * @return FleetAgentVersionsV2Response
    * @throws ApiException if fails to make API call
    */
-  public FleetAgentVersionsResponse listFleetAgentVersions() throws ApiException {
-    return listFleetAgentVersionsWithHttpInfo().getData();
+  public FleetAgentVersionsV2Response listFleetAgentVersionsV2() throws ApiException {
+    return listFleetAgentVersionsV2WithHttpInfo().getData();
   }
 
   /**
-   * List all available Agent versions.
+   * List available Datadog Agent versions.
    *
-   * <p>See {@link #listFleetAgentVersionsWithHttpInfoAsync}.
+   * <p>See {@link #listFleetAgentVersionsV2WithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;FleetAgentVersionsResponse&gt;
+   * @return CompletableFuture&lt;FleetAgentVersionsV2Response&gt;
    */
-  public CompletableFuture<FleetAgentVersionsResponse> listFleetAgentVersionsAsync() {
-    return listFleetAgentVersionsWithHttpInfoAsync()
+  public CompletableFuture<FleetAgentVersionsV2Response> listFleetAgentVersionsV2Async() {
+    return listFleetAgentVersionsV2WithHttpInfoAsync()
         .thenApply(
             response -> {
               return response.getData();
@@ -1995,44 +1902,36 @@ public class FleetAutomationApi {
   }
 
   /**
-   * Retrieve a list of all available Datadog Agent versions.
+   * Retrieve the list of Datadog Agent versions available for deployment.
    *
-   * <p>This endpoint returns the available Agent versions that can be deployed to your fleet. These
-   * versions are used when creating deployments or configuring schedules for automated Agent
-   * upgrades.
+   * <p>Returns <code>200</code> with an empty <code>data</code> array if the Agent package exists
+   * in the catalog but has no available versions, and <code>404</code> only if the Agent package
+   * itself is absent from the catalog.
    *
-   * @return ApiResponse&lt;FleetAgentVersionsResponse&gt;
+   * @return ApiResponse&lt;FleetAgentVersionsV2Response&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FleetAgentVersionsResponse> listFleetAgentVersionsWithHttpInfo()
+  public ApiResponse<FleetAgentVersionsV2Response> listFleetAgentVersionsV2WithHttpInfo()
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listFleetAgentVersions";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/agent_versions";
+    String localVarPath = "/api/v2/fleet/agent_versions";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.FleetAutomationApi.listFleetAgentVersions",
+            "v2.FleetAutomationApi.listFleetAgentVersionsV2",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -2047,31 +1946,21 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetAgentVersionsResponse>() {});
+        new GenericType<FleetAgentVersionsV2Response>() {});
   }
 
   /**
-   * List all available Agent versions.
+   * List available Datadog Agent versions.
    *
-   * <p>See {@link #listFleetAgentVersionsWithHttpInfo}.
+   * <p>See {@link #listFleetAgentVersionsV2WithHttpInfo}.
    *
-   * @return CompletableFuture&lt;ApiResponse&lt;FleetAgentVersionsResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetAgentVersionsV2Response&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FleetAgentVersionsResponse>>
-      listFleetAgentVersionsWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "listFleetAgentVersions";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FleetAgentVersionsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+  public CompletableFuture<ApiResponse<FleetAgentVersionsV2Response>>
+      listFleetAgentVersionsV2WithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/agent_versions";
+    String localVarPath = "/api/v2/fleet/agent_versions";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2079,7 +1968,7 @@ public class FleetAutomationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.FleetAutomationApi.listFleetAgentVersions",
+              "v2.FleetAutomationApi.listFleetAgentVersionsV2",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2087,7 +1976,8 @@ public class FleetAutomationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FleetAgentVersionsResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetAgentVersionsV2Response>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -2099,35 +1989,77 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetAgentVersionsResponse>() {});
+        new GenericType<FleetAgentVersionsV2Response>() {});
   }
 
-  /** Manage optional parameters to listFleetDeployments. */
-  public static class ListFleetDeploymentsOptionalParameters {
+  /** Manage optional parameters to listFleetDeploymentsV2. */
+  public static class ListFleetDeploymentsV2OptionalParameters {
     private Long pageSize;
-    private Long pageOffset;
+    private Long pageNumber;
+    private String sort;
+    private Boolean ascending;
+    private String filter;
 
     /**
      * Set pageSize.
      *
      * @param pageSize Number of deployments to return per page. Maximum value is 100. (optional,
      *     default to 10)
-     * @return ListFleetDeploymentsOptionalParameters
+     * @return ListFleetDeploymentsV2OptionalParameters
      */
-    public ListFleetDeploymentsOptionalParameters pageSize(Long pageSize) {
+    public ListFleetDeploymentsV2OptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
     /**
-     * Set pageOffset.
+     * Set pageNumber.
      *
-     * @param pageOffset Index of the first deployment to return. Use this with <code>page_size
-     *     </code> to paginate through results. (optional, default to 0)
-     * @return ListFleetDeploymentsOptionalParameters
+     * @param pageNumber Page number for pagination, starting at 0. (optional, default to 0)
+     * @return ListFleetDeploymentsV2OptionalParameters
      */
-    public ListFleetDeploymentsOptionalParameters pageOffset(Long pageOffset) {
-      this.pageOffset = pageOffset;
+    public ListFleetDeploymentsV2OptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Field to sort results by (for example, <code>start_date</code>). Must be a
+     *     supported field name; unsupported values return a 400 error. (optional)
+     * @return ListFleetDeploymentsV2OptionalParameters
+     */
+    public ListFleetDeploymentsV2OptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set ascending.
+     *
+     * @param ascending Set to <code>true</code> to sort in ascending order. This setting has no
+     *     effect unless <code>sort</code> is also set. Defaults to descending order. (optional)
+     * @return ListFleetDeploymentsV2OptionalParameters
+     */
+    public ListFleetDeploymentsV2OptionalParameters ascending(Boolean ascending) {
+      this.ascending = ascending;
+      return this;
+    }
+
+    /**
+     * Set filter.
+     *
+     * @param filter Query used to filter deployments. Uses the Datadog query syntax. Filtering on
+     *     an unsupported field returns a 400 error. For example: - <code>status:failed</code> or
+     *     <code>status:done_with_errors</code>: deployments that need investigation. - <code>
+     *     status:running</code>: deployments currently in flight. - <code>
+     *     update_type:update_package</code> or <code>update_type:update_config_operations</code>:
+     *     deployments of a given type. (optional)
+     * @return ListFleetDeploymentsV2OptionalParameters
+     */
+    public ListFleetDeploymentsV2OptionalParameters filter(String filter) {
+      this.filter = filter;
       return this;
     }
   }
@@ -2135,24 +2067,25 @@ public class FleetAutomationApi {
   /**
    * List all deployments.
    *
-   * <p>See {@link #listFleetDeploymentsWithHttpInfo}.
+   * <p>See {@link #listFleetDeploymentsV2WithHttpInfo}.
    *
-   * @return FleetDeploymentsResponse
+   * @return FleetDeploymentsV2Response
    * @throws ApiException if fails to make API call
    */
-  public FleetDeploymentsResponse listFleetDeployments() throws ApiException {
-    return listFleetDeploymentsWithHttpInfo(new ListFleetDeploymentsOptionalParameters()).getData();
+  public FleetDeploymentsV2Response listFleetDeploymentsV2() throws ApiException {
+    return listFleetDeploymentsV2WithHttpInfo(new ListFleetDeploymentsV2OptionalParameters())
+        .getData();
   }
 
   /**
    * List all deployments.
    *
-   * <p>See {@link #listFleetDeploymentsWithHttpInfoAsync}.
+   * <p>See {@link #listFleetDeploymentsV2WithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;FleetDeploymentsResponse&gt;
+   * @return CompletableFuture&lt;FleetDeploymentsV2Response&gt;
    */
-  public CompletableFuture<FleetDeploymentsResponse> listFleetDeploymentsAsync() {
-    return listFleetDeploymentsWithHttpInfoAsync(new ListFleetDeploymentsOptionalParameters())
+  public CompletableFuture<FleetDeploymentsV2Response> listFleetDeploymentsV2Async() {
+    return listFleetDeploymentsV2WithHttpInfoAsync(new ListFleetDeploymentsV2OptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -2162,28 +2095,28 @@ public class FleetAutomationApi {
   /**
    * List all deployments.
    *
-   * <p>See {@link #listFleetDeploymentsWithHttpInfo}.
+   * <p>See {@link #listFleetDeploymentsV2WithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return FleetDeploymentsResponse
+   * @return FleetDeploymentsV2Response
    * @throws ApiException if fails to make API call
    */
-  public FleetDeploymentsResponse listFleetDeployments(
-      ListFleetDeploymentsOptionalParameters parameters) throws ApiException {
-    return listFleetDeploymentsWithHttpInfo(parameters).getData();
+  public FleetDeploymentsV2Response listFleetDeploymentsV2(
+      ListFleetDeploymentsV2OptionalParameters parameters) throws ApiException {
+    return listFleetDeploymentsV2WithHttpInfo(parameters).getData();
   }
 
   /**
    * List all deployments.
    *
-   * <p>See {@link #listFleetDeploymentsWithHttpInfoAsync}.
+   * <p>See {@link #listFleetDeploymentsV2WithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;FleetDeploymentsResponse&gt;
+   * @return CompletableFuture&lt;FleetDeploymentsV2Response&gt;
    */
-  public CompletableFuture<FleetDeploymentsResponse> listFleetDeploymentsAsync(
-      ListFleetDeploymentsOptionalParameters parameters) {
-    return listFleetDeploymentsWithHttpInfoAsync(parameters)
+  public CompletableFuture<FleetDeploymentsV2Response> listFleetDeploymentsV2Async(
+      ListFleetDeploymentsV2OptionalParameters parameters) {
+    return listFleetDeploymentsV2WithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -2191,11 +2124,10 @@ public class FleetAutomationApi {
   }
 
   /**
-   * Retrieve a list of all deployments for fleet automation. Use the <code>page_size</code> and
-   * <code>page_offset</code> parameters to paginate results.
+   * Retrieve a paginated list of all deployments for fleet automation.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;FleetDeploymentsResponse&gt;
+   * @return ApiResponse&lt;FleetDeploymentsV2Response&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -2208,30 +2140,29 @@ public class FleetAutomationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FleetDeploymentsResponse> listFleetDeploymentsWithHttpInfo(
-      ListFleetDeploymentsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listFleetDeployments";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+  public ApiResponse<FleetDeploymentsV2Response> listFleetDeploymentsV2WithHttpInfo(
+      ListFleetDeploymentsV2OptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    Long pageNumber = parameters.pageNumber;
+    String sort = parameters.sort;
+    Boolean ascending = parameters.ascending;
+    String filter = parameters.filter;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/deployments";
+    String localVarPath = "/api/v2/fleet/deployments";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_offset", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ascending", ascending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.FleetAutomationApi.listFleetDeployments",
+            "v2.FleetAutomationApi.listFleetDeploymentsV2",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -2246,46 +2177,42 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetDeploymentsResponse>() {});
+        new GenericType<FleetDeploymentsV2Response>() {});
   }
 
   /**
    * List all deployments.
    *
-   * <p>See {@link #listFleetDeploymentsWithHttpInfo}.
+   * <p>See {@link #listFleetDeploymentsV2WithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;FleetDeploymentsResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetDeploymentsV2Response&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FleetDeploymentsResponse>>
-      listFleetDeploymentsWithHttpInfoAsync(ListFleetDeploymentsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listFleetDeployments";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FleetDeploymentsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+  public CompletableFuture<ApiResponse<FleetDeploymentsV2Response>>
+      listFleetDeploymentsV2WithHttpInfoAsync(ListFleetDeploymentsV2OptionalParameters parameters) {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    Long pageNumber = parameters.pageNumber;
+    String sort = parameters.sort;
+    Boolean ascending = parameters.ascending;
+    String filter = parameters.filter;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/deployments";
+    String localVarPath = "/api/v2/fleet/deployments";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_offset", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ascending", ascending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     Invocation.Builder builder;
     try {
       builder =
           apiClient.createBuilder(
-              "v2.FleetAutomationApi.listFleetDeployments",
+              "v2.FleetAutomationApi.listFleetDeploymentsV2",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -2293,7 +2220,7 @@ public class FleetAutomationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FleetDeploymentsResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetDeploymentsV2Response>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -2305,30 +2232,30 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetDeploymentsResponse>() {});
+        new GenericType<FleetDeploymentsV2Response>() {});
   }
 
   /**
    * List all schedules.
    *
-   * <p>See {@link #listFleetSchedulesWithHttpInfo}.
+   * <p>See {@link #listFleetSchedulesV2WithHttpInfo}.
    *
-   * @return FleetSchedulesResponse
+   * @return FleetSchedulesV2Response
    * @throws ApiException if fails to make API call
    */
-  public FleetSchedulesResponse listFleetSchedules() throws ApiException {
-    return listFleetSchedulesWithHttpInfo().getData();
+  public FleetSchedulesV2Response listFleetSchedulesV2() throws ApiException {
+    return listFleetSchedulesV2WithHttpInfo().getData();
   }
 
   /**
    * List all schedules.
    *
-   * <p>See {@link #listFleetSchedulesWithHttpInfoAsync}.
+   * <p>See {@link #listFleetSchedulesV2WithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;FleetSchedulesResponse&gt;
+   * @return CompletableFuture&lt;FleetSchedulesV2Response&gt;
    */
-  public CompletableFuture<FleetSchedulesResponse> listFleetSchedulesAsync() {
-    return listFleetSchedulesWithHttpInfoAsync()
+  public CompletableFuture<FleetSchedulesV2Response> listFleetSchedulesV2Async() {
+    return listFleetSchedulesV2WithHttpInfoAsync()
         .thenApply(
             response -> {
               return response.getData();
@@ -2336,12 +2263,12 @@ public class FleetAutomationApi {
   }
 
   /**
-   * Retrieve a list of all schedules for automated fleet deployments.
+   * Retrieve all upgrade schedules for the organization.
    *
-   * <p>Schedules allow you to automate package upgrades by defining maintenance windows and
-   * recurrence rules. Each schedule automatically creates deployments based on its configuration.
+   * <p>Schedules automate package upgrades by defining maintenance windows and recurrence rules.
+   * Each schedule automatically creates deployments based on its configuration.
    *
-   * @return ApiResponse&lt;FleetSchedulesResponse&gt;
+   * @return ApiResponse&lt;FleetSchedulesV2Response&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -2354,23 +2281,17 @@ public class FleetAutomationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<FleetSchedulesResponse> listFleetSchedulesWithHttpInfo() throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listFleetSchedules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+  public ApiResponse<FleetSchedulesV2Response> listFleetSchedulesV2WithHttpInfo()
+      throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/schedules";
+    String localVarPath = "/api/v2/fleet/schedules";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.FleetAutomationApi.listFleetSchedules",
+            "v2.FleetAutomationApi.listFleetSchedulesV2",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -2385,31 +2306,21 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetSchedulesResponse>() {});
+        new GenericType<FleetSchedulesV2Response>() {});
   }
 
   /**
    * List all schedules.
    *
-   * <p>See {@link #listFleetSchedulesWithHttpInfo}.
+   * <p>See {@link #listFleetSchedulesV2WithHttpInfo}.
    *
-   * @return CompletableFuture&lt;ApiResponse&lt;FleetSchedulesResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetSchedulesV2Response&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<FleetSchedulesResponse>>
-      listFleetSchedulesWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "listFleetSchedules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FleetSchedulesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+  public CompletableFuture<ApiResponse<FleetSchedulesV2Response>>
+      listFleetSchedulesV2WithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/schedules";
+    String localVarPath = "/api/v2/fleet/schedules";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2417,7 +2328,7 @@ public class FleetAutomationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.FleetAutomationApi.listFleetSchedules",
+              "v2.FleetAutomationApi.listFleetSchedulesV2",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2425,7 +2336,7 @@ public class FleetAutomationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<FleetSchedulesResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<FleetSchedulesV2Response>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -2437,7 +2348,7 @@ public class FleetAutomationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<FleetSchedulesResponse>() {});
+        new GenericType<FleetSchedulesV2Response>() {});
   }
 
   /** Manage optional parameters to listFleetTracers. */
