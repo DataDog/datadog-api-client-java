@@ -30,6 +30,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FlakyTestAttributes.JSON_PROPERTY_FLAKY_CATEGORY,
   FlakyTestAttributes.JSON_PROPERTY_FLAKY_STATE,
   FlakyTestAttributes.JSON_PROPERTY_HISTORY,
+  FlakyTestAttributes.JSON_PROPERTY_IMPACT_LEVEL,
+  FlakyTestAttributes.JSON_PROPERTY_IMPACT_SCORE,
   FlakyTestAttributes.JSON_PROPERTY_LAST_FLAKED_BRANCH,
   FlakyTestAttributes.JSON_PROPERTY_LAST_FLAKED_SHA,
   FlakyTestAttributes.JSON_PROPERTY_LAST_FLAKED_TS,
@@ -71,6 +73,12 @@ public class FlakyTestAttributes {
 
   public static final String JSON_PROPERTY_HISTORY = "history";
   private List<FlakyTestHistory> history = null;
+
+  public static final String JSON_PROPERTY_IMPACT_LEVEL = "impact_level";
+  private FlakyTestImpactLevel impactLevel;
+
+  public static final String JSON_PROPERTY_IMPACT_SCORE = "impact_score";
+  private JsonNullable<Double> impactScore = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_LAST_FLAKED_BRANCH = "last_flaked_branch";
   private String lastFlakedBranch;
@@ -346,6 +354,63 @@ public class FlakyTestAttributes {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public FlakyTestAttributes impactLevel(FlakyTestImpactLevel impactLevel) {
+    this.impactLevel = impactLevel;
+    this.unparsed |= !impactLevel.isValid();
+    return this;
+  }
+
+  /**
+   * The impact level of the flaky test, derived from its impact score.
+   *
+   * @return impactLevel
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IMPACT_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FlakyTestImpactLevel getImpactLevel() {
+    return impactLevel;
+  }
+
+  public void setImpactLevel(FlakyTestImpactLevel impactLevel) {
+    if (!impactLevel.isValid()) {
+      this.unparsed = true;
+    }
+    this.impactLevel = impactLevel;
+  }
+
+  public FlakyTestAttributes impactScore(Double impactScore) {
+    this.impactScore = JsonNullable.<Double>of(impactScore);
+    return this;
+  }
+
+  /**
+   * A score from 0 to 1 indicating the impact of this flaky test, based on factors such as how
+   * often it fails and how many pipelines it affects. minimum: 0 maximum: 1
+   *
+   * @return impactScore
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getImpactScore() {
+    return impactScore.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getImpactScore_JsonNullable() {
+    return impactScore;
+  }
+
+  @JsonProperty(JSON_PROPERTY_IMPACT_SCORE)
+  public void setImpactScore_JsonNullable(JsonNullable<Double> impactScore) {
+    this.impactScore = impactScore;
+  }
+
+  public void setImpactScore(Double impactScore) {
+    this.impactScore = JsonNullable.<Double>of(impactScore);
   }
 
   public FlakyTestAttributes lastFlakedBranch(String lastFlakedBranch) {
@@ -667,6 +732,8 @@ public class FlakyTestAttributes {
         && Objects.equals(this.flakyCategory, flakyTestAttributes.flakyCategory)
         && Objects.equals(this.flakyState, flakyTestAttributes.flakyState)
         && Objects.equals(this.history, flakyTestAttributes.history)
+        && Objects.equals(this.impactLevel, flakyTestAttributes.impactLevel)
+        && Objects.equals(this.impactScore, flakyTestAttributes.impactScore)
         && Objects.equals(this.lastFlakedBranch, flakyTestAttributes.lastFlakedBranch)
         && Objects.equals(this.lastFlakedSha, flakyTestAttributes.lastFlakedSha)
         && Objects.equals(this.lastFlakedTs, flakyTestAttributes.lastFlakedTs)
@@ -692,6 +759,8 @@ public class FlakyTestAttributes {
         flakyCategory,
         flakyState,
         history,
+        impactLevel,
+        impactScore,
         lastFlakedBranch,
         lastFlakedSha,
         lastFlakedTs,
@@ -718,6 +787,8 @@ public class FlakyTestAttributes {
     sb.append("    flakyCategory: ").append(toIndentedString(flakyCategory)).append("\n");
     sb.append("    flakyState: ").append(toIndentedString(flakyState)).append("\n");
     sb.append("    history: ").append(toIndentedString(history)).append("\n");
+    sb.append("    impactLevel: ").append(toIndentedString(impactLevel)).append("\n");
+    sb.append("    impactScore: ").append(toIndentedString(impactScore)).append("\n");
     sb.append("    lastFlakedBranch: ").append(toIndentedString(lastFlakedBranch)).append("\n");
     sb.append("    lastFlakedSha: ").append(toIndentedString(lastFlakedSha)).append("\n");
     sb.append("    lastFlakedTs: ").append(toIndentedString(lastFlakedTs)).append("\n");
