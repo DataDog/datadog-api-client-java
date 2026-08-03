@@ -761,19 +761,9 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
-          put("v2.cancelFleetDeployment", false);
-          put("v2.createFleetDeploymentConfigure", false);
-          put("v2.createFleetDeploymentUpgrade", false);
           put("v2.createFleetSchedule", false);
           put("v2.deleteFleetSchedule", false);
-          put("v2.getFleetAgentInfo", false);
-          put("v2.getFleetDeployment", false);
-          put("v2.getFleetSchedule", false);
-          put("v2.listFleetAgents", false);
           put("v2.listFleetAgentTracers", false);
-          put("v2.listFleetAgentVersions", false);
-          put("v2.listFleetDeployments", false);
-          put("v2.listFleetSchedules", false);
           put("v2.listFleetTracers", false);
           put("v2.triggerFleetSchedule", false);
           put("v2.updateFleetSchedule", false);
