@@ -17,108 +17,73 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data object for creating a degradation. */
+/** The data object identifying the template used to create the backfilled maintenance. */
 @JsonPropertyOrder({
-  CreateDegradationRequestData.JSON_PROPERTY_ATTRIBUTES,
-  CreateDegradationRequestData.JSON_PROPERTY_RELATIONSHIPS,
-  CreateDegradationRequestData.JSON_PROPERTY_TYPE
+  CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData.JSON_PROPERTY_ID,
+  CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CreateDegradationRequestData {
+public class CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private CreateDegradationRequestDataAttributes attributes;
-
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private CreateDegradationRequestDataRelationships relationships;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private PatchDegradationRequestDataType type = PatchDegradationRequestDataType.DEGRADATIONS;
+  private PatchMaintenanceTemplateRequestDataType type =
+      PatchMaintenanceTemplateRequestDataType.MAINTENANCE_TEMPLATES;
 
-  public CreateDegradationRequestData() {}
+  public CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData() {}
 
   @JsonCreator
-  public CreateDegradationRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          CreateDegradationRequestDataAttributes attributes,
+  public CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          PatchDegradationRequestDataType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+          PatchMaintenanceTemplateRequestDataType type) {
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public CreateDegradationRequestData attributes(
-      CreateDegradationRequestDataAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * The supported attributes for creating a degradation.
+   * The ID of the maintenance template.
    *
-   * @return attributes
+   * @return id
    */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreateDegradationRequestDataAttributes getAttributes() {
-    return attributes;
+  public String getId() {
+    return id;
   }
 
-  public void setAttributes(CreateDegradationRequestDataAttributes attributes) {
-    this.attributes = attributes;
-    if (attributes != null) {
-      this.unparsed |= attributes.unparsed;
-    }
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public CreateDegradationRequestData relationships(
-      CreateDegradationRequestDataRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * The supported relationships for creating a degradation.
-   *
-   * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CreateDegradationRequestDataRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(CreateDegradationRequestDataRelationships relationships) {
-    this.relationships = relationships;
-    if (relationships != null) {
-      this.unparsed |= relationships.unparsed;
-    }
-  }
-
-  public CreateDegradationRequestData type(PatchDegradationRequestDataType type) {
+  public CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData type(
+      PatchMaintenanceTemplateRequestDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Degradations resource type.
+   * Maintenance templates resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public PatchDegradationRequestDataType getType() {
+  public PatchMaintenanceTemplateRequestDataType getType() {
     return type;
   }
 
-  public void setType(PatchDegradationRequestDataType type) {
+  public void setType(PatchMaintenanceTemplateRequestDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -137,10 +102,11 @@ public class CreateDegradationRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CreateDegradationRequestData
+   * @return CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData
    */
   @JsonAnySetter
-  public CreateDegradationRequestData putAdditionalProperty(String key, Object value) {
+  public CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -171,7 +137,10 @@ public class CreateDegradationRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CreateDegradationRequestData object is equal to o. */
+  /**
+   * Return true if this CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData object is
+   * equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -180,25 +149,28 @@ public class CreateDegradationRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateDegradationRequestData createDegradationRequestData = (CreateDegradationRequestData) o;
-    return Objects.equals(this.attributes, createDegradationRequestData.attributes)
-        && Objects.equals(this.relationships, createDegradationRequestData.relationships)
-        && Objects.equals(this.type, createDegradationRequestData.type)
+    CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData
+        createBackfilledMaintenanceRequestDataRelationshipsTemplateData =
+            (CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData) o;
+    return Objects.equals(
+            this.id, createBackfilledMaintenanceRequestDataRelationshipsTemplateData.id)
         && Objects.equals(
-            this.additionalProperties, createDegradationRequestData.additionalProperties);
+            this.type, createBackfilledMaintenanceRequestDataRelationshipsTemplateData.type)
+        && Objects.equals(
+            this.additionalProperties,
+            createBackfilledMaintenanceRequestDataRelationshipsTemplateData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, relationships, type, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateDegradationRequestData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("class CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
