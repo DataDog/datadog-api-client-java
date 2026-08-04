@@ -159,6 +159,8 @@ import com.datadog.api.client.v2.model.SecurityMonitoringTerraformBulkExportRequ
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformConvertRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformExportResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringTerraformResourceType;
+import com.datadog.api.client.v2.model.SeverityModifierRuleCreateRequest;
+import com.datadog.api.client.v2.model.SeverityModifierRuleResponse;
 import com.datadog.api.client.v2.model.SignalEntitiesResponse;
 import com.datadog.api.client.v2.model.SingleEntityContextResponse;
 import com.datadog.api.client.v2.model.TicketCreationRuleCreateRequest;
@@ -4672,6 +4674,167 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Create a severity modifier rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SeverityModifierRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SeverityModifierRuleResponse createSecurityFindingsAutomationSeverityModifierRule(
+      SeverityModifierRuleCreateRequest body) throws ApiException {
+    return createSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a severity modifier rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SeverityModifierRuleResponse&gt;
+   */
+  public CompletableFuture<SeverityModifierRuleResponse>
+      createSecurityFindingsAutomationSeverityModifierRuleAsync(
+          SeverityModifierRuleCreateRequest body) {
+    return createSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new severity modifier rule for the current organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SeverityModifierRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created the severity modifier rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SeverityModifierRuleResponse>
+      createSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo(
+          SeverityModifierRuleCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationSeverityModifierRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityFindingsAutomationSeverityModifierRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/severity_modifier_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityFindingsAutomationSeverityModifierRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SeverityModifierRuleResponse>() {});
+  }
+
+  /**
+   * Create a severity modifier rule.
+   *
+   * <p>See {@link #createSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SeverityModifierRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SeverityModifierRuleResponse>>
+      createSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync(
+          SeverityModifierRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFindingsAutomationSeverityModifierRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SeverityModifierRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SeverityModifierRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityFindingsAutomationSeverityModifierRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/automation/severity_modifier_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityFindingsAutomationSeverityModifierRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SeverityModifierRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SeverityModifierRuleResponse>() {});
+  }
+
+  /**
    * Create a ticket creation rule.
    *
    * <p>See {@link #createSecurityFindingsAutomationTicketCreationRuleWithHttpInfo}.
@@ -7543,6 +7706,163 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationMuteRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a severity modifier rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the severity modifier rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityFindingsAutomationSeverityModifierRule(UUID ruleId)
+      throws ApiException {
+    deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo(ruleId);
+  }
+
+  /**
+   * Delete a severity modifier rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the severity modifier rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityFindingsAutomationSeverityModifierRuleAsync(
+      UUID ruleId) {
+    return deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an existing severity modifier rule by ID.
+   *
+   * @param ruleId The ID of the severity modifier rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo(
+      UUID ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationSeverityModifierRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " deleteSecurityFindingsAutomationSeverityModifierRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationSeverityModifierRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a severity modifier rule.
+   *
+   * <p>See {@link #deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the severity modifier rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityFindingsAutomationSeverityModifierRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " deleteSecurityFindingsAutomationSeverityModifierRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationSeverityModifierRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -12653,6 +12973,168 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Get a severity modifier rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the severity modifier rule. (required)
+   * @return SeverityModifierRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SeverityModifierRuleResponse getSecurityFindingsAutomationSeverityModifierRule(UUID ruleId)
+      throws ApiException {
+    return getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get a severity modifier rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the severity modifier rule. (required)
+   * @return CompletableFuture&lt;SeverityModifierRuleResponse&gt;
+   */
+  public CompletableFuture<SeverityModifierRuleResponse>
+      getSecurityFindingsAutomationSeverityModifierRuleAsync(UUID ruleId) {
+    return getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a severity modifier rule by ID.
+   *
+   * @param ruleId The ID of the severity modifier rule. (required)
+   * @return ApiResponse&lt;SeverityModifierRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully retrieved the severity modifier rule </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SeverityModifierRuleResponse>
+      getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo(UUID ruleId)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationSeverityModifierRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " getSecurityFindingsAutomationSeverityModifierRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityFindingsAutomationSeverityModifierRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SeverityModifierRuleResponse>() {});
+  }
+
+  /**
+   * Get a severity modifier rule.
+   *
+   * <p>See {@link #getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the severity modifier rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SeverityModifierRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SeverityModifierRuleResponse>>
+      getSecurityFindingsAutomationSeverityModifierRuleWithHttpInfoAsync(UUID ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityFindingsAutomationSeverityModifierRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SeverityModifierRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<SeverityModifierRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " getSecurityFindingsAutomationSeverityModifierRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityFindingsAutomationSeverityModifierRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SeverityModifierRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SeverityModifierRuleResponse>() {});
   }
 
   /**
