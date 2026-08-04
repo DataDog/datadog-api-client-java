@@ -583,7 +583,8 @@ public class MetricsApi {
   }
 
   /**
-   * Query timeseries points.
+   * Query timeseries points. Datadog recommends using the v2 <code>/api/v2/query/timeseries</code>
+   * endpoint over this endpoint for querying timeseries data.
    *
    * @param from Start of the queried time period, seconds since the Unix epoch. (required)
    * @param to End of the queried time period, seconds since the Unix epoch. (required)
