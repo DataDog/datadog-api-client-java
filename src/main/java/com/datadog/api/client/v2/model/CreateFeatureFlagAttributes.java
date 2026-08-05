@@ -27,6 +27,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CreateFeatureFlagAttributes.JSON_PROPERTY_JSON_SCHEMA,
   CreateFeatureFlagAttributes.JSON_PROPERTY_KEY,
   CreateFeatureFlagAttributes.JSON_PROPERTY_NAME,
+  CreateFeatureFlagAttributes.JSON_PROPERTY_NOTIFICATION_RULE_QUERY,
+  CreateFeatureFlagAttributes.JSON_PROPERTY_RULE_TARGETS,
   CreateFeatureFlagAttributes.JSON_PROPERTY_VALUE_TYPE,
   CreateFeatureFlagAttributes.JSON_PROPERTY_VARIANTS
 })
@@ -48,6 +50,12 @@ public class CreateFeatureFlagAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_NOTIFICATION_RULE_QUERY = "notification_rule_query";
+  private JsonNullable<String> notificationRuleQuery = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_RULE_TARGETS = "rule_targets";
+  private List<NotificationRuleTarget> ruleTargets = null;
 
   public static final String JSON_PROPERTY_VALUE_TYPE = "value_type";
   private ValueType valueType;
@@ -197,6 +205,89 @@ public class CreateFeatureFlagAttributes {
     this.name = name;
   }
 
+  public CreateFeatureFlagAttributes notificationRuleQuery(String notificationRuleQuery) {
+    this.notificationRuleQuery = JsonNullable.<String>of(notificationRuleQuery);
+    return this;
+  }
+
+  /**
+   * Query used to determine which change events on this feature flag trigger notifications to
+   * <code>rule_targets</code>. Uses Datadog's standard log search syntax (<code>AND</code>, <code>
+   * OR</code>, <code>NOT</code>, parentheses) to match against the <code>notification_type</code>
+   * facet.
+   *
+   * <p>Supported <code>notification_type</code> values for a feature flag are: <code>
+   * flag_enabled_disabled</code>, <code>flag_archived</code>, <code>flag_approval_required</code>,
+   * <code>rollout_started</code>, <code>rollout_scheduled</code>, <code>rollout_step_started</code>
+   * , <code>rollout_paused_guardrail</code>, <code>rollout_paused_user</code>, <code>
+   * rollout_aborted_guardrail</code>, <code>rollout_aborted_user</code>, <code>
+   * targeting_rule_created</code>, <code>targeting_rule_updated</code>, <code>
+   * targeting_rule_updated_via_filter</code>, and <code>targeting_rule_deleted</code>.
+   *
+   * @return notificationRuleQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getNotificationRuleQuery() {
+    return notificationRuleQuery.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_RULE_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getNotificationRuleQuery_JsonNullable() {
+    return notificationRuleQuery;
+  }
+
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_RULE_QUERY)
+  public void setNotificationRuleQuery_JsonNullable(JsonNullable<String> notificationRuleQuery) {
+    this.notificationRuleQuery = notificationRuleQuery;
+  }
+
+  public void setNotificationRuleQuery(String notificationRuleQuery) {
+    this.notificationRuleQuery = JsonNullable.<String>of(notificationRuleQuery);
+  }
+
+  public CreateFeatureFlagAttributes ruleTargets(List<NotificationRuleTarget> ruleTargets) {
+    this.ruleTargets = ruleTargets;
+    if (ruleTargets != null) {
+      for (NotificationRuleTarget item : ruleTargets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public CreateFeatureFlagAttributes addRuleTargetsItem(NotificationRuleTarget ruleTargetsItem) {
+    if (this.ruleTargets == null) {
+      this.ruleTargets = new ArrayList<>();
+    }
+    this.ruleTargets.add(ruleTargetsItem);
+    this.unparsed |= ruleTargetsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Targets to notify about changes to this feature flag that match <code>notification_rule_query
+   * </code>.
+   *
+   * @return ruleTargets
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE_TARGETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<NotificationRuleTarget> getRuleTargets() {
+    return ruleTargets;
+  }
+
+  public void setRuleTargets(List<NotificationRuleTarget> ruleTargets) {
+    this.ruleTargets = ruleTargets;
+    if (ruleTargets != null) {
+      for (NotificationRuleTarget item : ruleTargets) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
   public CreateFeatureFlagAttributes valueType(ValueType valueType) {
     this.valueType = valueType;
     this.unparsed |= !valueType.isValid();
@@ -316,6 +407,9 @@ public class CreateFeatureFlagAttributes {
         && Objects.equals(this.jsonSchema, createFeatureFlagAttributes.jsonSchema)
         && Objects.equals(this.key, createFeatureFlagAttributes.key)
         && Objects.equals(this.name, createFeatureFlagAttributes.name)
+        && Objects.equals(
+            this.notificationRuleQuery, createFeatureFlagAttributes.notificationRuleQuery)
+        && Objects.equals(this.ruleTargets, createFeatureFlagAttributes.ruleTargets)
         && Objects.equals(this.valueType, createFeatureFlagAttributes.valueType)
         && Objects.equals(this.variants, createFeatureFlagAttributes.variants)
         && Objects.equals(
@@ -330,6 +424,8 @@ public class CreateFeatureFlagAttributes {
         jsonSchema,
         key,
         name,
+        notificationRuleQuery,
+        ruleTargets,
         valueType,
         variants,
         additionalProperties);
@@ -344,6 +440,10 @@ public class CreateFeatureFlagAttributes {
     sb.append("    jsonSchema: ").append(toIndentedString(jsonSchema)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    notificationRuleQuery: ")
+        .append(toIndentedString(notificationRuleQuery))
+        .append("\n");
+    sb.append("    ruleTargets: ").append(toIndentedString(ruleTargets)).append("\n");
     sb.append("    valueType: ").append(toIndentedString(valueType)).append("\n");
     sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
     sb.append("    additionalProperties: ")
