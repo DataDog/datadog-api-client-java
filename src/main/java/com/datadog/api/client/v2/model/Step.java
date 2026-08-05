@@ -145,7 +145,8 @@ public class Step {
   }
 
   /**
-   * The definition of <code>StepDisplay</code> object.
+   * The position of a step on the workflow canvas. Omit <code>display</code> from every step to use
+   * automatic layout, or provide it for every step to preserve a manual layout.
    *
    * @return display
    */
@@ -243,7 +244,7 @@ public class Step {
   }
 
   /**
-   * A list of subsequent actions to run.
+   * A list of subsequent actions to run. This list is empty for a terminal step.
    *
    * @return outboundEdges
    */
