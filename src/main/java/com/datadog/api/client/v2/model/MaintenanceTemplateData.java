@@ -17,108 +17,129 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data object for creating a degradation. */
+/** The data object for a maintenance template. */
 @JsonPropertyOrder({
-  CreateDegradationRequestData.JSON_PROPERTY_ATTRIBUTES,
-  CreateDegradationRequestData.JSON_PROPERTY_RELATIONSHIPS,
-  CreateDegradationRequestData.JSON_PROPERTY_TYPE
+  MaintenanceTemplateData.JSON_PROPERTY_ATTRIBUTES,
+  MaintenanceTemplateData.JSON_PROPERTY_ID,
+  MaintenanceTemplateData.JSON_PROPERTY_RELATIONSHIPS,
+  MaintenanceTemplateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CreateDegradationRequestData {
+public class MaintenanceTemplateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private CreateDegradationRequestDataAttributes attributes;
+  private MaintenanceTemplateDataAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private CreateDegradationRequestDataRelationships relationships;
+  private MaintenanceTemplateDataRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private PatchDegradationRequestDataType type = PatchDegradationRequestDataType.DEGRADATIONS;
+  private PatchMaintenanceTemplateRequestDataType type =
+      PatchMaintenanceTemplateRequestDataType.MAINTENANCE_TEMPLATES;
 
-  public CreateDegradationRequestData() {}
+  public MaintenanceTemplateData() {}
 
   @JsonCreator
-  public CreateDegradationRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          CreateDegradationRequestDataAttributes attributes,
+  public MaintenanceTemplateData(
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          PatchDegradationRequestDataType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+          PatchMaintenanceTemplateRequestDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public CreateDegradationRequestData attributes(
-      CreateDegradationRequestDataAttributes attributes) {
+  public MaintenanceTemplateData attributes(MaintenanceTemplateDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * The supported attributes for creating a degradation.
+   * The attributes of a maintenance template.
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreateDegradationRequestDataAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MaintenanceTemplateDataAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(CreateDegradationRequestDataAttributes attributes) {
+  public void setAttributes(MaintenanceTemplateDataAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public CreateDegradationRequestData relationships(
-      CreateDegradationRequestDataRelationships relationships) {
+  public MaintenanceTemplateData id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the maintenance template.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public MaintenanceTemplateData relationships(MaintenanceTemplateDataRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
     return this;
   }
 
   /**
-   * The supported relationships for creating a degradation.
+   * The relationships of a maintenance template.
    *
    * @return relationships
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CreateDegradationRequestDataRelationships getRelationships() {
+  public MaintenanceTemplateDataRelationships getRelationships() {
     return relationships;
   }
 
-  public void setRelationships(CreateDegradationRequestDataRelationships relationships) {
+  public void setRelationships(MaintenanceTemplateDataRelationships relationships) {
     this.relationships = relationships;
     if (relationships != null) {
       this.unparsed |= relationships.unparsed;
     }
   }
 
-  public CreateDegradationRequestData type(PatchDegradationRequestDataType type) {
+  public MaintenanceTemplateData type(PatchMaintenanceTemplateRequestDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Degradations resource type.
+   * Maintenance templates resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public PatchDegradationRequestDataType getType() {
+  public PatchMaintenanceTemplateRequestDataType getType() {
     return type;
   }
 
-  public void setType(PatchDegradationRequestDataType type) {
+  public void setType(PatchMaintenanceTemplateRequestDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -137,10 +158,10 @@ public class CreateDegradationRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CreateDegradationRequestData
+   * @return MaintenanceTemplateData
    */
   @JsonAnySetter
-  public CreateDegradationRequestData putAdditionalProperty(String key, Object value) {
+  public MaintenanceTemplateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -171,7 +192,7 @@ public class CreateDegradationRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CreateDegradationRequestData object is equal to o. */
+  /** Return true if this MaintenanceTemplateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -180,24 +201,25 @@ public class CreateDegradationRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateDegradationRequestData createDegradationRequestData = (CreateDegradationRequestData) o;
-    return Objects.equals(this.attributes, createDegradationRequestData.attributes)
-        && Objects.equals(this.relationships, createDegradationRequestData.relationships)
-        && Objects.equals(this.type, createDegradationRequestData.type)
-        && Objects.equals(
-            this.additionalProperties, createDegradationRequestData.additionalProperties);
+    MaintenanceTemplateData maintenanceTemplateData = (MaintenanceTemplateData) o;
+    return Objects.equals(this.attributes, maintenanceTemplateData.attributes)
+        && Objects.equals(this.id, maintenanceTemplateData.id)
+        && Objects.equals(this.relationships, maintenanceTemplateData.relationships)
+        && Objects.equals(this.type, maintenanceTemplateData.type)
+        && Objects.equals(this.additionalProperties, maintenanceTemplateData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, relationships, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateDegradationRequestData {\n");
+    sb.append("class MaintenanceTemplateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

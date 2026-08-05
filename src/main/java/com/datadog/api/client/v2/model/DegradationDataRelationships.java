@@ -20,7 +20,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   DegradationDataRelationships.JSON_PROPERTY_CREATED_BY_USER,
   DegradationDataRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
-  DegradationDataRelationships.JSON_PROPERTY_STATUS_PAGE
+  DegradationDataRelationships.JSON_PROPERTY_STATUS_PAGE,
+  DegradationDataRelationships.JSON_PROPERTY_TEMPLATE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -34,6 +35,9 @@ public class DegradationDataRelationships {
 
   public static final String JSON_PROPERTY_STATUS_PAGE = "status_page";
   private DegradationDataRelationshipsStatusPage statusPage;
+
+  public static final String JSON_PROPERTY_TEMPLATE = "template";
+  private DegradationDataRelationshipsTemplate template;
 
   public DegradationDataRelationships createdByUser(
       DegradationDataRelationshipsCreatedByUser createdByUser) {
@@ -114,6 +118,31 @@ public class DegradationDataRelationships {
     }
   }
 
+  public DegradationDataRelationships template(DegradationDataRelationshipsTemplate template) {
+    this.template = template;
+    this.unparsed |= template.unparsed;
+    return this;
+  }
+
+  /**
+   * The template the degradation was created from.
+   *
+   * @return template
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DegradationDataRelationshipsTemplate getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(DegradationDataRelationshipsTemplate template) {
+    this.template = template;
+    if (template != null) {
+      this.unparsed |= template.unparsed;
+    }
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -173,13 +202,15 @@ public class DegradationDataRelationships {
     return Objects.equals(this.createdByUser, degradationDataRelationships.createdByUser)
         && Objects.equals(this.lastModifiedByUser, degradationDataRelationships.lastModifiedByUser)
         && Objects.equals(this.statusPage, degradationDataRelationships.statusPage)
+        && Objects.equals(this.template, degradationDataRelationships.template)
         && Objects.equals(
             this.additionalProperties, degradationDataRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdByUser, lastModifiedByUser, statusPage, additionalProperties);
+    return Objects.hash(
+        createdByUser, lastModifiedByUser, statusPage, template, additionalProperties);
   }
 
   @Override
@@ -189,6 +220,7 @@ public class DegradationDataRelationships {
     sb.append("    createdByUser: ").append(toIndentedString(createdByUser)).append("\n");
     sb.append("    lastModifiedByUser: ").append(toIndentedString(lastModifiedByUser)).append("\n");
     sb.append("    statusPage: ").append(toIndentedString(statusPage)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

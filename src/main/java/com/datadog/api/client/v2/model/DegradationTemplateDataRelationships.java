@@ -16,130 +16,101 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The relationships of a maintenance. */
+/** The relationships of a degradation template. */
 @JsonPropertyOrder({
-  MaintenanceDataRelationships.JSON_PROPERTY_CREATED_BY_USER,
-  MaintenanceDataRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
-  MaintenanceDataRelationships.JSON_PROPERTY_STATUS_PAGE,
-  MaintenanceDataRelationships.JSON_PROPERTY_TEMPLATE
+  DegradationTemplateDataRelationships.JSON_PROPERTY_CREATED_BY_USER,
+  DegradationTemplateDataRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
+  DegradationTemplateDataRelationships.JSON_PROPERTY_STATUS_PAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MaintenanceDataRelationships {
+public class DegradationTemplateDataRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_BY_USER = "created_by_user";
-  private MaintenanceDataRelationshipsCreatedByUser createdByUser;
+  private DegradationTemplateDataRelationshipsCreatedByUser createdByUser;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED_BY_USER = "last_modified_by_user";
-  private MaintenanceDataRelationshipsLastModifiedByUser lastModifiedByUser;
+  private DegradationTemplateDataRelationshipsLastModifiedByUser lastModifiedByUser;
 
   public static final String JSON_PROPERTY_STATUS_PAGE = "status_page";
-  private MaintenanceDataRelationshipsStatusPage statusPage;
+  private DegradationTemplateDataRelationshipsStatusPage statusPage;
 
-  public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private MaintenanceDataRelationshipsTemplate template;
-
-  public MaintenanceDataRelationships createdByUser(
-      MaintenanceDataRelationshipsCreatedByUser createdByUser) {
+  public DegradationTemplateDataRelationships createdByUser(
+      DegradationTemplateDataRelationshipsCreatedByUser createdByUser) {
     this.createdByUser = createdByUser;
     this.unparsed |= createdByUser.unparsed;
     return this;
   }
 
   /**
-   * The Datadog user who created the maintenance.
+   * The Datadog user who created the degradation template.
    *
    * @return createdByUser
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MaintenanceDataRelationshipsCreatedByUser getCreatedByUser() {
+  public DegradationTemplateDataRelationshipsCreatedByUser getCreatedByUser() {
     return createdByUser;
   }
 
-  public void setCreatedByUser(MaintenanceDataRelationshipsCreatedByUser createdByUser) {
+  public void setCreatedByUser(DegradationTemplateDataRelationshipsCreatedByUser createdByUser) {
     this.createdByUser = createdByUser;
     if (createdByUser != null) {
       this.unparsed |= createdByUser.unparsed;
     }
   }
 
-  public MaintenanceDataRelationships lastModifiedByUser(
-      MaintenanceDataRelationshipsLastModifiedByUser lastModifiedByUser) {
+  public DegradationTemplateDataRelationships lastModifiedByUser(
+      DegradationTemplateDataRelationshipsLastModifiedByUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
     this.unparsed |= lastModifiedByUser.unparsed;
     return this;
   }
 
   /**
-   * The Datadog user who last modified the maintenance.
+   * The Datadog user who last modified the degradation template.
    *
    * @return lastModifiedByUser
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MaintenanceDataRelationshipsLastModifiedByUser getLastModifiedByUser() {
+  public DegradationTemplateDataRelationshipsLastModifiedByUser getLastModifiedByUser() {
     return lastModifiedByUser;
   }
 
   public void setLastModifiedByUser(
-      MaintenanceDataRelationshipsLastModifiedByUser lastModifiedByUser) {
+      DegradationTemplateDataRelationshipsLastModifiedByUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
     if (lastModifiedByUser != null) {
       this.unparsed |= lastModifiedByUser.unparsed;
     }
   }
 
-  public MaintenanceDataRelationships statusPage(
-      MaintenanceDataRelationshipsStatusPage statusPage) {
+  public DegradationTemplateDataRelationships statusPage(
+      DegradationTemplateDataRelationshipsStatusPage statusPage) {
     this.statusPage = statusPage;
     this.unparsed |= statusPage.unparsed;
     return this;
   }
 
   /**
-   * The status page the maintenance belongs to.
+   * The status page the degradation template belongs to.
    *
    * @return statusPage
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MaintenanceDataRelationshipsStatusPage getStatusPage() {
+  public DegradationTemplateDataRelationshipsStatusPage getStatusPage() {
     return statusPage;
   }
 
-  public void setStatusPage(MaintenanceDataRelationshipsStatusPage statusPage) {
+  public void setStatusPage(DegradationTemplateDataRelationshipsStatusPage statusPage) {
     this.statusPage = statusPage;
     if (statusPage != null) {
       this.unparsed |= statusPage.unparsed;
-    }
-  }
-
-  public MaintenanceDataRelationships template(MaintenanceDataRelationshipsTemplate template) {
-    this.template = template;
-    this.unparsed |= template.unparsed;
-    return this;
-  }
-
-  /**
-   * The template the maintenance was created from.
-   *
-   * @return template
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MaintenanceDataRelationshipsTemplate getTemplate() {
-    return template;
-  }
-
-  public void setTemplate(MaintenanceDataRelationshipsTemplate template) {
-    this.template = template;
-    if (template != null) {
-      this.unparsed |= template.unparsed;
     }
   }
 
@@ -155,10 +126,10 @@ public class MaintenanceDataRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MaintenanceDataRelationships
+   * @return DegradationTemplateDataRelationships
    */
   @JsonAnySetter
-  public MaintenanceDataRelationships putAdditionalProperty(String key, Object value) {
+  public DegradationTemplateDataRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -189,7 +160,7 @@ public class MaintenanceDataRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MaintenanceDataRelationships object is equal to o. */
+  /** Return true if this DegradationTemplateDataRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -198,29 +169,28 @@ public class MaintenanceDataRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MaintenanceDataRelationships maintenanceDataRelationships = (MaintenanceDataRelationships) o;
-    return Objects.equals(this.createdByUser, maintenanceDataRelationships.createdByUser)
-        && Objects.equals(this.lastModifiedByUser, maintenanceDataRelationships.lastModifiedByUser)
-        && Objects.equals(this.statusPage, maintenanceDataRelationships.statusPage)
-        && Objects.equals(this.template, maintenanceDataRelationships.template)
+    DegradationTemplateDataRelationships degradationTemplateDataRelationships =
+        (DegradationTemplateDataRelationships) o;
+    return Objects.equals(this.createdByUser, degradationTemplateDataRelationships.createdByUser)
         && Objects.equals(
-            this.additionalProperties, maintenanceDataRelationships.additionalProperties);
+            this.lastModifiedByUser, degradationTemplateDataRelationships.lastModifiedByUser)
+        && Objects.equals(this.statusPage, degradationTemplateDataRelationships.statusPage)
+        && Objects.equals(
+            this.additionalProperties, degradationTemplateDataRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdByUser, lastModifiedByUser, statusPage, template, additionalProperties);
+    return Objects.hash(createdByUser, lastModifiedByUser, statusPage, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MaintenanceDataRelationships {\n");
+    sb.append("class DegradationTemplateDataRelationships {\n");
     sb.append("    createdByUser: ").append(toIndentedString(createdByUser)).append("\n");
     sb.append("    lastModifiedByUser: ").append(toIndentedString(lastModifiedByUser)).append("\n");
     sb.append("    statusPage: ").append(toIndentedString(statusPage)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
