@@ -42,7 +42,6 @@ import java.util.Objects;
   FleetAgentV2Attributes.JSON_PROPERTY_OS,
   FleetAgentV2Attributes.JSON_PROPERTY_OTEL_COLLECTOR_DEPLOYMENT_TYPES,
   FleetAgentV2Attributes.JSON_PROPERTY_OTEL_COLLECTOR_DISTRIBUTIONS,
-  FleetAgentV2Attributes.JSON_PROPERTY_OTEL_COLLECTOR_VERSION,
   FleetAgentV2Attributes.JSON_PROPERTY_OTEL_COLLECTOR_VERSIONS,
   FleetAgentV2Attributes.JSON_PROPERTY_OTEL_RESOURCE_ATTRIBUTES,
   FleetAgentV2Attributes.JSON_PROPERTY_POD_NAME,
@@ -125,9 +124,6 @@ public class FleetAgentV2Attributes {
   public static final String JSON_PROPERTY_OTEL_COLLECTOR_DISTRIBUTIONS =
       "otel_collector_distributions";
   private List<String> otelCollectorDistributions = null;
-
-  public static final String JSON_PROPERTY_OTEL_COLLECTOR_VERSION = "otel_collector_version";
-  private String otelCollectorVersion;
 
   public static final String JSON_PROPERTY_OTEL_COLLECTOR_VERSIONS = "otel_collector_versions";
   private List<String> otelCollectorVersions = null;
@@ -682,27 +678,6 @@ public class FleetAgentV2Attributes {
     this.otelCollectorDistributions = otelCollectorDistributions;
   }
 
-  public FleetAgentV2Attributes otelCollectorVersion(String otelCollectorVersion) {
-    this.otelCollectorVersion = otelCollectorVersion;
-    return this;
-  }
-
-  /**
-   * The primary OpenTelemetry collector version, if applicable.
-   *
-   * @return otelCollectorVersion
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OTEL_COLLECTOR_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getOtelCollectorVersion() {
-    return otelCollectorVersion;
-  }
-
-  public void setOtelCollectorVersion(String otelCollectorVersion) {
-    this.otelCollectorVersion = otelCollectorVersion;
-  }
-
   public FleetAgentV2Attributes otelCollectorVersions(List<String> otelCollectorVersions) {
     this.otelCollectorVersions = otelCollectorVersions;
     return this;
@@ -997,7 +972,6 @@ public class FleetAgentV2Attributes {
             this.otelCollectorDeploymentTypes, fleetAgentV2Attributes.otelCollectorDeploymentTypes)
         && Objects.equals(
             this.otelCollectorDistributions, fleetAgentV2Attributes.otelCollectorDistributions)
-        && Objects.equals(this.otelCollectorVersion, fleetAgentV2Attributes.otelCollectorVersion)
         && Objects.equals(this.otelCollectorVersions, fleetAgentV2Attributes.otelCollectorVersions)
         && Objects.equals(
             this.otelResourceAttributes, fleetAgentV2Attributes.otelResourceAttributes)
@@ -1035,7 +1009,6 @@ public class FleetAgentV2Attributes {
         os,
         otelCollectorDeploymentTypes,
         otelCollectorDistributions,
-        otelCollectorVersion,
         otelCollectorVersions,
         otelResourceAttributes,
         podName,
@@ -1084,9 +1057,6 @@ public class FleetAgentV2Attributes {
         .append("\n");
     sb.append("    otelCollectorDistributions: ")
         .append(toIndentedString(otelCollectorDistributions))
-        .append("\n");
-    sb.append("    otelCollectorVersion: ")
-        .append(toIndentedString(otelCollectorVersion))
         .append("\n");
     sb.append("    otelCollectorVersions: ")
         .append(toIndentedString(otelCollectorVersions))

@@ -22,11 +22,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   FleetAgentConfigurationFilesV2.JSON_PROPERTY_AGENT_CONFIGURATION,
   FleetAgentConfigurationFilesV2.JSON_PROPERTY_APPLICATION_MONITORING_CONFIGURATION,
-  FleetAgentConfigurationFilesV2.JSON_PROPERTY_DATADOG_AGENT_KEY,
   FleetAgentConfigurationFilesV2.JSON_PROPERTY_OTEL_COLLECTORS_CONFIGURATION,
   FleetAgentConfigurationFilesV2.JSON_PROPERTY_SECURITY_AGENT_CONFIGURATION,
-  FleetAgentConfigurationFilesV2.JSON_PROPERTY_SYSTEM_PROBE_CONFIGURATION,
-  FleetAgentConfigurationFilesV2.JSON_PROPERTY_VERSION
+  FleetAgentConfigurationFilesV2.JSON_PROPERTY_SYSTEM_PROBE_CONFIGURATION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -39,9 +37,6 @@ public class FleetAgentConfigurationFilesV2 {
       "application_monitoring_configuration";
   private FleetConfigurationLayer applicationMonitoringConfiguration;
 
-  public static final String JSON_PROPERTY_DATADOG_AGENT_KEY = "datadog_agent_key";
-  private String datadogAgentKey;
-
   public static final String JSON_PROPERTY_OTEL_COLLECTORS_CONFIGURATION =
       "otel_collectors_configuration";
   private List<FleetOtelCollectorConfigurationV2> otelCollectorsConfiguration = null;
@@ -53,9 +48,6 @@ public class FleetAgentConfigurationFilesV2 {
   public static final String JSON_PROPERTY_SYSTEM_PROBE_CONFIGURATION =
       "system_probe_configuration";
   private FleetConfigurationLayer systemProbeConfiguration;
-
-  public static final String JSON_PROPERTY_VERSION = "version";
-  private String version;
 
   public FleetAgentConfigurationFilesV2 agentConfiguration(
       FleetConfigurationLayer agentConfiguration) {
@@ -108,27 +100,6 @@ public class FleetAgentConfigurationFilesV2 {
     if (applicationMonitoringConfiguration != null) {
       this.unparsed |= applicationMonitoringConfiguration.unparsed;
     }
-  }
-
-  public FleetAgentConfigurationFilesV2 datadogAgentKey(String datadogAgentKey) {
-    this.datadogAgentKey = datadogAgentKey;
-    return this;
-  }
-
-  /**
-   * The unique agent key identifier.
-   *
-   * @return datadogAgentKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATADOG_AGENT_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDatadogAgentKey() {
-    return datadogAgentKey;
-  }
-
-  public void setDatadogAgentKey(String datadogAgentKey) {
-    this.datadogAgentKey = datadogAgentKey;
   }
 
   public FleetAgentConfigurationFilesV2 otelCollectorsConfiguration(
@@ -227,27 +198,6 @@ public class FleetAgentConfigurationFilesV2 {
     }
   }
 
-  public FleetAgentConfigurationFilesV2 version(String version) {
-    this.version = version;
-    return this;
-  }
-
-  /**
-   * The configuration version.
-   *
-   * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -310,7 +260,6 @@ public class FleetAgentConfigurationFilesV2 {
         && Objects.equals(
             this.applicationMonitoringConfiguration,
             fleetAgentConfigurationFilesV2.applicationMonitoringConfiguration)
-        && Objects.equals(this.datadogAgentKey, fleetAgentConfigurationFilesV2.datadogAgentKey)
         && Objects.equals(
             this.otelCollectorsConfiguration,
             fleetAgentConfigurationFilesV2.otelCollectorsConfiguration)
@@ -319,7 +268,6 @@ public class FleetAgentConfigurationFilesV2 {
             fleetAgentConfigurationFilesV2.securityAgentConfiguration)
         && Objects.equals(
             this.systemProbeConfiguration, fleetAgentConfigurationFilesV2.systemProbeConfiguration)
-        && Objects.equals(this.version, fleetAgentConfigurationFilesV2.version)
         && Objects.equals(
             this.additionalProperties, fleetAgentConfigurationFilesV2.additionalProperties);
   }
@@ -329,11 +277,9 @@ public class FleetAgentConfigurationFilesV2 {
     return Objects.hash(
         agentConfiguration,
         applicationMonitoringConfiguration,
-        datadogAgentKey,
         otelCollectorsConfiguration,
         securityAgentConfiguration,
         systemProbeConfiguration,
-        version,
         additionalProperties);
   }
 
@@ -345,7 +291,6 @@ public class FleetAgentConfigurationFilesV2 {
     sb.append("    applicationMonitoringConfiguration: ")
         .append(toIndentedString(applicationMonitoringConfiguration))
         .append("\n");
-    sb.append("    datadogAgentKey: ").append(toIndentedString(datadogAgentKey)).append("\n");
     sb.append("    otelCollectorsConfiguration: ")
         .append(toIndentedString(otelCollectorsConfiguration))
         .append("\n");
@@ -355,7 +300,6 @@ public class FleetAgentConfigurationFilesV2 {
     sb.append("    systemProbeConfiguration: ")
         .append(toIndentedString(systemProbeConfiguration))
         .append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

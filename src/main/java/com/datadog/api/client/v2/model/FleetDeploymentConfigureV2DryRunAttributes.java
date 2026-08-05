@@ -88,7 +88,7 @@ public class FleetDeploymentConfigureV2DryRunAttributes {
   }
 
   /**
-   * Total number of hosts targeted by the dry run.
+   * Total number of hosts targeted by this deployment.
    *
    * @return totalHosts
    */

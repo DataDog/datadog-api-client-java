@@ -21,7 +21,6 @@ import java.util.Objects;
   FleetConfigurationLayer.JSON_PROPERTY_COMPILED_CONFIGURATION,
   FleetConfigurationLayer.JSON_PROPERTY_ENV_CONFIGURATION,
   FleetConfigurationLayer.JSON_PROPERTY_FILE_CONFIGURATION,
-  FleetConfigurationLayer.JSON_PROPERTY_PARSED_CONFIGURATION,
   FleetConfigurationLayer.JSON_PROPERTY_REMOTE_CONFIGURATION,
   FleetConfigurationLayer.JSON_PROPERTY_RUNTIME_CONFIGURATION
 })
@@ -37,9 +36,6 @@ public class FleetConfigurationLayer {
 
   public static final String JSON_PROPERTY_FILE_CONFIGURATION = "file_configuration";
   private String fileConfiguration;
-
-  public static final String JSON_PROPERTY_PARSED_CONFIGURATION = "parsed_configuration";
-  private String parsedConfiguration;
 
   public static final String JSON_PROPERTY_REMOTE_CONFIGURATION = "remote_configuration";
   private String remoteConfiguration;
@@ -108,27 +104,6 @@ public class FleetConfigurationLayer {
 
   public void setFileConfiguration(String fileConfiguration) {
     this.fileConfiguration = fileConfiguration;
-  }
-
-  public FleetConfigurationLayer parsedConfiguration(String parsedConfiguration) {
-    this.parsedConfiguration = parsedConfiguration;
-    return this;
-  }
-
-  /**
-   * Parsed configuration output.
-   *
-   * @return parsedConfiguration
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PARSED_CONFIGURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getParsedConfiguration() {
-    return parsedConfiguration;
-  }
-
-  public void setParsedConfiguration(String parsedConfiguration) {
-    this.parsedConfiguration = parsedConfiguration;
   }
 
   public FleetConfigurationLayer remoteConfiguration(String remoteConfiguration) {
@@ -232,7 +207,6 @@ public class FleetConfigurationLayer {
     return Objects.equals(this.compiledConfiguration, fleetConfigurationLayer.compiledConfiguration)
         && Objects.equals(this.envConfiguration, fleetConfigurationLayer.envConfiguration)
         && Objects.equals(this.fileConfiguration, fleetConfigurationLayer.fileConfiguration)
-        && Objects.equals(this.parsedConfiguration, fleetConfigurationLayer.parsedConfiguration)
         && Objects.equals(this.remoteConfiguration, fleetConfigurationLayer.remoteConfiguration)
         && Objects.equals(this.runtimeConfiguration, fleetConfigurationLayer.runtimeConfiguration)
         && Objects.equals(this.additionalProperties, fleetConfigurationLayer.additionalProperties);
@@ -244,7 +218,6 @@ public class FleetConfigurationLayer {
         compiledConfiguration,
         envConfiguration,
         fileConfiguration,
-        parsedConfiguration,
         remoteConfiguration,
         runtimeConfiguration,
         additionalProperties);
@@ -259,9 +232,6 @@ public class FleetConfigurationLayer {
         .append("\n");
     sb.append("    envConfiguration: ").append(toIndentedString(envConfiguration)).append("\n");
     sb.append("    fileConfiguration: ").append(toIndentedString(fileConfiguration)).append("\n");
-    sb.append("    parsedConfiguration: ")
-        .append(toIndentedString(parsedConfiguration))
-        .append("\n");
     sb.append("    remoteConfiguration: ")
         .append(toIndentedString(remoteConfiguration))
         .append("\n");
