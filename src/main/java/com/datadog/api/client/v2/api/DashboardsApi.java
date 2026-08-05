@@ -81,6 +81,8 @@ public class DashboardsApi {
    * Get usage statistics for a single dashboard. The response includes view counts, the most recent
    * view and edit times, widget counts, and the dashboard quality score. View-count fields depend
    * on Real User Monitoring (RUM) and are <code>null</code> or <code>0</code> in orgs without RUM.
+   * <strong>View counts are refreshed once per day</strong> and <strong>only reflect views recorded
+   * starting January 2025</strong>; views prior to that date are not included.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;DashboardUsageResponse&gt;
@@ -380,9 +382,11 @@ public class DashboardsApi {
   /**
    * Get paginated usage statistics for every dashboard in the caller's organization. Use <code>
    * page[limit]</code> and <code>page[offset]</code> to walk the result set. Use <code>
-   * filter[edited_before]</code> or <code>filter[viewed_before]</code> to narrow results by
-   * recency. View-count fields depend on Real User Monitoring (RUM) and are <code>null</code> or
-   * <code>0</code> in orgs without RUM.
+   * filter[edited_before]</code> or <code>filter[viewed_before]</code> to narrow results by edit or
+   * view date. View-count fields depend on Real User Monitoring (RUM) and are <code>null</code> or
+   * <code>0</code> in orgs without RUM. <strong>View counts are refreshed once per day</strong> and
+   * <strong>only reflect views recorded starting January 2025</strong>; views prior to that date
+   * are not included.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListDashboardsUsageResponse&gt;
