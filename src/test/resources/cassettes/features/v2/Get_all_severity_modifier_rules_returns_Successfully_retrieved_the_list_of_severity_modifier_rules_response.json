@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"severity\":\"low\",\"type\":\"set\"},\"enabled\":true,\"name\":\"Test-Get_all_severity_modifier_rules_returns_Successfully_retrieved_the_list_of_severity_modifier_rules_r-1785748649\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}},\"type\":\"severity_modifier_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/findings/automation/severity_modifier_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4c9856fe-1150-45de-813c-3d4d3375bea1\",\"type\":\"severity_modifier_rules\",\"attributes\":{\"action\":{\"type\":\"set\",\"severity\":\"low\"},\"created_at\":1785748649918,\"created_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":true,\"modified_at\":1785748649918,\"modified_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"name\":\"Test-Get_all_severity_modifier_rules_returns_Successfully_retrieved_the_list_of_severity_modifier_rules_r-1785748649\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "aec5ddaf-aa6d-00f1-d21f-5826638ce2a0"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security/findings/automation/severity_modifier_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"4c9856fe-1150-45de-813c-3d4d3375bea1\",\"type\":\"severity_modifier_rules\",\"attributes\":{\"action\":{\"type\":\"set\",\"severity\":\"low\"},\"created_at\":1785748649918,\"created_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":true,\"modified_at\":1785748649918,\"modified_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"name\":\"Test-Get_all_severity_modifier_rules_returns_Successfully_retrieved_the_list_of_severity_modifier_rules_r-1785748649\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}}}],\"meta\":{\"page\":{\"total_filtered_count\":1}},\"links\":{\"first\":\"/api/v2/security/findings/automation/severity_modifier_rules?page[size]=1000\\u0026page[number]=0\",\"last\":\"/api/v2/security/findings/automation/severity_modifier_rules?page[size]=1000\\u0026page[number]=0\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5158462e-fa99-55d8-9956-923830912380"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/findings/automation/severity_modifier_rules/4c9856fe-1150-45de-813c-3d4d3375bea1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b94b840f-c781-b804-7a97-1b56b71aea8a"
+  }
+]
