@@ -928,6 +928,25 @@ public class RolesApi {
         new GenericType<RoleResponse>() {});
   }
 
+  /** Manage optional parameters to listPermissions. */
+  public static class ListPermissionsOptionalParameters {
+    private Boolean includeScopes;
+
+    /**
+     * Set includeScopes.
+     *
+     * @param includeScopes Set to <code>true</code> to return all permissions, including both
+     *     permissions that can be assigned to user roles and permissions that can only be used as
+     *     scopes for OAuth clients and scoped credentials. When <code>false</code> (default), only
+     *     permissions that can be assigned to user roles are returned. (optional)
+     * @return ListPermissionsOptionalParameters
+     */
+    public ListPermissionsOptionalParameters includeScopes(Boolean includeScopes) {
+      this.includeScopes = includeScopes;
+      return this;
+    }
+  }
+
   /**
    * List permissions.
    *
@@ -937,7 +956,7 @@ public class RolesApi {
    * @throws ApiException if fails to make API call
    */
   public PermissionsResponse listPermissions() throws ApiException {
-    return listPermissionsWithHttpInfo().getData();
+    return listPermissionsWithHttpInfo(new ListPermissionsOptionalParameters()).getData();
   }
 
   /**
@@ -948,7 +967,38 @@ public class RolesApi {
    * @return CompletableFuture&lt;PermissionsResponse&gt;
    */
   public CompletableFuture<PermissionsResponse> listPermissionsAsync() {
-    return listPermissionsWithHttpInfoAsync()
+    return listPermissionsWithHttpInfoAsync(new ListPermissionsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List permissions.
+   *
+   * <p>See {@link #listPermissionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return PermissionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PermissionsResponse listPermissions(ListPermissionsOptionalParameters parameters)
+      throws ApiException {
+    return listPermissionsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List permissions.
+   *
+   * <p>See {@link #listPermissionsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;PermissionsResponse&gt;
+   */
+  public CompletableFuture<PermissionsResponse> listPermissionsAsync(
+      ListPermissionsOptionalParameters parameters) {
+    return listPermissionsWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -958,6 +1008,7 @@ public class RolesApi {
   /**
    * Returns a list of all permissions, including name, description, and ID.
    *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;PermissionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -970,18 +1021,23 @@ public class RolesApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<PermissionsResponse> listPermissionsWithHttpInfo() throws ApiException {
+  public ApiResponse<PermissionsResponse> listPermissionsWithHttpInfo(
+      ListPermissionsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    Boolean includeScopes = parameters.includeScopes;
     // create path and map variables
     String localVarPath = "/api/v2/permissions";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_scopes", includeScopes));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.RolesApi.listPermissions",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -1002,14 +1058,20 @@ public class RolesApi {
    *
    * <p>See {@link #listPermissionsWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;PermissionsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<PermissionsResponse>> listPermissionsWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<PermissionsResponse>> listPermissionsWithHttpInfoAsync(
+      ListPermissionsOptionalParameters parameters) {
     Object localVarPostBody = null;
+    Boolean includeScopes = parameters.includeScopes;
     // create path and map variables
     String localVarPath = "/api/v2/permissions";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_scopes", includeScopes));
 
     Invocation.Builder builder;
     try {
@@ -1017,7 +1079,7 @@ public class RolesApi {
           apiClient.createBuilder(
               "v2.RolesApi.listPermissions",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
