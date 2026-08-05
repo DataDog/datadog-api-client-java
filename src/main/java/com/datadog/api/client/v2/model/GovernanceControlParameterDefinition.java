@@ -24,7 +24,6 @@ import java.util.Objects;
   GovernanceControlParameterDefinition.JSON_PROPERTY_DEFAULT_VALUE,
   GovernanceControlParameterDefinition.JSON_PROPERTY_DESCRIPTION,
   GovernanceControlParameterDefinition.JSON_PROPERTY_DISPLAY_NAME,
-  GovernanceControlParameterDefinition.JSON_PROPERTY_HIDDEN,
   GovernanceControlParameterDefinition.JSON_PROPERTY_NAME,
   GovernanceControlParameterDefinition.JSON_PROPERTY_REQUIRED,
   GovernanceControlParameterDefinition.JSON_PROPERTY_SUPPORTED_VALUES,
@@ -42,9 +41,6 @@ public class GovernanceControlParameterDefinition {
 
   public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
   private String displayName;
-
-  public static final String JSON_PROPERTY_HIDDEN = "hidden";
-  private Boolean hidden;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -65,7 +61,6 @@ public class GovernanceControlParameterDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_DEFAULT_VALUE) Object defaultValue,
       @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
       @JsonProperty(required = true, value = JSON_PROPERTY_DISPLAY_NAME) String displayName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_HIDDEN) Boolean hidden,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_REQUIRED) Boolean required,
       @JsonProperty(required = true, value = JSON_PROPERTY_SUPPORTED_VALUES)
@@ -74,7 +69,6 @@ public class GovernanceControlParameterDefinition {
     this.defaultValue = defaultValue;
     this.description = description;
     this.displayName = displayName;
-    this.hidden = hidden;
     this.name = name;
     this.required = required;
     this.supportedValues = supportedValues;
@@ -142,26 +136,6 @@ public class GovernanceControlParameterDefinition {
 
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
-  }
-
-  public GovernanceControlParameterDefinition hidden(Boolean hidden) {
-    this.hidden = hidden;
-    return this;
-  }
-
-  /**
-   * Whether the parameter is hidden from the UI.
-   *
-   * @return hidden
-   */
-  @JsonProperty(JSON_PROPERTY_HIDDEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getHidden() {
-    return hidden;
-  }
-
-  public void setHidden(Boolean hidden) {
-    this.hidden = hidden;
   }
 
   public GovernanceControlParameterDefinition name(String name) {
@@ -321,7 +295,6 @@ public class GovernanceControlParameterDefinition {
     return Objects.equals(this.defaultValue, governanceControlParameterDefinition.defaultValue)
         && Objects.equals(this.description, governanceControlParameterDefinition.description)
         && Objects.equals(this.displayName, governanceControlParameterDefinition.displayName)
-        && Objects.equals(this.hidden, governanceControlParameterDefinition.hidden)
         && Objects.equals(this.name, governanceControlParameterDefinition.name)
         && Objects.equals(this.required, governanceControlParameterDefinition.required)
         && Objects.equals(
@@ -337,7 +310,6 @@ public class GovernanceControlParameterDefinition {
         defaultValue,
         description,
         displayName,
-        hidden,
         name,
         required,
         supportedValues,
@@ -352,7 +324,6 @@ public class GovernanceControlParameterDefinition {
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    required: ").append(toIndentedString(required)).append("\n");
     sb.append("    supportedValues: ").append(toIndentedString(supportedValues)).append("\n");

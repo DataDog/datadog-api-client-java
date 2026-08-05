@@ -13,83 +13,65 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data of a governance control update request. */
-@JsonPropertyOrder({
-  GovernanceControlUpdateData.JSON_PROPERTY_ATTRIBUTES,
-  GovernanceControlUpdateData.JSON_PROPERTY_TYPE
-})
+/** A list of governance control detections. */
+@JsonPropertyOrder({GovernanceControlDetectionsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GovernanceControlUpdateData {
+public class GovernanceControlDetectionsResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private GovernanceControlUpdateAttributes attributes;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<GovernanceControlDetectionData> data = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private GovernanceControlResourceType type;
-
-  public GovernanceControlUpdateData() {}
+  public GovernanceControlDetectionsResponse() {}
 
   @JsonCreator
-  public GovernanceControlUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          GovernanceControlResourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public GovernanceControlUpdateData attributes(GovernanceControlUpdateAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
-
-  /**
-   * The attributes of a governance control that can be updated. Only the attributes present in the
-   * request are modified.
-   *
-   * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GovernanceControlUpdateAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(GovernanceControlUpdateAttributes attributes) {
-    this.attributes = attributes;
-    if (attributes != null) {
-      this.unparsed |= attributes.unparsed;
+  public GovernanceControlDetectionsResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<GovernanceControlDetectionData> data) {
+    this.data = data;
+    for (GovernanceControlDetectionData item : data) {
+      this.unparsed |= item.unparsed;
     }
   }
 
-  public GovernanceControlUpdateData type(GovernanceControlResourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public GovernanceControlDetectionsResponse data(List<GovernanceControlDetectionData> data) {
+    this.data = data;
+    for (GovernanceControlDetectionData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public GovernanceControlDetectionsResponse addDataItem(GovernanceControlDetectionData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * JSON:API resource type for a governance control.
+   * An array of governance control detection resources.
    *
-   * @return type
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceControlResourceType getType() {
-    return type;
+  public List<GovernanceControlDetectionData> getData() {
+    return data;
   }
 
-  public void setType(GovernanceControlResourceType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+  public void setData(List<GovernanceControlDetectionData> data) {
+    this.data = data;
+    if (data != null) {
+      for (GovernanceControlDetectionData item : data) {
+        this.unparsed |= item.unparsed;
+      }
     }
-    this.type = type;
   }
 
   /**
@@ -104,10 +86,10 @@ public class GovernanceControlUpdateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GovernanceControlUpdateData
+   * @return GovernanceControlDetectionsResponse
    */
   @JsonAnySetter
-  public GovernanceControlUpdateData putAdditionalProperty(String key, Object value) {
+  public GovernanceControlDetectionsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -138,7 +120,7 @@ public class GovernanceControlUpdateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GovernanceControlUpdateData object is equal to o. */
+  /** Return true if this GovernanceControlDetectionsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,24 +129,23 @@ public class GovernanceControlUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GovernanceControlUpdateData governanceControlUpdateData = (GovernanceControlUpdateData) o;
-    return Objects.equals(this.attributes, governanceControlUpdateData.attributes)
-        && Objects.equals(this.type, governanceControlUpdateData.type)
+    GovernanceControlDetectionsResponse governanceControlDetectionsResponse =
+        (GovernanceControlDetectionsResponse) o;
+    return Objects.equals(this.data, governanceControlDetectionsResponse.data)
         && Objects.equals(
-            this.additionalProperties, governanceControlUpdateData.additionalProperties);
+            this.additionalProperties, governanceControlDetectionsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GovernanceControlUpdateData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class GovernanceControlDetectionsResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

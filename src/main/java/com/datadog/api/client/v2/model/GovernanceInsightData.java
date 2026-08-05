@@ -59,7 +59,10 @@ public class GovernanceInsightData {
   }
 
   /**
-   * The attributes of a governance insight.
+   * The attributes of a governance insight. Exactly one of <code>metric_query</code>, <code>
+   * event_query</code>, <code>usage_query</code>, <code>audit_query</code>, or <code>
+   * percentage_query</code> is populated, depending on the data source the insight is computed
+   * from; the rest are <code>null</code>.
    *
    * @return attributes
    */

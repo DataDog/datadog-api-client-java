@@ -13,83 +13,67 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data of a governance control update request. */
-@JsonPropertyOrder({
-  GovernanceControlUpdateData.JSON_PROPERTY_ATTRIBUTES,
-  GovernanceControlUpdateData.JSON_PROPERTY_TYPE
-})
+/** The attributes of a governance control's notification settings. */
+@JsonPropertyOrder({ControlNotificationSettingsAttributes.JSON_PROPERTY_EVENT_SETTINGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GovernanceControlUpdateData {
+public class ControlNotificationSettingsAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private GovernanceControlUpdateAttributes attributes;
+  public static final String JSON_PROPERTY_EVENT_SETTINGS = "event_settings";
+  private List<ControlNotificationEventSetting> eventSettings = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private GovernanceControlResourceType type;
-
-  public GovernanceControlUpdateData() {}
+  public ControlNotificationSettingsAttributes() {}
 
   @JsonCreator
-  public GovernanceControlUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          GovernanceControlResourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public GovernanceControlUpdateData attributes(GovernanceControlUpdateAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
-
-  /**
-   * The attributes of a governance control that can be updated. Only the attributes present in the
-   * request are modified.
-   *
-   * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GovernanceControlUpdateAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(GovernanceControlUpdateAttributes attributes) {
-    this.attributes = attributes;
-    if (attributes != null) {
-      this.unparsed |= attributes.unparsed;
+  public ControlNotificationSettingsAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EVENT_SETTINGS)
+          List<ControlNotificationEventSetting> eventSettings) {
+    this.eventSettings = eventSettings;
+    for (ControlNotificationEventSetting item : eventSettings) {
+      this.unparsed |= item.unparsed;
     }
   }
 
-  public GovernanceControlUpdateData type(GovernanceControlResourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public ControlNotificationSettingsAttributes eventSettings(
+      List<ControlNotificationEventSetting> eventSettings) {
+    this.eventSettings = eventSettings;
+    for (ControlNotificationEventSetting item : eventSettings) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ControlNotificationSettingsAttributes addEventSettingsItem(
+      ControlNotificationEventSetting eventSettingsItem) {
+    this.eventSettings.add(eventSettingsItem);
+    this.unparsed |= eventSettingsItem.unparsed;
     return this;
   }
 
   /**
-   * JSON:API resource type for a governance control.
+   * The notification settings for each supported event type on the control.
    *
-   * @return type
+   * @return eventSettings
    */
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_EVENT_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceControlResourceType getType() {
-    return type;
+  public List<ControlNotificationEventSetting> getEventSettings() {
+    return eventSettings;
   }
 
-  public void setType(GovernanceControlResourceType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+  public void setEventSettings(List<ControlNotificationEventSetting> eventSettings) {
+    this.eventSettings = eventSettings;
+    if (eventSettings != null) {
+      for (ControlNotificationEventSetting item : eventSettings) {
+        this.unparsed |= item.unparsed;
+      }
     }
-    this.type = type;
   }
 
   /**
@@ -104,10 +88,10 @@ public class GovernanceControlUpdateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GovernanceControlUpdateData
+   * @return ControlNotificationSettingsAttributes
    */
   @JsonAnySetter
-  public GovernanceControlUpdateData putAdditionalProperty(String key, Object value) {
+  public ControlNotificationSettingsAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -138,7 +122,7 @@ public class GovernanceControlUpdateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GovernanceControlUpdateData object is equal to o. */
+  /** Return true if this ControlNotificationSettingsAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,24 +131,23 @@ public class GovernanceControlUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GovernanceControlUpdateData governanceControlUpdateData = (GovernanceControlUpdateData) o;
-    return Objects.equals(this.attributes, governanceControlUpdateData.attributes)
-        && Objects.equals(this.type, governanceControlUpdateData.type)
+    ControlNotificationSettingsAttributes controlNotificationSettingsAttributes =
+        (ControlNotificationSettingsAttributes) o;
+    return Objects.equals(this.eventSettings, controlNotificationSettingsAttributes.eventSettings)
         && Objects.equals(
-            this.additionalProperties, governanceControlUpdateData.additionalProperties);
+            this.additionalProperties, controlNotificationSettingsAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(eventSettings, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GovernanceControlUpdateData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class ControlNotificationSettingsAttributes {\n");
+    sb.append("    eventSettings: ").append(toIndentedString(eventSettings)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

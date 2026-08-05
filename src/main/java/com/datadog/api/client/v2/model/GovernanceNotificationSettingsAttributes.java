@@ -17,79 +17,46 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data of a governance control update request. */
+/** The attributes of the organization-wide governance notification settings. */
 @JsonPropertyOrder({
-  GovernanceControlUpdateData.JSON_PROPERTY_ATTRIBUTES,
-  GovernanceControlUpdateData.JSON_PROPERTY_TYPE
+  GovernanceNotificationSettingsAttributes.JSON_PROPERTY_ASSIGNMENT_NOTIFICATIONS_ENABLED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GovernanceControlUpdateData {
+public class GovernanceNotificationSettingsAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private GovernanceControlUpdateAttributes attributes;
+  public static final String JSON_PROPERTY_ASSIGNMENT_NOTIFICATIONS_ENABLED =
+      "assignment_notifications_enabled";
+  private Boolean assignmentNotificationsEnabled;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private GovernanceControlResourceType type;
-
-  public GovernanceControlUpdateData() {}
+  public GovernanceNotificationSettingsAttributes() {}
 
   @JsonCreator
-  public GovernanceControlUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          GovernanceControlResourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public GovernanceNotificationSettingsAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ASSIGNMENT_NOTIFICATIONS_ENABLED)
+          Boolean assignmentNotificationsEnabled) {
+    this.assignmentNotificationsEnabled = assignmentNotificationsEnabled;
   }
 
-  public GovernanceControlUpdateData attributes(GovernanceControlUpdateAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public GovernanceNotificationSettingsAttributes assignmentNotificationsEnabled(
+      Boolean assignmentNotificationsEnabled) {
+    this.assignmentNotificationsEnabled = assignmentNotificationsEnabled;
     return this;
   }
 
   /**
-   * The attributes of a governance control that can be updated. Only the attributes present in the
-   * request are modified.
+   * Whether notifications are sent to users when detections are assigned to them.
    *
-   * @return attributes
+   * @return assignmentNotificationsEnabled
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GovernanceControlUpdateAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(GovernanceControlUpdateAttributes attributes) {
-    this.attributes = attributes;
-    if (attributes != null) {
-      this.unparsed |= attributes.unparsed;
-    }
-  }
-
-  public GovernanceControlUpdateData type(GovernanceControlResourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * JSON:API resource type for a governance control.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_ASSIGNMENT_NOTIFICATIONS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceControlResourceType getType() {
-    return type;
+  public Boolean getAssignmentNotificationsEnabled() {
+    return assignmentNotificationsEnabled;
   }
 
-  public void setType(GovernanceControlResourceType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setAssignmentNotificationsEnabled(Boolean assignmentNotificationsEnabled) {
+    this.assignmentNotificationsEnabled = assignmentNotificationsEnabled;
   }
 
   /**
@@ -104,10 +71,10 @@ public class GovernanceControlUpdateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GovernanceControlUpdateData
+   * @return GovernanceNotificationSettingsAttributes
    */
   @JsonAnySetter
-  public GovernanceControlUpdateData putAdditionalProperty(String key, Object value) {
+  public GovernanceNotificationSettingsAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -138,7 +105,7 @@ public class GovernanceControlUpdateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GovernanceControlUpdateData object is equal to o. */
+  /** Return true if this GovernanceNotificationSettingsAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,24 +114,28 @@ public class GovernanceControlUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GovernanceControlUpdateData governanceControlUpdateData = (GovernanceControlUpdateData) o;
-    return Objects.equals(this.attributes, governanceControlUpdateData.attributes)
-        && Objects.equals(this.type, governanceControlUpdateData.type)
+    GovernanceNotificationSettingsAttributes governanceNotificationSettingsAttributes =
+        (GovernanceNotificationSettingsAttributes) o;
+    return Objects.equals(
+            this.assignmentNotificationsEnabled,
+            governanceNotificationSettingsAttributes.assignmentNotificationsEnabled)
         && Objects.equals(
-            this.additionalProperties, governanceControlUpdateData.additionalProperties);
+            this.additionalProperties,
+            governanceNotificationSettingsAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(assignmentNotificationsEnabled, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GovernanceControlUpdateData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class GovernanceNotificationSettingsAttributes {\n");
+    sb.append("    assignmentNotificationsEnabled: ")
+        .append(toIndentedString(assignmentNotificationsEnabled))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
