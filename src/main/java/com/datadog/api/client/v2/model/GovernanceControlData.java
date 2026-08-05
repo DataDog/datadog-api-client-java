@@ -82,7 +82,7 @@ public class GovernanceControlData {
   }
 
   /**
-   * The unique identifier of the control.
+   * The detection type that uniquely identifies the control.
    *
    * @return id
    */

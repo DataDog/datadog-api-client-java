@@ -8,33 +8,33 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The attributes of a governance control that can be updated. Only the attributes present in the
- * request are modified.
- */
+/** The attributes of a governance mitigation request. */
 @JsonPropertyOrder({
-  GovernanceControlUpdateAttributes.JSON_PROPERTY_DETECTION_FREQUENCY,
-  GovernanceControlUpdateAttributes.JSON_PROPERTY_DETECTION_PARAMETERS,
-  GovernanceControlUpdateAttributes.JSON_PROPERTY_MITIGATION_PARAMETERS,
-  GovernanceControlUpdateAttributes.JSON_PROPERTY_MITIGATION_TYPE
+  GovernanceMitigationRequestAttributes.JSON_PROPERTY_DETECTION_IDS,
+  GovernanceMitigationRequestAttributes.JSON_PROPERTY_DETECTION_TYPE,
+  GovernanceMitigationRequestAttributes.JSON_PROPERTY_MITIGATION_PARAMETERS,
+  GovernanceMitigationRequestAttributes.JSON_PROPERTY_MITIGATION_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GovernanceControlUpdateAttributes {
+public class GovernanceMitigationRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DETECTION_FREQUENCY = "detection_frequency";
-  private String detectionFrequency;
+  public static final String JSON_PROPERTY_DETECTION_IDS = "detection_ids";
+  private List<String> detectionIds = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_DETECTION_PARAMETERS = "detection_parameters";
-  private Map<String, Object> detectionParameters = null;
+  public static final String JSON_PROPERTY_DETECTION_TYPE = "detection_type";
+  private String detectionType;
 
   public static final String JSON_PROPERTY_MITIGATION_PARAMETERS = "mitigation_parameters";
   private Map<String, Object> mitigationParameters = null;
@@ -42,65 +42,68 @@ public class GovernanceControlUpdateAttributes {
   public static final String JSON_PROPERTY_MITIGATION_TYPE = "mitigation_type";
   private String mitigationType;
 
-  public GovernanceControlUpdateAttributes detectionFrequency(String detectionFrequency) {
-    this.detectionFrequency = detectionFrequency;
+  public GovernanceMitigationRequestAttributes() {}
+
+  @JsonCreator
+  public GovernanceMitigationRequestAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_IDS) List<String> detectionIds,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_TYPE) String detectionType) {
+    this.detectionIds = detectionIds;
+    this.detectionType = detectionType;
+  }
+
+  public GovernanceMitigationRequestAttributes detectionIds(List<String> detectionIds) {
+    this.detectionIds = detectionIds;
+    return this;
+  }
+
+  public GovernanceMitigationRequestAttributes addDetectionIdsItem(String detectionIdsItem) {
+    this.detectionIds.add(detectionIdsItem);
     return this;
   }
 
   /**
-   * How often detections should be evaluated for the control.
+   * The identifiers of the detections to mitigate in this request.
    *
-   * @return detectionFrequency
+   * @return detectionIds
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DETECTION_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDetectionFrequency() {
-    return detectionFrequency;
+  @JsonProperty(JSON_PROPERTY_DETECTION_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getDetectionIds() {
+    return detectionIds;
   }
 
-  public void setDetectionFrequency(String detectionFrequency) {
-    this.detectionFrequency = detectionFrequency;
+  public void setDetectionIds(List<String> detectionIds) {
+    this.detectionIds = detectionIds;
   }
 
-  public GovernanceControlUpdateAttributes detectionParameters(
-      Map<String, Object> detectionParameters) {
-    this.detectionParameters = detectionParameters;
-    return this;
-  }
-
-  public GovernanceControlUpdateAttributes putDetectionParametersItem(
-      String key, Object detectionParametersItem) {
-    if (this.detectionParameters == null) {
-      this.detectionParameters = new HashMap<>();
-    }
-    this.detectionParameters.put(key, detectionParametersItem);
+  public GovernanceMitigationRequestAttributes detectionType(String detectionType) {
+    this.detectionType = detectionType;
     return this;
   }
 
   /**
-   * A free-form map of parameter names to their configured values.
+   * The detection type whose detections should be mitigated.
    *
-   * @return detectionParameters
+   * @return detectionType
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DETECTION_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getDetectionParameters() {
-    return detectionParameters;
+  @JsonProperty(JSON_PROPERTY_DETECTION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDetectionType() {
+    return detectionType;
   }
 
-  public void setDetectionParameters(Map<String, Object> detectionParameters) {
-    this.detectionParameters = detectionParameters;
+  public void setDetectionType(String detectionType) {
+    this.detectionType = detectionType;
   }
 
-  public GovernanceControlUpdateAttributes mitigationParameters(
+  public GovernanceMitigationRequestAttributes mitigationParameters(
       Map<String, Object> mitigationParameters) {
     this.mitigationParameters = mitigationParameters;
     return this;
   }
 
-  public GovernanceControlUpdateAttributes putMitigationParametersItem(
+  public GovernanceMitigationRequestAttributes putMitigationParametersItem(
       String key, Object mitigationParametersItem) {
     if (this.mitigationParameters == null) {
       this.mitigationParameters = new HashMap<>();
@@ -125,13 +128,14 @@ public class GovernanceControlUpdateAttributes {
     this.mitigationParameters = mitigationParameters;
   }
 
-  public GovernanceControlUpdateAttributes mitigationType(String mitigationType) {
+  public GovernanceMitigationRequestAttributes mitigationType(String mitigationType) {
     this.mitigationType = mitigationType;
     return this;
   }
 
   /**
-   * The mitigation type to configure for the control.
+   * The mitigation to apply to the selected detections. Defaults to the control's configured
+   * mitigation when omitted.
    *
    * @return mitigationType
    */
@@ -158,10 +162,10 @@ public class GovernanceControlUpdateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GovernanceControlUpdateAttributes
+   * @return GovernanceMitigationRequestAttributes
    */
   @JsonAnySetter
-  public GovernanceControlUpdateAttributes putAdditionalProperty(String key, Object value) {
+  public GovernanceMitigationRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -192,7 +196,7 @@ public class GovernanceControlUpdateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GovernanceControlUpdateAttributes object is equal to o. */
+  /** Return true if this GovernanceMitigationRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -201,37 +205,29 @@ public class GovernanceControlUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GovernanceControlUpdateAttributes governanceControlUpdateAttributes =
-        (GovernanceControlUpdateAttributes) o;
-    return Objects.equals(
-            this.detectionFrequency, governanceControlUpdateAttributes.detectionFrequency)
+    GovernanceMitigationRequestAttributes governanceMitigationRequestAttributes =
+        (GovernanceMitigationRequestAttributes) o;
+    return Objects.equals(this.detectionIds, governanceMitigationRequestAttributes.detectionIds)
+        && Objects.equals(this.detectionType, governanceMitigationRequestAttributes.detectionType)
         && Objects.equals(
-            this.detectionParameters, governanceControlUpdateAttributes.detectionParameters)
+            this.mitigationParameters, governanceMitigationRequestAttributes.mitigationParameters)
+        && Objects.equals(this.mitigationType, governanceMitigationRequestAttributes.mitigationType)
         && Objects.equals(
-            this.mitigationParameters, governanceControlUpdateAttributes.mitigationParameters)
-        && Objects.equals(this.mitigationType, governanceControlUpdateAttributes.mitigationType)
-        && Objects.equals(
-            this.additionalProperties, governanceControlUpdateAttributes.additionalProperties);
+            this.additionalProperties, governanceMitigationRequestAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        detectionFrequency,
-        detectionParameters,
-        mitigationParameters,
-        mitigationType,
-        additionalProperties);
+        detectionIds, detectionType, mitigationParameters, mitigationType, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GovernanceControlUpdateAttributes {\n");
-    sb.append("    detectionFrequency: ").append(toIndentedString(detectionFrequency)).append("\n");
-    sb.append("    detectionParameters: ")
-        .append(toIndentedString(detectionParameters))
-        .append("\n");
+    sb.append("class GovernanceMitigationRequestAttributes {\n");
+    sb.append("    detectionIds: ").append(toIndentedString(detectionIds)).append("\n");
+    sb.append("    detectionType: ").append(toIndentedString(detectionType)).append("\n");
     sb.append("    mitigationParameters: ")
         .append(toIndentedString(mitigationParameters))
         .append("\n");

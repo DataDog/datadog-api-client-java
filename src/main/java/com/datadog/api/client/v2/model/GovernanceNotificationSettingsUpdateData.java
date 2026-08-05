@@ -17,75 +17,77 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The data of a governance control update request. */
+/** The data of a governance notification settings update request. */
 @JsonPropertyOrder({
-  GovernanceControlUpdateData.JSON_PROPERTY_ATTRIBUTES,
-  GovernanceControlUpdateData.JSON_PROPERTY_TYPE
+  GovernanceNotificationSettingsUpdateData.JSON_PROPERTY_ATTRIBUTES,
+  GovernanceNotificationSettingsUpdateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GovernanceControlUpdateData {
+public class GovernanceNotificationSettingsUpdateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private GovernanceControlUpdateAttributes attributes;
+  private GovernanceNotificationSettingsUpdateAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private GovernanceControlResourceType type;
+  private GovernanceNotificationSettingsResourceType type;
 
-  public GovernanceControlUpdateData() {}
+  public GovernanceNotificationSettingsUpdateData() {}
 
   @JsonCreator
-  public GovernanceControlUpdateData(
+  public GovernanceNotificationSettingsUpdateData(
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          GovernanceControlResourceType type) {
+          GovernanceNotificationSettingsResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public GovernanceControlUpdateData attributes(GovernanceControlUpdateAttributes attributes) {
+  public GovernanceNotificationSettingsUpdateData attributes(
+      GovernanceNotificationSettingsUpdateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * The attributes of a governance control that can be updated. Only the attributes present in the
-   * request are modified.
+   * The attributes of the governance notification settings that can be updated. Only the attributes
+   * present in the request are modified.
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GovernanceControlUpdateAttributes getAttributes() {
+  public GovernanceNotificationSettingsUpdateAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(GovernanceControlUpdateAttributes attributes) {
+  public void setAttributes(GovernanceNotificationSettingsUpdateAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public GovernanceControlUpdateData type(GovernanceControlResourceType type) {
+  public GovernanceNotificationSettingsUpdateData type(
+      GovernanceNotificationSettingsResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * JSON:API resource type for a governance control.
+   * Governance notification settings resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GovernanceControlResourceType getType() {
+  public GovernanceNotificationSettingsResourceType getType() {
     return type;
   }
 
-  public void setType(GovernanceControlResourceType type) {
+  public void setType(GovernanceNotificationSettingsResourceType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -104,10 +106,10 @@ public class GovernanceControlUpdateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GovernanceControlUpdateData
+   * @return GovernanceNotificationSettingsUpdateData
    */
   @JsonAnySetter
-  public GovernanceControlUpdateData putAdditionalProperty(String key, Object value) {
+  public GovernanceNotificationSettingsUpdateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -138,7 +140,7 @@ public class GovernanceControlUpdateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GovernanceControlUpdateData object is equal to o. */
+  /** Return true if this GovernanceNotificationSettingsUpdateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,11 +149,13 @@ public class GovernanceControlUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GovernanceControlUpdateData governanceControlUpdateData = (GovernanceControlUpdateData) o;
-    return Objects.equals(this.attributes, governanceControlUpdateData.attributes)
-        && Objects.equals(this.type, governanceControlUpdateData.type)
+    GovernanceNotificationSettingsUpdateData governanceNotificationSettingsUpdateData =
+        (GovernanceNotificationSettingsUpdateData) o;
+    return Objects.equals(this.attributes, governanceNotificationSettingsUpdateData.attributes)
+        && Objects.equals(this.type, governanceNotificationSettingsUpdateData.type)
         && Objects.equals(
-            this.additionalProperties, governanceControlUpdateData.additionalProperties);
+            this.additionalProperties,
+            governanceNotificationSettingsUpdateData.additionalProperties);
   }
 
   @Override
@@ -162,7 +166,7 @@ public class GovernanceControlUpdateData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GovernanceControlUpdateData {\n");
+    sb.append("class GovernanceNotificationSettingsUpdateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

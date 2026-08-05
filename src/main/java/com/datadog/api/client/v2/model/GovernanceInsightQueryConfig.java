@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Query execution context that allows the frontend to execute insight queries directly. */
+/** Query execution context for running insight queries directly. */
 @JsonPropertyOrder({
   GovernanceInsightQueryConfig.JSON_PROPERTY_CHART_TYPE,
   GovernanceInsightQueryConfig.JSON_PROPERTY_COMPARISON_SHIFT,
@@ -39,7 +39,7 @@ public class GovernanceInsightQueryConfig {
   private Long defaultValue;
 
   public static final String JSON_PROPERTY_DIRECTIONALITY = "directionality";
-  private String directionality;
+  private GovernanceInsightDirectionality directionality;
 
   public static final String JSON_PROPERTY_EFFECTIVE_TIME_WINDOW_DAYS =
       "effective_time_window_days";
@@ -62,7 +62,7 @@ public class GovernanceInsightQueryConfig {
   }
 
   /**
-   * The chart type the frontend should use to render the insight.
+   * The chart type used to render the insight.
    *
    * @return chartType
    */
@@ -83,8 +83,8 @@ public class GovernanceInsightQueryConfig {
   }
 
   /**
-   * The window used for the previous value comparison, for example <code>week</code> or <code>month
-   * </code>.
+   * The window used for the previous value comparison; for example, <code>week</code> or <code>
+   * month</code>.
    *
    * @return comparisonShift
    */
@@ -119,25 +119,29 @@ public class GovernanceInsightQueryConfig {
     this.defaultValue = defaultValue;
   }
 
-  public GovernanceInsightQueryConfig directionality(String directionality) {
+  public GovernanceInsightQueryConfig directionality(
+      GovernanceInsightDirectionality directionality) {
     this.directionality = directionality;
+    this.unparsed |= !directionality.isValid();
     return this;
   }
 
   /**
-   * Whether an increase in the value is good, bad, or neutral. One of <code>neutral</code>, <code>
-   * increase_better</code>, or <code>decrease_better</code>.
+   * Whether an increase in the insight's value is good, bad, or neutral.
    *
    * @return directionality
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DIRECTIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDirectionality() {
+  public GovernanceInsightDirectionality getDirectionality() {
     return directionality;
   }
 
-  public void setDirectionality(String directionality) {
+  public void setDirectionality(GovernanceInsightDirectionality directionality) {
+    if (!directionality.isValid()) {
+      this.unparsed = true;
+    }
     this.directionality = directionality;
   }
 
