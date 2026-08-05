@@ -20,11 +20,8 @@ import java.util.Objects;
 
 /** Integrations organized by their status. */
 @JsonPropertyOrder({
-  FleetIntegrationsByStatusV2.JSON_PROPERTY_CLUSTER_NAME,
   FleetIntegrationsByStatusV2.JSON_PROPERTY_CONFIGURATION_FILES,
-  FleetIntegrationsByStatusV2.JSON_PROPERTY_DATADOG_AGENT_KEY,
   FleetIntegrationsByStatusV2.JSON_PROPERTY_ERROR_INTEGRATIONS,
-  FleetIntegrationsByStatusV2.JSON_PROPERTY_K8S_CLUSTER_KEY,
   FleetIntegrationsByStatusV2.JSON_PROPERTY_MISSING_INTEGRATIONS,
   FleetIntegrationsByStatusV2.JSON_PROPERTY_WARNING_INTEGRATIONS,
   FleetIntegrationsByStatusV2.JSON_PROPERTY_WORKING_INTEGRATIONS
@@ -33,20 +30,11 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FleetIntegrationsByStatusV2 {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CLUSTER_NAME = "cluster_name";
-  private String clusterName;
-
   public static final String JSON_PROPERTY_CONFIGURATION_FILES = "configuration_files";
   private List<FleetConfigurationFileV2> configurationFiles = null;
 
-  public static final String JSON_PROPERTY_DATADOG_AGENT_KEY = "datadog_agent_key";
-  private String datadogAgentKey;
-
   public static final String JSON_PROPERTY_ERROR_INTEGRATIONS = "error_integrations";
   private List<FleetIntegrationDetailsV2> errorIntegrations = null;
-
-  public static final String JSON_PROPERTY_K8S_CLUSTER_KEY = "k8s_cluster_key";
-  private String k8sClusterKey;
 
   public static final String JSON_PROPERTY_MISSING_INTEGRATIONS = "missing_integrations";
   private List<FleetDetectedIntegration> missingIntegrations = null;
@@ -56,27 +44,6 @@ public class FleetIntegrationsByStatusV2 {
 
   public static final String JSON_PROPERTY_WORKING_INTEGRATIONS = "working_integrations";
   private List<FleetIntegrationDetailsV2> workingIntegrations = null;
-
-  public FleetIntegrationsByStatusV2 clusterName(String clusterName) {
-    this.clusterName = clusterName;
-    return this;
-  }
-
-  /**
-   * The Kubernetes cluster name, if the agent runs in a cluster.
-   *
-   * @return clusterName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLUSTER_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getClusterName() {
-    return clusterName;
-  }
-
-  public void setClusterName(String clusterName) {
-    this.clusterName = clusterName;
-  }
 
   public FleetIntegrationsByStatusV2 configurationFiles(
       List<FleetConfigurationFileV2> configurationFiles) {
@@ -120,27 +87,6 @@ public class FleetIntegrationsByStatusV2 {
     }
   }
 
-  public FleetIntegrationsByStatusV2 datadogAgentKey(String datadogAgentKey) {
-    this.datadogAgentKey = datadogAgentKey;
-    return this;
-  }
-
-  /**
-   * The unique agent key identifier.
-   *
-   * @return datadogAgentKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATADOG_AGENT_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDatadogAgentKey() {
-    return datadogAgentKey;
-  }
-
-  public void setDatadogAgentKey(String datadogAgentKey) {
-    this.datadogAgentKey = datadogAgentKey;
-  }
-
   public FleetIntegrationsByStatusV2 errorIntegrations(
       List<FleetIntegrationDetailsV2> errorIntegrations) {
     this.errorIntegrations = errorIntegrations;
@@ -181,27 +127,6 @@ public class FleetIntegrationsByStatusV2 {
         this.unparsed |= item.unparsed;
       }
     }
-  }
-
-  public FleetIntegrationsByStatusV2 k8sClusterKey(String k8sClusterKey) {
-    this.k8sClusterKey = k8sClusterKey;
-    return this;
-  }
-
-  /**
-   * The Kubernetes cluster key, if the agent runs in a cluster.
-   *
-   * @return k8sClusterKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_K8S_CLUSTER_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getK8sClusterKey() {
-    return k8sClusterKey;
-  }
-
-  public void setK8sClusterKey(String k8sClusterKey) {
-    this.k8sClusterKey = k8sClusterKey;
   }
 
   public FleetIntegrationsByStatusV2 missingIntegrations(
@@ -386,11 +311,8 @@ public class FleetIntegrationsByStatusV2 {
       return false;
     }
     FleetIntegrationsByStatusV2 fleetIntegrationsByStatusV2 = (FleetIntegrationsByStatusV2) o;
-    return Objects.equals(this.clusterName, fleetIntegrationsByStatusV2.clusterName)
-        && Objects.equals(this.configurationFiles, fleetIntegrationsByStatusV2.configurationFiles)
-        && Objects.equals(this.datadogAgentKey, fleetIntegrationsByStatusV2.datadogAgentKey)
+    return Objects.equals(this.configurationFiles, fleetIntegrationsByStatusV2.configurationFiles)
         && Objects.equals(this.errorIntegrations, fleetIntegrationsByStatusV2.errorIntegrations)
-        && Objects.equals(this.k8sClusterKey, fleetIntegrationsByStatusV2.k8sClusterKey)
         && Objects.equals(this.missingIntegrations, fleetIntegrationsByStatusV2.missingIntegrations)
         && Objects.equals(this.warningIntegrations, fleetIntegrationsByStatusV2.warningIntegrations)
         && Objects.equals(this.workingIntegrations, fleetIntegrationsByStatusV2.workingIntegrations)
@@ -401,11 +323,8 @@ public class FleetIntegrationsByStatusV2 {
   @Override
   public int hashCode() {
     return Objects.hash(
-        clusterName,
         configurationFiles,
-        datadogAgentKey,
         errorIntegrations,
-        k8sClusterKey,
         missingIntegrations,
         warningIntegrations,
         workingIntegrations,
@@ -416,11 +335,8 @@ public class FleetIntegrationsByStatusV2 {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FleetIntegrationsByStatusV2 {\n");
-    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    configurationFiles: ").append(toIndentedString(configurationFiles)).append("\n");
-    sb.append("    datadogAgentKey: ").append(toIndentedString(datadogAgentKey)).append("\n");
     sb.append("    errorIntegrations: ").append(toIndentedString(errorIntegrations)).append("\n");
-    sb.append("    k8sClusterKey: ").append(toIndentedString(k8sClusterKey)).append("\n");
     sb.append("    missingIntegrations: ")
         .append(toIndentedString(missingIntegrations))
         .append("\n");

@@ -21,8 +21,7 @@ import java.util.Objects;
   FleetConfigurationFileV2.JSON_PROPERTY_AGENT_HASH,
   FleetConfigurationFileV2.JSON_PROPERTY_FILE_CONTENT,
   FleetConfigurationFileV2.JSON_PROPERTY_FILE_PATH,
-  FleetConfigurationFileV2.JSON_PROPERTY_FILENAME,
-  FleetConfigurationFileV2.JSON_PROPERTY_FLEET_HASH
+  FleetConfigurationFileV2.JSON_PROPERTY_FILENAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -39,9 +38,6 @@ public class FleetConfigurationFileV2 {
 
   public static final String JSON_PROPERTY_FILENAME = "filename";
   private String filename;
-
-  public static final String JSON_PROPERTY_FLEET_HASH = "fleet_hash";
-  private String fleetHash;
 
   public FleetConfigurationFileV2 agentHash(String agentHash) {
     this.agentHash = agentHash;
@@ -127,27 +123,6 @@ public class FleetConfigurationFileV2 {
     this.filename = filename;
   }
 
-  public FleetConfigurationFileV2 fleetHash(String fleetHash) {
-    this.fleetHash = fleetHash;
-    return this;
-  }
-
-  /**
-   * Hash of the configuration file as applied by fleet management.
-   *
-   * @return fleetHash
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEET_HASH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getFleetHash() {
-    return fleetHash;
-  }
-
-  public void setFleetHash(String fleetHash) {
-    this.fleetHash = fleetHash;
-  }
-
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -208,14 +183,12 @@ public class FleetConfigurationFileV2 {
         && Objects.equals(this.fileContent, fleetConfigurationFileV2.fileContent)
         && Objects.equals(this.filePath, fleetConfigurationFileV2.filePath)
         && Objects.equals(this.filename, fleetConfigurationFileV2.filename)
-        && Objects.equals(this.fleetHash, fleetConfigurationFileV2.fleetHash)
         && Objects.equals(this.additionalProperties, fleetConfigurationFileV2.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        agentHash, fileContent, filePath, filename, fleetHash, additionalProperties);
+    return Objects.hash(agentHash, fileContent, filePath, filename, additionalProperties);
   }
 
   @Override
@@ -226,7 +199,6 @@ public class FleetConfigurationFileV2 {
     sb.append("    fileContent: ").append(toIndentedString(fileContent)).append("\n");
     sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
-    sb.append("    fleetHash: ").append(toIndentedString(fleetHash)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

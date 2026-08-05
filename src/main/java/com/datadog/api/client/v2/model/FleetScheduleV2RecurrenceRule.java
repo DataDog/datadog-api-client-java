@@ -125,7 +125,7 @@ public class FleetScheduleV2RecurrenceRule {
   }
 
   /**
-   * Start time of the maintenance window in 24-hour clock format (HH:MM). Deployments are triggered
+   * Start time of the maintenance window in 24-hour clock format (HHMM). Deployments are triggered
    * at this time on the specified days.
    *
    * @return startMaintenanceWindow
