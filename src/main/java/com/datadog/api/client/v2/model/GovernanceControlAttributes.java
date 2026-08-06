@@ -29,8 +29,6 @@ import java.util.Objects;
   GovernanceControlAttributes.JSON_PROPERTY_DESCRIPTION,
   GovernanceControlAttributes.JSON_PROPERTY_DETECTION_FREQUENCY,
   GovernanceControlAttributes.JSON_PROPERTY_DETECTION_PARAMETERS,
-  GovernanceControlAttributes.JSON_PROPERTY_DETECTION_TYPE,
-  GovernanceControlAttributes.JSON_PROPERTY_FEATURE_FLAGS,
   GovernanceControlAttributes.JSON_PROPERTY_INSIGHTS,
   GovernanceControlAttributes.JSON_PROPERTY_LAST_DETECTION_AT,
   GovernanceControlAttributes.JSON_PROPERTY_MITIGATED_DETECTIONS_COUNT,
@@ -38,20 +36,12 @@ import java.util.Objects;
   GovernanceControlAttributes.JSON_PROPERTY_MITIGATION_TYPE,
   GovernanceControlAttributes.JSON_PROPERTY_MITIGATIONS,
   GovernanceControlAttributes.JSON_PROPERTY_NAME,
-  GovernanceControlAttributes.JSON_PROPERTY_NEXT_STEPS,
-  GovernanceControlAttributes.JSON_PROPERTY_NOTIFICATION_FREQUENCY,
-  GovernanceControlAttributes.JSON_PROPERTY_NOTIFICATION_PARAMETERS,
-  GovernanceControlAttributes.JSON_PROPERTY_NOTIFICATION_TYPE,
   GovernanceControlAttributes.JSON_PROPERTY_PRIORITY,
   GovernanceControlAttributes.JSON_PROPERTY_PRODUCT,
-  GovernanceControlAttributes.JSON_PROPERTY_RELEASE_STATUS,
   GovernanceControlAttributes.JSON_PROPERTY_RESOURCE_TYPE,
   GovernanceControlAttributes.JSON_PROPERTY_RESOURCE_TYPE_DISPLAY_NAME,
   GovernanceControlAttributes.JSON_PROPERTY_SUPPORTED_DETECTION_PARAMETERS,
-  GovernanceControlAttributes.JSON_PROPERTY_SUPPORTED_NOTIFICATION_PARAMETERS,
-  GovernanceControlAttributes.JSON_PROPERTY_TASK,
-  GovernanceControlAttributes.JSON_PROPERTY_TYPE,
-  GovernanceControlAttributes.JSON_PROPERTY_USAGE_CONCERN
+  GovernanceControlAttributes.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -78,12 +68,6 @@ public class GovernanceControlAttributes {
   public static final String JSON_PROPERTY_DETECTION_PARAMETERS = "detection_parameters";
   private Map<String, Object> detectionParameters = new HashMap<String, Object>();
 
-  public static final String JSON_PROPERTY_DETECTION_TYPE = "detection_type";
-  private String detectionType;
-
-  public static final String JSON_PROPERTY_FEATURE_FLAGS = "feature_flags";
-  private List<String> featureFlags = new ArrayList<>();
-
   public static final String JSON_PROPERTY_INSIGHTS = "insights";
   private List<String> insights = new ArrayList<>();
 
@@ -106,26 +90,11 @@ public class GovernanceControlAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_NEXT_STEPS = "next_steps";
-  private String nextSteps;
-
-  public static final String JSON_PROPERTY_NOTIFICATION_FREQUENCY = "notification_frequency";
-  private String notificationFrequency;
-
-  public static final String JSON_PROPERTY_NOTIFICATION_PARAMETERS = "notification_parameters";
-  private Map<String, Object> notificationParameters = new HashMap<String, Object>();
-
-  public static final String JSON_PROPERTY_NOTIFICATION_TYPE = "notification_type";
-  private String notificationType;
-
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private String priority;
 
   public static final String JSON_PROPERTY_PRODUCT = "product";
   private String product;
-
-  public static final String JSON_PROPERTY_RELEASE_STATUS = "release_status";
-  private String releaseStatus;
 
   public static final String JSON_PROPERTY_RESOURCE_TYPE = "resource_type";
   private String resourceType;
@@ -139,19 +108,8 @@ public class GovernanceControlAttributes {
   private List<GovernanceControlParameterDefinition> supportedDetectionParameters =
       new ArrayList<>();
 
-  public static final String JSON_PROPERTY_SUPPORTED_NOTIFICATION_PARAMETERS =
-      "supported_notification_parameters";
-  private List<GovernanceControlParameterDefinition> supportedNotificationParameters =
-      new ArrayList<>();
-
-  public static final String JSON_PROPERTY_TASK = "task";
-  private String task;
-
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
-
-  public static final String JSON_PROPERTY_USAGE_CONCERN = "usage_concern";
-  private String usageConcern;
 
   public GovernanceControlAttributes() {}
 
@@ -167,8 +125,6 @@ public class GovernanceControlAttributes {
           String detectionFrequency,
       @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_PARAMETERS)
           Map<String, Object> detectionParameters,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_TYPE) String detectionType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FEATURE_FLAGS) List<String> featureFlags,
       @JsonProperty(required = true, value = JSON_PROPERTY_INSIGHTS) List<String> insights,
       @JsonProperty(required = true, value = JSON_PROPERTY_LAST_DETECTION_AT)
           OffsetDateTime lastDetectionAt,
@@ -180,26 +136,14 @@ public class GovernanceControlAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_MITIGATIONS)
           List<GovernanceControlMitigationDefinition> mitigations,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NEXT_STEPS) String nextSteps,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NOTIFICATION_FREQUENCY)
-          String notificationFrequency,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NOTIFICATION_PARAMETERS)
-          Map<String, Object> notificationParameters,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NOTIFICATION_TYPE)
-          String notificationType,
       @JsonProperty(required = true, value = JSON_PROPERTY_PRIORITY) String priority,
       @JsonProperty(required = true, value = JSON_PROPERTY_PRODUCT) String product,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RELEASE_STATUS) String releaseStatus,
       @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE) String resourceType,
       @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE_DISPLAY_NAME)
           String resourceTypeDisplayName,
       @JsonProperty(required = true, value = JSON_PROPERTY_SUPPORTED_DETECTION_PARAMETERS)
           List<GovernanceControlParameterDefinition> supportedDetectionParameters,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SUPPORTED_NOTIFICATION_PARAMETERS)
-          List<GovernanceControlParameterDefinition> supportedNotificationParameters,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TASK) String task,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type,
-      @JsonProperty(required = true, value = JSON_PROPERTY_USAGE_CONCERN) String usageConcern) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
     this.activeDetectionsCount = activeDetectionsCount;
     this.category = category;
     this.createdAt = createdAt;
@@ -207,8 +151,6 @@ public class GovernanceControlAttributes {
     this.description = description;
     this.detectionFrequency = detectionFrequency;
     this.detectionParameters = detectionParameters;
-    this.detectionType = detectionType;
-    this.featureFlags = featureFlags;
     this.insights = insights;
     this.lastDetectionAt = lastDetectionAt;
     if (lastDetectionAt != null) {}
@@ -220,26 +162,15 @@ public class GovernanceControlAttributes {
       this.unparsed |= item.unparsed;
     }
     this.name = name;
-    this.nextSteps = nextSteps;
-    this.notificationFrequency = notificationFrequency;
-    this.notificationParameters = notificationParameters;
-    this.notificationType = notificationType;
     this.priority = priority;
     this.product = product;
-    this.releaseStatus = releaseStatus;
     this.resourceType = resourceType;
     this.resourceTypeDisplayName = resourceTypeDisplayName;
     this.supportedDetectionParameters = supportedDetectionParameters;
     for (GovernanceControlParameterDefinition item : supportedDetectionParameters) {
       this.unparsed |= item.unparsed;
     }
-    this.supportedNotificationParameters = supportedNotificationParameters;
-    for (GovernanceControlParameterDefinition item : supportedNotificationParameters) {
-      this.unparsed |= item.unparsed;
-    }
-    this.task = task;
     this.type = type;
-    this.usageConcern = usageConcern;
   }
 
   public GovernanceControlAttributes activeDetectionsCount(Long activeDetectionsCount) {
@@ -387,51 +318,6 @@ public class GovernanceControlAttributes {
 
   public void setDetectionParameters(Map<String, Object> detectionParameters) {
     this.detectionParameters = detectionParameters;
-  }
-
-  public GovernanceControlAttributes detectionType(String detectionType) {
-    this.detectionType = detectionType;
-    return this;
-  }
-
-  /**
-   * The detection type that uniquely identifies the control.
-   *
-   * @return detectionType
-   */
-  @JsonProperty(JSON_PROPERTY_DETECTION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDetectionType() {
-    return detectionType;
-  }
-
-  public void setDetectionType(String detectionType) {
-    this.detectionType = detectionType;
-  }
-
-  public GovernanceControlAttributes featureFlags(List<String> featureFlags) {
-    this.featureFlags = featureFlags;
-    return this;
-  }
-
-  public GovernanceControlAttributes addFeatureFlagsItem(String featureFlagsItem) {
-    this.featureFlags.add(featureFlagsItem);
-    return this;
-  }
-
-  /**
-   * The feature flags that gate the control.
-   *
-   * @return featureFlags
-   */
-  @JsonProperty(JSON_PROPERTY_FEATURE_FLAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getFeatureFlags() {
-    return featureFlags;
-  }
-
-  public void setFeatureFlags(List<String> featureFlags) {
-    this.featureFlags = featureFlags;
   }
 
   public GovernanceControlAttributes insights(List<String> insights) {
@@ -605,93 +491,6 @@ public class GovernanceControlAttributes {
     this.name = name;
   }
 
-  public GovernanceControlAttributes nextSteps(String nextSteps) {
-    this.nextSteps = nextSteps;
-    return this;
-  }
-
-  /**
-   * Guidance on the next steps to remediate detections for the control.
-   *
-   * @return nextSteps
-   */
-  @JsonProperty(JSON_PROPERTY_NEXT_STEPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getNextSteps() {
-    return nextSteps;
-  }
-
-  public void setNextSteps(String nextSteps) {
-    this.nextSteps = nextSteps;
-  }
-
-  public GovernanceControlAttributes notificationFrequency(String notificationFrequency) {
-    this.notificationFrequency = notificationFrequency;
-    return this;
-  }
-
-  /**
-   * The configured notification frequency for the control. Empty when not configured.
-   *
-   * @return notificationFrequency
-   */
-  @JsonProperty(JSON_PROPERTY_NOTIFICATION_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getNotificationFrequency() {
-    return notificationFrequency;
-  }
-
-  public void setNotificationFrequency(String notificationFrequency) {
-    this.notificationFrequency = notificationFrequency;
-  }
-
-  public GovernanceControlAttributes notificationParameters(
-      Map<String, Object> notificationParameters) {
-    this.notificationParameters = notificationParameters;
-    return this;
-  }
-
-  public GovernanceControlAttributes putNotificationParametersItem(
-      String key, Object notificationParametersItem) {
-    this.notificationParameters.put(key, notificationParametersItem);
-    return this;
-  }
-
-  /**
-   * A free-form map of parameter names to their configured values.
-   *
-   * @return notificationParameters
-   */
-  @JsonProperty(JSON_PROPERTY_NOTIFICATION_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Map<String, Object> getNotificationParameters() {
-    return notificationParameters;
-  }
-
-  public void setNotificationParameters(Map<String, Object> notificationParameters) {
-    this.notificationParameters = notificationParameters;
-  }
-
-  public GovernanceControlAttributes notificationType(String notificationType) {
-    this.notificationType = notificationType;
-    return this;
-  }
-
-  /**
-   * The configured notification type for the control. Empty when not configured.
-   *
-   * @return notificationType
-   */
-  @JsonProperty(JSON_PROPERTY_NOTIFICATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getNotificationType() {
-    return notificationType;
-  }
-
-  public void setNotificationType(String notificationType) {
-    this.notificationType = notificationType;
-  }
-
   public GovernanceControlAttributes priority(String priority) {
     this.priority = priority;
     return this;
@@ -730,26 +529,6 @@ public class GovernanceControlAttributes {
 
   public void setProduct(String product) {
     this.product = product;
-  }
-
-  public GovernanceControlAttributes releaseStatus(String releaseStatus) {
-    this.releaseStatus = releaseStatus;
-    return this;
-  }
-
-  /**
-   * The release status of the control, such as <code>prod</code> or <code>beta</code>.
-   *
-   * @return releaseStatus
-   */
-  @JsonProperty(JSON_PROPERTY_RELEASE_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getReleaseStatus() {
-    return releaseStatus;
-  }
-
-  public void setReleaseStatus(String releaseStatus) {
-    this.releaseStatus = releaseStatus;
   }
 
   public GovernanceControlAttributes resourceType(String resourceType) {
@@ -829,63 +608,6 @@ public class GovernanceControlAttributes {
     }
   }
 
-  public GovernanceControlAttributes supportedNotificationParameters(
-      List<GovernanceControlParameterDefinition> supportedNotificationParameters) {
-    this.supportedNotificationParameters = supportedNotificationParameters;
-    for (GovernanceControlParameterDefinition item : supportedNotificationParameters) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public GovernanceControlAttributes addSupportedNotificationParametersItem(
-      GovernanceControlParameterDefinition supportedNotificationParametersItem) {
-    this.supportedNotificationParameters.add(supportedNotificationParametersItem);
-    this.unparsed |= supportedNotificationParametersItem.unparsed;
-    return this;
-  }
-
-  /**
-   * An array of parameter definitions.
-   *
-   * @return supportedNotificationParameters
-   */
-  @JsonProperty(JSON_PROPERTY_SUPPORTED_NOTIFICATION_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<GovernanceControlParameterDefinition> getSupportedNotificationParameters() {
-    return supportedNotificationParameters;
-  }
-
-  public void setSupportedNotificationParameters(
-      List<GovernanceControlParameterDefinition> supportedNotificationParameters) {
-    this.supportedNotificationParameters = supportedNotificationParameters;
-    if (supportedNotificationParameters != null) {
-      for (GovernanceControlParameterDefinition item : supportedNotificationParameters) {
-        this.unparsed |= item.unparsed;
-      }
-    }
-  }
-
-  public GovernanceControlAttributes task(String task) {
-    this.task = task;
-    return this;
-  }
-
-  /**
-   * A short description of the remediation task for the control.
-   *
-   * @return task
-   */
-  @JsonProperty(JSON_PROPERTY_TASK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTask() {
-    return task;
-  }
-
-  public void setTask(String task) {
-    this.task = task;
-  }
-
   public GovernanceControlAttributes type(String type) {
     this.type = type;
     return this;
@@ -904,27 +626,6 @@ public class GovernanceControlAttributes {
 
   public void setType(String type) {
     this.type = type;
-  }
-
-  public GovernanceControlAttributes usageConcern(String usageConcern) {
-    this.usageConcern = usageConcern;
-    return this;
-  }
-
-  /**
-   * The usage concern the control addresses, such as <code>Security</code> or <code>
-   * Cost Optimization</code>.
-   *
-   * @return usageConcern
-   */
-  @JsonProperty(JSON_PROPERTY_USAGE_CONCERN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUsageConcern() {
-    return usageConcern;
-  }
-
-  public void setUsageConcern(String usageConcern) {
-    this.usageConcern = usageConcern;
   }
 
   /**
@@ -991,8 +692,6 @@ public class GovernanceControlAttributes {
         && Objects.equals(this.description, governanceControlAttributes.description)
         && Objects.equals(this.detectionFrequency, governanceControlAttributes.detectionFrequency)
         && Objects.equals(this.detectionParameters, governanceControlAttributes.detectionParameters)
-        && Objects.equals(this.detectionType, governanceControlAttributes.detectionType)
-        && Objects.equals(this.featureFlags, governanceControlAttributes.featureFlags)
         && Objects.equals(this.insights, governanceControlAttributes.insights)
         && Objects.equals(this.lastDetectionAt, governanceControlAttributes.lastDetectionAt)
         && Objects.equals(
@@ -1002,27 +701,15 @@ public class GovernanceControlAttributes {
         && Objects.equals(this.mitigationType, governanceControlAttributes.mitigationType)
         && Objects.equals(this.mitigations, governanceControlAttributes.mitigations)
         && Objects.equals(this.name, governanceControlAttributes.name)
-        && Objects.equals(this.nextSteps, governanceControlAttributes.nextSteps)
-        && Objects.equals(
-            this.notificationFrequency, governanceControlAttributes.notificationFrequency)
-        && Objects.equals(
-            this.notificationParameters, governanceControlAttributes.notificationParameters)
-        && Objects.equals(this.notificationType, governanceControlAttributes.notificationType)
         && Objects.equals(this.priority, governanceControlAttributes.priority)
         && Objects.equals(this.product, governanceControlAttributes.product)
-        && Objects.equals(this.releaseStatus, governanceControlAttributes.releaseStatus)
         && Objects.equals(this.resourceType, governanceControlAttributes.resourceType)
         && Objects.equals(
             this.resourceTypeDisplayName, governanceControlAttributes.resourceTypeDisplayName)
         && Objects.equals(
             this.supportedDetectionParameters,
             governanceControlAttributes.supportedDetectionParameters)
-        && Objects.equals(
-            this.supportedNotificationParameters,
-            governanceControlAttributes.supportedNotificationParameters)
-        && Objects.equals(this.task, governanceControlAttributes.task)
         && Objects.equals(this.type, governanceControlAttributes.type)
-        && Objects.equals(this.usageConcern, governanceControlAttributes.usageConcern)
         && Objects.equals(
             this.additionalProperties, governanceControlAttributes.additionalProperties);
   }
@@ -1037,8 +724,6 @@ public class GovernanceControlAttributes {
         description,
         detectionFrequency,
         detectionParameters,
-        detectionType,
-        featureFlags,
         insights,
         lastDetectionAt,
         mitigatedDetectionsCount,
@@ -1046,20 +731,12 @@ public class GovernanceControlAttributes {
         mitigationType,
         mitigations,
         name,
-        nextSteps,
-        notificationFrequency,
-        notificationParameters,
-        notificationType,
         priority,
         product,
-        releaseStatus,
         resourceType,
         resourceTypeDisplayName,
         supportedDetectionParameters,
-        supportedNotificationParameters,
-        task,
         type,
-        usageConcern,
         additionalProperties);
   }
 
@@ -1078,8 +755,6 @@ public class GovernanceControlAttributes {
     sb.append("    detectionParameters: ")
         .append(toIndentedString(detectionParameters))
         .append("\n");
-    sb.append("    detectionType: ").append(toIndentedString(detectionType)).append("\n");
-    sb.append("    featureFlags: ").append(toIndentedString(featureFlags)).append("\n");
     sb.append("    insights: ").append(toIndentedString(insights)).append("\n");
     sb.append("    lastDetectionAt: ").append(toIndentedString(lastDetectionAt)).append("\n");
     sb.append("    mitigatedDetectionsCount: ")
@@ -1091,17 +766,8 @@ public class GovernanceControlAttributes {
     sb.append("    mitigationType: ").append(toIndentedString(mitigationType)).append("\n");
     sb.append("    mitigations: ").append(toIndentedString(mitigations)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    nextSteps: ").append(toIndentedString(nextSteps)).append("\n");
-    sb.append("    notificationFrequency: ")
-        .append(toIndentedString(notificationFrequency))
-        .append("\n");
-    sb.append("    notificationParameters: ")
-        .append(toIndentedString(notificationParameters))
-        .append("\n");
-    sb.append("    notificationType: ").append(toIndentedString(notificationType)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
-    sb.append("    releaseStatus: ").append(toIndentedString(releaseStatus)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    resourceTypeDisplayName: ")
         .append(toIndentedString(resourceTypeDisplayName))
@@ -1109,12 +775,7 @@ public class GovernanceControlAttributes {
     sb.append("    supportedDetectionParameters: ")
         .append(toIndentedString(supportedDetectionParameters))
         .append("\n");
-    sb.append("    supportedNotificationParameters: ")
-        .append(toIndentedString(supportedNotificationParameters))
-        .append("\n");
-    sb.append("    task: ").append(toIndentedString(task)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    usageConcern: ").append(toIndentedString(usageConcern)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
