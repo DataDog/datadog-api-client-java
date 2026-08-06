@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>StepDisplay</code> object. */
+/**
+ * The position of a step on the workflow canvas. Omit <code>display</code> from every step to use
+ * automatic layout, or provide it for every step to preserve a manual layout.
+ */
 @JsonPropertyOrder({StepDisplay.JSON_PROPERTY_BOUNDS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

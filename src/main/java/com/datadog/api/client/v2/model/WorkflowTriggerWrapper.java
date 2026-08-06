@@ -57,7 +57,7 @@ public class WorkflowTriggerWrapper {
   }
 
   /**
-   * A list of steps that run first after a trigger fires.
+   * Names of existing workflow steps that run first after a trigger fires.
    *
    * @return startStepNames
    */
@@ -78,7 +78,7 @@ public class WorkflowTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow from the Datadog UI. Only required if no other trigger exists.
+   * Trigger a workflow from the Datadog UI. When present, this must be the workflow's only trigger.
    *
    * @return workflowTrigger
    */
