@@ -450,7 +450,8 @@ public class ApiClient {
                                               "navy.oncall.datadoghq.com",
                                               "coral.oncall.datadoghq.com",
                                               "teal.oncall.datadoghq.com",
-                                              "beige.oncall.datadoghq.eu"))));
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
                             }
                           }),
                       new ServerConfiguration(
@@ -461,9 +462,17 @@ public class ApiClient {
                               put(
                                   "name",
                                   new ServerVariable(
-                                      "Full site DNS name.",
-                                      "api.datadoghq.com",
-                                      new HashSet<String>()));
+                                      "The full DNS name of the On-Call paging endpoint.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
                               put(
                                   "protocol",
                                   new ServerVariable(
@@ -480,15 +489,25 @@ public class ApiClient {
                               put(
                                   "site",
                                   new ServerVariable(
-                                      "Any Datadog deployment.",
+                                      "The Datadog site where the On-Call paging endpoint is"
+                                          + " deployed.",
                                       "datadoghq.com",
-                                      new HashSet<String>()));
+                                      new HashSet<String>(
+                                          Arrays.asList("datadoghq.com", "datadoghq.eu"))));
                               put(
                                   "subdomain",
                                   new ServerVariable(
-                                      "The subdomain where the API is deployed.",
-                                      "api",
-                                      new HashSet<String>()));
+                                      "The On-Call paging subdomain.",
+                                      "navy.oncall",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall",
+                                              "saffron.oncall",
+                                              "navy.oncall",
+                                              "coral.oncall",
+                                              "teal.oncall",
+                                              "beige.oncall",
+                                              "scarlet.oncall"))));
                             }
                           }))));
           put(
@@ -512,7 +531,8 @@ public class ApiClient {
                                               "navy.oncall.datadoghq.com",
                                               "coral.oncall.datadoghq.com",
                                               "teal.oncall.datadoghq.com",
-                                              "beige.oncall.datadoghq.eu"))));
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
                             }
                           }),
                       new ServerConfiguration(
@@ -523,9 +543,17 @@ public class ApiClient {
                               put(
                                   "name",
                                   new ServerVariable(
-                                      "Full site DNS name.",
-                                      "api.datadoghq.com",
-                                      new HashSet<String>()));
+                                      "The full DNS name of the On-Call paging endpoint.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
                               put(
                                   "protocol",
                                   new ServerVariable(
@@ -542,15 +570,25 @@ public class ApiClient {
                               put(
                                   "site",
                                   new ServerVariable(
-                                      "Any Datadog deployment.",
+                                      "The Datadog site where the On-Call paging endpoint is"
+                                          + " deployed.",
                                       "datadoghq.com",
-                                      new HashSet<String>()));
+                                      new HashSet<String>(
+                                          Arrays.asList("datadoghq.com", "datadoghq.eu"))));
                               put(
                                   "subdomain",
                                   new ServerVariable(
-                                      "The subdomain where the API is deployed.",
-                                      "api",
-                                      new HashSet<String>()));
+                                      "The On-Call paging subdomain.",
+                                      "navy.oncall",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall",
+                                              "saffron.oncall",
+                                              "navy.oncall",
+                                              "coral.oncall",
+                                              "teal.oncall",
+                                              "beige.oncall",
+                                              "scarlet.oncall"))));
                             }
                           }))));
           put(
@@ -574,7 +612,8 @@ public class ApiClient {
                                               "navy.oncall.datadoghq.com",
                                               "coral.oncall.datadoghq.com",
                                               "teal.oncall.datadoghq.com",
-                                              "beige.oncall.datadoghq.eu"))));
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
                             }
                           }),
                       new ServerConfiguration(
@@ -585,9 +624,17 @@ public class ApiClient {
                               put(
                                   "name",
                                   new ServerVariable(
-                                      "Full site DNS name.",
-                                      "api.datadoghq.com",
-                                      new HashSet<String>()));
+                                      "The full DNS name of the On-Call paging endpoint.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
                               put(
                                   "protocol",
                                   new ServerVariable(
@@ -604,15 +651,25 @@ public class ApiClient {
                               put(
                                   "site",
                                   new ServerVariable(
-                                      "Any Datadog deployment.",
+                                      "The Datadog site where the On-Call paging endpoint is"
+                                          + " deployed.",
                                       "datadoghq.com",
-                                      new HashSet<String>()));
+                                      new HashSet<String>(
+                                          Arrays.asList("datadoghq.com", "datadoghq.eu"))));
                               put(
                                   "subdomain",
                                   new ServerVariable(
-                                      "The subdomain where the API is deployed.",
-                                      "api",
-                                      new HashSet<String>()));
+                                      "The On-Call paging subdomain.",
+                                      "navy.oncall",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall",
+                                              "saffron.oncall",
+                                              "navy.oncall",
+                                              "coral.oncall",
+                                              "teal.oncall",
+                                              "beige.oncall",
+                                              "scarlet.oncall"))));
                             }
                           }))));
           put(
@@ -636,7 +693,8 @@ public class ApiClient {
                                               "navy.oncall.datadoghq.com",
                                               "coral.oncall.datadoghq.com",
                                               "teal.oncall.datadoghq.com",
-                                              "beige.oncall.datadoghq.eu"))));
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
                             }
                           }),
                       new ServerConfiguration(
@@ -647,9 +705,17 @@ public class ApiClient {
                               put(
                                   "name",
                                   new ServerVariable(
-                                      "Full site DNS name.",
-                                      "api.datadoghq.com",
-                                      new HashSet<String>()));
+                                      "The full DNS name of the On-Call paging endpoint.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu",
+                                              "scarlet.oncall.datadoghq.com"))));
                               put(
                                   "protocol",
                                   new ServerVariable(
@@ -666,15 +732,25 @@ public class ApiClient {
                               put(
                                   "site",
                                   new ServerVariable(
-                                      "Any Datadog deployment.",
+                                      "The Datadog site where the On-Call paging endpoint is"
+                                          + " deployed.",
                                       "datadoghq.com",
-                                      new HashSet<String>()));
+                                      new HashSet<String>(
+                                          Arrays.asList("datadoghq.com", "datadoghq.eu"))));
                               put(
                                   "subdomain",
                                   new ServerVariable(
-                                      "The subdomain where the API is deployed.",
-                                      "api",
-                                      new HashSet<String>()));
+                                      "The On-Call paging subdomain.",
+                                      "navy.oncall",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall",
+                                              "saffron.oncall",
+                                              "navy.oncall",
+                                              "coral.oncall",
+                                              "teal.oncall",
+                                              "beige.oncall",
+                                              "scarlet.oncall"))));
                             }
                           }))));
           put(
