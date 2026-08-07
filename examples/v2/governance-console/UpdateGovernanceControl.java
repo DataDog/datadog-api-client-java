@@ -20,9 +20,7 @@ public class Example {
             .data(
                 new GovernanceControlUpdateData()
                     .attributes(
-                        new GovernanceControlUpdateAttributes()
-                            .detectionFrequency("daily")
-                            .mitigationType("revoke_api_key"))
+                        new GovernanceControlUpdateAttributes().mitigationType("revoke_api_key"))
                     .type(GovernanceControlResourceType.GOVERNANCE_CONTROL));
 
     try {

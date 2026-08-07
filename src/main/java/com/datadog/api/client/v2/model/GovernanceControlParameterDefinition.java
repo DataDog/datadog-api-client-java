@@ -72,8 +72,10 @@ public class GovernanceControlParameterDefinition {
     this.name = name;
     this.required = required;
     this.supportedValues = supportedValues;
-    for (GovernanceControlSupportedValue item : supportedValues) {
-      this.unparsed |= item.unparsed;
+    if (supportedValues != null) {
+      for (GovernanceControlSupportedValue item : supportedValues) {
+        this.unparsed |= item.unparsed;
+      }
     }
     this.type = type;
   }
@@ -195,10 +197,12 @@ public class GovernanceControlParameterDefinition {
   }
 
   /**
-   * The supported values for an enumerated parameter.
+   * The supported values for an enumerated parameter. <code>null</code> when the parameter is not
+   * an enumerated type.
    *
    * @return supportedValues
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUPPORTED_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<GovernanceControlSupportedValue> getSupportedValues() {

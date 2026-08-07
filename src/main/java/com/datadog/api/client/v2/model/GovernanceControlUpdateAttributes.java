@@ -21,7 +21,6 @@ import java.util.Objects;
  * request are modified.
  */
 @JsonPropertyOrder({
-  GovernanceControlUpdateAttributes.JSON_PROPERTY_DETECTION_FREQUENCY,
   GovernanceControlUpdateAttributes.JSON_PROPERTY_DETECTION_PARAMETERS,
   GovernanceControlUpdateAttributes.JSON_PROPERTY_MITIGATION_PARAMETERS,
   GovernanceControlUpdateAttributes.JSON_PROPERTY_MITIGATION_TYPE
@@ -30,9 +29,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GovernanceControlUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DETECTION_FREQUENCY = "detection_frequency";
-  private String detectionFrequency;
-
   public static final String JSON_PROPERTY_DETECTION_PARAMETERS = "detection_parameters";
   private Map<String, Object> detectionParameters = null;
 
@@ -41,27 +37,6 @@ public class GovernanceControlUpdateAttributes {
 
   public static final String JSON_PROPERTY_MITIGATION_TYPE = "mitigation_type";
   private String mitigationType;
-
-  public GovernanceControlUpdateAttributes detectionFrequency(String detectionFrequency) {
-    this.detectionFrequency = detectionFrequency;
-    return this;
-  }
-
-  /**
-   * How often detections should be evaluated for the control.
-   *
-   * @return detectionFrequency
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DETECTION_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDetectionFrequency() {
-    return detectionFrequency;
-  }
-
-  public void setDetectionFrequency(String detectionFrequency) {
-    this.detectionFrequency = detectionFrequency;
-  }
 
   public GovernanceControlUpdateAttributes detectionParameters(
       Map<String, Object> detectionParameters) {
@@ -204,8 +179,6 @@ public class GovernanceControlUpdateAttributes {
     GovernanceControlUpdateAttributes governanceControlUpdateAttributes =
         (GovernanceControlUpdateAttributes) o;
     return Objects.equals(
-            this.detectionFrequency, governanceControlUpdateAttributes.detectionFrequency)
-        && Objects.equals(
             this.detectionParameters, governanceControlUpdateAttributes.detectionParameters)
         && Objects.equals(
             this.mitigationParameters, governanceControlUpdateAttributes.mitigationParameters)
@@ -217,18 +190,13 @@ public class GovernanceControlUpdateAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        detectionFrequency,
-        detectionParameters,
-        mitigationParameters,
-        mitigationType,
-        additionalProperties);
+        detectionParameters, mitigationParameters, mitigationType, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GovernanceControlUpdateAttributes {\n");
-    sb.append("    detectionFrequency: ").append(toIndentedString(detectionFrequency)).append("\n");
     sb.append("    detectionParameters: ")
         .append(toIndentedString(detectionParameters))
         .append("\n");
