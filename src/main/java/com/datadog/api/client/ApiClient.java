@@ -1377,12 +1377,12 @@ public class ApiClient {
           put("v2.revertCustomRuleRevision", false);
           put("v2.updateAiCustomRuleset", false);
           put("v2.updateCustomRuleset", false);
-          put("v2.createTagPolicy", false);
-          put("v2.deleteTagPolicy", false);
-          put("v2.getTagPolicy", false);
-          put("v2.getTagPolicyScore", false);
-          put("v2.listTagPolicies", false);
-          put("v2.updateTagPolicy", false);
+          put("v2.createTagRule", false);
+          put("v2.deleteTagRule", false);
+          put("v2.getTagRule", false);
+          put("v2.getTagRuleScore", false);
+          put("v2.listTagRules", false);
+          put("v2.updateTagRule", false);
           put("v2.addMemberTeam", false);
           put("v2.listMemberTeams", false);
           put("v2.removeMemberTeam", false);
