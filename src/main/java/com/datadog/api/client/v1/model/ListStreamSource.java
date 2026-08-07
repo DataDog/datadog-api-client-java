@@ -20,7 +20,9 @@ import java.util.Set;
 
 /**
  * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream,
- * and logs_issue_stream are deprecated. Use issue_stream instead.
+ * and logs_issue_stream are deprecated. Use issue_stream instead. apm_recommendations_stream is
+ * used to query APM recommendations, and supports filtering by environment, services, teams,
+ * recommendation types, and status.
  */
 @JsonSerialize(using = ListStreamSource.ListStreamSourceSerializer.class)
 public class ListStreamSource extends ModelEnum<String> {
@@ -44,7 +46,8 @@ public class ListStreamSource extends ModelEnum<String> {
               "issue_stream",
               "security_runtime_stream",
               "security_signals_stream",
-              "incidents_stream"));
+              "incidents_stream",
+              "apm_recommendations_stream"));
 
   public static final ListStreamSource LOGS_STREAM = new ListStreamSource("logs_stream");
   public static final ListStreamSource AUDIT_STREAM = new ListStreamSource("audit_stream");
@@ -70,6 +73,8 @@ public class ListStreamSource extends ModelEnum<String> {
   public static final ListStreamSource SECURITY_SIGNALS_STREAM =
       new ListStreamSource("security_signals_stream");
   public static final ListStreamSource INCIDENTS_STREAM = new ListStreamSource("incidents_stream");
+  public static final ListStreamSource APM_RECOMMENDATIONS_STREAM =
+      new ListStreamSource("apm_recommendations_stream");
 
   ListStreamSource(String value) {
     super(value, allowedValues);
