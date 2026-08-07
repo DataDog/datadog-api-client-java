@@ -45,11 +45,7 @@ import java.util.Objects;
   FleetAgentInfoDetailsV2.JSON_PROPERTY_LAST_RESTART_AT,
   FleetAgentInfoDetailsV2.JSON_PROPERTY_OS,
   FleetAgentInfoDetailsV2.JSON_PROPERTY_OS_VERSION,
-  FleetAgentInfoDetailsV2.JSON_PROPERTY_OTEL_COLLECTOR_DEPLOYMENT_TYPES,
-  FleetAgentInfoDetailsV2.JSON_PROPERTY_OTEL_COLLECTOR_DISTRIBUTIONS,
-  FleetAgentInfoDetailsV2.JSON_PROPERTY_OTEL_COLLECTOR_VERSIONS,
   FleetAgentInfoDetailsV2.JSON_PROPERTY_OTEL_COLLECTORS,
-  FleetAgentInfoDetailsV2.JSON_PROPERTY_OTEL_RESOURCE_ATTRIBUTES,
   FleetAgentInfoDetailsV2.JSON_PROPERTY_POD_NAME,
   FleetAgentInfoDetailsV2.JSON_PROPERTY_PREFERRED_HA_ACTIVE_AGENT,
   FleetAgentInfoDetailsV2.JSON_PROPERTY_PYTHON_VERSION,
@@ -142,22 +138,8 @@ public class FleetAgentInfoDetailsV2 {
   public static final String JSON_PROPERTY_OS_VERSION = "os_version";
   private String osVersion;
 
-  public static final String JSON_PROPERTY_OTEL_COLLECTOR_DEPLOYMENT_TYPES =
-      "otel_collector_deployment_types";
-  private List<String> otelCollectorDeploymentTypes = null;
-
-  public static final String JSON_PROPERTY_OTEL_COLLECTOR_DISTRIBUTIONS =
-      "otel_collector_distributions";
-  private List<String> otelCollectorDistributions = null;
-
-  public static final String JSON_PROPERTY_OTEL_COLLECTOR_VERSIONS = "otel_collector_versions";
-  private List<String> otelCollectorVersions = null;
-
   public static final String JSON_PROPERTY_OTEL_COLLECTORS = "otel_collectors";
   private List<Map<String, Object>> otelCollectors = null;
-
-  public static final String JSON_PROPERTY_OTEL_RESOURCE_ATTRIBUTES = "otel_resource_attributes";
-  private List<String> otelResourceAttributes = null;
 
   public static final String JSON_PROPERTY_POD_NAME = "pod_name";
   private String podName;
@@ -756,97 +738,6 @@ public class FleetAgentInfoDetailsV2 {
     this.osVersion = osVersion;
   }
 
-  public FleetAgentInfoDetailsV2 otelCollectorDeploymentTypes(
-      List<String> otelCollectorDeploymentTypes) {
-    this.otelCollectorDeploymentTypes = otelCollectorDeploymentTypes;
-    return this;
-  }
-
-  public FleetAgentInfoDetailsV2 addOtelCollectorDeploymentTypesItem(
-      String otelCollectorDeploymentTypesItem) {
-    if (this.otelCollectorDeploymentTypes == null) {
-      this.otelCollectorDeploymentTypes = new ArrayList<>();
-    }
-    this.otelCollectorDeploymentTypes.add(otelCollectorDeploymentTypesItem);
-    return this;
-  }
-
-  /**
-   * OpenTelemetry collector deployment types associated with the agent.
-   *
-   * @return otelCollectorDeploymentTypes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OTEL_COLLECTOR_DEPLOYMENT_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getOtelCollectorDeploymentTypes() {
-    return otelCollectorDeploymentTypes;
-  }
-
-  public void setOtelCollectorDeploymentTypes(List<String> otelCollectorDeploymentTypes) {
-    this.otelCollectorDeploymentTypes = otelCollectorDeploymentTypes;
-  }
-
-  public FleetAgentInfoDetailsV2 otelCollectorDistributions(
-      List<String> otelCollectorDistributions) {
-    this.otelCollectorDistributions = otelCollectorDistributions;
-    return this;
-  }
-
-  public FleetAgentInfoDetailsV2 addOtelCollectorDistributionsItem(
-      String otelCollectorDistributionsItem) {
-    if (this.otelCollectorDistributions == null) {
-      this.otelCollectorDistributions = new ArrayList<>();
-    }
-    this.otelCollectorDistributions.add(otelCollectorDistributionsItem);
-    return this;
-  }
-
-  /**
-   * OpenTelemetry collector distributions associated with the agent.
-   *
-   * @return otelCollectorDistributions
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OTEL_COLLECTOR_DISTRIBUTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getOtelCollectorDistributions() {
-    return otelCollectorDistributions;
-  }
-
-  public void setOtelCollectorDistributions(List<String> otelCollectorDistributions) {
-    this.otelCollectorDistributions = otelCollectorDistributions;
-  }
-
-  public FleetAgentInfoDetailsV2 otelCollectorVersions(List<String> otelCollectorVersions) {
-    this.otelCollectorVersions = otelCollectorVersions;
-    return this;
-  }
-
-  public FleetAgentInfoDetailsV2 addOtelCollectorVersionsItem(String otelCollectorVersionsItem) {
-    if (this.otelCollectorVersions == null) {
-      this.otelCollectorVersions = new ArrayList<>();
-    }
-    this.otelCollectorVersions.add(otelCollectorVersionsItem);
-    return this;
-  }
-
-  /**
-   * List of OpenTelemetry collector versions (if applicable).
-   *
-   * @return otelCollectorVersions
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OTEL_COLLECTOR_VERSIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getOtelCollectorVersions() {
-    return otelCollectorVersions;
-  }
-
-  public void setOtelCollectorVersions(List<String> otelCollectorVersions) {
-    this.otelCollectorVersions = otelCollectorVersions;
-  }
-
   public FleetAgentInfoDetailsV2 otelCollectors(List<Map<String, Object>> otelCollectors) {
     this.otelCollectors = otelCollectors;
     return this;
@@ -874,35 +765,6 @@ public class FleetAgentInfoDetailsV2 {
 
   public void setOtelCollectors(List<Map<String, Object>> otelCollectors) {
     this.otelCollectors = otelCollectors;
-  }
-
-  public FleetAgentInfoDetailsV2 otelResourceAttributes(List<String> otelResourceAttributes) {
-    this.otelResourceAttributes = otelResourceAttributes;
-    return this;
-  }
-
-  public FleetAgentInfoDetailsV2 addOtelResourceAttributesItem(String otelResourceAttributesItem) {
-    if (this.otelResourceAttributes == null) {
-      this.otelResourceAttributes = new ArrayList<>();
-    }
-    this.otelResourceAttributes.add(otelResourceAttributesItem);
-    return this;
-  }
-
-  /**
-   * OpenTelemetry resource attributes reported by the agent.
-   *
-   * @return otelResourceAttributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OTEL_RESOURCE_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getOtelResourceAttributes() {
-    return otelResourceAttributes;
-  }
-
-  public void setOtelResourceAttributes(List<String> otelResourceAttributes) {
-    this.otelResourceAttributes = otelResourceAttributes;
   }
 
   public FleetAgentInfoDetailsV2 podName(String podName) {
@@ -1224,14 +1086,7 @@ public class FleetAgentInfoDetailsV2 {
         && Objects.equals(this.lastRestartAt, fleetAgentInfoDetailsV2.lastRestartAt)
         && Objects.equals(this.os, fleetAgentInfoDetailsV2.os)
         && Objects.equals(this.osVersion, fleetAgentInfoDetailsV2.osVersion)
-        && Objects.equals(
-            this.otelCollectorDeploymentTypes, fleetAgentInfoDetailsV2.otelCollectorDeploymentTypes)
-        && Objects.equals(
-            this.otelCollectorDistributions, fleetAgentInfoDetailsV2.otelCollectorDistributions)
-        && Objects.equals(this.otelCollectorVersions, fleetAgentInfoDetailsV2.otelCollectorVersions)
         && Objects.equals(this.otelCollectors, fleetAgentInfoDetailsV2.otelCollectors)
-        && Objects.equals(
-            this.otelResourceAttributes, fleetAgentInfoDetailsV2.otelResourceAttributes)
         && Objects.equals(this.podName, fleetAgentInfoDetailsV2.podName)
         && Objects.equals(
             this.preferredHaActiveAgent, fleetAgentInfoDetailsV2.preferredHaActiveAgent)
@@ -1274,11 +1129,7 @@ public class FleetAgentInfoDetailsV2 {
         lastRestartAt,
         os,
         osVersion,
-        otelCollectorDeploymentTypes,
-        otelCollectorDistributions,
-        otelCollectorVersions,
         otelCollectors,
-        otelResourceAttributes,
         podName,
         preferredHaActiveAgent,
         pythonVersion,
@@ -1327,19 +1178,7 @@ public class FleetAgentInfoDetailsV2 {
     sb.append("    lastRestartAt: ").append(toIndentedString(lastRestartAt)).append("\n");
     sb.append("    os: ").append(toIndentedString(os)).append("\n");
     sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
-    sb.append("    otelCollectorDeploymentTypes: ")
-        .append(toIndentedString(otelCollectorDeploymentTypes))
-        .append("\n");
-    sb.append("    otelCollectorDistributions: ")
-        .append(toIndentedString(otelCollectorDistributions))
-        .append("\n");
-    sb.append("    otelCollectorVersions: ")
-        .append(toIndentedString(otelCollectorVersions))
-        .append("\n");
     sb.append("    otelCollectors: ").append(toIndentedString(otelCollectors)).append("\n");
-    sb.append("    otelResourceAttributes: ")
-        .append(toIndentedString(otelResourceAttributes))
-        .append("\n");
     sb.append("    podName: ").append(toIndentedString(podName)).append("\n");
     sb.append("    preferredHaActiveAgent: ")
         .append(toIndentedString(preferredHaActiveAgent))
