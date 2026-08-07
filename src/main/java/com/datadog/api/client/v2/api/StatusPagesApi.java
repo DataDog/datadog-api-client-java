@@ -21,12 +21,14 @@ import com.datadog.api.client.v2.model.Maintenance;
 import com.datadog.api.client.v2.model.MaintenanceArray;
 import com.datadog.api.client.v2.model.MaintenanceTemplate;
 import com.datadog.api.client.v2.model.MaintenanceTemplateArray;
+import com.datadog.api.client.v2.model.MaintenanceUpdate;
 import com.datadog.api.client.v2.model.PatchComponentRequest;
 import com.datadog.api.client.v2.model.PatchDegradationRequest;
 import com.datadog.api.client.v2.model.PatchDegradationTemplateRequest;
 import com.datadog.api.client.v2.model.PatchDegradationUpdateRequest;
 import com.datadog.api.client.v2.model.PatchMaintenanceRequest;
 import com.datadog.api.client.v2.model.PatchMaintenanceTemplateRequest;
+import com.datadog.api.client.v2.model.PatchMaintenanceUpdateRequest;
 import com.datadog.api.client.v2.model.PatchStatusPageRequest;
 import com.datadog.api.client.v2.model.StatusPage;
 import com.datadog.api.client.v2.model.StatusPageArray;
@@ -5568,6 +5570,211 @@ public class StatusPagesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<StatusPageArray>() {});
+  }
+
+  /**
+   * Edit maintenance update.
+   *
+   * <p>See {@link #patchMaintenanceUpdateWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param updateId The ID of the maintenance update. (required)
+   * @param body (required)
+   * @return MaintenanceUpdate
+   * @throws ApiException if fails to make API call
+   */
+  public MaintenanceUpdate patchMaintenanceUpdate(
+      UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body)
+      throws ApiException {
+    return patchMaintenanceUpdateWithHttpInfo(pageId, maintenanceId, updateId, body).getData();
+  }
+
+  /**
+   * Edit maintenance update.
+   *
+   * <p>See {@link #patchMaintenanceUpdateWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param updateId The ID of the maintenance update. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;MaintenanceUpdate&gt;
+   */
+  public CompletableFuture<MaintenanceUpdate> patchMaintenanceUpdateAsync(
+      UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body) {
+    return patchMaintenanceUpdateWithHttpInfoAsync(pageId, maintenanceId, updateId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Edits the message of a specific maintenance update. Editing is allowed regardless of the parent
+   * maintenance's status, including completed and canceled maintenances.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param updateId The ID of the maintenance update. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;MaintenanceUpdate&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MaintenanceUpdate> patchMaintenanceUpdateWithHttpInfo(
+      UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling patchMaintenanceUpdate");
+    }
+
+    // verify the required parameter 'maintenanceId' is set
+    if (maintenanceId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'maintenanceId' when calling patchMaintenanceUpdate");
+    }
+
+    // verify the required parameter 'updateId' is set
+    if (updateId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'updateId' when calling patchMaintenanceUpdate");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling patchMaintenanceUpdate");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}/updates/{update_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll(
+                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()))
+            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.patchMaintenanceUpdate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MaintenanceUpdate>() {});
+  }
+
+  /**
+   * Edit maintenance update.
+   *
+   * <p>See {@link #patchMaintenanceUpdateWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param updateId The ID of the maintenance update. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MaintenanceUpdate&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MaintenanceUpdate>> patchMaintenanceUpdateWithHttpInfoAsync(
+      UUID pageId, UUID maintenanceId, UUID updateId, PatchMaintenanceUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling patchMaintenanceUpdate"));
+      return result;
+    }
+
+    // verify the required parameter 'maintenanceId' is set
+    if (maintenanceId == null) {
+      CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'maintenanceId' when calling"
+                  + " patchMaintenanceUpdate"));
+      return result;
+    }
+
+    // verify the required parameter 'updateId' is set
+    if (updateId == null) {
+      CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'updateId' when calling patchMaintenanceUpdate"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling patchMaintenanceUpdate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}/updates/{update_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll(
+                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()))
+            .replaceAll("\\{" + "update_id" + "\\}", apiClient.escapeString(updateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.patchMaintenanceUpdate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MaintenanceUpdate>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MaintenanceUpdate>() {});
   }
 
   /**
