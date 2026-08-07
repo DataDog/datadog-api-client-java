@@ -1320,9 +1320,6 @@ public class ApiClient {
           put("v2.createRumConfig", false);
           put("v2.getRumConfig", false);
           put("v2.updateRumConfig", false);
-          put("v2.deleteRumRateLimitConfig", false);
-          put("v2.getRumRateLimitConfig", false);
-          put("v2.updateRumRateLimitConfig", false);
           put("v2.createRUMOperation", false);
           put("v2.createRUMOperationStrongLink", false);
           put("v2.deleteRUMOperation", false);
