@@ -22,6 +22,7 @@ import java.util.UUID;
 @JsonPropertyOrder({
   PatchDegradationRequestData.JSON_PROPERTY_ATTRIBUTES,
   PatchDegradationRequestData.JSON_PROPERTY_ID,
+  PatchDegradationRequestData.JSON_PROPERTY_META,
   PatchDegradationRequestData.JSON_PROPERTY_RELATIONSHIPS,
   PatchDegradationRequestData.JSON_PROPERTY_TYPE
 })
@@ -34,6 +35,9 @@ public class PatchDegradationRequestData {
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private DegradationRequestDataMeta meta;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private PatchDegradationRequestDataRelationships relationships;
@@ -99,6 +103,31 @@ public class PatchDegradationRequestData {
 
   public void setId(UUID id) {
     this.id = id;
+  }
+
+  public PatchDegradationRequestData meta(DegradationRequestDataMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * The supported metadata for a degradation request.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DegradationRequestDataMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(DegradationRequestDataMeta meta) {
+    this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
+    }
   }
 
   public PatchDegradationRequestData relationships(
@@ -209,6 +238,7 @@ public class PatchDegradationRequestData {
     PatchDegradationRequestData patchDegradationRequestData = (PatchDegradationRequestData) o;
     return Objects.equals(this.attributes, patchDegradationRequestData.attributes)
         && Objects.equals(this.id, patchDegradationRequestData.id)
+        && Objects.equals(this.meta, patchDegradationRequestData.meta)
         && Objects.equals(this.relationships, patchDegradationRequestData.relationships)
         && Objects.equals(this.type, patchDegradationRequestData.type)
         && Objects.equals(
@@ -217,7 +247,7 @@ public class PatchDegradationRequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, id, meta, relationships, type, additionalProperties);
   }
 
   @Override
@@ -226,6 +256,7 @@ public class PatchDegradationRequestData {
     sb.append("class PatchDegradationRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
