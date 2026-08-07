@@ -27,7 +27,6 @@ import java.util.Objects;
   GovernanceControlAttributes.JSON_PROPERTY_CREATED_AT,
   GovernanceControlAttributes.JSON_PROPERTY_CREATED_BY,
   GovernanceControlAttributes.JSON_PROPERTY_DESCRIPTION,
-  GovernanceControlAttributes.JSON_PROPERTY_DETECTION_FREQUENCY,
   GovernanceControlAttributes.JSON_PROPERTY_DETECTION_PARAMETERS,
   GovernanceControlAttributes.JSON_PROPERTY_INSIGHTS,
   GovernanceControlAttributes.JSON_PROPERTY_LAST_DETECTION_AT,
@@ -61,9 +60,6 @@ public class GovernanceControlAttributes {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
-
-  public static final String JSON_PROPERTY_DETECTION_FREQUENCY = "detection_frequency";
-  private String detectionFrequency;
 
   public static final String JSON_PROPERTY_DETECTION_PARAMETERS = "detection_parameters";
   private Map<String, Object> detectionParameters = new HashMap<String, Object>();
@@ -121,8 +117,6 @@ public class GovernanceControlAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_FREQUENCY)
-          String detectionFrequency,
       @JsonProperty(required = true, value = JSON_PROPERTY_DETECTION_PARAMETERS)
           Map<String, Object> detectionParameters,
       @JsonProperty(required = true, value = JSON_PROPERTY_INSIGHTS) List<String> insights,
@@ -149,7 +143,6 @@ public class GovernanceControlAttributes {
     this.createdAt = createdAt;
     this.createdBy = createdBy;
     this.description = description;
-    this.detectionFrequency = detectionFrequency;
     this.detectionParameters = detectionParameters;
     this.insights = insights;
     this.lastDetectionAt = lastDetectionAt;
@@ -272,26 +265,6 @@ public class GovernanceControlAttributes {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public GovernanceControlAttributes detectionFrequency(String detectionFrequency) {
-    this.detectionFrequency = detectionFrequency;
-    return this;
-  }
-
-  /**
-   * How often detections are evaluated for the control.
-   *
-   * @return detectionFrequency
-   */
-  @JsonProperty(JSON_PROPERTY_DETECTION_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDetectionFrequency() {
-    return detectionFrequency;
-  }
-
-  public void setDetectionFrequency(String detectionFrequency) {
-    this.detectionFrequency = detectionFrequency;
   }
 
   public GovernanceControlAttributes detectionParameters(Map<String, Object> detectionParameters) {
@@ -690,7 +663,6 @@ public class GovernanceControlAttributes {
         && Objects.equals(this.createdAt, governanceControlAttributes.createdAt)
         && Objects.equals(this.createdBy, governanceControlAttributes.createdBy)
         && Objects.equals(this.description, governanceControlAttributes.description)
-        && Objects.equals(this.detectionFrequency, governanceControlAttributes.detectionFrequency)
         && Objects.equals(this.detectionParameters, governanceControlAttributes.detectionParameters)
         && Objects.equals(this.insights, governanceControlAttributes.insights)
         && Objects.equals(this.lastDetectionAt, governanceControlAttributes.lastDetectionAt)
@@ -722,7 +694,6 @@ public class GovernanceControlAttributes {
         createdAt,
         createdBy,
         description,
-        detectionFrequency,
         detectionParameters,
         insights,
         lastDetectionAt,
@@ -751,7 +722,6 @@ public class GovernanceControlAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    detectionFrequency: ").append(toIndentedString(detectionFrequency)).append("\n");
     sb.append("    detectionParameters: ")
         .append(toIndentedString(detectionParameters))
         .append("\n");
