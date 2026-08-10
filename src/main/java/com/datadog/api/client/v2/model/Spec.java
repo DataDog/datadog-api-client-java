@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The spec defines what the workflow does. */
+/** A complete Workflow Automation definition, including its triggers, steps, and connections. */
 @JsonPropertyOrder({
   Spec.JSON_PROPERTY_ANNOTATIONS,
   Spec.JSON_PROPERTY_CONNECTION_ENVS,
