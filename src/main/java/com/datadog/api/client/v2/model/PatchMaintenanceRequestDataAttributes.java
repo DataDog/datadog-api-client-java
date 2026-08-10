@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The supported attributes for updating a maintenance. */
 @JsonPropertyOrder({
+  PatchMaintenanceRequestDataAttributes.JSON_PROPERTY_CANCELED_DESCRIPTION,
   PatchMaintenanceRequestDataAttributes.JSON_PROPERTY_COMPLETED_DATE,
   PatchMaintenanceRequestDataAttributes.JSON_PROPERTY_COMPLETED_DESCRIPTION,
   PatchMaintenanceRequestDataAttributes.JSON_PROPERTY_COMPONENTS_AFFECTED,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PatchMaintenanceRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CANCELED_DESCRIPTION = "canceled_description";
+  private String canceledDescription;
+
   public static final String JSON_PROPERTY_COMPLETED_DATE = "completed_date";
   private OffsetDateTime completedDate;
 
@@ -58,6 +62,27 @@ public class PatchMaintenanceRequestDataAttributes {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public PatchMaintenanceRequestDataAttributes canceledDescription(String canceledDescription) {
+    this.canceledDescription = canceledDescription;
+    return this;
+  }
+
+  /**
+   * The description shown when the maintenance is canceled.
+   *
+   * @return canceledDescription
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CANCELED_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCanceledDescription() {
+    return canceledDescription;
+  }
+
+  public void setCanceledDescription(String canceledDescription) {
+    this.canceledDescription = canceledDescription;
+  }
 
   public PatchMaintenanceRequestDataAttributes completedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
@@ -311,7 +336,9 @@ public class PatchMaintenanceRequestDataAttributes {
     }
     PatchMaintenanceRequestDataAttributes patchMaintenanceRequestDataAttributes =
         (PatchMaintenanceRequestDataAttributes) o;
-    return Objects.equals(this.completedDate, patchMaintenanceRequestDataAttributes.completedDate)
+    return Objects.equals(
+            this.canceledDescription, patchMaintenanceRequestDataAttributes.canceledDescription)
+        && Objects.equals(this.completedDate, patchMaintenanceRequestDataAttributes.completedDate)
         && Objects.equals(
             this.completedDescription, patchMaintenanceRequestDataAttributes.completedDescription)
         && Objects.equals(
@@ -330,6 +357,7 @@ public class PatchMaintenanceRequestDataAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        canceledDescription,
         completedDate,
         completedDescription,
         componentsAffected,
@@ -345,6 +373,9 @@ public class PatchMaintenanceRequestDataAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PatchMaintenanceRequestDataAttributes {\n");
+    sb.append("    canceledDescription: ")
+        .append(toIndentedString(canceledDescription))
+        .append("\n");
     sb.append("    completedDate: ").append(toIndentedString(completedDate)).append("\n");
     sb.append("    completedDescription: ")
         .append(toIndentedString(completedDescription))
