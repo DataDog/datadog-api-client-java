@@ -1219,6 +1219,11 @@ public class ApiClient {
           put("v2.updateJiraIssueTemplate", false);
           put("v2.createTenancyConfig", false);
           put("v2.getTenancyConfigs", false);
+          put("v2.createIntegrationAccount", false);
+          put("v2.deleteIntegrationAccount", false);
+          put("v2.getIntegrationAccount", false);
+          put("v2.listIntegrationAccounts", false);
+          put("v2.updateIntegrationAccount", false);
           put("v2.addRoleToRestrictionQuery", false);
           put("v2.createRestrictionQuery", false);
           put("v2.deleteRestrictionQuery", false);
