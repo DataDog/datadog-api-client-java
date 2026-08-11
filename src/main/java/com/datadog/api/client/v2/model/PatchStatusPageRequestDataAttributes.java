@@ -21,7 +21,6 @@ import java.util.Objects;
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_COMPANY_LOGO,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_DOMAIN_PREFIX,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_EMAIL_HEADER_IMAGE,
-  PatchStatusPageRequestDataAttributes.JSON_PROPERTY_ENABLED,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_FAVICON,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_NAME,
   PatchStatusPageRequestDataAttributes.JSON_PROPERTY_SLACK_APP_ICON,
@@ -42,9 +41,6 @@ public class PatchStatusPageRequestDataAttributes {
 
   public static final String JSON_PROPERTY_EMAIL_HEADER_IMAGE = "email_header_image";
   private String emailHeaderImage;
-
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private Boolean enabled;
 
   public static final String JSON_PROPERTY_FAVICON = "favicon";
   private String favicon;
@@ -131,27 +127,6 @@ public class PatchStatusPageRequestDataAttributes {
 
   public void setEmailHeaderImage(String emailHeaderImage) {
     this.emailHeaderImage = emailHeaderImage;
-  }
-
-  public PatchStatusPageRequestDataAttributes enabled(Boolean enabled) {
-    this.enabled = enabled;
-    return this;
-  }
-
-  /**
-   * Whether the status page is enabled.
-   *
-   * @return enabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
   }
 
   public PatchStatusPageRequestDataAttributes favicon(String favicon) {
@@ -373,7 +348,6 @@ public class PatchStatusPageRequestDataAttributes {
         && Objects.equals(this.domainPrefix, patchStatusPageRequestDataAttributes.domainPrefix)
         && Objects.equals(
             this.emailHeaderImage, patchStatusPageRequestDataAttributes.emailHeaderImage)
-        && Objects.equals(this.enabled, patchStatusPageRequestDataAttributes.enabled)
         && Objects.equals(this.favicon, patchStatusPageRequestDataAttributes.favicon)
         && Objects.equals(this.name, patchStatusPageRequestDataAttributes.name)
         && Objects.equals(this.slackAppIcon, patchStatusPageRequestDataAttributes.slackAppIcon)
@@ -395,7 +369,6 @@ public class PatchStatusPageRequestDataAttributes {
         companyLogo,
         domainPrefix,
         emailHeaderImage,
-        enabled,
         favicon,
         name,
         slackAppIcon,
@@ -413,7 +386,6 @@ public class PatchStatusPageRequestDataAttributes {
     sb.append("    companyLogo: ").append(toIndentedString(companyLogo)).append("\n");
     sb.append("    domainPrefix: ").append(toIndentedString(domainPrefix)).append("\n");
     sb.append("    emailHeaderImage: ").append(toIndentedString(emailHeaderImage)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    favicon: ").append(toIndentedString(favicon)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    slackAppIcon: ").append(toIndentedString(slackAppIcon)).append("\n");
