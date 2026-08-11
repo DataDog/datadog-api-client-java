@@ -87,7 +87,7 @@ public class GithubWebhookTriggerWrapper {
   }
 
   /**
-   * A list of steps that run first after a trigger fires.
+   * Names of existing workflow steps that run first after a trigger fires.
    *
    * @return startStepNames
    */

@@ -153,7 +153,7 @@ public class WorkflowDataAttributes {
   }
 
   /**
-   * The spec defines what the workflow does.
+   * A complete Workflow Automation definition, including its triggers, steps, and connections.
    *
    * @return spec
    */
