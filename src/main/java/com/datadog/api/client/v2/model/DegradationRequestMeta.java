@@ -15,70 +15,36 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** Request object for updating a degradation. */
-@JsonPropertyOrder({
-  PatchDegradationRequest.JSON_PROPERTY_DATA,
-  PatchDegradationRequest.JSON_PROPERTY_META
-})
+/** The supported metadata for a degradation request. */
+@JsonPropertyOrder({DegradationRequestMeta.JSON_PROPERTY_IDEMPOTENCY_KEY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class PatchDegradationRequest {
+public class DegradationRequestMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private PatchDegradationRequestData data;
+  public static final String JSON_PROPERTY_IDEMPOTENCY_KEY = "idempotency_key";
+  private UUID idempotencyKey;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private DegradationRequestMeta meta;
-
-  public PatchDegradationRequest data(PatchDegradationRequestData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public DegradationRequestMeta idempotencyKey(UUID idempotencyKey) {
+    this.idempotencyKey = idempotencyKey;
     return this;
   }
 
   /**
-   * The data object for updating a degradation.
+   * A unique key used to ensure idempotent requests.
    *
-   * @return data
+   * @return idempotencyKey
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_IDEMPOTENCY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PatchDegradationRequestData getData() {
-    return data;
+  public UUID getIdempotencyKey() {
+    return idempotencyKey;
   }
 
-  public void setData(PatchDegradationRequestData data) {
-    this.data = data;
-    if (data != null) {
-      this.unparsed |= data.unparsed;
-    }
-  }
-
-  public PatchDegradationRequest meta(DegradationRequestMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * The supported metadata for a degradation request.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DegradationRequestMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(DegradationRequestMeta meta) {
-    this.meta = meta;
-    if (meta != null) {
-      this.unparsed |= meta.unparsed;
-    }
+  public void setIdempotencyKey(UUID idempotencyKey) {
+    this.idempotencyKey = idempotencyKey;
   }
 
   /**
@@ -93,10 +59,10 @@ public class PatchDegradationRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return PatchDegradationRequest
+   * @return DegradationRequestMeta
    */
   @JsonAnySetter
-  public PatchDegradationRequest putAdditionalProperty(String key, Object value) {
+  public DegradationRequestMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -127,7 +93,7 @@ public class PatchDegradationRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this PatchDegradationRequest object is equal to o. */
+  /** Return true if this DegradationRequestMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,23 +102,21 @@ public class PatchDegradationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PatchDegradationRequest patchDegradationRequest = (PatchDegradationRequest) o;
-    return Objects.equals(this.data, patchDegradationRequest.data)
-        && Objects.equals(this.meta, patchDegradationRequest.meta)
-        && Objects.equals(this.additionalProperties, patchDegradationRequest.additionalProperties);
+    DegradationRequestMeta degradationRequestMeta = (DegradationRequestMeta) o;
+    return Objects.equals(this.idempotencyKey, degradationRequestMeta.idempotencyKey)
+        && Objects.equals(this.additionalProperties, degradationRequestMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(idempotencyKey, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PatchDegradationRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("class DegradationRequestMeta {\n");
+    sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
