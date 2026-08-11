@@ -17,13 +17,19 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Request object for creating a degradation. */
-@JsonPropertyOrder({CreateDegradationRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  CreateDegradationRequest.JSON_PROPERTY_DATA,
+  CreateDegradationRequest.JSON_PROPERTY_META
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateDegradationRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private CreateDegradationRequestData data;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private DegradationRequestMeta meta;
 
   public CreateDegradationRequest data(CreateDegradationRequestData data) {
     this.data = data;
@@ -47,6 +53,31 @@ public class CreateDegradationRequest {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;
+    }
+  }
+
+  public CreateDegradationRequest meta(DegradationRequestMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * The supported metadata for a degradation request.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DegradationRequestMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(DegradationRequestMeta meta) {
+    this.meta = meta;
+    if (meta != null) {
+      this.unparsed |= meta.unparsed;
     }
   }
 
@@ -107,12 +138,13 @@ public class CreateDegradationRequest {
     }
     CreateDegradationRequest createDegradationRequest = (CreateDegradationRequest) o;
     return Objects.equals(this.data, createDegradationRequest.data)
+        && Objects.equals(this.meta, createDegradationRequest.meta)
         && Objects.equals(this.additionalProperties, createDegradationRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(data, meta, additionalProperties);
   }
 
   @Override
@@ -120,6 +152,7 @@ public class CreateDegradationRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDegradationRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
