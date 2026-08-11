@@ -25,6 +25,7 @@ import java.util.UUID;
   FormVersionAttributes.JSON_PROPERTY_DATA_DEFINITION,
   FormVersionAttributes.JSON_PROPERTY_DEFINITION_SIGNATURE,
   FormVersionAttributes.JSON_PROPERTY_ETAG,
+  FormVersionAttributes.JSON_PROPERTY_HAS_EVER_BEEN_PUBLISHED,
   FormVersionAttributes.JSON_PROPERTY_ID,
   FormVersionAttributes.JSON_PROPERTY_MODIFIED_AT,
   FormVersionAttributes.JSON_PROPERTY_STATE,
@@ -48,6 +49,9 @@ public class FormVersionAttributes {
 
   public static final String JSON_PROPERTY_ETAG = "etag";
   private String etag;
+
+  public static final String JSON_PROPERTY_HAS_EVER_BEEN_PUBLISHED = "has_ever_been_published";
+  private Boolean hasEverBeenPublished;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -187,6 +191,27 @@ public class FormVersionAttributes {
 
   public void setEtag(String etag) {
     this.etag = etag;
+  }
+
+  public FormVersionAttributes hasEverBeenPublished(Boolean hasEverBeenPublished) {
+    this.hasEverBeenPublished = hasEverBeenPublished;
+    return this;
+  }
+
+  /**
+   * Whether this version number has ever appeared in the form's publication history.
+   *
+   * @return hasEverBeenPublished
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HAS_EVER_BEEN_PUBLISHED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasEverBeenPublished() {
+    return hasEverBeenPublished;
+  }
+
+  public void setHasEverBeenPublished(Boolean hasEverBeenPublished) {
+    this.hasEverBeenPublished = hasEverBeenPublished;
   }
 
   public FormVersionAttributes id(String id) {
@@ -399,6 +424,7 @@ public class FormVersionAttributes {
         && Objects.equals(this.dataDefinition, formVersionAttributes.dataDefinition)
         && Objects.equals(this.definitionSignature, formVersionAttributes.definitionSignature)
         && Objects.equals(this.etag, formVersionAttributes.etag)
+        && Objects.equals(this.hasEverBeenPublished, formVersionAttributes.hasEverBeenPublished)
         && Objects.equals(this.id, formVersionAttributes.id)
         && Objects.equals(this.modifiedAt, formVersionAttributes.modifiedAt)
         && Objects.equals(this.state, formVersionAttributes.state)
@@ -416,6 +442,7 @@ public class FormVersionAttributes {
         dataDefinition,
         definitionSignature,
         etag,
+        hasEverBeenPublished,
         id,
         modifiedAt,
         state,
@@ -436,6 +463,9 @@ public class FormVersionAttributes {
         .append(toIndentedString(definitionSignature))
         .append("\n");
     sb.append("    etag: ").append(toIndentedString(etag)).append("\n");
+    sb.append("    hasEverBeenPublished: ")
+        .append(toIndentedString(hasEverBeenPublished))
+        .append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
