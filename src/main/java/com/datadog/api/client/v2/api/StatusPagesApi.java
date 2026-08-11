@@ -7675,10 +7675,9 @@ public class StatusPagesApi {
   }
 
   /**
-   * Updates an existing status page's attributes. <strong>Note</strong>: Publishing and
-   * unpublishing via the <code>enabled</code> property will be deprecated on this endpoint. Use the
+   * Updates an existing status page's attributes. To publish and unpublish status pages, use the
    * dedicated <a href="#publish-status-page">publish</a> and <a
-   * href="#unpublish-status-page">unpublish</a> status page endpoints instead.
+   * href="#unpublish-status-page">unpublish</a> status page endpoints.
    *
    * @param pageId The ID of the status page. (required)
    * @param body (required)
