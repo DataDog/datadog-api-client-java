@@ -29,6 +29,7 @@ import java.util.Objects;
   LLMObsPatternsClusteredPointRef.JSON_PROPERTY_OUTPUT_TOKENS,
   LLMObsPatternsClusteredPointRef.JSON_PROPERTY_SPAN_ID,
   LLMObsPatternsClusteredPointRef.JSON_PROPERTY_STATUS,
+  LLMObsPatternsClusteredPointRef.JSON_PROPERTY_TIMESTAMP,
   LLMObsPatternsClusteredPointRef.JSON_PROPERTY_TOTAL_TOKENS
 })
 @jakarta.annotation.Generated(
@@ -55,6 +56,9 @@ public class LLMObsPatternsClusteredPointRef {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
+
+  public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
+  private Long timestamp;
 
   public static final String JSON_PROPERTY_TOTAL_TOKENS = "total_tokens";
   private Double totalTokens;
@@ -222,6 +226,27 @@ public class LLMObsPatternsClusteredPointRef {
     this.status = status;
   }
 
+  public LLMObsPatternsClusteredPointRef timestamp(Long timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * Unix timestamp of the source span in milliseconds. Included only when metrics are requested.
+   *
+   * @return timestamp
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(Long timestamp) {
+    this.timestamp = timestamp;
+  }
+
   public LLMObsPatternsClusteredPointRef totalTokens(Double totalTokens) {
     this.totalTokens = totalTokens;
     return this;
@@ -308,6 +333,7 @@ public class LLMObsPatternsClusteredPointRef {
         && Objects.equals(this.outputTokens, llmObsPatternsClusteredPointRef.outputTokens)
         && Objects.equals(this.spanId, llmObsPatternsClusteredPointRef.spanId)
         && Objects.equals(this.status, llmObsPatternsClusteredPointRef.status)
+        && Objects.equals(this.timestamp, llmObsPatternsClusteredPointRef.timestamp)
         && Objects.equals(this.totalTokens, llmObsPatternsClusteredPointRef.totalTokens)
         && Objects.equals(
             this.additionalProperties, llmObsPatternsClusteredPointRef.additionalProperties);
@@ -323,6 +349,7 @@ public class LLMObsPatternsClusteredPointRef {
         outputTokens,
         spanId,
         status,
+        timestamp,
         totalTokens,
         additionalProperties);
   }
@@ -338,6 +365,7 @@ public class LLMObsPatternsClusteredPointRef {
     sb.append("    outputTokens: ").append(toIndentedString(outputTokens)).append("\n");
     sb.append("    spanId: ").append(toIndentedString(spanId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    totalTokens: ").append(toIndentedString(totalTokens)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
