@@ -68,7 +68,7 @@ public class PatchTableRequestDataAttributesSchema {
   }
 
   /**
-   * The schema fields.
+   * The schema fields. Maximum of 200 columns.
    *
    * @return fields
    */
