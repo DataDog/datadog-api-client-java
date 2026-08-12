@@ -49,7 +49,8 @@ public class MonitorType extends ModelEnum<String> {
               "cost alert",
               "data-quality alert",
               "network-path alert",
-              "data-jobs alert"));
+              "data-jobs alert",
+              "llm-observability alert"));
 
   public static final MonitorType COMPOSITE = new MonitorType("composite");
   public static final MonitorType EVENT_ALERT = new MonitorType("event alert");
@@ -75,6 +76,8 @@ public class MonitorType extends ModelEnum<String> {
   public static final MonitorType DATA_QUALITY_ALERT = new MonitorType("data-quality alert");
   public static final MonitorType NETWORK_PATH_ALERT = new MonitorType("network-path alert");
   public static final MonitorType DATA_JOBS_ALERT = new MonitorType("data-jobs alert");
+  public static final MonitorType LLM_OBSERVABILITY_ALERT =
+      new MonitorType("llm-observability alert");
 
   MonitorType(String value) {
     super(value, allowedValues);
