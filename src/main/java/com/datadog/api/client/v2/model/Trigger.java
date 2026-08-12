@@ -77,6 +77,50 @@ public class Trigger extends AbstractOpenApiSchema {
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize AgentTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (AgentTriggerWrapper.class.equals(Integer.class)
+            || AgentTriggerWrapper.class.equals(Long.class)
+            || AgentTriggerWrapper.class.equals(Float.class)
+            || AgentTriggerWrapper.class.equals(Double.class)
+            || AgentTriggerWrapper.class.equals(Boolean.class)
+            || AgentTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((AgentTriggerWrapper.class.equals(Integer.class)
+                        || AgentTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((AgentTriggerWrapper.class.equals(Float.class)
+                        || AgentTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (AgentTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (AgentTriggerWrapper.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(AgentTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((AgentTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'AgentTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'AgentTriggerWrapper'", e);
+      }
+
       // deserialize APITriggerWrapper
       try {
         boolean attemptParsing = true;
@@ -956,6 +1000,11 @@ public class Trigger extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
+  public Trigger(AgentTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public Trigger(APITriggerWrapper o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1052,6 +1101,7 @@ public class Trigger extends AbstractOpenApiSchema {
   }
 
   static {
+    schemas.put("AgentTriggerWrapper", new GenericType<AgentTriggerWrapper>() {});
     schemas.put("APITriggerWrapper", new GenericType<APITriggerWrapper>() {});
     schemas.put("AppTriggerWrapper", new GenericType<AppTriggerWrapper>() {});
     schemas.put("CaseTriggerWrapper", new GenericType<CaseTriggerWrapper>() {});
@@ -1083,18 +1133,23 @@ public class Trigger extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: APITriggerWrapper, AppTriggerWrapper, CaseTriggerWrapper,
-   * ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper, DatastoreTriggerWrapper,
-   * DashboardTriggerWrapper, FormTriggerWrapper, GithubWebhookTriggerWrapper,
-   * IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper,
-   * ScheduleTriggerWrapper, SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
-   * SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper
+   * against the oneOf child schemas: AgentTriggerWrapper, APITriggerWrapper, AppTriggerWrapper,
+   * CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,
+   * DatastoreTriggerWrapper, DashboardTriggerWrapper, FormTriggerWrapper,
+   * GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
+   * NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
+   * SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
+   * WorkflowTriggerWrapper
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(AgentTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(APITriggerWrapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1178,8 +1233,8 @@ public class Trigger extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be APITriggerWrapper, AppTriggerWrapper, CaseTriggerWrapper,"
-            + " ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,"
+        "Invalid instance type. Must be AgentTriggerWrapper, APITriggerWrapper, AppTriggerWrapper,"
+            + " CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,"
             + " DatastoreTriggerWrapper, DashboardTriggerWrapper, FormTriggerWrapper,"
             + " GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,"
             + " NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,"
@@ -1188,25 +1243,36 @@ public class Trigger extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance, which can be the following: APITriggerWrapper, AppTriggerWrapper,
-   * CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,
-   * DatastoreTriggerWrapper, DashboardTriggerWrapper, FormTriggerWrapper,
-   * GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
+   * Get the actual instance, which can be the following: AgentTriggerWrapper, APITriggerWrapper,
+   * AppTriggerWrapper, CaseTriggerWrapper, ChangeEventTriggerWrapper,
+   * DatabaseMonitoringTriggerWrapper, DatastoreTriggerWrapper, DashboardTriggerWrapper,
+   * FormTriggerWrapper, GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
    * NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
    * SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
    * WorkflowTriggerWrapper
    *
-   * @return The actual instance (APITriggerWrapper, AppTriggerWrapper, CaseTriggerWrapper,
-   *     ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper, DatastoreTriggerWrapper,
-   *     DashboardTriggerWrapper, FormTriggerWrapper, GithubWebhookTriggerWrapper,
-   *     IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper,
-   *     OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
-   *     SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
-   *     WorkflowTriggerWrapper)
+   * @return The actual instance (AgentTriggerWrapper, APITriggerWrapper, AppTriggerWrapper,
+   *     CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,
+   *     DatastoreTriggerWrapper, DashboardTriggerWrapper, FormTriggerWrapper,
+   *     GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
+   *     NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,
+   *     SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
+   *     SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `AgentTriggerWrapper`. If the actual instance is not
+   * `AgentTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `AgentTriggerWrapper`
+   * @throws ClassCastException if the instance is not `AgentTriggerWrapper`
+   */
+  public AgentTriggerWrapper getAgentTriggerWrapper() throws ClassCastException {
+    return (AgentTriggerWrapper) super.getActualInstance();
   }
 
   /**
