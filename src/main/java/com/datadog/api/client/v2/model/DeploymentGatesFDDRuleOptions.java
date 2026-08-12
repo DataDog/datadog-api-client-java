@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Options for a <code>faulty_deployment_detection</code> rule. */
 @JsonPropertyOrder({
+  DeploymentGatesFDDRuleOptions.JSON_PROPERTY_ALLOWED_RESOURCES,
   DeploymentGatesFDDRuleOptions.JSON_PROPERTY_DURATION,
   DeploymentGatesFDDRuleOptions.JSON_PROPERTY_EXCLUDED_RESOURCES
 })
@@ -27,11 +28,44 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DeploymentGatesFDDRuleOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ALLOWED_RESOURCES = "allowed_resources";
+  private List<String> allowedResources = null;
+
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Long duration;
 
   public static final String JSON_PROPERTY_EXCLUDED_RESOURCES = "excluded_resources";
   private List<String> excludedResources = null;
+
+  public DeploymentGatesFDDRuleOptions allowedResources(List<String> allowedResources) {
+    this.allowedResources = allowedResources;
+    return this;
+  }
+
+  public DeploymentGatesFDDRuleOptions addAllowedResourcesItem(String allowedResourcesItem) {
+    if (this.allowedResources == null) {
+      this.allowedResources = new ArrayList<>();
+    }
+    this.allowedResources.add(allowedResourcesItem);
+    return this;
+  }
+
+  /**
+   * APM resource names to include in analysis. Mutually exclusive with <code>excluded_resources
+   * </code>.
+   *
+   * @return allowedResources
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOWED_RESOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getAllowedResources() {
+    return allowedResources;
+  }
+
+  public void setAllowedResources(List<String> allowedResources) {
+    this.allowedResources = allowedResources;
+  }
 
   public DeploymentGatesFDDRuleOptions duration(Long duration) {
     this.duration = duration;
@@ -139,7 +173,8 @@ public class DeploymentGatesFDDRuleOptions {
       return false;
     }
     DeploymentGatesFDDRuleOptions deploymentGatesFddRuleOptions = (DeploymentGatesFDDRuleOptions) o;
-    return Objects.equals(this.duration, deploymentGatesFddRuleOptions.duration)
+    return Objects.equals(this.allowedResources, deploymentGatesFddRuleOptions.allowedResources)
+        && Objects.equals(this.duration, deploymentGatesFddRuleOptions.duration)
         && Objects.equals(this.excludedResources, deploymentGatesFddRuleOptions.excludedResources)
         && Objects.equals(
             this.additionalProperties, deploymentGatesFddRuleOptions.additionalProperties);
@@ -147,13 +182,14 @@ public class DeploymentGatesFDDRuleOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, excludedResources, additionalProperties);
+    return Objects.hash(allowedResources, duration, excludedResources, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeploymentGatesFDDRuleOptions {\n");
+    sb.append("    allowedResources: ").append(toIndentedString(allowedResources)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    excludedResources: ").append(toIndentedString(excludedResources)).append("\n");
     sb.append("    additionalProperties: ")

@@ -16,6 +16,7 @@ import java.util.Objects;
 
 /** Faulty deployment detection options for deployment rules. */
 @JsonPropertyOrder({
+  DeploymentRuleOptionsFaultyDeploymentDetection.JSON_PROPERTY_ALLOWED_RESOURCES,
   DeploymentRuleOptionsFaultyDeploymentDetection.JSON_PROPERTY_DURATION,
   DeploymentRuleOptionsFaultyDeploymentDetection.JSON_PROPERTY_EXCLUDED_RESOURCES
 })
@@ -23,11 +24,46 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DeploymentRuleOptionsFaultyDeploymentDetection {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ALLOWED_RESOURCES = "allowed_resources";
+  private List<String> allowedResources = null;
+
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Long duration;
 
   public static final String JSON_PROPERTY_EXCLUDED_RESOURCES = "excluded_resources";
   private List<String> excludedResources = null;
+
+  public DeploymentRuleOptionsFaultyDeploymentDetection allowedResources(
+      List<String> allowedResources) {
+    this.allowedResources = allowedResources;
+    return this;
+  }
+
+  public DeploymentRuleOptionsFaultyDeploymentDetection addAllowedResourcesItem(
+      String allowedResourcesItem) {
+    if (this.allowedResources == null) {
+      this.allowedResources = new ArrayList<>();
+    }
+    this.allowedResources.add(allowedResourcesItem);
+    return this;
+  }
+
+  /**
+   * Resources to include in faulty deployment detection. Mutually exclusive with <code>
+   * excluded_resources</code>.
+   *
+   * @return allowedResources
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOWED_RESOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getAllowedResources() {
+    return allowedResources;
+  }
+
+  public void setAllowedResources(List<String> allowedResources) {
+    this.allowedResources = allowedResources;
+  }
 
   public DeploymentRuleOptionsFaultyDeploymentDetection duration(Long duration) {
     this.duration = duration;
@@ -92,7 +128,9 @@ public class DeploymentRuleOptionsFaultyDeploymentDetection {
     }
     DeploymentRuleOptionsFaultyDeploymentDetection deploymentRuleOptionsFaultyDeploymentDetection =
         (DeploymentRuleOptionsFaultyDeploymentDetection) o;
-    return Objects.equals(this.duration, deploymentRuleOptionsFaultyDeploymentDetection.duration)
+    return Objects.equals(
+            this.allowedResources, deploymentRuleOptionsFaultyDeploymentDetection.allowedResources)
+        && Objects.equals(this.duration, deploymentRuleOptionsFaultyDeploymentDetection.duration)
         && Objects.equals(
             this.excludedResources,
             deploymentRuleOptionsFaultyDeploymentDetection.excludedResources);
@@ -100,13 +138,14 @@ public class DeploymentRuleOptionsFaultyDeploymentDetection {
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, excludedResources);
+    return Objects.hash(allowedResources, duration, excludedResources);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeploymentRuleOptionsFaultyDeploymentDetection {\n");
+    sb.append("    allowedResources: ").append(toIndentedString(allowedResources)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    excludedResources: ").append(toIndentedString(excludedResources)).append("\n");
     sb.append('}');
