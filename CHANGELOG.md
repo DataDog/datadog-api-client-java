@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## 2.59.0/2026-08-12
+
+### Changed
+* 200 col lim explicit in api docs [#4175](https://github.com/DataDog/datadog-api-client-java/pull/4175)
+* Add GET/PATCH /api/v2/ci/github/accounts to CI Visibility spec [#4164](https://github.com/DataDog/datadog-api-client-java/pull/4164)
+* Mark supported_values as nullable and remove unused detection_frequency in Governance Console API [#4161](https://github.com/DataDog/datadog-api-client-java/pull/4161)
+
+### Added
+* Add llm-observability alert monitor type [#4174](https://github.com/DataDog/datadog-api-client-java/pull/4174)
+* Add allowed_resources to Deployment Gates FDD rule options [#4173](https://github.com/DataDog/datadog-api-client-java/pull/4173)
+* Document meta.idempotency_key in CreateDegradation and UpdateDegradation [#4167](https://github.com/DataDog/datadog-api-client-java/pull/4167)
+*  Add spec for maintenance update edit endpoint [#4158](https://github.com/DataDog/datadog-api-client-java/pull/4158)
+* Document PATCH /api/v2/dora/deployments [#4154](https://github.com/DataDog/datadog-api-client-java/pull/4154)
+
+### Removed
+* Update Status Pages UpdateStatusPage documentation to reflect enabled attribute deprecation [#4171](https://github.com/DataDog/datadog-api-client-java/pull/4171)
+* Make RUM rate limit config API private pending rename [#4165](https://github.com/DataDog/datadog-api-client-java/pull/4165)
+
+### Fixed
+* Remove redundant otel fields from Fleet Automation v2 agent detail endpoint [#4163](https://github.com/DataDog/datadog-api-client-java/pull/4163)
+
 ## 2.58.0/2026-08-06
 
 ### Fixed
