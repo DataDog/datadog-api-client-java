@@ -61,7 +61,8 @@ public class DORADeploymentPatchRequestAttributes {
 
   /**
    * Remediation details for the deployment. Optional, but required to calculate failed deployment
-   * recovery time.
+   * recovery time. Specify either <code>id</code> or <code>version</code> to identify the
+   * remediation deployment, but not both.
    *
    * @return remediation
    */

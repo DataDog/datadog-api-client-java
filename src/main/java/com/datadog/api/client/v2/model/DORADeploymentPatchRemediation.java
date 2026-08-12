@@ -18,11 +18,13 @@ import java.util.Objects;
 
 /**
  * Remediation details for the deployment. Optional, but required to calculate failed deployment
- * recovery time.
+ * recovery time. Specify either <code>id</code> or <code>version</code> to identify the remediation
+ * deployment, but not both.
  */
 @JsonPropertyOrder({
   DORADeploymentPatchRemediation.JSON_PROPERTY_ID,
-  DORADeploymentPatchRemediation.JSON_PROPERTY_TYPE
+  DORADeploymentPatchRemediation.JSON_PROPERTY_TYPE,
+  DORADeploymentPatchRemediation.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -34,14 +36,17 @@ public class DORADeploymentPatchRemediation {
   public static final String JSON_PROPERTY_TYPE = "type";
   private DORADeploymentPatchRemediationType type;
 
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private String version;
+
   public DORADeploymentPatchRemediation id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the remediation deployment. Required when the failed deployment must be linked to a
-   * remediation deployment.
+   * The ID of the remediation deployment. Use this or <code>version</code> to identify the
+   * remediation deployment, but not both.
    *
    * @return id
    */
@@ -80,6 +85,29 @@ public class DORADeploymentPatchRemediation {
       this.unparsed = true;
     }
     this.type = type;
+  }
+
+  public DORADeploymentPatchRemediation version(String version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * The version of the remediation deployment, matched against the same service and environment as
+   * the failed deployment. Use this or <code>id</code> to identify the remediation deployment, but
+   * not both.
+   *
+   * @return version
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
   /**
@@ -141,13 +169,14 @@ public class DORADeploymentPatchRemediation {
         (DORADeploymentPatchRemediation) o;
     return Objects.equals(this.id, doraDeploymentPatchRemediation.id)
         && Objects.equals(this.type, doraDeploymentPatchRemediation.type)
+        && Objects.equals(this.version, doraDeploymentPatchRemediation.version)
         && Objects.equals(
             this.additionalProperties, doraDeploymentPatchRemediation.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(id, type, version, additionalProperties);
   }
 
   @Override
@@ -156,6 +185,7 @@ public class DORADeploymentPatchRemediation {
     sb.append("class DORADeploymentPatchRemediation {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
