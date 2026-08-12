@@ -71,7 +71,7 @@ public class CreateUploadRequestDataAttributes {
 
   /**
    * The CSV file headers that define the schema fields, provided in the same order as the columns
-   * in the uploaded file.
+   * in the uploaded file. Maximum of 200 columns.
    *
    * @return headers
    */

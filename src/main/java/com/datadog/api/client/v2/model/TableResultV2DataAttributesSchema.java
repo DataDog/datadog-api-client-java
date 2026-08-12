@@ -65,7 +65,7 @@ public class TableResultV2DataAttributesSchema {
   }
 
   /**
-   * The schema fields.
+   * The schema fields. Maximum of 200 columns.
    *
    * @return fields
    */
