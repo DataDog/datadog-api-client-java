@@ -21,6 +21,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_ACCOUNT_ID,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_CONFIG_ID,
+  LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_CURATION_ENABLED,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_EVP_QUERY,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_HIERARCHY_DEPTH,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_INTEGRATION_PROVIDER,
@@ -40,6 +41,9 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
 
   public static final String JSON_PROPERTY_CONFIG_ID = "config_id";
   private String configId;
+
+  public static final String JSON_PROPERTY_CURATION_ENABLED = "curation_enabled";
+  private Boolean curationEnabled;
 
   public static final String JSON_PROPERTY_EVP_QUERY = "evp_query";
   private String evpQuery;
@@ -124,6 +128,29 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
 
   public void setConfigId(String configId) {
     this.configId = configId;
+  }
+
+  public LLMObsPatternsConfigUpsertRequestAttributes curationEnabled(Boolean curationEnabled) {
+    this.curationEnabled = curationEnabled;
+    return this;
+  }
+
+  /**
+   * When true, Datadog automatically provisions a managed project and dataset (<code>
+   * {pattern-name}-pattern-curated</code>) to receive suggested interactions after each run.
+   * Defaults to true for new patterns.
+   *
+   * @return curationEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CURATION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCurationEnabled() {
+    return curationEnabled;
+  }
+
+  public void setCurationEnabled(Boolean curationEnabled) {
+    this.curationEnabled = curationEnabled;
   }
 
   public LLMObsPatternsConfigUpsertRequestAttributes evpQuery(String evpQuery) {
@@ -371,6 +398,8 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
         (LLMObsPatternsConfigUpsertRequestAttributes) o;
     return Objects.equals(this.accountId, llmObsPatternsConfigUpsertRequestAttributes.accountId)
         && Objects.equals(this.configId, llmObsPatternsConfigUpsertRequestAttributes.configId)
+        && Objects.equals(
+            this.curationEnabled, llmObsPatternsConfigUpsertRequestAttributes.curationEnabled)
         && Objects.equals(this.evpQuery, llmObsPatternsConfigUpsertRequestAttributes.evpQuery)
         && Objects.equals(
             this.hierarchyDepth, llmObsPatternsConfigUpsertRequestAttributes.hierarchyDepth)
@@ -394,6 +423,7 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
     return Objects.hash(
         accountId,
         configId,
+        curationEnabled,
         evpQuery,
         hierarchyDepth,
         integrationProvider,
@@ -412,6 +442,7 @@ public class LLMObsPatternsConfigUpsertRequestAttributes {
     sb.append("class LLMObsPatternsConfigUpsertRequestAttributes {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
+    sb.append("    curationEnabled: ").append(toIndentedString(curationEnabled)).append("\n");
     sb.append("    evpQuery: ").append(toIndentedString(evpQuery)).append("\n");
     sb.append("    hierarchyDepth: ").append(toIndentedString(hierarchyDepth)).append("\n");
     sb.append("    integrationProvider: ")
