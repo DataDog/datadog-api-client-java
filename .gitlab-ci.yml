@@ -49,7 +49,7 @@ create_key:
 
   tags: [ "arch:amd64" ]
 
-  image: $REGISTRY/ci/agent-key-management-tools/gpg:1
+  image: registry.ddbuild.io/ci/agent-key-management-tools/gpg:1
   variables:
     PROJECT_NAME: "datadog-api-client-java"
     EXPORT_TO_KEYSERVER: "false"
