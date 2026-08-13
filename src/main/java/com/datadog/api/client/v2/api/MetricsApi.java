@@ -2969,6 +2969,10 @@ public class MetricsApi {
   /**
    * Returns the tag configuration for the given metric name.
    *
+   * <p>A metric may exist and submit data without having a tag configuration. If no tag
+   * configuration exists for the metric, this endpoint returns <code>404 Not Found</code>. This
+   * response does not indicate that the metric itself is missing.
+   *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
    * @throws ApiException if fails to make API call
@@ -2978,7 +2982,7 @@ public class MetricsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> No tag configuration exists for the metric </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
