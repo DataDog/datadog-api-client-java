@@ -725,10 +725,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an annotation queue. The <code>name</code> and <code>project_id</code> fields are
-   * required. An optional <code>annotation_schema</code> can be provided to define the labels for
-   * the queue. Fields such as <code>created_by</code>, <code>owned_by</code>, <code>created_at
-   * </code>, <code>modified_by</code>, and <code>modified_at</code> are inferred by the backend.
+   * Create an annotation queue. The <code>name</code> field is required. Optionally associate the
+   * queue with a project by providing <code>project_id</code>. An optional <code>annotation_schema
+   * </code> can be provided to define the labels for the queue. Fields such as <code>created_by
+   * </code>, <code>owned_by</code>, <code>created_at</code>, <code>modified_by</code>, and <code>
+   * modified_at</code> are inferred by the backend.
    *
    * @param body Create annotation queue payload. (required)
    * @return ApiResponse&lt;LLMObsAnnotationQueueResponse&gt;

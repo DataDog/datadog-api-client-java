@@ -44,10 +44,8 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
 
   @JsonCreator
   public LLMObsAnnotationQueueDataAttributesRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
-    this.projectId = projectId;
   }
 
   public LLMObsAnnotationQueueDataAttributesRequest annotationSchema(
@@ -127,8 +125,9 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
    *
    * @return projectId
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProjectId() {
     return projectId;
   }
