@@ -5810,9 +5810,7 @@ public class StatusPagesApi {
    * on the public internet and requires the <code>status_pages_public_page_publish</code>
    * permission. For pages of type <code>internal</code>, makes the status page available under the
    * <code>status-pages/$domain_prefix/view</code> route within the Datadog organization and
-   * requires the <code>status_pages_internal_page_publish</code> permission. The <code>
-   * status_pages_settings_write</code> permission is temporarily honored as we migrate publishing
-   * functionality from the update status page endpoint to the publish status page endpoint.
+   * requires the <code>status_pages_internal_page_publish</code> permission.
    *
    * @param pageId The ID of the status page. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -6132,9 +6130,7 @@ public class StatusPagesApi {
    * the public internet and requires the <code>status_pages_public_page_publish</code> permission.
    * For pages of type <code>internal</code>, removes the <code>status-pages/$domain_prefix/view
    * </code> route from the Datadog organization and requires the <code>
-   * status_pages_internal_page_publish</code> permission. The <code>status_pages_settings_write
-   * </code> permission is temporarily honored as we migrate unpublishing functionality from the
-   * update status page endpoint to the unpublish status page endpoint.
+   * status_pages_internal_page_publish</code> permission.
    *
    * @param pageId The ID of the status page. (required)
    * @return ApiResponse&lt;Void&gt;
