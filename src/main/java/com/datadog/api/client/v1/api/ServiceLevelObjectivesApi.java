@@ -1272,6 +1272,7 @@ public class ServiceLevelObjectivesApi {
     private String metricsQuery;
     private Long limit;
     private Long offset;
+    private Boolean isDeleted;
 
     /**
      * Set ids.
@@ -1339,6 +1340,18 @@ public class ServiceLevelObjectivesApi {
      */
     public ListSLOsOptionalParameters offset(Long offset) {
       this.offset = offset;
+      return this;
+    }
+
+    /**
+     * Set isDeleted.
+     *
+     * @param isDeleted Whether to return only deleted service level objective objects. (optional,
+     *     default to false)
+     * @return ListSLOsOptionalParameters
+     */
+    public ListSLOsOptionalParameters isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
       return this;
     }
   }
@@ -1479,6 +1492,7 @@ public class ServiceLevelObjectivesApi {
     String metricsQuery = parameters.metricsQuery;
     Long limit = parameters.limit;
     Long offset = parameters.offset;
+    Boolean isDeleted = parameters.isDeleted;
     // create path and map variables
     String localVarPath = "/api/v1/slo";
 
@@ -1491,6 +1505,7 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "metrics_query", metricsQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_deleted", isDeleted));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1529,6 +1544,7 @@ public class ServiceLevelObjectivesApi {
     String metricsQuery = parameters.metricsQuery;
     Long limit = parameters.limit;
     Long offset = parameters.offset;
+    Boolean isDeleted = parameters.isDeleted;
     // create path and map variables
     String localVarPath = "/api/v1/slo";
 
@@ -1541,6 +1557,7 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "metrics_query", metricsQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_deleted", isDeleted));
 
     Invocation.Builder builder;
     try {
