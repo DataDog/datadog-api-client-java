@@ -19,6 +19,7 @@ import java.util.Objects;
 /** Snapshot of the configuration used for a patterns run. */
 @JsonPropertyOrder({
   LLMObsPatternsConfigSnapshot.JSON_PROPERTY_ACCOUNT_ID,
+  LLMObsPatternsConfigSnapshot.JSON_PROPERTY_CURATION_ENABLED,
   LLMObsPatternsConfigSnapshot.JSON_PROPERTY_EVP_QUERY,
   LLMObsPatternsConfigSnapshot.JSON_PROPERTY_HIERARCHY_DEPTH,
   LLMObsPatternsConfigSnapshot.JSON_PROPERTY_INTEGRATION_PROVIDER,
@@ -32,6 +33,9 @@ public class LLMObsPatternsConfigSnapshot {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
+
+  public static final String JSON_PROPERTY_CURATION_ENABLED = "curation_enabled";
+  private Boolean curationEnabled;
 
   public static final String JSON_PROPERTY_EVP_QUERY = "evp_query";
   private String evpQuery;
@@ -70,6 +74,27 @@ public class LLMObsPatternsConfigSnapshot {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public LLMObsPatternsConfigSnapshot curationEnabled(Boolean curationEnabled) {
+    this.curationEnabled = curationEnabled;
+    return this;
+  }
+
+  /**
+   * Whether automatic dataset curation was enabled for the run.
+   *
+   * @return curationEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CURATION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCurationEnabled() {
+    return curationEnabled;
+  }
+
+  public void setCurationEnabled(Boolean curationEnabled) {
+    this.curationEnabled = curationEnabled;
   }
 
   public LLMObsPatternsConfigSnapshot evpQuery(String evpQuery) {
@@ -255,6 +280,7 @@ public class LLMObsPatternsConfigSnapshot {
     }
     LLMObsPatternsConfigSnapshot llmObsPatternsConfigSnapshot = (LLMObsPatternsConfigSnapshot) o;
     return Objects.equals(this.accountId, llmObsPatternsConfigSnapshot.accountId)
+        && Objects.equals(this.curationEnabled, llmObsPatternsConfigSnapshot.curationEnabled)
         && Objects.equals(this.evpQuery, llmObsPatternsConfigSnapshot.evpQuery)
         && Objects.equals(this.hierarchyDepth, llmObsPatternsConfigSnapshot.hierarchyDepth)
         && Objects.equals(
@@ -270,6 +296,7 @@ public class LLMObsPatternsConfigSnapshot {
   public int hashCode() {
     return Objects.hash(
         accountId,
+        curationEnabled,
         evpQuery,
         hierarchyDepth,
         integrationProvider,
@@ -284,6 +311,7 @@ public class LLMObsPatternsConfigSnapshot {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsPatternsConfigSnapshot {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    curationEnabled: ").append(toIndentedString(curationEnabled)).append("\n");
     sb.append("    evpQuery: ").append(toIndentedString(evpQuery)).append("\n");
     sb.append("    hierarchyDepth: ").append(toIndentedString(hierarchyDepth)).append("\n");
     sb.append("    integrationProvider: ")

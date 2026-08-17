@@ -22,8 +22,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Progress information for a single step of a patterns run. */
 @JsonPropertyOrder({
   LLMObsPatternsActivityProgress.JSON_PROPERTY_NAME,
+  LLMObsPatternsActivityProgress.JSON_PROPERTY_NB_COMPLETED,
   LLMObsPatternsActivityProgress.JSON_PROPERTY_STARTED_AT,
-  LLMObsPatternsActivityProgress.JSON_PROPERTY_STATUS
+  LLMObsPatternsActivityProgress.JSON_PROPERTY_STATUS,
+  LLMObsPatternsActivityProgress.JSON_PROPERTY_SUB_STEP,
+  LLMObsPatternsActivityProgress.JSON_PROPERTY_TARGET
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,11 +35,20 @@ public class LLMObsPatternsActivityProgress {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_NB_COMPLETED = "nb_completed";
+  private Long nbCompleted;
+
   public static final String JSON_PROPERTY_STARTED_AT = "started_at";
   private JsonNullable<OffsetDateTime> startedAt = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
+
+  public static final String JSON_PROPERTY_SUB_STEP = "sub_step";
+  private String subStep;
+
+  public static final String JSON_PROPERTY_TARGET = "target";
+  private Long target;
 
   public LLMObsPatternsActivityProgress() {}
 
@@ -66,6 +78,27 @@ public class LLMObsPatternsActivityProgress {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public LLMObsPatternsActivityProgress nbCompleted(Long nbCompleted) {
+    this.nbCompleted = nbCompleted;
+    return this;
+  }
+
+  /**
+   * Number of completed work items.
+   *
+   * @return nbCompleted
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NB_COMPLETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNbCompleted() {
+    return nbCompleted;
+  }
+
+  public void setNbCompleted(Long nbCompleted) {
+    this.nbCompleted = nbCompleted;
   }
 
   public LLMObsPatternsActivityProgress startedAt(OffsetDateTime startedAt) {
@@ -117,6 +150,48 @@ public class LLMObsPatternsActivityProgress {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public LLMObsPatternsActivityProgress subStep(String subStep) {
+    this.subStep = subStep;
+    return this;
+  }
+
+  /**
+   * Label of the current sub-step.
+   *
+   * @return subStep
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUB_STEP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubStep() {
+    return subStep;
+  }
+
+  public void setSubStep(String subStep) {
+    this.subStep = subStep;
+  }
+
+  public LLMObsPatternsActivityProgress target(Long target) {
+    this.target = target;
+    return this;
+  }
+
+  /**
+   * Total number of work items.
+   *
+   * @return target
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTarget() {
+    return target;
+  }
+
+  public void setTarget(Long target) {
+    this.target = target;
   }
 
   /**
@@ -177,15 +252,19 @@ public class LLMObsPatternsActivityProgress {
     LLMObsPatternsActivityProgress llmObsPatternsActivityProgress =
         (LLMObsPatternsActivityProgress) o;
     return Objects.equals(this.name, llmObsPatternsActivityProgress.name)
+        && Objects.equals(this.nbCompleted, llmObsPatternsActivityProgress.nbCompleted)
         && Objects.equals(this.startedAt, llmObsPatternsActivityProgress.startedAt)
         && Objects.equals(this.status, llmObsPatternsActivityProgress.status)
+        && Objects.equals(this.subStep, llmObsPatternsActivityProgress.subStep)
+        && Objects.equals(this.target, llmObsPatternsActivityProgress.target)
         && Objects.equals(
             this.additionalProperties, llmObsPatternsActivityProgress.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, startedAt, status, additionalProperties);
+    return Objects.hash(
+        name, nbCompleted, startedAt, status, subStep, target, additionalProperties);
   }
 
   @Override
@@ -193,8 +272,11 @@ public class LLMObsPatternsActivityProgress {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsPatternsActivityProgress {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nbCompleted: ").append(toIndentedString(nbCompleted)).append("\n");
     sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subStep: ").append(toIndentedString(subStep)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
