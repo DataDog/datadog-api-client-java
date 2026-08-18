@@ -21,6 +21,8 @@ import com.datadog.api.client.v2.model.LLMObsCreatePromptVersionRequest;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigListResponse;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigResponse;
 import com.datadog.api.client.v2.model.LLMObsCustomEvalConfigUpdateRequest;
+import com.datadog.api.client.v2.model.LLMObsDataDeletionRequest;
+import com.datadog.api.client.v2.model.LLMObsDataDeletionResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetBatchUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsDatasetCloneRequest;
 import com.datadog.api.client.v2.model.LLMObsDatasetDraftStateResponse;
@@ -3150,6 +3152,158 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Delete LLM Observability data.
+   *
+   * <p>See {@link #deleteLLMObsDataWithHttpInfo}.
+   *
+   * @param body Data deletion request payload. (required)
+   * @return LLMObsDataDeletionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsDataDeletionResponse deleteLLMObsData(LLMObsDataDeletionRequest body)
+      throws ApiException {
+    return deleteLLMObsDataWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Delete LLM Observability data.
+   *
+   * <p>See {@link #deleteLLMObsDataWithHttpInfoAsync}.
+   *
+   * @param body Data deletion request payload. (required)
+   * @return CompletableFuture&lt;LLMObsDataDeletionResponse&gt;
+   */
+  public CompletableFuture<LLMObsDataDeletionResponse> deleteLLMObsDataAsync(
+      LLMObsDataDeletionRequest body) {
+    return deleteLLMObsDataWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Submit a request to delete LLM Observability span data matching a trace ID filter within a
+   * specified time range.
+   *
+   * @param body Data deletion request payload. (required)
+   * @return ApiResponse&lt;LLMObsDataDeletionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsDataDeletionResponse> deleteLLMObsDataWithHttpInfo(
+      LLMObsDataDeletionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsData";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling deleteLLMObsData");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/deletion/data/llmobs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.deleteLLMObsData",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDataDeletionResponse>() {});
+  }
+
+  /**
+   * Delete LLM Observability data.
+   *
+   * <p>See {@link #deleteLLMObsDataWithHttpInfo}.
+   *
+   * @param body Data deletion request payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDataDeletionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsDataDeletionResponse>>
+      deleteLLMObsDataWithHttpInfoAsync(LLMObsDataDeletionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsData";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsDataDeletionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsDataDeletionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling deleteLLMObsData"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/deletion/data/llmobs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.deleteLLMObsData",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsDataDeletionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsDataDeletionResponse>() {});
   }
 
   /**

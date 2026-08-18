@@ -860,6 +860,7 @@ public class ApiClient {
           put("v2.deleteLLMObsAnnotationQueueInteractions", false);
           put("v2.deleteLLMObsAnnotations", false);
           put("v2.deleteLLMObsCustomEvalConfig", false);
+          put("v2.deleteLLMObsData", false);
           put("v2.deleteLLMObsDatasetRecords", false);
           put("v2.deleteLLMObsDatasets", false);
           put("v2.deleteLLMObsExperiments", false);
