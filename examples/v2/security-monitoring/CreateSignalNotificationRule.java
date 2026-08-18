@@ -28,7 +28,7 @@ public class Example {
                     .attributes(
                         new CreateNotificationRuleParametersDataAttributes()
                             .enabled(true)
-                            .name("Rule 1")
+                            .name("Rule 9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
                             .selectors(
                                 new Selectors()
                                     .query("(source:production_service OR env:prod)")

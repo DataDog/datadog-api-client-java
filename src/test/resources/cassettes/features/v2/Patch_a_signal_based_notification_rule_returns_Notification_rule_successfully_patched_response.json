@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Patch_a_signal_based_notification_rule_returns_Notification_rule_successfully_patched_response-1738763172\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Rule 17870415-0000-0000-0000-178704155400\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ob0-6ru-hc6\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1738763173259,\"created_by\":{\"name\":\"\",\"handle\":\"\"},\"enabled\":true,\"modified_at\":1738763173259,\"modified_by\":{\"name\":\"\",\"handle\":\"\"},\"name\":\"Test-Patch_a_signal_based_notification_rule_returns_Notification_rule_successfully_patched_response-1738763172\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"v6q-o1k-aul\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1787041554291,\"created_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"enabled\":true,\"modified_at\":1787041554291,\"modified_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"name\":\"Rule 17870415-0000-0000-0000-178704155400\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5452f6d4-b2ab-1d5b-0e77-d9ae12089200"
+    "id": "e5d862ee-7ad6-7a80-3e3f-efc69b6a6a7b"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Rule 1\",\"selectors\":{\"query\":\"(source:production_service OR env:prod)\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_findings\"},\"targets\":[\"@john.doe@email.com\"],\"time_aggregation\":86400,\"version\":1},\"id\":\"aaa-bbb-ccc\",\"type\":\"notification_rules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Rule 17870415-0000-0000-0000-178704155400\",\"selectors\":{\"query\":\"(source:production_service OR env:prod)\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_findings\"},\"targets\":[\"@john.doe@email.com\"],\"time_aggregation\":86400,\"version\":1},\"id\":\"aaa-bbb-ccc\",\"type\":\"notification_rules\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security/signals/notification_rules/ob0-6ru-hc6",
+      "path": "/api/v2/security/signals/notification_rules/v6q-o1k-aul",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ob0-6ru-hc6\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1738763173259,\"created_by\":{\"name\":\"\",\"handle\":\"\"},\"enabled\":true,\"modified_at\":1738763173722,\"modified_by\":{\"name\":\"\",\"handle\":\"\"},\"name\":\"Rule 1\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"query\":\"(source:production_service OR env:prod)\",\"trigger_source\":\"security_findings\"},\"targets\":[\"@john.doe@email.com\"],\"time_aggregation\":86400,\"version\":2}}}",
+      "body": "{\"data\":{\"id\":\"v6q-o1k-aul\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1787041554291,\"created_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"enabled\":true,\"modified_at\":1787041554426,\"modified_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"name\":\"Rule 17870415-0000-0000-0000-178704155400\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"query\":\"(source:production_service OR env:prod)\",\"trigger_source\":\"security_findings\"},\"targets\":[\"@john.doe@email.com\"],\"time_aggregation\":86400,\"version\":2}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7618b672-3030-f111-96a6-471c6204bbd9"
+    "id": "98d7990b-59d0-0b12-bc59-4c32f29461b1"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security/signals/notification_rules/ob0-6ru-hc6",
+      "path": "/api/v2/security/signals/notification_rules/v6q-o1k-aul",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "10dd55b6-8f49-ba49-d052-f0b4795d7ac7"
+    "id": "72462d9d-fff7-4037-5391-60945b71aefd"
   }
 ]
