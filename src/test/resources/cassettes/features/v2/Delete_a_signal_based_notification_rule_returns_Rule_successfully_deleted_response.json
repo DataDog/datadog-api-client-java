@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Delete_a_signal_based_notification_rule_returns_Rule_successfully_deleted_response-1738763144\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Rule 17870415-0000-0000-0000-178704155100\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"x4n-qps-p3w\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1738763144838,\"created_by\":{\"name\":\"\",\"handle\":\"\"},\"enabled\":true,\"modified_at\":1738763144838,\"modified_by\":{\"name\":\"\",\"handle\":\"\"},\"name\":\"Test-Delete_a_signal_based_notification_rule_returns_Rule_successfully_deleted_response-1738763144\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"faz-jrz-vdw\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1787041551643,\"created_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"enabled\":true,\"modified_at\":1787041551643,\"modified_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"name\":\"Rule 17870415-0000-0000-0000-178704155100\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "963f16c8-c856-c118-c75b-9f00fbeaefdf"
+    "id": "283d7de1-ea56-dd7e-ed03-38436e0f4dd4"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security/signals/notification_rules/x4n-qps-p3w",
+      "path": "/api/v2/security/signals/notification_rules/faz-jrz-vdw",
       "keepAlive": false,
       "secure": true
     },
@@ -48,18 +48,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a1fe9a5e-0529-8805-31b3-7c7a2a597365"
+    "id": "5d761178-9472-f6fd-92f6-97a8d638c332"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security/signals/notification_rules/x4n-qps-p3w",
+      "path": "/api/v2/security/signals/notification_rules/faz-jrz-vdw",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Notification rule with id 'x4n-qps-p3w' not found)\"]}",
+      "body": "{\"errors\":[\"not_found(Notification rule with id 'faz-jrz-vdw' not found)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a1fe9a5e-0529-8805-31b3-7c7a2a597366"
+    "id": "5d761178-9472-f6fd-92f6-97a8d638c333"
   }
 ]

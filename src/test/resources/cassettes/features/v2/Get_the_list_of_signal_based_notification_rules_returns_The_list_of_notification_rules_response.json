@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Get_the_list_of_signal_based_notification_rules_returns_The_list_of_notification_rules_response-1738763164\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Rule 17870415-0000-0000-0000-178704155300\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"btd-udo-vn7\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1738763164939,\"created_by\":{\"name\":\"\",\"handle\":\"\"},\"enabled\":true,\"modified_at\":1738763164939,\"modified_by\":{\"name\":\"\",\"handle\":\"\"},\"name\":\"Test-Get_the_list_of_signal_based_notification_rules_returns_The_list_of_notification_rules_response-1738763164\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"yc8-i7q-9be\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1787041553174,\"created_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"enabled\":true,\"modified_at\":1787041553174,\"modified_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"name\":\"Rule 17870415-0000-0000-0000-178704155300\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "36450e02-5c21-6f92-98f6-f2bd9b210ca6"
+    "id": "8da6c6cc-d976-5d34-ba62-5b6774404c8c"
   },
   {
     "httpRequest": {
@@ -38,7 +38,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"id\":\"btd-udo-vn7\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1738763164939,\"created_by\":{\"name\":\"\",\"handle\":\"\"},\"enabled\":true,\"modified_at\":1738763164939,\"modified_by\":{\"name\":\"\",\"handle\":\"\"},\"name\":\"Test-Get_the_list_of_signal_based_notification_rules_returns_The_list_of_notification_rules_response-1738763164\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}]}",
+      "body": "{\"data\":[{\"id\":\"yja-vtn-jr9\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1755115900029,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1755115900029,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Delete_a_signal_based_notification_rule_returns_Rule_successfully_deleted_response-1755115899\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}},{\"id\":\"yc8-i7q-9be\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1787041553174,\"created_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"enabled\":true,\"modified_at\":1787041553174,\"modified_by\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"name\":\"Rule 17870415-0000-0000-0000-178704155300\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -59,7 +59,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security/signals/notification_rules/btd-udo-vn7",
+      "path": "/api/v2/security/signals/notification_rules/yc8-i7q-9be",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "97135ae7-8827-0f4a-5ede-bfc41954206f"
+    "id": "95a74d85-fe2e-1179-d27b-fbb6409473d1"
   }
 ]
