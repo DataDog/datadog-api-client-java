@@ -18,8 +18,7 @@ public class GivenAction {
 
   private static List<Given> loadGiven(String apiVersion) {
     try {
-      File file =
-          new File("src/test/resources/com/datadog/api/client/" + apiVersion + "/api/given.json");
+      File file = TestRunner.featureDataPath(apiVersion, "given.json").toFile();
       return Given.load(file);
     } catch (Exception e) {
       throw new RuntimeException(e);

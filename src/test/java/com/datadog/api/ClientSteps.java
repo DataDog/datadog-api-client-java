@@ -162,7 +162,7 @@ public class ClientSteps {
           java.lang.IllegalAccessException,
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException {
-    world.newRequest(methodName);
+    if (!TestRunner.runnerEnabled()) world.newRequest(methodName);
   }
 
   @Given("request contains {string} parameter from {string}")
@@ -172,7 +172,7 @@ public class ClientSteps {
           java.lang.ClassNotFoundException,
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException {
-    world.addRequestParameterFixture(parameterName, fixturePath);
+    if (!TestRunner.runnerEnabled()) world.addRequestParameterFixture(parameterName, fixturePath);
   }
 
   @Given("request contains {string} parameter with value {}")
@@ -183,7 +183,7 @@ public class ClientSteps {
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException,
           com.fasterxml.jackson.core.JsonProcessingException {
-    world.addRequestParameter(parameterName, value);
+    if (!TestRunner.runnerEnabled()) world.addRequestParameter(parameterName, value);
   }
 
   @Given("body with value {}")
@@ -194,7 +194,7 @@ public class ClientSteps {
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException,
           com.fasterxml.jackson.core.JsonProcessingException {
-    world.addRequestParameter("body", data);
+    if (!TestRunner.runnerEnabled()) world.addRequestParameter("body", data);
   }
 
   @Given("body from file {string}")
@@ -205,6 +205,7 @@ public class ClientSteps {
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException,
           IOException {
+    if (TestRunner.runnerEnabled()) return;
     Path bodyPath =
         Paths.get("src/test/resources/com/datadog/api/client/" + apiVersion + "/api/" + filename);
     String data = new String(Files.readAllBytes(bodyPath));
