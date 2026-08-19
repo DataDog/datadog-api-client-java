@@ -6,6 +6,7 @@ repos:
     language: system
     entry: bash -c "./generate.sh"
     files: '^(\.generator/.*|\.pre-commit-config\.yaml|\.prettierrc\.yml|Makefile|src/test/resources/com/datadog/api/v*/client/api/.*|src/main/.*)'
+    stages: [manual]
     pass_filenames: false
   - id: docs
     name: Format documentation
@@ -31,16 +32,14 @@ repos:
       - "poetry"
   - id: lint
     name: Format generated code
-    stages: [manual]
     language: script
     entry: ./format.sh
-    files: '^src/'
+    files: '^src/main/java/'
     types: [file, java]
     pass_filenames: false
-    args: ['src/']
+    args: ['src/main/java/']
   - id: lint-examples
     name: Format examples
-    stages: [manual]
     language: script
     entry: ./format.sh
     files: '^examples/'
