@@ -1,0 +1,105 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action_pattern\":{\"action_fqns\":[\"com.datadoghq.script.*\"],\"integration\":\"INTEGRATION_SCRIPT\"},\"effect\":\"allow\",\"name\":\"Cassette Execution Policy testlistexecutionpolicieswithqueryparametersreturnsokresponse1786698824\"},\"type\":\"execution_policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions/execution-policies",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"6f0fbc08-9666-44fd-93da-cf1bfcff5e8f\",\"type\":\"execution_policy\",\"attributes\":{\"action_pattern\":{\"integration\":\"INTEGRATION_SCRIPT\",\"action_fqns\":[\"com.datadoghq.script.*\"]},\"created_at\":\"2026-08-14T09:13:45Z\",\"created_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"effect\":\"allow\",\"name\":\"Cassette Execution Policy testlistexecutionpolicieswithqueryparametersreturnsokresponse1786698824\",\"targets\":[],\"updated_at\":\"2026-08-14T09:13:45Z\",\"updated_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ffc7f720-d345-ee96-c354-9d477e6b9929"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions/execution-policies",
+      "queryStringParameters": {
+        "page[size]": [
+          "10"
+        ],
+        "page[number]": [
+          "0"
+        ],
+        "filter[name]": [
+          "Cassette Execution Policy testlistexecutionpolicieswithqueryparametersreturnsokresponse1786698824"
+        ],
+        "filter[ids]": [
+          "6f0fbc08-9666-44fd-93da-cf1bfcff5e8f"
+        ],
+        "filter[integration]": [
+          "INTEGRATION_SCRIPT"
+        ],
+        "filter[effects]": [
+          "allow"
+        ],
+        "filter[creator_ids]": [
+          "262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b"
+        ],
+        "sort": [
+          "-created_at"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"6f0fbc08-9666-44fd-93da-cf1bfcff5e8f\",\"type\":\"execution_policy\",\"attributes\":{\"action_pattern\":{\"integration\":\"INTEGRATION_SCRIPT\",\"action_fqns\":[\"com.datadoghq.script.*\"]},\"created_at\":\"2026-08-14T09:13:45Z\",\"created_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"effect\":\"allow\",\"name\":\"Cassette Execution Policy testlistexecutionpolicieswithqueryparametersreturnsokresponse1786698824\",\"scope\":{},\"targets\":[],\"updated_at\":\"2026-08-14T09:13:45Z\",\"updated_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"version\":1}}],\"meta\":{\"page\":{\"total\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fd8fb522-929d-52c6-4203-5a0704825f76"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions/execution-policies/6f0fbc08-9666-44fd-93da-cf1bfcff5e8f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "52fba4f0-339e-0986-370a-a13757985c11"
+  }
+]

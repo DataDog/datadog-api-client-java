@@ -915,6 +915,11 @@ public class ApiClient {
           put("v2.uploadLLMObsDatasetRecordsFile", false);
           put("v2.upsertLLMObsAnnotations", false);
           put("v2.upsertLLMObsPatternsConfig", false);
+          put("v2.createExecutionPolicy", false);
+          put("v2.deleteExecutionPolicy", false);
+          put("v2.getExecutionPolicy", false);
+          put("v2.listExecutionPolicies", false);
+          put("v2.updateExecutionPolicy", false);
           put("v2.createAnnotation", false);
           put("v2.deleteAnnotation", false);
           put("v2.getPageAnnotations", false);

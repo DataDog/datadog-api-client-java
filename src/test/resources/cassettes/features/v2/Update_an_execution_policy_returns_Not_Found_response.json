@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action_pattern\":{\"action_fqns\":[\"com.datadoghq.script.*\"],\"integration\":\"INTEGRATION_SCRIPT\"},\"effect\":\"allow\",\"name\":\"Cassette Execution Policy Updated\"},\"id\":\"aaa11111-aa11-aa11-aaaa-aaaaaa111111\",\"type\":\"execution_policy\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/actions/execution-policies/aaa11111-aa11-aa11-aaaa-aaaaaa111111",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"error updating execution policy\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3a7f6834-af9a-ef50-7c84-aca7512a1244"
+  }
+]
