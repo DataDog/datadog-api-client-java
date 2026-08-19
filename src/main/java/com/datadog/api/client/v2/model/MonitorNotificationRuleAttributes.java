@@ -17,6 +17,7 @@ import java.util.Objects;
 
 /** Attributes of the monitor notification rule. */
 @JsonPropertyOrder({
+  MonitorNotificationRuleAttributes.JSON_PROPERTY_BUNDLE_CONFIG,
   MonitorNotificationRuleAttributes.JSON_PROPERTY_CONDITIONAL_RECIPIENTS,
   MonitorNotificationRuleAttributes.JSON_PROPERTY_FILTER,
   MonitorNotificationRuleAttributes.JSON_PROPERTY_NAME,
@@ -26,6 +27,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorNotificationRuleAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BUNDLE_CONFIG = "bundle_config";
+  private MonitorNotificationRuleBundleConfig bundleConfig;
+
   public static final String JSON_PROPERTY_CONDITIONAL_RECIPIENTS = "conditional_recipients";
   private MonitorNotificationRuleConditionalRecipients conditionalRecipients;
 
@@ -44,6 +48,34 @@ public class MonitorNotificationRuleAttributes {
   public MonitorNotificationRuleAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public MonitorNotificationRuleAttributes bundleConfig(
+      MonitorNotificationRuleBundleConfig bundleConfig) {
+    this.bundleConfig = bundleConfig;
+    this.unparsed |= bundleConfig.unparsed;
+    return this;
+  }
+
+  /**
+   * Use bundle config to enable alert bundling to reduce monitor signal noises.
+   * <strong>Note</strong>: This feature is in preview and is subject to change. If you have any
+   * feedback, contact <a href="https://docs.datadoghq.com/help/">Datadog support</a>.
+   *
+   * @return bundleConfig
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUNDLE_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorNotificationRuleBundleConfig getBundleConfig() {
+    return bundleConfig;
+  }
+
+  public void setBundleConfig(MonitorNotificationRuleBundleConfig bundleConfig) {
+    this.bundleConfig = bundleConfig;
+    if (bundleConfig != null) {
+      this.unparsed |= bundleConfig.unparsed;
+    }
   }
 
   public MonitorNotificationRuleAttributes conditionalRecipients(
@@ -160,7 +192,8 @@ public class MonitorNotificationRuleAttributes {
     }
     MonitorNotificationRuleAttributes monitorNotificationRuleAttributes =
         (MonitorNotificationRuleAttributes) o;
-    return Objects.equals(
+    return Objects.equals(this.bundleConfig, monitorNotificationRuleAttributes.bundleConfig)
+        && Objects.equals(
             this.conditionalRecipients, monitorNotificationRuleAttributes.conditionalRecipients)
         && Objects.equals(this.filter, monitorNotificationRuleAttributes.filter)
         && Objects.equals(this.name, monitorNotificationRuleAttributes.name)
@@ -169,13 +202,14 @@ public class MonitorNotificationRuleAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditionalRecipients, filter, name, recipients);
+    return Objects.hash(bundleConfig, conditionalRecipients, filter, name, recipients);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorNotificationRuleAttributes {\n");
+    sb.append("    bundleConfig: ").append(toIndentedString(bundleConfig)).append("\n");
     sb.append("    conditionalRecipients: ")
         .append(toIndentedString(conditionalRecipients))
         .append("\n");
