@@ -12,14 +12,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** The definition of <code>ActionConnectionAttributesUpdate</code> object. */
 @JsonPropertyOrder({
   ActionConnectionAttributesUpdate.JSON_PROPERTY_INTEGRATION,
-  ActionConnectionAttributesUpdate.JSON_PROPERTY_NAME
+  ActionConnectionAttributesUpdate.JSON_PROPERTY_NAME,
+  ActionConnectionAttributesUpdate.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -30,6 +33,9 @@ public class ActionConnectionAttributesUpdate {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public ActionConnectionAttributesUpdate integration(
       ActionConnectionIntegrationUpdate integration) {
@@ -76,6 +82,36 @@ public class ActionConnectionAttributesUpdate {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ActionConnectionAttributesUpdate tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ActionConnectionAttributesUpdate addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Tags associated with the connection. Each tag must follow the <code>key:value</code> format.
+   * The <code>default</code> tag key is reserved.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
   /**
@@ -137,13 +173,14 @@ public class ActionConnectionAttributesUpdate {
         (ActionConnectionAttributesUpdate) o;
     return Objects.equals(this.integration, actionConnectionAttributesUpdate.integration)
         && Objects.equals(this.name, actionConnectionAttributesUpdate.name)
+        && Objects.equals(this.tags, actionConnectionAttributesUpdate.tags)
         && Objects.equals(
             this.additionalProperties, actionConnectionAttributesUpdate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(integration, name, additionalProperties);
+    return Objects.hash(integration, name, tags, additionalProperties);
   }
 
   @Override
@@ -152,6 +189,7 @@ public class ActionConnectionAttributesUpdate {
     sb.append("class ActionConnectionAttributesUpdate {\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
