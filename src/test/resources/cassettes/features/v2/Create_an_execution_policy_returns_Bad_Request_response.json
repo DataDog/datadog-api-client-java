@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action_pattern\":{\"action_fqns\":[\"com.datadoghq.script.*\"],\"integration\":\"INTEGRATION_SCRIPT\"},\"effect\":\"invalid_effect\",\"name\":\"Cassette Execution Policy\"},\"type\":\"execution_policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions/execution-policies",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"error creating execution policy\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "083210f6-836e-5086-89d9-ea02d768b1c9"
+  }
+]

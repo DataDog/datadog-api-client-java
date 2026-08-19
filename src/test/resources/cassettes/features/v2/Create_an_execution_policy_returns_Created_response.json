@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action_pattern\":{\"action_fqns\":[\"com.datadoghq.script.*\"],\"integration\":\"INTEGRATION_SCRIPT\"},\"effect\":\"allow\",\"name\":\"Cassette Execution Policy testcreateanexecutionpolicyreturnscreatedresponse1786698818\"},\"type\":\"execution_policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions/execution-policies",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"78061915-3922-4868-93c5-12a631d74ed1\",\"type\":\"execution_policy\",\"attributes\":{\"action_pattern\":{\"integration\":\"INTEGRATION_SCRIPT\",\"action_fqns\":[\"com.datadoghq.script.*\"]},\"created_at\":\"2026-08-14T09:13:39Z\",\"created_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"effect\":\"allow\",\"name\":\"Cassette Execution Policy testcreateanexecutionpolicyreturnscreatedresponse1786698818\",\"targets\":[],\"updated_at\":\"2026-08-14T09:13:39Z\",\"updated_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6b5f94b8-4a34-0045-4232-60b220a2dfc3"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions/execution-policies/78061915-3922-4868-93c5-12a631d74ed1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5541efd6-1efa-002e-aec9-e01469a1f000"
+  }
+]

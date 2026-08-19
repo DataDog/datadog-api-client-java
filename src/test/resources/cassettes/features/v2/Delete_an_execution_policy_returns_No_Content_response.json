@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action_pattern\":{\"action_fqns\":[\"com.datadoghq.script.*\"],\"integration\":\"INTEGRATION_SCRIPT\"},\"effect\":\"allow\",\"name\":\"Cassette Execution Policy testdeleteanexecutionpolicyreturnsnocontentresponse1786698820\"},\"type\":\"execution_policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions/execution-policies",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"a8e55d88-0769-4cb9-b7d9-10f55fc6ecc2\",\"type\":\"execution_policy\",\"attributes\":{\"action_pattern\":{\"integration\":\"INTEGRATION_SCRIPT\",\"action_fqns\":[\"com.datadoghq.script.*\"]},\"created_at\":\"2026-08-14T09:13:41Z\",\"created_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"effect\":\"allow\",\"name\":\"Cassette Execution Policy testdeleteanexecutionpolicyreturnsnocontentresponse1786698820\",\"targets\":[],\"updated_at\":\"2026-08-14T09:13:41Z\",\"updated_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "983e1c9d-b587-e2a4-252d-e8647052a679"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions/execution-policies/a8e55d88-0769-4cb9-b7d9-10f55fc6ecc2",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b6257a55-c371-b02e-69ab-e241e232c3a0"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions/execution-policies/a8e55d88-0769-4cb9-b7d9-10f55fc6ecc2",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"error deleting execution policy\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b6257a55-c371-b02e-69ab-e241e232c3a1"
+  }
+]

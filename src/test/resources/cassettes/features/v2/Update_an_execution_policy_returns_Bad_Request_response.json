@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action_pattern\":{\"action_fqns\":[\"com.datadoghq.script.*\"],\"integration\":\"INTEGRATION_SCRIPT\"},\"effect\":\"allow\",\"name\":\"Cassette Execution Policy testupdateanexecutionpolicyreturnsbadrequestresponse1786698825\"},\"type\":\"execution_policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions/execution-policies",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0ce84810-fb1b-48ad-9012-ac49a505491a\",\"type\":\"execution_policy\",\"attributes\":{\"action_pattern\":{\"integration\":\"INTEGRATION_SCRIPT\",\"action_fqns\":[\"com.datadoghq.script.*\"]},\"created_at\":\"2026-08-14T09:13:46Z\",\"created_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"effect\":\"allow\",\"name\":\"Cassette Execution Policy testupdateanexecutionpolicyreturnsbadrequestresponse1786698825\",\"targets\":[],\"updated_at\":\"2026-08-14T09:13:46Z\",\"updated_by\":\"262c2ca8-d93e-45bc-8d47-5c9ab7af8e6b\",\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "22a9332c-23e3-a978-015f-6af3982f2d03"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action_pattern\":{\"action_fqns\":[\"com.datadoghq.script.*\"],\"integration\":\"INTEGRATION_SCRIPT\"},\"effect\":\"invalid_effect\",\"name\":\"Cassette Execution Policy Updated\"},\"id\":\"0ce84810-fb1b-48ad-9012-ac49a505491a\",\"type\":\"execution_policy\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/actions/execution-policies/0ce84810-fb1b-48ad-9012-ac49a505491a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"error updating execution policy\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5acbd721-1d78-c368-9986-ce4a47ff6757"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions/execution-policies/0ce84810-fb1b-48ad-9012-ac49a505491a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e7ab022c-01b3-7c12-2c8f-be55a7fc6796"
+  }
+]
