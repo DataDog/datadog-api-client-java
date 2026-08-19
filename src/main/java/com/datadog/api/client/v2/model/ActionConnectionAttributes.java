@@ -13,14 +13,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** The definition of <code>ActionConnectionAttributes</code> object. */
 @JsonPropertyOrder({
   ActionConnectionAttributes.JSON_PROPERTY_INTEGRATION,
-  ActionConnectionAttributes.JSON_PROPERTY_NAME
+  ActionConnectionAttributes.JSON_PROPERTY_NAME,
+  ActionConnectionAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,6 +34,9 @@ public class ActionConnectionAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public ActionConnectionAttributes() {}
 
@@ -86,6 +92,36 @@ public class ActionConnectionAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ActionConnectionAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ActionConnectionAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Tags associated with the connection. Each tag must follow the <code>key:value</code> format.
+   * The <code>default</code> tag key is reserved.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
   /**
@@ -146,13 +182,14 @@ public class ActionConnectionAttributes {
     ActionConnectionAttributes actionConnectionAttributes = (ActionConnectionAttributes) o;
     return Objects.equals(this.integration, actionConnectionAttributes.integration)
         && Objects.equals(this.name, actionConnectionAttributes.name)
+        && Objects.equals(this.tags, actionConnectionAttributes.tags)
         && Objects.equals(
             this.additionalProperties, actionConnectionAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(integration, name, additionalProperties);
+    return Objects.hash(integration, name, tags, additionalProperties);
   }
 
   @Override
@@ -161,6 +198,7 @@ public class ActionConnectionAttributes {
     sb.append("class ActionConnectionAttributes {\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
