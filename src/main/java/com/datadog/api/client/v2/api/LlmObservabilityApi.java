@@ -725,7 +725,8 @@ public class LlmObservabilityApi {
   /**
    * Create an annotation queue. The <code>name</code> and <code>project_id</code> fields are
    * required. An optional <code>annotation_schema</code> can be provided to define the labels for
-   * the queue. Fields such as <code>created_by</code>, <code>owned_by</code>, <code>created_at
+   * the queue. Optional access-control fields can restrict annotation access to reviewers or
+   * assignees. Fields such as <code>created_by</code>, <code>owned_by</code>, <code>created_at
    * </code>, <code>modified_by</code>, and <code>modified_at</code> are inferred by the backend.
    *
    * @param body Create annotation queue payload. (required)
@@ -11668,8 +11669,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Partially update an annotation queue. The <code>name</code>, <code>description</code>, and
-   * <code>annotation_schema</code> fields can be updated.
+   * Partially update an annotation queue. The <code>name</code>, <code>description</code>, <code>
+   * annotation_schema</code>, <code>reviewer_emails</code>, <code>restrict_to_reviewers</code>, and
+   * <code>restrict_to_assignees</code> fields can be updated.
    *
    * @param queueId The ID of the LLM Observability annotation queue. (required)
    * @param body Update annotation queue payload. (required)
@@ -13711,7 +13713,8 @@ public class LlmObservabilityApi {
    * Create or update annotations on interactions in a queue. Each annotation is matched by <code>
    * interaction_id</code> and the requesting user's identity. Results and errors in the response
    * are linked to request items by <code>interaction_id</code>. Errors for individual items are
-   * returned in the <code>errors</code> field without blocking the rest of the batch.
+   * returned in the <code>errors</code> field without blocking the rest of the batch. Requests
+   * where every item is denied by queue access rules return <code>403</code>.
    *
    * @param queueId The ID of the LLM Observability annotation queue. (required)
    * @param body Payload for creating or updating annotations. (required)
@@ -13721,10 +13724,10 @@ public class LlmObservabilityApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK — annotations created or updated. Per-item errors are listed in &#x60;errors&#x60;. </td><td>  -  </td></tr>
+   *       <tr><td> 200 </td><td> OK — annotations created or updated. Mixed batches list denied items and other per-item errors in &#x60;errors&#x60; </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden — all request items were denied by queue access rules </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found — the queue does not exist. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>

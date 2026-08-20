@@ -14,13 +14,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Attributes of an LLM Observability annotation queue. */
 @JsonPropertyOrder({
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_ANNOTATION_SCHEMA,
+  LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_CAN_MANAGE_ACCESS,
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_CREATED_AT,
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_CREATED_BY,
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_DESCRIPTION,
@@ -28,7 +31,10 @@ import java.util.Objects;
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_MODIFIED_BY,
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_NAME,
   LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_OWNED_BY,
-  LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_PROJECT_ID
+  LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_PROJECT_ID,
+  LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_RESTRICT_TO_ASSIGNEES,
+  LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_RESTRICT_TO_REVIEWERS,
+  LLMObsAnnotationQueueDataAttributesResponse.JSON_PROPERTY_REVIEWER_EMAILS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -36,6 +42,9 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATION_SCHEMA = "annotation_schema";
   private LLMObsAnnotationSchema annotationSchema;
+
+  public static final String JSON_PROPERTY_CAN_MANAGE_ACCESS = "can_manage_access";
+  private Boolean canManageAccess;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -61,10 +70,21 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
   public static final String JSON_PROPERTY_PROJECT_ID = "project_id";
   private String projectId;
 
+  public static final String JSON_PROPERTY_RESTRICT_TO_ASSIGNEES = "restrict_to_assignees";
+  private Boolean restrictToAssignees;
+
+  public static final String JSON_PROPERTY_RESTRICT_TO_REVIEWERS = "restrict_to_reviewers";
+  private Boolean restrictToReviewers;
+
+  public static final String JSON_PROPERTY_REVIEWER_EMAILS = "reviewer_emails";
+  private List<String> reviewerEmails = null;
+
   public LLMObsAnnotationQueueDataAttributesResponse() {}
 
   @JsonCreator
   public LLMObsAnnotationQueueDataAttributesResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CAN_MANAGE_ACCESS)
+          Boolean canManageAccess,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
@@ -72,7 +92,12 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
       @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_BY) String modifiedBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_OWNED_BY) String ownedBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESTRICT_TO_ASSIGNEES)
+          Boolean restrictToAssignees,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESTRICT_TO_REVIEWERS)
+          Boolean restrictToReviewers) {
+    this.canManageAccess = canManageAccess;
     this.createdAt = createdAt;
     this.createdBy = createdBy;
     this.description = description;
@@ -81,6 +106,8 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
     this.name = name;
     this.ownedBy = ownedBy;
     this.projectId = projectId;
+    this.restrictToAssignees = restrictToAssignees;
+    this.restrictToReviewers = restrictToReviewers;
   }
 
   public LLMObsAnnotationQueueDataAttributesResponse annotationSchema(
@@ -107,6 +134,17 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
     if (annotationSchema != null) {
       this.unparsed |= annotationSchema.unparsed;
     }
+  }
+
+  /**
+   * Whether the current caller can manage access for the annotation queue.
+   *
+   * @return canManageAccess
+   */
+  @JsonProperty(JSON_PROPERTY_CAN_MANAGE_ACCESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getCanManageAccess() {
+    return canManageAccess;
   }
 
   public LLMObsAnnotationQueueDataAttributesResponse createdAt(OffsetDateTime createdAt) {
@@ -269,6 +307,79 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
     this.projectId = projectId;
   }
 
+  public LLMObsAnnotationQueueDataAttributesResponse restrictToAssignees(
+      Boolean restrictToAssignees) {
+    this.restrictToAssignees = restrictToAssignees;
+    return this;
+  }
+
+  /**
+   * Whether annotation access is restricted to assigned users.
+   *
+   * @return restrictToAssignees
+   */
+  @JsonProperty(JSON_PROPERTY_RESTRICT_TO_ASSIGNEES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getRestrictToAssignees() {
+    return restrictToAssignees;
+  }
+
+  public void setRestrictToAssignees(Boolean restrictToAssignees) {
+    this.restrictToAssignees = restrictToAssignees;
+  }
+
+  public LLMObsAnnotationQueueDataAttributesResponse restrictToReviewers(
+      Boolean restrictToReviewers) {
+    this.restrictToReviewers = restrictToReviewers;
+    return this;
+  }
+
+  /**
+   * Whether annotation access is restricted to queue reviewers.
+   *
+   * @return restrictToReviewers
+   */
+  @JsonProperty(JSON_PROPERTY_RESTRICT_TO_REVIEWERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getRestrictToReviewers() {
+    return restrictToReviewers;
+  }
+
+  public void setRestrictToReviewers(Boolean restrictToReviewers) {
+    this.restrictToReviewers = restrictToReviewers;
+  }
+
+  public LLMObsAnnotationQueueDataAttributesResponse reviewerEmails(List<String> reviewerEmails) {
+    this.reviewerEmails = reviewerEmails;
+    return this;
+  }
+
+  public LLMObsAnnotationQueueDataAttributesResponse addReviewerEmailsItem(
+      String reviewerEmailsItem) {
+    if (this.reviewerEmails == null) {
+      this.reviewerEmails = new ArrayList<>();
+    }
+    this.reviewerEmails.add(reviewerEmailsItem);
+    return this;
+  }
+
+  /**
+   * Email addresses of reviewers for the annotation queue. Returned only when the caller can manage
+   * queue access.
+   *
+   * @return reviewerEmails
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REVIEWER_EMAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getReviewerEmails() {
+    return reviewerEmails;
+  }
+
+  public void setReviewerEmails(List<String> reviewerEmails) {
+    this.reviewerEmails = reviewerEmails;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -329,6 +440,8 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
         (LLMObsAnnotationQueueDataAttributesResponse) o;
     return Objects.equals(
             this.annotationSchema, llmObsAnnotationQueueDataAttributesResponse.annotationSchema)
+        && Objects.equals(
+            this.canManageAccess, llmObsAnnotationQueueDataAttributesResponse.canManageAccess)
         && Objects.equals(this.createdAt, llmObsAnnotationQueueDataAttributesResponse.createdAt)
         && Objects.equals(this.createdBy, llmObsAnnotationQueueDataAttributesResponse.createdBy)
         && Objects.equals(this.description, llmObsAnnotationQueueDataAttributesResponse.description)
@@ -338,6 +451,14 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
         && Objects.equals(this.ownedBy, llmObsAnnotationQueueDataAttributesResponse.ownedBy)
         && Objects.equals(this.projectId, llmObsAnnotationQueueDataAttributesResponse.projectId)
         && Objects.equals(
+            this.restrictToAssignees,
+            llmObsAnnotationQueueDataAttributesResponse.restrictToAssignees)
+        && Objects.equals(
+            this.restrictToReviewers,
+            llmObsAnnotationQueueDataAttributesResponse.restrictToReviewers)
+        && Objects.equals(
+            this.reviewerEmails, llmObsAnnotationQueueDataAttributesResponse.reviewerEmails)
+        && Objects.equals(
             this.additionalProperties,
             llmObsAnnotationQueueDataAttributesResponse.additionalProperties);
   }
@@ -346,6 +467,7 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
   public int hashCode() {
     return Objects.hash(
         annotationSchema,
+        canManageAccess,
         createdAt,
         createdBy,
         description,
@@ -354,6 +476,9 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
         name,
         ownedBy,
         projectId,
+        restrictToAssignees,
+        restrictToReviewers,
+        reviewerEmails,
         additionalProperties);
   }
 
@@ -362,6 +487,7 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsAnnotationQueueDataAttributesResponse {\n");
     sb.append("    annotationSchema: ").append(toIndentedString(annotationSchema)).append("\n");
+    sb.append("    canManageAccess: ").append(toIndentedString(canManageAccess)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -370,6 +496,13 @@ public class LLMObsAnnotationQueueDataAttributesResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    restrictToAssignees: ")
+        .append(toIndentedString(restrictToAssignees))
+        .append("\n");
+    sb.append("    restrictToReviewers: ")
+        .append(toIndentedString(restrictToReviewers))
+        .append("\n");
+    sb.append("    reviewerEmails: ").append(toIndentedString(reviewerEmails)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
