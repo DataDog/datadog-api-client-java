@@ -58,6 +58,9 @@ public class World {
   Scenario scenario;
   Clock clock;
   OffsetDateTime now;
+  String testFeature;
+  String testServerSession;
+  Map<String, Object> testRunnerPlan;
 
   // Undo
   public List<Callable<?>> undo;
@@ -132,9 +135,12 @@ public class World {
 
   public String getVersion() {
     String[] parts = scenario.getUri().toString().split("/");
-    // get version
-    // src/test/resources/com/datadog/api/>>>v2<<</client/api/teams.feature
-    return parts[parts.length - 3];
+    for (String part : parts) {
+      if (part.matches("v\\d+")) {
+        return part;
+      }
+    }
+    throw new IllegalStateException("API version not found in " + scenario.getUri());
   }
 
   private void configureClient(Class<?> clientClass, Object client)
@@ -149,6 +155,16 @@ public class World {
 
     // Enable retry
     clientClass.getMethod("enableRetry", boolean.class).invoke(client, true);
+
+    if (TestRunner.serverEnabled()) {
+      clientClass.getMethod("setBasePath", String.class).invoke(client, TestRunner.serverUrl());
+      clientClass.getMethod("setServerIndex", Integer.class).invoke(client, new Object[] {null});
+      clientClass.getMethod("enableRetry", boolean.class).invoke(client, false);
+      clientClass
+          .getMethod("addDefaultHeader", String.class, String.class)
+          .invoke(client, "x-openapi-test-session", testServerSession);
+      return;
+    }
 
     // Set debugging based on env
     // client.setDebugging("true".equals(System.getenv("DEBUG")))
@@ -283,6 +299,24 @@ public class World {
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException,
           com.fasterxml.jackson.core.JsonProcessingException {
+    addRequestParameterValue(parameterName, value, true);
+  }
+
+  public void addMaterializedRequestParameter(String parameterName, String value)
+      throws java.lang.IllegalAccessException,
+          java.lang.NoSuchFieldException,
+          java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException,
+          com.fasterxml.jackson.core.JsonProcessingException {
+    addRequestParameterValue(parameterName, value, false);
+  }
+
+  private void addRequestParameterValue(String parameterName, String value, boolean renderTemplates)
+      throws java.lang.IllegalAccessException,
+          java.lang.NoSuchFieldException,
+          java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException,
+          com.fasterxml.jackson.core.JsonProcessingException {
     String propertyName = toPropertyName(parameterName);
     Class fieldType = null;
     boolean isOptional = false;
@@ -307,7 +341,8 @@ public class World {
               + requestBuilder.getParameterTypes().length);
     }
 
-    Object data = fromJSON(getObjectMapper(), fieldType, templated(value, context));
+    Object data =
+        fromJSON(getObjectMapper(), fieldType, renderTemplates ? templated(value, context) : value);
 
     // Store path parameter for undo operations
     pathParameters.put(parameterName, data);
@@ -316,11 +351,11 @@ public class World {
     if (isOptional) {
       if (fieldType == File.class) {
         String apiVersion = getVersion();
-        String filePath =
-            "src/test/resources/com/datadog/api/client/" + apiVersion + "/api/" + data.toString();
         requestParametersClass
             .getMethod(propertyName, fieldType)
-            .invoke(requestParameters, new File(filePath));
+            .invoke(
+                requestParameters,
+                TestRunner.featureDataPath(apiVersion, data.toString()).toFile());
       } else {
         requestParametersClass.getMethod(propertyName, fieldType).invoke(requestParameters, data);
       }

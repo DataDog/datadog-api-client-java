@@ -17,8 +17,7 @@ public class UndoAction {
 
   private static Map<String, Undo> loadUndo(String apiVersion) {
     try {
-      File file =
-          new File("src/test/resources/com/datadog/api/client/" + apiVersion + "/api/undo.json");
+      File file = TestRunner.featureDataPath(apiVersion, "undo.json").toFile();
       return Undo.loadRequestsUndo(file);
     } catch (Exception e) {
       throw new RuntimeException(e);

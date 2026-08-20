@@ -41,10 +41,7 @@
         <profile>
             <id>surefire-java16</id>
             <activation>
-                <property>
-                    <name>java.version</name>
-                    <value>16.0.1</value>
-                </property>
+                <jdk>[16,)</jdk>
             </activation>
             <build>
                 <plugins>
