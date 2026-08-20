@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AnnotationDisplayBounds</code> object. */
+/** Canvas coordinates and dimensions for an annotation on the workflow canvas. */
 @JsonPropertyOrder({
   AnnotationDisplayBounds.JSON_PROPERTY_HEIGHT,
   AnnotationDisplayBounds.JSON_PROPERTY_WIDTH,
@@ -45,7 +45,7 @@ public class AnnotationDisplayBounds {
   }
 
   /**
-   * The <code>bounds</code> <code>height</code>.
+   * The annotation's height on the canvas.
    *
    * @return height
    */
@@ -66,7 +66,7 @@ public class AnnotationDisplayBounds {
   }
 
   /**
-   * The <code>bounds</code> <code>width</code>.
+   * The annotation's width on the canvas.
    *
    * @return width
    */
@@ -87,7 +87,7 @@ public class AnnotationDisplayBounds {
   }
 
   /**
-   * The <code>bounds</code> <code>x</code>.
+   * The annotation's horizontal canvas coordinate.
    *
    * @return x
    */
@@ -108,7 +108,7 @@ public class AnnotationDisplayBounds {
   }
 
   /**
-   * The <code>bounds</code> <code>y</code>.
+   * The annotation's vertical canvas coordinate.
    *
    * @return y
    */

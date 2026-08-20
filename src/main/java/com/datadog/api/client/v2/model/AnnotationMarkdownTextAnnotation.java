@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AnnotationMarkdownTextAnnotation</code> object. */
+/** Markdown content displayed in an annotation. */
 @JsonPropertyOrder({AnnotationMarkdownTextAnnotation.JSON_PROPERTY_TEXT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,7 +31,7 @@ public class AnnotationMarkdownTextAnnotation {
   }
 
   /**
-   * The <code>markdownTextAnnotation</code> <code>text</code>.
+   * The annotation's Markdown content.
    *
    * @return text
    */
