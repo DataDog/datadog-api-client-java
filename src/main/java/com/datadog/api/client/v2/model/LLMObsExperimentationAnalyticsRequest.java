@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to run an analytics aggregation over LLM Observability experimentation data. */
+/** Request to run an analytics aggregation over Agent Observability experimentation data. */
 @JsonPropertyOrder({LLMObsExperimentationAnalyticsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

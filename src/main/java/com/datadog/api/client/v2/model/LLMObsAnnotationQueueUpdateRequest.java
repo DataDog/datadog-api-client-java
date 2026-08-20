@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to update an LLM Observability annotation queue. */
+/** Request to update an Agent Observability annotation queue. */
 @JsonPropertyOrder({LLMObsAnnotationQueueUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class LLMObsAnnotationQueueUpdateRequest {
   }
 
   /**
-   * Data object for updating an LLM Observability annotation queue.
+   * Data object for updating an Agent Observability annotation queue.
    *
    * @return data
    */

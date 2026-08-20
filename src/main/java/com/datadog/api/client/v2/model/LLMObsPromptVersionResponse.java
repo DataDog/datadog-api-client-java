@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a specific version of an LLM Observability prompt. */
+/** Response containing a specific version of an Agent Observability prompt. */
 @JsonPropertyOrder({LLMObsPromptVersionResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class LLMObsPromptVersionResponse {
   }
 
   /**
-   * Data object for a specific version of an LLM Observability prompt.
+   * Data object for a specific version of an Agent Observability prompt.
    *
    * @return data
    */

@@ -1,4 +1,4 @@
-// Restore an LLM Observability dataset version returns "OK" response
+// Restore an Agent Observability dataset version returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

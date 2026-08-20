@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for triggering an LLM Observability patterns run. */
+/** Attributes for triggering an Agent Observability patterns run. */
 @JsonPropertyOrder({LLMObsPatternsTriggerRequestAttributes.JSON_PROPERTY_CONFIG_ID})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

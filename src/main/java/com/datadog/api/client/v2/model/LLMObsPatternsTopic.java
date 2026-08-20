@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A topic discovered by an LLM Observability patterns run. */
+/** A topic discovered by an Agent Observability patterns run. */
 @JsonPropertyOrder({
   LLMObsPatternsTopic.JSON_PROPERTY_CREATED_AT,
   LLMObsPatternsTopic.JSON_PROPERTY_DESCRIPTION,

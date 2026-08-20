@@ -6002,7 +6002,7 @@ public class UsageSummaryDateOrg {
   }
 
   /**
-   * Shows the sum of all LLM Observability 15-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 15-day retention spans over all hours in the current
    * date for the given org.
    *
    * @return llmObservability15dayRetentionSpansSum
@@ -6029,7 +6029,7 @@ public class UsageSummaryDateOrg {
   }
 
   /**
-   * Shows the sum of all LLM Observability 30-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 30-day retention spans over all hours in the current
    * date for the given org.
    *
    * @return llmObservability30dayRetentionSpansSum
@@ -6056,7 +6056,7 @@ public class UsageSummaryDateOrg {
   }
 
   /**
-   * Shows the sum of all LLM Observability 60-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 60-day retention spans over all hours in the current
    * date for the given org.
    *
    * @return llmObservability60dayRetentionSpansSum
@@ -6083,7 +6083,7 @@ public class UsageSummaryDateOrg {
   }
 
   /**
-   * Shows the sum of all LLM Observability 90-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 90-day retention spans over all hours in the current
    * date for the given org.
    *
    * @return llmObservability90dayRetentionSpansSum
@@ -6109,8 +6109,8 @@ public class UsageSummaryDateOrg {
   }
 
   /**
-   * Shows the sum of all LLM Observability minimum spend over all hours in the current date for the
-   * given org.
+   * Shows the sum of all Agent Observability minimum spend over all hours in the current date for
+   * the given org.
    *
    * @return llmObservabilityMinSpendSum
    */
@@ -6133,7 +6133,7 @@ public class UsageSummaryDateOrg {
   }
 
   /**
-   * Shows the sum of all LLM observability sessions over all hours in the current date for the
+   * Shows the sum of all Agent observability sessions over all hours in the current date for the
    * given org.
    *
    * @return llmObservabilitySum

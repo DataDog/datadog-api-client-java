@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability dataset version. */
+/** Attributes of an Agent Observability dataset version. */
 @JsonPropertyOrder({
   LLMObsDatasetVersionDataAttributes.JSON_PROPERTY_DATASET_ID,
   LLMObsDatasetVersionDataAttributes.JSON_PROPERTY_LAST_USED,

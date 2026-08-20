@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type of an LLM Observability dataset version. */
+/** Resource type of an Agent Observability dataset version. */
 @JsonSerialize(using = LLMObsDatasetVersionType.LLMObsDatasetVersionTypeSerializer.class)
 public class LLMObsDatasetVersionType extends ModelEnum<String> {
 

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type for an LLM Observability span. */
+/** Resource type for an Agent Observability span. */
 @JsonSerialize(using = LLMObsSpanType.LLMObsSpanTypeSerializer.class)
 public class LLMObsSpanType extends ModelEnum<String> {
 

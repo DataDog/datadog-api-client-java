@@ -1,4 +1,4 @@
-// Delete LLM Observability experiments returns "No Content" response
+// Delete Agent Observability experiments returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

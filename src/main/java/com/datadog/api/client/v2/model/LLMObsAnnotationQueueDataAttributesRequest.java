@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for creating an LLM Observability annotation queue. */
+/** Attributes for creating an Agent Observability annotation queue. */
 @JsonPropertyOrder({
   LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_ANNOTATION_SCHEMA,
   LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_DESCRIPTION,

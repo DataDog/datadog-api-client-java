@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability dataset. */
+/** Attributes of an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDatasetDataAttributesResponse.JSON_PROPERTY_CREATED_AT,
   LLMObsDatasetDataAttributesResponse.JSON_PROPERTY_CURRENT_VERSION,

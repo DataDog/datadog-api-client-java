@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for deleting LLM Observability experiments. */
+/** Data object for deleting Agent Observability experiments. */
 @JsonPropertyOrder({
   LLMObsDeleteExperimentsDataRequest.JSON_PROPERTY_ATTRIBUTES,
   LLMObsDeleteExperimentsDataRequest.JSON_PROPERTY_TYPE
@@ -53,7 +53,7 @@ public class LLMObsDeleteExperimentsDataRequest {
   }
 
   /**
-   * Attributes for deleting LLM Observability experiments.
+   * Attributes for deleting Agent Observability experiments.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class LLMObsDeleteExperimentsDataRequest {
   }
 
   /**
-   * Resource type of an LLM Observability experiment.
+   * Resource type of an Agent Observability experiment.
    *
    * @return type
    */

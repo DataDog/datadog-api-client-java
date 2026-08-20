@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for creating or updating a custom LLM Observability evaluator configuration. */
+/** Attributes for creating or updating a custom Agent Observability evaluator configuration. */
 @JsonPropertyOrder({
   LLMObsCustomEvalConfigUpdateAttributes.JSON_PROPERTY_CATEGORY,
   LLMObsCustomEvalConfigUpdateAttributes.JSON_PROPERTY_EVAL_NAME,

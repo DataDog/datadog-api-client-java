@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to create or update a custom LLM Observability evaluator configuration. */
+/** Request to create or update a custom Agent Observability evaluator configuration. */
 @JsonPropertyOrder({LLMObsCustomEvalConfigUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class LLMObsCustomEvalConfigUpdateRequest {
   }
 
   /**
-   * Data object for creating or updating a custom LLM Observability evaluator configuration.
+   * Data object for creating or updating a custom Agent Observability evaluator configuration.
    *
    * @return data
    */

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Execution status of an LLM Observability experiment. */
+/** Execution status of an Agent Observability experiment. */
 @JsonSerialize(using = LLMObsExperimentStatus.LLMObsExperimentStatusSerializer.class)
 public class LLMObsExperimentStatus extends ModelEnum<String> {
 

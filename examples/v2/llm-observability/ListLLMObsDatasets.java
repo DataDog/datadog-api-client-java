@@ -1,4 +1,4 @@
-// List LLM Observability datasets returns "OK" response
+// List Agent Observability datasets returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

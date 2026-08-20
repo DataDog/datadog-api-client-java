@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to batch-insert, update, and delete records in an LLM Observability dataset. */
+/** Request to batch-insert, update, and delete records in an Agent Observability dataset. */
 @JsonPropertyOrder({LLMObsDatasetBatchUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class LLMObsDatasetBatchUpdateRequest {
   }
 
   /**
-   * Data object for batch-updating records in an LLM Observability dataset.
+   * Data object for batch-updating records in an Agent Observability dataset.
    *
    * @return data
    */

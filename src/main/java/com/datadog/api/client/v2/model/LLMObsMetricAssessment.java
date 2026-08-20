@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Assessment result for an LLM Observability experiment metric. */
+/** Assessment result for an Agent Observability experiment metric. */
 @JsonSerialize(using = LLMObsMetricAssessment.LLMObsMetricAssessmentSerializer.class)
 public class LLMObsMetricAssessment extends ModelEnum<String> {
 

@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A record update payload for an LLM Observability dataset. */
+/** A record update payload for an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDatasetRecordUpdateItem.JSON_PROPERTY_EXPECTED_OUTPUT,
   LLMObsDatasetRecordUpdateItem.JSON_PROPERTY_ID,

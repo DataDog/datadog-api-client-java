@@ -1,4 +1,4 @@
-// Aggregate LLM Observability experimentation returns "OK" response
+// Aggregate Agent Observability experimentation returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

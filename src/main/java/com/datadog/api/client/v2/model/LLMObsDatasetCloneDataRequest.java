@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for cloning an LLM Observability dataset. */
+/** Data object for cloning an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDatasetCloneDataRequest.JSON_PROPERTY_ATTRIBUTES,
   LLMObsDatasetCloneDataRequest.JSON_PROPERTY_ID,
@@ -59,7 +59,7 @@ public class LLMObsDatasetCloneDataRequest {
   }
 
   /**
-   * Attributes for cloning an LLM Observability dataset.
+   * Attributes for cloning an Agent Observability dataset.
    *
    * @return attributes
    */
@@ -103,7 +103,7 @@ public class LLMObsDatasetCloneDataRequest {
   }
 
   /**
-   * Resource type of an LLM Observability dataset.
+   * Resource type of an Agent Observability dataset.
    *
    * @return type
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating an LLM Observability prompt. */
+/** Data object for updating an Agent Observability prompt. */
 @JsonPropertyOrder({
   LLMObsUpdatePromptData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsUpdatePromptData.JSON_PROPERTY_TYPE
@@ -52,7 +52,7 @@ public class LLMObsUpdatePromptData {
   }
 
   /**
-   * Attributes for updating an LLM Observability prompt. At least one of <code>title</code> or
+   * Attributes for updating an Agent Observability prompt. At least one of <code>title</code> or
    * <code>description</code> must be provided; both attributes are optional individually.
    *
    * @return attributes
@@ -77,7 +77,7 @@ public class LLMObsUpdatePromptData {
   }
 
   /**
-   * Resource type of an LLM Observability prompt.
+   * Resource type of an Agent Observability prompt.
    *
    * @return type
    */

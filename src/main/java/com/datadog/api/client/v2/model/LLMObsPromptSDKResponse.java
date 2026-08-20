@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a flattened LLM Observability prompt version for SDK consumption. */
+/** Response containing a flattened Agent Observability prompt version for SDK consumption. */
 @JsonPropertyOrder({LLMObsPromptSDKResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class LLMObsPromptSDKResponse {
   }
 
   /**
-   * Data object for a flattened LLM Observability prompt version returned for SDK consumption.
+   * Data object for a flattened Agent Observability prompt version returned for SDK consumption.
    *
    * @return data
    */

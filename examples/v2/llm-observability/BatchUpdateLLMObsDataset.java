@@ -1,4 +1,4 @@
-// Batch update LLM Observability dataset records returns "OK" response
+// Batch update Agent Observability dataset records returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

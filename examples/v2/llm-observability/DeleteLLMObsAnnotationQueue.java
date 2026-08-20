@@ -1,4 +1,4 @@
-// Delete an LLM Observability annotation queue returns "No Content" response
+// Delete an Agent Observability annotation queue returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

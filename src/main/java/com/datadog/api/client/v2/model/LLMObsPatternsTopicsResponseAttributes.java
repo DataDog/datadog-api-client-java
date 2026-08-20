@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of an LLM Observability patterns topics response. */
+/** Attributes of an Agent Observability patterns topics response. */
 @JsonPropertyOrder({
   LLMObsPatternsTopicsResponseAttributes.JSON_PROPERTY_COMPLETED_AT,
   LLMObsPatternsTopicsResponseAttributes.JSON_PROPERTY_CONFIG_ID,

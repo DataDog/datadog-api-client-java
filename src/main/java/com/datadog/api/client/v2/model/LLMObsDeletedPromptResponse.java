@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response confirming that an LLM Observability prompt was deleted. */
+/** Response confirming that an Agent Observability prompt was deleted. */
 @JsonPropertyOrder({LLMObsDeletedPromptResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class LLMObsDeletedPromptResponse {
   }
 
   /**
-   * Data object confirming that an LLM Observability prompt was deleted.
+   * Data object confirming that an Agent Observability prompt was deleted.
    *
    * @return data
    */

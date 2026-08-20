@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for batch-updating records in an LLM Observability dataset. */
+/** Attributes for batch-updating records in an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDatasetBatchUpdateDataAttributesRequest.JSON_PROPERTY_CREATE_NEW_VERSION,
   LLMObsDatasetBatchUpdateDataAttributesRequest.JSON_PROPERTY_DELETE_RECORDS,

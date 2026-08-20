@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object of an LLM Observability patterns configuration. */
+/** Data object of an Agent Observability patterns configuration. */
 @JsonPropertyOrder({
   LLMObsPatternsConfigResponseData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsPatternsConfigResponseData.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class LLMObsPatternsConfigResponseData {
   }
 
   /**
-   * Attributes of an LLM Observability patterns configuration.
+   * Attributes of an Agent Observability patterns configuration.
    *
    * @return attributes
    */
@@ -102,7 +102,7 @@ public class LLMObsPatternsConfigResponseData {
   }
 
   /**
-   * Resource type of an LLM Observability patterns configuration.
+   * Resource type of an Agent Observability patterns configuration.
    *
    * @return type
    */

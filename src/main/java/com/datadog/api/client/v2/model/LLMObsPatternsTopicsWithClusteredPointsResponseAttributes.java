@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of an LLM Observability patterns topics-with-clustered-points response. */
+/** Attributes of an Agent Observability patterns topics-with-clustered-points response. */
 @JsonPropertyOrder({
   LLMObsPatternsTopicsWithClusteredPointsResponseAttributes.JSON_PROPERTY_COMPLETED_AT,
   LLMObsPatternsTopicsWithClusteredPointsResponseAttributes.JSON_PROPERTY_CONFIG_ID,

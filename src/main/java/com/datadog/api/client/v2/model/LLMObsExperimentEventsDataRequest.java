@@ -77,7 +77,7 @@ public class LLMObsExperimentEventsDataRequest {
   }
 
   /**
-   * Resource type for LLM Observability experiment events.
+   * Resource type for Agent Observability experiment events.
    *
    * @return type
    */

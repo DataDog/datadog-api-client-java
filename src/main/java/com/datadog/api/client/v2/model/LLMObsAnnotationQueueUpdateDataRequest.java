@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating an LLM Observability annotation queue. */
+/** Data object for updating an Agent Observability annotation queue. */
 @JsonPropertyOrder({
   LLMObsAnnotationQueueUpdateDataRequest.JSON_PROPERTY_ATTRIBUTES,
   LLMObsAnnotationQueueUpdateDataRequest.JSON_PROPERTY_TYPE
@@ -53,7 +53,7 @@ public class LLMObsAnnotationQueueUpdateDataRequest {
   }
 
   /**
-   * Attributes for updating an LLM Observability annotation queue. All fields are optional.
+   * Attributes for updating an Agent Observability annotation queue. All fields are optional.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class LLMObsAnnotationQueueUpdateDataRequest {
   }
 
   /**
-   * Resource type of an LLM Observability annotation queue.
+   * Resource type of an Agent Observability annotation queue.
    *
    * @return type
    */

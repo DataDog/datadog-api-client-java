@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for cloning an LLM Observability dataset. */
+/** Attributes for cloning an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDatasetCloneDataAttributesRequest.JSON_PROPERTY_DESCRIPTION,
   LLMObsDatasetCloneDataAttributesRequest.JSON_PROPERTY_NAME

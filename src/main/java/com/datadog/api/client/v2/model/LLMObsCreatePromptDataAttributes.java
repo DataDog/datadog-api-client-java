@@ -20,8 +20,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Attributes for creating an LLM Observability prompt and its first version. <code>prompt_id</code>
- * and <code>template</code> are required; all other attributes are optional.
+ * Attributes for creating an Agent Observability prompt and its first version. <code>prompt_id
+ * </code> and <code>template</code> are required; all other attributes are optional.
  */
 @JsonPropertyOrder({
   LLMObsCreatePromptDataAttributes.JSON_PROPERTY_DESCRIPTION,

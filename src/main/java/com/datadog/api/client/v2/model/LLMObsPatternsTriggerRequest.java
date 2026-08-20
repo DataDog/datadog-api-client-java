@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to trigger an LLM Observability patterns run. */
+/** Request to trigger an Agent Observability patterns run. */
 @JsonPropertyOrder({LLMObsPatternsTriggerRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class LLMObsPatternsTriggerRequest {
   }
 
   /**
-   * Data object for triggering an LLM Observability patterns run.
+   * Data object for triggering an Agent Observability patterns run.
    *
    * @return data
    */

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability patterns clustered points response. */
+/** Attributes of an Agent Observability patterns clustered points response. */
 @JsonPropertyOrder({
   LLMObsPatternsClusteredPointsResponseAttributes.JSON_PROPERTY_NEXT_PAGE_TOKEN,
   LLMObsPatternsClusteredPointsResponseAttributes.JSON_PROPERTY_POINTS,

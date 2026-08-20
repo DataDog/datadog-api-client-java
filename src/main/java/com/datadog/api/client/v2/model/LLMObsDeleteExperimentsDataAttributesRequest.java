@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for deleting LLM Observability experiments. */
+/** Attributes for deleting Agent Observability experiments. */
 @JsonPropertyOrder({LLMObsDeleteExperimentsDataAttributesRequest.JSON_PROPERTY_EXPERIMENT_IDS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

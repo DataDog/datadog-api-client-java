@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability span. */
+/** Attributes of an Agent Observability span. */
 @JsonPropertyOrder({
   LLMObsSpanAttributes.JSON_PROPERTY_DURATION,
   LLMObsSpanAttributes.JSON_PROPERTY_EVALUATION,
@@ -181,7 +181,7 @@ public class LLMObsSpanAttributes {
   }
 
   /**
-   * Input or output content of an LLM Observability span.
+   * Input or output content of an Agent Observability span.
    *
    * @return input
    */
@@ -367,7 +367,7 @@ public class LLMObsSpanAttributes {
   }
 
   /**
-   * Input or output content of an LLM Observability span.
+   * Input or output content of an Agent Observability span.
    *
    * @return output
    */

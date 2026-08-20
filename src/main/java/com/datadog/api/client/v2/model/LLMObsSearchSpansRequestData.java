@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for an LLM Observability spans search request. */
+/** Data object for an Agent Observability spans search request. */
 @JsonPropertyOrder({
   LLMObsSearchSpansRequestData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsSearchSpansRequestData.JSON_PROPERTY_TYPE
@@ -53,7 +53,7 @@ public class LLMObsSearchSpansRequestData {
   }
 
   /**
-   * Attributes of an LLM Observability spans search request.
+   * Attributes of an Agent Observability spans search request.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class LLMObsSearchSpansRequestData {
   }
 
   /**
-   * Resource type for an LLM Observability spans search request.
+   * Resource type for an Agent Observability spans search request.
    *
    * @return type
    */

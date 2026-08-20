@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for creating or updating an LLM Observability patterns configuration. */
+/** Data object for creating or updating an Agent Observability patterns configuration. */
 @JsonPropertyOrder({
   LLMObsPatternsConfigUpsertRequestData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsPatternsConfigUpsertRequestData.JSON_PROPERTY_TYPE
@@ -53,7 +53,7 @@ public class LLMObsPatternsConfigUpsertRequestData {
   }
 
   /**
-   * Attributes for creating or updating an LLM Observability patterns configuration.
+   * Attributes for creating or updating an Agent Observability patterns configuration.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class LLMObsPatternsConfigUpsertRequestData {
   }
 
   /**
-   * Resource type of an LLM Observability patterns configuration.
+   * Resource type of an Agent Observability patterns configuration.
    *
    * @return type
    */

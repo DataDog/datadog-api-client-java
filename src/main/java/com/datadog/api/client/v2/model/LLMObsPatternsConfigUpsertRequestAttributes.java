@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for creating or updating an LLM Observability patterns configuration. */
+/** Attributes for creating or updating an Agent Observability patterns configuration. */
 @JsonPropertyOrder({
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_ACCOUNT_ID,
   LLMObsPatternsConfigUpsertRequestAttributes.JSON_PROPERTY_CONFIG_ID,

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for restoring an LLM Observability dataset to a previous version. */
+/** Attributes for restoring an Agent Observability dataset to a previous version. */
 @JsonPropertyOrder({LLMObsDatasetRestoreVersionDataAttributesRequest.JSON_PROPERTY_DATASET_VERSION})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

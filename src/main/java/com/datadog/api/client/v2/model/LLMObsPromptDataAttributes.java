@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability prompt registry entry. */
+/** Attributes of an Agent Observability prompt registry entry. */
 @JsonPropertyOrder({
   LLMObsPromptDataAttributes.JSON_PROPERTY_AUTHOR,
   LLMObsPromptDataAttributes.JSON_PROPERTY_CREATED_AT,

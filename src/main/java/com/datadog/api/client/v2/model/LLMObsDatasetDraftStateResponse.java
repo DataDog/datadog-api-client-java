@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing the draft state of an LLM Observability dataset. */
+/** Response containing the draft state of an Agent Observability dataset. */
 @JsonPropertyOrder({LLMObsDatasetDraftStateResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class LLMObsDatasetDraftStateResponse {
   }
 
   /**
-   * Data object for an LLM Observability dataset draft state.
+   * Data object for an Agent Observability dataset draft state.
    *
    * @return data
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for deleting LLM Observability projects. */
+/** Data object for deleting Agent Observability projects. */
 @JsonPropertyOrder({
   LLMObsDeleteProjectsDataRequest.JSON_PROPERTY_ATTRIBUTES,
   LLMObsDeleteProjectsDataRequest.JSON_PROPERTY_TYPE
@@ -53,7 +53,7 @@ public class LLMObsDeleteProjectsDataRequest {
   }
 
   /**
-   * Attributes for deleting LLM Observability projects.
+   * Attributes for deleting Agent Observability projects.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class LLMObsDeleteProjectsDataRequest {
   }
 
   /**
-   * Resource type of an LLM Observability project.
+   * Resource type of an Agent Observability project.
    *
    * @return type
    */

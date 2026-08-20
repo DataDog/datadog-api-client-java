@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to delete interactions from an LLM Observability annotation queue. */
+/** Request to delete interactions from an Agent Observability annotation queue. */
 @JsonPropertyOrder({LLMObsDeleteAnnotationQueueInteractionsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

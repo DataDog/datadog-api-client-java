@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of a specific version of an LLM Observability prompt. */
+/** Attributes of a specific version of an Agent Observability prompt. */
 @JsonPropertyOrder({
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_AUTHOR,
   LLMObsPromptVersionDataAttributes.JSON_PROPERTY_CREATED_AT,

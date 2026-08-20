@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type of an LLM Observability patterns clustered points response. */
+/** Resource type of an Agent Observability patterns clustered points response. */
 @JsonSerialize(
     using = LLMObsPatternsClusteredPointsType.LLMObsPatternsClusteredPointsTypeSerializer.class)
 public class LLMObsPatternsClusteredPointsType extends ModelEnum<String> {

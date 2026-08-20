@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for creating an LLM Observability experiment. */
+/** Attributes for creating an Agent Observability experiment. */
 @JsonPropertyOrder({
   LLMObsExperimentDataAttributesRequest.JSON_PROPERTY_CONFIG,
   LLMObsExperimentDataAttributesRequest.JSON_PROPERTY_DATASET_ID,
