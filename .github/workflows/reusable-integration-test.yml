@@ -116,6 +116,7 @@ jobs:
         run: ./run-tests.sh
         env:
           CI: "true"
+          DD_USE_GENERATED_TESTS: "true"
           DD_ENV: prod
           DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
           DD_CIVISIBILITY_COMPILER_PLUGIN_AUTO_CONFIGURATION_ENABLED: "false"
