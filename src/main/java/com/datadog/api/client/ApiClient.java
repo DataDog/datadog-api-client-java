@@ -957,6 +957,7 @@ public class ApiClient {
           put("v2.createSampleLogGenerationSubscription", false);
           put("v2.createSecurityFindingsAutomationDueDateRule", false);
           put("v2.createSecurityFindingsAutomationMuteRule", false);
+          put("v2.createSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.createSecurityFindingsAutomationTicketCreationRule", false);
           put("v2.createSecurityMonitoringDataset", false);
           put("v2.createSecurityMonitoringIntegrationConfig", false);
@@ -968,6 +969,7 @@ public class ApiClient {
           put("v2.deleteSampleLogGenerationSubscription", false);
           put("v2.deleteSecurityFindingsAutomationDueDateRule", false);
           put("v2.deleteSecurityFindingsAutomationMuteRule", false);
+          put("v2.deleteSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.deleteSecurityFindingsAutomationTicketCreationRule", false);
           put("v2.deleteSecurityMonitoringDataset", false);
           put("v2.deleteSecurityMonitoringIntegrationConfig", false);
@@ -982,6 +984,7 @@ public class ApiClient {
           put("v2.getSecretsRules", false);
           put("v2.getSecurityFindingsAutomationDueDateRule", false);
           put("v2.getSecurityFindingsAutomationMuteRule", false);
+          put("v2.getSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.getSecurityFindingsAutomationTicketCreationRule", false);
           put("v2.getSecurityMonitoringDataset", false);
           put("v2.getSecurityMonitoringDatasetByVersion", false);
@@ -1004,6 +1007,7 @@ public class ApiClient {
           put("v2.listScannedAssetsMetadata", false);
           put("v2.listSecurityFindingsAutomationDueDateRules", false);
           put("v2.listSecurityFindingsAutomationMuteRules", false);
+          put("v2.listSecurityFindingsAutomationSeverityModifierRules", false);
           put("v2.listSecurityFindingsAutomationTicketCreationRules", false);
           put("v2.listSecurityMonitoringDatasets", false);
           put("v2.listSecurityMonitoringHistsignals", false);
@@ -1013,6 +1017,7 @@ public class ApiClient {
           put("v2.listVulnerableAssets", false);
           put("v2.reorderSecurityFindingsAutomationDueDateRules", false);
           put("v2.reorderSecurityFindingsAutomationMuteRules", false);
+          put("v2.reorderSecurityFindingsAutomationSeverityModifierRules", false);
           put("v2.reorderSecurityFindingsAutomationTicketCreationRules", false);
           put("v2.restoreSecurityMonitoringRule", false);
           put("v2.runHistoricalJob", false);
@@ -1020,6 +1025,7 @@ public class ApiClient {
           put("v2.updateFindingsAssignee", false);
           put("v2.updateSecurityFindingsAutomationDueDateRule", false);
           put("v2.updateSecurityFindingsAutomationMuteRule", false);
+          put("v2.updateSecurityFindingsAutomationSeverityModifierRule", false);
           put("v2.updateSecurityFindingsAutomationTicketCreationRule", false);
           put("v2.updateSecurityMonitoringDataset", false);
           put("v2.updateSecurityMonitoringIntegrationConfig", false);
