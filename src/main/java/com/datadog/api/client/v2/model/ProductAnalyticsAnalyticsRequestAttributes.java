@@ -134,7 +134,7 @@ public class ProductAnalyticsAnalyticsRequestAttributes {
   }
 
   /**
-   * Optional request ID for multi-step query continuation.
+   * Unique identifier of the query.
    *
    * @return requestId
    */

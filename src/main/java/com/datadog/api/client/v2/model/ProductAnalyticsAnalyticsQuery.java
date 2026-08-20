@@ -162,10 +162,12 @@ public class ProductAnalyticsAnalyticsQuery {
   }
 
   /**
-   * Restrict the query to specific indexes. Max 1 entry.
+   * Deprecated. Index selection is a rollout detail and will be removed. Do not set this field.
    *
    * @return indexes
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,6 +175,7 @@ public class ProductAnalyticsAnalyticsQuery {
     return indexes;
   }
 
+  @Deprecated
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
   }
