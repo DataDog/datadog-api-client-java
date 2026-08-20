@@ -22,6 +22,7 @@ import java.util.Objects;
 /** A display_block interaction with its associated annotations. */
 @JsonPropertyOrder({
   LLMObsDisplayBlockAnnotatedInteractionItem.JSON_PROPERTY_ANNOTATIONS,
+  LLMObsDisplayBlockAnnotatedInteractionItem.JSON_PROPERTY_CAN_ANNOTATE,
   LLMObsDisplayBlockAnnotatedInteractionItem.JSON_PROPERTY_CONTENT_ID,
   LLMObsDisplayBlockAnnotatedInteractionItem.JSON_PROPERTY_DISPLAY_BLOCK,
   LLMObsDisplayBlockAnnotatedInteractionItem.JSON_PROPERTY_ID,
@@ -33,6 +34,9 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATIONS = "annotations";
   private List<LLMObsAnnotationItem> annotations = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_CAN_ANNOTATE = "can_annotate";
+  private Boolean canAnnotate;
 
   public static final String JSON_PROPERTY_CONTENT_ID = "content_id";
   private String contentId;
@@ -52,6 +56,7 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
   public LLMObsDisplayBlockAnnotatedInteractionItem(
       @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
           List<LLMObsAnnotationItem> annotations,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CAN_ANNOTATE) Boolean canAnnotate,
       @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
       @JsonProperty(required = true, value = JSON_PROPERTY_DISPLAY_BLOCK)
           List<LLMObsContentBlock> displayBlock,
@@ -62,6 +67,7 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
     for (LLMObsAnnotationItem item : annotations) {
       this.unparsed |= item.unparsed;
     }
+    this.canAnnotate = canAnnotate;
     this.contentId = contentId;
     this.displayBlock = displayBlock;
     for (LLMObsContentBlock item : displayBlock) {
@@ -106,6 +112,26 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public LLMObsDisplayBlockAnnotatedInteractionItem canAnnotate(Boolean canAnnotate) {
+    this.canAnnotate = canAnnotate;
+    return this;
+  }
+
+  /**
+   * Whether the current caller can annotate this interaction.
+   *
+   * @return canAnnotate
+   */
+  @JsonProperty(JSON_PROPERTY_CAN_ANNOTATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getCanAnnotate() {
+    return canAnnotate;
+  }
+
+  public void setCanAnnotate(Boolean canAnnotate) {
+    this.canAnnotate = canAnnotate;
   }
 
   public LLMObsDisplayBlockAnnotatedInteractionItem contentId(String contentId) {
@@ -268,6 +294,7 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
     LLMObsDisplayBlockAnnotatedInteractionItem llmObsDisplayBlockAnnotatedInteractionItem =
         (LLMObsDisplayBlockAnnotatedInteractionItem) o;
     return Objects.equals(this.annotations, llmObsDisplayBlockAnnotatedInteractionItem.annotations)
+        && Objects.equals(this.canAnnotate, llmObsDisplayBlockAnnotatedInteractionItem.canAnnotate)
         && Objects.equals(this.contentId, llmObsDisplayBlockAnnotatedInteractionItem.contentId)
         && Objects.equals(
             this.displayBlock, llmObsDisplayBlockAnnotatedInteractionItem.displayBlock)
@@ -280,7 +307,8 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, contentId, displayBlock, id, type, additionalProperties);
+    return Objects.hash(
+        annotations, canAnnotate, contentId, displayBlock, id, type, additionalProperties);
   }
 
   @Override
@@ -288,6 +316,7 @@ public class LLMObsDisplayBlockAnnotatedInteractionItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsDisplayBlockAnnotatedInteractionItem {\n");
     sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
+    sb.append("    canAnnotate: ").append(toIndentedString(canAnnotate)).append("\n");
     sb.append("    contentId: ").append(toIndentedString(contentId)).append("\n");
     sb.append("    displayBlock: ").append(toIndentedString(displayBlock)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
