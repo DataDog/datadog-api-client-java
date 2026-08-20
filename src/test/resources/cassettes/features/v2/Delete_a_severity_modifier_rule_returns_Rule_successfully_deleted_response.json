@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"severity\":\"low\",\"type\":\"set\"},\"enabled\":true,\"name\":\"Test-Delete_a_severity_modifier_rule_returns_Rule_successfully_deleted_response-1787037658\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}},\"type\":\"severity_modifier_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/findings/automation/severity_modifier_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"89935049-6349-4c1b-b54a-25f340248515\",\"type\":\"severity_modifier_rules\",\"attributes\":{\"action\":{\"type\":\"set\",\"severity\":\"low\"},\"created_at\":1787037658168,\"created_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":true,\"modified_at\":1787037658168,\"modified_by\":{\"type\":\"user\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"name\":\"Test-Delete_a_severity_modifier_rule_returns_Rule_successfully_deleted_response-1787037658\",\"rule\":{\"finding_types\":[\"misconfiguration\"],\"query\":\"env:staging\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "58adfa2f-7422-770e-ed85-9c0de5abb9e2"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/findings/automation/severity_modifier_rules/89935049-6349-4c1b-b54a-25f340248515",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4af2a47e-abf7-917a-9efd-8a9dbc76891e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/findings/automation/severity_modifier_rules/89935049-6349-4c1b-b54a-25f340248515",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"rule does not exist\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4af2a47e-abf7-917a-9efd-8a9dbc76891f"
+  }
+]
