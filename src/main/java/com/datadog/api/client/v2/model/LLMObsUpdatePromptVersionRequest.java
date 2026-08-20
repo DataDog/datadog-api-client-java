@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Request to update an LLM Observability prompt version's metadata or feature-flag environments.
+ * Request to update an Agent Observability prompt version's metadata or feature-flag environments.
  */
 @JsonPropertyOrder({LLMObsUpdatePromptVersionRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
@@ -45,7 +45,7 @@ public class LLMObsUpdatePromptVersionRequest {
   }
 
   /**
-   * Data object for updating an LLM Observability prompt version.
+   * Data object for updating an Agent Observability prompt version.
    *
    * @return data
    */

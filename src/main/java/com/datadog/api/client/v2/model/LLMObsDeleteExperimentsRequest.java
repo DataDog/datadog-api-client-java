@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to delete one or more LLM Observability experiments. */
+/** Request to delete one or more Agent Observability experiments. */
 @JsonPropertyOrder({LLMObsDeleteExperimentsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class LLMObsDeleteExperimentsRequest {
   }
 
   /**
-   * Data object for deleting LLM Observability experiments.
+   * Data object for deleting Agent Observability experiments.
    *
    * @return data
    */

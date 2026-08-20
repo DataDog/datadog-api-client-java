@@ -125,7 +125,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Aggregate LLM Observability experimentation.
+   * Aggregate Agent Observability experimentation.
    *
    * <p>See {@link #aggregateLLMObsExperimentationWithHttpInfo}.
    *
@@ -139,7 +139,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Aggregate LLM Observability experimentation.
+   * Aggregate Agent Observability experimentation.
    *
    * <p>See {@link #aggregateLLMObsExperimentationWithHttpInfoAsync}.
    *
@@ -156,9 +156,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Execute an analytics aggregation over LLM Observability experimentation data. Use this endpoint
-   * to compute metrics (for example average eval scores) grouped by fields such as <code>span_id
-   * </code> or <code>experiment_id</code>.
+   * Execute an analytics aggregation over Agent Observability experimentation data. Use this
+   * endpoint to compute metrics (for example average eval scores) grouped by fields such as <code>
+   * span_id</code> or <code>experiment_id</code>.
    *
    * <p>At least one <code>compute</code> definition and one <code>index</code> must be provided.
    *
@@ -220,7 +220,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Aggregate LLM Observability experimentation.
+   * Aggregate Agent Observability experimentation.
    *
    * <p>See {@link #aggregateLLMObsExperimentationWithHttpInfo}.
    *
@@ -286,12 +286,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Batch update LLM Observability dataset records.
+   * Batch update Agent Observability dataset records.
    *
    * <p>See {@link #batchUpdateLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Batch update payload. (required)
    * @return LLMObsDatasetRecordsMutationResponse
    * @throws ApiException if fails to make API call
@@ -303,12 +303,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Batch update LLM Observability dataset records.
+   * Batch update Agent Observability dataset records.
    *
    * <p>See {@link #batchUpdateLLMObsDatasetWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Batch update payload. (required)
    * @return CompletableFuture&lt;LLMObsDatasetRecordsMutationResponse&gt;
    */
@@ -325,8 +325,8 @@ public class LlmObservabilityApi {
    * Insert, update, and delete records in a single dataset operation. By default, a new dataset
    * version is created when the batch is applied.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Batch update payload. (required)
    * @return ApiResponse&lt;LLMObsDatasetRecordsMutationResponse&gt;
    * @throws ApiException if fails to make API call
@@ -402,12 +402,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Batch update LLM Observability dataset records.
+   * Batch update Agent Observability dataset records.
    *
    * <p>See {@link #batchUpdateLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Batch update payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetRecordsMutationResponse&gt;&gt;
    */
@@ -495,12 +495,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Clone an LLM Observability dataset.
+   * Clone an Agent Observability dataset.
    *
    * <p>See {@link #cloneLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the source LLM Observability dataset to clone. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the source Agent Observability dataset to clone. (required)
    * @param body Clone dataset payload. (required)
    * @return LLMObsDatasetResponse
    * @throws ApiException if fails to make API call
@@ -511,12 +511,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Clone an LLM Observability dataset.
+   * Clone an Agent Observability dataset.
    *
    * <p>See {@link #cloneLLMObsDatasetWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the source LLM Observability dataset to clone. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the source Agent Observability dataset to clone. (required)
    * @param body Clone dataset payload. (required)
    * @return CompletableFuture&lt;LLMObsDatasetResponse&gt;
    */
@@ -532,8 +532,8 @@ public class LlmObservabilityApi {
   /**
    * Clone a dataset, copying its current records into a new dataset within the same project.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the source LLM Observability dataset to clone. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the source Agent Observability dataset to clone. (required)
    * @param body Clone dataset payload. (required)
    * @return ApiResponse&lt;LLMObsDatasetResponse&gt;
    * @throws ApiException if fails to make API call
@@ -607,12 +607,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Clone an LLM Observability dataset.
+   * Clone an Agent Observability dataset.
    *
    * <p>See {@link #cloneLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the source LLM Observability dataset to clone. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the source Agent Observability dataset to clone. (required)
    * @param body Clone dataset payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetResponse&gt;&gt;
    */
@@ -692,7 +692,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability annotation queue.
+   * Create an Agent Observability annotation queue.
    *
    * <p>See {@link #createLLMObsAnnotationQueueWithHttpInfo}.
    *
@@ -706,7 +706,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability annotation queue.
+   * Create an Agent Observability annotation queue.
    *
    * <p>See {@link #createLLMObsAnnotationQueueWithHttpInfoAsync}.
    *
@@ -784,7 +784,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability annotation queue.
+   * Create an Agent Observability annotation queue.
    *
    * <p>See {@link #createLLMObsAnnotationQueueWithHttpInfo}.
    *
@@ -854,7 +854,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #createLLMObsAnnotationQueueInteractionsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Add interactions payload. (required)
    * @return LLMObsAnnotationQueueInteractionsResponse
    * @throws ApiException if fails to make API call
@@ -869,7 +869,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #createLLMObsAnnotationQueueInteractionsWithHttpInfoAsync}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Add interactions payload. (required)
    * @return CompletableFuture&lt;LLMObsAnnotationQueueInteractionsResponse&gt;
    */
@@ -897,7 +897,7 @@ public class LlmObservabilityApi {
    *
    * <p>Items of different types can be mixed in a single request.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Add interactions payload. (required)
    * @return ApiResponse&lt;LLMObsAnnotationQueueInteractionsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -972,7 +972,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #createLLMObsAnnotationQueueInteractionsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Add interactions payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueueInteractionsResponse&gt;&gt;
    */
@@ -1051,11 +1051,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability dataset.
+   * Create an Agent Observability dataset.
    *
    * <p>See {@link #createLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Create dataset payload. (required)
    * @return LLMObsDatasetResponse
    * @throws ApiException if fails to make API call
@@ -1066,11 +1066,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability dataset.
+   * Create an Agent Observability dataset.
    *
    * <p>See {@link #createLLMObsDatasetWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Create dataset payload. (required)
    * @return CompletableFuture&lt;LLMObsDatasetResponse&gt;
    */
@@ -1084,9 +1084,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create a new LLM Observability dataset within the specified project.
+   * Create a new Agent Observability dataset within the specified project.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Create dataset payload. (required)
    * @return ApiResponse&lt;LLMObsDatasetResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1153,11 +1153,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability dataset.
+   * Create an Agent Observability dataset.
    *
    * <p>See {@link #createLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Create dataset payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetResponse&gt;&gt;
    */
@@ -1227,12 +1227,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Append records to an LLM Observability dataset.
+   * Append records to an Agent Observability dataset.
    *
    * <p>See {@link #createLLMObsDatasetRecordsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Append records payload. (required)
    * @return LLMObsDatasetRecordsMutationResponse
    * @throws ApiException if fails to make API call
@@ -1243,12 +1243,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Append records to an LLM Observability dataset.
+   * Append records to an Agent Observability dataset.
    *
    * <p>See {@link #createLLMObsDatasetRecordsWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Append records payload. (required)
    * @return CompletableFuture&lt;LLMObsDatasetRecordsMutationResponse&gt;
    */
@@ -1262,10 +1262,10 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Append one or more records to an LLM Observability dataset.
+   * Append one or more records to an Agent Observability dataset.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Append records payload. (required)
    * @return ApiResponse&lt;LLMObsDatasetRecordsMutationResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1341,12 +1341,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Append records to an LLM Observability dataset.
+   * Append records to an Agent Observability dataset.
    *
    * <p>See {@link #createLLMObsDatasetRecordsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Append records payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetRecordsMutationResponse&gt;&gt;
    */
@@ -1437,7 +1437,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability experiment.
+   * Create an Agent Observability experiment.
    *
    * <p>See {@link #createLLMObsExperimentWithHttpInfo}.
    *
@@ -1451,7 +1451,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability experiment.
+   * Create an Agent Observability experiment.
    *
    * <p>See {@link #createLLMObsExperimentWithHttpInfoAsync}.
    *
@@ -1468,7 +1468,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create a new LLM Observability experiment.
+   * Create a new Agent Observability experiment.
    *
    * @param body Create experiment payload. (required)
    * @return ApiResponse&lt;LLMObsExperimentResponse&gt;
@@ -1527,7 +1527,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability experiment.
+   * Create an Agent Observability experiment.
    *
    * <p>See {@link #createLLMObsExperimentWithHttpInfo}.
    *
@@ -1589,11 +1589,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Push events for an LLM Observability experiment.
+   * Push events for an Agent Observability experiment.
    *
    * <p>See {@link #createLLMObsExperimentEventsWithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param body Experiment events payload. (required)
    * @throws ApiException if fails to make API call
    */
@@ -1603,11 +1603,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Push events for an LLM Observability experiment.
+   * Push events for an Agent Observability experiment.
    *
    * <p>See {@link #createLLMObsExperimentEventsWithHttpInfoAsync}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param body Experiment events payload. (required)
    * @return CompletableFuture
    */
@@ -1621,9 +1621,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Push spans and metrics for an LLM Observability experiment.
+   * Push spans and metrics for an Agent Observability experiment.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param body Experiment events payload. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -1692,11 +1692,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Push events for an LLM Observability experiment.
+   * Push events for an Agent Observability experiment.
    *
    * <p>See {@link #createLLMObsExperimentEventsWithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param body Experiment events payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -1996,7 +1996,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability project.
+   * Create an Agent Observability project.
    *
    * <p>See {@link #createLLMObsProjectWithHttpInfo}.
    *
@@ -2009,7 +2009,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability project.
+   * Create an Agent Observability project.
    *
    * <p>See {@link #createLLMObsProjectWithHttpInfoAsync}.
    *
@@ -2026,7 +2026,8 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create a new LLM Observability project. Returns the existing project if a name conflict occurs.
+   * Create a new Agent Observability project. Returns the existing project if a name conflict
+   * occurs.
    *
    * @param body Create project payload. (required)
    * @return ApiResponse&lt;LLMObsProjectResponse&gt;
@@ -2085,7 +2086,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability project.
+   * Create an Agent Observability project.
    *
    * <p>See {@link #createLLMObsProjectWithHttpInfo}.
    *
@@ -2147,7 +2148,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability prompt.
+   * Create an Agent Observability prompt.
    *
    * <p>See {@link #createLLMObsPromptWithHttpInfo}.
    *
@@ -2161,7 +2162,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability prompt.
+   * Create an Agent Observability prompt.
    *
    * <p>See {@link #createLLMObsPromptWithHttpInfoAsync}.
    *
@@ -2178,7 +2179,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create a new prompt (and its first version) in the LLM Observability prompt registry.
+   * Create a new prompt (and its first version) in the Agent Observability prompt registry.
    *
    * @param body Create prompt payload. (required)
    * @return ApiResponse&lt;LLMObsPromptResponse&gt;
@@ -2237,7 +2238,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create an LLM Observability prompt.
+   * Create an Agent Observability prompt.
    *
    * <p>See {@link #createLLMObsPromptWithHttpInfo}.
    *
@@ -2299,11 +2300,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create a new LLM Observability prompt version.
+   * Create a new Agent Observability prompt version.
    *
    * <p>See {@link #createLLMObsPromptVersionWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param body Create prompt version payload. (required)
    * @return LLMObsPromptVersionResponse
    * @throws ApiException if fails to make API call
@@ -2314,11 +2315,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create a new LLM Observability prompt version.
+   * Create a new Agent Observability prompt version.
    *
    * <p>See {@link #createLLMObsPromptVersionWithHttpInfoAsync}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param body Create prompt version payload. (required)
    * @return CompletableFuture&lt;LLMObsPromptVersionResponse&gt;
    */
@@ -2332,9 +2333,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create a new version of an existing LLM Observability prompt.
+   * Create a new version of an existing Agent Observability prompt.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param body Create prompt version payload. (required)
    * @return ApiResponse&lt;LLMObsPromptVersionResponse&gt;
    * @throws ApiException if fails to make API call
@@ -2400,11 +2401,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create a new LLM Observability prompt version.
+   * Create a new Agent Observability prompt version.
    *
    * <p>See {@link #createLLMObsPromptVersionWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param body Create prompt version payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptVersionResponse&gt;&gt;
    */
@@ -2480,11 +2481,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete an LLM Observability annotation queue.
+   * Delete an Agent Observability annotation queue.
    *
    * <p>See {@link #deleteLLMObsAnnotationQueueWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteLLMObsAnnotationQueue(String queueId) throws ApiException {
@@ -2492,11 +2493,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete an LLM Observability annotation queue.
+   * Delete an Agent Observability annotation queue.
    *
    * <p>See {@link #deleteLLMObsAnnotationQueueWithHttpInfoAsync}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteLLMObsAnnotationQueueAsync(String queueId) {
@@ -2510,7 +2511,7 @@ public class LlmObservabilityApi {
   /**
    * Delete an annotation queue by its ID.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2568,11 +2569,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete an LLM Observability annotation queue.
+   * Delete an Agent Observability annotation queue.
    *
    * <p>See {@link #deleteLLMObsAnnotationQueueWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteLLMObsAnnotationQueueWithHttpInfoAsync(
@@ -2637,7 +2638,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #deleteLLMObsAnnotationQueueInteractionsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Delete interactions payload. (required)
    * @throws ApiException if fails to make API call
    */
@@ -2651,7 +2652,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #deleteLLMObsAnnotationQueueInteractionsWithHttpInfoAsync}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Delete interactions payload. (required)
    * @return CompletableFuture
    */
@@ -2667,7 +2668,7 @@ public class LlmObservabilityApi {
   /**
    * Delete one or more interactions from an annotation queue.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Delete interactions payload. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -2741,7 +2742,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #deleteLLMObsAnnotationQueueInteractionsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Delete interactions payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -2820,7 +2821,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #deleteLLMObsAnnotationsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Delete annotations payload. (required)
    * @return LLMObsDeleteAnnotationsResponse
    * @throws ApiException if fails to make API call
@@ -2835,7 +2836,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #deleteLLMObsAnnotationsWithHttpInfoAsync}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Delete annotations payload. (required)
    * @return CompletableFuture&lt;LLMObsDeleteAnnotationsResponse&gt;
    */
@@ -2851,7 +2852,7 @@ public class LlmObservabilityApi {
   /**
    * Delete one or more annotations from an annotation queue.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Delete annotations payload. (required)
    * @return ApiResponse&lt;LLMObsDeleteAnnotationsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -2921,7 +2922,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #deleteLLMObsAnnotationsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Delete annotations payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDeleteAnnotationsResponse&gt;&gt;
    */
@@ -3001,7 +3002,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #deleteLLMObsCustomEvalConfigWithHttpInfo}.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteLLMObsCustomEvalConfig(String evalName) throws ApiException {
@@ -3013,7 +3014,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #deleteLLMObsCustomEvalConfigWithHttpInfoAsync}.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteLLMObsCustomEvalConfigAsync(String evalName) {
@@ -3025,9 +3026,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete a custom LLM Observability evaluator configuration by its name.
+   * Delete a custom Agent Observability evaluator configuration by its name.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -3091,7 +3092,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #deleteLLMObsCustomEvalConfigWithHttpInfo}.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteLLMObsCustomEvalConfigWithHttpInfoAsync(
@@ -3153,12 +3154,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability dataset records.
+   * Delete Agent Observability dataset records.
    *
    * <p>See {@link #deleteLLMObsDatasetRecordsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Delete records payload. (required)
    * @throws ApiException if fails to make API call
    */
@@ -3169,12 +3170,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability dataset records.
+   * Delete Agent Observability dataset records.
    *
    * <p>See {@link #deleteLLMObsDatasetRecordsWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Delete records payload. (required)
    * @return CompletableFuture
    */
@@ -3188,10 +3189,10 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete one or more records from an LLM Observability dataset.
+   * Delete one or more records from an Agent Observability dataset.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Delete records payload. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -3267,12 +3268,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability dataset records.
+   * Delete Agent Observability dataset records.
    *
    * <p>See {@link #deleteLLMObsDatasetRecordsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Delete records payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -3357,11 +3358,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability datasets.
+   * Delete Agent Observability datasets.
    *
    * <p>See {@link #deleteLLMObsDatasetsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Delete datasets payload. (required)
    * @throws ApiException if fails to make API call
    */
@@ -3371,11 +3372,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability datasets.
+   * Delete Agent Observability datasets.
    *
    * <p>See {@link #deleteLLMObsDatasetsWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Delete datasets payload. (required)
    * @return CompletableFuture
    */
@@ -3389,9 +3390,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete one or more LLM Observability datasets within the specified project.
+   * Delete one or more Agent Observability datasets within the specified project.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Delete datasets payload. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -3457,11 +3458,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability datasets.
+   * Delete Agent Observability datasets.
    *
    * <p>See {@link #deleteLLMObsDatasetsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Delete datasets payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -3531,7 +3532,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability experiments.
+   * Delete Agent Observability experiments.
    *
    * <p>See {@link #deleteLLMObsExperimentsWithHttpInfo}.
    *
@@ -3543,7 +3544,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability experiments.
+   * Delete Agent Observability experiments.
    *
    * <p>See {@link #deleteLLMObsExperimentsWithHttpInfoAsync}.
    *
@@ -3559,7 +3560,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete one or more LLM Observability experiments.
+   * Delete one or more Agent Observability experiments.
    *
    * @param body Delete experiments payload. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -3617,7 +3618,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability experiments.
+   * Delete Agent Observability experiments.
    *
    * <p>See {@link #deleteLLMObsExperimentsWithHttpInfo}.
    *
@@ -3834,7 +3835,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability projects.
+   * Delete Agent Observability projects.
    *
    * <p>See {@link #deleteLLMObsProjectsWithHttpInfo}.
    *
@@ -3846,7 +3847,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability projects.
+   * Delete Agent Observability projects.
    *
    * <p>See {@link #deleteLLMObsProjectsWithHttpInfoAsync}.
    *
@@ -3862,7 +3863,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete one or more LLM Observability projects.
+   * Delete one or more Agent Observability projects.
    *
    * @param body Delete projects payload. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -3920,7 +3921,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete LLM Observability projects.
+   * Delete Agent Observability projects.
    *
    * <p>See {@link #deleteLLMObsProjectsWithHttpInfo}.
    *
@@ -3982,11 +3983,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete an LLM Observability prompt.
+   * Delete an Agent Observability prompt.
    *
    * <p>See {@link #deleteLLMObsPromptWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return LLMObsDeletedPromptResponse
    * @throws ApiException if fails to make API call
    */
@@ -3995,11 +3996,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete an LLM Observability prompt.
+   * Delete an Agent Observability prompt.
    *
    * <p>See {@link #deleteLLMObsPromptWithHttpInfoAsync}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return CompletableFuture&lt;LLMObsDeletedPromptResponse&gt;
    */
   public CompletableFuture<LLMObsDeletedPromptResponse> deleteLLMObsPromptAsync(String promptId) {
@@ -4011,10 +4012,10 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Soft-delete an LLM Observability prompt. The prompt's version rows are retained, but they are
+   * Soft-delete an Agent Observability prompt. The prompt's version rows are retained, but they are
    * no longer accessible through the public prompt registry endpoints.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return ApiResponse&lt;LLMObsDeletedPromptResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -4072,11 +4073,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Delete an LLM Observability prompt.
+   * Delete an Agent Observability prompt.
    *
    * <p>See {@link #deleteLLMObsPromptWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDeletedPromptResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LLMObsDeletedPromptResponse>>
@@ -4169,12 +4170,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Export an LLM Observability dataset.
+   * Export an Agent Observability dataset.
    *
    * <p>See {@link #exportLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return String
    * @throws ApiException if fails to make API call
    */
@@ -4185,12 +4186,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Export an LLM Observability dataset.
+   * Export an Agent Observability dataset.
    *
    * <p>See {@link #exportLLMObsDatasetWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture&lt;String&gt;
    */
   public CompletableFuture<String> exportLLMObsDatasetAsync(String projectId, String datasetId) {
@@ -4203,12 +4204,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Export an LLM Observability dataset.
+   * Export an Agent Observability dataset.
    *
    * <p>See {@link #exportLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return String
    * @throws ApiException if fails to make API call
@@ -4220,12 +4221,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Export an LLM Observability dataset.
+   * Export an Agent Observability dataset.
    *
    * <p>See {@link #exportLLMObsDatasetWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;String&gt;
    */
@@ -4242,8 +4243,8 @@ public class LlmObservabilityApi {
    * Download the contents of a dataset as a CSV file. The download is streamed and includes one row
    * per dataset record.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;String&gt;
    * @throws ApiException if fails to make API call
@@ -4318,12 +4319,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Export an LLM Observability dataset.
+   * Export an Agent Observability dataset.
    *
    * <p>See {@link #exportLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;String&gt;&gt;
    */
@@ -4404,7 +4405,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #getLLMObsAnnotatedInteractionsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return LLMObsAnnotatedInteractionsResponse
    * @throws ApiException if fails to make API call
    */
@@ -4418,7 +4419,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #getLLMObsAnnotatedInteractionsWithHttpInfoAsync}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return CompletableFuture&lt;LLMObsAnnotatedInteractionsResponse&gt;
    */
   public CompletableFuture<LLMObsAnnotatedInteractionsResponse> getLLMObsAnnotatedInteractionsAsync(
@@ -4434,7 +4435,7 @@ public class LlmObservabilityApi {
    * Retrieve all interactions (traces and sessions) and their annotations for a given annotation
    * queue.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return ApiResponse&lt;LLMObsAnnotatedInteractionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -4498,7 +4499,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #getLLMObsAnnotatedInteractionsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotatedInteractionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionsResponse>>
@@ -4823,7 +4824,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #getLLMObsAnnotationQueueLabelSchemaWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return LLMObsAnnotationQueueLabelSchemaResponse
    * @throws ApiException if fails to make API call
    */
@@ -4837,7 +4838,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #getLLMObsAnnotationQueueLabelSchemaWithHttpInfoAsync}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return CompletableFuture&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;
    */
   public CompletableFuture<LLMObsAnnotationQueueLabelSchemaResponse>
@@ -4852,7 +4853,7 @@ public class LlmObservabilityApi {
   /**
    * Retrieve the label schema for a given annotation queue.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return ApiResponse&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -4917,7 +4918,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #getLLMObsAnnotationQueueLabelSchemaWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LLMObsAnnotationQueueLabelSchemaResponse>>
@@ -4986,7 +4987,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #getLLMObsCustomEvalConfigWithHttpInfo}.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @return LLMObsCustomEvalConfigResponse
    * @throws ApiException if fails to make API call
    */
@@ -5000,7 +5001,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #getLLMObsCustomEvalConfigWithHttpInfoAsync}.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @return CompletableFuture&lt;LLMObsCustomEvalConfigResponse&gt;
    */
   public CompletableFuture<LLMObsCustomEvalConfigResponse> getLLMObsCustomEvalConfigAsync(
@@ -5013,9 +5014,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Retrieve a custom LLM Observability evaluator configuration by its name.
+   * Retrieve a custom Agent Observability evaluator configuration by its name.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @return ApiResponse&lt;LLMObsCustomEvalConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -5078,7 +5079,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #getLLMObsCustomEvalConfigWithHttpInfo}.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsCustomEvalConfigResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LLMObsCustomEvalConfigResponse>>
@@ -5142,12 +5143,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get LLM Observability dataset draft state.
+   * Get Agent Observability dataset draft state.
    *
    * <p>See {@link #getLLMObsDatasetDraftStateWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return LLMObsDatasetDraftStateResponse
    * @throws ApiException if fails to make API call
    */
@@ -5157,12 +5158,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get LLM Observability dataset draft state.
+   * Get Agent Observability dataset draft state.
    *
    * <p>See {@link #getLLMObsDatasetDraftStateWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture&lt;LLMObsDatasetDraftStateResponse&gt;
    */
   public CompletableFuture<LLMObsDatasetDraftStateResponse> getLLMObsDatasetDraftStateAsync(
@@ -5178,8 +5179,8 @@ public class LlmObservabilityApi {
    * Retrieve the draft state of a dataset, including whether it is currently locked for editing and
    * which user holds the lock.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return ApiResponse&lt;LLMObsDatasetDraftStateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -5248,12 +5249,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get LLM Observability dataset draft state.
+   * Get Agent Observability dataset draft state.
    *
    * <p>See {@link #getLLMObsDatasetDraftStateWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetDraftStateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>>
@@ -5649,11 +5650,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get an LLM Observability prompt.
+   * Get an Agent Observability prompt.
    *
    * <p>See {@link #getLLMObsPromptWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return LLMObsPromptSDKResponse
    * @throws ApiException if fails to make API call
    */
@@ -5662,11 +5663,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get an LLM Observability prompt.
+   * Get an Agent Observability prompt.
    *
    * <p>See {@link #getLLMObsPromptWithHttpInfoAsync}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return CompletableFuture&lt;LLMObsPromptSDKResponse&gt;
    */
   public CompletableFuture<LLMObsPromptSDKResponse> getLLMObsPromptAsync(String promptId) {
@@ -5678,11 +5679,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get an LLM Observability prompt.
+   * Get an Agent Observability prompt.
    *
    * <p>See {@link #getLLMObsPromptWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param parameters Optional parameters for the request.
    * @return LLMObsPromptSDKResponse
    * @throws ApiException if fails to make API call
@@ -5693,11 +5694,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get an LLM Observability prompt.
+   * Get an Agent Observability prompt.
    *
    * <p>See {@link #getLLMObsPromptWithHttpInfoAsync}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;LLMObsPromptSDKResponse&gt;
    */
@@ -5711,9 +5712,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get the latest version of an LLM Observability prompt by prompt ID.
+   * Get the latest version of an Agent Observability prompt by prompt ID.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LLMObsPromptSDKResponse&gt;
    * @throws ApiException if fails to make API call
@@ -5776,11 +5777,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get an LLM Observability prompt.
+   * Get an Agent Observability prompt.
    *
    * <p>See {@link #getLLMObsPromptWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptSDKResponse&gt;&gt;
    */
@@ -5845,12 +5846,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get a specific LLM Observability prompt version.
+   * Get a specific Agent Observability prompt version.
    *
    * <p>See {@link #getLLMObsPromptVersionWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
-   * @param version The version number of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
+   * @param version The version number of the Agent Observability prompt. (required)
    * @return LLMObsPromptVersionResponse
    * @throws ApiException if fails to make API call
    */
@@ -5860,12 +5861,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get a specific LLM Observability prompt version.
+   * Get a specific Agent Observability prompt version.
    *
    * <p>See {@link #getLLMObsPromptVersionWithHttpInfoAsync}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
-   * @param version The version number of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
+   * @param version The version number of the Agent Observability prompt. (required)
    * @return CompletableFuture&lt;LLMObsPromptVersionResponse&gt;
    */
   public CompletableFuture<LLMObsPromptVersionResponse> getLLMObsPromptVersionAsync(
@@ -5878,10 +5879,10 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get the full template of a single, specific version of an LLM Observability prompt.
+   * Get the full template of a single, specific version of an Agent Observability prompt.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
-   * @param version The version number of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
+   * @param version The version number of the Agent Observability prompt. (required)
    * @return ApiResponse&lt;LLMObsPromptVersionResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -5947,12 +5948,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Get a specific LLM Observability prompt version.
+   * Get a specific Agent Observability prompt version.
    *
    * <p>See {@link #getLLMObsPromptVersionWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
-   * @param version The version number of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
+   * @param version The version number of the Agent Observability prompt. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptVersionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LLMObsPromptVersionResponse>>
@@ -6057,7 +6058,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability annotation queues.
+   * List Agent Observability annotation queues.
    *
    * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfo}.
    *
@@ -6071,7 +6072,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability annotation queues.
+   * List Agent Observability annotation queues.
    *
    * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfoAsync}.
    *
@@ -6087,7 +6088,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability annotation queues.
+   * List Agent Observability annotation queues.
    *
    * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfo}.
    *
@@ -6101,7 +6102,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability annotation queues.
+   * List Agent Observability annotation queues.
    *
    * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfoAsync}.
    *
@@ -6177,7 +6178,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability annotation queues.
+   * List Agent Observability annotation queues.
    *
    * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfo}.
    *
@@ -6266,7 +6267,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List all custom LLM Observability evaluator configurations for the organization.
+   * List all custom Agent Observability evaluator configurations for the organization.
    *
    * @return ApiResponse&lt;LLMObsCustomEvalConfigListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -6411,12 +6412,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability dataset records.
+   * List Agent Observability dataset records.
    *
    * <p>See {@link #listLLMObsDatasetRecordsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return LLMObsDatasetRecordsListResponse
    * @throws ApiException if fails to make API call
    */
@@ -6428,12 +6429,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability dataset records.
+   * List Agent Observability dataset records.
    *
    * <p>See {@link #listLLMObsDatasetRecordsWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture&lt;LLMObsDatasetRecordsListResponse&gt;
    */
   public CompletableFuture<LLMObsDatasetRecordsListResponse> listLLMObsDatasetRecordsAsync(
@@ -6447,12 +6448,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability dataset records.
+   * List Agent Observability dataset records.
    *
    * <p>See {@link #listLLMObsDatasetRecordsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return LLMObsDatasetRecordsListResponse
    * @throws ApiException if fails to make API call
@@ -6464,12 +6465,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability dataset records.
+   * List Agent Observability dataset records.
    *
    * <p>See {@link #listLLMObsDatasetRecordsWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;LLMObsDatasetRecordsListResponse&gt;
    */
@@ -6483,10 +6484,10 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List all records in an LLM Observability dataset, sorted by creation date, newest first.
+   * List all records in an Agent Observability dataset, sorted by creation date, newest first.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LLMObsDatasetRecordsListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -6562,12 +6563,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability dataset records.
+   * List Agent Observability dataset records.
    *
    * <p>See {@link #listLLMObsDatasetRecordsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetRecordsListResponse&gt;&gt;
    */
@@ -6707,11 +6708,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability datasets.
+   * List Agent Observability datasets.
    *
    * <p>See {@link #listLLMObsDatasetsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @return LLMObsDatasetsResponse
    * @throws ApiException if fails to make API call
    */
@@ -6721,11 +6722,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability datasets.
+   * List Agent Observability datasets.
    *
    * <p>See {@link #listLLMObsDatasetsWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @return CompletableFuture&lt;LLMObsDatasetsResponse&gt;
    */
   public CompletableFuture<LLMObsDatasetsResponse> listLLMObsDatasetsAsync(String projectId) {
@@ -6738,11 +6739,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability datasets.
+   * List Agent Observability datasets.
    *
    * <p>See {@link #listLLMObsDatasetsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param parameters Optional parameters for the request.
    * @return LLMObsDatasetsResponse
    * @throws ApiException if fails to make API call
@@ -6753,11 +6754,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability datasets.
+   * List Agent Observability datasets.
    *
    * <p>See {@link #listLLMObsDatasetsWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;LLMObsDatasetsResponse&gt;
    */
@@ -6771,9 +6772,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List all LLM Observability datasets for a project, sorted by creation date, newest first.
+   * List all Agent Observability datasets for a project, sorted by creation date, newest first.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LLMObsDatasetsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -6843,11 +6844,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability datasets.
+   * List Agent Observability datasets.
    *
    * <p>See {@link #listLLMObsDatasetsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetsResponse&gt;&gt;
    */
@@ -6918,12 +6919,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability dataset versions.
+   * List Agent Observability dataset versions.
    *
    * <p>See {@link #listLLMObsDatasetVersionsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return LLMObsDatasetVersionsResponse
    * @throws ApiException if fails to make API call
    */
@@ -6933,12 +6934,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability dataset versions.
+   * List Agent Observability dataset versions.
    *
    * <p>See {@link #listLLMObsDatasetVersionsWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture&lt;LLMObsDatasetVersionsResponse&gt;
    */
   public CompletableFuture<LLMObsDatasetVersionsResponse> listLLMObsDatasetVersionsAsync(
@@ -6954,8 +6955,8 @@ public class LlmObservabilityApi {
    * List the active versions of a dataset. A version is created each time a dataset is referenced
    * by an experiment run.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return ApiResponse&lt;LLMObsDatasetVersionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -7022,12 +7023,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability dataset versions.
+   * List Agent Observability dataset versions.
    *
    * <p>See {@link #listLLMObsDatasetVersionsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetVersionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LLMObsDatasetVersionsResponse>>
@@ -7133,11 +7134,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List events for an LLM Observability experiment.
+   * List events for an Agent Observability experiment.
    *
    * <p>See {@link #listLLMObsExperimentEventsWithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return LLMObsExperimentEventsV2Response
    * @throws ApiException if fails to make API call
    */
@@ -7149,11 +7150,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List events for an LLM Observability experiment.
+   * List events for an Agent Observability experiment.
    *
    * <p>See {@link #listLLMObsExperimentEventsWithHttpInfoAsync}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return CompletableFuture&lt;LLMObsExperimentEventsV2Response&gt;
    */
   public CompletableFuture<LLMObsExperimentEventsV2Response> listLLMObsExperimentEventsAsync(
@@ -7167,11 +7168,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List events for an LLM Observability experiment.
+   * List events for an Agent Observability experiment.
    *
    * <p>See {@link #listLLMObsExperimentEventsWithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param parameters Optional parameters for the request.
    * @return LLMObsExperimentEventsV2Response
    * @throws ApiException if fails to make API call
@@ -7183,11 +7184,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List events for an LLM Observability experiment.
+   * List events for an Agent Observability experiment.
    *
    * <p>See {@link #listLLMObsExperimentEventsWithHttpInfoAsync}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;LLMObsExperimentEventsV2Response&gt;
    */
@@ -7204,7 +7205,7 @@ public class LlmObservabilityApi {
    * Retrieve spans and experiment-level summary metrics for a given experiment with cursor-based
    * pagination.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LLMObsExperimentEventsV2Response&gt;
    * @throws ApiException if fails to make API call
@@ -7274,11 +7275,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List events for an LLM Observability experiment.
+   * List events for an Agent Observability experiment.
    *
    * <p>See {@link #listLLMObsExperimentEventsWithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentEventsV2Response&gt;&gt;
    */
@@ -7352,11 +7353,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiment spans (v1).
+   * List Agent Observability experiment spans (v1).
    *
    * <p>See {@link #listLLMObsExperimentEventsV1WithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return LLMObsExperimentSpansResponse
    * @throws ApiException if fails to make API call
    * @deprecated
@@ -7368,11 +7369,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiment spans (v1).
+   * List Agent Observability experiment spans (v1).
    *
    * <p>See {@link #listLLMObsExperimentEventsV1WithHttpInfoAsync}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return CompletableFuture&lt;LLMObsExperimentSpansResponse&gt;
    * @deprecated
    */
@@ -7391,7 +7392,7 @@ public class LlmObservabilityApi {
    * no summary metrics and no pagination. Deprecated in favor of <code>ListLLMObsExperimentEventsV3
    * </code>.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return ApiResponse&lt;LLMObsExperimentSpansResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -7457,11 +7458,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiment spans (v1).
+   * List Agent Observability experiment spans (v1).
    *
    * <p>See {@link #listLLMObsExperimentEventsV1WithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentSpansResponse&gt;&gt;
    * @deprecated
    */
@@ -7529,11 +7530,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiment events (v2).
+   * List Agent Observability experiment events (v2).
    *
    * <p>See {@link #listLLMObsExperimentEventsV2WithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return LLMObsExperimentEventsV2Response
    * @throws ApiException if fails to make API call
    * @deprecated
@@ -7545,11 +7546,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiment events (v2).
+   * List Agent Observability experiment events (v2).
    *
    * <p>See {@link #listLLMObsExperimentEventsV2WithHttpInfoAsync}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return CompletableFuture&lt;LLMObsExperimentEventsV2Response&gt;
    * @deprecated
    */
@@ -7568,7 +7569,7 @@ public class LlmObservabilityApi {
    * events payload without pagination. Deprecated: use <code>ListLLMObsExperimentEventsV3</code>
    * instead.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return ApiResponse&lt;LLMObsExperimentEventsV2Response&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -7634,11 +7635,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiment events (v2).
+   * List Agent Observability experiment events (v2).
    *
    * <p>See {@link #listLLMObsExperimentEventsV2WithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentEventsV2Response&gt;&gt;
    * @deprecated
    */
@@ -7870,7 +7871,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiments.
+   * List Agent Observability experiments.
    *
    * <p>See {@link #listLLMObsExperimentsWithHttpInfo}.
    *
@@ -7883,7 +7884,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiments.
+   * List Agent Observability experiments.
    *
    * <p>See {@link #listLLMObsExperimentsWithHttpInfoAsync}.
    *
@@ -7898,7 +7899,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiments.
+   * List Agent Observability experiments.
    *
    * <p>See {@link #listLLMObsExperimentsWithHttpInfo}.
    *
@@ -7912,7 +7913,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiments.
+   * List Agent Observability experiments.
    *
    * <p>See {@link #listLLMObsExperimentsWithHttpInfoAsync}.
    *
@@ -7929,7 +7930,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List all LLM Observability experiments sorted by creation date, newest first.
+   * List all Agent Observability experiments sorted by creation date, newest first.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LLMObsExperimentsResponse&gt;
@@ -8014,7 +8015,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability experiments.
+   * List Agent Observability experiments.
    *
    * <p>See {@link #listLLMObsExperimentsWithHttpInfo}.
    *
@@ -9520,7 +9521,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability projects.
+   * List Agent Observability projects.
    *
    * <p>See {@link #listLLMObsProjectsWithHttpInfo}.
    *
@@ -9532,7 +9533,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability projects.
+   * List Agent Observability projects.
    *
    * <p>See {@link #listLLMObsProjectsWithHttpInfoAsync}.
    *
@@ -9547,7 +9548,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability projects.
+   * List Agent Observability projects.
    *
    * <p>See {@link #listLLMObsProjectsWithHttpInfo}.
    *
@@ -9561,7 +9562,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability projects.
+   * List Agent Observability projects.
    *
    * <p>See {@link #listLLMObsProjectsWithHttpInfoAsync}.
    *
@@ -9578,7 +9579,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List all LLM Observability projects sorted by creation date, newest first.
+   * List all Agent Observability projects sorted by creation date, newest first.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LLMObsProjectsResponse&gt;
@@ -9640,7 +9641,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability projects.
+   * List Agent Observability projects.
    *
    * <p>See {@link #listLLMObsProjectsWithHttpInfo}.
    *
@@ -9719,7 +9720,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability prompts.
+   * List Agent Observability prompts.
    *
    * <p>See {@link #listLLMObsPromptsWithHttpInfo}.
    *
@@ -9731,7 +9732,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability prompts.
+   * List Agent Observability prompts.
    *
    * <p>See {@link #listLLMObsPromptsWithHttpInfoAsync}.
    *
@@ -9746,7 +9747,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability prompts.
+   * List Agent Observability prompts.
    *
    * <p>See {@link #listLLMObsPromptsWithHttpInfo}.
    *
@@ -9760,7 +9761,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability prompts.
+   * List Agent Observability prompts.
    *
    * <p>See {@link #listLLMObsPromptsWithHttpInfoAsync}.
    *
@@ -9777,7 +9778,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List all LLM Observability prompts in the prompt registry for the organization.
+   * List all Agent Observability prompts in the prompt registry for the organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LLMObsPromptsResponse&gt;
@@ -9832,7 +9833,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability prompts.
+   * List Agent Observability prompts.
    *
    * <p>See {@link #listLLMObsPromptsWithHttpInfo}.
    *
@@ -9889,11 +9890,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List versions of an LLM Observability prompt.
+   * List versions of an Agent Observability prompt.
    *
    * <p>See {@link #listLLMObsPromptVersionsWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return LLMObsPromptVersionsResponse
    * @throws ApiException if fails to make API call
    */
@@ -9903,11 +9904,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List versions of an LLM Observability prompt.
+   * List versions of an Agent Observability prompt.
    *
    * <p>See {@link #listLLMObsPromptVersionsWithHttpInfoAsync}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return CompletableFuture&lt;LLMObsPromptVersionsResponse&gt;
    */
   public CompletableFuture<LLMObsPromptVersionsResponse> listLLMObsPromptVersionsAsync(
@@ -9920,10 +9921,10 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List all versions of an LLM Observability prompt, ordered newest to oldest. If the prompt does
-   * not exist, is not registered, or is archived, the response contains an empty list.
+   * List all versions of an Agent Observability prompt, ordered newest to oldest. If the prompt
+   * does not exist, is not registered, or is archived, the response contains an empty list.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return ApiResponse&lt;LLMObsPromptVersionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -9980,11 +9981,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List versions of an LLM Observability prompt.
+   * List versions of an Agent Observability prompt.
    *
    * <p>See {@link #listLLMObsPromptVersionsWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptVersionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LLMObsPromptVersionsResponse>>
@@ -10089,7 +10090,7 @@ public class LlmObservabilityApi {
     /**
      * Set filterQuery.
      *
-     * @param filterQuery Search query using LLM Observability query syntax. Supports attribute
+     * @param filterQuery Search query using Agent Observability query syntax. Supports attribute
      *     filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind).
      *     When provided, structured field filters (<code>filter[span_id]</code>, <code>
      *     filter[trace_id]</code>, etc.) are ignored. (optional)
@@ -10203,7 +10204,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability spans.
+   * List Agent Observability spans.
    *
    * <p>See {@link #listLLMObsSpansWithHttpInfo}.
    *
@@ -10215,7 +10216,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability spans.
+   * List Agent Observability spans.
    *
    * <p>See {@link #listLLMObsSpansWithHttpInfoAsync}.
    *
@@ -10230,7 +10231,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability spans.
+   * List Agent Observability spans.
    *
    * <p>See {@link #listLLMObsSpansWithHttpInfo}.
    *
@@ -10244,7 +10245,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability spans.
+   * List Agent Observability spans.
    *
    * <p>See {@link #listLLMObsSpansWithHttpInfoAsync}.
    *
@@ -10261,7 +10262,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability spans matching the specified filters.
+   * List Agent Observability spans matching the specified filters.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LLMObsSpansResponse&gt;
@@ -10340,7 +10341,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * List LLM Observability spans.
+   * List Agent Observability spans.
    *
    * <p>See {@link #listLLMObsSpansWithHttpInfo}.
    *
@@ -10420,12 +10421,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Lock LLM Observability dataset draft state.
+   * Lock Agent Observability dataset draft state.
    *
    * <p>See {@link #lockLLMObsDatasetDraftStateWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return LLMObsDatasetDraftStateResponse
    * @throws ApiException if fails to make API call
    */
@@ -10435,12 +10436,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Lock LLM Observability dataset draft state.
+   * Lock Agent Observability dataset draft state.
    *
    * <p>See {@link #lockLLMObsDatasetDraftStateWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture&lt;LLMObsDatasetDraftStateResponse&gt;
    */
   public CompletableFuture<LLMObsDatasetDraftStateResponse> lockLLMObsDatasetDraftStateAsync(
@@ -10456,8 +10457,8 @@ public class LlmObservabilityApi {
    * Acquire the draft lock on a dataset for the calling user. The lock prevents other users from
    * concurrently editing the dataset draft.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return ApiResponse&lt;LLMObsDatasetDraftStateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -10526,12 +10527,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Lock LLM Observability dataset draft state.
+   * Lock Agent Observability dataset draft state.
    *
    * <p>See {@link #lockLLMObsDatasetDraftStateWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetDraftStateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LLMObsDatasetDraftStateResponse>>
@@ -10609,12 +10610,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Restore an LLM Observability dataset version.
+   * Restore an Agent Observability dataset version.
    *
    * <p>See {@link #restoreLLMObsDatasetVersionWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Restore dataset version payload. (required)
    * @throws ApiException if fails to make API call
    */
@@ -10625,12 +10626,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Restore an LLM Observability dataset version.
+   * Restore an Agent Observability dataset version.
    *
    * <p>See {@link #restoreLLMObsDatasetVersionWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Restore dataset version payload. (required)
    * @return CompletableFuture
    */
@@ -10647,8 +10648,8 @@ public class LlmObservabilityApi {
    * Restore a dataset to a previous version. The dataset's current version is bumped, and its
    * records are replaced with the records from the specified prior version.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Restore dataset version payload. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -10725,12 +10726,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Restore an LLM Observability dataset version.
+   * Restore an Agent Observability dataset version.
    *
    * <p>See {@link #restoreLLMObsDatasetVersionWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Restore dataset version payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -10815,7 +10816,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Search LLM Observability experimentation entities.
+   * Search Agent Observability experimentation.
    *
    * <p>See {@link #searchLLMObsExperimentationWithHttpInfo}.
    *
@@ -10829,7 +10830,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Search LLM Observability experimentation entities.
+   * Search Agent Observability experimentation.
    *
    * <p>See {@link #searchLLMObsExperimentationWithHttpInfoAsync}.
    *
@@ -10846,8 +10847,8 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Search across LLM Observability experimentation entities — projects, datasets, dataset records,
-   * experiments, and experiment runs — using cursor-based pagination.
+   * Search across Agent Observability experimentation entities — projects, datasets, dataset
+   * records, experiments, and experiment runs — using cursor-based pagination.
    *
    * <p>The <code>filter.scope</code> field controls which entity types are returned. At least one
    * valid scope must be provided.
@@ -10914,7 +10915,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Search LLM Observability experimentation entities.
+   * Search Agent Observability experimentation.
    *
    * <p>See {@link #searchLLMObsExperimentationWithHttpInfo}.
    *
@@ -10980,7 +10981,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Search LLM Observability spans.
+   * Search Agent Observability spans.
    *
    * <p>See {@link #searchLLMObsSpansWithHttpInfo}.
    *
@@ -10993,7 +10994,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Search LLM Observability spans.
+   * Search Agent Observability spans.
    *
    * <p>See {@link #searchLLMObsSpansWithHttpInfoAsync}.
    *
@@ -11010,7 +11011,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Search LLM Observability spans using structured filters in the request body.
+   * Search Agent Observability spans using structured filters in the request body.
    *
    * @param body Search spans payload. (required)
    * @return ApiResponse&lt;LLMObsSpansResponse&gt;
@@ -11068,7 +11069,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Search LLM Observability spans.
+   * Search Agent Observability spans.
    *
    * <p>See {@link #searchLLMObsSpansWithHttpInfo}.
    *
@@ -11161,7 +11162,7 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Search across LLM Observability experimentation entities using offset-based (page-number)
+   * Search across Agent Observability experimentation entities using offset-based (page-number)
    * pagination. Use this endpoint when you need total page count or want to navigate to a specific
    * page number.
    *
@@ -11451,12 +11452,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Unlock LLM Observability dataset draft state.
+   * Unlock Agent Observability dataset draft state.
    *
    * <p>See {@link #unlockLLMObsDatasetDraftStateWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @throws ApiException if fails to make API call
    */
   public void unlockLLMObsDatasetDraftState(String projectId, String datasetId)
@@ -11465,12 +11466,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Unlock LLM Observability dataset draft state.
+   * Unlock Agent Observability dataset draft state.
    *
    * <p>See {@link #unlockLLMObsDatasetDraftStateWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> unlockLLMObsDatasetDraftStateAsync(
@@ -11486,8 +11487,8 @@ public class LlmObservabilityApi {
    * Release the draft lock on a dataset held by the calling user, allowing other users to edit the
    * dataset draft.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -11556,12 +11557,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Unlock LLM Observability dataset draft state.
+   * Unlock Agent Observability dataset draft state.
    *
    * <p>See {@link #unlockLLMObsDatasetDraftStateWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> unlockLLMObsDatasetDraftStateWithHttpInfoAsync(
@@ -11635,11 +11636,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability annotation queue.
+   * Update an Agent Observability annotation queue.
    *
    * <p>See {@link #updateLLMObsAnnotationQueueWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Update annotation queue payload. (required)
    * @return LLMObsAnnotationQueueResponse
    * @throws ApiException if fails to make API call
@@ -11650,11 +11651,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability annotation queue.
+   * Update an Agent Observability annotation queue.
    *
    * <p>See {@link #updateLLMObsAnnotationQueueWithHttpInfoAsync}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Update annotation queue payload. (required)
    * @return CompletableFuture&lt;LLMObsAnnotationQueueResponse&gt;
    */
@@ -11671,7 +11672,7 @@ public class LlmObservabilityApi {
    * Partially update an annotation queue. The <code>name</code>, <code>description</code>, and
    * <code>annotation_schema</code> fields can be updated.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Update annotation queue payload. (required)
    * @return ApiResponse&lt;LLMObsAnnotationQueueResponse&gt;
    * @throws ApiException if fails to make API call
@@ -11737,11 +11738,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability annotation queue.
+   * Update an Agent Observability annotation queue.
    *
    * <p>See {@link #updateLLMObsAnnotationQueueWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Update annotation queue payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueueResponse&gt;&gt;
    */
@@ -11822,7 +11823,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #updateLLMObsAnnotationQueueLabelSchemaWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Update label schema payload. (required)
    * @return LLMObsAnnotationQueueLabelSchemaResponse
    * @throws ApiException if fails to make API call
@@ -11837,7 +11838,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #updateLLMObsAnnotationQueueLabelSchemaWithHttpInfoAsync}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Update label schema payload. (required)
    * @return CompletableFuture&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;
    */
@@ -11857,7 +11858,7 @@ public class LlmObservabilityApi {
    * queue and match the pattern <code>^[a-zA-Z0-9_-]+$</code>. Each label must have a valid type:
    * score, categorical, boolean, or text.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Update label schema payload. (required)
    * @return ApiResponse&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;
    * @throws ApiException if fails to make API call
@@ -11933,7 +11934,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #updateLLMObsAnnotationQueueLabelSchemaWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Update label schema payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueueLabelSchemaResponse&gt;&gt;
    */
@@ -12016,7 +12017,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #updateLLMObsCustomEvalConfigWithHttpInfo}.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @param body Custom evaluator configuration payload. (required)
    * @throws ApiException if fails to make API call
    */
@@ -12030,7 +12031,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #updateLLMObsCustomEvalConfigWithHttpInfoAsync}.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @param body Custom evaluator configuration payload. (required)
    * @return CompletableFuture
    */
@@ -12044,9 +12045,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Create or update a custom LLM Observability evaluator configuration by its name.
+   * Create or update a custom Agent Observability evaluator configuration by its name.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @param body Custom evaluator configuration payload. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -12118,7 +12119,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #updateLLMObsCustomEvalConfigWithHttpInfo}.
    *
-   * @param evalName The name of the custom LLM Observability evaluator configuration. (required)
+   * @param evalName The name of the custom Agent Observability evaluator configuration. (required)
    * @param body Custom evaluator configuration payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -12191,12 +12192,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability dataset.
+   * Update an Agent Observability dataset.
    *
    * <p>See {@link #updateLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Update dataset payload. (required)
    * @return LLMObsDatasetResponse
    * @throws ApiException if fails to make API call
@@ -12207,12 +12208,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability dataset.
+   * Update an Agent Observability dataset.
    *
    * <p>See {@link #updateLLMObsDatasetWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Update dataset payload. (required)
    * @return CompletableFuture&lt;LLMObsDatasetResponse&gt;
    */
@@ -12226,10 +12227,10 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Partially update an existing LLM Observability dataset within the specified project.
+   * Partially update an existing Agent Observability dataset within the specified project.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Update dataset payload. (required)
    * @return ApiResponse&lt;LLMObsDatasetResponse&gt;
    * @throws ApiException if fails to make API call
@@ -12302,12 +12303,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability dataset.
+   * Update an Agent Observability dataset.
    *
    * <p>See {@link #updateLLMObsDatasetWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Update dataset payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetResponse&gt;&gt;
    */
@@ -12387,12 +12388,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update LLM Observability dataset records.
+   * Update Agent Observability dataset records.
    *
    * <p>See {@link #updateLLMObsDatasetRecordsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Update records payload. (required)
    * @return LLMObsDatasetRecordsMutationResponse
    * @throws ApiException if fails to make API call
@@ -12404,12 +12405,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update LLM Observability dataset records.
+   * Update Agent Observability dataset records.
    *
    * <p>See {@link #updateLLMObsDatasetRecordsWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Update records payload. (required)
    * @return CompletableFuture&lt;LLMObsDatasetRecordsMutationResponse&gt;
    */
@@ -12423,10 +12424,10 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update one or more existing records in an LLM Observability dataset.
+   * Update one or more existing records in an Agent Observability dataset.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Update records payload. (required)
    * @return ApiResponse&lt;LLMObsDatasetRecordsMutationResponse&gt;
    * @throws ApiException if fails to make API call
@@ -12502,12 +12503,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update LLM Observability dataset records.
+   * Update Agent Observability dataset records.
    *
    * <p>See {@link #updateLLMObsDatasetRecordsWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param body Update records payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsDatasetRecordsMutationResponse&gt;&gt;
    */
@@ -12598,11 +12599,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability experiment.
+   * Update an Agent Observability experiment.
    *
    * <p>See {@link #updateLLMObsExperimentWithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param body Update experiment payload. (required)
    * @return LLMObsExperimentResponse
    * @throws ApiException if fails to make API call
@@ -12613,11 +12614,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability experiment.
+   * Update an Agent Observability experiment.
    *
    * <p>See {@link #updateLLMObsExperimentWithHttpInfoAsync}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param body Update experiment payload. (required)
    * @return CompletableFuture&lt;LLMObsExperimentResponse&gt;
    */
@@ -12631,9 +12632,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Partially update an existing LLM Observability experiment.
+   * Partially update an existing Agent Observability experiment.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param body Update experiment payload. (required)
    * @return ApiResponse&lt;LLMObsExperimentResponse&gt;
    * @throws ApiException if fails to make API call
@@ -12700,11 +12701,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability experiment.
+   * Update an Agent Observability experiment.
    *
    * <p>See {@link #updateLLMObsExperimentWithHttpInfo}.
    *
-   * @param experimentId The ID of the LLM Observability experiment. (required)
+   * @param experimentId The ID of the Agent Observability experiment. (required)
    * @param body Update experiment payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsExperimentResponse&gt;&gt;
    */
@@ -12777,11 +12778,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability project.
+   * Update an Agent Observability project.
    *
    * <p>See {@link #updateLLMObsProjectWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Update project payload. (required)
    * @return LLMObsProjectResponse
    * @throws ApiException if fails to make API call
@@ -12792,11 +12793,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability project.
+   * Update an Agent Observability project.
    *
    * <p>See {@link #updateLLMObsProjectWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Update project payload. (required)
    * @return CompletableFuture&lt;LLMObsProjectResponse&gt;
    */
@@ -12810,9 +12811,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Partially update an existing LLM Observability project.
+   * Partially update an existing Agent Observability project.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Update project payload. (required)
    * @return ApiResponse&lt;LLMObsProjectResponse&gt;
    * @throws ApiException if fails to make API call
@@ -12878,11 +12879,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability project.
+   * Update an Agent Observability project.
    *
    * <p>See {@link #updateLLMObsProjectWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
    * @param body Update project payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsProjectResponse&gt;&gt;
    */
@@ -12952,11 +12953,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability prompt.
+   * Update an Agent Observability prompt.
    *
    * <p>See {@link #updateLLMObsPromptWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param body Update prompt payload. (required)
    * @return LLMObsPromptResponse
    * @throws ApiException if fails to make API call
@@ -12967,11 +12968,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability prompt.
+   * Update an Agent Observability prompt.
    *
    * <p>See {@link #updateLLMObsPromptWithHttpInfoAsync}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param body Update prompt payload. (required)
    * @return CompletableFuture&lt;LLMObsPromptResponse&gt;
    */
@@ -12985,9 +12986,9 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update the title, the description, or both, for an LLM Observability prompt.
+   * Update the title, the description, or both, for an Agent Observability prompt.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param body Update prompt payload. (required)
    * @return ApiResponse&lt;LLMObsPromptResponse&gt;
    * @throws ApiException if fails to make API call
@@ -13053,11 +13054,11 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update an LLM Observability prompt.
+   * Update an Agent Observability prompt.
    *
    * <p>See {@link #updateLLMObsPromptWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param body Update prompt payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptResponse&gt;&gt;
    */
@@ -13127,12 +13128,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update a specific LLM Observability prompt version.
+   * Update an Agent Observability prompt version.
    *
    * <p>See {@link #updateLLMObsPromptVersionWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
-   * @param version The version number of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
+   * @param version The version number of the Agent Observability prompt. (required)
    * @param body Update prompt version payload. (required)
    * @return LLMObsPromptVersionResponse
    * @throws ApiException if fails to make API call
@@ -13143,12 +13144,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update a specific LLM Observability prompt version.
+   * Update an Agent Observability prompt version.
    *
    * <p>See {@link #updateLLMObsPromptVersionWithHttpInfoAsync}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
-   * @param version The version number of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
+   * @param version The version number of the Agent Observability prompt. (required)
    * @param body Update prompt version payload. (required)
    * @return CompletableFuture&lt;LLMObsPromptVersionResponse&gt;
    */
@@ -13163,10 +13164,10 @@ public class LlmObservabilityApi {
 
   /**
    * Update the description, the feature-flag environments, or both, for a specific version of an
-   * LLM Observability prompt.
+   * Agent Observability prompt.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
-   * @param version The version number of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
+   * @param version The version number of the Agent Observability prompt. (required)
    * @param body Update prompt version payload. (required)
    * @return ApiResponse&lt;LLMObsPromptVersionResponse&gt;
    * @throws ApiException if fails to make API call
@@ -13239,12 +13240,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Update a specific LLM Observability prompt version.
+   * Update an Agent Observability prompt version.
    *
    * <p>See {@link #updateLLMObsPromptVersionWithHttpInfo}.
    *
-   * @param promptId The customer-provided identifier of the LLM Observability prompt. (required)
-   * @param version The version number of the LLM Observability prompt. (required)
+   * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
+   * @param version The version number of the Agent Observability prompt. (required)
    * @param body Update prompt version payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsPromptVersionResponse&gt;&gt;
    */
@@ -13403,12 +13404,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Upload records to an LLM Observability dataset.
+   * Upload records to an Agent Observability dataset.
    *
    * <p>See {@link #uploadLLMObsDatasetRecordsFileWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @throws ApiException if fails to make API call
    */
   public void uploadLLMObsDatasetRecordsFile(String projectId, String datasetId)
@@ -13418,12 +13419,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Upload records to an LLM Observability dataset.
+   * Upload records to an Agent Observability dataset.
    *
    * <p>See {@link #uploadLLMObsDatasetRecordsFileWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> uploadLLMObsDatasetRecordsFileAsync(
@@ -13437,12 +13438,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Upload records to an LLM Observability dataset.
+   * Upload records to an Agent Observability dataset.
    *
    * <p>See {@link #uploadLLMObsDatasetRecordsFileWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @throws ApiException if fails to make API call
    */
@@ -13455,12 +13456,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Upload records to an LLM Observability dataset.
+   * Upload records to an Agent Observability dataset.
    *
    * <p>See {@link #uploadLLMObsDatasetRecordsFileWithHttpInfoAsync}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture
    */
@@ -13487,8 +13488,8 @@ public class LlmObservabilityApi {
    * terminal event with a JSON body containing <code>records_created</code>. - <code>error</code>:
    * terminal event with a JSON body containing an error <code>message</code>.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -13577,12 +13578,12 @@ public class LlmObservabilityApi {
   }
 
   /**
-   * Upload records to an LLM Observability dataset.
+   * Upload records to an Agent Observability dataset.
    *
    * <p>See {@link #uploadLLMObsDatasetRecordsFileWithHttpInfo}.
    *
-   * @param projectId The ID of the LLM Observability project. (required)
-   * @param datasetId The ID of the LLM Observability dataset. (required)
+   * @param projectId The ID of the Agent Observability project. (required)
+   * @param datasetId The ID of the Agent Observability dataset. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -13679,7 +13680,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #upsertLLMObsAnnotationsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Payload for creating or updating annotations. (required)
    * @return LLMObsAnnotationsResponse
    * @throws ApiException if fails to make API call
@@ -13694,7 +13695,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #upsertLLMObsAnnotationsWithHttpInfoAsync}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Payload for creating or updating annotations. (required)
    * @return CompletableFuture&lt;LLMObsAnnotationsResponse&gt;
    */
@@ -13713,7 +13714,7 @@ public class LlmObservabilityApi {
    * are linked to request items by <code>interaction_id</code>. Errors for individual items are
    * returned in the <code>errors</code> field without blocking the rest of the batch.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Payload for creating or updating annotations. (required)
    * @return ApiResponse&lt;LLMObsAnnotationsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -13783,7 +13784,7 @@ public class LlmObservabilityApi {
    *
    * <p>See {@link #upsertLLMObsAnnotationsWithHttpInfo}.
    *
-   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
    * @param body Payload for creating or updating annotations. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationsResponse&gt;&gt;
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to create an LLM Observability prompt. */
+/** Request to create an Agent Observability prompt. */
 @JsonPropertyOrder({LLMObsCreatePromptRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class LLMObsCreatePromptRequest {
   }
 
   /**
-   * Data object for creating an LLM Observability prompt.
+   * Data object for creating an Agent Observability prompt.
    *
    * @return data
    */

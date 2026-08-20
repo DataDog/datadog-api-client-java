@@ -5889,7 +5889,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all LLM Observability 15-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 15-day retention spans over all hours in the current
    * date for all organizations.
    *
    * @return llmObservability15dayRetentionSpansSum
@@ -5916,7 +5916,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all LLM Observability 30-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 30-day retention spans over all hours in the current
    * date for all organizations.
    *
    * @return llmObservability30dayRetentionSpansSum
@@ -5943,7 +5943,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all LLM Observability 60-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 60-day retention spans over all hours in the current
    * date for all organizations.
    *
    * @return llmObservability60dayRetentionSpansSum
@@ -5970,7 +5970,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all LLM Observability 90-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 90-day retention spans over all hours in the current
    * date for all organizations.
    *
    * @return llmObservability90dayRetentionSpansSum
@@ -5996,7 +5996,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Sum of all LLM observability minimum spend over all hours in the current date for all
+   * Sum of all Agent observability minimum spend over all hours in the current date for all
    * organizations.
    *
    * @return llmObservabilityMinSpendSum
@@ -6020,7 +6020,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Sum of all LLM observability sessions over all hours in the current date for all organizations.
+   * Sum of all Agent observability sessions over all hours in the current date for all
+   * organizations.
    *
    * @return llmObservabilitySum
    */

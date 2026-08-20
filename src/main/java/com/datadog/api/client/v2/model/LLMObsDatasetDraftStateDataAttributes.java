@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability dataset draft state. */
+/** Attributes of an Agent Observability dataset draft state. */
 @JsonPropertyOrder({
   LLMObsDatasetDraftStateDataAttributes.JSON_PROPERTY_DRAFTING_SINCE,
   LLMObsDatasetDraftStateDataAttributes.JSON_PROPERTY_USER

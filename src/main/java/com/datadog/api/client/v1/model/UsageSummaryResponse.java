@@ -6223,7 +6223,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all LLM Observability 15-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 15-day retention spans over all hours in the current
    * month for all organizations.
    *
    * @return llmObservability15dayRetentionSpansAggSum
@@ -6250,7 +6250,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all LLM Observability 30-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 30-day retention spans over all hours in the current
    * month for all organizations.
    *
    * @return llmObservability30dayRetentionSpansAggSum
@@ -6277,7 +6277,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all LLM Observability 60-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 60-day retention spans over all hours in the current
    * month for all organizations.
    *
    * @return llmObservability60dayRetentionSpansAggSum
@@ -6304,7 +6304,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all LLM Observability 90-day retention spans over all hours in the current
+   * Shows the sum of all Agent Observability 90-day retention spans over all hours in the current
    * month for all organizations.
    *
    * @return llmObservability90dayRetentionSpansAggSum
@@ -6330,7 +6330,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of all LLM observability sessions for all hours in the current month for all organizations.
+   * Sum of all Agent observability sessions for all hours in the current month for all
+   * organizations.
    *
    * @return llmObservabilityAggSum
    */
@@ -6352,7 +6353,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Minimum spend for LLM observability sessions for all hours in the current month for all
+   * Minimum spend for Agent observability sessions for all hours in the current month for all
    * organizations.
    *
    * @return llmObservabilityMinSpendAggSum

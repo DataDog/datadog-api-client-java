@@ -1,4 +1,4 @@
-// Search LLM Observability spans returns "OK" response
+// Search Agent Observability spans returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

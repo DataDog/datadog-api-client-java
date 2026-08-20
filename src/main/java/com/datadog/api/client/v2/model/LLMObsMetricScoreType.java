@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Type of metric recorded for an LLM Observability experiment. */
+/** Type of metric recorded for an Agent Observability experiment. */
 @JsonSerialize(using = LLMObsMetricScoreType.LLMObsMetricScoreTypeSerializer.class)
 public class LLMObsMetricScoreType extends ModelEnum<String> {
 

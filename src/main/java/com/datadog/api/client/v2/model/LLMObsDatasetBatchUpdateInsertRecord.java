@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A record to insert as part of a batch update on an LLM Observability dataset. */
+/** A record to insert as part of a batch update on an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDatasetBatchUpdateInsertRecord.JSON_PROPERTY_EXPECTED_OUTPUT,
   LLMObsDatasetBatchUpdateInsertRecord.JSON_PROPERTY_ID,

@@ -99,7 +99,7 @@ public class LLMObsExperimentEvalMetricEvent {
   }
 
   /**
-   * Assessment result for an LLM Observability experiment metric.
+   * Assessment result for an Agent Observability experiment metric.
    *
    * @return assessment
    */
@@ -357,7 +357,7 @@ public class LLMObsExperimentEvalMetricEvent {
   }
 
   /**
-   * Type of metric recorded for an LLM Observability experiment.
+   * Type of metric recorded for an Agent Observability experiment.
    *
    * @return metricType
    */

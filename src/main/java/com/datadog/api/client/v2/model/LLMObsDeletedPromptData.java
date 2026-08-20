@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object confirming that an LLM Observability prompt was deleted. */
+/** Data object confirming that an Agent Observability prompt was deleted. */
 @JsonPropertyOrder({
   LLMObsDeletedPromptData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsDeletedPromptData.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class LLMObsDeletedPromptData {
   }
 
   /**
-   * Attributes confirming that an LLM Observability prompt was deleted.
+   * Attributes confirming that an Agent Observability prompt was deleted.
    *
    * @return attributes
    */
@@ -102,7 +102,7 @@ public class LLMObsDeletedPromptData {
   }
 
   /**
-   * Resource type of an LLM Observability prompt.
+   * Resource type of an Agent Observability prompt.
    *
    * @return type
    */

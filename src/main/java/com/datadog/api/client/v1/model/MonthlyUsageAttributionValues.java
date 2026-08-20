@@ -2621,7 +2621,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of LLM Observability usage by tag(s).
+   * The percentage of Agent Observability usage by tag(s).
    *
    * @return llmObservabilityPercentage
    */
@@ -2642,7 +2642,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The LLM Observability usage by tag(s).
+   * The Agent Observability usage by tag(s).
    *
    * @return llmObservabilityUsage
    */

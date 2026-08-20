@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A span associated with an LLM Observability experiment. */
+/** A span associated with an Agent Observability experiment. */
 @JsonPropertyOrder({
   LLMObsExperimentSpan.JSON_PROPERTY_DATASET_ID,
   LLMObsExperimentSpan.JSON_PROPERTY_DURATION,

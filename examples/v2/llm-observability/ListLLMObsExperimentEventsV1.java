@@ -1,4 +1,4 @@
-// List LLM Observability experiment spans (v1) returns "OK" response
+// List Agent Observability experiment spans (v1) returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

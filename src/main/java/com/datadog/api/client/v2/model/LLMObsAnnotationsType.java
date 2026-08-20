@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type for LLM Observability annotations. */
+/** Resource type for Agent Observability annotations. */
 @JsonSerialize(using = LLMObsAnnotationsType.LLMObsAnnotationsTypeSerializer.class)
 public class LLMObsAnnotationsType extends ModelEnum<String> {
 

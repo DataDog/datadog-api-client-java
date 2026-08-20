@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability patterns trigger response. */
+/** Attributes of an Agent Observability patterns trigger response. */
 @JsonPropertyOrder({
   LLMObsPatternsTriggerResponseAttributes.JSON_PROPERTY_CONFIG_ID,
   LLMObsPatternsTriggerResponseAttributes.JSON_PROPERTY_RUN_ID,

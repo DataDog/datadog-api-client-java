@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** An evaluation metric associated with an LLM Observability span. */
+/** An evaluation metric associated with an Agent Observability span. */
 @JsonPropertyOrder({
   LLMObsSpanEvaluationMetric.JSON_PROPERTY_ASSESSMENT,
   LLMObsSpanEvaluationMetric.JSON_PROPERTY_EVAL_METRIC_TYPE,

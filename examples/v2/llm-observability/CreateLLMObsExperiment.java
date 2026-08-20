@@ -1,4 +1,4 @@
-// Create an LLM Observability experiment returns "OK" response
+// Create an Agent Observability experiment returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

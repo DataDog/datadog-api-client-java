@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type of an LLM Observability dataset draft state. */
+/** Resource type of an Agent Observability dataset draft state. */
 @JsonSerialize(using = LLMObsDatasetDraftStateType.LLMObsDatasetDraftStateTypeSerializer.class)
 public class LLMObsDatasetDraftStateType extends ModelEnum<String> {
 

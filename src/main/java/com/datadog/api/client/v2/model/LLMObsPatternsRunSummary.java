@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Summary of an LLM Observability patterns run. */
+/** Summary of an Agent Observability patterns run. */
 @JsonPropertyOrder({
   LLMObsPatternsRunSummary.JSON_PROPERTY_COMPLETED_AT,
   LLMObsPatternsRunSummary.JSON_PROPERTY_CONFIG_SNAPSHOT,

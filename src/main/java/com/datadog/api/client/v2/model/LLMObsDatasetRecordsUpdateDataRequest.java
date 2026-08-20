@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating records in an LLM Observability dataset. */
+/** Data object for updating records in an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDatasetRecordsUpdateDataRequest.JSON_PROPERTY_ATTRIBUTES,
   LLMObsDatasetRecordsUpdateDataRequest.JSON_PROPERTY_TYPE
@@ -53,7 +53,7 @@ public class LLMObsDatasetRecordsUpdateDataRequest {
   }
 
   /**
-   * Attributes for updating records in an LLM Observability dataset.
+   * Attributes for updating records in an Agent Observability dataset.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class LLMObsDatasetRecordsUpdateDataRequest {
   }
 
   /**
-   * Resource type of LLM Observability dataset records.
+   * Resource type of Agent Observability dataset records.
    *
    * @return type
    */

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a list of LLM Observability spans. */
+/** Response containing a list of Agent Observability spans. */
 @JsonPropertyOrder({
   LLMObsSpansResponse.JSON_PROPERTY_DATA,
   LLMObsSpansResponse.JSON_PROPERTY_LINKS,

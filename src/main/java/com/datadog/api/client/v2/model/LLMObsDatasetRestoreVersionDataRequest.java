@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for restoring an LLM Observability dataset to a previous version. */
+/** Data object for restoring an Agent Observability dataset to a previous version. */
 @JsonPropertyOrder({
   LLMObsDatasetRestoreVersionDataRequest.JSON_PROPERTY_ATTRIBUTES,
   LLMObsDatasetRestoreVersionDataRequest.JSON_PROPERTY_ID,
@@ -59,7 +59,7 @@ public class LLMObsDatasetRestoreVersionDataRequest {
   }
 
   /**
-   * Attributes for restoring an LLM Observability dataset to a previous version.
+   * Attributes for restoring an Agent Observability dataset to a previous version.
    *
    * @return attributes
    */
@@ -103,7 +103,7 @@ public class LLMObsDatasetRestoreVersionDataRequest {
   }
 
   /**
-   * Resource type of an LLM Observability dataset.
+   * Resource type of an Agent Observability dataset.
    *
    * @return type
    */

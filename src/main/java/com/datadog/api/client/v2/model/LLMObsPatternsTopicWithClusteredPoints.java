@@ -21,8 +21,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * A topic discovered by an LLM Observability patterns run, including the clustered points attached
- * to leaf topics.
+ * A topic discovered by an Agent Observability patterns run, including the clustered points
+ * attached to leaf topics.
  */
 @JsonPropertyOrder({
   LLMObsPatternsTopicWithClusteredPoints.JSON_PROPERTY_CLUSTER_POINTS,

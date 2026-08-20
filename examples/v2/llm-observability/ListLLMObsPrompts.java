@@ -1,4 +1,4 @@
-// List LLM Observability prompts returns "OK" response
+// List Agent Observability prompts returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

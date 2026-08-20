@@ -1,4 +1,4 @@
-// Lock LLM Observability dataset draft state returns "OK" response
+// Lock Agent Observability dataset draft state returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

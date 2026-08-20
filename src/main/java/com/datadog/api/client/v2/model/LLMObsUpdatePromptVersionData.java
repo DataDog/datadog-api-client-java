@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating an LLM Observability prompt version. */
+/** Data object for updating an Agent Observability prompt version. */
 @JsonPropertyOrder({
   LLMObsUpdatePromptVersionData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsUpdatePromptVersionData.JSON_PROPERTY_TYPE
@@ -53,9 +53,9 @@ public class LLMObsUpdatePromptVersionData {
   }
 
   /**
-   * Attributes for updating an LLM Observability prompt version. At least one of <code>description
-   * </code>, <code>labels</code>, or <code>env_ids</code> must be provided; all three attributes
-   * are optional individually.
+   * Attributes for updating an Agent Observability prompt version. At least one of <code>
+   * description</code>, <code>labels</code>, or <code>env_ids</code> must be provided; all three
+   * attributes are optional individually.
    *
    * @return attributes
    */
@@ -79,7 +79,7 @@ public class LLMObsUpdatePromptVersionData {
   }
 
   /**
-   * Resource type of an LLM Observability prompt version.
+   * Resource type of an Agent Observability prompt version.
    *
    * @return type
    */

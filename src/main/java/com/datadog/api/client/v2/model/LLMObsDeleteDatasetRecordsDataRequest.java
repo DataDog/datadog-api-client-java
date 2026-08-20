@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for deleting records from an LLM Observability dataset. */
+/** Data object for deleting records from an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDeleteDatasetRecordsDataRequest.JSON_PROPERTY_ATTRIBUTES,
   LLMObsDeleteDatasetRecordsDataRequest.JSON_PROPERTY_TYPE
@@ -53,7 +53,7 @@ public class LLMObsDeleteDatasetRecordsDataRequest {
   }
 
   /**
-   * Attributes for deleting records from an LLM Observability dataset.
+   * Attributes for deleting records from an Agent Observability dataset.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class LLMObsDeleteDatasetRecordsDataRequest {
   }
 
   /**
-   * Resource type of LLM Observability dataset records.
+   * Resource type of Agent Observability dataset records.
    *
    * @return type
    */

@@ -1,4 +1,4 @@
-// Delete an LLM Observability prompt returns "OK" response
+// Delete an Agent Observability prompt returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

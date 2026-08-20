@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Supported export format for an LLM Observability dataset. */
+/** Supported export format for an Agent Observability dataset. */
 @JsonSerialize(using = LLMObsDatasetExportFormat.LLMObsDatasetExportFormatSerializer.class)
 public class LLMObsDatasetExportFormat extends ModelEnum<String> {
 

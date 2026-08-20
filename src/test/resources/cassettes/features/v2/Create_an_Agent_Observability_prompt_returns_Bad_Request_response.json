@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"prompt_id\":\"Test-Create_an_LLM_Observability_prompt_returns_Bad_Request_response-1784543299\",\"template\":\" \"},\"type\":\"prompt-templates\"}}"
+        "json": "{\"data\":{\"attributes\":{\"prompt_id\":\"Test-Create_an_Agent_Observability_prompt_returns_Bad_Request_response-1784543299\",\"template\":\" \"},\"type\":\"prompt-templates\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b9aa0cdd-01ec-92ea-001e-2eed81de780e"
+    "id": "a92e8f2e-1af8-aae9-61ad-38ee34d97843"
   }
 ]

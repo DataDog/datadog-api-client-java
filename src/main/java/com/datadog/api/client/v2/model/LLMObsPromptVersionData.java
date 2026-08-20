@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for a specific version of an LLM Observability prompt. */
+/** Data object for a specific version of an Agent Observability prompt. */
 @JsonPropertyOrder({
   LLMObsPromptVersionData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsPromptVersionData.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class LLMObsPromptVersionData {
   }
 
   /**
-   * Attributes of a specific version of an LLM Observability prompt.
+   * Attributes of a specific version of an Agent Observability prompt.
    *
    * @return attributes
    */
@@ -102,7 +102,7 @@ public class LLMObsPromptVersionData {
   }
 
   /**
-   * Resource type of an LLM Observability prompt version.
+   * Resource type of an Agent Observability prompt version.
    *
    * @return type
    */

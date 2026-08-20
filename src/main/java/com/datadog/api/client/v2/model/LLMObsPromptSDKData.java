@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for a flattened LLM Observability prompt version returned for SDK consumption. */
+/** Data object for a flattened Agent Observability prompt version returned for SDK consumption. */
 @JsonPropertyOrder({
   LLMObsPromptSDKData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsPromptSDKData.JSON_PROPERTY_ID,
@@ -103,7 +103,7 @@ public class LLMObsPromptSDKData {
   }
 
   /**
-   * Resource type of an LLM Observability prompt.
+   * Resource type of an Agent Observability prompt.
    *
    * @return type
    */

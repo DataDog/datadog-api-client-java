@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type for LLM Observability experiment events. */
+/** Resource type for Agent Observability experiment events. */
 @JsonSerialize(using = LLMObsEventType.LLMObsEventTypeSerializer.class)
 public class LLMObsEventType extends ModelEnum<String> {
 

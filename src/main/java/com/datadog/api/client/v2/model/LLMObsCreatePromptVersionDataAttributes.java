@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Attributes for creating a new version of an LLM Observability prompt. <code>template</code> is
+ * Attributes for creating a new version of an Agent Observability prompt. <code>template</code> is
  * required; all other attributes are optional.
  */
 @JsonPropertyOrder({

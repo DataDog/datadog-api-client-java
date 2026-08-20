@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A metric associated with an LLM Observability experiment span. */
+/** A metric associated with an Agent Observability experiment span. */
 @JsonPropertyOrder({
   LLMObsExperimentMetric.JSON_PROPERTY_ASSESSMENT,
   LLMObsExperimentMetric.JSON_PROPERTY_BOOLEAN_VALUE,
@@ -101,7 +101,7 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * Assessment result for an LLM Observability experiment metric.
+   * Assessment result for an Agent Observability experiment metric.
    *
    * @return assessment
    */
@@ -271,7 +271,7 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * Type of metric recorded for an LLM Observability experiment.
+   * Type of metric recorded for an Agent Observability experiment.
    *
    * @return metricType
    */

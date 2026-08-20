@@ -103,7 +103,7 @@ public class LLMObsAnnotationQueueLabelSchemaData {
   }
 
   /**
-   * Resource type of an LLM Observability annotation queue.
+   * Resource type of an Agent Observability annotation queue.
    *
    * @return type
    */

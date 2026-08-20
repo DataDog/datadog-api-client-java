@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of an LLM Observability experiment. */
+/** Attributes of an Agent Observability experiment. */
 @JsonPropertyOrder({
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_AGGREGATE_DATA,
   LLMObsExperimentDataAttributesResponse.JSON_PROPERTY_AUTHOR,
@@ -546,7 +546,7 @@ public class LLMObsExperimentDataAttributesResponse {
   }
 
   /**
-   * Execution status of an LLM Observability experiment.
+   * Execution status of an Agent Observability experiment.
    *
    * @return status
    */

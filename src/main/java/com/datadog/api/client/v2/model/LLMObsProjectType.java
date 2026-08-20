@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type of an LLM Observability project. */
+/** Resource type of an Agent Observability project. */
 @JsonSerialize(using = LLMObsProjectType.LLMObsProjectTypeSerializer.class)
 public class LLMObsProjectType extends ModelEnum<String> {
 

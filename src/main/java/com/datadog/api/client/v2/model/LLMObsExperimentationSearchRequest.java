@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Request to search across LLM Observability experimentation entities using cursor-based
+ * Request to search across Agent Observability experimentation entities using cursor-based
  * pagination.
  */
 @JsonPropertyOrder({LLMObsExperimentationSearchRequest.JSON_PROPERTY_DATA})

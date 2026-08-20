@@ -1,4 +1,4 @@
-// Update a specific LLM Observability prompt version returns "OK" response
+// Update an Agent Observability prompt version returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

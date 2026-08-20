@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of an LLM Observability patterns configuration. */
+/** Attributes of an Agent Observability patterns configuration. */
 @JsonPropertyOrder({
   LLMObsPatternsConfigAttributes.JSON_PROPERTY_ACCOUNT_ID,
   LLMObsPatternsConfigAttributes.JSON_PROPERTY_CREATED_AT,

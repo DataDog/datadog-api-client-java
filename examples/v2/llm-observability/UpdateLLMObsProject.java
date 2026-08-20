@@ -1,4 +1,4 @@
-// Update an LLM Observability project returns "OK" response
+// Update an Agent Observability project returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for updating an LLM Observability experiment. */
+/** Attributes for updating an Agent Observability experiment. */
 @JsonPropertyOrder({
   LLMObsExperimentUpdateDataAttributesRequest.JSON_PROPERTY_DATASET_ID,
   LLMObsExperimentUpdateDataAttributesRequest.JSON_PROPERTY_DESCRIPTION,
@@ -168,7 +168,7 @@ public class LLMObsExperimentUpdateDataAttributesRequest {
   }
 
   /**
-   * Execution status of an LLM Observability experiment.
+   * Execution status of an Agent Observability experiment.
    *
    * @return status
    */

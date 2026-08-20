@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to delete records from an LLM Observability dataset. */
+/** Request to delete records from an Agent Observability dataset. */
 @JsonPropertyOrder({LLMObsDeleteDatasetRecordsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class LLMObsDeleteDatasetRecordsRequest {
   }
 
   /**
-   * Data object for deleting records from an LLM Observability dataset.
+   * Data object for deleting records from an Agent Observability dataset.
    *
    * @return data
    */
