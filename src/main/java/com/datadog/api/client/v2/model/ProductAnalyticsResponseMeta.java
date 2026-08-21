@@ -37,7 +37,7 @@ public class ProductAnalyticsResponseMeta {
   }
 
   /**
-   * Unique identifier for the request, used for multi-step query continuation.
+   * Unique identifier of the query.
    *
    * @return requestId
    */

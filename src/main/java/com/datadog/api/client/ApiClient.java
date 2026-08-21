@@ -1306,6 +1306,16 @@ public class ApiClient {
           put("v2.updateOrgGroupPolicy", false);
           put("v2.updateOrgGroupPolicyOverride", false);
           put("v2.listRoleTemplates", false);
+          put("v2.queryProductAnalyticsJourneyFunnel", false);
+          put("v2.queryProductAnalyticsJourneyList", false);
+          put("v2.queryProductAnalyticsJourneyScalar", false);
+          put("v2.queryProductAnalyticsJourneyTimeseries", false);
+          put("v2.queryProductAnalyticsList", false);
+          put("v2.queryProductAnalyticsRetentionGrid", false);
+          put("v2.queryProductAnalyticsRetentionList", false);
+          put("v2.queryProductAnalyticsRetentionScalar", false);
+          put("v2.queryProductAnalyticsRetentionTimeseries", false);
+          put("v2.queryProductAnalyticsSankey", false);
           put("v2.createConnection", false);
           put("v2.deleteConnection", false);
           put("v2.getAccountFacetInfo", false);

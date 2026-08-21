@@ -70,7 +70,8 @@ public class ProductAnalyticsCompute {
   }
 
   /**
-   * Time bucket size in milliseconds. Required for timeseries queries.
+   * Time bucket size in milliseconds. Required for timeseries queries; ignored by the scalar
+   * endpoint, which returns a single value.
    *
    * @return interval
    */

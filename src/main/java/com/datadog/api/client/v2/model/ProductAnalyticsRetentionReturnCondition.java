@@ -1,0 +1,69 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v2.model;
+
+import com.datadog.api.client.ModelEnum;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * When an entity counts as having returned. Use <code>conversion_on</code> to count only entities
+ * that returned during the period itself, or <code>conversion_on_or_after</code> to also count
+ * later returns.
+ */
+@JsonSerialize(
+    using =
+        ProductAnalyticsRetentionReturnCondition.ProductAnalyticsRetentionReturnConditionSerializer
+            .class)
+public class ProductAnalyticsRetentionReturnCondition extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("conversion_on", "conversion_on_or_after"));
+
+  public static final ProductAnalyticsRetentionReturnCondition CONVERSION_ON =
+      new ProductAnalyticsRetentionReturnCondition("conversion_on");
+  public static final ProductAnalyticsRetentionReturnCondition CONVERSION_ON_OR_AFTER =
+      new ProductAnalyticsRetentionReturnCondition("conversion_on_or_after");
+
+  ProductAnalyticsRetentionReturnCondition(String value) {
+    super(value, allowedValues);
+  }
+
+  public static class ProductAnalyticsRetentionReturnConditionSerializer
+      extends StdSerializer<ProductAnalyticsRetentionReturnCondition> {
+    public ProductAnalyticsRetentionReturnConditionSerializer(
+        Class<ProductAnalyticsRetentionReturnCondition> t) {
+      super(t);
+    }
+
+    public ProductAnalyticsRetentionReturnConditionSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        ProductAnalyticsRetentionReturnCondition value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
+  @JsonCreator
+  public static ProductAnalyticsRetentionReturnCondition fromValue(String value) {
+    return new ProductAnalyticsRetentionReturnCondition(value);
+  }
+}
