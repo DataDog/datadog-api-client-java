@@ -30,6 +30,7 @@ import java.util.Objects;
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_BUCKET,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_BUFFER,
+  ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_KEY_PREFIX,
@@ -52,6 +53,9 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
 
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
+
+  public static final String JSON_PROPERTY_COMPRESSION = "compression";
+  private ObservabilityPipelineGoogleCloudStorageDestinationCompression compression;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -187,6 +191,34 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
     this.buffer = buffer;
     if (buffer != null) {
       this.unparsed |= buffer.unparsed;
+    }
+  }
+
+  public ObservabilityPipelineGoogleCloudStorageDestination compression(
+      ObservabilityPipelineGoogleCloudStorageDestinationCompression compression) {
+    this.compression = compression;
+    this.unparsed |= compression.unparsed;
+    return this;
+  }
+
+  /**
+   * Compression configuration for archived logs. When omitted, logs are compressed with gzip for
+   * backward compatibility.
+   *
+   * @return compression
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineGoogleCloudStorageDestinationCompression getCompression() {
+    return compression;
+  }
+
+  public void setCompression(
+      ObservabilityPipelineGoogleCloudStorageDestinationCompression compression) {
+    this.compression = compression;
+    if (compression != null) {
+      this.unparsed |= compression.unparsed;
     }
   }
 
@@ -414,6 +446,8 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
         && Objects.equals(this.auth, observabilityPipelineGoogleCloudStorageDestination.auth)
         && Objects.equals(this.bucket, observabilityPipelineGoogleCloudStorageDestination.bucket)
         && Objects.equals(this.buffer, observabilityPipelineGoogleCloudStorageDestination.buffer)
+        && Objects.equals(
+            this.compression, observabilityPipelineGoogleCloudStorageDestination.compression)
         && Objects.equals(this.id, observabilityPipelineGoogleCloudStorageDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineGoogleCloudStorageDestination.inputs)
         && Objects.equals(
@@ -435,6 +469,7 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
         auth,
         bucket,
         buffer,
+        compression,
         id,
         inputs,
         keyPrefix,
@@ -452,6 +487,7 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
+    sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    keyPrefix: ").append(toIndentedString(keyPrefix)).append("\n");
