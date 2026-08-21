@@ -14,7 +14,6 @@ import java.util.Map;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.createDataDeletionRequest", true);
     DataDeletionApi apiInstance = new DataDeletionApi(defaultClient);
 
     CreateDataDeletionRequestBody body =
@@ -23,6 +22,7 @@ public class Example {
                 new CreateDataDeletionRequestBodyData()
                     .attributes(
                         new CreateDataDeletionRequestBodyAttributes()
+                            .displayedTotal(100L)
                             .from(1672527600000L)
                             .indexes(Arrays.asList("test-index", "test-index-2"))
                             .query(
