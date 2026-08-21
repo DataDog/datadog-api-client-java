@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type of an LLM Observability patterns run status. */
+/** Resource type of an Agent Observability patterns run status. */
 @JsonSerialize(using = LLMObsPatternsRunStatusType.LLMObsPatternsRunStatusTypeSerializer.class)
 public class LLMObsPatternsRunStatusType extends ModelEnum<String> {
 

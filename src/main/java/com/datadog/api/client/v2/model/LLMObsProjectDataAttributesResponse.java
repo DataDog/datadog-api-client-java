@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability project. */
+/** Attributes of an Agent Observability project. */
 @JsonPropertyOrder({
   LLMObsProjectDataAttributesResponse.JSON_PROPERTY_CREATED_AT,
   LLMObsProjectDataAttributesResponse.JSON_PROPERTY_DESCRIPTION,

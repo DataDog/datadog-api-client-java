@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A single LLM Observability span. */
+/** A single Agent Observability span. */
 @JsonPropertyOrder({
   LLMObsSpanData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsSpanData.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class LLMObsSpanData {
   }
 
   /**
-   * Attributes of an LLM Observability span.
+   * Attributes of an Agent Observability span.
    *
    * @return attributes
    */
@@ -102,7 +102,7 @@ public class LLMObsSpanData {
   }
 
   /**
-   * Resource type for an LLM Observability span.
+   * Resource type for an Agent Observability span.
    *
    * @return type
    */

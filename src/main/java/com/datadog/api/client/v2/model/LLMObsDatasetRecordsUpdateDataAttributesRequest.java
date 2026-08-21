@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for updating records in an LLM Observability dataset. */
+/** Attributes for updating records in an Agent Observability dataset. */
 @JsonPropertyOrder({LLMObsDatasetRecordsUpdateDataAttributesRequest.JSON_PROPERTY_RECORDS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

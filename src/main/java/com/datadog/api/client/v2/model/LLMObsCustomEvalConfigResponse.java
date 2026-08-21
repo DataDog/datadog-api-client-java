@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a custom LLM Observability evaluator configuration. */
+/** Response containing a custom Agent Observability evaluator configuration. */
 @JsonPropertyOrder({LLMObsCustomEvalConfigResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class LLMObsCustomEvalConfigResponse {
   }
 
   /**
-   * Data object for a custom LLM Observability evaluator configuration.
+   * Data object for a custom Agent Observability evaluator configuration.
    *
    * @return data
    */

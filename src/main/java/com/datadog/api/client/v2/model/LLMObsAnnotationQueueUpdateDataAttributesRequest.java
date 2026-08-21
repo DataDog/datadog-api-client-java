@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for updating an LLM Observability annotation queue. All fields are optional. */
+/** Attributes for updating an Agent Observability annotation queue. All fields are optional. */
 @JsonPropertyOrder({
   LLMObsAnnotationQueueUpdateDataAttributesRequest.JSON_PROPERTY_ANNOTATION_SCHEMA,
   LLMObsAnnotationQueueUpdateDataAttributesRequest.JSON_PROPERTY_DESCRIPTION,

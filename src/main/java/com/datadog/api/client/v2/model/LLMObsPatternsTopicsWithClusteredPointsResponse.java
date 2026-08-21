@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /**
  * Response containing the topics, and the clustered points of their leaf topics, discovered by an
- * LLM Observability patterns run.
+ * Agent Observability patterns run.
  */
 @JsonPropertyOrder({LLMObsPatternsTopicsWithClusteredPointsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
@@ -47,7 +47,7 @@ public class LLMObsPatternsTopicsWithClusteredPointsResponse {
   }
 
   /**
-   * Data object of an LLM Observability patterns topics-with-clustered-points response.
+   * Data object of an Agent Observability patterns topics-with-clustered-points response.
    *
    * @return data
    */

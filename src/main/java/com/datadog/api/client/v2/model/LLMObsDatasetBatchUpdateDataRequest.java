@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for batch-updating records in an LLM Observability dataset. */
+/** Data object for batch-updating records in an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDatasetBatchUpdateDataRequest.JSON_PROPERTY_ATTRIBUTES,
   LLMObsDatasetBatchUpdateDataRequest.JSON_PROPERTY_ID,
@@ -59,7 +59,7 @@ public class LLMObsDatasetBatchUpdateDataRequest {
   }
 
   /**
-   * Attributes for batch-updating records in an LLM Observability dataset.
+   * Attributes for batch-updating records in an Agent Observability dataset.
    *
    * @return attributes
    */
@@ -103,7 +103,7 @@ public class LLMObsDatasetBatchUpdateDataRequest {
   }
 
   /**
-   * Resource type of an LLM Observability dataset.
+   * Resource type of an Agent Observability dataset.
    *
    * @return type
    */

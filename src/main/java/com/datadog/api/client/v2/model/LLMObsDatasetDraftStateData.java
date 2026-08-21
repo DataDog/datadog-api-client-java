@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for an LLM Observability dataset draft state. */
+/** Data object for an Agent Observability dataset draft state. */
 @JsonPropertyOrder({
   LLMObsDatasetDraftStateData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsDatasetDraftStateData.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class LLMObsDatasetDraftStateData {
   }
 
   /**
-   * Attributes of an LLM Observability dataset draft state.
+   * Attributes of an Agent Observability dataset draft state.
    *
    * @return attributes
    */
@@ -102,7 +102,7 @@ public class LLMObsDatasetDraftStateData {
   }
 
   /**
-   * Resource type of an LLM Observability dataset draft state.
+   * Resource type of an Agent Observability dataset draft state.
    *
    * @return type
    */

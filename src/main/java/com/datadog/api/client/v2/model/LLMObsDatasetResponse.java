@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a single LLM Observability dataset. */
+/** Response containing a single Agent Observability dataset. */
 @JsonPropertyOrder({LLMObsDatasetResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class LLMObsDatasetResponse {
   }
 
   /**
-   * Data object for an LLM Observability dataset.
+   * Data object for an Agent Observability dataset.
    *
    * @return data
    */

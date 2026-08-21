@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Data object for an LLM Observability experiment run. */
+/** Data object for an Agent Observability experiment run. */
 @JsonPropertyOrder({
   LLMObsExperimentRunDataResponse.JSON_PROPERTY_AGGREGATE_DATA,
   LLMObsExperimentRunDataResponse.JSON_PROPERTY_CREATED_AT,

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Type of the custom LLM Observability evaluator configuration resource. */
+/** Type of the custom Agent Observability evaluator configuration resource. */
 @JsonSerialize(using = LLMObsCustomEvalConfigType.LLMObsCustomEvalConfigTypeSerializer.class)
 public class LLMObsCustomEvalConfigType extends ModelEnum<String> {
 

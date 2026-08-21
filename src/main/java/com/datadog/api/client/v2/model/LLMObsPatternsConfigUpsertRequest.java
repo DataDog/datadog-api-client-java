@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to create or update an LLM Observability patterns configuration. */
+/** Request to create or update an Agent Observability patterns configuration. */
 @JsonPropertyOrder({LLMObsPatternsConfigUpsertRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class LLMObsPatternsConfigUpsertRequest {
   }
 
   /**
-   * Data object for creating or updating an LLM Observability patterns configuration.
+   * Data object for creating or updating an Agent Observability patterns configuration.
    *
    * @return data
    */

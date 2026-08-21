@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type of an LLM Observability prompt. */
+/** Resource type of an Agent Observability prompt. */
 @JsonSerialize(using = LLMObsPromptType.LLMObsPromptTypeSerializer.class)
 public class LLMObsPromptType extends ModelEnum<String> {
 

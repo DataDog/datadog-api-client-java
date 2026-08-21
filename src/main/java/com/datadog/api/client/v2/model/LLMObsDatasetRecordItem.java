@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A single record to append to an LLM Observability dataset. */
+/** A single record to append to an Agent Observability dataset. */
 @JsonPropertyOrder({
   LLMObsDatasetRecordItem.JSON_PROPERTY_EXPECTED_OUTPUT,
   LLMObsDatasetRecordItem.JSON_PROPERTY_INPUT,

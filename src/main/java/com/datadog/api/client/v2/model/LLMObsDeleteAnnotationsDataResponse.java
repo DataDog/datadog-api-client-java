@@ -103,7 +103,7 @@ public class LLMObsDeleteAnnotationsDataResponse {
   }
 
   /**
-   * Resource type for LLM Observability annotations.
+   * Resource type for Agent Observability annotations.
    *
    * @return type
    */

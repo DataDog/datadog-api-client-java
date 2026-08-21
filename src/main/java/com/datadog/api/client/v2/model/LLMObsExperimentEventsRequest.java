@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to push spans and metrics for an LLM Observability experiment. */
+/** Request to push spans and metrics for an Agent Observability experiment. */
 @JsonPropertyOrder({LLMObsExperimentEventsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

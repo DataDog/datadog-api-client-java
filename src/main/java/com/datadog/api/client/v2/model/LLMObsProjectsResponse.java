@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a list of LLM Observability projects. */
+/** Response containing a list of Agent Observability projects. */
 @JsonPropertyOrder({
   LLMObsProjectsResponse.JSON_PROPERTY_DATA,
   LLMObsProjectsResponse.JSON_PROPERTY_META

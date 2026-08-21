@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Filter criteria for an LLM Observability span search. */
+/** Filter criteria for an Agent Observability span search. */
 @JsonPropertyOrder({
   LLMObsSpanFilter.JSON_PROPERTY_FROM,
   LLMObsSpanFilter.JSON_PROPERTY_ML_APP,
@@ -108,7 +108,7 @@ public class LLMObsSpanFilter {
   }
 
   /**
-   * Search query using LLM Observability query syntax. Supports attribute filters using the
+   * Search query using Agent Observability query syntax. Supports attribute filters using the
    * field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind). When provided,
    * structured field filters (<code>span_id</code>, <code>trace_id</code>, etc.) are ignored.
    *

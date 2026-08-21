@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability spans search request. */
+/** Attributes of an Agent Observability spans search request. */
 @JsonPropertyOrder({
   LLMObsSearchSpansRequestAttributes.JSON_PROPERTY_FILTER,
   LLMObsSearchSpansRequestAttributes.JSON_PROPERTY_OPTIONS,
@@ -46,7 +46,7 @@ public class LLMObsSearchSpansRequestAttributes {
   }
 
   /**
-   * Filter criteria for an LLM Observability span search.
+   * Filter criteria for an Agent Observability span search.
    *
    * @return filter
    */

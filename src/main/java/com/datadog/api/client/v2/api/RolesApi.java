@@ -1184,8 +1184,8 @@ public class RolesApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return ListRolesOptionalParameters
      */
     public ListRolesOptionalParameters pageSize(Long pageSize) {
@@ -1541,8 +1541,8 @@ public class RolesApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return ListRoleUsersOptionalParameters
      */
     public ListRoleUsersOptionalParameters pageSize(Long pageSize) {

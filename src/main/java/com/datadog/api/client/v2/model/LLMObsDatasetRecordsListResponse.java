@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a paginated list of LLM Observability dataset records. */
+/** Response containing a paginated list of Agent Observability dataset records. */
 @JsonPropertyOrder({
   LLMObsDatasetRecordsListResponse.JSON_PROPERTY_DATA,
   LLMObsDatasetRecordsListResponse.JSON_PROPERTY_META

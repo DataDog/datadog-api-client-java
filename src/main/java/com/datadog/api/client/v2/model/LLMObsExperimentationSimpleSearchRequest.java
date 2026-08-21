@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Request to search across LLM Observability experimentation entities using offset-based
+ * Request to search across Agent Observability experimentation entities using offset-based
  * pagination.
  */
 @JsonPropertyOrder({LLMObsExperimentationSimpleSearchRequest.JSON_PROPERTY_DATA})

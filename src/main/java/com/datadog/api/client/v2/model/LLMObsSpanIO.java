@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Input or output content of an LLM Observability span. */
+/** Input or output content of an Agent Observability span. */
 @JsonPropertyOrder({LLMObsSpanIO.JSON_PROPERTY_MESSAGES, LLMObsSpanIO.JSON_PROPERTY_VALUE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

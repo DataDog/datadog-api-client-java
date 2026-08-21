@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability patterns run status. */
+/** Attributes of an Agent Observability patterns run status. */
 @JsonPropertyOrder({
   LLMObsPatternsRunStatusResponseAttributes.JSON_PROPERTY_CREATED_AT,
   LLMObsPatternsRunStatusResponseAttributes.JSON_PROPERTY_PROGRESS,

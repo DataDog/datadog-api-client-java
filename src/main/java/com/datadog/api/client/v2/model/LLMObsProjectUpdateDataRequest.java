@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating an LLM Observability project. */
+/** Data object for updating an Agent Observability project. */
 @JsonPropertyOrder({
   LLMObsProjectUpdateDataRequest.JSON_PROPERTY_ATTRIBUTES,
   LLMObsProjectUpdateDataRequest.JSON_PROPERTY_TYPE
@@ -53,7 +53,7 @@ public class LLMObsProjectUpdateDataRequest {
   }
 
   /**
-   * Attributes for updating an LLM Observability project.
+   * Attributes for updating an Agent Observability project.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class LLMObsProjectUpdateDataRequest {
   }
 
   /**
-   * Resource type of an LLM Observability project.
+   * Resource type of an Agent Observability project.
    *
    * @return type
    */

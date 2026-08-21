@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for an LLM Observability project. */
+/** Data object for an Agent Observability project. */
 @JsonPropertyOrder({
   LLMObsProjectDataResponse.JSON_PROPERTY_ATTRIBUTES,
   LLMObsProjectDataResponse.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class LLMObsProjectDataResponse {
   }
 
   /**
-   * Attributes of an LLM Observability project.
+   * Attributes of an Agent Observability project.
    *
    * @return attributes
    */
@@ -102,7 +102,7 @@ public class LLMObsProjectDataResponse {
   }
 
   /**
-   * Resource type of an LLM Observability project.
+   * Resource type of an Agent Observability project.
    *
    * @return type
    */

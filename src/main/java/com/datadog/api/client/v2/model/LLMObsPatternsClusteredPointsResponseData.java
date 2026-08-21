@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object of an LLM Observability patterns clustered points response. */
+/** Data object of an Agent Observability patterns clustered points response. */
 @JsonPropertyOrder({
   LLMObsPatternsClusteredPointsResponseData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsPatternsClusteredPointsResponseData.JSON_PROPERTY_ID,
@@ -60,7 +60,7 @@ public class LLMObsPatternsClusteredPointsResponseData {
   }
 
   /**
-   * Attributes of an LLM Observability patterns clustered points response.
+   * Attributes of an Agent Observability patterns clustered points response.
    *
    * @return attributes
    */
@@ -104,7 +104,7 @@ public class LLMObsPatternsClusteredPointsResponseData {
   }
 
   /**
-   * Resource type of an LLM Observability patterns clustered points response.
+   * Resource type of an Agent Observability patterns clustered points response.
    *
    * @return type
    */

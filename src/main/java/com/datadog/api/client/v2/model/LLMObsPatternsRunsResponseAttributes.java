@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of an LLM Observability patterns runs response. */
+/** Attributes of an Agent Observability patterns runs response. */
 @JsonPropertyOrder({LLMObsPatternsRunsResponseAttributes.JSON_PROPERTY_RUNS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

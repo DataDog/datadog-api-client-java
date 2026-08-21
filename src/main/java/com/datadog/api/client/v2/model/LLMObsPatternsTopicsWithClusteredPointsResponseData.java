@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object of an LLM Observability patterns topics-with-clustered-points response. */
+/** Data object of an Agent Observability patterns topics-with-clustered-points response. */
 @JsonPropertyOrder({
   LLMObsPatternsTopicsWithClusteredPointsResponseData.JSON_PROPERTY_ATTRIBUTES,
   LLMObsPatternsTopicsWithClusteredPointsResponseData.JSON_PROPERTY_ID,
@@ -60,7 +60,7 @@ public class LLMObsPatternsTopicsWithClusteredPointsResponseData {
   }
 
   /**
-   * Attributes of an LLM Observability patterns topics-with-clustered-points response.
+   * Attributes of an Agent Observability patterns topics-with-clustered-points response.
    *
    * @return attributes
    */
@@ -105,7 +105,7 @@ public class LLMObsPatternsTopicsWithClusteredPointsResponseData {
   }
 
   /**
-   * Resource type of an LLM Observability patterns topics-with-clustered-points response.
+   * Resource type of an Agent Observability patterns topics-with-clustered-points response.
    *
    * @return type
    */

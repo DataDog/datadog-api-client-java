@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource type of an LLM Observability patterns configuration. */
+/** Resource type of an Agent Observability patterns configuration. */
 @JsonSerialize(using = LLMObsPatternsConfigType.LLMObsPatternsConfigTypeSerializer.class)
 public class LLMObsPatternsConfigType extends ModelEnum<String> {
 

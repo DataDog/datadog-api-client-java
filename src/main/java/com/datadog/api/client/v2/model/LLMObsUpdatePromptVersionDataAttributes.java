@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Attributes for updating an LLM Observability prompt version. At least one of <code>description
+ * Attributes for updating an Agent Observability prompt version. At least one of <code>description
  * </code>, <code>labels</code>, or <code>env_ids</code> must be provided; all three attributes are
  * optional individually.
  */

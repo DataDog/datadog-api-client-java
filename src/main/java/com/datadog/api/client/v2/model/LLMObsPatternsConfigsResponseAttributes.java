@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of a list of LLM Observability patterns configurations. */
+/** Attributes of a list of Agent Observability patterns configurations. */
 @JsonPropertyOrder({LLMObsPatternsConfigsResponseAttributes.JSON_PROPERTY_CONFIGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

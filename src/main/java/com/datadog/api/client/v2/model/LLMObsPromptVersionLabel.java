@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** A label attached to an LLM Observability prompt version. */
+/** A label attached to an Agent Observability prompt version. */
 @JsonSerialize(using = LLMObsPromptVersionLabel.LLMObsPromptVersionLabelSerializer.class)
 public class LLMObsPromptVersionLabel extends ModelEnum<String> {
 

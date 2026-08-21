@@ -13,8 +13,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /**
- * Attributes for updating an LLM Observability prompt. At least one of <code>title</code> or <code>
- * description</code> must be provided; both attributes are optional individually.
+ * Attributes for updating an Agent Observability prompt. At least one of <code>title</code> or
+ * <code>description</code> must be provided; both attributes are optional individually.
  */
 @JsonPropertyOrder({
   LLMObsUpdatePromptDataAttributes.JSON_PROPERTY_DESCRIPTION,
