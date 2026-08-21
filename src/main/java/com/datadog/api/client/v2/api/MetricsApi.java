@@ -4622,7 +4622,8 @@ public class MetricsApi {
 
   /**
    * Query timeseries data across various data sources and process the data by applying formulas and
-   * functions.
+   * functions. Datadog recommends using this endpoint over the v1 <code>/api/v1/query</code>
+   * endpoint for querying timeseries data.
    *
    * @param body (required)
    * @return ApiResponse&lt;TimeseriesFormulaQueryResponse&gt;
