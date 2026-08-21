@@ -20,7 +20,6 @@ import java.util.Objects;
 
 /** The RUM retention quota configuration properties. */
 @JsonPropertyOrder({
-  RumRetentionQuotaConfigAttributes.JSON_PROPERTY_ADAPTIVE,
   RumRetentionQuotaConfigAttributes.JSON_PROPERTY_CUSTOM,
   RumRetentionQuotaConfigAttributes.JSON_PROPERTY_MODE,
   RumRetentionQuotaConfigAttributes.JSON_PROPERTY_ORG_ID,
@@ -31,9 +30,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RumRetentionQuotaConfigAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ADAPTIVE = "adaptive";
-  private RumRetentionQuotaAdaptiveConfig adaptive;
-
   public static final String JSON_PROPERTY_CUSTOM = "custom";
   private RumRetentionQuotaCustomConfig custom;
 
@@ -58,31 +54,6 @@ public class RumRetentionQuotaConfigAttributes {
     this.mode = mode;
     this.unparsed |= !mode.isValid();
     this.orgId = orgId;
-  }
-
-  public RumRetentionQuotaConfigAttributes adaptive(RumRetentionQuotaAdaptiveConfig adaptive) {
-    this.adaptive = adaptive;
-    this.unparsed |= adaptive.unparsed;
-    return this;
-  }
-
-  /**
-   * The configuration used when <code>mode</code> is <code>adaptive</code>.
-   *
-   * @return adaptive
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADAPTIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RumRetentionQuotaAdaptiveConfig getAdaptive() {
-    return adaptive;
-  }
-
-  public void setAdaptive(RumRetentionQuotaAdaptiveConfig adaptive) {
-    this.adaptive = adaptive;
-    if (adaptive != null) {
-      this.unparsed |= adaptive.unparsed;
-    }
   }
 
   public RumRetentionQuotaConfigAttributes custom(RumRetentionQuotaCustomConfig custom) {
@@ -117,8 +88,8 @@ public class RumRetentionQuotaConfigAttributes {
   }
 
   /**
-   * The retention quota mode. <code>custom</code> enforces a fixed session limit, while <code>
-   * adaptive</code> dynamically adjusts retention.
+   * The retention quota mode. <code>custom</code> enforces a fixed session limit. <code>custom
+   * </code> is the only supported mode.
    *
    * @return mode
    */
@@ -254,8 +225,7 @@ public class RumRetentionQuotaConfigAttributes {
     }
     RumRetentionQuotaConfigAttributes rumRetentionQuotaConfigAttributes =
         (RumRetentionQuotaConfigAttributes) o;
-    return Objects.equals(this.adaptive, rumRetentionQuotaConfigAttributes.adaptive)
-        && Objects.equals(this.custom, rumRetentionQuotaConfigAttributes.custom)
+    return Objects.equals(this.custom, rumRetentionQuotaConfigAttributes.custom)
         && Objects.equals(this.mode, rumRetentionQuotaConfigAttributes.mode)
         && Objects.equals(this.orgId, rumRetentionQuotaConfigAttributes.orgId)
         && Objects.equals(this.updatedAt, rumRetentionQuotaConfigAttributes.updatedAt)
@@ -266,14 +236,13 @@ public class RumRetentionQuotaConfigAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adaptive, custom, mode, orgId, updatedAt, updatedBy, additionalProperties);
+    return Objects.hash(custom, mode, orgId, updatedAt, updatedBy, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RumRetentionQuotaConfigAttributes {\n");
-    sb.append("    adaptive: ").append(toIndentedString(adaptive)).append("\n");
     sb.append("    custom: ").append(toIndentedString(custom)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");

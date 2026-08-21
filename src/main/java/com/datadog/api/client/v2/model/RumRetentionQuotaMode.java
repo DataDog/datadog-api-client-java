@@ -19,17 +19,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The retention quota mode. <code>custom</code> enforces a fixed session limit, while <code>
- * adaptive</code> dynamically adjusts retention.
+ * The retention quota mode. <code>custom</code> enforces a fixed session limit. <code>custom</code>
+ * is the only supported mode.
  */
 @JsonSerialize(using = RumRetentionQuotaMode.RumRetentionQuotaModeSerializer.class)
 public class RumRetentionQuotaMode extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("custom", "adaptive"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("custom"));
 
   public static final RumRetentionQuotaMode CUSTOM = new RumRetentionQuotaMode("custom");
-  public static final RumRetentionQuotaMode ADAPTIVE = new RumRetentionQuotaMode("adaptive");
 
   RumRetentionQuotaMode(String value) {
     super(value, allowedValues);
