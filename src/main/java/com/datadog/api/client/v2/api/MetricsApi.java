@@ -1671,6 +1671,7 @@ public class MetricsApi {
   /** Manage optional parameters to estimateMetricsOutputSeries. */
   public static class EstimateMetricsOutputSeriesOptionalParameters {
     private String filterGroups;
+    private Boolean filterExcludeTagsMode;
     private Integer filterHoursAgo;
     private Integer filterNumAggregations;
     private Boolean filterPct;
@@ -1685,6 +1686,19 @@ public class MetricsApi {
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterGroups(String filterGroups) {
       this.filterGroups = filterGroups;
+      return this;
+    }
+
+    /**
+     * Set filterExcludeTagsMode.
+     *
+     * @param filterExcludeTagsMode When <code>true</code>, <code>filter[groups]</code> is treated
+     *     as an exclude list instead of an include list. Defaults to <code>false</code>. (optional)
+     * @return EstimateMetricsOutputSeriesOptionalParameters
+     */
+    public EstimateMetricsOutputSeriesOptionalParameters filterExcludeTagsMode(
+        Boolean filterExcludeTagsMode) {
+      this.filterExcludeTagsMode = filterExcludeTagsMode;
       return this;
     }
 
@@ -1716,8 +1730,7 @@ public class MetricsApi {
     /**
      * Set filterPct.
      *
-     * @param filterPct A boolean, for distribution metrics only, to estimate cardinality if the
-     *     metric includes additional percentile aggregators. (optional)
+     * @param filterPct Deprecated. This query parameter has no effect on the estimate. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterPct(Boolean filterPct) {
@@ -1836,6 +1849,7 @@ public class MetricsApi {
           "Missing the required parameter 'metricName' when calling estimateMetricsOutputSeries");
     }
     String filterGroups = parameters.filterGroups;
+    Boolean filterExcludeTagsMode = parameters.filterExcludeTagsMode;
     Integer filterHoursAgo = parameters.filterHoursAgo;
     Integer filterNumAggregations = parameters.filterNumAggregations;
     Boolean filterPct = parameters.filterPct;
@@ -1850,6 +1864,8 @@ public class MetricsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[groups]", filterGroups));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[exclude_tags_mode]", filterExcludeTagsMode));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[hours_ago]", filterHoursAgo));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));
@@ -1902,6 +1918,7 @@ public class MetricsApi {
       return result;
     }
     String filterGroups = parameters.filterGroups;
+    Boolean filterExcludeTagsMode = parameters.filterExcludeTagsMode;
     Integer filterHoursAgo = parameters.filterHoursAgo;
     Integer filterNumAggregations = parameters.filterNumAggregations;
     Boolean filterPct = parameters.filterPct;
@@ -1916,6 +1933,8 @@ public class MetricsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[groups]", filterGroups));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[exclude_tags_mode]", filterExcludeTagsMode));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[hours_ago]", filterHoursAgo));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));

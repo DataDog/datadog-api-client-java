@@ -43,10 +43,9 @@ public class MetricEstimateAttributes {
   }
 
   /**
-   * Estimate type based on the queried configuration. By default, <code>count_or_gauge</code> is
-   * returned. <code>distribution</code> is returned for distribution metrics without percentiles
-   * enabled. Lastly, <code>percentile</code> is returned if <code>filter[pct]=true</code> is
-   * queried with a distribution metric.
+   * Estimate type based on the queried configuration. <code>count_or_gauge</code> is returned by
+   * default, and <code>distribution</code> is returned for distribution metrics. The <code>
+   * filter[pct]</code> query parameter has no effect on this value.
    *
    * @return estimateType
    */
