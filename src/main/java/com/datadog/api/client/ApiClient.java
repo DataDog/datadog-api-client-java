@@ -1080,9 +1080,6 @@ public class ApiClient {
           put("v2.getAllDatasets", false);
           put("v2.getDataset", false);
           put("v2.updateDataset", false);
-          put("v2.cancelDataDeletionRequest", false);
-          put("v2.createDataDeletionRequest", false);
-          put("v2.getDataDeletionRequests", false);
           put("v2.createDeploymentGate", false);
           put("v2.createDeploymentRule", false);
           put("v2.deleteDeploymentGate", false);
