@@ -29,6 +29,7 @@ import java.util.Objects;
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_BUCKET,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_BUFFER,
+  ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_ID,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_KEY_PREFIX,
@@ -51,6 +52,9 @@ public class ObservabilityPipelineAmazonS3Destination {
 
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
+
+  public static final String JSON_PROPERTY_COMPRESSION = "compression";
+  private ObservabilityPipelineAmazonS3DestinationCompression compression;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -171,6 +175,33 @@ public class ObservabilityPipelineAmazonS3Destination {
     this.buffer = buffer;
     if (buffer != null) {
       this.unparsed |= buffer.unparsed;
+    }
+  }
+
+  public ObservabilityPipelineAmazonS3Destination compression(
+      ObservabilityPipelineAmazonS3DestinationCompression compression) {
+    this.compression = compression;
+    this.unparsed |= compression.unparsed;
+    return this;
+  }
+
+  /**
+   * Compression configuration for archived logs. When omitted, logs are compressed with gzip for
+   * backward compatibility.
+   *
+   * @return compression
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineAmazonS3DestinationCompression getCompression() {
+    return compression;
+  }
+
+  public void setCompression(ObservabilityPipelineAmazonS3DestinationCompression compression) {
+    this.compression = compression;
+    if (compression != null) {
+      this.unparsed |= compression.unparsed;
     }
   }
 
@@ -444,6 +475,7 @@ public class ObservabilityPipelineAmazonS3Destination {
     return Objects.equals(this.auth, observabilityPipelineAmazonS3Destination.auth)
         && Objects.equals(this.bucket, observabilityPipelineAmazonS3Destination.bucket)
         && Objects.equals(this.buffer, observabilityPipelineAmazonS3Destination.buffer)
+        && Objects.equals(this.compression, observabilityPipelineAmazonS3Destination.compression)
         && Objects.equals(this.id, observabilityPipelineAmazonS3Destination.id)
         && Objects.equals(this.inputs, observabilityPipelineAmazonS3Destination.inputs)
         && Objects.equals(this.keyPrefix, observabilityPipelineAmazonS3Destination.keyPrefix)
@@ -466,6 +498,7 @@ public class ObservabilityPipelineAmazonS3Destination {
         auth,
         bucket,
         buffer,
+        compression,
         id,
         inputs,
         keyPrefix,
@@ -485,6 +518,7 @@ public class ObservabilityPipelineAmazonS3Destination {
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
+    sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    keyPrefix: ").append(toIndentedString(keyPrefix)).append("\n");
