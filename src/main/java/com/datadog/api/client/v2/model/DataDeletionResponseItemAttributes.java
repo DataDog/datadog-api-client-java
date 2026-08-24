@@ -23,6 +23,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   DataDeletionResponseItemAttributes.JSON_PROPERTY_CREATED_AT,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_CREATED_BY,
+  DataDeletionResponseItemAttributes.JSON_PROPERTY_CUSTOMER_MESSAGE,
+  DataDeletionResponseItemAttributes.JSON_PROPERTY_DISPLAYED_TOTAL,
+  DataDeletionResponseItemAttributes.JSON_PROPERTY_ERROR_CATEGORY,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_FROM_TIME,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_INDEXES,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_IS_CREATED,
@@ -44,6 +47,15 @@ public class DataDeletionResponseItemAttributes {
 
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
   private String createdBy;
+
+  public static final String JSON_PROPERTY_CUSTOMER_MESSAGE = "customer_message";
+  private String customerMessage;
+
+  public static final String JSON_PROPERTY_DISPLAYED_TOTAL = "displayed_total";
+  private Long displayedTotal;
+
+  public static final String JSON_PROPERTY_ERROR_CATEGORY = "error_category";
+  private String errorCategory;
 
   public static final String JSON_PROPERTY_FROM_TIME = "from_time";
   private Long fromTime;
@@ -84,6 +96,7 @@ public class DataDeletionResponseItemAttributes {
   public DataDeletionResponseItemAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) String createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DISPLAYED_TOTAL) Long displayedTotal,
       @JsonProperty(required = true, value = JSON_PROPERTY_FROM_TIME) Long fromTime,
       @JsonProperty(required = true, value = JSON_PROPERTY_IS_CREATED) Boolean isCreated,
       @JsonProperty(required = true, value = JSON_PROPERTY_ORG_ID) Long orgId,
@@ -97,6 +110,7 @@ public class DataDeletionResponseItemAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) String updatedAt) {
     this.createdAt = createdAt;
     this.createdBy = createdBy;
+    this.displayedTotal = displayedTotal;
     this.fromTime = fromTime;
     this.isCreated = isCreated;
     this.orgId = orgId;
@@ -147,6 +161,68 @@ public class DataDeletionResponseItemAttributes {
 
   public void setCreatedBy(String createdBy) {
     this.createdBy = createdBy;
+  }
+
+  public DataDeletionResponseItemAttributes customerMessage(String customerMessage) {
+    this.customerMessage = customerMessage;
+    return this;
+  }
+
+  /**
+   * A message for the customer regarding the deletion request, if any.
+   *
+   * @return customerMessage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOMER_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomerMessage() {
+    return customerMessage;
+  }
+
+  public void setCustomerMessage(String customerMessage) {
+    this.customerMessage = customerMessage;
+  }
+
+  public DataDeletionResponseItemAttributes displayedTotal(Long displayedTotal) {
+    this.displayedTotal = displayedTotal;
+    return this;
+  }
+
+  /**
+   * Total number of elements to be deleted as displayed to the user.
+   *
+   * @return displayedTotal
+   */
+  @JsonProperty(JSON_PROPERTY_DISPLAYED_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getDisplayedTotal() {
+    return displayedTotal;
+  }
+
+  public void setDisplayedTotal(Long displayedTotal) {
+    this.displayedTotal = displayedTotal;
+  }
+
+  public DataDeletionResponseItemAttributes errorCategory(String errorCategory) {
+    this.errorCategory = errorCategory;
+    return this;
+  }
+
+  /**
+   * The category of the error for the deletion request, if any.
+   *
+   * @return errorCategory
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getErrorCategory() {
+    return errorCategory;
+  }
+
+  public void setErrorCategory(String errorCategory) {
+    this.errorCategory = errorCategory;
   }
 
   public DataDeletionResponseItemAttributes fromTime(Long fromTime) {
@@ -439,6 +515,9 @@ public class DataDeletionResponseItemAttributes {
         (DataDeletionResponseItemAttributes) o;
     return Objects.equals(this.createdAt, dataDeletionResponseItemAttributes.createdAt)
         && Objects.equals(this.createdBy, dataDeletionResponseItemAttributes.createdBy)
+        && Objects.equals(this.customerMessage, dataDeletionResponseItemAttributes.customerMessage)
+        && Objects.equals(this.displayedTotal, dataDeletionResponseItemAttributes.displayedTotal)
+        && Objects.equals(this.errorCategory, dataDeletionResponseItemAttributes.errorCategory)
         && Objects.equals(this.fromTime, dataDeletionResponseItemAttributes.fromTime)
         && Objects.equals(this.indexes, dataDeletionResponseItemAttributes.indexes)
         && Objects.equals(this.isCreated, dataDeletionResponseItemAttributes.isCreated)
@@ -460,6 +539,9 @@ public class DataDeletionResponseItemAttributes {
     return Objects.hash(
         createdAt,
         createdBy,
+        customerMessage,
+        displayedTotal,
+        errorCategory,
         fromTime,
         indexes,
         isCreated,
@@ -480,6 +562,9 @@ public class DataDeletionResponseItemAttributes {
     sb.append("class DataDeletionResponseItemAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    customerMessage: ").append(toIndentedString(customerMessage)).append("\n");
+    sb.append("    displayedTotal: ").append(toIndentedString(displayedTotal)).append("\n");
+    sb.append("    errorCategory: ").append(toIndentedString(errorCategory)).append("\n");
     sb.append("    fromTime: ").append(toIndentedString(fromTime)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    isCreated: ").append(toIndentedString(isCreated)).append("\n");
