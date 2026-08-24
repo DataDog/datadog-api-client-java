@@ -2,8 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.RumRetentionQuotaApi;
-import com.datadog.api.client.v2.model.RumRetentionQuotaAdaptiveConfig;
+import com.datadog.api.client.v2.api.RumRetentionQuotasApi;
 import com.datadog.api.client.v2.model.RumRetentionQuotaConfigResponse;
 import com.datadog.api.client.v2.model.RumRetentionQuotaConfigType;
 import com.datadog.api.client.v2.model.RumRetentionQuotaConfigUpdateAttributes;
@@ -18,7 +17,7 @@ import com.datadog.api.client.v2.model.RumRetentionQuotaWindowType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    RumRetentionQuotaApi apiInstance = new RumRetentionQuotaApi(defaultClient);
+    RumRetentionQuotasApi apiInstance = new RumRetentionQuotasApi(defaultClient);
 
     RumRetentionQuotaConfigUpdateRequest body =
         new RumRetentionQuotaConfigUpdateRequest()
@@ -26,7 +25,6 @@ public class Example {
                 new RumRetentionQuotaConfigUpdateData()
                     .attributes(
                         new RumRetentionQuotaConfigUpdateAttributes()
-                            .adaptive(new RumRetentionQuotaAdaptiveConfig().maxRetentionRate(0.5))
                             .custom(
                                 new RumRetentionQuotaCustomConfig()
                                     .dailyResetTime("08:00")
@@ -35,16 +33,16 @@ public class Example {
                                     .sessionLimit(1000000L)
                                     .windowType(RumRetentionQuotaWindowType.DAILY))
                             .mode(RumRetentionQuotaMode.CUSTOM))
-                    .id("ced16651-97b6-4e67-8590-8caec3af0695")
+                    .id("cd73a516-a481-4af5-8352-9b577465c77b")
                     .type(RumRetentionQuotaConfigType.RUM_QUOTA_CONFIG));
 
     try {
       RumRetentionQuotaConfigResponse result =
           apiInstance.upsertRumQuotaConfig(
-              RumRetentionQuotaScopeType.APPLICATION, "ced16651-97b6-4e67-8590-8caec3af0695", body);
+              RumRetentionQuotaScopeType.APPLICATION, "cd73a516-a481-4af5-8352-9b577465c77b", body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RumRetentionQuotaApi#upsertRumQuotaConfig");
+      System.err.println("Exception when calling RumRetentionQuotasApi#upsertRumQuotaConfig");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

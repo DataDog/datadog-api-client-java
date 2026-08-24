@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of scope the retention quota configuration applies to. */
+/**
+ * The type of scope the retention quota configuration applies to. <code>application</code> is the
+ * only supported scope type.
+ */
 @JsonSerialize(using = RumRetentionQuotaScopeType.RumRetentionQuotaScopeTypeSerializer.class)
 public class RumRetentionQuotaScopeType extends ModelEnum<String> {
 
