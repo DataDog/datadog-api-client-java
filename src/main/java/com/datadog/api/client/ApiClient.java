@@ -1211,6 +1211,16 @@ public class ApiClient {
           put("v2.updateIncidentUserDefinedField", false);
           put("v2.updateIncidentUserDefinedRole", false);
           put("v2.updateTimestampOverride", false);
+          put("v2.createElasticCloudIntegrationAccount", false);
+          put("v2.deleteElasticCloudIntegrationAccount", false);
+          put("v2.getElasticCloudIntegrationAccount", false);
+          put("v2.listElasticCloudIntegrationAccounts", false);
+          put("v2.updateElasticCloudIntegrationAccount", false);
+          put("v2.createTwilioIntegrationAccount", false);
+          put("v2.deleteTwilioIntegrationAccount", false);
+          put("v2.getTwilioIntegrationAccount", false);
+          put("v2.listTwilioIntegrationAccounts", false);
+          put("v2.updateTwilioIntegrationAccount", false);
           put("v2.createAWSAccountCCMConfig", false);
           put("v2.deleteAWSAccountCCMConfig", false);
           put("v2.getAWSAccountCCMConfig", false);
