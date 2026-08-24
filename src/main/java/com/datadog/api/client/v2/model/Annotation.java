@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A list of annotations used in the workflow. These are like sticky notes for your workflow! */
+/** A text annotation displayed on the workflow canvas. */
 @JsonPropertyOrder({
   Annotation.JSON_PROPERTY_DISPLAY,
   Annotation.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class Annotation {
   }
 
   /**
-   * The definition of <code>AnnotationDisplay</code> object.
+   * The annotation's position and size on the workflow canvas.
    *
    * @return display
    */
@@ -81,7 +81,7 @@ public class Annotation {
   }
 
   /**
-   * The <code>Annotation</code> <code>id</code>.
+   * The unique identifier of this annotation within the workflow.
    *
    * @return id
    */
@@ -103,7 +103,7 @@ public class Annotation {
   }
 
   /**
-   * The definition of <code>AnnotationMarkdownTextAnnotation</code> object.
+   * Markdown content displayed in an annotation.
    *
    * @return markdownTextAnnotation
    */
