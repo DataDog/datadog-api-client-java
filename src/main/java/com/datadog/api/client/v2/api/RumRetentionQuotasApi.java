@@ -16,14 +16,14 @@ import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RumRetentionQuotaApi {
+public class RumRetentionQuotasApi {
   private ApiClient apiClient;
 
-  public RumRetentionQuotaApi() {
+  public RumRetentionQuotasApi() {
     this(ApiClient.getDefaultApiClient());
   }
 
-  public RumRetentionQuotaApi(ApiClient apiClient) {
+  public RumRetentionQuotasApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -50,8 +50,8 @@ public class RumRetentionQuotaApi {
    *
    * <p>See {@link #deleteRumQuotaConfigWithHttpInfo}.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required,
-   *     default to "application")
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required, default to "application")
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @throws ApiException if fails to make API call
@@ -66,8 +66,8 @@ public class RumRetentionQuotaApi {
    *
    * <p>See {@link #deleteRumQuotaConfigWithHttpInfoAsync}.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required,
-   *     default to "application")
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required, default to "application")
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @return CompletableFuture
@@ -84,7 +84,8 @@ public class RumRetentionQuotaApi {
   /**
    * Delete the RUM retention quota configuration for a given scope.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required)
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required)
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -126,7 +127,7 @@ public class RumRetentionQuotaApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumRetentionQuotaApi.deleteRumQuotaConfig",
+            "v2.RumRetentionQuotasApi.deleteRumQuotaConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -149,7 +150,8 @@ public class RumRetentionQuotaApi {
    *
    * <p>See {@link #deleteRumQuotaConfigWithHttpInfo}.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required)
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required)
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
@@ -187,7 +189,7 @@ public class RumRetentionQuotaApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumRetentionQuotaApi.deleteRumQuotaConfig",
+              "v2.RumRetentionQuotasApi.deleteRumQuotaConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -215,8 +217,8 @@ public class RumRetentionQuotaApi {
    *
    * <p>See {@link #getRumQuotaConfigWithHttpInfo}.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required,
-   *     default to "application")
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required, default to "application")
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @return RumRetentionQuotaConfigResponse
@@ -232,8 +234,8 @@ public class RumRetentionQuotaApi {
    *
    * <p>See {@link #getRumQuotaConfigWithHttpInfoAsync}.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required,
-   *     default to "application")
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required, default to "application")
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @return CompletableFuture&lt;RumRetentionQuotaConfigResponse&gt;
@@ -250,7 +252,8 @@ public class RumRetentionQuotaApi {
   /**
    * Get the RUM retention quota configuration for a given scope.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required)
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required)
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @return ApiResponse&lt;RumRetentionQuotaConfigResponse&gt;
@@ -292,7 +295,7 @@ public class RumRetentionQuotaApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumRetentionQuotaApi.getRumQuotaConfig",
+            "v2.RumRetentionQuotasApi.getRumQuotaConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -315,7 +318,8 @@ public class RumRetentionQuotaApi {
    *
    * <p>See {@link #getRumQuotaConfigWithHttpInfo}.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required)
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required)
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionQuotaConfigResponse&gt;&gt;
@@ -355,7 +359,7 @@ public class RumRetentionQuotaApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumRetentionQuotaApi.getRumQuotaConfig",
+              "v2.RumRetentionQuotasApi.getRumQuotaConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -384,8 +388,8 @@ public class RumRetentionQuotaApi {
    *
    * <p>See {@link #upsertRumQuotaConfigWithHttpInfo}.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required,
-   *     default to "application")
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required, default to "application")
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @param body The definition of the RUM retention quota configuration to create or update.
@@ -406,8 +410,8 @@ public class RumRetentionQuotaApi {
    *
    * <p>See {@link #upsertRumQuotaConfigWithHttpInfoAsync}.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required,
-   *     default to "application")
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required, default to "application")
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @param body The definition of the RUM retention quota configuration to create or update.
@@ -429,7 +433,8 @@ public class RumRetentionQuotaApi {
    * Create or update the RUM retention quota configuration for a given scope. Returns the retention
    * quota configuration object when the request is successful.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required)
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required)
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @param body The definition of the RUM retention quota configuration to create or update.
@@ -482,7 +487,7 @@ public class RumRetentionQuotaApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.RumRetentionQuotaApi.upsertRumQuotaConfig",
+            "v2.RumRetentionQuotasApi.upsertRumQuotaConfig",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -505,7 +510,8 @@ public class RumRetentionQuotaApi {
    *
    * <p>See {@link #upsertRumQuotaConfigWithHttpInfo}.
    *
-   * @param scopeType The type of scope the retention quota configuration applies to. (required)
+   * @param scopeType The type of scope the retention quota configuration applies to. <code>
+   *     application</code> is the only supported scope type. (required)
    * @param scopeId The identifier of the scope the retention quota configuration applies to. For
    *     the <code>application</code> scope, this is the RUM application ID. (required)
    * @param body The definition of the RUM retention quota configuration to create or update.
@@ -560,7 +566,7 @@ public class RumRetentionQuotaApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.RumRetentionQuotaApi.upsertRumQuotaConfig",
+              "v2.RumRetentionQuotasApi.upsertRumQuotaConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
