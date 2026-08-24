@@ -13,7 +13,7 @@ public class Example {
     try {
       DatasetReportScheduleListResponse result =
           apiInstance.listDatasetReportSchedules(
-              "MW5vdGVib29rX2NlbGw6ZDI0ZTM2MWMtZDFlNC00NDYwLWIyOWUtNTg3YTczMzA3MDFm");
+              "MW5vdGVib29rX2NlbGw6MDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAw");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReportSchedulesApi#listDatasetReportSchedules");
