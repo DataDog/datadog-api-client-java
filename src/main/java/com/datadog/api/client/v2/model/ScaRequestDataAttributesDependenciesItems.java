@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A dependency found in the repository, including its identity, location, and reachability
@@ -30,10 +31,15 @@ import java.util.Objects;
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_LANGUAGE,
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_LOCATIONS,
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_NAME,
+  ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_OPAQUE,
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_PACKAGE_MANAGER,
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_PURL,
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_REACHABLE_SYMBOL_PROPERTIES,
-  ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_VERSION
+  ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_REQUIRES_TRANSITIVE_ENRICHMENT,
+  ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_TARGET_FRAMEWORKS,
+  ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_VERSION,
+  ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_VERSION_CONSTRAINT,
+  ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_VERSION_RANGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,22 +49,26 @@ public class ScaRequestDataAttributesDependenciesItems {
   private List<String> exclusions = null;
 
   public static final String JSON_PROPERTY_GROUP = "group";
-  private String group;
+  private JsonNullable<String> group = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_DEV = "is_dev";
   private Boolean isDev;
 
   public static final String JSON_PROPERTY_IS_DIRECT = "is_direct";
-  private Boolean isDirect;
+  private JsonNullable<Boolean> isDirect = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
-  private List<ScaRequestDataAttributesDependenciesItemsLocationsItems> locations = null;
+  private JsonNullable<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>> locations =
+      JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_OPAQUE = "opaque";
+  private Boolean opaque;
 
   public static final String JSON_PROPERTY_PACKAGE_MANAGER = "package_manager";
   private String packageManager;
@@ -71,8 +81,21 @@ public class ScaRequestDataAttributesDependenciesItems {
   private List<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems>
       reachableSymbolProperties = null;
 
+  public static final String JSON_PROPERTY_REQUIRES_TRANSITIVE_ENRICHMENT =
+      "requires_transitive_enrichment";
+  private Boolean requiresTransitiveEnrichment;
+
+  public static final String JSON_PROPERTY_TARGET_FRAMEWORKS = "target_frameworks";
+  private List<String> targetFrameworks = null;
+
   public static final String JSON_PROPERTY_VERSION = "version";
-  private String version;
+  private JsonNullable<String> version = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_VERSION_CONSTRAINT = "version_constraint";
+  private Boolean versionConstraint;
+
+  public static final String JSON_PROPERTY_VERSION_RANGE = "version_range";
+  private String versionRange;
 
   public ScaRequestDataAttributesDependenciesItems exclusions(List<String> exclusions) {
     this.exclusions = exclusions;
@@ -104,7 +127,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   public ScaRequestDataAttributesDependenciesItems group(String group) {
-    this.group = group;
+    this.group = JsonNullable.<String>of(group);
     return this;
   }
 
@@ -114,14 +137,24 @@ public class ScaRequestDataAttributesDependenciesItems {
    * @return group
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getGroup() {
+    return group.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getGroup() {
+  public JsonNullable<String> getGroup_JsonNullable() {
     return group;
   }
 
-  public void setGroup(String group) {
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  public void setGroup_JsonNullable(JsonNullable<String> group) {
     this.group = group;
+  }
+
+  public void setGroup(String group) {
+    this.group = JsonNullable.<String>of(group);
   }
 
   public ScaRequestDataAttributesDependenciesItems isDev(Boolean isDev) {
@@ -146,7 +179,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   public ScaRequestDataAttributesDependenciesItems isDirect(Boolean isDirect) {
-    this.isDirect = isDirect;
+    this.isDirect = JsonNullable.<Boolean>of(isDirect);
     return this;
   }
 
@@ -156,14 +189,24 @@ public class ScaRequestDataAttributesDependenciesItems {
    * @return isDirect
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Boolean getIsDirect() {
+    return isDirect.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_IS_DIRECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsDirect() {
+  public JsonNullable<Boolean> getIsDirect_JsonNullable() {
     return isDirect;
   }
 
-  public void setIsDirect(Boolean isDirect) {
+  @JsonProperty(JSON_PROPERTY_IS_DIRECT)
+  public void setIsDirect_JsonNullable(JsonNullable<Boolean> isDirect) {
     this.isDirect = isDirect;
+  }
+
+  public void setIsDirect(Boolean isDirect) {
+    this.isDirect = JsonNullable.<Boolean>of(isDirect);
   }
 
   public ScaRequestDataAttributesDependenciesItems language(String language) {
@@ -189,22 +232,23 @@ public class ScaRequestDataAttributesDependenciesItems {
 
   public ScaRequestDataAttributesDependenciesItems locations(
       List<ScaRequestDataAttributesDependenciesItemsLocationsItems> locations) {
-    this.locations = locations;
-    if (locations != null) {
-      for (ScaRequestDataAttributesDependenciesItemsLocationsItems item : locations) {
-        this.unparsed |= item.unparsed;
-      }
-    }
+    this.locations =
+        JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>of(locations);
     return this;
   }
 
   public ScaRequestDataAttributesDependenciesItems addLocationsItem(
       ScaRequestDataAttributesDependenciesItemsLocationsItems locationsItem) {
-    if (this.locations == null) {
-      this.locations = new ArrayList<>();
+    if (this.locations == null || !this.locations.isPresent()) {
+      this.locations =
+          JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>of(
+              new ArrayList<>());
     }
-    this.locations.add(locationsItem);
-    this.unparsed |= locationsItem.unparsed;
+    try {
+      this.locations.get().add(locationsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -214,20 +258,28 @@ public class ScaRequestDataAttributesDependenciesItems {
    * @return locations
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<ScaRequestDataAttributesDependenciesItemsLocationsItems> getLocations() {
+    return locations.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ScaRequestDataAttributesDependenciesItemsLocationsItems> getLocations() {
+  public JsonNullable<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>
+      getLocations_JsonNullable() {
     return locations;
+  }
+
+  @JsonProperty(JSON_PROPERTY_LOCATIONS)
+  public void setLocations_JsonNullable(
+      JsonNullable<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>> locations) {
+    this.locations = locations;
   }
 
   public void setLocations(
       List<ScaRequestDataAttributesDependenciesItemsLocationsItems> locations) {
-    this.locations = locations;
-    if (locations != null) {
-      for (ScaRequestDataAttributesDependenciesItemsLocationsItems item : locations) {
-        this.unparsed |= item.unparsed;
-      }
-    }
+    this.locations =
+        JsonNullable.<List<ScaRequestDataAttributesDependenciesItemsLocationsItems>>of(locations);
   }
 
   public ScaRequestDataAttributesDependenciesItems name(String name) {
@@ -249,6 +301,27 @@ public class ScaRequestDataAttributesDependenciesItems {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ScaRequestDataAttributesDependenciesItems opaque(Boolean opaque) {
+    this.opaque = opaque;
+    return this;
+  }
+
+  /**
+   * Indicates whether dependency details are intentionally opaque.
+   *
+   * @return opaque
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPAQUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getOpaque() {
+    return opaque;
+  }
+
+  public void setOpaque(Boolean opaque) {
+    this.opaque = opaque;
   }
 
   public ScaRequestDataAttributesDependenciesItems packageManager(String packageManager) {
@@ -342,8 +415,60 @@ public class ScaRequestDataAttributesDependenciesItems {
     }
   }
 
+  public ScaRequestDataAttributesDependenciesItems requiresTransitiveEnrichment(
+      Boolean requiresTransitiveEnrichment) {
+    this.requiresTransitiveEnrichment = requiresTransitiveEnrichment;
+    return this;
+  }
+
+  /**
+   * Indicates whether this dependency requires transitive dependency enrichment.
+   *
+   * @return requiresTransitiveEnrichment
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUIRES_TRANSITIVE_ENRICHMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRequiresTransitiveEnrichment() {
+    return requiresTransitiveEnrichment;
+  }
+
+  public void setRequiresTransitiveEnrichment(Boolean requiresTransitiveEnrichment) {
+    this.requiresTransitiveEnrichment = requiresTransitiveEnrichment;
+  }
+
+  public ScaRequestDataAttributesDependenciesItems targetFrameworks(List<String> targetFrameworks) {
+    this.targetFrameworks = targetFrameworks;
+    return this;
+  }
+
+  public ScaRequestDataAttributesDependenciesItems addTargetFrameworksItem(
+      String targetFrameworksItem) {
+    if (this.targetFrameworks == null) {
+      this.targetFrameworks = new ArrayList<>();
+    }
+    this.targetFrameworks.add(targetFrameworksItem);
+    return this;
+  }
+
+  /**
+   * The target framework identifiers associated with this dependency.
+   *
+   * @return targetFrameworks
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET_FRAMEWORKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTargetFrameworks() {
+    return targetFrameworks;
+  }
+
+  public void setTargetFrameworks(List<String> targetFrameworks) {
+    this.targetFrameworks = targetFrameworks;
+  }
+
   public ScaRequestDataAttributesDependenciesItems version(String version) {
-    this.version = version;
+    this.version = JsonNullable.<String>of(version);
     return this;
   }
 
@@ -353,14 +478,66 @@ public class ScaRequestDataAttributesDependenciesItems {
    * @return version
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getVersion() {
+    return version.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getVersion() {
+  public JsonNullable<String> getVersion_JsonNullable() {
     return version;
   }
 
-  public void setVersion(String version) {
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  public void setVersion_JsonNullable(JsonNullable<String> version) {
     this.version = version;
+  }
+
+  public void setVersion(String version) {
+    this.version = JsonNullable.<String>of(version);
+  }
+
+  public ScaRequestDataAttributesDependenciesItems versionConstraint(Boolean versionConstraint) {
+    this.versionConstraint = versionConstraint;
+    return this;
+  }
+
+  /**
+   * Indicates whether the version value represents a version constraint.
+   *
+   * @return versionConstraint
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION_CONSTRAINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getVersionConstraint() {
+    return versionConstraint;
+  }
+
+  public void setVersionConstraint(Boolean versionConstraint) {
+    this.versionConstraint = versionConstraint;
+  }
+
+  public ScaRequestDataAttributesDependenciesItems versionRange(String versionRange) {
+    this.versionRange = versionRange;
+    return this;
+  }
+
+  /**
+   * The version range associated with this dependency when a manifest declares a range.
+   *
+   * @return versionRange
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersionRange() {
+    return versionRange;
+  }
+
+  public void setVersionRange(String versionRange) {
+    this.versionRange = versionRange;
   }
 
   /**
@@ -427,13 +604,22 @@ public class ScaRequestDataAttributesDependenciesItems {
         && Objects.equals(this.language, scaRequestDataAttributesDependenciesItems.language)
         && Objects.equals(this.locations, scaRequestDataAttributesDependenciesItems.locations)
         && Objects.equals(this.name, scaRequestDataAttributesDependenciesItems.name)
+        && Objects.equals(this.opaque, scaRequestDataAttributesDependenciesItems.opaque)
         && Objects.equals(
             this.packageManager, scaRequestDataAttributesDependenciesItems.packageManager)
         && Objects.equals(this.purl, scaRequestDataAttributesDependenciesItems.purl)
         && Objects.equals(
             this.reachableSymbolProperties,
             scaRequestDataAttributesDependenciesItems.reachableSymbolProperties)
+        && Objects.equals(
+            this.requiresTransitiveEnrichment,
+            scaRequestDataAttributesDependenciesItems.requiresTransitiveEnrichment)
+        && Objects.equals(
+            this.targetFrameworks, scaRequestDataAttributesDependenciesItems.targetFrameworks)
         && Objects.equals(this.version, scaRequestDataAttributesDependenciesItems.version)
+        && Objects.equals(
+            this.versionConstraint, scaRequestDataAttributesDependenciesItems.versionConstraint)
+        && Objects.equals(this.versionRange, scaRequestDataAttributesDependenciesItems.versionRange)
         && Objects.equals(
             this.additionalProperties,
             scaRequestDataAttributesDependenciesItems.additionalProperties);
@@ -449,10 +635,15 @@ public class ScaRequestDataAttributesDependenciesItems {
         language,
         locations,
         name,
+        opaque,
         packageManager,
         purl,
         reachableSymbolProperties,
+        requiresTransitiveEnrichment,
+        targetFrameworks,
         version,
+        versionConstraint,
+        versionRange,
         additionalProperties);
   }
 
@@ -467,12 +658,19 @@ public class ScaRequestDataAttributesDependenciesItems {
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    locations: ").append(toIndentedString(locations)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    opaque: ").append(toIndentedString(opaque)).append("\n");
     sb.append("    packageManager: ").append(toIndentedString(packageManager)).append("\n");
     sb.append("    purl: ").append(toIndentedString(purl)).append("\n");
     sb.append("    reachableSymbolProperties: ")
         .append(toIndentedString(reachableSymbolProperties))
         .append("\n");
+    sb.append("    requiresTransitiveEnrichment: ")
+        .append(toIndentedString(requiresTransitiveEnrichment))
+        .append("\n");
+    sb.append("    targetFrameworks: ").append(toIndentedString(targetFrameworks)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    versionConstraint: ").append(toIndentedString(versionConstraint)).append("\n");
+    sb.append("    versionRange: ").append(toIndentedString(versionRange)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

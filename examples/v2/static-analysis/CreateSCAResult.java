@@ -10,11 +10,13 @@ import com.datadog.api.client.v2.model.ScaRequestDataAttributesCommit;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesDependenciesItems;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesDependenciesItemsLocationsItems;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
+import com.datadog.api.client.v2.model.ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesFilesItems;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesRelationsItems;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesRepository;
+import com.datadog.api.client.v2.model.ScaRequestDataAttributesScanStartTimestamp;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesVulnerabilitiesItems;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems;
 import com.datadog.api.client.v2.model.ScaRequestDataType;
@@ -36,6 +38,8 @@ public class Example {
                             .dependencies(
                                 Collections.singletonList(
                                     new ScaRequestDataAttributesDependenciesItems()
+                                        .group(null)
+                                        .isDirect(null)
                                         .locations(
                                             Collections.singletonList(
                                                 new ScaRequestDataAttributesDependenciesItemsLocationsItems()
@@ -46,32 +50,34 @@ public class Example {
                                                             .start(
                                                                 new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))
                                                     .name(
-                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
+                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition()
                                                             .end(
                                                                 new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
                                                             .start(
                                                                 new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))
                                                     .namespace(
-                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
+                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition()
                                                             .end(
                                                                 new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
                                                             .start(
                                                                 new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))
                                                     .version(
-                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
+                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition()
                                                             .end(
                                                                 new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
                                                             .start(
                                                                 new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))))
                                         .reachableSymbolProperties(
                                             Collections.singletonList(
-                                                new ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems()))))
+                                                new ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems()))
+                                        .version(null)))
                             .files(
                                 Collections.singletonList(new ScaRequestDataAttributesFilesItems()))
                             .relations(
                                 Collections.singletonList(
                                     new ScaRequestDataAttributesRelationsItems()))
                             .repository(new ScaRequestDataAttributesRepository())
+                            .scanStartTimestamp(new ScaRequestDataAttributesScanStartTimestamp())
                             .vulnerabilities(
                                 Collections.singletonList(
                                     new ScaRequestDataAttributesVulnerabilitiesItems()
