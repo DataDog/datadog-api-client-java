@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AnnotationDisplay</code> object. */
+/** The annotation's position and size on the workflow canvas. */
 @JsonPropertyOrder({AnnotationDisplay.JSON_PROPERTY_BOUNDS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class AnnotationDisplay {
   }
 
   /**
-   * The definition of <code>AnnotationDisplayBounds</code> object.
+   * Canvas coordinates and dimensions for an annotation on the workflow canvas.
    *
    * @return bounds
    */
