@@ -16,16 +16,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A range within a file defined by a start and end position, along with the file name. */
+/** A nullable range within a file defined by a start and end position, along with the file name. */
 @JsonPropertyOrder({
-  ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.JSON_PROPERTY_END,
-  ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.JSON_PROPERTY_FILE_NAME,
-  ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.JSON_PROPERTY_ROLE,
-  ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.JSON_PROPERTY_START
+  ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.JSON_PROPERTY_END,
+  ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition
+      .JSON_PROPERTY_FILE_NAME,
+  ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.JSON_PROPERTY_ROLE,
+  ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.JSON_PROPERTY_START
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition {
+public class ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_END = "end";
   private ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition end;
@@ -39,7 +40,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
   public static final String JSON_PROPERTY_START = "start";
   private ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition start;
 
-  public ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition end(
+  public ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition end(
       ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition end) {
     this.end = end;
     this.unparsed |= end.unparsed;
@@ -65,7 +66,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
     }
   }
 
-  public ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition fileName(
+  public ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition fileName(
       String fileName) {
     this.fileName = fileName;
     return this;
@@ -87,7 +88,8 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
     this.fileName = fileName;
   }
 
-  public ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition role(String role) {
+  public ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition role(
+      String role) {
     this.role = role;
     return this;
   }
@@ -108,7 +110,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
     this.role = role;
   }
 
-  public ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition start(
+  public ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition start(
       ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition start) {
     this.start = start;
     this.unparsed |= start.unparsed;
@@ -146,11 +148,11 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
+   * @return ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition
    */
   @JsonAnySetter
-  public ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition putAdditionalProperty(
-      String key, Object value) {
+  public ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition
+      putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -182,8 +184,8 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
   }
 
   /**
-   * Return true if this ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition object
-   * is equal to o.
+   * Return true if this ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition
+   * object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -193,21 +195,24 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
-        scaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition =
-            (ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition) o;
+    ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition
+        scaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition =
+            (ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition) o;
     return Objects.equals(
-            this.end, scaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.end)
+            this.end,
+            scaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.end)
         && Objects.equals(
             this.fileName,
-            scaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.fileName)
+            scaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.fileName)
         && Objects.equals(
-            this.role, scaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.role)
+            this.role,
+            scaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.role)
         && Objects.equals(
-            this.start, scaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.start)
+            this.start,
+            scaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.start)
         && Objects.equals(
             this.additionalProperties,
-            scaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
+            scaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition
                 .additionalProperties);
   }
 
@@ -219,7 +224,8 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition {\n");
+    sb.append(
+        "class ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition {\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

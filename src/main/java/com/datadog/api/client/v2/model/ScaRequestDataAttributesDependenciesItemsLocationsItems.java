@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * The source code location where a dependency is declared, including block, name, namespace, and
@@ -34,13 +35,25 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
   private ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition block;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition name;
+  private JsonNullable<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+      name =
+          JsonNullable
+              .<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+                  undefined();
 
   public static final String JSON_PROPERTY_NAMESPACE = "namespace";
-  private ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition namespace;
+  private JsonNullable<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+      namespace =
+          JsonNullable
+              .<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+                  undefined();
 
   public static final String JSON_PROPERTY_VERSION = "version";
-  private ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition version;
+  private JsonNullable<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+      version =
+          JsonNullable
+              .<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+                  undefined();
 
   public ScaRequestDataAttributesDependenciesItemsLocationsItems block(
       ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition block) {
@@ -69,83 +82,128 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
   }
 
   public ScaRequestDataAttributesDependenciesItemsLocationsItems name(
-      ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition name) {
-    this.name = name;
-    this.unparsed |= name.unparsed;
+      ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition name) {
+    this.name =
+        JsonNullable
+            .<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>of(name);
     return this;
   }
 
   /**
-   * A range within a file defined by a start and end position, along with the file name.
+   * A nullable range within a file defined by a start and end position, along with the file name.
    *
    * @return name
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition getName() {
+    return name.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition getName() {
+  public JsonNullable<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+      getName_JsonNullable() {
     return name;
   }
 
-  public void setName(ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition name) {
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(
+      JsonNullable<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+          name) {
     this.name = name;
-    if (name != null) {
-      this.unparsed |= name.unparsed;
-    }
+  }
+
+  public void setName(
+      ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition name) {
+    this.name =
+        JsonNullable
+            .<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>of(name);
   }
 
   public ScaRequestDataAttributesDependenciesItemsLocationsItems namespace(
-      ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition namespace) {
-    this.namespace = namespace;
-    this.unparsed |= namespace.unparsed;
+      ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition namespace) {
+    this.namespace =
+        JsonNullable
+            .<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>of(
+                namespace);
     return this;
   }
 
   /**
-   * A range within a file defined by a start and end position, along with the file name.
+   * A nullable range within a file defined by a start and end position, along with the file name.
    *
    * @return namespace
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition
+      getNamespace() {
+    return namespace.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition getNamespace() {
+  public JsonNullable<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+      getNamespace_JsonNullable() {
     return namespace;
   }
 
-  public void setNamespace(
-      ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition namespace) {
+  @JsonProperty(JSON_PROPERTY_NAMESPACE)
+  public void setNamespace_JsonNullable(
+      JsonNullable<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+          namespace) {
     this.namespace = namespace;
-    if (namespace != null) {
-      this.unparsed |= namespace.unparsed;
-    }
+  }
+
+  public void setNamespace(
+      ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition namespace) {
+    this.namespace =
+        JsonNullable
+            .<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>of(
+                namespace);
   }
 
   public ScaRequestDataAttributesDependenciesItemsLocationsItems version(
-      ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition version) {
-    this.version = version;
-    this.unparsed |= version.unparsed;
+      ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition version) {
+    this.version =
+        JsonNullable
+            .<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>of(
+                version);
     return this;
   }
 
   /**
-   * A range within a file defined by a start and end position, along with the file name.
+   * A nullable range within a file defined by a start and end position, along with the file name.
    *
    * @return version
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition getVersion() {
+    return version.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition getVersion() {
+  public JsonNullable<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+      getVersion_JsonNullable() {
     return version;
   }
 
-  public void setVersion(
-      ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition version) {
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  public void setVersion_JsonNullable(
+      JsonNullable<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>
+          version) {
     this.version = version;
-    if (version != null) {
-      this.unparsed |= version.unparsed;
-    }
+  }
+
+  public void setVersion(
+      ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition version) {
+    this.version =
+        JsonNullable
+            .<ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition>of(
+                version);
   }
 
   /**
