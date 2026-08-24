@@ -2442,8 +2442,8 @@ public class TeamsApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return GetTeamMembershipsOptionalParameters
      */
     public GetTeamMembershipsOptionalParameters pageSize(Long pageSize) {
@@ -3451,8 +3451,8 @@ public class TeamsApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return ListMemberTeamsOptionalParameters
      */
     public ListMemberTeamsOptionalParameters pageSize(Long pageSize) {
@@ -3780,8 +3780,8 @@ public class TeamsApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return ListTeamConnectionsOptionalParameters
      */
     public ListTeamConnectionsOptionalParameters pageSize(Long pageSize) {
@@ -4103,8 +4103,8 @@ public class TeamsApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return ListTeamHierarchyLinksOptionalParameters
      */
     public ListTeamHierarchyLinksOptionalParameters pageSize(Long pageSize) {
@@ -4382,8 +4382,8 @@ public class TeamsApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return ListTeamsOptionalParameters
      */
     public ListTeamsOptionalParameters pageSize(Long pageSize) {

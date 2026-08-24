@@ -486,8 +486,8 @@ public class UserAuthorizedClientsApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return ListUserAuthorizedClientsOptionalParameters
      */
     public ListUserAuthorizedClientsOptionalParameters pageSize(Long pageSize) {

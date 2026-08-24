@@ -11926,8 +11926,8 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return GetRuleVersionHistoryOptionalParameters
      */
     public GetRuleVersionHistoryOptionalParameters pageSize(Long pageSize) {
@@ -16988,8 +16988,8 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return GetSuppressionVersionHistoryOptionalParameters
      */
     public GetSuppressionVersionHistoryOptionalParameters pageSize(Long pageSize) {
@@ -18524,8 +18524,8 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return ListHistoricalJobsOptionalParameters
      */
     public ListHistoricalJobsOptionalParameters pageSize(Long pageSize) {
@@ -21992,8 +21992,8 @@ public class SecurityMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Number of items to return per page. The maximum allowed value is 100.
+     *     (optional, default to 10)
      * @return ListSecurityMonitoringRulesOptionalParameters
      */
     public ListSecurityMonitoringRulesOptionalParameters pageSize(Long pageSize) {
