@@ -1335,6 +1335,11 @@ public class ApiClient {
           put("v2.getSourcemaps", false);
           put("v2.listSourcemaps", false);
           put("v2.restoreSourcemaps", false);
+          put("v2.createExclusionFilter", false);
+          put("v2.deleteExclusionFilter", false);
+          put("v2.getExclusionFilter", false);
+          put("v2.listExclusionFilters", false);
+          put("v2.updateExclusionFilter", false);
           put("v2.createRumConfig", false);
           put("v2.getRumConfig", false);
           put("v2.updateRumConfig", false);
