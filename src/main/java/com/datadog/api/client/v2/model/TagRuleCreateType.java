@@ -19,39 +19,38 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The policy type allowed when creating a tag policy. Only <code>surfacing</code> is accepted at
+ * The rule type allowed when creating a tag rule. Only <code>surfacing</code> is accepted at
  * creation time.
  */
-@JsonSerialize(using = TagPolicyCreateType.TagPolicyCreateTypeSerializer.class)
-public class TagPolicyCreateType extends ModelEnum<String> {
+@JsonSerialize(using = TagRuleCreateType.TagRuleCreateTypeSerializer.class)
+public class TagRuleCreateType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("surfacing"));
 
-  public static final TagPolicyCreateType SURFACING = new TagPolicyCreateType("surfacing");
+  public static final TagRuleCreateType SURFACING = new TagRuleCreateType("surfacing");
 
-  TagPolicyCreateType(String value) {
+  TagRuleCreateType(String value) {
     super(value, allowedValues);
   }
 
-  public static class TagPolicyCreateTypeSerializer extends StdSerializer<TagPolicyCreateType> {
-    public TagPolicyCreateTypeSerializer(Class<TagPolicyCreateType> t) {
+  public static class TagRuleCreateTypeSerializer extends StdSerializer<TagRuleCreateType> {
+    public TagRuleCreateTypeSerializer(Class<TagRuleCreateType> t) {
       super(t);
     }
 
-    public TagPolicyCreateTypeSerializer() {
+    public TagRuleCreateTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(
-        TagPolicyCreateType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(TagRuleCreateType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static TagPolicyCreateType fromValue(String value) {
-    return new TagPolicyCreateType(value);
+  public static TagRuleCreateType fromValue(String value) {
+    return new TagRuleCreateType(value);
   }
 }

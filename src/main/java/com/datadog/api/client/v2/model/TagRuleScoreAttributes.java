@@ -17,16 +17,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of a tag policy compliance score. */
+/** Attributes of a tag rule compliance score. */
 @JsonPropertyOrder({
-  TagPolicyScoreAttributes.JSON_PROPERTY_SCORE,
-  TagPolicyScoreAttributes.JSON_PROPERTY_TS_END,
-  TagPolicyScoreAttributes.JSON_PROPERTY_TS_START,
-  TagPolicyScoreAttributes.JSON_PROPERTY_VERSION
+  TagRuleScoreAttributes.JSON_PROPERTY_SCORE,
+  TagRuleScoreAttributes.JSON_PROPERTY_TS_END,
+  TagRuleScoreAttributes.JSON_PROPERTY_TS_START,
+  TagRuleScoreAttributes.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyScoreAttributes {
+public class TagRuleScoreAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_SCORE = "score";
   private Double score;
@@ -40,10 +40,10 @@ public class TagPolicyScoreAttributes {
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
 
-  public TagPolicyScoreAttributes() {}
+  public TagRuleScoreAttributes() {}
 
   @JsonCreator
-  public TagPolicyScoreAttributes(
+  public TagRuleScoreAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_SCORE) Double score,
       @JsonProperty(required = true, value = JSON_PROPERTY_TS_END) Long tsEnd,
       @JsonProperty(required = true, value = JSON_PROPERTY_TS_START) Long tsStart,
@@ -55,15 +55,15 @@ public class TagPolicyScoreAttributes {
     this.version = version;
   }
 
-  public TagPolicyScoreAttributes score(Double score) {
+  public TagRuleScoreAttributes score(Double score) {
     this.score = score;
     if (score != null) {}
     return this;
   }
 
   /**
-   * The compliance score for the policy over the requested time window, as a percentage between 0
-   * and 100. <code>null</code> indicates that no relevant telemetry was found.
+   * The compliance score for the rule over the requested time window, as a percentage between 0 and
+   * 100. <code>null</code> indicates that no relevant telemetry was found.
    *
    * @return score
    */
@@ -78,7 +78,7 @@ public class TagPolicyScoreAttributes {
     this.score = score;
   }
 
-  public TagPolicyScoreAttributes tsEnd(Long tsEnd) {
+  public TagRuleScoreAttributes tsEnd(Long tsEnd) {
     this.tsEnd = tsEnd;
     return this;
   }
@@ -98,7 +98,7 @@ public class TagPolicyScoreAttributes {
     this.tsEnd = tsEnd;
   }
 
-  public TagPolicyScoreAttributes tsStart(Long tsStart) {
+  public TagRuleScoreAttributes tsStart(Long tsStart) {
     this.tsStart = tsStart;
     return this;
   }
@@ -118,13 +118,13 @@ public class TagPolicyScoreAttributes {
     this.tsStart = tsStart;
   }
 
-  public TagPolicyScoreAttributes version(Long version) {
+  public TagRuleScoreAttributes version(Long version) {
     this.version = version;
     return this;
   }
 
   /**
-   * The version of the tag policy that the score was computed against.
+   * The version of the tag rule that the score was computed against.
    *
    * @return version
    */
@@ -150,10 +150,10 @@ public class TagPolicyScoreAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyScoreAttributes
+   * @return TagRuleScoreAttributes
    */
   @JsonAnySetter
-  public TagPolicyScoreAttributes putAdditionalProperty(String key, Object value) {
+  public TagRuleScoreAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -184,7 +184,7 @@ public class TagPolicyScoreAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyScoreAttributes object is equal to o. */
+  /** Return true if this TagRuleScoreAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -193,12 +193,12 @@ public class TagPolicyScoreAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyScoreAttributes tagPolicyScoreAttributes = (TagPolicyScoreAttributes) o;
-    return Objects.equals(this.score, tagPolicyScoreAttributes.score)
-        && Objects.equals(this.tsEnd, tagPolicyScoreAttributes.tsEnd)
-        && Objects.equals(this.tsStart, tagPolicyScoreAttributes.tsStart)
-        && Objects.equals(this.version, tagPolicyScoreAttributes.version)
-        && Objects.equals(this.additionalProperties, tagPolicyScoreAttributes.additionalProperties);
+    TagRuleScoreAttributes tagRuleScoreAttributes = (TagRuleScoreAttributes) o;
+    return Objects.equals(this.score, tagRuleScoreAttributes.score)
+        && Objects.equals(this.tsEnd, tagRuleScoreAttributes.tsEnd)
+        && Objects.equals(this.tsStart, tagRuleScoreAttributes.tsStart)
+        && Objects.equals(this.version, tagRuleScoreAttributes.version)
+        && Objects.equals(this.additionalProperties, tagRuleScoreAttributes.additionalProperties);
   }
 
   @Override
@@ -209,7 +209,7 @@ public class TagPolicyScoreAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyScoreAttributes {\n");
+    sb.append("class TagRuleScoreAttributes {\n");
     sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    tsEnd: ").append(toIndentedString(tsEnd)).append("\n");
     sb.append("    tsStart: ").append(toIndentedString(tsStart)).append("\n");

@@ -17,74 +17,46 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Identifier of the related compliance score resource. */
-@JsonPropertyOrder({
-  TagPolicyScoreRelationshipData.JSON_PROPERTY_ID,
-  TagPolicyScoreRelationshipData.JSON_PROPERTY_TYPE
-})
+/** Payload for creating a new tag rule. */
+@JsonPropertyOrder({TagRuleCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyScoreRelationshipData {
+public class TagRuleCreateRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private TagRuleCreateData data;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TagPolicyScoreResourceType type;
-
-  public TagPolicyScoreRelationshipData() {}
+  public TagRuleCreateRequest() {}
 
   @JsonCreator
-  public TagPolicyScoreRelationshipData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TagPolicyScoreResourceType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public TagRuleCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) TagRuleCreateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
-  public TagPolicyScoreRelationshipData id(String id) {
-    this.id = id;
+  public TagRuleCreateRequest data(TagRuleCreateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * The unique identifier of the related compliance score resource.
+   * Data object for creating a tag rule.
    *
-   * @return id
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
+  public TagRuleCreateData getData() {
+    return data;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public TagPolicyScoreRelationshipData type(TagPolicyScoreResourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * JSON:API resource type for a tag policy compliance score.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TagPolicyScoreResourceType getType() {
-    return type;
-  }
-
-  public void setType(TagPolicyScoreResourceType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+  public void setData(TagRuleCreateData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
     }
-    this.type = type;
   }
 
   /**
@@ -99,10 +71,10 @@ public class TagPolicyScoreRelationshipData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyScoreRelationshipData
+   * @return TagRuleCreateRequest
    */
   @JsonAnySetter
-  public TagPolicyScoreRelationshipData putAdditionalProperty(String key, Object value) {
+  public TagRuleCreateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +105,7 @@ public class TagPolicyScoreRelationshipData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyScoreRelationshipData object is equal to o. */
+  /** Return true if this TagRuleCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,25 +114,21 @@ public class TagPolicyScoreRelationshipData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyScoreRelationshipData tagPolicyScoreRelationshipData =
-        (TagPolicyScoreRelationshipData) o;
-    return Objects.equals(this.id, tagPolicyScoreRelationshipData.id)
-        && Objects.equals(this.type, tagPolicyScoreRelationshipData.type)
-        && Objects.equals(
-            this.additionalProperties, tagPolicyScoreRelationshipData.additionalProperties);
+    TagRuleCreateRequest tagRuleCreateRequest = (TagRuleCreateRequest) o;
+    return Objects.equals(this.data, tagRuleCreateRequest.data)
+        && Objects.equals(this.additionalProperties, tagRuleCreateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyScoreRelationshipData {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class TagRuleCreateRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

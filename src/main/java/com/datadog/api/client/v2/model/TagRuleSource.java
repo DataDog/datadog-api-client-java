@@ -18,41 +18,41 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The telemetry source that a tag policy applies to. */
-@JsonSerialize(using = TagPolicySource.TagPolicySourceSerializer.class)
-public class TagPolicySource extends ModelEnum<String> {
+/** The telemetry source that a tag rule applies to. */
+@JsonSerialize(using = TagRuleSource.TagRuleSourceSerializer.class)
+public class TagRuleSource extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("logs", "spans", "metrics", "rum", "feed"));
 
-  public static final TagPolicySource LOGS = new TagPolicySource("logs");
-  public static final TagPolicySource SPANS = new TagPolicySource("spans");
-  public static final TagPolicySource METRICS = new TagPolicySource("metrics");
-  public static final TagPolicySource RUM = new TagPolicySource("rum");
-  public static final TagPolicySource FEED = new TagPolicySource("feed");
+  public static final TagRuleSource LOGS = new TagRuleSource("logs");
+  public static final TagRuleSource SPANS = new TagRuleSource("spans");
+  public static final TagRuleSource METRICS = new TagRuleSource("metrics");
+  public static final TagRuleSource RUM = new TagRuleSource("rum");
+  public static final TagRuleSource FEED = new TagRuleSource("feed");
 
-  TagPolicySource(String value) {
+  TagRuleSource(String value) {
     super(value, allowedValues);
   }
 
-  public static class TagPolicySourceSerializer extends StdSerializer<TagPolicySource> {
-    public TagPolicySourceSerializer(Class<TagPolicySource> t) {
+  public static class TagRuleSourceSerializer extends StdSerializer<TagRuleSource> {
+    public TagRuleSourceSerializer(Class<TagRuleSource> t) {
       super(t);
     }
 
-    public TagPolicySourceSerializer() {
+    public TagRuleSourceSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(TagPolicySource value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(TagRuleSource value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static TagPolicySource fromValue(String value) {
-    return new TagPolicySource(value);
+  public static TagRuleSource fromValue(String value) {
+    return new TagRuleSource(value);
   }
 }

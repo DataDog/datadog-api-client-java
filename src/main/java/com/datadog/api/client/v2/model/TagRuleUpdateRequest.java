@@ -17,42 +17,42 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Payload for creating a new tag policy. */
-@JsonPropertyOrder({TagPolicyCreateRequest.JSON_PROPERTY_DATA})
+/** Payload for updating an existing tag rule. Only the supplied fields are modified. */
+@JsonPropertyOrder({TagRuleUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyCreateRequest {
+public class TagRuleUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private TagPolicyCreateData data;
+  private TagRuleUpdateData data;
 
-  public TagPolicyCreateRequest() {}
+  public TagRuleUpdateRequest() {}
 
   @JsonCreator
-  public TagPolicyCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) TagPolicyCreateData data) {
+  public TagRuleUpdateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) TagRuleUpdateData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public TagPolicyCreateRequest data(TagPolicyCreateData data) {
+  public TagRuleUpdateRequest data(TagRuleUpdateData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Data object for creating a tag policy.
+   * Data object for updating a tag rule.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TagPolicyCreateData getData() {
+  public TagRuleUpdateData getData() {
     return data;
   }
 
-  public void setData(TagPolicyCreateData data) {
+  public void setData(TagRuleUpdateData data) {
     this.data = data;
     if (data != null) {
       this.unparsed |= data.unparsed;
@@ -71,10 +71,10 @@ public class TagPolicyCreateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyCreateRequest
+   * @return TagRuleUpdateRequest
    */
   @JsonAnySetter
-  public TagPolicyCreateRequest putAdditionalProperty(String key, Object value) {
+  public TagRuleUpdateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -105,7 +105,7 @@ public class TagPolicyCreateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyCreateRequest object is equal to o. */
+  /** Return true if this TagRuleUpdateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,9 +114,9 @@ public class TagPolicyCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyCreateRequest tagPolicyCreateRequest = (TagPolicyCreateRequest) o;
-    return Objects.equals(this.data, tagPolicyCreateRequest.data)
-        && Objects.equals(this.additionalProperties, tagPolicyCreateRequest.additionalProperties);
+    TagRuleUpdateRequest tagRuleUpdateRequest = (TagRuleUpdateRequest) o;
+    return Objects.equals(this.data, tagRuleUpdateRequest.data)
+        && Objects.equals(this.additionalProperties, tagRuleUpdateRequest.additionalProperties);
   }
 
   @Override
@@ -127,7 +127,7 @@ public class TagPolicyCreateRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyCreateRequest {\n");
+    sb.append("class TagRuleUpdateRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

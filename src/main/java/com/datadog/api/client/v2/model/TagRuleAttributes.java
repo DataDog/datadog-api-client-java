@@ -21,28 +21,28 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a tag policy resource. */
+/** The attributes of a tag rule resource. */
 @JsonPropertyOrder({
-  TagPolicyAttributes.JSON_PROPERTY_CREATED_AT,
-  TagPolicyAttributes.JSON_PROPERTY_CREATED_BY,
-  TagPolicyAttributes.JSON_PROPERTY_DELETED_AT,
-  TagPolicyAttributes.JSON_PROPERTY_DELETED_BY,
-  TagPolicyAttributes.JSON_PROPERTY_ENABLED,
-  TagPolicyAttributes.JSON_PROPERTY_MODIFIED_AT,
-  TagPolicyAttributes.JSON_PROPERTY_MODIFIED_BY,
-  TagPolicyAttributes.JSON_PROPERTY_NEGATED,
-  TagPolicyAttributes.JSON_PROPERTY_POLICY_NAME,
-  TagPolicyAttributes.JSON_PROPERTY_POLICY_TYPE,
-  TagPolicyAttributes.JSON_PROPERTY_REQUIRED,
-  TagPolicyAttributes.JSON_PROPERTY_SCOPE,
-  TagPolicyAttributes.JSON_PROPERTY_SOURCE,
-  TagPolicyAttributes.JSON_PROPERTY_TAG_KEY,
-  TagPolicyAttributes.JSON_PROPERTY_TAG_VALUE_PATTERNS,
-  TagPolicyAttributes.JSON_PROPERTY_VERSION
+  TagRuleAttributes.JSON_PROPERTY_CREATED_AT,
+  TagRuleAttributes.JSON_PROPERTY_CREATED_BY,
+  TagRuleAttributes.JSON_PROPERTY_DELETED_AT,
+  TagRuleAttributes.JSON_PROPERTY_DELETED_BY,
+  TagRuleAttributes.JSON_PROPERTY_ENABLED,
+  TagRuleAttributes.JSON_PROPERTY_MODIFIED_AT,
+  TagRuleAttributes.JSON_PROPERTY_MODIFIED_BY,
+  TagRuleAttributes.JSON_PROPERTY_NAME,
+  TagRuleAttributes.JSON_PROPERTY_NEGATED,
+  TagRuleAttributes.JSON_PROPERTY_REQUIRED,
+  TagRuleAttributes.JSON_PROPERTY_RULE_TYPE,
+  TagRuleAttributes.JSON_PROPERTY_SCOPE,
+  TagRuleAttributes.JSON_PROPERTY_SOURCE,
+  TagRuleAttributes.JSON_PROPERTY_TAG_KEY,
+  TagRuleAttributes.JSON_PROPERTY_TAG_VALUE_PATTERNS,
+  TagRuleAttributes.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyAttributes {
+public class TagRuleAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -65,23 +65,23 @@ public class TagPolicyAttributes {
   public static final String JSON_PROPERTY_MODIFIED_BY = "modified_by";
   private String modifiedBy;
 
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
   public static final String JSON_PROPERTY_NEGATED = "negated";
   private Boolean negated;
 
-  public static final String JSON_PROPERTY_POLICY_NAME = "policy_name";
-  private String policyName;
-
-  public static final String JSON_PROPERTY_POLICY_TYPE = "policy_type";
-  private TagPolicyType policyType;
-
   public static final String JSON_PROPERTY_REQUIRED = "required";
   private Boolean required;
+
+  public static final String JSON_PROPERTY_RULE_TYPE = "rule_type";
+  private TagRuleType ruleType;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
-  private TagPolicySource source;
+  private TagRuleSource source;
 
   public static final String JSON_PROPERTY_TAG_KEY = "tag_key";
   private String tagKey;
@@ -92,21 +92,21 @@ public class TagPolicyAttributes {
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
 
-  public TagPolicyAttributes() {}
+  public TagRuleAttributes() {}
 
   @JsonCreator
-  public TagPolicyAttributes(
+  public TagRuleAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY) String createdBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) OffsetDateTime modifiedAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_BY) String modifiedBy,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_NEGATED) Boolean negated,
-      @JsonProperty(required = true, value = JSON_PROPERTY_POLICY_NAME) String policyName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_POLICY_TYPE) TagPolicyType policyType,
       @JsonProperty(required = true, value = JSON_PROPERTY_REQUIRED) Boolean required,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULE_TYPE) TagRuleType ruleType,
       @JsonProperty(required = true, value = JSON_PROPERTY_SCOPE) String scope,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) TagPolicySource source,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) TagRuleSource source,
       @JsonProperty(required = true, value = JSON_PROPERTY_TAG_KEY) String tagKey,
       @JsonProperty(required = true, value = JSON_PROPERTY_TAG_VALUE_PATTERNS)
           List<String> tagValuePatterns,
@@ -116,11 +116,11 @@ public class TagPolicyAttributes {
     this.enabled = enabled;
     this.modifiedAt = modifiedAt;
     this.modifiedBy = modifiedBy;
+    this.name = name;
     this.negated = negated;
-    this.policyName = policyName;
-    this.policyType = policyType;
-    this.unparsed |= !policyType.isValid();
     this.required = required;
+    this.ruleType = ruleType;
+    this.unparsed |= !ruleType.isValid();
     this.scope = scope;
     this.source = source;
     this.unparsed |= !source.isValid();
@@ -129,13 +129,13 @@ public class TagPolicyAttributes {
     this.version = version;
   }
 
-  public TagPolicyAttributes createdAt(OffsetDateTime createdAt) {
+  public TagRuleAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * The RFC 3339 timestamp at which the policy was created.
+   * The RFC 3339 timestamp at which the rule was created.
    *
    * @return createdAt
    */
@@ -149,13 +149,13 @@ public class TagPolicyAttributes {
     this.createdAt = createdAt;
   }
 
-  public TagPolicyAttributes createdBy(String createdBy) {
+  public TagRuleAttributes createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
   }
 
   /**
-   * The identifier of the user who created the policy.
+   * The identifier of the user who created the rule.
    *
    * @return createdBy
    */
@@ -169,14 +169,14 @@ public class TagPolicyAttributes {
     this.createdBy = createdBy;
   }
 
-  public TagPolicyAttributes deletedAt(OffsetDateTime deletedAt) {
+  public TagRuleAttributes deletedAt(OffsetDateTime deletedAt) {
     this.deletedAt = JsonNullable.<OffsetDateTime>of(deletedAt);
     return this;
   }
 
   /**
-   * The RFC 3339 timestamp at which the policy was soft-deleted. <code>null</code> if the policy
-   * has not been deleted. Only present when <code>include_deleted=true</code> is requested.
+   * The RFC 3339 timestamp at which the rule was soft-deleted. <code>null</code> if the rule has
+   * not been deleted. Only present when <code>include_deleted=true</code> is requested.
    *
    * @return deletedAt
    */
@@ -201,13 +201,13 @@ public class TagPolicyAttributes {
     this.deletedAt = JsonNullable.<OffsetDateTime>of(deletedAt);
   }
 
-  public TagPolicyAttributes deletedBy(String deletedBy) {
+  public TagRuleAttributes deletedBy(String deletedBy) {
     this.deletedBy = JsonNullable.<String>of(deletedBy);
     return this;
   }
 
   /**
-   * The identifier of the user who soft-deleted the policy. <code>null</code> if the policy has not
+   * The identifier of the user who soft-deleted the rule. <code>null</code> if the rule has not
    * been deleted.
    *
    * @return deletedBy
@@ -233,13 +233,13 @@ public class TagPolicyAttributes {
     this.deletedBy = JsonNullable.<String>of(deletedBy);
   }
 
-  public TagPolicyAttributes enabled(Boolean enabled) {
+  public TagRuleAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Whether the policy is currently enforced.
+   * Whether the rule is currently enforced.
    *
    * @return enabled
    */
@@ -253,13 +253,13 @@ public class TagPolicyAttributes {
     this.enabled = enabled;
   }
 
-  public TagPolicyAttributes modifiedAt(OffsetDateTime modifiedAt) {
+  public TagRuleAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * The RFC 3339 timestamp at which the policy was last modified.
+   * The RFC 3339 timestamp at which the rule was last modified.
    *
    * @return modifiedAt
    */
@@ -273,13 +273,13 @@ public class TagPolicyAttributes {
     this.modifiedAt = modifiedAt;
   }
 
-  public TagPolicyAttributes modifiedBy(String modifiedBy) {
+  public TagRuleAttributes modifiedBy(String modifiedBy) {
     this.modifiedBy = modifiedBy;
     return this;
   }
 
   /**
-   * The identifier of the user who last modified the policy.
+   * The identifier of the user who last modified the rule.
    *
    * @return modifiedBy
    */
@@ -293,13 +293,33 @@ public class TagPolicyAttributes {
     this.modifiedBy = modifiedBy;
   }
 
-  public TagPolicyAttributes negated(Boolean negated) {
+  public TagRuleAttributes name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Human-readable name for the tag rule.
+   *
+   * @return name
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public TagRuleAttributes negated(Boolean negated) {
     this.negated = negated;
     return this;
   }
 
   /**
-   * When <code>true</code>, the policy matches tag values that do NOT match any of the supplied
+   * When <code>true</code>, the rule matches tag values that do NOT match any of the supplied
    * patterns.
    *
    * @return negated
@@ -314,52 +334,7 @@ public class TagPolicyAttributes {
     this.negated = negated;
   }
 
-  public TagPolicyAttributes policyName(String policyName) {
-    this.policyName = policyName;
-    return this;
-  }
-
-  /**
-   * Human-readable name for the tag policy.
-   *
-   * @return policyName
-   */
-  @JsonProperty(JSON_PROPERTY_POLICY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPolicyName() {
-    return policyName;
-  }
-
-  public void setPolicyName(String policyName) {
-    this.policyName = policyName;
-  }
-
-  public TagPolicyAttributes policyType(TagPolicyType policyType) {
-    this.policyType = policyType;
-    this.unparsed |= !policyType.isValid();
-    return this;
-  }
-
-  /**
-   * How the policy is enforced. <code>blocking</code> rejects telemetry that violates the policy.
-   * <code>surfacing</code> only highlights non-compliant telemetry without blocking it.
-   *
-   * @return policyType
-   */
-  @JsonProperty(JSON_PROPERTY_POLICY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TagPolicyType getPolicyType() {
-    return policyType;
-  }
-
-  public void setPolicyType(TagPolicyType policyType) {
-    if (!policyType.isValid()) {
-      this.unparsed = true;
-    }
-    this.policyType = policyType;
-  }
-
-  public TagPolicyAttributes required(Boolean required) {
+  public TagRuleAttributes required(Boolean required) {
     this.required = required;
     return this;
   }
@@ -379,13 +354,38 @@ public class TagPolicyAttributes {
     this.required = required;
   }
 
-  public TagPolicyAttributes scope(String scope) {
+  public TagRuleAttributes ruleType(TagRuleType ruleType) {
+    this.ruleType = ruleType;
+    this.unparsed |= !ruleType.isValid();
+    return this;
+  }
+
+  /**
+   * How the rule is enforced. <code>blocking</code> rejects telemetry that violates the rule.
+   * <code>surfacing</code> only highlights non-compliant telemetry without blocking it.
+   *
+   * @return ruleType
+   */
+  @JsonProperty(JSON_PROPERTY_RULE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TagRuleType getRuleType() {
+    return ruleType;
+  }
+
+  public void setRuleType(TagRuleType ruleType) {
+    if (!ruleType.isValid()) {
+      this.unparsed = true;
+    }
+    this.ruleType = ruleType;
+  }
+
+  public TagRuleAttributes scope(String scope) {
     this.scope = scope;
     return this;
   }
 
   /**
-   * The scope the policy applies within.
+   * The scope the rule applies within.
    *
    * @return scope
    */
@@ -399,37 +399,37 @@ public class TagPolicyAttributes {
     this.scope = scope;
   }
 
-  public TagPolicyAttributes source(TagPolicySource source) {
+  public TagRuleAttributes source(TagRuleSource source) {
     this.source = source;
     this.unparsed |= !source.isValid();
     return this;
   }
 
   /**
-   * The telemetry source that a tag policy applies to.
+   * The telemetry source that a tag rule applies to.
    *
    * @return source
    */
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TagPolicySource getSource() {
+  public TagRuleSource getSource() {
     return source;
   }
 
-  public void setSource(TagPolicySource source) {
+  public void setSource(TagRuleSource source) {
     if (!source.isValid()) {
       this.unparsed = true;
     }
     this.source = source;
   }
 
-  public TagPolicyAttributes tagKey(String tagKey) {
+  public TagRuleAttributes tagKey(String tagKey) {
     this.tagKey = tagKey;
     return this;
   }
 
   /**
-   * The tag key that the policy governs.
+   * The tag key that the rule governs.
    *
    * @return tagKey
    */
@@ -443,12 +443,12 @@ public class TagPolicyAttributes {
     this.tagKey = tagKey;
   }
 
-  public TagPolicyAttributes tagValuePatterns(List<String> tagValuePatterns) {
+  public TagRuleAttributes tagValuePatterns(List<String> tagValuePatterns) {
     this.tagValuePatterns = tagValuePatterns;
     return this;
   }
 
-  public TagPolicyAttributes addTagValuePatternsItem(String tagValuePatternsItem) {
+  public TagRuleAttributes addTagValuePatternsItem(String tagValuePatternsItem) {
     this.tagValuePatterns.add(tagValuePatternsItem);
     return this;
   }
@@ -468,7 +468,7 @@ public class TagPolicyAttributes {
     this.tagValuePatterns = tagValuePatterns;
   }
 
-  public TagPolicyAttributes version(Long version) {
+  public TagRuleAttributes version(Long version) {
     this.version = version;
     return this;
   }
@@ -500,10 +500,10 @@ public class TagPolicyAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyAttributes
+   * @return TagRuleAttributes
    */
   @JsonAnySetter
-  public TagPolicyAttributes putAdditionalProperty(String key, Object value) {
+  public TagRuleAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -534,7 +534,7 @@ public class TagPolicyAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyAttributes object is equal to o. */
+  /** Return true if this TagRuleAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -543,24 +543,24 @@ public class TagPolicyAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyAttributes tagPolicyAttributes = (TagPolicyAttributes) o;
-    return Objects.equals(this.createdAt, tagPolicyAttributes.createdAt)
-        && Objects.equals(this.createdBy, tagPolicyAttributes.createdBy)
-        && Objects.equals(this.deletedAt, tagPolicyAttributes.deletedAt)
-        && Objects.equals(this.deletedBy, tagPolicyAttributes.deletedBy)
-        && Objects.equals(this.enabled, tagPolicyAttributes.enabled)
-        && Objects.equals(this.modifiedAt, tagPolicyAttributes.modifiedAt)
-        && Objects.equals(this.modifiedBy, tagPolicyAttributes.modifiedBy)
-        && Objects.equals(this.negated, tagPolicyAttributes.negated)
-        && Objects.equals(this.policyName, tagPolicyAttributes.policyName)
-        && Objects.equals(this.policyType, tagPolicyAttributes.policyType)
-        && Objects.equals(this.required, tagPolicyAttributes.required)
-        && Objects.equals(this.scope, tagPolicyAttributes.scope)
-        && Objects.equals(this.source, tagPolicyAttributes.source)
-        && Objects.equals(this.tagKey, tagPolicyAttributes.tagKey)
-        && Objects.equals(this.tagValuePatterns, tagPolicyAttributes.tagValuePatterns)
-        && Objects.equals(this.version, tagPolicyAttributes.version)
-        && Objects.equals(this.additionalProperties, tagPolicyAttributes.additionalProperties);
+    TagRuleAttributes tagRuleAttributes = (TagRuleAttributes) o;
+    return Objects.equals(this.createdAt, tagRuleAttributes.createdAt)
+        && Objects.equals(this.createdBy, tagRuleAttributes.createdBy)
+        && Objects.equals(this.deletedAt, tagRuleAttributes.deletedAt)
+        && Objects.equals(this.deletedBy, tagRuleAttributes.deletedBy)
+        && Objects.equals(this.enabled, tagRuleAttributes.enabled)
+        && Objects.equals(this.modifiedAt, tagRuleAttributes.modifiedAt)
+        && Objects.equals(this.modifiedBy, tagRuleAttributes.modifiedBy)
+        && Objects.equals(this.name, tagRuleAttributes.name)
+        && Objects.equals(this.negated, tagRuleAttributes.negated)
+        && Objects.equals(this.required, tagRuleAttributes.required)
+        && Objects.equals(this.ruleType, tagRuleAttributes.ruleType)
+        && Objects.equals(this.scope, tagRuleAttributes.scope)
+        && Objects.equals(this.source, tagRuleAttributes.source)
+        && Objects.equals(this.tagKey, tagRuleAttributes.tagKey)
+        && Objects.equals(this.tagValuePatterns, tagRuleAttributes.tagValuePatterns)
+        && Objects.equals(this.version, tagRuleAttributes.version)
+        && Objects.equals(this.additionalProperties, tagRuleAttributes.additionalProperties);
   }
 
   @Override
@@ -573,10 +573,10 @@ public class TagPolicyAttributes {
         enabled,
         modifiedAt,
         modifiedBy,
+        name,
         negated,
-        policyName,
-        policyType,
         required,
+        ruleType,
         scope,
         source,
         tagKey,
@@ -588,7 +588,7 @@ public class TagPolicyAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyAttributes {\n");
+    sb.append("class TagRuleAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
@@ -596,10 +596,10 @@ public class TagPolicyAttributes {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    negated: ").append(toIndentedString(negated)).append("\n");
-    sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
-    sb.append("    policyType: ").append(toIndentedString(policyType)).append("\n");
     sb.append("    required: ").append(toIndentedString(required)).append("\n");
+    sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    tagKey: ").append(toIndentedString(tagKey)).append("\n");

@@ -13,49 +13,110 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A tag policy compliance score. */
-@JsonPropertyOrder({TagPolicyScoreResponse.JSON_PROPERTY_DATA})
+/** A page of tag rules. */
+@JsonPropertyOrder({
+  TagRulesListResponse.JSON_PROPERTY_DATA,
+  TagRulesListResponse.JSON_PROPERTY_INCLUDED
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyScoreResponse {
+public class TagRulesListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private TagPolicyScoreData data;
+  private List<TagRuleData> data = new ArrayList<>();
 
-  public TagPolicyScoreResponse() {}
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<TagRuleScoreData> included = null;
+
+  public TagRulesListResponse() {}
 
   @JsonCreator
-  public TagPolicyScoreResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) TagPolicyScoreData data) {
+  public TagRulesListResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<TagRuleData> data) {
     this.data = data;
-    this.unparsed |= data.unparsed;
+    for (TagRuleData item : data) {
+      this.unparsed |= item.unparsed;
+    }
   }
 
-  public TagPolicyScoreResponse data(TagPolicyScoreData data) {
+  public TagRulesListResponse data(List<TagRuleData> data) {
     this.data = data;
-    this.unparsed |= data.unparsed;
+    for (TagRuleData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public TagRulesListResponse addDataItem(TagRuleData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * A compliance score resource for a tag policy.
+   * An array of tag rule data objects.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TagPolicyScoreData getData() {
+  public List<TagRuleData> getData() {
     return data;
   }
 
-  public void setData(TagPolicyScoreData data) {
+  public void setData(List<TagRuleData> data) {
     this.data = data;
     if (data != null) {
-      this.unparsed |= data.unparsed;
+      for (TagRuleData item : data) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+  }
+
+  public TagRulesListResponse included(List<TagRuleScoreData> included) {
+    this.included = included;
+    if (included != null) {
+      for (TagRuleScoreData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public TagRulesListResponse addIncludedItem(TagRuleScoreData includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Related resources fetched alongside the primary tag rules. Populated when an <code>include
+   * </code> query parameter is supplied.
+   *
+   * @return included
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TagRuleScoreData> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<TagRuleScoreData> included) {
+    this.included = included;
+    if (included != null) {
+      for (TagRuleScoreData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
   }
 
@@ -71,10 +132,10 @@ public class TagPolicyScoreResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyScoreResponse
+   * @return TagRulesListResponse
    */
   @JsonAnySetter
-  public TagPolicyScoreResponse putAdditionalProperty(String key, Object value) {
+  public TagRulesListResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -105,7 +166,7 @@ public class TagPolicyScoreResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyScoreResponse object is equal to o. */
+  /** Return true if this TagRulesListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,21 +175,23 @@ public class TagPolicyScoreResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyScoreResponse tagPolicyScoreResponse = (TagPolicyScoreResponse) o;
-    return Objects.equals(this.data, tagPolicyScoreResponse.data)
-        && Objects.equals(this.additionalProperties, tagPolicyScoreResponse.additionalProperties);
+    TagRulesListResponse tagRulesListResponse = (TagRulesListResponse) o;
+    return Objects.equals(this.data, tagRulesListResponse.data)
+        && Objects.equals(this.included, tagRulesListResponse.included)
+        && Objects.equals(this.additionalProperties, tagRulesListResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(data, included, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyScoreResponse {\n");
+    sb.append("class TagRulesListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

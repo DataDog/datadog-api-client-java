@@ -17,69 +17,69 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for updating a tag policy. */
+/** Data object for updating a tag rule. */
 @JsonPropertyOrder({
-  TagPolicyUpdateData.JSON_PROPERTY_ATTRIBUTES,
-  TagPolicyUpdateData.JSON_PROPERTY_ID,
-  TagPolicyUpdateData.JSON_PROPERTY_TYPE
+  TagRuleUpdateData.JSON_PROPERTY_ATTRIBUTES,
+  TagRuleUpdateData.JSON_PROPERTY_ID,
+  TagRuleUpdateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyUpdateData {
+public class TagRuleUpdateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private TagPolicyUpdateAttributes attributes;
+  private TagRuleUpdateAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TagPolicyResourceType type;
+  private TagRuleResourceType type;
 
-  public TagPolicyUpdateData() {}
+  public TagRuleUpdateData() {}
 
   @JsonCreator
-  public TagPolicyUpdateData(
+  public TagRuleUpdateData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TagPolicyResourceType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TagRuleResourceType type) {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public TagPolicyUpdateData attributes(TagPolicyUpdateAttributes attributes) {
+  public TagRuleUpdateData attributes(TagRuleUpdateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Mutable attributes of a tag policy. Each field is optional; omitting a field leaves its current
-   * value unchanged. The <code>source</code> of a policy cannot be changed.
+   * Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its current
+   * value unchanged. The <code>source</code> of a rule cannot be changed.
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TagPolicyUpdateAttributes getAttributes() {
+  public TagRuleUpdateAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(TagPolicyUpdateAttributes attributes) {
+  public void setAttributes(TagRuleUpdateAttributes attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
 
-  public TagPolicyUpdateData id(String id) {
+  public TagRuleUpdateData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier of the tag policy being updated.
+   * The unique identifier of the tag rule being updated.
    *
    * @return id
    */
@@ -93,24 +93,24 @@ public class TagPolicyUpdateData {
     this.id = id;
   }
 
-  public TagPolicyUpdateData type(TagPolicyResourceType type) {
+  public TagRuleUpdateData type(TagRuleResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * JSON:API resource type for a tag policy.
+   * JSON:API resource type for a tag rule.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TagPolicyResourceType getType() {
+  public TagRuleResourceType getType() {
     return type;
   }
 
-  public void setType(TagPolicyResourceType type) {
+  public void setType(TagRuleResourceType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -129,10 +129,10 @@ public class TagPolicyUpdateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyUpdateData
+   * @return TagRuleUpdateData
    */
   @JsonAnySetter
-  public TagPolicyUpdateData putAdditionalProperty(String key, Object value) {
+  public TagRuleUpdateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -163,7 +163,7 @@ public class TagPolicyUpdateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyUpdateData object is equal to o. */
+  /** Return true if this TagRuleUpdateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -172,11 +172,11 @@ public class TagPolicyUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyUpdateData tagPolicyUpdateData = (TagPolicyUpdateData) o;
-    return Objects.equals(this.attributes, tagPolicyUpdateData.attributes)
-        && Objects.equals(this.id, tagPolicyUpdateData.id)
-        && Objects.equals(this.type, tagPolicyUpdateData.type)
-        && Objects.equals(this.additionalProperties, tagPolicyUpdateData.additionalProperties);
+    TagRuleUpdateData tagRuleUpdateData = (TagRuleUpdateData) o;
+    return Objects.equals(this.attributes, tagRuleUpdateData.attributes)
+        && Objects.equals(this.id, tagRuleUpdateData.id)
+        && Objects.equals(this.type, tagRuleUpdateData.type)
+        && Objects.equals(this.additionalProperties, tagRuleUpdateData.additionalProperties);
   }
 
   @Override
@@ -187,7 +187,7 @@ public class TagPolicyUpdateData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyUpdateData {\n");
+    sb.append("class TagRuleUpdateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

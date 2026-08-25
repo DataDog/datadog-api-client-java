@@ -8,48 +8,100 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Related resources for a tag policy. Only present when the corresponding <code>include</code>
- * query parameter is supplied.
- */
-@JsonPropertyOrder({TagPolicyRelationships.JSON_PROPERTY_SCORE})
+/** A single tag rule. */
+@JsonPropertyOrder({TagRuleResponse.JSON_PROPERTY_DATA, TagRuleResponse.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyRelationships {
+public class TagRuleResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_SCORE = "score";
-  private TagPolicyScoreRelationship score;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private TagRuleData data;
 
-  public TagPolicyRelationships score(TagPolicyScoreRelationship score) {
-    this.score = score;
-    this.unparsed |= score.unparsed;
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<TagRuleScoreData> included = null;
+
+  public TagRuleResponse() {}
+
+  @JsonCreator
+  public TagRuleResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) TagRuleData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public TagRuleResponse data(TagRuleData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * A relationship to the compliance score resource for this policy.
+   * A tag rule resource.
    *
-   * @return score
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TagPolicyScoreRelationship getScore() {
-    return score;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TagRuleData getData() {
+    return data;
   }
 
-  public void setScore(TagPolicyScoreRelationship score) {
-    this.score = score;
-    if (score != null) {
-      this.unparsed |= score.unparsed;
+  public void setData(TagRuleData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
+  }
+
+  public TagRuleResponse included(List<TagRuleScoreData> included) {
+    this.included = included;
+    if (included != null) {
+      for (TagRuleScoreData item : included) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
+  }
+
+  public TagRuleResponse addIncludedItem(TagRuleScoreData includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Related resources fetched alongside the primary tag rules. Populated when an <code>include
+   * </code> query parameter is supplied.
+   *
+   * @return included
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TagRuleScoreData> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<TagRuleScoreData> included) {
+    this.included = included;
+    if (included != null) {
+      for (TagRuleScoreData item : included) {
+        this.unparsed |= item.unparsed;
+      }
     }
   }
 
@@ -65,10 +117,10 @@ public class TagPolicyRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyRelationships
+   * @return TagRuleResponse
    */
   @JsonAnySetter
-  public TagPolicyRelationships putAdditionalProperty(String key, Object value) {
+  public TagRuleResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -99,7 +151,7 @@ public class TagPolicyRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyRelationships object is equal to o. */
+  /** Return true if this TagRuleResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -108,21 +160,23 @@ public class TagPolicyRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyRelationships tagPolicyRelationships = (TagPolicyRelationships) o;
-    return Objects.equals(this.score, tagPolicyRelationships.score)
-        && Objects.equals(this.additionalProperties, tagPolicyRelationships.additionalProperties);
+    TagRuleResponse tagRuleResponse = (TagRuleResponse) o;
+    return Objects.equals(this.data, tagRuleResponse.data)
+        && Objects.equals(this.included, tagRuleResponse.included)
+        && Objects.equals(this.additionalProperties, tagRuleResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(score, additionalProperties);
+    return Objects.hash(data, included, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyRelationships {\n");
-    sb.append("    score: ").append(toIndentedString(score)).append("\n");
+    sb.append("class TagRuleResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
