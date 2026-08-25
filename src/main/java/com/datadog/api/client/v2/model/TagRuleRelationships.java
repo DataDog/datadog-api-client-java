@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,46 +16,40 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A relationship to the compliance score resource for this policy. */
-@JsonPropertyOrder({TagPolicyScoreRelationship.JSON_PROPERTY_DATA})
+/**
+ * Related resources for a tag rule. Only present when the corresponding <code>include</code> query
+ * parameter is supplied.
+ */
+@JsonPropertyOrder({TagRuleRelationships.JSON_PROPERTY_SCORE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyScoreRelationship {
+public class TagRuleRelationships {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private TagPolicyScoreRelationshipData data;
+  public static final String JSON_PROPERTY_SCORE = "score";
+  private TagRuleScoreRelationship score;
 
-  public TagPolicyScoreRelationship() {}
-
-  @JsonCreator
-  public TagPolicyScoreRelationship(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          TagPolicyScoreRelationshipData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
-
-  public TagPolicyScoreRelationship data(TagPolicyScoreRelationshipData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public TagRuleRelationships score(TagRuleScoreRelationship score) {
+    this.score = score;
+    this.unparsed |= score.unparsed;
     return this;
   }
 
   /**
-   * Identifier of the related compliance score resource.
+   * A relationship to the compliance score resource for this rule.
    *
-   * @return data
+   * @return score
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TagPolicyScoreRelationshipData getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TagRuleScoreRelationship getScore() {
+    return score;
   }
 
-  public void setData(TagPolicyScoreRelationshipData data) {
-    this.data = data;
-    if (data != null) {
-      this.unparsed |= data.unparsed;
+  public void setScore(TagRuleScoreRelationship score) {
+    this.score = score;
+    if (score != null) {
+      this.unparsed |= score.unparsed;
     }
   }
 
@@ -72,10 +65,10 @@ public class TagPolicyScoreRelationship {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyScoreRelationship
+   * @return TagRuleRelationships
    */
   @JsonAnySetter
-  public TagPolicyScoreRelationship putAdditionalProperty(String key, Object value) {
+  public TagRuleRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -106,7 +99,7 @@ public class TagPolicyScoreRelationship {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyScoreRelationship object is equal to o. */
+  /** Return true if this TagRuleRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,22 +108,21 @@ public class TagPolicyScoreRelationship {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyScoreRelationship tagPolicyScoreRelationship = (TagPolicyScoreRelationship) o;
-    return Objects.equals(this.data, tagPolicyScoreRelationship.data)
-        && Objects.equals(
-            this.additionalProperties, tagPolicyScoreRelationship.additionalProperties);
+    TagRuleRelationships tagRuleRelationships = (TagRuleRelationships) o;
+    return Objects.equals(this.score, tagRuleRelationships.score)
+        && Objects.equals(this.additionalProperties, tagRuleRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(score, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyScoreRelationship {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class TagRuleRelationships {\n");
+    sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

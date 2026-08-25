@@ -18,37 +18,37 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for a tag policy. */
-@JsonSerialize(using = TagPolicyResourceType.TagPolicyResourceTypeSerializer.class)
-public class TagPolicyResourceType extends ModelEnum<String> {
+/** JSON:API resource type for a tag rule. */
+@JsonSerialize(using = TagRuleResourceType.TagRuleResourceTypeSerializer.class)
+public class TagRuleResourceType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("tag_policy"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("tag_rule"));
 
-  public static final TagPolicyResourceType TAG_POLICY = new TagPolicyResourceType("tag_policy");
+  public static final TagRuleResourceType TAG_RULE = new TagRuleResourceType("tag_rule");
 
-  TagPolicyResourceType(String value) {
+  TagRuleResourceType(String value) {
     super(value, allowedValues);
   }
 
-  public static class TagPolicyResourceTypeSerializer extends StdSerializer<TagPolicyResourceType> {
-    public TagPolicyResourceTypeSerializer(Class<TagPolicyResourceType> t) {
+  public static class TagRuleResourceTypeSerializer extends StdSerializer<TagRuleResourceType> {
+    public TagRuleResourceTypeSerializer(Class<TagRuleResourceType> t) {
       super(t);
     }
 
-    public TagPolicyResourceTypeSerializer() {
+    public TagRuleResourceTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        TagPolicyResourceType value, JsonGenerator jgen, SerializerProvider provider)
+        TagRuleResourceType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static TagPolicyResourceType fromValue(String value) {
-    return new TagPolicyResourceType(value);
+  public static TagRuleResourceType fromValue(String value) {
+    return new TagRuleResourceType(value);
   }
 }

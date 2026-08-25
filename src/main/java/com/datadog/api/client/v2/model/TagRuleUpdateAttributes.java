@@ -19,37 +19,37 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Mutable attributes of a tag policy. Each field is optional; omitting a field leaves its current
- * value unchanged. The <code>source</code> of a policy cannot be changed.
+ * Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its current
+ * value unchanged. The <code>source</code> of a rule cannot be changed.
  */
 @JsonPropertyOrder({
-  TagPolicyUpdateAttributes.JSON_PROPERTY_ENABLED,
-  TagPolicyUpdateAttributes.JSON_PROPERTY_NEGATED,
-  TagPolicyUpdateAttributes.JSON_PROPERTY_POLICY_NAME,
-  TagPolicyUpdateAttributes.JSON_PROPERTY_POLICY_TYPE,
-  TagPolicyUpdateAttributes.JSON_PROPERTY_REQUIRED,
-  TagPolicyUpdateAttributes.JSON_PROPERTY_SCOPE,
-  TagPolicyUpdateAttributes.JSON_PROPERTY_TAG_KEY,
-  TagPolicyUpdateAttributes.JSON_PROPERTY_TAG_VALUE_PATTERNS
+  TagRuleUpdateAttributes.JSON_PROPERTY_ENABLED,
+  TagRuleUpdateAttributes.JSON_PROPERTY_NAME,
+  TagRuleUpdateAttributes.JSON_PROPERTY_NEGATED,
+  TagRuleUpdateAttributes.JSON_PROPERTY_REQUIRED,
+  TagRuleUpdateAttributes.JSON_PROPERTY_RULE_TYPE,
+  TagRuleUpdateAttributes.JSON_PROPERTY_SCOPE,
+  TagRuleUpdateAttributes.JSON_PROPERTY_TAG_KEY,
+  TagRuleUpdateAttributes.JSON_PROPERTY_TAG_VALUE_PATTERNS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyUpdateAttributes {
+public class TagRuleUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
   public static final String JSON_PROPERTY_NEGATED = "negated";
   private Boolean negated;
 
-  public static final String JSON_PROPERTY_POLICY_NAME = "policy_name";
-  private String policyName;
-
-  public static final String JSON_PROPERTY_POLICY_TYPE = "policy_type";
-  private TagPolicyType policyType;
-
   public static final String JSON_PROPERTY_REQUIRED = "required";
   private Boolean required;
+
+  public static final String JSON_PROPERTY_RULE_TYPE = "rule_type";
+  private TagRuleType ruleType;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
@@ -60,13 +60,13 @@ public class TagPolicyUpdateAttributes {
   public static final String JSON_PROPERTY_TAG_VALUE_PATTERNS = "tag_value_patterns";
   private List<String> tagValuePatterns = null;
 
-  public TagPolicyUpdateAttributes enabled(Boolean enabled) {
+  public TagRuleUpdateAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Whether the policy is currently enforced.
+   * Whether the rule is currently enforced.
    *
    * @return enabled
    */
@@ -81,13 +81,34 @@ public class TagPolicyUpdateAttributes {
     this.enabled = enabled;
   }
 
-  public TagPolicyUpdateAttributes negated(Boolean negated) {
+  public TagRuleUpdateAttributes name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Human-readable name for the tag rule.
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public TagRuleUpdateAttributes negated(Boolean negated) {
     this.negated = negated;
     return this;
   }
 
   /**
-   * When <code>true</code>, the policy matches tag values that do NOT match any of the supplied
+   * When <code>true</code>, the rule matches tag values that do NOT match any of the supplied
    * patterns.
    *
    * @return negated
@@ -103,54 +124,7 @@ public class TagPolicyUpdateAttributes {
     this.negated = negated;
   }
 
-  public TagPolicyUpdateAttributes policyName(String policyName) {
-    this.policyName = policyName;
-    return this;
-  }
-
-  /**
-   * Human-readable name for the tag policy.
-   *
-   * @return policyName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLICY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPolicyName() {
-    return policyName;
-  }
-
-  public void setPolicyName(String policyName) {
-    this.policyName = policyName;
-  }
-
-  public TagPolicyUpdateAttributes policyType(TagPolicyType policyType) {
-    this.policyType = policyType;
-    this.unparsed |= !policyType.isValid();
-    return this;
-  }
-
-  /**
-   * How the policy is enforced. <code>blocking</code> rejects telemetry that violates the policy.
-   * <code>surfacing</code> only highlights non-compliant telemetry without blocking it.
-   *
-   * @return policyType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POLICY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TagPolicyType getPolicyType() {
-    return policyType;
-  }
-
-  public void setPolicyType(TagPolicyType policyType) {
-    if (!policyType.isValid()) {
-      this.unparsed = true;
-    }
-    this.policyType = policyType;
-  }
-
-  public TagPolicyUpdateAttributes required(Boolean required) {
+  public TagRuleUpdateAttributes required(Boolean required) {
     this.required = required;
     return this;
   }
@@ -171,13 +145,39 @@ public class TagPolicyUpdateAttributes {
     this.required = required;
   }
 
-  public TagPolicyUpdateAttributes scope(String scope) {
+  public TagRuleUpdateAttributes ruleType(TagRuleType ruleType) {
+    this.ruleType = ruleType;
+    this.unparsed |= !ruleType.isValid();
+    return this;
+  }
+
+  /**
+   * How the rule is enforced. <code>blocking</code> rejects telemetry that violates the rule.
+   * <code>surfacing</code> only highlights non-compliant telemetry without blocking it.
+   *
+   * @return ruleType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TagRuleType getRuleType() {
+    return ruleType;
+  }
+
+  public void setRuleType(TagRuleType ruleType) {
+    if (!ruleType.isValid()) {
+      this.unparsed = true;
+    }
+    this.ruleType = ruleType;
+  }
+
+  public TagRuleUpdateAttributes scope(String scope) {
     this.scope = scope;
     return this;
   }
 
   /**
-   * The scope the policy applies within.
+   * The scope the rule applies within.
    *
    * @return scope
    */
@@ -192,13 +192,13 @@ public class TagPolicyUpdateAttributes {
     this.scope = scope;
   }
 
-  public TagPolicyUpdateAttributes tagKey(String tagKey) {
+  public TagRuleUpdateAttributes tagKey(String tagKey) {
     this.tagKey = tagKey;
     return this;
   }
 
   /**
-   * The tag key that the policy governs.
+   * The tag key that the rule governs.
    *
    * @return tagKey
    */
@@ -213,12 +213,12 @@ public class TagPolicyUpdateAttributes {
     this.tagKey = tagKey;
   }
 
-  public TagPolicyUpdateAttributes tagValuePatterns(List<String> tagValuePatterns) {
+  public TagRuleUpdateAttributes tagValuePatterns(List<String> tagValuePatterns) {
     this.tagValuePatterns = tagValuePatterns;
     return this;
   }
 
-  public TagPolicyUpdateAttributes addTagValuePatternsItem(String tagValuePatternsItem) {
+  public TagRuleUpdateAttributes addTagValuePatternsItem(String tagValuePatternsItem) {
     if (this.tagValuePatterns == null) {
       this.tagValuePatterns = new ArrayList<>();
     }
@@ -254,10 +254,10 @@ public class TagPolicyUpdateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyUpdateAttributes
+   * @return TagRuleUpdateAttributes
    */
   @JsonAnySetter
-  public TagPolicyUpdateAttributes putAdditionalProperty(String key, Object value) {
+  public TagRuleUpdateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -288,7 +288,7 @@ public class TagPolicyUpdateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyUpdateAttributes object is equal to o. */
+  /** Return true if this TagRuleUpdateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -297,27 +297,26 @@ public class TagPolicyUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyUpdateAttributes tagPolicyUpdateAttributes = (TagPolicyUpdateAttributes) o;
-    return Objects.equals(this.enabled, tagPolicyUpdateAttributes.enabled)
-        && Objects.equals(this.negated, tagPolicyUpdateAttributes.negated)
-        && Objects.equals(this.policyName, tagPolicyUpdateAttributes.policyName)
-        && Objects.equals(this.policyType, tagPolicyUpdateAttributes.policyType)
-        && Objects.equals(this.required, tagPolicyUpdateAttributes.required)
-        && Objects.equals(this.scope, tagPolicyUpdateAttributes.scope)
-        && Objects.equals(this.tagKey, tagPolicyUpdateAttributes.tagKey)
-        && Objects.equals(this.tagValuePatterns, tagPolicyUpdateAttributes.tagValuePatterns)
-        && Objects.equals(
-            this.additionalProperties, tagPolicyUpdateAttributes.additionalProperties);
+    TagRuleUpdateAttributes tagRuleUpdateAttributes = (TagRuleUpdateAttributes) o;
+    return Objects.equals(this.enabled, tagRuleUpdateAttributes.enabled)
+        && Objects.equals(this.name, tagRuleUpdateAttributes.name)
+        && Objects.equals(this.negated, tagRuleUpdateAttributes.negated)
+        && Objects.equals(this.required, tagRuleUpdateAttributes.required)
+        && Objects.equals(this.ruleType, tagRuleUpdateAttributes.ruleType)
+        && Objects.equals(this.scope, tagRuleUpdateAttributes.scope)
+        && Objects.equals(this.tagKey, tagRuleUpdateAttributes.tagKey)
+        && Objects.equals(this.tagValuePatterns, tagRuleUpdateAttributes.tagValuePatterns)
+        && Objects.equals(this.additionalProperties, tagRuleUpdateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         enabled,
+        name,
         negated,
-        policyName,
-        policyType,
         required,
+        ruleType,
         scope,
         tagKey,
         tagValuePatterns,
@@ -327,12 +326,12 @@ public class TagPolicyUpdateAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyUpdateAttributes {\n");
+    sb.append("class TagRuleUpdateAttributes {\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    negated: ").append(toIndentedString(negated)).append("\n");
-    sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
-    sb.append("    policyType: ").append(toIndentedString(policyType)).append("\n");
     sb.append("    required: ").append(toIndentedString(required)).append("\n");
+    sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    tagKey: ").append(toIndentedString(tagKey)).append("\n");
     sb.append("    tagValuePatterns: ").append(toIndentedString(tagValuePatterns)).append("\n");

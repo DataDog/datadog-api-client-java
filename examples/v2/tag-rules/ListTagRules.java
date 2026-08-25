@@ -1,21 +1,21 @@
-// List tag policies returns "OK" response
+// List tag rules returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.TagPoliciesApi;
-import com.datadog.api.client.v2.model.TagPoliciesListResponse;
+import com.datadog.api.client.v2.api.TagRulesApi;
+import com.datadog.api.client.v2.model.TagRulesListResponse;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.listTagPolicies", true);
-    TagPoliciesApi apiInstance = new TagPoliciesApi(defaultClient);
+    defaultClient.setUnstableOperationEnabled("v2.listTagRules", true);
+    TagRulesApi apiInstance = new TagRulesApi(defaultClient);
 
     try {
-      TagPoliciesListResponse result = apiInstance.listTagPolicies();
+      TagRulesListResponse result = apiInstance.listTagRules();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TagPoliciesApi#listTagPolicies");
+      System.err.println("Exception when calling TagRulesApi#listTagRules");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

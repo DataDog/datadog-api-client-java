@@ -17,46 +17,80 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Payload for updating an existing tag policy. Only the supplied fields are modified. */
-@JsonPropertyOrder({TagPolicyUpdateRequest.JSON_PROPERTY_DATA})
+/** Data object for creating a tag rule. */
+@JsonPropertyOrder({
+  TagRuleCreateData.JSON_PROPERTY_ATTRIBUTES,
+  TagRuleCreateData.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagPolicyUpdateRequest {
+public class TagRuleCreateData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private TagPolicyUpdateData data;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private TagRuleCreateAttributes attributes;
 
-  public TagPolicyUpdateRequest() {}
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TagRuleResourceType type;
+
+  public TagRuleCreateData() {}
 
   @JsonCreator
-  public TagPolicyUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) TagPolicyUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public TagRuleCreateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          TagRuleCreateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TagRuleResourceType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
-  public TagPolicyUpdateRequest data(TagPolicyUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public TagRuleCreateData attributes(TagRuleCreateAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Data object for updating a tag policy.
+   * Attributes that can be supplied when creating a tag rule.
    *
-   * @return data
+   * @return attributes
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TagPolicyUpdateData getData() {
-    return data;
+  public TagRuleCreateAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setData(TagPolicyUpdateData data) {
-    this.data = data;
-    if (data != null) {
-      this.unparsed |= data.unparsed;
+  public void setAttributes(TagRuleCreateAttributes attributes) {
+    this.attributes = attributes;
+    if (attributes != null) {
+      this.unparsed |= attributes.unparsed;
     }
+  }
+
+  public TagRuleCreateData type(TagRuleResourceType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * JSON:API resource type for a tag rule.
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TagRuleResourceType getType() {
+    return type;
+  }
+
+  public void setType(TagRuleResourceType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -71,10 +105,10 @@ public class TagPolicyUpdateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagPolicyUpdateRequest
+   * @return TagRuleCreateData
    */
   @JsonAnySetter
-  public TagPolicyUpdateRequest putAdditionalProperty(String key, Object value) {
+  public TagRuleCreateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -105,7 +139,7 @@ public class TagPolicyUpdateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagPolicyUpdateRequest object is equal to o. */
+  /** Return true if this TagRuleCreateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,21 +148,23 @@ public class TagPolicyUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagPolicyUpdateRequest tagPolicyUpdateRequest = (TagPolicyUpdateRequest) o;
-    return Objects.equals(this.data, tagPolicyUpdateRequest.data)
-        && Objects.equals(this.additionalProperties, tagPolicyUpdateRequest.additionalProperties);
+    TagRuleCreateData tagRuleCreateData = (TagRuleCreateData) o;
+    return Objects.equals(this.attributes, tagRuleCreateData.attributes)
+        && Objects.equals(this.type, tagRuleCreateData.type)
+        && Objects.equals(this.additionalProperties, tagRuleCreateData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagPolicyUpdateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class TagRuleCreateData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

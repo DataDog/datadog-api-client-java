@@ -18,40 +18,40 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API resource type for a tag policy compliance score. */
-@JsonSerialize(using = TagPolicyScoreResourceType.TagPolicyScoreResourceTypeSerializer.class)
-public class TagPolicyScoreResourceType extends ModelEnum<String> {
+/** JSON:API resource type for a tag rule compliance score. */
+@JsonSerialize(using = TagRuleScoreResourceType.TagRuleScoreResourceTypeSerializer.class)
+public class TagRuleScoreResourceType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("tag_policy_score"));
+      new HashSet<String>(Arrays.asList("tag_rule_score"));
 
-  public static final TagPolicyScoreResourceType TAG_POLICY_SCORE =
-      new TagPolicyScoreResourceType("tag_policy_score");
+  public static final TagRuleScoreResourceType TAG_RULE_SCORE =
+      new TagRuleScoreResourceType("tag_rule_score");
 
-  TagPolicyScoreResourceType(String value) {
+  TagRuleScoreResourceType(String value) {
     super(value, allowedValues);
   }
 
-  public static class TagPolicyScoreResourceTypeSerializer
-      extends StdSerializer<TagPolicyScoreResourceType> {
-    public TagPolicyScoreResourceTypeSerializer(Class<TagPolicyScoreResourceType> t) {
+  public static class TagRuleScoreResourceTypeSerializer
+      extends StdSerializer<TagRuleScoreResourceType> {
+    public TagRuleScoreResourceTypeSerializer(Class<TagRuleScoreResourceType> t) {
       super(t);
     }
 
-    public TagPolicyScoreResourceTypeSerializer() {
+    public TagRuleScoreResourceTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        TagPolicyScoreResourceType value, JsonGenerator jgen, SerializerProvider provider)
+        TagRuleScoreResourceType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static TagPolicyScoreResourceType fromValue(String value) {
-    return new TagPolicyScoreResourceType(value);
+  public static TagRuleScoreResourceType fromValue(String value) {
+    return new TagRuleScoreResourceType(value);
   }
 }

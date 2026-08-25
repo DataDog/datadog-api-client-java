@@ -19,40 +19,38 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * How the policy is enforced. <code>blocking</code> rejects telemetry that violates the policy.
- * <code>surfacing</code> only highlights non-compliant telemetry without blocking it.
+ * A related resource to include alongside a tag rule in the response. Currently the only supported
+ * value is <code>score</code>.
  */
-@JsonSerialize(using = TagPolicyType.TagPolicyTypeSerializer.class)
-public class TagPolicyType extends ModelEnum<String> {
+@JsonSerialize(using = TagRuleInclude.TagRuleIncludeSerializer.class)
+public class TagRuleInclude extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("blocking", "surfacing"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("score"));
 
-  public static final TagPolicyType BLOCKING = new TagPolicyType("blocking");
-  public static final TagPolicyType SURFACING = new TagPolicyType("surfacing");
+  public static final TagRuleInclude SCORE = new TagRuleInclude("score");
 
-  TagPolicyType(String value) {
+  TagRuleInclude(String value) {
     super(value, allowedValues);
   }
 
-  public static class TagPolicyTypeSerializer extends StdSerializer<TagPolicyType> {
-    public TagPolicyTypeSerializer(Class<TagPolicyType> t) {
+  public static class TagRuleIncludeSerializer extends StdSerializer<TagRuleInclude> {
+    public TagRuleIncludeSerializer(Class<TagRuleInclude> t) {
       super(t);
     }
 
-    public TagPolicyTypeSerializer() {
+    public TagRuleIncludeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(TagPolicyType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(TagRuleInclude value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static TagPolicyType fromValue(String value) {
-    return new TagPolicyType(value);
+  public static TagRuleInclude fromValue(String value) {
+    return new TagRuleInclude(value);
   }
 }
