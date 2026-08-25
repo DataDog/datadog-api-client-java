@@ -20,7 +20,8 @@ import java.util.Objects;
 /** The metadata of a scanned asset. */
 @JsonPropertyOrder({
   ScannedAssetMetadata.JSON_PROPERTY_ATTRIBUTES,
-  ScannedAssetMetadata.JSON_PROPERTY_ID
+  ScannedAssetMetadata.JSON_PROPERTY_ID,
+  ScannedAssetMetadata.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,16 +33,22 @@ public class ScannedAssetMetadata {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private ScannedAssetMetadataType type;
+
   public ScannedAssetMetadata() {}
 
   @JsonCreator
   public ScannedAssetMetadata(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           ScannedAssetMetadataAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ScannedAssetMetadataType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public ScannedAssetMetadata attributes(ScannedAssetMetadataAttributes attributes) {
@@ -86,6 +93,30 @@ public class ScannedAssetMetadata {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ScannedAssetMetadata type(ScannedAssetMetadataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The JSON:API type.
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ScannedAssetMetadataType getType() {
+    return type;
+  }
+
+  public void setType(ScannedAssetMetadataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -146,12 +177,13 @@ public class ScannedAssetMetadata {
     ScannedAssetMetadata scannedAssetMetadata = (ScannedAssetMetadata) o;
     return Objects.equals(this.attributes, scannedAssetMetadata.attributes)
         && Objects.equals(this.id, scannedAssetMetadata.id)
+        && Objects.equals(this.type, scannedAssetMetadata.type)
         && Objects.equals(this.additionalProperties, scannedAssetMetadata.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -160,6 +192,7 @@ public class ScannedAssetMetadata {
     sb.append("class ScannedAssetMetadata {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

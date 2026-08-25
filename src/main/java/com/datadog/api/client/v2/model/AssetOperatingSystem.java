@@ -20,7 +20,8 @@ import java.util.Objects;
 /** Asset operating system. */
 @JsonPropertyOrder({
   AssetOperatingSystem.JSON_PROPERTY_DESCRIPTION,
-  AssetOperatingSystem.JSON_PROPERTY_NAME
+  AssetOperatingSystem.JSON_PROPERTY_NAME,
+  AssetOperatingSystem.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,6 +32,9 @@ public class AssetOperatingSystem {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private String version;
 
   public AssetOperatingSystem() {}
 
@@ -79,6 +83,27 @@ public class AssetOperatingSystem {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public AssetOperatingSystem version(String version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * Operating system version.
+   *
+   * @return version
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
   /**
@@ -139,12 +164,13 @@ public class AssetOperatingSystem {
     AssetOperatingSystem assetOperatingSystem = (AssetOperatingSystem) o;
     return Objects.equals(this.description, assetOperatingSystem.description)
         && Objects.equals(this.name, assetOperatingSystem.name)
+        && Objects.equals(this.version, assetOperatingSystem.version)
         && Objects.equals(this.additionalProperties, assetOperatingSystem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, additionalProperties);
+    return Objects.hash(description, name, version, additionalProperties);
   }
 
   @Override
@@ -153,6 +179,7 @@ public class AssetOperatingSystem {
     sb.append("class AssetOperatingSystem {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

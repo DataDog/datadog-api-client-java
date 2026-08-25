@@ -23,7 +23,7 @@ import java.util.Set;
 public class SpecVersion extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("1.0", "1.1", "1.2", "1.3", "1.4", "1.5"));
+      new HashSet<String>(Arrays.asList("1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6"));
 
   public static final SpecVersion ONE_ZERO = new SpecVersion("1.0");
   public static final SpecVersion ONE_ONE = new SpecVersion("1.1");
@@ -31,6 +31,7 @@ public class SpecVersion extends ModelEnum<String> {
   public static final SpecVersion ONE_THREE = new SpecVersion("1.3");
   public static final SpecVersion ONE_FOUR = new SpecVersion("1.4");
   public static final SpecVersion ONE_FIVE = new SpecVersion("1.5");
+  public static final SpecVersion ONE_SIX = new SpecVersion("1.6");
 
   SpecVersion(String value) {
     super(value, allowedValues);
