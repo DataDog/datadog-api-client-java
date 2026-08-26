@@ -27,6 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   AzureStorageDestination.JSON_PROPERTY_BLOB_PREFIX,
   AzureStorageDestination.JSON_PROPERTY_BUFFER,
+  AzureStorageDestination.JSON_PROPERTY_COMPRESSION,
   AzureStorageDestination.JSON_PROPERTY_CONNECTION_STRING_KEY,
   AzureStorageDestination.JSON_PROPERTY_CONTAINER_NAME,
   AzureStorageDestination.JSON_PROPERTY_ID,
@@ -42,6 +43,9 @@ public class AzureStorageDestination {
 
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
+
+  public static final String JSON_PROPERTY_COMPRESSION = "compression";
+  private ObservabilityPipelineAzureStorageDestinationCompression compression;
 
   public static final String JSON_PROPERTY_CONNECTION_STRING_KEY = "connection_string_key";
   private String connectionStringKey;
@@ -116,6 +120,33 @@ public class AzureStorageDestination {
     this.buffer = buffer;
     if (buffer != null) {
       this.unparsed |= buffer.unparsed;
+    }
+  }
+
+  public AzureStorageDestination compression(
+      ObservabilityPipelineAzureStorageDestinationCompression compression) {
+    this.compression = compression;
+    this.unparsed |= compression.unparsed;
+    return this;
+  }
+
+  /**
+   * Compression configuration for archived logs. When omitted, logs are compressed with gzip for
+   * backward compatibility.
+   *
+   * @return compression
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineAzureStorageDestinationCompression getCompression() {
+    return compression;
+  }
+
+  public void setCompression(ObservabilityPipelineAzureStorageDestinationCompression compression) {
+    this.compression = compression;
+    if (compression != null) {
+      this.unparsed |= compression.unparsed;
     }
   }
 
@@ -287,6 +318,7 @@ public class AzureStorageDestination {
     AzureStorageDestination azureStorageDestination = (AzureStorageDestination) o;
     return Objects.equals(this.blobPrefix, azureStorageDestination.blobPrefix)
         && Objects.equals(this.buffer, azureStorageDestination.buffer)
+        && Objects.equals(this.compression, azureStorageDestination.compression)
         && Objects.equals(this.connectionStringKey, azureStorageDestination.connectionStringKey)
         && Objects.equals(this.containerName, azureStorageDestination.containerName)
         && Objects.equals(this.id, azureStorageDestination.id)
@@ -300,6 +332,7 @@ public class AzureStorageDestination {
     return Objects.hash(
         blobPrefix,
         buffer,
+        compression,
         connectionStringKey,
         containerName,
         id,
@@ -314,6 +347,7 @@ public class AzureStorageDestination {
     sb.append("class AzureStorageDestination {\n");
     sb.append("    blobPrefix: ").append(toIndentedString(blobPrefix)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
+    sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    connectionStringKey: ")
         .append(toIndentedString(connectionStringKey))
         .append("\n");
