@@ -1380,6 +1380,7 @@ public class ApiClient {
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.getEntityRiskScore", false);
           put("v2.listEntityRiskScores", false);
+          put("v2.submitStixThreatIntel", false);
           put("v2.createSLOReportJob", false);
           put("v2.getSLOReport", false);
           put("v2.getSLOReportJobStatus", false);
