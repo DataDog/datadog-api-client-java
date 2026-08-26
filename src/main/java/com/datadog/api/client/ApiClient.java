@@ -77,6 +77,7 @@ public class ApiClient {
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
   protected String basePath = "https://api.datadoghq.com";
   protected String userAgent;
+  private boolean isIaC = false;
   private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
   protected List<ServerConfiguration> servers =
@@ -1935,6 +1936,33 @@ public class ApiClient {
   public ApiClient addDefaultHeader(String key, String value) {
     defaultHeaderMap.put(key, value);
     return this;
+  }
+
+  /**
+   * Set whether this API client is managed by Infrastructure as Code (IaC) tooling. When enabled,
+   * the {@code X-Datadog-Managed-By: iac} header is sent on every request made through this client
+   * (by adding to the default header map).
+   *
+   * @param isIaC Whether calls made with this client originate from IaC tooling
+   * @return API client
+   */
+  public ApiClient setIsIaC(boolean isIaC) {
+    this.isIaC = isIaC;
+    if (isIaC) {
+      addDefaultHeader("X-Datadog-Managed-By", "iac");
+    } else {
+      defaultHeaderMap.remove("X-Datadog-Managed-By");
+    }
+    return this;
+  }
+
+  /**
+   * Get whether this API client is managed by Infrastructure as Code (IaC) tooling.
+   *
+   * @return Whether this client is managed by IaC tooling
+   */
+  public boolean getIsIaC() {
+    return isIaC;
   }
 
   /**
