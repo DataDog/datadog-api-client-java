@@ -29,6 +29,7 @@ import java.util.Objects;
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_AUTO_EXTRACT_TIMESTAMP,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ENCODING,
+  ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ENDPOINT_TARGET,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_INDEX,
@@ -51,6 +52,9 @@ public class ObservabilityPipelineSplunkHecDestination {
 
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineSplunkHecDestinationEncoding encoding;
+
+  public static final String JSON_PROPERTY_ENDPOINT_TARGET = "endpoint_target";
+  private ObservabilityPipelineSplunkHecDestinationEndpointTarget endpointTarget;
 
   public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
   private String endpointUrlKey;
@@ -102,7 +106,9 @@ public class ObservabilityPipelineSplunkHecDestination {
 
   /**
    * If <code>true</code>, Splunk tries to extract timestamps from incoming log events. If <code>
-   * false</code>, Splunk assigns the time the event was received.
+   * false</code>, Splunk assigns the time the event was received. Only applies when <code>
+   * endpoint_target</code> is <code>event</code>; cannot be <code>true</code> when <code>
+   * endpoint_target</code> is <code>raw</code>.
    *
    * @return autoExtractTimestamp
    */
@@ -167,6 +173,35 @@ public class ObservabilityPipelineSplunkHecDestination {
       this.unparsed = true;
     }
     this.encoding = encoding;
+  }
+
+  public ObservabilityPipelineSplunkHecDestination endpointTarget(
+      ObservabilityPipelineSplunkHecDestinationEndpointTarget endpointTarget) {
+    this.endpointTarget = endpointTarget;
+    this.unparsed |= !endpointTarget.isValid();
+    return this;
+  }
+
+  /**
+   * The Splunk HEC endpoint to send events to. Use <code>event</code> to send structured events to
+   * the <code>/event</code> endpoint, or <code>raw</code> to send the raw message to the <code>/raw
+   * </code> endpoint.
+   *
+   * @return endpointTarget
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_TARGET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineSplunkHecDestinationEndpointTarget getEndpointTarget() {
+    return endpointTarget;
+  }
+
+  public void setEndpointTarget(
+      ObservabilityPipelineSplunkHecDestinationEndpointTarget endpointTarget) {
+    if (!endpointTarget.isValid()) {
+      this.unparsed = true;
+    }
+    this.endpointTarget = endpointTarget;
   }
 
   public ObservabilityPipelineSplunkHecDestination endpointUrlKey(String endpointUrlKey) {
@@ -446,6 +481,8 @@ public class ObservabilityPipelineSplunkHecDestination {
         && Objects.equals(this.buffer, observabilityPipelineSplunkHecDestination.buffer)
         && Objects.equals(this.encoding, observabilityPipelineSplunkHecDestination.encoding)
         && Objects.equals(
+            this.endpointTarget, observabilityPipelineSplunkHecDestination.endpointTarget)
+        && Objects.equals(
             this.endpointUrlKey, observabilityPipelineSplunkHecDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineSplunkHecDestination.id)
         && Objects.equals(this.index, observabilityPipelineSplunkHecDestination.index)
@@ -468,6 +505,7 @@ public class ObservabilityPipelineSplunkHecDestination {
         autoExtractTimestamp,
         buffer,
         encoding,
+        endpointTarget,
         endpointUrlKey,
         id,
         index,
@@ -489,6 +527,7 @@ public class ObservabilityPipelineSplunkHecDestination {
         .append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
+    sb.append("    endpointTarget: ").append(toIndentedString(endpointTarget)).append("\n");
     sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
