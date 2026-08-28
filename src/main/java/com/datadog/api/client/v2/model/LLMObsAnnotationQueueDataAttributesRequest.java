@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -22,7 +24,10 @@ import java.util.Objects;
   LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_ANNOTATION_SCHEMA,
   LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_DESCRIPTION,
   LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_NAME,
-  LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_PROJECT_ID
+  LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_PROJECT_ID,
+  LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_RESTRICT_TO_ASSIGNEES,
+  LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_RESTRICT_TO_REVIEWERS,
+  LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_REVIEWER_EMAILS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -39,6 +44,15 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
 
   public static final String JSON_PROPERTY_PROJECT_ID = "project_id";
   private String projectId;
+
+  public static final String JSON_PROPERTY_RESTRICT_TO_ASSIGNEES = "restrict_to_assignees";
+  private Boolean restrictToAssignees;
+
+  public static final String JSON_PROPERTY_RESTRICT_TO_REVIEWERS = "restrict_to_reviewers";
+  private Boolean restrictToReviewers;
+
+  public static final String JSON_PROPERTY_REVIEWER_EMAILS = "reviewer_emails";
+  private List<String> reviewerEmails = null;
 
   public LLMObsAnnotationQueueDataAttributesRequest() {}
 
@@ -137,6 +151,80 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
     this.projectId = projectId;
   }
 
+  public LLMObsAnnotationQueueDataAttributesRequest restrictToAssignees(
+      Boolean restrictToAssignees) {
+    this.restrictToAssignees = restrictToAssignees;
+    return this;
+  }
+
+  /**
+   * Whether annotation access is restricted to assigned users.
+   *
+   * @return restrictToAssignees
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESTRICT_TO_ASSIGNEES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRestrictToAssignees() {
+    return restrictToAssignees;
+  }
+
+  public void setRestrictToAssignees(Boolean restrictToAssignees) {
+    this.restrictToAssignees = restrictToAssignees;
+  }
+
+  public LLMObsAnnotationQueueDataAttributesRequest restrictToReviewers(
+      Boolean restrictToReviewers) {
+    this.restrictToReviewers = restrictToReviewers;
+    return this;
+  }
+
+  /**
+   * Whether annotation access is restricted to queue reviewers.
+   *
+   * @return restrictToReviewers
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESTRICT_TO_REVIEWERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRestrictToReviewers() {
+    return restrictToReviewers;
+  }
+
+  public void setRestrictToReviewers(Boolean restrictToReviewers) {
+    this.restrictToReviewers = restrictToReviewers;
+  }
+
+  public LLMObsAnnotationQueueDataAttributesRequest reviewerEmails(List<String> reviewerEmails) {
+    this.reviewerEmails = reviewerEmails;
+    return this;
+  }
+
+  public LLMObsAnnotationQueueDataAttributesRequest addReviewerEmailsItem(
+      String reviewerEmailsItem) {
+    if (this.reviewerEmails == null) {
+      this.reviewerEmails = new ArrayList<>();
+    }
+    this.reviewerEmails.add(reviewerEmailsItem);
+    return this;
+  }
+
+  /**
+   * Email addresses of reviewers who can access the annotation queue.
+   *
+   * @return reviewerEmails
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REVIEWER_EMAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getReviewerEmails() {
+    return reviewerEmails;
+  }
+
+  public void setReviewerEmails(List<String> reviewerEmails) {
+    this.reviewerEmails = reviewerEmails;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -201,13 +289,29 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
         && Objects.equals(this.name, llmObsAnnotationQueueDataAttributesRequest.name)
         && Objects.equals(this.projectId, llmObsAnnotationQueueDataAttributesRequest.projectId)
         && Objects.equals(
+            this.restrictToAssignees,
+            llmObsAnnotationQueueDataAttributesRequest.restrictToAssignees)
+        && Objects.equals(
+            this.restrictToReviewers,
+            llmObsAnnotationQueueDataAttributesRequest.restrictToReviewers)
+        && Objects.equals(
+            this.reviewerEmails, llmObsAnnotationQueueDataAttributesRequest.reviewerEmails)
+        && Objects.equals(
             this.additionalProperties,
             llmObsAnnotationQueueDataAttributesRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotationSchema, description, name, projectId, additionalProperties);
+    return Objects.hash(
+        annotationSchema,
+        description,
+        name,
+        projectId,
+        restrictToAssignees,
+        restrictToReviewers,
+        reviewerEmails,
+        additionalProperties);
   }
 
   @Override
@@ -218,6 +322,13 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    restrictToAssignees: ")
+        .append(toIndentedString(restrictToAssignees))
+        .append("\n");
+    sb.append("    restrictToReviewers: ")
+        .append(toIndentedString(restrictToReviewers))
+        .append("\n");
+    sb.append("    reviewerEmails: ").append(toIndentedString(reviewerEmails)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
