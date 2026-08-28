@@ -49,6 +49,7 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
               "server.response.headers.no_cookies",
               "server.response.trailers",
               "server.response.body",
+              "server.response.body.raw",
               "grpc.server.request.metadata",
               "grpc.server.request.message",
               "grpc.server.method",
@@ -117,6 +118,9 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
           new ApplicationSecurityWafCustomRuleConditionInputAddress("server.response.trailers");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_RESPONSE_BODY =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.response.body");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress
+      SERVER_RESPONSE_BODY_RAW =
+          new ApplicationSecurityWafCustomRuleConditionInputAddress("server.response.body.raw");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress
       GRPC_SERVER_REQUEST_METADATA =
           new ApplicationSecurityWafCustomRuleConditionInputAddress("grpc.server.request.metadata");
