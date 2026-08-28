@@ -23,6 +23,7 @@ import java.util.Objects;
 /** A trace, experiment trace, or session interaction with its associated annotations. */
 @JsonPropertyOrder({
   LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_ANNOTATIONS,
+  LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_CAN_ANNOTATE,
   LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_CONTENT_ID,
   LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_CREATED_AT,
   LLMObsTraceAnnotatedInteractionItem.JSON_PROPERTY_ID,
@@ -35,6 +36,9 @@ public class LLMObsTraceAnnotatedInteractionItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATIONS = "annotations";
   private List<LLMObsAnnotationItem> annotations = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_CAN_ANNOTATE = "can_annotate";
+  private Boolean canAnnotate;
 
   public static final String JSON_PROPERTY_CONTENT_ID = "content_id";
   private String contentId;
@@ -57,6 +61,7 @@ public class LLMObsTraceAnnotatedInteractionItem {
   public LLMObsTraceAnnotatedInteractionItem(
       @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
           List<LLMObsAnnotationItem> annotations,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CAN_ANNOTATE) Boolean canAnnotate,
       @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
@@ -66,6 +71,7 @@ public class LLMObsTraceAnnotatedInteractionItem {
     for (LLMObsAnnotationItem item : annotations) {
       this.unparsed |= item.unparsed;
     }
+    this.canAnnotate = canAnnotate;
     this.contentId = contentId;
     this.createdAt = createdAt;
     this.id = id;
@@ -107,6 +113,26 @@ public class LLMObsTraceAnnotatedInteractionItem {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public LLMObsTraceAnnotatedInteractionItem canAnnotate(Boolean canAnnotate) {
+    this.canAnnotate = canAnnotate;
+    return this;
+  }
+
+  /**
+   * Whether the current caller can annotate this interaction.
+   *
+   * @return canAnnotate
+   */
+  @JsonProperty(JSON_PROPERTY_CAN_ANNOTATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getCanAnnotate() {
+    return canAnnotate;
+  }
+
+  public void setCanAnnotate(Boolean canAnnotate) {
+    this.canAnnotate = canAnnotate;
   }
 
   public LLMObsTraceAnnotatedInteractionItem contentId(String contentId) {
@@ -271,6 +297,7 @@ public class LLMObsTraceAnnotatedInteractionItem {
     LLMObsTraceAnnotatedInteractionItem llmObsTraceAnnotatedInteractionItem =
         (LLMObsTraceAnnotatedInteractionItem) o;
     return Objects.equals(this.annotations, llmObsTraceAnnotatedInteractionItem.annotations)
+        && Objects.equals(this.canAnnotate, llmObsTraceAnnotatedInteractionItem.canAnnotate)
         && Objects.equals(this.contentId, llmObsTraceAnnotatedInteractionItem.contentId)
         && Objects.equals(this.createdAt, llmObsTraceAnnotatedInteractionItem.createdAt)
         && Objects.equals(this.id, llmObsTraceAnnotatedInteractionItem.id)
@@ -283,7 +310,7 @@ public class LLMObsTraceAnnotatedInteractionItem {
   @Override
   public int hashCode() {
     return Objects.hash(
-        annotations, contentId, createdAt, id, modifiedAt, type, additionalProperties);
+        annotations, canAnnotate, contentId, createdAt, id, modifiedAt, type, additionalProperties);
   }
 
   @Override
@@ -291,6 +318,7 @@ public class LLMObsTraceAnnotatedInteractionItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsTraceAnnotatedInteractionItem {\n");
     sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
+    sb.append("    canAnnotate: ").append(toIndentedString(canAnnotate)).append("\n");
     sb.append("    contentId: ").append(toIndentedString(contentId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

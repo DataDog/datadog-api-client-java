@@ -44,7 +44,10 @@ public class Example {
                                                 .values(Arrays.asList("good", "bad", "neutral")))))
                             .description("Queue for annotating customer support traces")
                             .name("My annotation queue")
-                            .projectId("00000000-0000-0000-0000-000000000002"))
+                            .projectId("00000000-0000-0000-0000-000000000002")
+                            .restrictToAssignees(false)
+                            .restrictToReviewers(true)
+                            .reviewerEmails(Collections.singletonList("reviewer@example.com")))
                     .type(LLMObsAnnotationQueueType.QUEUES));
 
     try {

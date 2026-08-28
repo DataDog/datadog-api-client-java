@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_ANNOTATIONS,
+  LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_CAN_ANNOTATE,
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_CONTENT_ID,
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_CREATED_AT,
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_DISPLAY_BLOCK,
@@ -40,6 +41,9 @@ public class LLMObsAnnotatedInteractionByTraceItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATIONS = "annotations";
   private List<LLMObsAnnotationItem> annotations = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_CAN_ANNOTATE = "can_annotate";
+  private Boolean canAnnotate;
 
   public static final String JSON_PROPERTY_CONTENT_ID = "content_id";
   private String contentId;
@@ -71,6 +75,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
   public LLMObsAnnotatedInteractionByTraceItem(
       @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
           List<LLMObsAnnotationItem> annotations,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CAN_ANNOTATE) Boolean canAnnotate,
       @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
@@ -82,6 +87,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
     for (LLMObsAnnotationItem item : annotations) {
       this.unparsed |= item.unparsed;
     }
+    this.canAnnotate = canAnnotate;
     this.contentId = contentId;
     this.createdAt = createdAt;
     this.id = id;
@@ -125,6 +131,26 @@ public class LLMObsAnnotatedInteractionByTraceItem {
         this.unparsed |= item.unparsed;
       }
     }
+  }
+
+  public LLMObsAnnotatedInteractionByTraceItem canAnnotate(Boolean canAnnotate) {
+    this.canAnnotate = canAnnotate;
+    return this;
+  }
+
+  /**
+   * Whether the current caller can annotate this interaction.
+   *
+   * @return canAnnotate
+   */
+  @JsonProperty(JSON_PROPERTY_CAN_ANNOTATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getCanAnnotate() {
+    return canAnnotate;
+  }
+
+  public void setCanAnnotate(Boolean canAnnotate) {
+    this.canAnnotate = canAnnotate;
   }
 
   public LLMObsAnnotatedInteractionByTraceItem contentId(String contentId) {
@@ -371,6 +397,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
     LLMObsAnnotatedInteractionByTraceItem llmObsAnnotatedInteractionByTraceItem =
         (LLMObsAnnotatedInteractionByTraceItem) o;
     return Objects.equals(this.annotations, llmObsAnnotatedInteractionByTraceItem.annotations)
+        && Objects.equals(this.canAnnotate, llmObsAnnotatedInteractionByTraceItem.canAnnotate)
         && Objects.equals(this.contentId, llmObsAnnotatedInteractionByTraceItem.contentId)
         && Objects.equals(this.createdAt, llmObsAnnotatedInteractionByTraceItem.createdAt)
         && Objects.equals(this.displayBlock, llmObsAnnotatedInteractionByTraceItem.displayBlock)
@@ -387,6 +414,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
   public int hashCode() {
     return Objects.hash(
         annotations,
+        canAnnotate,
         contentId,
         createdAt,
         displayBlock,
@@ -403,6 +431,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsAnnotatedInteractionByTraceItem {\n");
     sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
+    sb.append("    canAnnotate: ").append(toIndentedString(canAnnotate)).append("\n");
     sb.append("    contentId: ").append(toIndentedString(contentId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    displayBlock: ").append(toIndentedString(displayBlock)).append("\n");

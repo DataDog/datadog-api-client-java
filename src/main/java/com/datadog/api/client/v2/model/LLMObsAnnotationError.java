@@ -20,6 +20,7 @@ import java.util.Objects;
 /** A partial error for a single annotation that could not be processed. */
 @JsonPropertyOrder({
   LLMObsAnnotationError.JSON_PROPERTY_ANNOTATION_ID,
+  LLMObsAnnotationError.JSON_PROPERTY_CODE,
   LLMObsAnnotationError.JSON_PROPERTY_ERROR,
   LLMObsAnnotationError.JSON_PROPERTY_INTERACTION_ID
 })
@@ -29,6 +30,9 @@ public class LLMObsAnnotationError {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATION_ID = "annotation_id";
   private String annotationId;
+
+  public static final String JSON_PROPERTY_CODE = "code";
+  private LLMObsAnnotationErrorCode code;
 
   public static final String JSON_PROPERTY_ERROR = "error";
   private String error;
@@ -65,6 +69,32 @@ public class LLMObsAnnotationError {
 
   public void setAnnotationId(String annotationId) {
     this.annotationId = annotationId;
+  }
+
+  public LLMObsAnnotationError code(LLMObsAnnotationErrorCode code) {
+    this.code = code;
+    this.unparsed |= !code.isValid();
+    return this;
+  }
+
+  /**
+   * Stable error code. <code>permission_denied</code> indicates the item was rejected by queue
+   * access rules.
+   *
+   * @return code
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsAnnotationErrorCode getCode() {
+    return code;
+  }
+
+  public void setCode(LLMObsAnnotationErrorCode code) {
+    if (!code.isValid()) {
+      this.unparsed = true;
+    }
+    this.code = code;
   }
 
   public LLMObsAnnotationError error(String error) {
@@ -164,6 +194,7 @@ public class LLMObsAnnotationError {
     }
     LLMObsAnnotationError llmObsAnnotationError = (LLMObsAnnotationError) o;
     return Objects.equals(this.annotationId, llmObsAnnotationError.annotationId)
+        && Objects.equals(this.code, llmObsAnnotationError.code)
         && Objects.equals(this.error, llmObsAnnotationError.error)
         && Objects.equals(this.interactionId, llmObsAnnotationError.interactionId)
         && Objects.equals(this.additionalProperties, llmObsAnnotationError.additionalProperties);
@@ -171,7 +202,7 @@ public class LLMObsAnnotationError {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotationId, error, interactionId, additionalProperties);
+    return Objects.hash(annotationId, code, error, interactionId, additionalProperties);
   }
 
   @Override
@@ -179,6 +210,7 @@ public class LLMObsAnnotationError {
     StringBuilder sb = new StringBuilder();
     sb.append("class LLMObsAnnotationError {\n");
     sb.append("    annotationId: ").append(toIndentedString(annotationId)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
     sb.append("    additionalProperties: ")

@@ -43,7 +43,10 @@ public class Example {
                                                 .type(LLMObsLabelSchemaType.SCORE)
                                                 .values(Arrays.asList("good", "bad", "neutral")))))
                             .description("Updated description")
-                            .name("Updated queue name"))
+                            .name("Updated queue name")
+                            .restrictToAssignees(false)
+                            .restrictToReviewers(true)
+                            .reviewerEmails(Collections.singletonList("reviewer@example.com")))
                     .type(LLMObsAnnotationQueueType.QUEUES));
 
     try {
