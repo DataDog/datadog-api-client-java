@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * The attributes of an SCA request, containing dependency graph data, vulnerability information,
@@ -29,6 +30,7 @@ import java.util.Objects;
   ScaRequestDataAttributes.JSON_PROPERTY_FILES,
   ScaRequestDataAttributes.JSON_PROPERTY_RELATIONS,
   ScaRequestDataAttributes.JSON_PROPERTY_REPOSITORY,
+  ScaRequestDataAttributes.JSON_PROPERTY_SCAN_START_TIMESTAMP,
   ScaRequestDataAttributes.JSON_PROPERTY_SERVICE,
   ScaRequestDataAttributes.JSON_PROPERTY_TAGS,
   ScaRequestDataAttributes.JSON_PROPERTY_VULNERABILITIES
@@ -55,11 +57,15 @@ public class ScaRequestDataAttributes {
   public static final String JSON_PROPERTY_REPOSITORY = "repository";
   private ScaRequestDataAttributesRepository repository;
 
+  public static final String JSON_PROPERTY_SCAN_START_TIMESTAMP = "scan_start_timestamp";
+  private JsonNullable<ScaRequestDataAttributesScanStartTimestamp> scanStartTimestamp =
+      JsonNullable.<ScaRequestDataAttributesScanStartTimestamp>undefined();
+
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private Map<String, String> tags = null;
+  private ScaRequestDataAttributesTags tags;
 
   public static final String JSON_PROPERTY_VULNERABILITIES = "vulnerabilities";
   private List<ScaRequestDataAttributesVulnerabilitiesItems> vulnerabilities = null;
@@ -260,6 +266,42 @@ public class ScaRequestDataAttributes {
     }
   }
 
+  public ScaRequestDataAttributes scanStartTimestamp(
+      ScaRequestDataAttributesScanStartTimestamp scanStartTimestamp) {
+    this.scanStartTimestamp =
+        JsonNullable.<ScaRequestDataAttributesScanStartTimestamp>of(scanStartTimestamp);
+    return this;
+  }
+
+  /**
+   * The time when the SCA scan started.
+   *
+   * @return scanStartTimestamp
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public ScaRequestDataAttributesScanStartTimestamp getScanStartTimestamp() {
+    return scanStartTimestamp.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCAN_START_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<ScaRequestDataAttributesScanStartTimestamp>
+      getScanStartTimestamp_JsonNullable() {
+    return scanStartTimestamp;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCAN_START_TIMESTAMP)
+  public void setScanStartTimestamp_JsonNullable(
+      JsonNullable<ScaRequestDataAttributesScanStartTimestamp> scanStartTimestamp) {
+    this.scanStartTimestamp = scanStartTimestamp;
+  }
+
+  public void setScanStartTimestamp(ScaRequestDataAttributesScanStartTimestamp scanStartTimestamp) {
+    this.scanStartTimestamp =
+        JsonNullable.<ScaRequestDataAttributesScanStartTimestamp>of(scanStartTimestamp);
+  }
+
   public ScaRequestDataAttributes service(String service) {
     this.service = service;
     return this;
@@ -281,33 +323,29 @@ public class ScaRequestDataAttributes {
     this.service = service;
   }
 
-  public ScaRequestDataAttributes tags(Map<String, String> tags) {
+  public ScaRequestDataAttributes tags(ScaRequestDataAttributesTags tags) {
     this.tags = tags;
-    return this;
-  }
-
-  public ScaRequestDataAttributes putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
+    this.unparsed |= tags.unparsed;
     return this;
   }
 
   /**
-   * A map of key-value tags providing additional metadata for the SCA scan.
+   * A map of tags providing additional metadata for the SCA scan.
    *
    * @return tags
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, String> getTags() {
+  public ScaRequestDataAttributesTags getTags() {
     return tags;
   }
 
-  public void setTags(Map<String, String> tags) {
+  public void setTags(ScaRequestDataAttributesTags tags) {
     this.tags = tags;
+    if (tags != null) {
+      this.unparsed |= tags.unparsed;
+    }
   }
 
   public ScaRequestDataAttributes vulnerabilities(
@@ -415,6 +453,7 @@ public class ScaRequestDataAttributes {
         && Objects.equals(this.files, scaRequestDataAttributes.files)
         && Objects.equals(this.relations, scaRequestDataAttributes.relations)
         && Objects.equals(this.repository, scaRequestDataAttributes.repository)
+        && Objects.equals(this.scanStartTimestamp, scaRequestDataAttributes.scanStartTimestamp)
         && Objects.equals(this.service, scaRequestDataAttributes.service)
         && Objects.equals(this.tags, scaRequestDataAttributes.tags)
         && Objects.equals(this.vulnerabilities, scaRequestDataAttributes.vulnerabilities)
@@ -430,6 +469,7 @@ public class ScaRequestDataAttributes {
         files,
         relations,
         repository,
+        scanStartTimestamp,
         service,
         tags,
         vulnerabilities,
@@ -446,6 +486,7 @@ public class ScaRequestDataAttributes {
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    relations: ").append(toIndentedString(relations)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
+    sb.append("    scanStartTimestamp: ").append(toIndentedString(scanStartTimestamp)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vulnerabilities: ").append(toIndentedString(vulnerabilities)).append("\n");
