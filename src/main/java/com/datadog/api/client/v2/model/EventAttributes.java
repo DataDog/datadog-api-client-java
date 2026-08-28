@@ -367,7 +367,8 @@ public class EventAttributes {
   }
 
   /**
-   * The priority of the event's monitor. For example, <code>normal</code> or <code>low</code>.
+   * The priority of the event alert. Legacy events use <code>normal</code> or <code>low</code>.
+   * Alert events use <code>1</code> (highest priority) through <code>5</code> (lowest priority).
    *
    * @return priority
    */
@@ -491,9 +492,10 @@ public class EventAttributes {
   }
 
   /**
-   * If an alert event is enabled, its status is one of the following: <code>failure</code>, <code>
-   * error</code>, <code>warning</code>, <code>info</code>, <code>success</code>, <code>user_update
-   * </code>, <code>recommendation</code>, or <code>snapshot</code>.
+   * The event status. Legacy events can use <code>failure</code>, <code>error</code>, <code>warning
+   * </code>, <code>info</code>, <code>success</code>, <code>user_update</code>, <code>
+   * recommendation</code>, or <code>snapshot</code>. Alert events can use <code>error</code>,
+   * <code>warn</code>, or <code>ok</code>.
    *
    * @return status
    */

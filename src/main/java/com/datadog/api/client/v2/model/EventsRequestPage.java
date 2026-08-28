@@ -55,7 +55,7 @@ public class EventsRequestPage {
   }
 
   /**
-   * The maximum number of logs in the response. maximum: 1000
+   * The maximum number of events in the response. maximum: 1000
    *
    * @return limit
    */
