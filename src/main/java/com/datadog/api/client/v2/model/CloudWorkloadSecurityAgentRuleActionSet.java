@@ -25,6 +25,7 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_INHERITED,
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_NAME,
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_SCOPE,
+  CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_SCOPE_FIELD,
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_SIZE,
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_TTL,
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_VALUE
@@ -53,6 +54,9 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
+
+  public static final String JSON_PROPERTY_SCOPE_FIELD = "scope_field";
+  private String scopeField;
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
@@ -210,6 +214,27 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
     this.scope = scope;
   }
 
+  public CloudWorkloadSecurityAgentRuleActionSet scopeField(String scopeField) {
+    this.scopeField = scopeField;
+    return this;
+  }
+
+  /**
+   * The scope field of the set action.
+   *
+   * @return scopeField
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCOPE_FIELD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getScopeField() {
+    return scopeField;
+  }
+
+  public void setScopeField(String scopeField) {
+    this.scopeField = scopeField;
+  }
+
   public CloudWorkloadSecurityAgentRuleActionSet size(Long size) {
     this.size = size;
     return this;
@@ -342,6 +367,7 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
         && Objects.equals(this.inherited, cloudWorkloadSecurityAgentRuleActionSet.inherited)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleActionSet.name)
         && Objects.equals(this.scope, cloudWorkloadSecurityAgentRuleActionSet.scope)
+        && Objects.equals(this.scopeField, cloudWorkloadSecurityAgentRuleActionSet.scopeField)
         && Objects.equals(this.size, cloudWorkloadSecurityAgentRuleActionSet.size)
         && Objects.equals(this.ttl, cloudWorkloadSecurityAgentRuleActionSet.ttl)
         && Objects.equals(this.value, cloudWorkloadSecurityAgentRuleActionSet.value)
@@ -360,6 +386,7 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
         inherited,
         name,
         scope,
+        scopeField,
         size,
         ttl,
         value,
@@ -377,6 +404,7 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
     sb.append("    inherited: ").append(toIndentedString(inherited)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("    scopeField: ").append(toIndentedString(scopeField)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
