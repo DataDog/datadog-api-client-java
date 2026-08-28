@@ -5632,6 +5632,7 @@ public class AgentObservabilityApi {
   /** Manage optional parameters to getLLMObsPrompt. */
   public static class GetLLMObsPromptOptionalParameters {
     private String label;
+    private String environment;
 
     /**
      * Set label.
@@ -5640,11 +5641,26 @@ public class AgentObservabilityApi {
      *     not use this parameter for new integrations. If omitted, the latest version is returned.
      *     If the prompt has no labels, the latest version is returned even when a label is
      *     requested. If the prompt has labels but none match the requested label, a 404 response is
-     *     returned. (optional)
+     *     returned. This parameter cannot be used with <code>environment</code>. (optional)
      * @return GetLLMObsPromptOptionalParameters
      */
     public GetLLMObsPromptOptionalParameters label(String label) {
       this.label = label;
+      return this;
+    }
+
+    /**
+     * Set environment.
+     *
+     * @param environment Optional <code>DD_ENV</code> value used to resolve the prompt version
+     *     deployed to the matching Feature Flags environment. This value is not a Feature Flags
+     *     environment UUID. Using this parameter additionally requires the <code>
+     *     feature_flag_config_read</code> and <code>feature_flag_environment_config_read</code>
+     *     permissions. This parameter cannot be used with <code>label</code>. (optional)
+     * @return GetLLMObsPromptOptionalParameters
+     */
+    public GetLLMObsPromptOptionalParameters environment(String environment) {
+      this.environment = environment;
       return this;
     }
   }
@@ -5712,7 +5728,15 @@ public class AgentObservabilityApi {
   }
 
   /**
-   * Get the latest version of an Agent Observability prompt by prompt ID.
+   * Get an Agent Observability prompt by prompt ID. When <code>environment</code> is omitted, this
+   * returns the latest version or uses the deprecated <code>label</code> behavior and requires
+   * <code>llm_observability_read</code>. When <code>environment</code> is supplied, it must be a
+   * nonempty <code>DD_ENV</code> value, cannot be combined with <code>label</code>, and
+   * additionally requires <code>feature_flag_config_read</code> and <code>
+   * feature_flag_environment_config_read</code>. An empty environment or combining it with <code>
+   * label</code> returns 400, and missing either additional permission returns 403. A missing
+   * prompt or deployment returns 404 without falling back to the latest version. An environment
+   * resolution failure returns 500.
    *
    * @param promptId The customer-provided identifier of the Agent Observability prompt. (required)
    * @param parameters Optional parameters for the request.
@@ -5723,10 +5747,12 @@ public class AgentObservabilityApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request The environment is empty, or environment and label are both supplied. </td><td>  -  </td></tr>
    *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden The application key lacks &#x60;llm_observability_read&#x60;, or environment resolution was requested without both &#x60;feature_flag_config_read&#x60; and &#x60;feature_flag_environment_config_read&#x60;. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found The prompt does not exist, or no prompt deployment can be resolved for the supplied environment. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error Environment resolution failed. </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<LLMObsPromptSDKResponse> getLLMObsPromptWithHttpInfo(
@@ -5746,6 +5772,7 @@ public class AgentObservabilityApi {
           400, "Missing the required parameter 'promptId' when calling getLLMObsPrompt");
     }
     String label = parameters.label;
+    String environment = parameters.environment;
     // create path and map variables
     String localVarPath =
         "/api/v2/llm-obs/v1/prompts/{prompt_id}"
@@ -5755,6 +5782,7 @@ public class AgentObservabilityApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "label", label));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "environment", environment));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -5808,6 +5836,7 @@ public class AgentObservabilityApi {
       return result;
     }
     String label = parameters.label;
+    String environment = parameters.environment;
     // create path and map variables
     String localVarPath =
         "/api/v2/llm-obs/v1/prompts/{prompt_id}"
@@ -5817,6 +5846,7 @@ public class AgentObservabilityApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "label", label));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "environment", environment));
 
     Invocation.Builder builder;
     try {
