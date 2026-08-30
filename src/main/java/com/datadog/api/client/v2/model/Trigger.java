@@ -523,6 +523,340 @@ public class Trigger extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'GithubWebhookTriggerWrapper'", e);
       }
 
+      // deserialize IncidentCreatedTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (IncidentCreatedTriggerWrapper.class.equals(Integer.class)
+            || IncidentCreatedTriggerWrapper.class.equals(Long.class)
+            || IncidentCreatedTriggerWrapper.class.equals(Float.class)
+            || IncidentCreatedTriggerWrapper.class.equals(Double.class)
+            || IncidentCreatedTriggerWrapper.class.equals(Boolean.class)
+            || IncidentCreatedTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((IncidentCreatedTriggerWrapper.class.equals(Integer.class)
+                        || IncidentCreatedTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((IncidentCreatedTriggerWrapper.class.equals(Float.class)
+                        || IncidentCreatedTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (IncidentCreatedTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (IncidentCreatedTriggerWrapper.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(IncidentCreatedTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((IncidentCreatedTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'IncidentCreatedTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'IncidentCreatedTriggerWrapper'", e);
+      }
+
+      // deserialize IncidentImpactCreatedTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (IncidentImpactCreatedTriggerWrapper.class.equals(Integer.class)
+            || IncidentImpactCreatedTriggerWrapper.class.equals(Long.class)
+            || IncidentImpactCreatedTriggerWrapper.class.equals(Float.class)
+            || IncidentImpactCreatedTriggerWrapper.class.equals(Double.class)
+            || IncidentImpactCreatedTriggerWrapper.class.equals(Boolean.class)
+            || IncidentImpactCreatedTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((IncidentImpactCreatedTriggerWrapper.class.equals(Integer.class)
+                        || IncidentImpactCreatedTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((IncidentImpactCreatedTriggerWrapper.class.equals(Float.class)
+                        || IncidentImpactCreatedTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (IncidentImpactCreatedTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (IncidentImpactCreatedTriggerWrapper.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(IncidentImpactCreatedTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((IncidentImpactCreatedTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'IncidentImpactCreatedTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'IncidentImpactCreatedTriggerWrapper'",
+            e);
+      }
+
+      // deserialize IncidentImpactUpdatedTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (IncidentImpactUpdatedTriggerWrapper.class.equals(Integer.class)
+            || IncidentImpactUpdatedTriggerWrapper.class.equals(Long.class)
+            || IncidentImpactUpdatedTriggerWrapper.class.equals(Float.class)
+            || IncidentImpactUpdatedTriggerWrapper.class.equals(Double.class)
+            || IncidentImpactUpdatedTriggerWrapper.class.equals(Boolean.class)
+            || IncidentImpactUpdatedTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((IncidentImpactUpdatedTriggerWrapper.class.equals(Integer.class)
+                        || IncidentImpactUpdatedTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((IncidentImpactUpdatedTriggerWrapper.class.equals(Float.class)
+                        || IncidentImpactUpdatedTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (IncidentImpactUpdatedTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (IncidentImpactUpdatedTriggerWrapper.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(IncidentImpactUpdatedTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((IncidentImpactUpdatedTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'IncidentImpactUpdatedTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'IncidentImpactUpdatedTriggerWrapper'",
+            e);
+      }
+
+      // deserialize IncidentPostmortemUpdatedTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (IncidentPostmortemUpdatedTriggerWrapper.class.equals(Integer.class)
+            || IncidentPostmortemUpdatedTriggerWrapper.class.equals(Long.class)
+            || IncidentPostmortemUpdatedTriggerWrapper.class.equals(Float.class)
+            || IncidentPostmortemUpdatedTriggerWrapper.class.equals(Double.class)
+            || IncidentPostmortemUpdatedTriggerWrapper.class.equals(Boolean.class)
+            || IncidentPostmortemUpdatedTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((IncidentPostmortemUpdatedTriggerWrapper.class.equals(Integer.class)
+                        || IncidentPostmortemUpdatedTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((IncidentPostmortemUpdatedTriggerWrapper.class.equals(Float.class)
+                        || IncidentPostmortemUpdatedTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (IncidentPostmortemUpdatedTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (IncidentPostmortemUpdatedTriggerWrapper.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(IncidentPostmortemUpdatedTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((IncidentPostmortemUpdatedTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'IncidentPostmortemUpdatedTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'IncidentPostmortemUpdatedTriggerWrapper'",
+            e);
+      }
+
+      // deserialize IncidentResponderCreatedTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (IncidentResponderCreatedTriggerWrapper.class.equals(Integer.class)
+            || IncidentResponderCreatedTriggerWrapper.class.equals(Long.class)
+            || IncidentResponderCreatedTriggerWrapper.class.equals(Float.class)
+            || IncidentResponderCreatedTriggerWrapper.class.equals(Double.class)
+            || IncidentResponderCreatedTriggerWrapper.class.equals(Boolean.class)
+            || IncidentResponderCreatedTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((IncidentResponderCreatedTriggerWrapper.class.equals(Integer.class)
+                        || IncidentResponderCreatedTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((IncidentResponderCreatedTriggerWrapper.class.equals(Float.class)
+                        || IncidentResponderCreatedTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (IncidentResponderCreatedTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (IncidentResponderCreatedTriggerWrapper.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(IncidentResponderCreatedTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((IncidentResponderCreatedTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'IncidentResponderCreatedTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'IncidentResponderCreatedTriggerWrapper'",
+            e);
+      }
+
+      // deserialize IncidentSavedTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (IncidentSavedTriggerWrapper.class.equals(Integer.class)
+            || IncidentSavedTriggerWrapper.class.equals(Long.class)
+            || IncidentSavedTriggerWrapper.class.equals(Float.class)
+            || IncidentSavedTriggerWrapper.class.equals(Double.class)
+            || IncidentSavedTriggerWrapper.class.equals(Boolean.class)
+            || IncidentSavedTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((IncidentSavedTriggerWrapper.class.equals(Integer.class)
+                        || IncidentSavedTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((IncidentSavedTriggerWrapper.class.equals(Float.class)
+                        || IncidentSavedTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (IncidentSavedTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (IncidentSavedTriggerWrapper.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(IncidentSavedTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((IncidentSavedTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'IncidentSavedTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'IncidentSavedTriggerWrapper'", e);
+      }
+
+      // deserialize IncidentScheduleTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (IncidentScheduleTriggerWrapper.class.equals(Integer.class)
+            || IncidentScheduleTriggerWrapper.class.equals(Long.class)
+            || IncidentScheduleTriggerWrapper.class.equals(Float.class)
+            || IncidentScheduleTriggerWrapper.class.equals(Double.class)
+            || IncidentScheduleTriggerWrapper.class.equals(Boolean.class)
+            || IncidentScheduleTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((IncidentScheduleTriggerWrapper.class.equals(Integer.class)
+                        || IncidentScheduleTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((IncidentScheduleTriggerWrapper.class.equals(Float.class)
+                        || IncidentScheduleTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (IncidentScheduleTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (IncidentScheduleTriggerWrapper.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(IncidentScheduleTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((IncidentScheduleTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'IncidentScheduleTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'IncidentScheduleTriggerWrapper'", e);
+      }
+
       // deserialize IncidentTriggerWrapper
       try {
         boolean attemptParsing = true;
@@ -1050,6 +1384,41 @@ public class Trigger extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public Trigger(IncidentCreatedTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public Trigger(IncidentImpactCreatedTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public Trigger(IncidentImpactUpdatedTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public Trigger(IncidentPostmortemUpdatedTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public Trigger(IncidentResponderCreatedTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public Trigger(IncidentSavedTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public Trigger(IncidentScheduleTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public Trigger(IncidentTriggerWrapper o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1112,6 +1481,23 @@ public class Trigger extends AbstractOpenApiSchema {
     schemas.put("DashboardTriggerWrapper", new GenericType<DashboardTriggerWrapper>() {});
     schemas.put("FormTriggerWrapper", new GenericType<FormTriggerWrapper>() {});
     schemas.put("GithubWebhookTriggerWrapper", new GenericType<GithubWebhookTriggerWrapper>() {});
+    schemas.put(
+        "IncidentCreatedTriggerWrapper", new GenericType<IncidentCreatedTriggerWrapper>() {});
+    schemas.put(
+        "IncidentImpactCreatedTriggerWrapper",
+        new GenericType<IncidentImpactCreatedTriggerWrapper>() {});
+    schemas.put(
+        "IncidentImpactUpdatedTriggerWrapper",
+        new GenericType<IncidentImpactUpdatedTriggerWrapper>() {});
+    schemas.put(
+        "IncidentPostmortemUpdatedTriggerWrapper",
+        new GenericType<IncidentPostmortemUpdatedTriggerWrapper>() {});
+    schemas.put(
+        "IncidentResponderCreatedTriggerWrapper",
+        new GenericType<IncidentResponderCreatedTriggerWrapper>() {});
+    schemas.put("IncidentSavedTriggerWrapper", new GenericType<IncidentSavedTriggerWrapper>() {});
+    schemas.put(
+        "IncidentScheduleTriggerWrapper", new GenericType<IncidentScheduleTriggerWrapper>() {});
     schemas.put("IncidentTriggerWrapper", new GenericType<IncidentTriggerWrapper>() {});
     schemas.put("MonitorTriggerWrapper", new GenericType<MonitorTriggerWrapper>() {});
     schemas.put("NotebookTriggerWrapper", new GenericType<NotebookTriggerWrapper>() {});
@@ -1136,10 +1522,13 @@ public class Trigger extends AbstractOpenApiSchema {
    * against the oneOf child schemas: AgentTriggerWrapper, APITriggerWrapper, AppTriggerWrapper,
    * CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,
    * DatastoreTriggerWrapper, DashboardTriggerWrapper, FormTriggerWrapper,
-   * GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
-   * NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
-   * SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
-   * WorkflowTriggerWrapper
+   * GithubWebhookTriggerWrapper, IncidentCreatedTriggerWrapper,
+   * IncidentImpactCreatedTriggerWrapper, IncidentImpactUpdatedTriggerWrapper,
+   * IncidentPostmortemUpdatedTriggerWrapper, IncidentResponderCreatedTriggerWrapper,
+   * IncidentSavedTriggerWrapper, IncidentScheduleTriggerWrapper, IncidentTriggerWrapper,
+   * MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,
+   * SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
+   * SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1184,6 +1573,39 @@ public class Trigger extends AbstractOpenApiSchema {
       return;
     }
     if (JSON.isInstanceOf(GithubWebhookTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(IncidentCreatedTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        IncidentImpactCreatedTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        IncidentImpactUpdatedTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        IncidentPostmortemUpdatedTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        IncidentResponderCreatedTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(IncidentSavedTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        IncidentScheduleTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1236,28 +1658,38 @@ public class Trigger extends AbstractOpenApiSchema {
         "Invalid instance type. Must be AgentTriggerWrapper, APITriggerWrapper, AppTriggerWrapper,"
             + " CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,"
             + " DatastoreTriggerWrapper, DashboardTriggerWrapper, FormTriggerWrapper,"
-            + " GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,"
-            + " NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,"
-            + " SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,"
-            + " SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper");
+            + " GithubWebhookTriggerWrapper, IncidentCreatedTriggerWrapper,"
+            + " IncidentImpactCreatedTriggerWrapper, IncidentImpactUpdatedTriggerWrapper,"
+            + " IncidentPostmortemUpdatedTriggerWrapper, IncidentResponderCreatedTriggerWrapper,"
+            + " IncidentSavedTriggerWrapper, IncidentScheduleTriggerWrapper,"
+            + " IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper,"
+            + " OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,"
+            + " SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,"
+            + " WorkflowTriggerWrapper");
   }
 
   /**
    * Get the actual instance, which can be the following: AgentTriggerWrapper, APITriggerWrapper,
    * AppTriggerWrapper, CaseTriggerWrapper, ChangeEventTriggerWrapper,
    * DatabaseMonitoringTriggerWrapper, DatastoreTriggerWrapper, DashboardTriggerWrapper,
-   * FormTriggerWrapper, GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
-   * NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
-   * SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
-   * WorkflowTriggerWrapper
+   * FormTriggerWrapper, GithubWebhookTriggerWrapper, IncidentCreatedTriggerWrapper,
+   * IncidentImpactCreatedTriggerWrapper, IncidentImpactUpdatedTriggerWrapper,
+   * IncidentPostmortemUpdatedTriggerWrapper, IncidentResponderCreatedTriggerWrapper,
+   * IncidentSavedTriggerWrapper, IncidentScheduleTriggerWrapper, IncidentTriggerWrapper,
+   * MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,
+   * SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
+   * SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper
    *
    * @return The actual instance (AgentTriggerWrapper, APITriggerWrapper, AppTriggerWrapper,
    *     CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,
    *     DatastoreTriggerWrapper, DashboardTriggerWrapper, FormTriggerWrapper,
-   *     GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
-   *     NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,
-   *     SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
-   *     SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper)
+   *     GithubWebhookTriggerWrapper, IncidentCreatedTriggerWrapper,
+   *     IncidentImpactCreatedTriggerWrapper, IncidentImpactUpdatedTriggerWrapper,
+   *     IncidentPostmortemUpdatedTriggerWrapper, IncidentResponderCreatedTriggerWrapper,
+   *     IncidentSavedTriggerWrapper, IncidentScheduleTriggerWrapper, IncidentTriggerWrapper,
+   *     MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper,
+   *     ScheduleTriggerWrapper, SecurityTriggerWrapper, SelfServiceTriggerWrapper,
+   *     SlackTriggerWrapper, SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper)
    */
   @Override
   public Object getActualInstance() {
@@ -1373,6 +1805,89 @@ public class Trigger extends AbstractOpenApiSchema {
    */
   public GithubWebhookTriggerWrapper getGithubWebhookTriggerWrapper() throws ClassCastException {
     return (GithubWebhookTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `IncidentCreatedTriggerWrapper`. If the actual instance is not
+   * `IncidentCreatedTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `IncidentCreatedTriggerWrapper`
+   * @throws ClassCastException if the instance is not `IncidentCreatedTriggerWrapper`
+   */
+  public IncidentCreatedTriggerWrapper getIncidentCreatedTriggerWrapper()
+      throws ClassCastException {
+    return (IncidentCreatedTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `IncidentImpactCreatedTriggerWrapper`. If the actual instance is not
+   * `IncidentImpactCreatedTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `IncidentImpactCreatedTriggerWrapper`
+   * @throws ClassCastException if the instance is not `IncidentImpactCreatedTriggerWrapper`
+   */
+  public IncidentImpactCreatedTriggerWrapper getIncidentImpactCreatedTriggerWrapper()
+      throws ClassCastException {
+    return (IncidentImpactCreatedTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `IncidentImpactUpdatedTriggerWrapper`. If the actual instance is not
+   * `IncidentImpactUpdatedTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `IncidentImpactUpdatedTriggerWrapper`
+   * @throws ClassCastException if the instance is not `IncidentImpactUpdatedTriggerWrapper`
+   */
+  public IncidentImpactUpdatedTriggerWrapper getIncidentImpactUpdatedTriggerWrapper()
+      throws ClassCastException {
+    return (IncidentImpactUpdatedTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `IncidentPostmortemUpdatedTriggerWrapper`. If the actual instance is
+   * not `IncidentPostmortemUpdatedTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `IncidentPostmortemUpdatedTriggerWrapper`
+   * @throws ClassCastException if the instance is not `IncidentPostmortemUpdatedTriggerWrapper`
+   */
+  public IncidentPostmortemUpdatedTriggerWrapper getIncidentPostmortemUpdatedTriggerWrapper()
+      throws ClassCastException {
+    return (IncidentPostmortemUpdatedTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `IncidentResponderCreatedTriggerWrapper`. If the actual instance is
+   * not `IncidentResponderCreatedTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `IncidentResponderCreatedTriggerWrapper`
+   * @throws ClassCastException if the instance is not `IncidentResponderCreatedTriggerWrapper`
+   */
+  public IncidentResponderCreatedTriggerWrapper getIncidentResponderCreatedTriggerWrapper()
+      throws ClassCastException {
+    return (IncidentResponderCreatedTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `IncidentSavedTriggerWrapper`. If the actual instance is not
+   * `IncidentSavedTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `IncidentSavedTriggerWrapper`
+   * @throws ClassCastException if the instance is not `IncidentSavedTriggerWrapper`
+   */
+  public IncidentSavedTriggerWrapper getIncidentSavedTriggerWrapper() throws ClassCastException {
+    return (IncidentSavedTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `IncidentScheduleTriggerWrapper`. If the actual instance is not
+   * `IncidentScheduleTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `IncidentScheduleTriggerWrapper`
+   * @throws ClassCastException if the instance is not `IncidentScheduleTriggerWrapper`
+   */
+  public IncidentScheduleTriggerWrapper getIncidentScheduleTriggerWrapper()
+      throws ClassCastException {
+    return (IncidentScheduleTriggerWrapper) super.getActualInstance();
   }
 
   /**

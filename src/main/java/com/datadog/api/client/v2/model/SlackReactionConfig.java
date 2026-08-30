@@ -13,89 +13,73 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for an incident-based trigger. */
+/** Configuration for a Slack emoji reaction trigger. */
 @JsonPropertyOrder({
-  IncidentTriggerWrapper.JSON_PROPERTY_INCIDENT_TRIGGER,
-  IncidentTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
+  SlackReactionConfig.JSON_PROPERTY_REACTION_EMOJI,
+  SlackReactionConfig.JSON_PROPERTY_TEAM_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentTriggerWrapper {
+public class SlackReactionConfig {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INCIDENT_TRIGGER = "incidentTrigger";
-  private IncidentTrigger incidentTrigger;
+  public static final String JSON_PROPERTY_REACTION_EMOJI = "reactionEmoji";
+  private String reactionEmoji;
 
-  public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
-  private List<String> startStepNames = null;
+  public static final String JSON_PROPERTY_TEAM_ID = "teamId";
+  private String teamId;
 
-  public IncidentTriggerWrapper() {}
+  public SlackReactionConfig() {}
 
   @JsonCreator
-  public IncidentTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INCIDENT_TRIGGER)
-          IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public SlackReactionConfig(
+      @JsonProperty(required = true, value = JSON_PROPERTY_REACTION_EMOJI) String reactionEmoji,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TEAM_ID) String teamId) {
+    this.reactionEmoji = reactionEmoji;
+    this.teamId = teamId;
   }
 
-  public IncidentTriggerWrapper incidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public SlackReactionConfig reactionEmoji(String reactionEmoji) {
+    this.reactionEmoji = reactionEmoji;
     return this;
   }
 
   /**
-   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and
-   * the workflow must be published.
+   * The Slack emoji reaction name.
    *
-   * @return incidentTrigger
+   * @return reactionEmoji
    */
-  @JsonProperty(JSON_PROPERTY_INCIDENT_TRIGGER)
+  @JsonProperty(JSON_PROPERTY_REACTION_EMOJI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentTrigger getIncidentTrigger() {
-    return incidentTrigger;
+  public String getReactionEmoji() {
+    return reactionEmoji;
   }
 
-  public void setIncidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    if (incidentTrigger != null) {
-      this.unparsed |= incidentTrigger.unparsed;
-    }
+  public void setReactionEmoji(String reactionEmoji) {
+    this.reactionEmoji = reactionEmoji;
   }
 
-  public IncidentTriggerWrapper startStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
-    return this;
-  }
-
-  public IncidentTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
-    if (this.startStepNames == null) {
-      this.startStepNames = new ArrayList<>();
-    }
-    this.startStepNames.add(startStepNamesItem);
+  public SlackReactionConfig teamId(String teamId) {
+    this.teamId = teamId;
     return this;
   }
 
   /**
-   * Names of existing workflow steps that run first after a trigger fires.
+   * The Slack workspace ID.
    *
-   * @return startStepNames
+   * @return teamId
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getStartStepNames() {
-    return startStepNames;
+  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTeamId() {
+    return teamId;
   }
 
-  public void setStartStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
+  public void setTeamId(String teamId) {
+    this.teamId = teamId;
   }
 
   /**
@@ -110,10 +94,10 @@ public class IncidentTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentTriggerWrapper
+   * @return SlackReactionConfig
    */
   @JsonAnySetter
-  public IncidentTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public SlackReactionConfig putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +128,7 @@ public class IncidentTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentTriggerWrapper object is equal to o. */
+  /** Return true if this SlackReactionConfig object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,23 +137,23 @@ public class IncidentTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTriggerWrapper incidentTriggerWrapper = (IncidentTriggerWrapper) o;
-    return Objects.equals(this.incidentTrigger, incidentTriggerWrapper.incidentTrigger)
-        && Objects.equals(this.startStepNames, incidentTriggerWrapper.startStepNames)
-        && Objects.equals(this.additionalProperties, incidentTriggerWrapper.additionalProperties);
+    SlackReactionConfig slackReactionConfig = (SlackReactionConfig) o;
+    return Objects.equals(this.reactionEmoji, slackReactionConfig.reactionEmoji)
+        && Objects.equals(this.teamId, slackReactionConfig.teamId)
+        && Objects.equals(this.additionalProperties, slackReactionConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(incidentTrigger, startStepNames, additionalProperties);
+    return Objects.hash(reactionEmoji, teamId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTriggerWrapper {\n");
-    sb.append("    incidentTrigger: ").append(toIndentedString(incidentTrigger)).append("\n");
-    sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
+    sb.append("class SlackReactionConfig {\n");
+    sb.append("    reactionEmoji: ").append(toIndentedString(reactionEmoji)).append("\n");
+    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

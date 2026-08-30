@@ -19,83 +19,71 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for an incident-based trigger. */
-@JsonPropertyOrder({
-  IncidentTriggerWrapper.JSON_PROPERTY_INCIDENT_TRIGGER,
-  IncidentTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
-})
+/** An incident tag and its accepted values. */
+@JsonPropertyOrder({IncidentTagValue.JSON_PROPERTY_TAG, IncidentTagValue.JSON_PROPERTY_VALUES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentTriggerWrapper {
+public class IncidentTagValue {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INCIDENT_TRIGGER = "incidentTrigger";
-  private IncidentTrigger incidentTrigger;
+  public static final String JSON_PROPERTY_TAG = "tag";
+  private String tag;
 
-  public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
-  private List<String> startStepNames = null;
+  public static final String JSON_PROPERTY_VALUES = "values";
+  private List<String> values = new ArrayList<>();
 
-  public IncidentTriggerWrapper() {}
+  public IncidentTagValue() {}
 
   @JsonCreator
-  public IncidentTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INCIDENT_TRIGGER)
-          IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public IncidentTagValue(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAG) String tag,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUES) List<String> values) {
+    this.tag = tag;
+    this.values = values;
   }
 
-  public IncidentTriggerWrapper incidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public IncidentTagValue tag(String tag) {
+    this.tag = tag;
     return this;
   }
 
   /**
-   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and
-   * the workflow must be published.
+   * The incident tag to match.
    *
-   * @return incidentTrigger
+   * @return tag
    */
-  @JsonProperty(JSON_PROPERTY_INCIDENT_TRIGGER)
+  @JsonProperty(JSON_PROPERTY_TAG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentTrigger getIncidentTrigger() {
-    return incidentTrigger;
+  public String getTag() {
+    return tag;
   }
 
-  public void setIncidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    if (incidentTrigger != null) {
-      this.unparsed |= incidentTrigger.unparsed;
-    }
+  public void setTag(String tag) {
+    this.tag = tag;
   }
 
-  public IncidentTriggerWrapper startStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
+  public IncidentTagValue values(List<String> values) {
+    this.values = values;
     return this;
   }
 
-  public IncidentTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
-    if (this.startStepNames == null) {
-      this.startStepNames = new ArrayList<>();
-    }
-    this.startStepNames.add(startStepNamesItem);
+  public IncidentTagValue addValuesItem(String valuesItem) {
+    this.values.add(valuesItem);
     return this;
   }
 
   /**
-   * Names of existing workflow steps that run first after a trigger fires.
+   * The accepted values for the incident tag.
    *
-   * @return startStepNames
+   * @return values
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getStartStepNames() {
-    return startStepNames;
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setStartStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
   /**
@@ -110,10 +98,10 @@ public class IncidentTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentTriggerWrapper
+   * @return IncidentTagValue
    */
   @JsonAnySetter
-  public IncidentTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public IncidentTagValue putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +132,7 @@ public class IncidentTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentTriggerWrapper object is equal to o. */
+  /** Return true if this IncidentTagValue object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,23 +141,23 @@ public class IncidentTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTriggerWrapper incidentTriggerWrapper = (IncidentTriggerWrapper) o;
-    return Objects.equals(this.incidentTrigger, incidentTriggerWrapper.incidentTrigger)
-        && Objects.equals(this.startStepNames, incidentTriggerWrapper.startStepNames)
-        && Objects.equals(this.additionalProperties, incidentTriggerWrapper.additionalProperties);
+    IncidentTagValue incidentTagValue = (IncidentTagValue) o;
+    return Objects.equals(this.tag, incidentTagValue.tag)
+        && Objects.equals(this.values, incidentTagValue.values)
+        && Objects.equals(this.additionalProperties, incidentTagValue.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(incidentTrigger, startStepNames, additionalProperties);
+    return Objects.hash(tag, values, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTriggerWrapper {\n");
-    sb.append("    incidentTrigger: ").append(toIndentedString(incidentTrigger)).append("\n");
-    sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
+    sb.append("class IncidentTagValue {\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

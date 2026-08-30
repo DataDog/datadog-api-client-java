@@ -19,62 +19,62 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for an incident-based trigger. */
+/** Schema for an incident schedule trigger. */
 @JsonPropertyOrder({
-  IncidentTriggerWrapper.JSON_PROPERTY_INCIDENT_TRIGGER,
-  IncidentTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
+  IncidentScheduleTriggerWrapper.JSON_PROPERTY_INCIDENT_SCHEDULE_TRIGGER,
+  IncidentScheduleTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentTriggerWrapper {
+public class IncidentScheduleTriggerWrapper {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INCIDENT_TRIGGER = "incidentTrigger";
-  private IncidentTrigger incidentTrigger;
+  public static final String JSON_PROPERTY_INCIDENT_SCHEDULE_TRIGGER = "incidentScheduleTrigger";
+  private IncidentScheduleTrigger incidentScheduleTrigger;
 
   public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
   private List<String> startStepNames = null;
 
-  public IncidentTriggerWrapper() {}
+  public IncidentScheduleTriggerWrapper() {}
 
   @JsonCreator
-  public IncidentTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INCIDENT_TRIGGER)
-          IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public IncidentScheduleTriggerWrapper(
+      @JsonProperty(required = true, value = JSON_PROPERTY_INCIDENT_SCHEDULE_TRIGGER)
+          IncidentScheduleTrigger incidentScheduleTrigger) {
+    this.incidentScheduleTrigger = incidentScheduleTrigger;
+    this.unparsed |= incidentScheduleTrigger.unparsed;
   }
 
-  public IncidentTriggerWrapper incidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public IncidentScheduleTriggerWrapper incidentScheduleTrigger(
+      IncidentScheduleTrigger incidentScheduleTrigger) {
+    this.incidentScheduleTrigger = incidentScheduleTrigger;
+    this.unparsed |= incidentScheduleTrigger.unparsed;
     return this;
   }
 
   /**
-   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and
-   * the workflow must be published.
+   * Trigger a workflow on a schedule for an incident.
    *
-   * @return incidentTrigger
+   * @return incidentScheduleTrigger
    */
-  @JsonProperty(JSON_PROPERTY_INCIDENT_TRIGGER)
+  @JsonProperty(JSON_PROPERTY_INCIDENT_SCHEDULE_TRIGGER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentTrigger getIncidentTrigger() {
-    return incidentTrigger;
+  public IncidentScheduleTrigger getIncidentScheduleTrigger() {
+    return incidentScheduleTrigger;
   }
 
-  public void setIncidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    if (incidentTrigger != null) {
-      this.unparsed |= incidentTrigger.unparsed;
+  public void setIncidentScheduleTrigger(IncidentScheduleTrigger incidentScheduleTrigger) {
+    this.incidentScheduleTrigger = incidentScheduleTrigger;
+    if (incidentScheduleTrigger != null) {
+      this.unparsed |= incidentScheduleTrigger.unparsed;
     }
   }
 
-  public IncidentTriggerWrapper startStepNames(List<String> startStepNames) {
+  public IncidentScheduleTriggerWrapper startStepNames(List<String> startStepNames) {
     this.startStepNames = startStepNames;
     return this;
   }
 
-  public IncidentTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
+  public IncidentScheduleTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
     if (this.startStepNames == null) {
       this.startStepNames = new ArrayList<>();
     }
@@ -110,10 +110,10 @@ public class IncidentTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentTriggerWrapper
+   * @return IncidentScheduleTriggerWrapper
    */
   @JsonAnySetter
-  public IncidentTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public IncidentScheduleTriggerWrapper putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +144,7 @@ public class IncidentTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentTriggerWrapper object is equal to o. */
+  /** Return true if this IncidentScheduleTriggerWrapper object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,22 +153,27 @@ public class IncidentTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTriggerWrapper incidentTriggerWrapper = (IncidentTriggerWrapper) o;
-    return Objects.equals(this.incidentTrigger, incidentTriggerWrapper.incidentTrigger)
-        && Objects.equals(this.startStepNames, incidentTriggerWrapper.startStepNames)
-        && Objects.equals(this.additionalProperties, incidentTriggerWrapper.additionalProperties);
+    IncidentScheduleTriggerWrapper incidentScheduleTriggerWrapper =
+        (IncidentScheduleTriggerWrapper) o;
+    return Objects.equals(
+            this.incidentScheduleTrigger, incidentScheduleTriggerWrapper.incidentScheduleTrigger)
+        && Objects.equals(this.startStepNames, incidentScheduleTriggerWrapper.startStepNames)
+        && Objects.equals(
+            this.additionalProperties, incidentScheduleTriggerWrapper.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(incidentTrigger, startStepNames, additionalProperties);
+    return Objects.hash(incidentScheduleTrigger, startStepNames, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTriggerWrapper {\n");
-    sb.append("    incidentTrigger: ").append(toIndentedString(incidentTrigger)).append("\n");
+    sb.append("class IncidentScheduleTriggerWrapper {\n");
+    sb.append("    incidentScheduleTrigger: ")
+        .append(toIndentedString(incidentScheduleTrigger))
+        .append("\n");
     sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

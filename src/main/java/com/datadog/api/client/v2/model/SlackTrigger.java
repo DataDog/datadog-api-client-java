@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,82 +18,53 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for a Slack-based trigger. */
-@JsonPropertyOrder({
-  SlackTriggerWrapper.JSON_PROPERTY_SLACK_TRIGGER,
-  SlackTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
-})
+/** Trigger a workflow from Slack. The workflow must be published. */
+@JsonPropertyOrder({SlackTrigger.JSON_PROPERTY_REACTION_TRIGGERS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SlackTriggerWrapper {
+public class SlackTrigger {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_SLACK_TRIGGER = "slackTrigger";
-  private SlackTrigger slackTrigger;
+  public static final String JSON_PROPERTY_REACTION_TRIGGERS = "reactionTriggers";
+  private List<SlackReactionConfig> reactionTriggers = null;
 
-  public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
-  private List<String> startStepNames = null;
-
-  public SlackTriggerWrapper() {}
-
-  @JsonCreator
-  public SlackTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SLACK_TRIGGER)
-          SlackTrigger slackTrigger) {
-    this.slackTrigger = slackTrigger;
-    this.unparsed |= slackTrigger.unparsed;
+  public SlackTrigger reactionTriggers(List<SlackReactionConfig> reactionTriggers) {
+    this.reactionTriggers = reactionTriggers;
+    if (reactionTriggers != null) {
+      for (SlackReactionConfig item : reactionTriggers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
   }
 
-  public SlackTriggerWrapper slackTrigger(SlackTrigger slackTrigger) {
-    this.slackTrigger = slackTrigger;
-    this.unparsed |= slackTrigger.unparsed;
+  public SlackTrigger addReactionTriggersItem(SlackReactionConfig reactionTriggersItem) {
+    if (this.reactionTriggers == null) {
+      this.reactionTriggers = new ArrayList<>();
+    }
+    this.reactionTriggers.add(reactionTriggersItem);
+    this.unparsed |= reactionTriggersItem.unparsed;
     return this;
   }
 
   /**
-   * Trigger a workflow from Slack. The workflow must be published.
+   * Slack emoji reactions that trigger the workflow.
    *
-   * @return slackTrigger
-   */
-  @JsonProperty(JSON_PROPERTY_SLACK_TRIGGER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SlackTrigger getSlackTrigger() {
-    return slackTrigger;
-  }
-
-  public void setSlackTrigger(SlackTrigger slackTrigger) {
-    this.slackTrigger = slackTrigger;
-    if (slackTrigger != null) {
-      this.unparsed |= slackTrigger.unparsed;
-    }
-  }
-
-  public SlackTriggerWrapper startStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
-    return this;
-  }
-
-  public SlackTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
-    if (this.startStepNames == null) {
-      this.startStepNames = new ArrayList<>();
-    }
-    this.startStepNames.add(startStepNamesItem);
-    return this;
-  }
-
-  /**
-   * Names of existing workflow steps that run first after a trigger fires.
-   *
-   * @return startStepNames
+   * @return reactionTriggers
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
+  @JsonProperty(JSON_PROPERTY_REACTION_TRIGGERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getStartStepNames() {
-    return startStepNames;
+  public List<SlackReactionConfig> getReactionTriggers() {
+    return reactionTriggers;
   }
 
-  public void setStartStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
+  public void setReactionTriggers(List<SlackReactionConfig> reactionTriggers) {
+    this.reactionTriggers = reactionTriggers;
+    if (reactionTriggers != null) {
+      for (SlackReactionConfig item : reactionTriggers) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -109,10 +79,10 @@ public class SlackTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SlackTriggerWrapper
+   * @return SlackTrigger
    */
   @JsonAnySetter
-  public SlackTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public SlackTrigger putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -143,7 +113,7 @@ public class SlackTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SlackTriggerWrapper object is equal to o. */
+  /** Return true if this SlackTrigger object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -152,23 +122,21 @@ public class SlackTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SlackTriggerWrapper slackTriggerWrapper = (SlackTriggerWrapper) o;
-    return Objects.equals(this.slackTrigger, slackTriggerWrapper.slackTrigger)
-        && Objects.equals(this.startStepNames, slackTriggerWrapper.startStepNames)
-        && Objects.equals(this.additionalProperties, slackTriggerWrapper.additionalProperties);
+    SlackTrigger slackTrigger = (SlackTrigger) o;
+    return Objects.equals(this.reactionTriggers, slackTrigger.reactionTriggers)
+        && Objects.equals(this.additionalProperties, slackTrigger.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(slackTrigger, startStepNames, additionalProperties);
+    return Objects.hash(reactionTriggers, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SlackTriggerWrapper {\n");
-    sb.append("    slackTrigger: ").append(toIndentedString(slackTrigger)).append("\n");
-    sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
+    sb.append("class SlackTrigger {\n");
+    sb.append("    reactionTriggers: ").append(toIndentedString(reactionTriggers)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
