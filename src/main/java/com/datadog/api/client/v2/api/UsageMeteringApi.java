@@ -3,6 +3,7 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ActiveBillingDimensionsResponse;
 import com.datadog.api.client.v2.model.BillingDimensionsMappingResponse;
@@ -16,12 +17,19 @@ import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringRespons
 import com.datadog.api.client.v2.model.UsageAttributionTypesResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
+import com.datadog.api.client.v2.model.UsageQuotaResponse;
+import com.datadog.api.client.v2.model.UsageQuotaResponseData;
+import com.datadog.api.client.v2.model.UsageQuotaUpdateRequest;
+import com.datadog.api.client.v2.model.UsageQuotasBulkResponse;
+import com.datadog.api.client.v2.model.UsageQuotasCreateRequest;
+import com.datadog.api.client.v2.model.UsageQuotasListResponse;
 import com.datadog.api.client.v2.model.UsageSummaryAvailableFieldsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -55,6 +63,455 @@ public class UsageMeteringApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /** Manage optional parameters to createQuotas. */
+  public static class CreateQuotasOptionalParameters {
+    private Boolean includeDescendants;
+
+    /**
+     * Set includeDescendants.
+     *
+     * @param includeDescendants Whether to write every item in the request to the caller's
+     *     organization and all of its descendant organizations, instead of only the caller's
+     *     organization. Only descendants in the same datacenter are supported. For a user-handle
+     *     scope, the quota is applied only to the caller's organization and to descendant
+     *     organizations where that user handle exists; the item fails only if the handle exists in
+     *     none of them. (optional, default to false)
+     * @return CreateQuotasOptionalParameters
+     */
+    public CreateQuotasOptionalParameters includeDescendants(Boolean includeDescendants) {
+      this.includeDescendants = includeDescendants;
+      return this;
+    }
+  }
+
+  /**
+   * Create or update usage quotas.
+   *
+   * <p>See {@link #createQuotasWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param body The usage quotas to create or update. (required)
+   * @return UsageQuotasBulkResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageQuotasBulkResponse createQuotas(String quotaNamespace, UsageQuotasCreateRequest body)
+      throws ApiException {
+    return createQuotasWithHttpInfo(quotaNamespace, body, new CreateQuotasOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create or update usage quotas.
+   *
+   * <p>See {@link #createQuotasWithHttpInfoAsync}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param body The usage quotas to create or update. (required)
+   * @return CompletableFuture&lt;UsageQuotasBulkResponse&gt;
+   */
+  public CompletableFuture<UsageQuotasBulkResponse> createQuotasAsync(
+      String quotaNamespace, UsageQuotasCreateRequest body) {
+    return createQuotasWithHttpInfoAsync(quotaNamespace, body, new CreateQuotasOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create or update usage quotas.
+   *
+   * <p>See {@link #createQuotasWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param body The usage quotas to create or update. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageQuotasBulkResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageQuotasBulkResponse createQuotas(
+      String quotaNamespace,
+      UsageQuotasCreateRequest body,
+      CreateQuotasOptionalParameters parameters)
+      throws ApiException {
+    return createQuotasWithHttpInfo(quotaNamespace, body, parameters).getData();
+  }
+
+  /**
+   * Create or update usage quotas.
+   *
+   * <p>See {@link #createQuotasWithHttpInfoAsync}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param body The usage quotas to create or update. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;UsageQuotasBulkResponse&gt;
+   */
+  public CompletableFuture<UsageQuotasBulkResponse> createQuotasAsync(
+      String quotaNamespace,
+      UsageQuotasCreateRequest body,
+      CreateQuotasOptionalParameters parameters) {
+    return createQuotasWithHttpInfoAsync(quotaNamespace, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied
+   * scope, it is updated; otherwise, a new quota is created. Requires the <code>user_access_manage
+   * </code>, <code>billing_edit</code>, and <code>org_management</code> permissions.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param body The usage quotas to create or update. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageQuotasBulkResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK. The response includes each item&#39;s result; see each item&#39;s &#x60;error&#x60; attribute for any that failed to write. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error. Every item in the batch failed to write. </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageQuotasBulkResponse> createQuotasWithHttpInfo(
+      String quotaNamespace,
+      UsageQuotasCreateRequest body,
+      CreateQuotasOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createQuotas";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'quotaNamespace' when calling createQuotas");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createQuotas");
+    }
+    Boolean includeDescendants = parameters.includeDescendants;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.createQuotas",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageQuotasBulkResponse>() {});
+  }
+
+  /**
+   * Create or update usage quotas.
+   *
+   * <p>See {@link #createQuotasWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param body The usage quotas to create or update. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageQuotasBulkResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageQuotasBulkResponse>> createQuotasWithHttpInfoAsync(
+      String quotaNamespace,
+      UsageQuotasCreateRequest body,
+      CreateQuotasOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "createQuotas";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UsageQuotasBulkResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      CompletableFuture<ApiResponse<UsageQuotasBulkResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'quotaNamespace' when calling createQuotas"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UsageQuotasBulkResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling createQuotas"));
+      return result;
+    }
+    Boolean includeDescendants = parameters.includeDescendants;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.createQuotas",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageQuotasBulkResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageQuotasBulkResponse>() {});
+  }
+
+  /**
+   * Delete a usage quota.
+   *
+   * <p>See {@link #deleteQuotaWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteQuota(String quotaNamespace, String id) throws ApiException {
+    deleteQuotaWithHttpInfo(quotaNamespace, id);
+  }
+
+  /**
+   * Delete a usage quota.
+   *
+   * <p>See {@link #deleteQuotaWithHttpInfoAsync}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteQuotaAsync(String quotaNamespace, String id) {
+    return deleteQuotaWithHttpInfoAsync(quotaNamespace, id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deletes a usage quota by its opaque identifier. The quota must belong to the caller's
+   * organization or one of its descendants, and its opaque identifier must belong to the requested
+   * quota namespace. Requires the <code>user_access_manage</code>, <code>billing_edit</code>, and
+   * <code>org_management</code> permissions.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteQuotaWithHttpInfo(String quotaNamespace, String id)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteQuota";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'quotaNamespace' when calling deleteQuota");
+    }
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteQuota");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}/{id}"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()))
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.deleteQuota",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a usage quota.
+   *
+   * <p>See {@link #deleteQuotaWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteQuotaWithHttpInfoAsync(
+      String quotaNamespace, String id) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteQuota";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'quotaNamespace' when calling deleteQuota"));
+      return result;
+    }
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'id' when calling deleteQuota"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}/{id}"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()))
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.deleteQuota",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -3160,5 +3617,536 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageSummaryAvailableFieldsResponse>() {});
+  }
+
+  /** Manage optional parameters to listQuotas. */
+  public static class ListQuotasOptionalParameters {
+    private Boolean includeDescendants;
+    private String pageCursor;
+    private Long pageLimit;
+
+    /**
+     * Set includeDescendants.
+     *
+     * @param includeDescendants Whether to include quotas configured on descendant organizations in
+     *     the caller's organization hierarchy. Only descendants in the same datacenter are
+     *     supported. (optional, default to false)
+     * @return ListQuotasOptionalParameters
+     */
+    public ListQuotasOptionalParameters includeDescendants(Boolean includeDescendants) {
+      this.includeDescendants = includeDescendants;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor An opaque cursor from a previous response's <code>meta.page.next_cursor
+     *     </code> used to retrieve the next page. (optional)
+     * @return ListQuotasOptionalParameters
+     */
+    public ListQuotasOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit The number of usage quotas to return per page. (optional, default to 100)
+     * @return ListQuotasOptionalParameters
+     */
+    public ListQuotasOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+  }
+
+  /**
+   * List usage quotas.
+   *
+   * <p>See {@link #listQuotasWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @return UsageQuotasListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageQuotasListResponse listQuotas(String quotaNamespace) throws ApiException {
+    return listQuotasWithHttpInfo(quotaNamespace, new ListQuotasOptionalParameters()).getData();
+  }
+
+  /**
+   * List usage quotas.
+   *
+   * <p>See {@link #listQuotasWithHttpInfoAsync}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @return CompletableFuture&lt;UsageQuotasListResponse&gt;
+   */
+  public CompletableFuture<UsageQuotasListResponse> listQuotasAsync(String quotaNamespace) {
+    return listQuotasWithHttpInfoAsync(quotaNamespace, new ListQuotasOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List usage quotas.
+   *
+   * <p>See {@link #listQuotasWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageQuotasListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageQuotasListResponse listQuotas(
+      String quotaNamespace, ListQuotasOptionalParameters parameters) throws ApiException {
+    return listQuotasWithHttpInfo(quotaNamespace, parameters).getData();
+  }
+
+  /**
+   * List usage quotas.
+   *
+   * <p>See {@link #listQuotasWithHttpInfoAsync}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;UsageQuotasListResponse&gt;
+   */
+  public CompletableFuture<UsageQuotasListResponse> listQuotasAsync(
+      String quotaNamespace, ListQuotasOptionalParameters parameters) {
+    return listQuotasWithHttpInfoAsync(quotaNamespace, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List usage quotas.
+   *
+   * <p>See {@link #listQuotasWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @return PaginationIterable&lt;UsageQuotaResponseData&gt;
+   */
+  public PaginationIterable<UsageQuotaResponseData> listQuotasWithPagination(
+      String quotaNamespace) {
+    ListQuotasOptionalParameters parameters = new ListQuotasOptionalParameters();
+    return listQuotasWithPagination(quotaNamespace, parameters);
+  }
+
+  /**
+   * List usage quotas.
+   *
+   * <p>See {@link #listQuotasWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @return UsageQuotasListResponse
+   */
+  public PaginationIterable<UsageQuotaResponseData> listQuotasWithPagination(
+      String quotaNamespace, ListQuotasOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getNextCursor";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 100l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("quotaNamespace", quotaNamespace);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listQuotas",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            true,
+            limit,
+            args,
+            0);
+
+    return iterator;
+  }
+
+  /**
+   * Lists usage quotas for the caller's organization in a quota namespace. You can optionally
+   * include descendant organizations in the same datacenter as the caller. Requires the <code>
+   * user_access_manage</code>, <code>billing_edit</code>, and <code>org_management</code>
+   * permissions.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageQuotasListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageQuotasListResponse> listQuotasWithHttpInfo(
+      String quotaNamespace, ListQuotasOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listQuotas";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'quotaNamespace' when calling listQuotas");
+    }
+    Boolean includeDescendants = parameters.includeDescendants;
+    String pageCursor = parameters.pageCursor;
+    Long pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.listQuotas",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageQuotasListResponse>() {});
+  }
+
+  /**
+   * List usage quotas.
+   *
+   * <p>See {@link #listQuotasWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageQuotasListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageQuotasListResponse>> listQuotasWithHttpInfoAsync(
+      String quotaNamespace, ListQuotasOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listQuotas";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UsageQuotasListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      CompletableFuture<ApiResponse<UsageQuotasListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'quotaNamespace' when calling listQuotas"));
+      return result;
+    }
+    Boolean includeDescendants = parameters.includeDescendants;
+    String pageCursor = parameters.pageCursor;
+    Long pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.listQuotas",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageQuotasListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageQuotasListResponse>() {});
+  }
+
+  /**
+   * Update a usage quota.
+   *
+   * <p>See {@link #updateQuotaWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @param body The usage quota fields to update. Omitting an attribute leaves its current value
+   *     unchanged. (required)
+   * @return UsageQuotaResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageQuotaResponse updateQuota(
+      String quotaNamespace, String id, UsageQuotaUpdateRequest body) throws ApiException {
+    return updateQuotaWithHttpInfo(quotaNamespace, id, body).getData();
+  }
+
+  /**
+   * Update a usage quota.
+   *
+   * <p>See {@link #updateQuotaWithHttpInfoAsync}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @param body The usage quota fields to update. Omitting an attribute leaves its current value
+   *     unchanged. (required)
+   * @return CompletableFuture&lt;UsageQuotaResponse&gt;
+   */
+  public CompletableFuture<UsageQuotaResponse> updateQuotaAsync(
+      String quotaNamespace, String id, UsageQuotaUpdateRequest body) {
+    return updateQuotaWithHttpInfoAsync(quotaNamespace, id, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates the supplied fields on a usage quota and leaves omitted fields unchanged. The quota
+   * must belong to the caller's organization or one of its descendants, and its opaque identifier
+   * must belong to the requested quota namespace. Requires the <code>user_access_manage</code>,
+   * <code>billing_edit</code>, and <code>org_management</code> permissions.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @param body The usage quota fields to update. Omitting an attribute leaves its current value
+   *     unchanged. (required)
+   * @return ApiResponse&lt;UsageQuotaResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request. Returned if the request is malformed, or if the &#x60;id&#x60; in the request body does not match the &#x60;id&#x60; in the request path. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageQuotaResponse> updateQuotaWithHttpInfo(
+      String quotaNamespace, String id, UsageQuotaUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateQuota";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'quotaNamespace' when calling updateQuota");
+    }
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateQuota");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateQuota");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}/{id}"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()))
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.updateQuota",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageQuotaResponse>() {});
+  }
+
+  /**
+   * Update a usage quota.
+   *
+   * <p>See {@link #updateQuotaWithHttpInfo}.
+   *
+   * @param quotaNamespace The product-specific namespace whose usage quotas are being managed.
+   *     (required)
+   * @param id The opaque quota identifier returned by a previous list or create request. Clients
+   *     must pass this value verbatim. (required)
+   * @param body The usage quota fields to update. Omitting an attribute leaves its current value
+   *     unchanged. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageQuotaResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageQuotaResponse>> updateQuotaWithHttpInfoAsync(
+      String quotaNamespace, String id, UsageQuotaUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateQuota";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UsageQuotaResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'quotaNamespace' is set
+    if (quotaNamespace == null) {
+      CompletableFuture<ApiResponse<UsageQuotaResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'quotaNamespace' when calling updateQuota"));
+      return result;
+    }
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<UsageQuotaResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'id' when calling updateQuota"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UsageQuotaResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling updateQuota"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/usage/quotas/{quota_namespace}/{id}"
+            .replaceAll(
+                "\\{" + "quota_namespace" + "\\}",
+                apiClient.escapeString(quotaNamespace.toString()))
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.updateQuota",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageQuotaResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageQuotaResponse>() {});
   }
 }

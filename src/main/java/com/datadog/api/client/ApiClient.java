@@ -1052,6 +1052,10 @@ public class ApiClient {
           put("v2.listCostTagMetadataMonths", false);
           put("v2.listCostTagMetadataOrchestrators", false);
           put("v2.searchCostRecommendations", false);
+          put("v2.createQuotas", false);
+          put("v2.deleteQuota", false);
+          put("v2.listQuotas", false);
+          put("v2.updateQuota", false);
           put("v2.createOwnershipFeedback", false);
           put("v2.getOwnershipEvidence", false);
           put("v2.getOwnershipInference", false);
