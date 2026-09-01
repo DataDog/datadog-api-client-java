@@ -121,45 +121,46 @@ public class IssuesSearchResultIncluded extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'Issue'", e);
       }
 
-      // deserialize Case
+      // deserialize IssueCase
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (Case.class.equals(Integer.class)
-            || Case.class.equals(Long.class)
-            || Case.class.equals(Float.class)
-            || Case.class.equals(Double.class)
-            || Case.class.equals(Boolean.class)
-            || Case.class.equals(String.class)) {
+        if (IssueCase.class.equals(Integer.class)
+            || IssueCase.class.equals(Long.class)
+            || IssueCase.class.equals(Float.class)
+            || IssueCase.class.equals(Double.class)
+            || IssueCase.class.equals(Boolean.class)
+            || IssueCase.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((Case.class.equals(Integer.class) || Case.class.equals(Long.class))
+                ((IssueCase.class.equals(Integer.class) || IssueCase.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((Case.class.equals(Float.class) || Case.class.equals(Double.class))
+                ((IssueCase.class.equals(Float.class) || IssueCase.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (Case.class.equals(Boolean.class)
+                (IssueCase.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |= (Case.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+            attemptParsing |=
+                (IssueCase.class.equals(String.class) && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(Case.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(IssueCase.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((Case) tmp).unparsed) {
+          if (!((IssueCase) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'Case'");
+          log.log(Level.FINER, "Input data matches schema 'IssueCase'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'Case'", e);
+        log.log(Level.FINER, "Input data does not match schema 'IssueCase'", e);
       }
 
       // deserialize IssueUser
@@ -280,7 +281,7 @@ public class IssuesSearchResultIncluded extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public IssuesSearchResultIncluded(Case o) {
+  public IssuesSearchResultIncluded(IssueCase o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -297,7 +298,7 @@ public class IssuesSearchResultIncluded extends AbstractOpenApiSchema {
 
   static {
     schemas.put("Issue", new GenericType<Issue>() {});
-    schemas.put("Case", new GenericType<Case>() {});
+    schemas.put("IssueCase", new GenericType<IssueCase>() {});
     schemas.put("IssueUser", new GenericType<IssueUser>() {});
     schemas.put("IssueTeam", new GenericType<IssueTeam>() {});
     JSON.registerDescendants(
@@ -311,7 +312,7 @@ public class IssuesSearchResultIncluded extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: Issue, Case, IssueUser, IssueTeam
+   * against the oneOf child schemas: Issue, IssueCase, IssueUser, IssueTeam
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -322,7 +323,7 @@ public class IssuesSearchResultIncluded extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(Case.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(IssueCase.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -339,13 +340,14 @@ public class IssuesSearchResultIncluded extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be Issue, Case, IssueUser, IssueTeam");
+    throw new RuntimeException(
+        "Invalid instance type. Must be Issue, IssueCase, IssueUser, IssueTeam");
   }
 
   /**
-   * Get the actual instance, which can be the following: Issue, Case, IssueUser, IssueTeam
+   * Get the actual instance, which can be the following: Issue, IssueCase, IssueUser, IssueTeam
    *
-   * @return The actual instance (Issue, Case, IssueUser, IssueTeam)
+   * @return The actual instance (Issue, IssueCase, IssueUser, IssueTeam)
    */
   @Override
   public Object getActualInstance() {
@@ -364,14 +366,14 @@ public class IssuesSearchResultIncluded extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `Case`. If the actual instance is not `Case`, the ClassCastException
-   * will be thrown.
+   * Get the actual instance of `IssueCase`. If the actual instance is not `IssueCase`, the
+   * ClassCastException will be thrown.
    *
-   * @return The actual instance of `Case`
-   * @throws ClassCastException if the instance is not `Case`
+   * @return The actual instance of `IssueCase`
+   * @throws ClassCastException if the instance is not `IssueCase`
    */
-  public Case getCase() throws ClassCastException {
-    return (Case) super.getActualInstance();
+  public IssueCase getIssueCase() throws ClassCastException {
+    return (IssueCase) super.getActualInstance();
   }
 
   /**
