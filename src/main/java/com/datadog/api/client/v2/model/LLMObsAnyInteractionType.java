@@ -23,7 +23,8 @@ import java.util.Set;
 public class LLMObsAnyInteractionType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("trace", "experiment_trace", "session", "display_block"));
+      new HashSet<String>(
+          Arrays.asList("trace", "experiment_trace", "session", "display_block", "frontend"));
 
   public static final LLMObsAnyInteractionType TRACE = new LLMObsAnyInteractionType("trace");
   public static final LLMObsAnyInteractionType EXPERIMENT_TRACE =
@@ -31,6 +32,7 @@ public class LLMObsAnyInteractionType extends ModelEnum<String> {
   public static final LLMObsAnyInteractionType SESSION = new LLMObsAnyInteractionType("session");
   public static final LLMObsAnyInteractionType DISPLAY_BLOCK =
       new LLMObsAnyInteractionType("display_block");
+  public static final LLMObsAnyInteractionType FRONTEND = new LLMObsAnyInteractionType("frontend");
 
   LLMObsAnyInteractionType(String value) {
     super(value, allowedValues);

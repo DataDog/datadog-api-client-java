@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.LLMObsAnnotatedInteractionResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotatedInteractionsByTraceResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotatedInteractionsResponse;
 import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsRequest;
@@ -894,6 +895,9 @@ public class AgentObservabilityApi {
    *   <li><code>display_block</code>: omit <code>content_id</code> and provide the rendered content
    *       in <code>display_block</code>. The server generates <code>content_id</code> as a
    *       deterministic hash of the block list.
+   *   <li><code>frontend</code>: omit <code>content_id</code> and provide the web content in <code>
+   *       frontend</code>. The server returns a deterministic <code>content_id</code> for the
+   *       content.
    * </ul>
    *
    * <p>Items of different types can be mixed in a single request.
@@ -4399,6 +4403,197 @@ public class AgentObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<String>() {});
+  }
+
+  /**
+   * Get an annotated queue interaction.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionWithHttpInfo}.
+   *
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
+   * @param interactionId The ID of the interaction within the annotation queue. (required)
+   * @return LLMObsAnnotatedInteractionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotatedInteractionResponse getLLMObsAnnotatedInteraction(
+      String queueId, String interactionId) throws ApiException {
+    return getLLMObsAnnotatedInteractionWithHttpInfo(queueId, interactionId).getData();
+  }
+
+  /**
+   * Get an annotated queue interaction.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionWithHttpInfoAsync}.
+   *
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
+   * @param interactionId The ID of the interaction within the annotation queue. (required)
+   * @return CompletableFuture&lt;LLMObsAnnotatedInteractionResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotatedInteractionResponse> getLLMObsAnnotatedInteractionAsync(
+      String queueId, String interactionId) {
+    return getLLMObsAnnotatedInteractionWithHttpInfoAsync(queueId, interactionId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a single interaction (trace, session, display block, or frontend content) and its
+   * annotations for a given annotation queue.
+   *
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
+   * @param interactionId The ID of the interaction within the annotation queue. (required)
+   * @return ApiResponse&lt;LLMObsAnnotatedInteractionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsAnnotatedInteractionResponse> getLLMObsAnnotatedInteractionWithHttpInfo(
+      String queueId, String interactionId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsAnnotatedInteraction";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'queueId' when calling getLLMObsAnnotatedInteraction");
+    }
+
+    // verify the required parameter 'interactionId' is set
+    if (interactionId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'interactionId' when calling"
+              + " getLLMObsAnnotatedInteraction");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions/{interaction_id}"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()))
+            .replaceAll(
+                "\\{" + "interaction_id" + "\\}", apiClient.escapeString(interactionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentObservabilityApi.getLLMObsAnnotatedInteraction",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotatedInteractionResponse>() {});
+  }
+
+  /**
+   * Get an annotated queue interaction.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionWithHttpInfo}.
+   *
+   * @param queueId The ID of the Agent Observability annotation queue. (required)
+   * @param interactionId The ID of the interaction within the annotation queue. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotatedInteractionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionResponse>>
+      getLLMObsAnnotatedInteractionWithHttpInfoAsync(String queueId, String interactionId) {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsAnnotatedInteraction";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'queueId' when calling"
+                  + " getLLMObsAnnotatedInteraction"));
+      return result;
+    }
+
+    // verify the required parameter 'interactionId' is set
+    if (interactionId == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'interactionId' when calling"
+                  + " getLLMObsAnnotatedInteraction"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions/{interaction_id}"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()))
+            .replaceAll(
+                "\\{" + "interaction_id" + "\\}", apiClient.escapeString(interactionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentObservabilityApi.getLLMObsAnnotatedInteraction",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotatedInteractionResponse>() {});
   }
 
   /**

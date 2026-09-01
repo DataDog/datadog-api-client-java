@@ -189,6 +189,55 @@ public class LLMObsAnnotationQueueInteractionResponseItem extends AbstractOpenAp
             e);
       }
 
+      // deserialize LLMObsFrontendInteractionResponseItem
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (LLMObsFrontendInteractionResponseItem.class.equals(Integer.class)
+            || LLMObsFrontendInteractionResponseItem.class.equals(Long.class)
+            || LLMObsFrontendInteractionResponseItem.class.equals(Float.class)
+            || LLMObsFrontendInteractionResponseItem.class.equals(Double.class)
+            || LLMObsFrontendInteractionResponseItem.class.equals(Boolean.class)
+            || LLMObsFrontendInteractionResponseItem.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((LLMObsFrontendInteractionResponseItem.class.equals(Integer.class)
+                        || LLMObsFrontendInteractionResponseItem.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((LLMObsFrontendInteractionResponseItem.class.equals(Float.class)
+                        || LLMObsFrontendInteractionResponseItem.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (LLMObsFrontendInteractionResponseItem.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (LLMObsFrontendInteractionResponseItem.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(LLMObsFrontendInteractionResponseItem.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((LLMObsFrontendInteractionResponseItem) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'LLMObsFrontendInteractionResponseItem'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'LLMObsFrontendInteractionResponseItem'",
+            e);
+      }
+
       LLMObsAnnotationQueueInteractionResponseItem ret =
           new LLMObsAnnotationQueueInteractionResponseItem();
       if (match == 1) {
@@ -230,6 +279,11 @@ public class LLMObsAnnotationQueueInteractionResponseItem extends AbstractOpenAp
     setActualInstance(o);
   }
 
+  public LLMObsAnnotationQueueInteractionResponseItem(LLMObsFrontendInteractionResponseItem o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "LLMObsTraceInteractionResponseItem",
@@ -237,6 +291,9 @@ public class LLMObsAnnotationQueueInteractionResponseItem extends AbstractOpenAp
     schemas.put(
         "LLMObsDisplayBlockInteractionResponseItem",
         new GenericType<LLMObsDisplayBlockInteractionResponseItem>() {});
+    schemas.put(
+        "LLMObsFrontendInteractionResponseItem",
+        new GenericType<LLMObsFrontendInteractionResponseItem>() {});
     JSON.registerDescendants(
         LLMObsAnnotationQueueInteractionResponseItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -249,7 +306,7 @@ public class LLMObsAnnotationQueueInteractionResponseItem extends AbstractOpenAp
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: LLMObsTraceInteractionResponseItem,
-   * LLMObsDisplayBlockInteractionResponseItem
+   * LLMObsDisplayBlockInteractionResponseItem, LLMObsFrontendInteractionResponseItem
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -266,6 +323,11 @@ public class LLMObsAnnotationQueueInteractionResponseItem extends AbstractOpenAp
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        LLMObsFrontendInteractionResponseItem.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -273,15 +335,15 @@ public class LLMObsAnnotationQueueInteractionResponseItem extends AbstractOpenAp
     }
     throw new RuntimeException(
         "Invalid instance type. Must be LLMObsTraceInteractionResponseItem,"
-            + " LLMObsDisplayBlockInteractionResponseItem");
+            + " LLMObsDisplayBlockInteractionResponseItem, LLMObsFrontendInteractionResponseItem");
   }
 
   /**
    * Get the actual instance, which can be the following: LLMObsTraceInteractionResponseItem,
-   * LLMObsDisplayBlockInteractionResponseItem
+   * LLMObsDisplayBlockInteractionResponseItem, LLMObsFrontendInteractionResponseItem
    *
    * @return The actual instance (LLMObsTraceInteractionResponseItem,
-   *     LLMObsDisplayBlockInteractionResponseItem)
+   *     LLMObsDisplayBlockInteractionResponseItem, LLMObsFrontendInteractionResponseItem)
    */
   @Override
   public Object getActualInstance() {
@@ -310,5 +372,17 @@ public class LLMObsAnnotationQueueInteractionResponseItem extends AbstractOpenAp
   public LLMObsDisplayBlockInteractionResponseItem getLLMObsDisplayBlockInteractionResponseItem()
       throws ClassCastException {
     return (LLMObsDisplayBlockInteractionResponseItem) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LLMObsFrontendInteractionResponseItem`. If the actual instance is
+   * not `LLMObsFrontendInteractionResponseItem`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LLMObsFrontendInteractionResponseItem`
+   * @throws ClassCastException if the instance is not `LLMObsFrontendInteractionResponseItem`
+   */
+  public LLMObsFrontendInteractionResponseItem getLLMObsFrontendInteractionResponseItem()
+      throws ClassCastException {
+    return (LLMObsFrontendInteractionResponseItem) super.getActualInstance();
   }
 }
