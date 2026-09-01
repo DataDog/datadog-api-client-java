@@ -320,8 +320,15 @@ public class ClientSteps {
           java.lang.ClassNotFoundException,
           java.lang.NoSuchFieldException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
-    assertEquals(
-        World.lookup(world.context, fixturePath), World.lookup(responseData, responsePath));
+    Object expected = World.lookup(world.context, fixturePath);
+    Object actual = World.lookup(responseData, responsePath);
+    if (expected instanceof AbstractOpenApiSchema) {
+      expected = ((AbstractOpenApiSchema) expected).getActualInstanceRecursively();
+    }
+    if (actual instanceof AbstractOpenApiSchema) {
+      actual = ((AbstractOpenApiSchema) actual).getActualInstanceRecursively();
+    }
+    assertEquals(expected, actual);
   }
 
   @Then("the response {string} has length {long}")
