@@ -8,93 +8,73 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for a Slack-based trigger. */
+/** Trigger a workflow when an incident is declared. */
 @JsonPropertyOrder({
-  SlackTriggerWrapper.JSON_PROPERTY_SLACK_TRIGGER,
-  SlackTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
+  IncidentCreatedTrigger.JSON_PROPERTY_INCIDENT_TYPE,
+  IncidentCreatedTrigger.JSON_PROPERTY_TAG_CONDITION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SlackTriggerWrapper {
+public class IncidentCreatedTrigger {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_SLACK_TRIGGER = "slackTrigger";
-  private SlackTrigger slackTrigger;
+  public static final String JSON_PROPERTY_INCIDENT_TYPE = "incidentType";
+  private String incidentType;
 
-  public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
-  private List<String> startStepNames = null;
+  public static final String JSON_PROPERTY_TAG_CONDITION = "tagCondition";
+  private IncidentCondition tagCondition;
 
-  public SlackTriggerWrapper() {}
-
-  @JsonCreator
-  public SlackTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SLACK_TRIGGER)
-          SlackTrigger slackTrigger) {
-    this.slackTrigger = slackTrigger;
-    this.unparsed |= slackTrigger.unparsed;
-  }
-
-  public SlackTriggerWrapper slackTrigger(SlackTrigger slackTrigger) {
-    this.slackTrigger = slackTrigger;
-    this.unparsed |= slackTrigger.unparsed;
+  public IncidentCreatedTrigger incidentType(String incidentType) {
+    this.incidentType = incidentType;
     return this;
   }
 
   /**
-   * Trigger a workflow from Slack. The workflow must be published.
+   * The type of incident that triggers the workflow.
    *
-   * @return slackTrigger
-   */
-  @JsonProperty(JSON_PROPERTY_SLACK_TRIGGER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SlackTrigger getSlackTrigger() {
-    return slackTrigger;
-  }
-
-  public void setSlackTrigger(SlackTrigger slackTrigger) {
-    this.slackTrigger = slackTrigger;
-    if (slackTrigger != null) {
-      this.unparsed |= slackTrigger.unparsed;
-    }
-  }
-
-  public SlackTriggerWrapper startStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
-    return this;
-  }
-
-  public SlackTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
-    if (this.startStepNames == null) {
-      this.startStepNames = new ArrayList<>();
-    }
-    this.startStepNames.add(startStepNamesItem);
-    return this;
-  }
-
-  /**
-   * Names of existing workflow steps that run first after a trigger fires.
-   *
-   * @return startStepNames
+   * @return incidentType
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getStartStepNames() {
-    return startStepNames;
+  public String getIncidentType() {
+    return incidentType;
   }
 
-  public void setStartStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
+  public void setIncidentType(String incidentType) {
+    this.incidentType = incidentType;
+  }
+
+  public IncidentCreatedTrigger tagCondition(IncidentCondition tagCondition) {
+    this.tagCondition = tagCondition;
+    this.unparsed |= tagCondition.unparsed;
+    return this;
+  }
+
+  /**
+   * Conditions that determine which incidents trigger the workflow.
+   *
+   * @return tagCondition
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAG_CONDITION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentCondition getTagCondition() {
+    return tagCondition;
+  }
+
+  public void setTagCondition(IncidentCondition tagCondition) {
+    this.tagCondition = tagCondition;
+    if (tagCondition != null) {
+      this.unparsed |= tagCondition.unparsed;
+    }
   }
 
   /**
@@ -109,10 +89,10 @@ public class SlackTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SlackTriggerWrapper
+   * @return IncidentCreatedTrigger
    */
   @JsonAnySetter
-  public SlackTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public IncidentCreatedTrigger putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -143,7 +123,7 @@ public class SlackTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SlackTriggerWrapper object is equal to o. */
+  /** Return true if this IncidentCreatedTrigger object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -152,23 +132,23 @@ public class SlackTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SlackTriggerWrapper slackTriggerWrapper = (SlackTriggerWrapper) o;
-    return Objects.equals(this.slackTrigger, slackTriggerWrapper.slackTrigger)
-        && Objects.equals(this.startStepNames, slackTriggerWrapper.startStepNames)
-        && Objects.equals(this.additionalProperties, slackTriggerWrapper.additionalProperties);
+    IncidentCreatedTrigger incidentCreatedTrigger = (IncidentCreatedTrigger) o;
+    return Objects.equals(this.incidentType, incidentCreatedTrigger.incidentType)
+        && Objects.equals(this.tagCondition, incidentCreatedTrigger.tagCondition)
+        && Objects.equals(this.additionalProperties, incidentCreatedTrigger.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(slackTrigger, startStepNames, additionalProperties);
+    return Objects.hash(incidentType, tagCondition, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SlackTriggerWrapper {\n");
-    sb.append("    slackTrigger: ").append(toIndentedString(slackTrigger)).append("\n");
-    sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
+    sb.append("class IncidentCreatedTrigger {\n");
+    sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
+    sb.append("    tagCondition: ").append(toIndentedString(tagCondition)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

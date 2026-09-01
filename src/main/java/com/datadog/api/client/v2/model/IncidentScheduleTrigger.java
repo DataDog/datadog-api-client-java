@@ -13,89 +13,101 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for an incident-based trigger. */
+/** Trigger a workflow on a schedule for an incident. */
 @JsonPropertyOrder({
-  IncidentTriggerWrapper.JSON_PROPERTY_INCIDENT_TRIGGER,
-  IncidentTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
+  IncidentScheduleTrigger.JSON_PROPERTY_INCIDENT_TYPE,
+  IncidentScheduleTrigger.JSON_PROPERTY_RRULE,
+  IncidentScheduleTrigger.JSON_PROPERTY_TAG_CONDITION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentTriggerWrapper {
+public class IncidentScheduleTrigger {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INCIDENT_TRIGGER = "incidentTrigger";
-  private IncidentTrigger incidentTrigger;
+  public static final String JSON_PROPERTY_INCIDENT_TYPE = "incidentType";
+  private String incidentType;
 
-  public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
-  private List<String> startStepNames = null;
+  public static final String JSON_PROPERTY_RRULE = "rrule";
+  private String rrule;
 
-  public IncidentTriggerWrapper() {}
+  public static final String JSON_PROPERTY_TAG_CONDITION = "tagCondition";
+  private IncidentCondition tagCondition;
+
+  public IncidentScheduleTrigger() {}
 
   @JsonCreator
-  public IncidentTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INCIDENT_TRIGGER)
-          IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public IncidentScheduleTrigger(
+      @JsonProperty(required = true, value = JSON_PROPERTY_RRULE) String rrule) {
+    this.rrule = rrule;
   }
 
-  public IncidentTriggerWrapper incidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public IncidentScheduleTrigger incidentType(String incidentType) {
+    this.incidentType = incidentType;
     return this;
   }
 
   /**
-   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and
-   * the workflow must be published.
+   * The type of incident that triggers the workflow.
    *
-   * @return incidentTrigger
-   */
-  @JsonProperty(JSON_PROPERTY_INCIDENT_TRIGGER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentTrigger getIncidentTrigger() {
-    return incidentTrigger;
-  }
-
-  public void setIncidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    if (incidentTrigger != null) {
-      this.unparsed |= incidentTrigger.unparsed;
-    }
-  }
-
-  public IncidentTriggerWrapper startStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
-    return this;
-  }
-
-  public IncidentTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
-    if (this.startStepNames == null) {
-      this.startStepNames = new ArrayList<>();
-    }
-    this.startStepNames.add(startStepNamesItem);
-    return this;
-  }
-
-  /**
-   * Names of existing workflow steps that run first after a trigger fires.
-   *
-   * @return startStepNames
+   * @return incidentType
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getStartStepNames() {
-    return startStepNames;
+  public String getIncidentType() {
+    return incidentType;
   }
 
-  public void setStartStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
+  public void setIncidentType(String incidentType) {
+    this.incidentType = incidentType;
+  }
+
+  public IncidentScheduleTrigger rrule(String rrule) {
+    this.rrule = rrule;
+    return this;
+  }
+
+  /**
+   * The recurrence rule for the schedule, expressed as an iCalendar <code>RRULE</code> string.
+   *
+   * @return rrule
+   */
+  @JsonProperty(JSON_PROPERTY_RRULE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getRrule() {
+    return rrule;
+  }
+
+  public void setRrule(String rrule) {
+    this.rrule = rrule;
+  }
+
+  public IncidentScheduleTrigger tagCondition(IncidentCondition tagCondition) {
+    this.tagCondition = tagCondition;
+    this.unparsed |= tagCondition.unparsed;
+    return this;
+  }
+
+  /**
+   * Conditions that determine which incidents trigger the workflow.
+   *
+   * @return tagCondition
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAG_CONDITION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentCondition getTagCondition() {
+    return tagCondition;
+  }
+
+  public void setTagCondition(IncidentCondition tagCondition) {
+    this.tagCondition = tagCondition;
+    if (tagCondition != null) {
+      this.unparsed |= tagCondition.unparsed;
+    }
   }
 
   /**
@@ -110,10 +122,10 @@ public class IncidentTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentTriggerWrapper
+   * @return IncidentScheduleTrigger
    */
   @JsonAnySetter
-  public IncidentTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public IncidentScheduleTrigger putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +156,7 @@ public class IncidentTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentTriggerWrapper object is equal to o. */
+  /** Return true if this IncidentScheduleTrigger object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,23 +165,25 @@ public class IncidentTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTriggerWrapper incidentTriggerWrapper = (IncidentTriggerWrapper) o;
-    return Objects.equals(this.incidentTrigger, incidentTriggerWrapper.incidentTrigger)
-        && Objects.equals(this.startStepNames, incidentTriggerWrapper.startStepNames)
-        && Objects.equals(this.additionalProperties, incidentTriggerWrapper.additionalProperties);
+    IncidentScheduleTrigger incidentScheduleTrigger = (IncidentScheduleTrigger) o;
+    return Objects.equals(this.incidentType, incidentScheduleTrigger.incidentType)
+        && Objects.equals(this.rrule, incidentScheduleTrigger.rrule)
+        && Objects.equals(this.tagCondition, incidentScheduleTrigger.tagCondition)
+        && Objects.equals(this.additionalProperties, incidentScheduleTrigger.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(incidentTrigger, startStepNames, additionalProperties);
+    return Objects.hash(incidentType, rrule, tagCondition, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTriggerWrapper {\n");
-    sb.append("    incidentTrigger: ").append(toIndentedString(incidentTrigger)).append("\n");
-    sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
+    sb.append("class IncidentScheduleTrigger {\n");
+    sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
+    sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
+    sb.append("    tagCondition: ").append(toIndentedString(tagCondition)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -19,62 +19,62 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for an incident-based trigger. */
+/** Schema for an incident declared trigger. */
 @JsonPropertyOrder({
-  IncidentTriggerWrapper.JSON_PROPERTY_INCIDENT_TRIGGER,
-  IncidentTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
+  IncidentCreatedTriggerWrapper.JSON_PROPERTY_INCIDENT_CREATED_TRIGGER,
+  IncidentCreatedTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentTriggerWrapper {
+public class IncidentCreatedTriggerWrapper {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INCIDENT_TRIGGER = "incidentTrigger";
-  private IncidentTrigger incidentTrigger;
+  public static final String JSON_PROPERTY_INCIDENT_CREATED_TRIGGER = "incidentCreatedTrigger";
+  private IncidentCreatedTrigger incidentCreatedTrigger;
 
   public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
   private List<String> startStepNames = null;
 
-  public IncidentTriggerWrapper() {}
+  public IncidentCreatedTriggerWrapper() {}
 
   @JsonCreator
-  public IncidentTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INCIDENT_TRIGGER)
-          IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public IncidentCreatedTriggerWrapper(
+      @JsonProperty(required = true, value = JSON_PROPERTY_INCIDENT_CREATED_TRIGGER)
+          IncidentCreatedTrigger incidentCreatedTrigger) {
+    this.incidentCreatedTrigger = incidentCreatedTrigger;
+    this.unparsed |= incidentCreatedTrigger.unparsed;
   }
 
-  public IncidentTriggerWrapper incidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    this.unparsed |= incidentTrigger.unparsed;
+  public IncidentCreatedTriggerWrapper incidentCreatedTrigger(
+      IncidentCreatedTrigger incidentCreatedTrigger) {
+    this.incidentCreatedTrigger = incidentCreatedTrigger;
+    this.unparsed |= incidentCreatedTrigger.unparsed;
     return this;
   }
 
   /**
-   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and
-   * the workflow must be published.
+   * Trigger a workflow when an incident is declared.
    *
-   * @return incidentTrigger
+   * @return incidentCreatedTrigger
    */
-  @JsonProperty(JSON_PROPERTY_INCIDENT_TRIGGER)
+  @JsonProperty(JSON_PROPERTY_INCIDENT_CREATED_TRIGGER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentTrigger getIncidentTrigger() {
-    return incidentTrigger;
+  public IncidentCreatedTrigger getIncidentCreatedTrigger() {
+    return incidentCreatedTrigger;
   }
 
-  public void setIncidentTrigger(IncidentTrigger incidentTrigger) {
-    this.incidentTrigger = incidentTrigger;
-    if (incidentTrigger != null) {
-      this.unparsed |= incidentTrigger.unparsed;
+  public void setIncidentCreatedTrigger(IncidentCreatedTrigger incidentCreatedTrigger) {
+    this.incidentCreatedTrigger = incidentCreatedTrigger;
+    if (incidentCreatedTrigger != null) {
+      this.unparsed |= incidentCreatedTrigger.unparsed;
     }
   }
 
-  public IncidentTriggerWrapper startStepNames(List<String> startStepNames) {
+  public IncidentCreatedTriggerWrapper startStepNames(List<String> startStepNames) {
     this.startStepNames = startStepNames;
     return this;
   }
 
-  public IncidentTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
+  public IncidentCreatedTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
     if (this.startStepNames == null) {
       this.startStepNames = new ArrayList<>();
     }
@@ -110,10 +110,10 @@ public class IncidentTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentTriggerWrapper
+   * @return IncidentCreatedTriggerWrapper
    */
   @JsonAnySetter
-  public IncidentTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public IncidentCreatedTriggerWrapper putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +144,7 @@ public class IncidentTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentTriggerWrapper object is equal to o. */
+  /** Return true if this IncidentCreatedTriggerWrapper object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,22 +153,26 @@ public class IncidentTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTriggerWrapper incidentTriggerWrapper = (IncidentTriggerWrapper) o;
-    return Objects.equals(this.incidentTrigger, incidentTriggerWrapper.incidentTrigger)
-        && Objects.equals(this.startStepNames, incidentTriggerWrapper.startStepNames)
-        && Objects.equals(this.additionalProperties, incidentTriggerWrapper.additionalProperties);
+    IncidentCreatedTriggerWrapper incidentCreatedTriggerWrapper = (IncidentCreatedTriggerWrapper) o;
+    return Objects.equals(
+            this.incidentCreatedTrigger, incidentCreatedTriggerWrapper.incidentCreatedTrigger)
+        && Objects.equals(this.startStepNames, incidentCreatedTriggerWrapper.startStepNames)
+        && Objects.equals(
+            this.additionalProperties, incidentCreatedTriggerWrapper.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(incidentTrigger, startStepNames, additionalProperties);
+    return Objects.hash(incidentCreatedTrigger, startStepNames, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTriggerWrapper {\n");
-    sb.append("    incidentTrigger: ").append(toIndentedString(incidentTrigger)).append("\n");
+    sb.append("class IncidentCreatedTriggerWrapper {\n");
+    sb.append("    incidentCreatedTrigger: ")
+        .append(toIndentedString(incidentCreatedTrigger))
+        .append("\n");
     sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

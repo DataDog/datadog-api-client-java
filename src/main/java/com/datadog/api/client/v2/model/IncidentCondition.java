@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,82 +18,53 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for a Slack-based trigger. */
-@JsonPropertyOrder({
-  SlackTriggerWrapper.JSON_PROPERTY_SLACK_TRIGGER,
-  SlackTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
-})
+/** Conditions that determine which incidents trigger the workflow. */
+@JsonPropertyOrder({IncidentCondition.JSON_PROPERTY_TAG_VALUES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SlackTriggerWrapper {
+public class IncidentCondition {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_SLACK_TRIGGER = "slackTrigger";
-  private SlackTrigger slackTrigger;
+  public static final String JSON_PROPERTY_TAG_VALUES = "tagValues";
+  private List<IncidentTagValue> tagValues = null;
 
-  public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
-  private List<String> startStepNames = null;
-
-  public SlackTriggerWrapper() {}
-
-  @JsonCreator
-  public SlackTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SLACK_TRIGGER)
-          SlackTrigger slackTrigger) {
-    this.slackTrigger = slackTrigger;
-    this.unparsed |= slackTrigger.unparsed;
+  public IncidentCondition tagValues(List<IncidentTagValue> tagValues) {
+    this.tagValues = tagValues;
+    if (tagValues != null) {
+      for (IncidentTagValue item : tagValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
+    return this;
   }
 
-  public SlackTriggerWrapper slackTrigger(SlackTrigger slackTrigger) {
-    this.slackTrigger = slackTrigger;
-    this.unparsed |= slackTrigger.unparsed;
+  public IncidentCondition addTagValuesItem(IncidentTagValue tagValuesItem) {
+    if (this.tagValues == null) {
+      this.tagValues = new ArrayList<>();
+    }
+    this.tagValues.add(tagValuesItem);
+    this.unparsed |= tagValuesItem.unparsed;
     return this;
   }
 
   /**
-   * Trigger a workflow from Slack. The workflow must be published.
+   * Incident tags and values used to filter matching incidents.
    *
-   * @return slackTrigger
-   */
-  @JsonProperty(JSON_PROPERTY_SLACK_TRIGGER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SlackTrigger getSlackTrigger() {
-    return slackTrigger;
-  }
-
-  public void setSlackTrigger(SlackTrigger slackTrigger) {
-    this.slackTrigger = slackTrigger;
-    if (slackTrigger != null) {
-      this.unparsed |= slackTrigger.unparsed;
-    }
-  }
-
-  public SlackTriggerWrapper startStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
-    return this;
-  }
-
-  public SlackTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
-    if (this.startStepNames == null) {
-      this.startStepNames = new ArrayList<>();
-    }
-    this.startStepNames.add(startStepNamesItem);
-    return this;
-  }
-
-  /**
-   * Names of existing workflow steps that run first after a trigger fires.
-   *
-   * @return startStepNames
+   * @return tagValues
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
+  @JsonProperty(JSON_PROPERTY_TAG_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getStartStepNames() {
-    return startStepNames;
+  public List<IncidentTagValue> getTagValues() {
+    return tagValues;
   }
 
-  public void setStartStepNames(List<String> startStepNames) {
-    this.startStepNames = startStepNames;
+  public void setTagValues(List<IncidentTagValue> tagValues) {
+    this.tagValues = tagValues;
+    if (tagValues != null) {
+      for (IncidentTagValue item : tagValues) {
+        this.unparsed |= item.unparsed;
+      }
+    }
   }
 
   /**
@@ -109,10 +79,10 @@ public class SlackTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SlackTriggerWrapper
+   * @return IncidentCondition
    */
   @JsonAnySetter
-  public SlackTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public IncidentCondition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -143,7 +113,7 @@ public class SlackTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SlackTriggerWrapper object is equal to o. */
+  /** Return true if this IncidentCondition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -152,23 +122,21 @@ public class SlackTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SlackTriggerWrapper slackTriggerWrapper = (SlackTriggerWrapper) o;
-    return Objects.equals(this.slackTrigger, slackTriggerWrapper.slackTrigger)
-        && Objects.equals(this.startStepNames, slackTriggerWrapper.startStepNames)
-        && Objects.equals(this.additionalProperties, slackTriggerWrapper.additionalProperties);
+    IncidentCondition incidentCondition = (IncidentCondition) o;
+    return Objects.equals(this.tagValues, incidentCondition.tagValues)
+        && Objects.equals(this.additionalProperties, incidentCondition.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(slackTrigger, startStepNames, additionalProperties);
+    return Objects.hash(tagValues, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SlackTriggerWrapper {\n");
-    sb.append("    slackTrigger: ").append(toIndentedString(slackTrigger)).append("\n");
-    sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
+    sb.append("class IncidentCondition {\n");
+    sb.append("    tagValues: ").append(toIndentedString(tagValues)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
