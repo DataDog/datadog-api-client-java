@@ -29,6 +29,7 @@ import java.util.Objects;
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_CONTENT_ID,
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_CREATED_AT,
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_DISPLAY_BLOCK,
+  LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_FRONTEND,
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_ID,
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_MODIFIED_AT,
   LLMObsAnnotatedInteractionByTraceItem.JSON_PROPERTY_QUEUE_ID,
@@ -40,7 +41,7 @@ import java.util.Objects;
 public class LLMObsAnnotatedInteractionByTraceItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATIONS = "annotations";
-  private List<LLMObsAnnotationItem> annotations = new ArrayList<>();
+  private List<LLMObsAnnotationItemResponse> annotations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CAN_ANNOTATE = "can_annotate";
   private Boolean canAnnotate;
@@ -53,6 +54,9 @@ public class LLMObsAnnotatedInteractionByTraceItem {
 
   public static final String JSON_PROPERTY_DISPLAY_BLOCK = "display_block";
   private List<LLMObsContentBlock> displayBlock = null;
+
+  public static final String JSON_PROPERTY_FRONTEND = "frontend";
+  private LLMObsFrontendContent frontend;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -74,7 +78,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
   @JsonCreator
   public LLMObsAnnotatedInteractionByTraceItem(
       @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
-          List<LLMObsAnnotationItem> annotations,
+          List<LLMObsAnnotationItemResponse> annotations,
       @JsonProperty(required = true, value = JSON_PROPERTY_CAN_ANNOTATE) Boolean canAnnotate,
       @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
@@ -84,7 +88,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
       @JsonProperty(required = true, value = JSON_PROPERTY_QUEUE_NAME) String queueName,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsAnyInteractionType type) {
     this.annotations = annotations;
-    for (LLMObsAnnotationItem item : annotations) {
+    for (LLMObsAnnotationItemResponse item : annotations) {
       this.unparsed |= item.unparsed;
     }
     this.canAnnotate = canAnnotate;
@@ -98,16 +102,17 @@ public class LLMObsAnnotatedInteractionByTraceItem {
     this.unparsed |= !type.isValid();
   }
 
-  public LLMObsAnnotatedInteractionByTraceItem annotations(List<LLMObsAnnotationItem> annotations) {
+  public LLMObsAnnotatedInteractionByTraceItem annotations(
+      List<LLMObsAnnotationItemResponse> annotations) {
     this.annotations = annotations;
-    for (LLMObsAnnotationItem item : annotations) {
+    for (LLMObsAnnotationItemResponse item : annotations) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public LLMObsAnnotatedInteractionByTraceItem addAnnotationsItem(
-      LLMObsAnnotationItem annotationsItem) {
+      LLMObsAnnotationItemResponse annotationsItem) {
     this.annotations.add(annotationsItem);
     this.unparsed |= annotationsItem.unparsed;
     return this;
@@ -120,14 +125,14 @@ public class LLMObsAnnotatedInteractionByTraceItem {
    */
   @JsonProperty(JSON_PROPERTY_ANNOTATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<LLMObsAnnotationItem> getAnnotations() {
+  public List<LLMObsAnnotationItemResponse> getAnnotations() {
     return annotations;
   }
 
-  public void setAnnotations(List<LLMObsAnnotationItem> annotations) {
+  public void setAnnotations(List<LLMObsAnnotationItemResponse> annotations) {
     this.annotations = annotations;
     if (annotations != null) {
-      for (LLMObsAnnotationItem item : annotations) {
+      for (LLMObsAnnotationItemResponse item : annotations) {
         this.unparsed |= item.unparsed;
       }
     }
@@ -159,7 +164,8 @@ public class LLMObsAnnotatedInteractionByTraceItem {
   }
 
   /**
-   * Upstream entity identifier (trace ID, session ID, or deterministic display_block ID).
+   * Upstream entity identifier (trace ID, session ID, or deterministic display_block or frontend
+   * ID).
    *
    * @return contentId
    */
@@ -232,6 +238,31 @@ public class LLMObsAnnotatedInteractionByTraceItem {
       for (LLMObsContentBlock item : displayBlock) {
         this.unparsed |= item.unparsed;
       }
+    }
+  }
+
+  public LLMObsAnnotatedInteractionByTraceItem frontend(LLMObsFrontendContent frontend) {
+    this.frontend = frontend;
+    this.unparsed |= frontend.unparsed;
+    return this;
+  }
+
+  /**
+   * Web content that makes up a <code>frontend</code> interaction.
+   *
+   * @return frontend
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FRONTEND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LLMObsFrontendContent getFrontend() {
+    return frontend;
+  }
+
+  public void setFrontend(LLMObsFrontendContent frontend) {
+    this.frontend = frontend;
+    if (frontend != null) {
+      this.unparsed |= frontend.unparsed;
     }
   }
 
@@ -401,6 +432,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
         && Objects.equals(this.contentId, llmObsAnnotatedInteractionByTraceItem.contentId)
         && Objects.equals(this.createdAt, llmObsAnnotatedInteractionByTraceItem.createdAt)
         && Objects.equals(this.displayBlock, llmObsAnnotatedInteractionByTraceItem.displayBlock)
+        && Objects.equals(this.frontend, llmObsAnnotatedInteractionByTraceItem.frontend)
         && Objects.equals(this.id, llmObsAnnotatedInteractionByTraceItem.id)
         && Objects.equals(this.modifiedAt, llmObsAnnotatedInteractionByTraceItem.modifiedAt)
         && Objects.equals(this.queueId, llmObsAnnotatedInteractionByTraceItem.queueId)
@@ -418,6 +450,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
         contentId,
         createdAt,
         displayBlock,
+        frontend,
         id,
         modifiedAt,
         queueId,
@@ -435,6 +468,7 @@ public class LLMObsAnnotatedInteractionByTraceItem {
     sb.append("    contentId: ").append(toIndentedString(contentId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    displayBlock: ").append(toIndentedString(displayBlock)).append("\n");
+    sb.append("    frontend: ").append(toIndentedString(frontend)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    queueId: ").append(toIndentedString(queueId)).append("\n");

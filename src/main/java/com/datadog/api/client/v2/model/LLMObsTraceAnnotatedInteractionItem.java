@@ -35,7 +35,7 @@ import java.util.Objects;
 public class LLMObsTraceAnnotatedInteractionItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATIONS = "annotations";
-  private List<LLMObsAnnotationItem> annotations = new ArrayList<>();
+  private List<LLMObsAnnotationItemResponse> annotations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CAN_ANNOTATE = "can_annotate";
   private Boolean canAnnotate;
@@ -60,7 +60,7 @@ public class LLMObsTraceAnnotatedInteractionItem {
   @JsonCreator
   public LLMObsTraceAnnotatedInteractionItem(
       @JsonProperty(required = true, value = JSON_PROPERTY_ANNOTATIONS)
-          List<LLMObsAnnotationItem> annotations,
+          List<LLMObsAnnotationItemResponse> annotations,
       @JsonProperty(required = true, value = JSON_PROPERTY_CAN_ANNOTATE) Boolean canAnnotate,
       @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT_ID) String contentId,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
@@ -68,7 +68,7 @@ public class LLMObsTraceAnnotatedInteractionItem {
       @JsonProperty(required = true, value = JSON_PROPERTY_MODIFIED_AT) OffsetDateTime modifiedAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LLMObsTraceInteractionType type) {
     this.annotations = annotations;
-    for (LLMObsAnnotationItem item : annotations) {
+    for (LLMObsAnnotationItemResponse item : annotations) {
       this.unparsed |= item.unparsed;
     }
     this.canAnnotate = canAnnotate;
@@ -80,16 +80,17 @@ public class LLMObsTraceAnnotatedInteractionItem {
     this.unparsed |= !type.isValid();
   }
 
-  public LLMObsTraceAnnotatedInteractionItem annotations(List<LLMObsAnnotationItem> annotations) {
+  public LLMObsTraceAnnotatedInteractionItem annotations(
+      List<LLMObsAnnotationItemResponse> annotations) {
     this.annotations = annotations;
-    for (LLMObsAnnotationItem item : annotations) {
+    for (LLMObsAnnotationItemResponse item : annotations) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public LLMObsTraceAnnotatedInteractionItem addAnnotationsItem(
-      LLMObsAnnotationItem annotationsItem) {
+      LLMObsAnnotationItemResponse annotationsItem) {
     this.annotations.add(annotationsItem);
     this.unparsed |= annotationsItem.unparsed;
     return this;
@@ -102,14 +103,14 @@ public class LLMObsTraceAnnotatedInteractionItem {
    */
   @JsonProperty(JSON_PROPERTY_ANNOTATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<LLMObsAnnotationItem> getAnnotations() {
+  public List<LLMObsAnnotationItemResponse> getAnnotations() {
     return annotations;
   }
 
-  public void setAnnotations(List<LLMObsAnnotationItem> annotations) {
+  public void setAnnotations(List<LLMObsAnnotationItemResponse> annotations) {
     this.annotations = annotations;
     if (annotations != null) {
-      for (LLMObsAnnotationItem item : annotations) {
+      for (LLMObsAnnotationItemResponse item : annotations) {
         this.unparsed |= item.unparsed;
       }
     }
