@@ -19,9 +19,11 @@ import java.util.Objects;
 /** The metadata associated with a request. */
 @JsonPropertyOrder({
   Event.JSON_PROPERTY_ID,
+  Event.JSON_PROPERTY_INTEGRATION_ID,
   Event.JSON_PROPERTY_NAME,
   Event.JSON_PROPERTY_SOURCE_ID,
-  Event.JSON_PROPERTY_TYPE
+  Event.JSON_PROPERTY_TYPE,
+  Event.JSON_PROPERTY_UID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -29,6 +31,9 @@ public class Event {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_INTEGRATION_ID = "integration_id";
+  private String integrationId;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -38,6 +43,9 @@ public class Event {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  public static final String JSON_PROPERTY_UID = "uid";
+  private String uid;
 
   public Event id(String id) {
     this.id = id;
@@ -58,6 +66,27 @@ public class Event {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public Event integrationId(String integrationId) {
+    this.integrationId = integrationId;
+    return this;
+  }
+
+  /**
+   * The integration ID of the event.
+   *
+   * @return integrationId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIntegrationId() {
+    return integrationId;
+  }
+
+  public void setIntegrationId(String integrationId) {
+    this.integrationId = integrationId;
   }
 
   public Event name(String name) {
@@ -123,6 +152,27 @@ public class Event {
     this.type = type;
   }
 
+  public Event uid(String uid) {
+    this.uid = uid;
+    return this;
+  }
+
+  /**
+   * A unique identifier for the event. You can use this identifier to query or reference the event.
+   *
+   * @return uid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUid() {
+    return uid;
+  }
+
+  public void setUid(String uid) {
+    this.uid = uid;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -180,15 +230,17 @@ public class Event {
     }
     Event event = (Event) o;
     return Objects.equals(this.id, event.id)
+        && Objects.equals(this.integrationId, event.integrationId)
         && Objects.equals(this.name, event.name)
         && Objects.equals(this.sourceId, event.sourceId)
         && Objects.equals(this.type, event.type)
+        && Objects.equals(this.uid, event.uid)
         && Objects.equals(this.additionalProperties, event.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, sourceId, type, additionalProperties);
+    return Objects.hash(id, integrationId, name, sourceId, type, uid, additionalProperties);
   }
 
   @Override
@@ -196,9 +248,11 @@ public class Event {
     StringBuilder sb = new StringBuilder();
     sb.append("class Event {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

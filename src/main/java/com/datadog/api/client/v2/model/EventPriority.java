@@ -18,15 +18,23 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The priority of the event's monitor. For example, <code>normal</code> or <code>low</code>. */
+/**
+ * The priority of the event alert. Legacy events use <code>normal</code> or <code>low</code>. Alert
+ * events use <code>1</code> (highest priority) through <code>5</code> (lowest priority).
+ */
 @JsonSerialize(using = EventPriority.EventPrioritySerializer.class)
 public class EventPriority extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("normal", "low"));
+      new HashSet<String>(Arrays.asList("normal", "low", "1", "2", "3", "4", "5"));
 
   public static final EventPriority NORMAL = new EventPriority("normal");
   public static final EventPriority LOW = new EventPriority("low");
+  public static final EventPriority PRIORITY_ONE = new EventPriority("1");
+  public static final EventPriority PRIORITY_TWO = new EventPriority("2");
+  public static final EventPriority PRIORITY_THREE = new EventPriority("3");
+  public static final EventPriority PRIORITY_FOUR = new EventPriority("4");
+  public static final EventPriority PRIORITY_FIVE = new EventPriority("5");
 
   EventPriority(String value) {
     super(value, allowedValues);

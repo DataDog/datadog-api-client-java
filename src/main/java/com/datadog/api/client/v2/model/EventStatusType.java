@@ -19,9 +19,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * If an alert event is enabled, its status is one of the following: <code>failure</code>, <code>
- * error</code>, <code>warning</code>, <code>info</code>, <code>success</code>, <code>user_update
- * </code>, <code>recommendation</code>, or <code>snapshot</code>.
+ * The event status. Legacy events can use <code>failure</code>, <code>error</code>, <code>warning
+ * </code>, <code>info</code>, <code>success</code>, <code>user_update</code>, <code>recommendation
+ * </code>, or <code>snapshot</code>. Alert events can use <code>error</code>, <code>warn</code>, or
+ * <code>ok</code>.
  */
 @JsonSerialize(using = EventStatusType.EventStatusTypeSerializer.class)
 public class EventStatusType extends ModelEnum<String> {
@@ -31,7 +32,9 @@ public class EventStatusType extends ModelEnum<String> {
           Arrays.asList(
               "failure",
               "error",
+              "warn",
               "warning",
+              "ok",
               "info",
               "success",
               "user_update",
@@ -40,7 +43,9 @@ public class EventStatusType extends ModelEnum<String> {
 
   public static final EventStatusType FAILURE = new EventStatusType("failure");
   public static final EventStatusType ERROR = new EventStatusType("error");
+  public static final EventStatusType WARN = new EventStatusType("warn");
   public static final EventStatusType WARNING = new EventStatusType("warning");
+  public static final EventStatusType OK = new EventStatusType("ok");
   public static final EventStatusType INFO = new EventStatusType("info");
   public static final EventStatusType SUCCESS = new EventStatusType("success");
   public static final EventStatusType USER_UPDATE = new EventStatusType("user_update");
