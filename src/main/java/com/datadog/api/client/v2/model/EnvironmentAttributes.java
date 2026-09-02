@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   EnvironmentAttributes.JSON_PROPERTY_IS_PRODUCTION,
   EnvironmentAttributes.JSON_PROPERTY_KEY,
   EnvironmentAttributes.JSON_PROPERTY_NAME,
+  EnvironmentAttributes.JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA,
   EnvironmentAttributes.JSON_PROPERTY_QUERIES,
   EnvironmentAttributes.JSON_PROPERTY_REQUIRE_FEATURE_FLAG_APPROVAL,
   EnvironmentAttributes.JSON_PROPERTY_UPDATED_AT
@@ -50,6 +51,10 @@ public class EnvironmentAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA =
+      "observe_full_evaluation_data";
+  private Boolean observeFullEvaluationData;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
   private List<String> queries = null;
@@ -181,6 +186,27 @@ public class EnvironmentAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public EnvironmentAttributes observeFullEvaluationData(Boolean observeFullEvaluationData) {
+    this.observeFullEvaluationData = observeFullEvaluationData;
+    return this;
+  }
+
+  /**
+   * Indicates whether full evaluation data is observed for this environment.
+   *
+   * @return observeFullEvaluationData
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBSERVE_FULL_EVALUATION_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getObserveFullEvaluationData() {
+    return observeFullEvaluationData;
+  }
+
+  public void setObserveFullEvaluationData(Boolean observeFullEvaluationData) {
+    this.observeFullEvaluationData = observeFullEvaluationData;
   }
 
   public EnvironmentAttributes queries(List<String> queries) {
@@ -315,6 +341,8 @@ public class EnvironmentAttributes {
         && Objects.equals(this.isProduction, environmentAttributes.isProduction)
         && Objects.equals(this.key, environmentAttributes.key)
         && Objects.equals(this.name, environmentAttributes.name)
+        && Objects.equals(
+            this.observeFullEvaluationData, environmentAttributes.observeFullEvaluationData)
         && Objects.equals(this.queries, environmentAttributes.queries)
         && Objects.equals(
             this.requireFeatureFlagApproval, environmentAttributes.requireFeatureFlagApproval)
@@ -330,6 +358,7 @@ public class EnvironmentAttributes {
         isProduction,
         key,
         name,
+        observeFullEvaluationData,
         queries,
         requireFeatureFlagApproval,
         updatedAt,
@@ -345,6 +374,9 @@ public class EnvironmentAttributes {
     sb.append("    isProduction: ").append(toIndentedString(isProduction)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    observeFullEvaluationData: ")
+        .append(toIndentedString(observeFullEvaluationData))
+        .append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    requireFeatureFlagApproval: ")
         .append(toIndentedString(requireFeatureFlagApproval))
