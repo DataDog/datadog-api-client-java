@@ -59,7 +59,8 @@ public class OrgGroupPolicyUpdateData {
   }
 
   /**
-   * Attributes for updating an org group policy.
+   * Attributes for updating an org group policy. <code>policy_name</code>, <code>content</code>,
+   * and <code>enforcement_tier</code> may be omitted individually to leave them unchanged.
    *
    * @return attributes
    */

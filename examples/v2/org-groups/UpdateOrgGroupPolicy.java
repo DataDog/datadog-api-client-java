@@ -25,7 +25,8 @@ public class Example {
                     .attributes(
                         new OrgGroupPolicyUpdateAttributes()
                             .content(Map.ofEntries(Map.entry("value", "UTC")))
-                            .enforcementTier(OrgGroupPolicyEnforcementTier.OVERRIDE_ALLOWED))
+                            .enforcementTier(OrgGroupPolicyEnforcementTier.OVERRIDE_ALLOWED)
+                            .policyName("monitor_timezone"))
                     .id(UUID.fromString("1a2b3c4d-5e6f-7890-abcd-ef0123456789"))
                     .type(OrgGroupPolicyType.ORG_GROUP_POLICIES));
 

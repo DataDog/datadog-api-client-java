@@ -16,10 +16,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for updating an org group policy. */
+/**
+ * Attributes for updating an org group policy. <code>policy_name</code>, <code>content</code>, and
+ * <code>enforcement_tier</code> may be omitted individually to leave them unchanged.
+ */
 @JsonPropertyOrder({
   OrgGroupPolicyUpdateAttributes.JSON_PROPERTY_CONTENT,
-  OrgGroupPolicyUpdateAttributes.JSON_PROPERTY_ENFORCEMENT_TIER
+  OrgGroupPolicyUpdateAttributes.JSON_PROPERTY_ENFORCEMENT_TIER,
+  OrgGroupPolicyUpdateAttributes.JSON_PROPERTY_POLICY_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -29,8 +33,10 @@ public class OrgGroupPolicyUpdateAttributes {
   private Map<String, Object> content = null;
 
   public static final String JSON_PROPERTY_ENFORCEMENT_TIER = "enforcement_tier";
-  private OrgGroupPolicyEnforcementTier enforcementTier =
-      OrgGroupPolicyEnforcementTier.OVERRIDE_ALLOWED;
+  private OrgGroupPolicyEnforcementTier enforcementTier;
+
+  public static final String JSON_PROPERTY_POLICY_NAME = "policy_name";
+  private String policyName;
 
   public OrgGroupPolicyUpdateAttributes content(Map<String, Object> content) {
     this.content = content;
@@ -46,7 +52,10 @@ public class OrgGroupPolicyUpdateAttributes {
   }
 
   /**
-   * The policy content as key-value pairs.
+   * The policy content as key-value pairs. For <code>org_config</code> policies, an arbitrary
+   * key-value map (for example, <code>{"value": "UTC"}</code>). For <code>role</code> policies, a
+   * <code>permissions</code> key containing an array of permission UUIDs (for example, <code>
+   * {"permissions": ["&lt;uuid&gt;", ...]}</code>).
    *
    * @return content
    */
@@ -72,7 +81,10 @@ public class OrgGroupPolicyUpdateAttributes {
    * The enforcement tier of the policy. <code>OVERRIDE_ALLOWED</code> means the policy is set but
    * member orgs may mutate it. <code>GROUP_MANAGED</code> means the policy is strictly controlled
    * and mutations are blocked for affected orgs. <code>DELEGATE</code> means each member org
-   * controls its own value.
+   * controls its own value. <code>role</code> policies only support <code>GROUP_MANAGED</code> and
+   * <code>DELEGATE</code> — <code>OVERRIDE_ALLOWED</code> is rejected for this policy type.
+   * Transitioning a <code>role</code> policy to <code>DELEGATE</code> (disabling it) is one-way —
+   * the policy cannot be transitioned back to <code>GROUP_MANAGED</code> afterward.
    *
    * @return enforcementTier
    */
@@ -88,6 +100,29 @@ public class OrgGroupPolicyUpdateAttributes {
       this.unparsed = true;
     }
     this.enforcementTier = enforcementTier;
+  }
+
+  public OrgGroupPolicyUpdateAttributes policyName(String policyName) {
+    this.policyName = policyName;
+    return this;
+  }
+
+  /**
+   * The name of the policy. This becomes the name of the resource created across orgs in the group
+   * (for example, for <code>role</code> policies, the name of the created role). Omit to leave
+   * unchanged.
+   *
+   * @return policyName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POLICY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPolicyName() {
+    return policyName;
+  }
+
+  public void setPolicyName(String policyName) {
+    this.policyName = policyName;
   }
 
   /**
@@ -149,13 +184,14 @@ public class OrgGroupPolicyUpdateAttributes {
         (OrgGroupPolicyUpdateAttributes) o;
     return Objects.equals(this.content, orgGroupPolicyUpdateAttributes.content)
         && Objects.equals(this.enforcementTier, orgGroupPolicyUpdateAttributes.enforcementTier)
+        && Objects.equals(this.policyName, orgGroupPolicyUpdateAttributes.policyName)
         && Objects.equals(
             this.additionalProperties, orgGroupPolicyUpdateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, enforcementTier, additionalProperties);
+    return Objects.hash(content, enforcementTier, policyName, additionalProperties);
   }
 
   @Override
@@ -164,6 +200,7 @@ public class OrgGroupPolicyUpdateAttributes {
     sb.append("class OrgGroupPolicyUpdateAttributes {\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    enforcementTier: ").append(toIndentedString(enforcementTier)).append("\n");
+    sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

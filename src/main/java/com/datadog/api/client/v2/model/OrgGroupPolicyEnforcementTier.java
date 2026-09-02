@@ -22,7 +22,10 @@ import java.util.Set;
  * The enforcement tier of the policy. <code>OVERRIDE_ALLOWED</code> means the policy is set but
  * member orgs may mutate it. <code>GROUP_MANAGED</code> means the policy is strictly controlled and
  * mutations are blocked for affected orgs. <code>DELEGATE</code> means each member org controls its
- * own value.
+ * own value. <code>role</code> policies only support <code>GROUP_MANAGED</code> and <code>DELEGATE
+ * </code> — <code>OVERRIDE_ALLOWED</code> is rejected for this policy type. Transitioning a <code>
+ * role</code> policy to <code>DELEGATE</code> (disabling it) is one-way — the policy cannot be
+ * transitioned back to <code>GROUP_MANAGED</code> afterward.
  */
 @JsonSerialize(using = OrgGroupPolicyEnforcementTier.OrgGroupPolicyEnforcementTierSerializer.class)
 public class OrgGroupPolicyEnforcementTier extends ModelEnum<String> {
