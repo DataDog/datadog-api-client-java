@@ -19,7 +19,8 @@ import java.util.Objects;
 /** The definition of <code>WorkflowDataRelationships</code> object. */
 @JsonPropertyOrder({
   WorkflowDataRelationships.JSON_PROPERTY_CREATOR,
-  WorkflowDataRelationships.JSON_PROPERTY_OWNER
+  WorkflowDataRelationships.JSON_PROPERTY_OWNER,
+  WorkflowDataRelationships.JSON_PROPERTY_RUN_AS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -30,6 +31,9 @@ public class WorkflowDataRelationships {
 
   public static final String JSON_PROPERTY_OWNER = "owner";
   private WorkflowUserRelationship owner;
+
+  public static final String JSON_PROPERTY_RUN_AS = "runAs";
+  private WorkflowUserRelationship runAs;
 
   public WorkflowDataRelationships creator(WorkflowUserRelationship creator) {
     this.creator = creator;
@@ -78,6 +82,31 @@ public class WorkflowDataRelationships {
     this.owner = owner;
     if (owner != null) {
       this.unparsed |= owner.unparsed;
+    }
+  }
+
+  public WorkflowDataRelationships runAs(WorkflowUserRelationship runAs) {
+    this.runAs = runAs;
+    this.unparsed |= runAs.unparsed;
+    return this;
+  }
+
+  /**
+   * The definition of <code>WorkflowUserRelationship</code> object.
+   *
+   * @return runAs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_AS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WorkflowUserRelationship getRunAs() {
+    return runAs;
+  }
+
+  public void setRunAs(WorkflowUserRelationship runAs) {
+    this.runAs = runAs;
+    if (runAs != null) {
+      this.unparsed |= runAs.unparsed;
     }
   }
 
@@ -139,13 +168,14 @@ public class WorkflowDataRelationships {
     WorkflowDataRelationships workflowDataRelationships = (WorkflowDataRelationships) o;
     return Objects.equals(this.creator, workflowDataRelationships.creator)
         && Objects.equals(this.owner, workflowDataRelationships.owner)
+        && Objects.equals(this.runAs, workflowDataRelationships.runAs)
         && Objects.equals(
             this.additionalProperties, workflowDataRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creator, owner, additionalProperties);
+    return Objects.hash(creator, owner, runAs, additionalProperties);
   }
 
   @Override
@@ -154,6 +184,7 @@ public class WorkflowDataRelationships {
     sb.append("class WorkflowDataRelationships {\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    runAs: ").append(toIndentedString(runAs)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -26,6 +26,7 @@ import java.util.Objects;
   WorkflowListItemAttributes.JSON_PROPERTY_DESCRIPTION,
   WorkflowListItemAttributes.JSON_PROPERTY_NAME,
   WorkflowListItemAttributes.JSON_PROPERTY_PUBLISHED,
+  WorkflowListItemAttributes.JSON_PROPERTY_RUN_AS_USER_MODE,
   WorkflowListItemAttributes.JSON_PROPERTY_SPEC,
   WorkflowListItemAttributes.JSON_PROPERTY_TAGS,
   WorkflowListItemAttributes.JSON_PROPERTY_UPDATED_AT
@@ -45,6 +46,9 @@ public class WorkflowListItemAttributes {
 
   public static final String JSON_PROPERTY_PUBLISHED = "published";
   private Boolean published;
+
+  public static final String JSON_PROPERTY_RUN_AS_USER_MODE = "runAsUserMode";
+  private WorkflowRunAsUserMode runAsUserMode;
 
   public static final String JSON_PROPERTY_SPEC = "spec";
   private Spec spec;
@@ -136,6 +140,31 @@ public class WorkflowListItemAttributes {
 
   public void setPublished(Boolean published) {
     this.published = published;
+  }
+
+  public WorkflowListItemAttributes runAsUserMode(WorkflowRunAsUserMode runAsUserMode) {
+    this.runAsUserMode = runAsUserMode;
+    this.unparsed |= !runAsUserMode.isValid();
+    return this;
+  }
+
+  /**
+   * The effective type of identity used to run the workflow.
+   *
+   * @return runAsUserMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_AS_USER_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WorkflowRunAsUserMode getRunAsUserMode() {
+    return runAsUserMode;
+  }
+
+  public void setRunAsUserMode(WorkflowRunAsUserMode runAsUserMode) {
+    if (!runAsUserMode.isValid()) {
+      this.unparsed = true;
+    }
+    this.runAsUserMode = runAsUserMode;
   }
 
   public WorkflowListItemAttributes spec(Spec spec) {
@@ -264,6 +293,7 @@ public class WorkflowListItemAttributes {
         && Objects.equals(this.description, workflowListItemAttributes.description)
         && Objects.equals(this.name, workflowListItemAttributes.name)
         && Objects.equals(this.published, workflowListItemAttributes.published)
+        && Objects.equals(this.runAsUserMode, workflowListItemAttributes.runAsUserMode)
         && Objects.equals(this.spec, workflowListItemAttributes.spec)
         && Objects.equals(this.tags, workflowListItemAttributes.tags)
         && Objects.equals(this.updatedAt, workflowListItemAttributes.updatedAt)
@@ -274,7 +304,15 @@ public class WorkflowListItemAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        createdAt, description, name, published, spec, tags, updatedAt, additionalProperties);
+        createdAt,
+        description,
+        name,
+        published,
+        runAsUserMode,
+        spec,
+        tags,
+        updatedAt,
+        additionalProperties);
   }
 
   @Override
@@ -285,6 +323,7 @@ public class WorkflowListItemAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    published: ").append(toIndentedString(published)).append("\n");
+    sb.append("    runAsUserMode: ").append(toIndentedString(runAsUserMode)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

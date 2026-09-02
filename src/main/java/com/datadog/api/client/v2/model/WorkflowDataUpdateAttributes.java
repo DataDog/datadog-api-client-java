@@ -25,6 +25,8 @@ import java.util.Objects;
   WorkflowDataUpdateAttributes.JSON_PROPERTY_DESCRIPTION,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_NAME,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_PUBLISHED,
+  WorkflowDataUpdateAttributes.JSON_PROPERTY_RUN_AS,
+  WorkflowDataUpdateAttributes.JSON_PROPERTY_RUN_AS_USER_MODE,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_SPEC,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_TAGS,
   WorkflowDataUpdateAttributes.JSON_PROPERTY_UPDATED_AT,
@@ -45,6 +47,12 @@ public class WorkflowDataUpdateAttributes {
 
   public static final String JSON_PROPERTY_PUBLISHED = "published";
   private Boolean published;
+
+  public static final String JSON_PROPERTY_RUN_AS = "runAs";
+  private WorkflowRunAs runAs;
+
+  public static final String JSON_PROPERTY_RUN_AS_USER_MODE = "runAsUserMode";
+  private WorkflowRunAsUserMode runAsUserMode;
 
   public static final String JSON_PROPERTY_SPEC = "spec";
   private Spec spec;
@@ -133,6 +141,56 @@ public class WorkflowDataUpdateAttributes {
 
   public void setPublished(Boolean published) {
     this.published = published;
+  }
+
+  public WorkflowDataUpdateAttributes runAs(WorkflowRunAs runAs) {
+    this.runAs = runAs;
+    this.unparsed |= runAs.unparsed;
+    return this;
+  }
+
+  /**
+   * Identity used to run the workflow.
+   *
+   * @return runAs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_AS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WorkflowRunAs getRunAs() {
+    return runAs;
+  }
+
+  public void setRunAs(WorkflowRunAs runAs) {
+    this.runAs = runAs;
+    if (runAs != null) {
+      this.unparsed |= runAs.unparsed;
+    }
+  }
+
+  public WorkflowDataUpdateAttributes runAsUserMode(WorkflowRunAsUserMode runAsUserMode) {
+    this.runAsUserMode = runAsUserMode;
+    this.unparsed |= !runAsUserMode.isValid();
+    return this;
+  }
+
+  /**
+   * The effective type of identity used to run the workflow.
+   *
+   * @return runAsUserMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_AS_USER_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WorkflowRunAsUserMode getRunAsUserMode() {
+    return runAsUserMode;
+  }
+
+  public void setRunAsUserMode(WorkflowRunAsUserMode runAsUserMode) {
+    if (!runAsUserMode.isValid()) {
+      this.unparsed = true;
+    }
+    this.runAsUserMode = runAsUserMode;
   }
 
   public WorkflowDataUpdateAttributes spec(Spec spec) {
@@ -283,6 +341,8 @@ public class WorkflowDataUpdateAttributes {
         && Objects.equals(this.description, workflowDataUpdateAttributes.description)
         && Objects.equals(this.name, workflowDataUpdateAttributes.name)
         && Objects.equals(this.published, workflowDataUpdateAttributes.published)
+        && Objects.equals(this.runAs, workflowDataUpdateAttributes.runAs)
+        && Objects.equals(this.runAsUserMode, workflowDataUpdateAttributes.runAsUserMode)
         && Objects.equals(this.spec, workflowDataUpdateAttributes.spec)
         && Objects.equals(this.tags, workflowDataUpdateAttributes.tags)
         && Objects.equals(this.updatedAt, workflowDataUpdateAttributes.updatedAt)
@@ -298,6 +358,8 @@ public class WorkflowDataUpdateAttributes {
         description,
         name,
         published,
+        runAs,
+        runAsUserMode,
         spec,
         tags,
         updatedAt,
@@ -313,6 +375,8 @@ public class WorkflowDataUpdateAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    published: ").append(toIndentedString(published)).append("\n");
+    sb.append("    runAs: ").append(toIndentedString(runAs)).append("\n");
+    sb.append("    runAsUserMode: ").append(toIndentedString(runAsUserMode)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

@@ -26,6 +26,8 @@ import java.util.Objects;
   WorkflowDataAttributes.JSON_PROPERTY_DESCRIPTION,
   WorkflowDataAttributes.JSON_PROPERTY_NAME,
   WorkflowDataAttributes.JSON_PROPERTY_PUBLISHED,
+  WorkflowDataAttributes.JSON_PROPERTY_RUN_AS,
+  WorkflowDataAttributes.JSON_PROPERTY_RUN_AS_USER_MODE,
   WorkflowDataAttributes.JSON_PROPERTY_SPEC,
   WorkflowDataAttributes.JSON_PROPERTY_TAGS,
   WorkflowDataAttributes.JSON_PROPERTY_UPDATED_AT,
@@ -46,6 +48,12 @@ public class WorkflowDataAttributes {
 
   public static final String JSON_PROPERTY_PUBLISHED = "published";
   private Boolean published;
+
+  public static final String JSON_PROPERTY_RUN_AS = "runAs";
+  private WorkflowRunAs runAs;
+
+  public static final String JSON_PROPERTY_RUN_AS_USER_MODE = "runAsUserMode";
+  private WorkflowRunAsUserMode runAsUserMode;
 
   public static final String JSON_PROPERTY_SPEC = "spec";
   private Spec spec;
@@ -144,6 +152,56 @@ public class WorkflowDataAttributes {
 
   public void setPublished(Boolean published) {
     this.published = published;
+  }
+
+  public WorkflowDataAttributes runAs(WorkflowRunAs runAs) {
+    this.runAs = runAs;
+    this.unparsed |= runAs.unparsed;
+    return this;
+  }
+
+  /**
+   * Identity used to run the workflow.
+   *
+   * @return runAs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_AS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WorkflowRunAs getRunAs() {
+    return runAs;
+  }
+
+  public void setRunAs(WorkflowRunAs runAs) {
+    this.runAs = runAs;
+    if (runAs != null) {
+      this.unparsed |= runAs.unparsed;
+    }
+  }
+
+  public WorkflowDataAttributes runAsUserMode(WorkflowRunAsUserMode runAsUserMode) {
+    this.runAsUserMode = runAsUserMode;
+    this.unparsed |= !runAsUserMode.isValid();
+    return this;
+  }
+
+  /**
+   * The effective type of identity used to run the workflow.
+   *
+   * @return runAsUserMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_AS_USER_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WorkflowRunAsUserMode getRunAsUserMode() {
+    return runAsUserMode;
+  }
+
+  public void setRunAsUserMode(WorkflowRunAsUserMode runAsUserMode) {
+    if (!runAsUserMode.isValid()) {
+      this.unparsed = true;
+    }
+    this.runAsUserMode = runAsUserMode;
   }
 
   public WorkflowDataAttributes spec(Spec spec) {
@@ -293,6 +351,8 @@ public class WorkflowDataAttributes {
         && Objects.equals(this.description, workflowDataAttributes.description)
         && Objects.equals(this.name, workflowDataAttributes.name)
         && Objects.equals(this.published, workflowDataAttributes.published)
+        && Objects.equals(this.runAs, workflowDataAttributes.runAs)
+        && Objects.equals(this.runAsUserMode, workflowDataAttributes.runAsUserMode)
         && Objects.equals(this.spec, workflowDataAttributes.spec)
         && Objects.equals(this.tags, workflowDataAttributes.tags)
         && Objects.equals(this.updatedAt, workflowDataAttributes.updatedAt)
@@ -307,6 +367,8 @@ public class WorkflowDataAttributes {
         description,
         name,
         published,
+        runAs,
+        runAsUserMode,
         spec,
         tags,
         updatedAt,
@@ -322,6 +384,8 @@ public class WorkflowDataAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    published: ").append(toIndentedString(published)).append("\n");
+    sb.append("    runAs: ").append(toIndentedString(runAs)).append("\n");
+    sb.append("    runAsUserMode: ").append(toIndentedString(runAsUserMode)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
