@@ -6,18 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Pagination metadata for a list of RUM operations. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Pagination metadata for a list of RUM operations.</p>
+ */
 @JsonPropertyOrder({
   RUMOperationsListResponseMetaPage.JSON_PROPERTY_FIRST_OFFSET,
   RUMOperationsListResponseMetaPage.JSON_PROPERTY_LAST_OFFSET,
@@ -28,10 +44,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   RUMOperationsListResponseMetaPage.JSON_PROPERTY_TOTAL,
   RUMOperationsListResponseMetaPage.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMOperationsListResponseMetaPage {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIRST_OFFSET = "first_offset";
   private Long firstOffset;
 
@@ -62,197 +78,177 @@ public class RUMOperationsListResponseMetaPage {
   }
 
   /**
-   * The offset of the first page.
-   *
+   * <p>The offset of the first page.</p>
    * @return firstOffset
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIRST_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFirstOffset() {
-    return firstOffset;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIRST_OFFSET)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFirstOffset() {
+        return firstOffset;
+      }
   public void setFirstOffset(Long firstOffset) {
     this.firstOffset = firstOffset;
   }
-
   public RUMOperationsListResponseMetaPage lastOffset(Long lastOffset) {
     this.lastOffset = lastOffset;
     return this;
   }
 
   /**
-   * The offset of the last page.
-   *
+   * <p>The offset of the last page.</p>
    * @return lastOffset
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLastOffset() {
-    return lastOffset;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLastOffset() {
+        return lastOffset;
+      }
   public void setLastOffset(Long lastOffset) {
     this.lastOffset = lastOffset;
   }
-
   public RUMOperationsListResponseMetaPage limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * The pagination limit.
-   *
+   * <p>The pagination limit.</p>
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLimit() {
+        return limit;
+      }
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
   public RUMOperationsListResponseMetaPage nextOffset(Long nextOffset) {
     this.nextOffset = JsonNullable.<Long>of(nextOffset);
     return this;
   }
 
   /**
-   * The offset of the next page, if any.
-   *
+   * <p>The offset of the next page, if any.</p>
    * @return nextOffset
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getNextOffset() {
-    return nextOffset.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getNextOffset() {
+        return nextOffset.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getNextOffset_JsonNullable() {
     return nextOffset;
   }
-
-  @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
-  public void setNextOffset_JsonNullable(JsonNullable<Long> nextOffset) {
+  @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)public void setNextOffset_JsonNullable(JsonNullable<Long> nextOffset) {
     this.nextOffset = nextOffset;
   }
-
   public void setNextOffset(Long nextOffset) {
     this.nextOffset = JsonNullable.<Long>of(nextOffset);
   }
-
   public RUMOperationsListResponseMetaPage offset(Long offset) {
     this.offset = offset;
     return this;
   }
 
   /**
-   * The current offset.
-   *
+   * <p>The current offset.</p>
    * @return offset
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOffset() {
-    return offset;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OFFSET)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOffset() {
+        return offset;
+      }
   public void setOffset(Long offset) {
     this.offset = offset;
   }
-
   public RUMOperationsListResponseMetaPage prevOffset(Long prevOffset) {
     this.prevOffset = JsonNullable.<Long>of(prevOffset);
     return this;
   }
 
   /**
-   * The offset of the previous page, if any.
-   *
+   * <p>The offset of the previous page, if any.</p>
    * @return prevOffset
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getPrevOffset() {
-    return prevOffset.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getPrevOffset() {
+        return prevOffset.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getPrevOffset_JsonNullable() {
     return prevOffset;
   }
-
-  @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
-  public void setPrevOffset_JsonNullable(JsonNullable<Long> prevOffset) {
+  @JsonProperty(JSON_PROPERTY_PREV_OFFSET)public void setPrevOffset_JsonNullable(JsonNullable<Long> prevOffset) {
     this.prevOffset = prevOffset;
   }
-
   public void setPrevOffset(Long prevOffset) {
     this.prevOffset = JsonNullable.<Long>of(prevOffset);
   }
-
   public RUMOperationsListResponseMetaPage total(Long total) {
     this.total = total;
     return this;
   }
 
   /**
-   * The total number of RUM operations matching the search.
-   *
+   * <p>The total number of RUM operations matching the search.</p>
    * @return total
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTotal() {
-    return total;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TOTAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTotal() {
+        return total;
+      }
   public void setTotal(Long total) {
     this.total = total;
   }
-
   public RUMOperationsListResponseMetaPage type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * The type of pagination used.
-   *
+   * <p>The type of pagination used.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -261,7 +257,7 @@ public class RUMOperationsListResponseMetaPage {
   @JsonAnySetter
   public RUMOperationsListResponseMetaPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -285,12 +281,14 @@ public class RUMOperationsListResponseMetaPage {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RUMOperationsListResponseMetaPage object is equal to o. */
+  /**
+   * Return true if this RUMOperationsListResponseMetaPage object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -299,32 +297,14 @@ public class RUMOperationsListResponseMetaPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMOperationsListResponseMetaPage rumOperationsListResponseMetaPage =
-        (RUMOperationsListResponseMetaPage) o;
-    return Objects.equals(this.firstOffset, rumOperationsListResponseMetaPage.firstOffset)
-        && Objects.equals(this.lastOffset, rumOperationsListResponseMetaPage.lastOffset)
-        && Objects.equals(this.limit, rumOperationsListResponseMetaPage.limit)
-        && Objects.equals(this.nextOffset, rumOperationsListResponseMetaPage.nextOffset)
-        && Objects.equals(this.offset, rumOperationsListResponseMetaPage.offset)
-        && Objects.equals(this.prevOffset, rumOperationsListResponseMetaPage.prevOffset)
-        && Objects.equals(this.total, rumOperationsListResponseMetaPage.total)
-        && Objects.equals(this.type, rumOperationsListResponseMetaPage.type)
-        && Objects.equals(
-            this.additionalProperties, rumOperationsListResponseMetaPage.additionalProperties);
+    RUMOperationsListResponseMetaPage rumOperationsListResponseMetaPage = (RUMOperationsListResponseMetaPage) o;
+    return Objects.equals(this.firstOffset, rumOperationsListResponseMetaPage.firstOffset) && Objects.equals(this.lastOffset, rumOperationsListResponseMetaPage.lastOffset) && Objects.equals(this.limit, rumOperationsListResponseMetaPage.limit) && Objects.equals(this.nextOffset, rumOperationsListResponseMetaPage.nextOffset) && Objects.equals(this.offset, rumOperationsListResponseMetaPage.offset) && Objects.equals(this.prevOffset, rumOperationsListResponseMetaPage.prevOffset) && Objects.equals(this.total, rumOperationsListResponseMetaPage.total) && Objects.equals(this.type, rumOperationsListResponseMetaPage.type) && Objects.equals(this.additionalProperties, rumOperationsListResponseMetaPage.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        firstOffset,
-        lastOffset,
-        limit,
-        nextOffset,
-        offset,
-        prevOffset,
-        total,
-        type,
-        additionalProperties);
+    return Objects.hash(firstOffset,lastOffset,limit,nextOffset,offset,prevOffset,total,type, additionalProperties);
   }
 
   @Override
@@ -347,7 +327,8 @@ public class RUMOperationsListResponseMetaPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

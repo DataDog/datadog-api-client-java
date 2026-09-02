@@ -6,55 +6,71 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Data source for Product Analytics Extended queries. */
-@JsonSerialize(
-    using =
-        FormulaAndFunctionProductAnalyticsExtendedDataSource
-            .FormulaAndFunctionProductAnalyticsExtendedDataSourceSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Data source for Product Analytics Extended queries.</p>
+ */
+@JsonSerialize(using = FormulaAndFunctionProductAnalyticsExtendedDataSource.FormulaAndFunctionProductAnalyticsExtendedDataSourceSerializer.class)
 public class FormulaAndFunctionProductAnalyticsExtendedDataSource extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("product_analytics_extended"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("product_analytics_extended"));
 
-  public static final FormulaAndFunctionProductAnalyticsExtendedDataSource
-      PRODUCT_ANALYTICS_EXTENDED =
-          new FormulaAndFunctionProductAnalyticsExtendedDataSource("product_analytics_extended");
+  public static final FormulaAndFunctionProductAnalyticsExtendedDataSource PRODUCT_ANALYTICS_EXTENDED = new FormulaAndFunctionProductAnalyticsExtendedDataSource("product_analytics_extended");
+
 
   FormulaAndFunctionProductAnalyticsExtendedDataSource(String value) {
     super(value, allowedValues);
   }
 
-  public static class FormulaAndFunctionProductAnalyticsExtendedDataSourceSerializer
-      extends StdSerializer<FormulaAndFunctionProductAnalyticsExtendedDataSource> {
-    public FormulaAndFunctionProductAnalyticsExtendedDataSourceSerializer(
-        Class<FormulaAndFunctionProductAnalyticsExtendedDataSource> t) {
-      super(t);
-    }
+  public static class FormulaAndFunctionProductAnalyticsExtendedDataSourceSerializer extends StdSerializer<FormulaAndFunctionProductAnalyticsExtendedDataSource> {
+      public FormulaAndFunctionProductAnalyticsExtendedDataSourceSerializer(Class<FormulaAndFunctionProductAnalyticsExtendedDataSource> t) {
+          super(t);
+      }
 
-    public FormulaAndFunctionProductAnalyticsExtendedDataSourceSerializer() {
-      this(null);
-    }
+      public FormulaAndFunctionProductAnalyticsExtendedDataSourceSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        FormulaAndFunctionProductAnalyticsExtendedDataSource value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(FormulaAndFunctionProductAnalyticsExtendedDataSource value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

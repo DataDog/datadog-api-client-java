@@ -6,19 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Local file metadata for create requests using the upload ID. */
-@JsonPropertyOrder({CreateTableRequestDataAttributesFileMetadataLocalFile.JSON_PROPERTY_UPLOAD_ID})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Local file metadata for create requests using the upload ID.</p>
+ */
+@JsonPropertyOrder({
+  CreateTableRequestDataAttributesFileMetadataLocalFile.JSON_PROPERTY_UPLOAD_ID
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateTableRequestDataAttributesFileMetadataLocalFile {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_UPLOAD_ID = "upload_id";
   private String uploadId;
 
@@ -26,26 +48,24 @@ public class CreateTableRequestDataAttributesFileMetadataLocalFile {
 
   @JsonCreator
   public CreateTableRequestDataAttributesFileMetadataLocalFile(
-      @JsonProperty(required = true, value = JSON_PROPERTY_UPLOAD_ID) String uploadId) {
-    this.uploadId = uploadId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_UPLOAD_ID)String uploadId) {
+        this.uploadId = uploadId;
   }
-
   public CreateTableRequestDataAttributesFileMetadataLocalFile uploadId(String uploadId) {
     this.uploadId = uploadId;
     return this;
   }
 
   /**
-   * The upload ID.
-   *
+   * <p>The upload ID.</p>
    * @return uploadId
-   */
-  @JsonProperty(JSON_PROPERTY_UPLOAD_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUploadId() {
-    return uploadId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UPLOAD_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getUploadId() {
+        return uploadId;
+      }
   public void setUploadId(String uploadId) {
     this.uploadId = uploadId;
   }
@@ -61,12 +81,10 @@ public class CreateTableRequestDataAttributesFileMetadataLocalFile {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTableRequestDataAttributesFileMetadataLocalFile
-        createTableRequestDataAttributesFileMetadataLocalFile =
-            (CreateTableRequestDataAttributesFileMetadataLocalFile) o;
-    return Objects.equals(
-        this.uploadId, createTableRequestDataAttributesFileMetadataLocalFile.uploadId);
+    CreateTableRequestDataAttributesFileMetadataLocalFile createTableRequestDataAttributesFileMetadataLocalFile = (CreateTableRequestDataAttributesFileMetadataLocalFile) o;
+    return Objects.equals(this.uploadId, createTableRequestDataAttributesFileMetadataLocalFile.uploadId);
   }
+
 
   @Override
   public int hashCode() {
@@ -83,7 +101,8 @@ public class CreateTableRequestDataAttributesFileMetadataLocalFile {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,20 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for an analytics list request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for an analytics list request.</p>
+ */
 @JsonPropertyOrder({
   ProductAnalyticsAnalyticsListRequestAttributes.JSON_PROPERTY_FROM,
   ProductAnalyticsAnalyticsListRequestAttributes.JSON_PROPERTY_QUERY,
   ProductAnalyticsAnalyticsListRequestAttributes.JSON_PROPERTY_TO
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsAnalyticsListRequestAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
 
@@ -40,103 +56,95 @@ public class ProductAnalyticsAnalyticsListRequestAttributes {
 
   @JsonCreator
   public ProductAnalyticsAnalyticsListRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY)
-          ProductAnalyticsAnalyticsListQuery query,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to) {
-    this.from = from;
-    this.query = query;
-    this.unparsed |= query.unparsed;
-    this.to = to;
+            @JsonProperty(required=true, value=JSON_PROPERTY_FROM)Long from,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)ProductAnalyticsAnalyticsListQuery query,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TO)Long to) {
+        this.from = from;
+        this.query = query;
+        this.unparsed |= query.unparsed;
+        this.to = to;
   }
-
   public ProductAnalyticsAnalyticsListRequestAttributes from(Long from) {
     this.from = from;
     return this;
   }
 
   /**
-   * Start time in epoch milliseconds. Must be less than <code>to</code>.
-   *
+   * <p>Start time in epoch milliseconds. Must be less than <code>to</code>.</p>
    * @return from
-   */
-  @JsonProperty(JSON_PROPERTY_FROM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getFrom() {
-    return from;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FROM)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getFrom() {
+        return from;
+      }
   public void setFrom(Long from) {
     this.from = from;
   }
-
-  public ProductAnalyticsAnalyticsListRequestAttributes query(
-      ProductAnalyticsAnalyticsListQuery query) {
+  public ProductAnalyticsAnalyticsListRequestAttributes query(ProductAnalyticsAnalyticsListQuery query) {
     this.query = query;
     this.unparsed |= query.unparsed;
     return this;
   }
 
   /**
-   * The analytics list query definition. It selects the events to return with <code>query</code>,
-   * then chooses the columns on each event row, the sort applied to those rows, and a row limit.
+   * <p>The analytics list query definition. It selects the events to return with <code>query</code>, then
+   * chooses the columns on each event row, the sort applied to those rows, and a row limit.
    * Unlike the scalar and timeseries queries, a list query returns raw event rows rather than
-   * aggregates, so it takes no compute or group-by rule.
-   *
+   * aggregates, so it takes no compute or group-by rule.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsAnalyticsListQuery getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsAnalyticsListQuery getQuery() {
+        return query;
+      }
   public void setQuery(ProductAnalyticsAnalyticsListQuery query) {
     this.query = query;
     if (query != null) {
       this.unparsed |= query.unparsed;
     }
   }
-
   public ProductAnalyticsAnalyticsListRequestAttributes to(Long to) {
     this.to = to;
     return this;
   }
 
   /**
-   * End time in epoch milliseconds.
-   *
+   * <p>End time in epoch milliseconds.</p>
    * @return to
-   */
-  @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getTo() {
-    return to;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TO)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getTo() {
+        return to;
+      }
   public void setTo(Long to) {
     this.to = to;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ProductAnalyticsAnalyticsListRequestAttributes
    */
   @JsonAnySetter
-  public ProductAnalyticsAnalyticsListRequestAttributes putAdditionalProperty(
-      String key, Object value) {
+  public ProductAnalyticsAnalyticsListRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -160,12 +168,14 @@ public class ProductAnalyticsAnalyticsListRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ProductAnalyticsAnalyticsListRequestAttributes object is equal to o. */
+  /**
+   * Return true if this ProductAnalyticsAnalyticsListRequestAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,19 +184,14 @@ public class ProductAnalyticsAnalyticsListRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsAnalyticsListRequestAttributes productAnalyticsAnalyticsListRequestAttributes =
-        (ProductAnalyticsAnalyticsListRequestAttributes) o;
-    return Objects.equals(this.from, productAnalyticsAnalyticsListRequestAttributes.from)
-        && Objects.equals(this.query, productAnalyticsAnalyticsListRequestAttributes.query)
-        && Objects.equals(this.to, productAnalyticsAnalyticsListRequestAttributes.to)
-        && Objects.equals(
-            this.additionalProperties,
-            productAnalyticsAnalyticsListRequestAttributes.additionalProperties);
+    ProductAnalyticsAnalyticsListRequestAttributes productAnalyticsAnalyticsListRequestAttributes = (ProductAnalyticsAnalyticsListRequestAttributes) o;
+    return Objects.equals(this.from, productAnalyticsAnalyticsListRequestAttributes.from) && Objects.equals(this.query, productAnalyticsAnalyticsListRequestAttributes.query) && Objects.equals(this.to, productAnalyticsAnalyticsListRequestAttributes.to) && Objects.equals(this.additionalProperties, productAnalyticsAnalyticsListRequestAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, query, to, additionalProperties);
+    return Objects.hash(from,query,to, additionalProperties);
   }
 
   @Override
@@ -204,7 +209,8 @@ public class ProductAnalyticsAnalyticsListRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

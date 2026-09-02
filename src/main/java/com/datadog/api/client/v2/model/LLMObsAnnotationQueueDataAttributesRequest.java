@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating an Agent Observability annotation queue. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for creating an Agent Observability annotation queue.</p>
+ */
 @JsonPropertyOrder({
   LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_ANNOTATION_SCHEMA,
   LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_DESCRIPTION,
@@ -29,10 +43,10 @@ import java.util.Objects;
   LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_RESTRICT_TO_REVIEWERS,
   LLMObsAnnotationQueueDataAttributesRequest.JSON_PROPERTY_REVIEWER_EMAILS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsAnnotationQueueDataAttributesRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANNOTATION_SCHEMA = "annotation_schema";
   private LLMObsAnnotationSchema annotationSchema;
 
@@ -58,150 +72,132 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
 
   @JsonCreator
   public LLMObsAnnotationQueueDataAttributesRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId) {
-    this.name = name;
-    this.projectId = projectId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PROJECT_ID)String projectId) {
+        this.name = name;
+        this.projectId = projectId;
   }
-
-  public LLMObsAnnotationQueueDataAttributesRequest annotationSchema(
-      LLMObsAnnotationSchema annotationSchema) {
+  public LLMObsAnnotationQueueDataAttributesRequest annotationSchema(LLMObsAnnotationSchema annotationSchema) {
     this.annotationSchema = annotationSchema;
     this.unparsed |= annotationSchema.unparsed;
     return this;
   }
 
   /**
-   * Schema defining the labels for an annotation queue.
-   *
+   * <p>Schema defining the labels for an annotation queue.</p>
    * @return annotationSchema
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ANNOTATION_SCHEMA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LLMObsAnnotationSchema getAnnotationSchema() {
-    return annotationSchema;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ANNOTATION_SCHEMA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LLMObsAnnotationSchema getAnnotationSchema() {
+        return annotationSchema;
+      }
   public void setAnnotationSchema(LLMObsAnnotationSchema annotationSchema) {
     this.annotationSchema = annotationSchema;
     if (annotationSchema != null) {
       this.unparsed |= annotationSchema.unparsed;
     }
   }
-
   public LLMObsAnnotationQueueDataAttributesRequest description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Description of the annotation queue.
-   *
+   * <p>Description of the annotation queue.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public LLMObsAnnotationQueueDataAttributesRequest name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the annotation queue.
-   *
+   * <p>Name of the annotation queue.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public LLMObsAnnotationQueueDataAttributesRequest projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
 
   /**
-   * Identifier of the project this queue belongs to.
-   *
+   * <p>Identifier of the project this queue belongs to.</p>
    * @return projectId
-   */
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getProjectId() {
-    return projectId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getProjectId() {
+        return projectId;
+      }
   public void setProjectId(String projectId) {
     this.projectId = projectId;
   }
-
-  public LLMObsAnnotationQueueDataAttributesRequest restrictToAssignees(
-      Boolean restrictToAssignees) {
+  public LLMObsAnnotationQueueDataAttributesRequest restrictToAssignees(Boolean restrictToAssignees) {
     this.restrictToAssignees = restrictToAssignees;
     return this;
   }
 
   /**
-   * Whether annotation access is restricted to assigned users.
-   *
+   * <p>Whether annotation access is restricted to assigned users.</p>
    * @return restrictToAssignees
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESTRICT_TO_ASSIGNEES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getRestrictToAssignees() {
-    return restrictToAssignees;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESTRICT_TO_ASSIGNEES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getRestrictToAssignees() {
+        return restrictToAssignees;
+      }
   public void setRestrictToAssignees(Boolean restrictToAssignees) {
     this.restrictToAssignees = restrictToAssignees;
   }
-
-  public LLMObsAnnotationQueueDataAttributesRequest restrictToReviewers(
-      Boolean restrictToReviewers) {
+  public LLMObsAnnotationQueueDataAttributesRequest restrictToReviewers(Boolean restrictToReviewers) {
     this.restrictToReviewers = restrictToReviewers;
     return this;
   }
 
   /**
-   * Whether annotation access is restricted to queue reviewers.
-   *
+   * <p>Whether annotation access is restricted to queue reviewers.</p>
    * @return restrictToReviewers
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESTRICT_TO_REVIEWERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getRestrictToReviewers() {
-    return restrictToReviewers;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESTRICT_TO_REVIEWERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getRestrictToReviewers() {
+        return restrictToReviewers;
+      }
   public void setRestrictToReviewers(Boolean restrictToReviewers) {
     this.restrictToReviewers = restrictToReviewers;
   }
-
   public LLMObsAnnotationQueueDataAttributesRequest reviewerEmails(List<String> reviewerEmails) {
     this.reviewerEmails = reviewerEmails;
     return this;
   }
-
-  public LLMObsAnnotationQueueDataAttributesRequest addReviewerEmailsItem(
-      String reviewerEmailsItem) {
+  public LLMObsAnnotationQueueDataAttributesRequest addReviewerEmailsItem(String reviewerEmailsItem) {
     if (this.reviewerEmails == null) {
       this.reviewerEmails = new ArrayList<>();
     }
@@ -210,40 +206,39 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
   }
 
   /**
-   * Email addresses of reviewers who can access the annotation queue.
-   *
+   * <p>Email addresses of reviewers who can access the annotation queue.</p>
    * @return reviewerEmails
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REVIEWER_EMAILS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getReviewerEmails() {
-    return reviewerEmails;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REVIEWER_EMAILS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getReviewerEmails() {
+        return reviewerEmails;
+      }
   public void setReviewerEmails(List<String> reviewerEmails) {
     this.reviewerEmails = reviewerEmails;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return LLMObsAnnotationQueueDataAttributesRequest
    */
   @JsonAnySetter
-  public LLMObsAnnotationQueueDataAttributesRequest putAdditionalProperty(
-      String key, Object value) {
+  public LLMObsAnnotationQueueDataAttributesRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -267,12 +262,14 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsAnnotationQueueDataAttributesRequest object is equal to o. */
+  /**
+   * Return true if this LLMObsAnnotationQueueDataAttributesRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -281,37 +278,14 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsAnnotationQueueDataAttributesRequest llmObsAnnotationQueueDataAttributesRequest =
-        (LLMObsAnnotationQueueDataAttributesRequest) o;
-    return Objects.equals(
-            this.annotationSchema, llmObsAnnotationQueueDataAttributesRequest.annotationSchema)
-        && Objects.equals(this.description, llmObsAnnotationQueueDataAttributesRequest.description)
-        && Objects.equals(this.name, llmObsAnnotationQueueDataAttributesRequest.name)
-        && Objects.equals(this.projectId, llmObsAnnotationQueueDataAttributesRequest.projectId)
-        && Objects.equals(
-            this.restrictToAssignees,
-            llmObsAnnotationQueueDataAttributesRequest.restrictToAssignees)
-        && Objects.equals(
-            this.restrictToReviewers,
-            llmObsAnnotationQueueDataAttributesRequest.restrictToReviewers)
-        && Objects.equals(
-            this.reviewerEmails, llmObsAnnotationQueueDataAttributesRequest.reviewerEmails)
-        && Objects.equals(
-            this.additionalProperties,
-            llmObsAnnotationQueueDataAttributesRequest.additionalProperties);
+    LLMObsAnnotationQueueDataAttributesRequest llmObsAnnotationQueueDataAttributesRequest = (LLMObsAnnotationQueueDataAttributesRequest) o;
+    return Objects.equals(this.annotationSchema, llmObsAnnotationQueueDataAttributesRequest.annotationSchema) && Objects.equals(this.description, llmObsAnnotationQueueDataAttributesRequest.description) && Objects.equals(this.name, llmObsAnnotationQueueDataAttributesRequest.name) && Objects.equals(this.projectId, llmObsAnnotationQueueDataAttributesRequest.projectId) && Objects.equals(this.restrictToAssignees, llmObsAnnotationQueueDataAttributesRequest.restrictToAssignees) && Objects.equals(this.restrictToReviewers, llmObsAnnotationQueueDataAttributesRequest.restrictToReviewers) && Objects.equals(this.reviewerEmails, llmObsAnnotationQueueDataAttributesRequest.reviewerEmails) && Objects.equals(this.additionalProperties, llmObsAnnotationQueueDataAttributesRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        annotationSchema,
-        description,
-        name,
-        projectId,
-        restrictToAssignees,
-        restrictToReviewers,
-        reviewerEmails,
-        additionalProperties);
+    return Objects.hash(annotationSchema,description,name,projectId,restrictToAssignees,restrictToReviewers,reviewerEmails, additionalProperties);
   }
 
   @Override
@@ -322,12 +296,8 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    restrictToAssignees: ")
-        .append(toIndentedString(restrictToAssignees))
-        .append("\n");
-    sb.append("    restrictToReviewers: ")
-        .append(toIndentedString(restrictToReviewers))
-        .append("\n");
+    sb.append("    restrictToAssignees: ").append(toIndentedString(restrictToAssignees)).append("\n");
+    sb.append("    restrictToReviewers: ").append(toIndentedString(restrictToReviewers)).append("\n");
     sb.append("    reviewerEmails: ").append(toIndentedString(reviewerEmails)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
@@ -337,7 +307,8 @@ public class LLMObsAnnotationQueueDataAttributesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

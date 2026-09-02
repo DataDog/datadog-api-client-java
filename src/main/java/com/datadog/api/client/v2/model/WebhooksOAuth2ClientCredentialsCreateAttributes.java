@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,12 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** OAuth2 client credentials attributes for a create request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>OAuth2 client credentials attributes for a create request.</p>
+ */
 @JsonPropertyOrder({
   WebhooksOAuth2ClientCredentialsCreateAttributes.JSON_PROPERTY_ACCESS_TOKEN_URL,
   WebhooksOAuth2ClientCredentialsCreateAttributes.JSON_PROPERTY_AUDIENCE,
@@ -27,10 +42,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   WebhooksOAuth2ClientCredentialsCreateAttributes.JSON_PROPERTY_NAME,
   WebhooksOAuth2ClientCredentialsCreateAttributes.JSON_PROPERTY_SCOPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WebhooksOAuth2ClientCredentialsCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_TOKEN_URL = "access_token_url";
   private String accessTokenUrl;
 
@@ -53,178 +68,160 @@ public class WebhooksOAuth2ClientCredentialsCreateAttributes {
 
   @JsonCreator
   public WebhooksOAuth2ClientCredentialsCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACCESS_TOKEN_URL) String accessTokenUrl,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_ID) String clientId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_SECRET) String clientSecret,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.accessTokenUrl = accessTokenUrl;
-    this.clientId = clientId;
-    this.clientSecret = clientSecret;
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ACCESS_TOKEN_URL)String accessTokenUrl,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CLIENT_ID)String clientId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CLIENT_SECRET)String clientSecret,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.accessTokenUrl = accessTokenUrl;
+        this.clientId = clientId;
+        this.clientSecret = clientSecret;
+        this.name = name;
   }
-
   public WebhooksOAuth2ClientCredentialsCreateAttributes accessTokenUrl(String accessTokenUrl) {
     this.accessTokenUrl = accessTokenUrl;
     return this;
   }
 
   /**
-   * URL of the OAuth2 access token endpoint.
-   *
+   * <p>URL of the OAuth2 access token endpoint.</p>
    * @return accessTokenUrl
-   */
-  @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAccessTokenUrl() {
-    return accessTokenUrl;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAccessTokenUrl() {
+        return accessTokenUrl;
+      }
   public void setAccessTokenUrl(String accessTokenUrl) {
     this.accessTokenUrl = accessTokenUrl;
   }
-
   public WebhooksOAuth2ClientCredentialsCreateAttributes audience(String audience) {
     this.audience = JsonNullable.<String>of(audience);
     return this;
   }
 
   /**
-   * The intended audience for the OAuth2 access token.
-   *
+   * <p>The intended audience for the OAuth2 access token.</p>
    * @return audience
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getAudience() {
-    return audience.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getAudience() {
+        return audience.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_AUDIENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getAudience_JsonNullable() {
     return audience;
   }
-
-  @JsonProperty(JSON_PROPERTY_AUDIENCE)
-  public void setAudience_JsonNullable(JsonNullable<String> audience) {
+  @JsonProperty(JSON_PROPERTY_AUDIENCE)public void setAudience_JsonNullable(JsonNullable<String> audience) {
     this.audience = audience;
   }
-
   public void setAudience(String audience) {
     this.audience = JsonNullable.<String>of(audience);
   }
-
   public WebhooksOAuth2ClientCredentialsCreateAttributes clientId(String clientId) {
     this.clientId = clientId;
     return this;
   }
 
   /**
-   * The OAuth2 client ID issued by the authorization server.
-   *
+   * <p>The OAuth2 client ID issued by the authorization server.</p>
    * @return clientId
-   */
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getClientId() {
-    return clientId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getClientId() {
+        return clientId;
+      }
   public void setClientId(String clientId) {
     this.clientId = clientId;
   }
-
   public WebhooksOAuth2ClientCredentialsCreateAttributes clientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
     return this;
   }
 
   /**
-   * The OAuth2 client secret issued by the authorization server. Write-only; never returned by the
-   * API.
-   *
+   * <p>The OAuth2 client secret issued by the authorization server.
+   * Write-only; never returned by the API.</p>
    * @return clientSecret
-   */
-  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getClientSecret() {
-    return clientSecret;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getClientSecret() {
+        return clientSecret;
+      }
   public void setClientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
   }
-
   public WebhooksOAuth2ClientCredentialsCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Human-readable name for this auth method. Must be unique within your organization.
-   *
+   * <p>Human-readable name for this auth method. Must be unique within your organization.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public WebhooksOAuth2ClientCredentialsCreateAttributes scope(String scope) {
     this.scope = JsonNullable.<String>of(scope);
     return this;
   }
 
   /**
-   * Space-separated list of OAuth2 scopes to request.
-   *
+   * <p>Space-separated list of OAuth2 scopes to request.</p>
    * @return scope
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getScope() {
-    return scope.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getScope() {
+        return scope.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getScope_JsonNullable() {
     return scope;
   }
-
-  @JsonProperty(JSON_PROPERTY_SCOPE)
-  public void setScope_JsonNullable(JsonNullable<String> scope) {
+  @JsonProperty(JSON_PROPERTY_SCOPE)public void setScope_JsonNullable(JsonNullable<String> scope) {
     this.scope = scope;
   }
-
   public void setScope(String scope) {
     this.scope = JsonNullable.<String>of(scope);
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return WebhooksOAuth2ClientCredentialsCreateAttributes
    */
   @JsonAnySetter
-  public WebhooksOAuth2ClientCredentialsCreateAttributes putAdditionalProperty(
-      String key, Object value) {
+  public WebhooksOAuth2ClientCredentialsCreateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -248,12 +245,14 @@ public class WebhooksOAuth2ClientCredentialsCreateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this WebhooksOAuth2ClientCredentialsCreateAttributes object is equal to o. */
+  /**
+   * Return true if this WebhooksOAuth2ClientCredentialsCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -262,26 +261,14 @@ public class WebhooksOAuth2ClientCredentialsCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WebhooksOAuth2ClientCredentialsCreateAttributes
-        webhooksOAuth2ClientCredentialsCreateAttributes =
-            (WebhooksOAuth2ClientCredentialsCreateAttributes) o;
-    return Objects.equals(
-            this.accessTokenUrl, webhooksOAuth2ClientCredentialsCreateAttributes.accessTokenUrl)
-        && Objects.equals(this.audience, webhooksOAuth2ClientCredentialsCreateAttributes.audience)
-        && Objects.equals(this.clientId, webhooksOAuth2ClientCredentialsCreateAttributes.clientId)
-        && Objects.equals(
-            this.clientSecret, webhooksOAuth2ClientCredentialsCreateAttributes.clientSecret)
-        && Objects.equals(this.name, webhooksOAuth2ClientCredentialsCreateAttributes.name)
-        && Objects.equals(this.scope, webhooksOAuth2ClientCredentialsCreateAttributes.scope)
-        && Objects.equals(
-            this.additionalProperties,
-            webhooksOAuth2ClientCredentialsCreateAttributes.additionalProperties);
+    WebhooksOAuth2ClientCredentialsCreateAttributes webhooksOAuth2ClientCredentialsCreateAttributes = (WebhooksOAuth2ClientCredentialsCreateAttributes) o;
+    return Objects.equals(this.accessTokenUrl, webhooksOAuth2ClientCredentialsCreateAttributes.accessTokenUrl) && Objects.equals(this.audience, webhooksOAuth2ClientCredentialsCreateAttributes.audience) && Objects.equals(this.clientId, webhooksOAuth2ClientCredentialsCreateAttributes.clientId) && Objects.equals(this.clientSecret, webhooksOAuth2ClientCredentialsCreateAttributes.clientSecret) && Objects.equals(this.name, webhooksOAuth2ClientCredentialsCreateAttributes.name) && Objects.equals(this.scope, webhooksOAuth2ClientCredentialsCreateAttributes.scope) && Objects.equals(this.additionalProperties, webhooksOAuth2ClientCredentialsCreateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        accessTokenUrl, audience, clientId, clientSecret, name, scope, additionalProperties);
+    return Objects.hash(accessTokenUrl,audience,clientId,clientSecret,name,scope, additionalProperties);
   }
 
   @Override
@@ -302,7 +289,8 @@ public class WebhooksOAuth2ClientCredentialsCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

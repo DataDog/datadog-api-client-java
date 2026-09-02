@@ -6,20 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a maintenance template. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes of a maintenance template.</p>
+ */
 @JsonPropertyOrder({
   MaintenanceTemplateDataAttributes.JSON_PROPERTY_COMPLETED_DESCRIPTION,
   MaintenanceTemplateDataAttributes.JSON_PROPERTY_COMPONENT_IDS,
@@ -30,10 +44,10 @@ import java.util.Objects;
   MaintenanceTemplateDataAttributes.JSON_PROPERTY_NAME,
   MaintenanceTemplateDataAttributes.JSON_PROPERTY_SCHEDULED_DESCRIPTION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MaintenanceTemplateDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPLETED_DESCRIPTION = "completed_description";
   private String completedDescription;
 
@@ -64,26 +78,23 @@ public class MaintenanceTemplateDataAttributes {
   }
 
   /**
-   * The description shown when a maintenance created from this template is completed.
-   *
+   * <p>The description shown when a maintenance created from this template is completed.</p>
    * @return completedDescription
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPLETED_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCompletedDescription() {
-    return completedDescription;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPLETED_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCompletedDescription() {
+        return completedDescription;
+      }
   public void setCompletedDescription(String completedDescription) {
     this.completedDescription = completedDescription;
   }
-
   public MaintenanceTemplateDataAttributes componentIds(List<String> componentIds) {
     this.componentIds = componentIds;
     return this;
   }
-
   public MaintenanceTemplateDataAttributes addComponentIdsItem(String componentIdsItem) {
     if (this.componentIds == null) {
       this.componentIds = new ArrayList<>();
@@ -93,156 +104,144 @@ public class MaintenanceTemplateDataAttributes {
   }
 
   /**
-   * The IDs of the components affected by a maintenance created from this template.
-   *
+   * <p>The IDs of the components affected by a maintenance created from this template.</p>
    * @return componentIds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPONENT_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getComponentIds() {
-    return componentIds;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPONENT_IDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getComponentIds() {
+        return componentIds;
+      }
   public void setComponentIds(List<String> componentIds) {
     this.componentIds = componentIds;
   }
-
   public MaintenanceTemplateDataAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Timestamp of when the maintenance template was created.
-   *
+   * <p>Timestamp of when the maintenance template was created.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public MaintenanceTemplateDataAttributes inProgressDescription(String inProgressDescription) {
     this.inProgressDescription = inProgressDescription;
     return this;
   }
 
   /**
-   * The description shown while a maintenance created from this template is in progress.
-   *
+   * <p>The description shown while a maintenance created from this template is in progress.</p>
    * @return inProgressDescription
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IN_PROGRESS_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getInProgressDescription() {
-    return inProgressDescription;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IN_PROGRESS_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getInProgressDescription() {
+        return inProgressDescription;
+      }
   public void setInProgressDescription(String inProgressDescription) {
     this.inProgressDescription = inProgressDescription;
   }
-
   public MaintenanceTemplateDataAttributes maintenanceTitle(String maintenanceTitle) {
     this.maintenanceTitle = maintenanceTitle;
     return this;
   }
 
   /**
-   * The title used for a maintenance created from this template.
-   *
+   * <p>The title used for a maintenance created from this template.</p>
    * @return maintenanceTitle
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAINTENANCE_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMaintenanceTitle() {
-    return maintenanceTitle;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MAINTENANCE_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMaintenanceTitle() {
+        return maintenanceTitle;
+      }
   public void setMaintenanceTitle(String maintenanceTitle) {
     this.maintenanceTitle = maintenanceTitle;
   }
-
   public MaintenanceTemplateDataAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * Timestamp of when the maintenance template was last modified.
-   *
+   * <p>Timestamp of when the maintenance template was last modified.</p>
    * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
   public MaintenanceTemplateDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the maintenance template.
-   *
+   * <p>The name of the maintenance template.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public MaintenanceTemplateDataAttributes scheduledDescription(String scheduledDescription) {
     this.scheduledDescription = scheduledDescription;
     return this;
   }
 
   /**
-   * The description shown when a maintenance created from this template is scheduled.
-   *
+   * <p>The description shown when a maintenance created from this template is scheduled.</p>
    * @return scheduledDescription
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCHEDULED_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getScheduledDescription() {
-    return scheduledDescription;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCHEDULED_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getScheduledDescription() {
+        return scheduledDescription;
+      }
   public void setScheduledDescription(String scheduledDescription) {
     this.scheduledDescription = scheduledDescription;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -251,7 +250,7 @@ public class MaintenanceTemplateDataAttributes {
   @JsonAnySetter
   public MaintenanceTemplateDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -275,12 +274,14 @@ public class MaintenanceTemplateDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MaintenanceTemplateDataAttributes object is equal to o. */
+  /**
+   * Return true if this MaintenanceTemplateDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -289,55 +290,28 @@ public class MaintenanceTemplateDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MaintenanceTemplateDataAttributes maintenanceTemplateDataAttributes =
-        (MaintenanceTemplateDataAttributes) o;
-    return Objects.equals(
-            this.completedDescription, maintenanceTemplateDataAttributes.completedDescription)
-        && Objects.equals(this.componentIds, maintenanceTemplateDataAttributes.componentIds)
-        && Objects.equals(this.createdAt, maintenanceTemplateDataAttributes.createdAt)
-        && Objects.equals(
-            this.inProgressDescription, maintenanceTemplateDataAttributes.inProgressDescription)
-        && Objects.equals(this.maintenanceTitle, maintenanceTemplateDataAttributes.maintenanceTitle)
-        && Objects.equals(this.modifiedAt, maintenanceTemplateDataAttributes.modifiedAt)
-        && Objects.equals(this.name, maintenanceTemplateDataAttributes.name)
-        && Objects.equals(
-            this.scheduledDescription, maintenanceTemplateDataAttributes.scheduledDescription)
-        && Objects.equals(
-            this.additionalProperties, maintenanceTemplateDataAttributes.additionalProperties);
+    MaintenanceTemplateDataAttributes maintenanceTemplateDataAttributes = (MaintenanceTemplateDataAttributes) o;
+    return Objects.equals(this.completedDescription, maintenanceTemplateDataAttributes.completedDescription) && Objects.equals(this.componentIds, maintenanceTemplateDataAttributes.componentIds) && Objects.equals(this.createdAt, maintenanceTemplateDataAttributes.createdAt) && Objects.equals(this.inProgressDescription, maintenanceTemplateDataAttributes.inProgressDescription) && Objects.equals(this.maintenanceTitle, maintenanceTemplateDataAttributes.maintenanceTitle) && Objects.equals(this.modifiedAt, maintenanceTemplateDataAttributes.modifiedAt) && Objects.equals(this.name, maintenanceTemplateDataAttributes.name) && Objects.equals(this.scheduledDescription, maintenanceTemplateDataAttributes.scheduledDescription) && Objects.equals(this.additionalProperties, maintenanceTemplateDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        completedDescription,
-        componentIds,
-        createdAt,
-        inProgressDescription,
-        maintenanceTitle,
-        modifiedAt,
-        name,
-        scheduledDescription,
-        additionalProperties);
+    return Objects.hash(completedDescription,componentIds,createdAt,inProgressDescription,maintenanceTitle,modifiedAt,name,scheduledDescription, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MaintenanceTemplateDataAttributes {\n");
-    sb.append("    completedDescription: ")
-        .append(toIndentedString(completedDescription))
-        .append("\n");
+    sb.append("    completedDescription: ").append(toIndentedString(completedDescription)).append("\n");
     sb.append("    componentIds: ").append(toIndentedString(componentIds)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    inProgressDescription: ")
-        .append(toIndentedString(inProgressDescription))
-        .append("\n");
+    sb.append("    inProgressDescription: ").append(toIndentedString(inProgressDescription)).append("\n");
     sb.append("    maintenanceTitle: ").append(toIndentedString(maintenanceTitle)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    scheduledDescription: ")
-        .append(toIndentedString(scheduledDescription))
-        .append("\n");
+    sb.append("    scheduledDescription: ").append(toIndentedString(scheduledDescription)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -346,7 +320,8 @@ public class MaintenanceTemplateDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

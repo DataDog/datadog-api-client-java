@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,20 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Google Chat configuration data in a create request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Google Chat configuration data in a create request.</p>
+ */
 @JsonPropertyOrder({
   IncidentGoogleChatConfigurationDataRequest.JSON_PROPERTY_ATTRIBUTES,
   IncidentGoogleChatConfigurationDataRequest.JSON_PROPERTY_RELATIONSHIPS,
   IncidentGoogleChatConfigurationDataRequest.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentGoogleChatConfigurationDataRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private IncidentGoogleChatConfigurationDataAttributesRequest attributes;
 
@@ -40,70 +56,60 @@ public class IncidentGoogleChatConfigurationDataRequest {
 
   @JsonCreator
   public IncidentGoogleChatConfigurationDataRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          IncidentGoogleChatConfigurationDataAttributesRequest attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RELATIONSHIPS)
-          IncidentGoogleChatConfigurationRelationshipsRequest relationships,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          IncidentGoogleChatConfigurationType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES)IncidentGoogleChatConfigurationDataAttributesRequest attributes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RELATIONSHIPS)IncidentGoogleChatConfigurationRelationshipsRequest relationships,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)IncidentGoogleChatConfigurationType type) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        this.relationships = relationships;
+        this.unparsed |= relationships.unparsed;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
-  public IncidentGoogleChatConfigurationDataRequest attributes(
-      IncidentGoogleChatConfigurationDataAttributesRequest attributes) {
+  public IncidentGoogleChatConfigurationDataRequest attributes(IncidentGoogleChatConfigurationDataAttributesRequest attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for creating a Google Chat configuration.
-   *
+   * <p>Attributes for creating a Google Chat configuration.</p>
    * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentGoogleChatConfigurationDataAttributesRequest getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public IncidentGoogleChatConfigurationDataAttributesRequest getAttributes() {
+        return attributes;
+      }
   public void setAttributes(IncidentGoogleChatConfigurationDataAttributesRequest attributes) {
     this.attributes = attributes;
     if (attributes != null) {
       this.unparsed |= attributes.unparsed;
     }
   }
-
-  public IncidentGoogleChatConfigurationDataRequest relationships(
-      IncidentGoogleChatConfigurationRelationshipsRequest relationships) {
+  public IncidentGoogleChatConfigurationDataRequest relationships(IncidentGoogleChatConfigurationRelationshipsRequest relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
     return this;
   }
 
   /**
-   * Relationships for a Google Chat configuration create request.
-   *
+   * <p>Relationships for a Google Chat configuration create request.</p>
    * @return relationships
-   */
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentGoogleChatConfigurationRelationshipsRequest getRelationships() {
-    return relationships;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public IncidentGoogleChatConfigurationRelationshipsRequest getRelationships() {
+        return relationships;
+      }
   public void setRelationships(IncidentGoogleChatConfigurationRelationshipsRequest relationships) {
     this.relationships = relationships;
     if (relationships != null) {
       this.unparsed |= relationships.unparsed;
     }
   }
-
   public IncidentGoogleChatConfigurationDataRequest type(IncidentGoogleChatConfigurationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -111,42 +117,41 @@ public class IncidentGoogleChatConfigurationDataRequest {
   }
 
   /**
-   * Google Chat configuration resource type.
-   *
+   * <p>Google Chat configuration resource type.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentGoogleChatConfigurationType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public IncidentGoogleChatConfigurationType getType() {
+        return type;
+      }
   public void setType(IncidentGoogleChatConfigurationType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return IncidentGoogleChatConfigurationDataRequest
    */
   @JsonAnySetter
-  public IncidentGoogleChatConfigurationDataRequest putAdditionalProperty(
-      String key, Object value) {
+  public IncidentGoogleChatConfigurationDataRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -170,12 +175,14 @@ public class IncidentGoogleChatConfigurationDataRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentGoogleChatConfigurationDataRequest object is equal to o. */
+  /**
+   * Return true if this IncidentGoogleChatConfigurationDataRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -184,20 +191,14 @@ public class IncidentGoogleChatConfigurationDataRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentGoogleChatConfigurationDataRequest incidentGoogleChatConfigurationDataRequest =
-        (IncidentGoogleChatConfigurationDataRequest) o;
-    return Objects.equals(this.attributes, incidentGoogleChatConfigurationDataRequest.attributes)
-        && Objects.equals(
-            this.relationships, incidentGoogleChatConfigurationDataRequest.relationships)
-        && Objects.equals(this.type, incidentGoogleChatConfigurationDataRequest.type)
-        && Objects.equals(
-            this.additionalProperties,
-            incidentGoogleChatConfigurationDataRequest.additionalProperties);
+    IncidentGoogleChatConfigurationDataRequest incidentGoogleChatConfigurationDataRequest = (IncidentGoogleChatConfigurationDataRequest) o;
+    return Objects.equals(this.attributes, incidentGoogleChatConfigurationDataRequest.attributes) && Objects.equals(this.relationships, incidentGoogleChatConfigurationDataRequest.relationships) && Objects.equals(this.type, incidentGoogleChatConfigurationDataRequest.type) && Objects.equals(this.additionalProperties, incidentGoogleChatConfigurationDataRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, relationships, type, additionalProperties);
+    return Objects.hash(attributes,relationships,type, additionalProperties);
   }
 
   @Override
@@ -215,7 +216,8 @@ public class IncidentGoogleChatConfigurationDataRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

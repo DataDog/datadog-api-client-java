@@ -6,17 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object describing the issuer of a SSL certificate. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object describing the issuer of a SSL certificate.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_C,
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_C_N,
@@ -25,10 +42,10 @@ import java.util.Objects;
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_O_U,
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_S_T
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsSSLCertificateIssuer {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_C = "C";
   private String C;
 
@@ -53,135 +70,125 @@ public class SyntheticsSSLCertificateIssuer {
   }
 
   /**
-   * Country Name that issued the certificate.
-   *
+   * <p>Country Name that issued the certificate.</p>
    * @return C
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_C)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getC() {
-    return C;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_C)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getC() {
+        return C;
+      }
   public void setC(String C) {
     this.C = C;
   }
-
   public SyntheticsSSLCertificateIssuer CN(String CN) {
     this.CN = CN;
     return this;
   }
 
   /**
-   * Common Name that issued certificate.
-   *
+   * <p>Common Name that issued certificate.</p>
    * @return CN
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_C_N)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCN() {
-    return CN;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_C_N)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCN() {
+        return CN;
+      }
   public void setCN(String CN) {
     this.CN = CN;
   }
-
   public SyntheticsSSLCertificateIssuer L(String L) {
     this.L = L;
     return this;
   }
 
   /**
-   * Locality that issued the certificate.
-   *
+   * <p>Locality that issued the certificate.</p>
    * @return L
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_L)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getL() {
-    return L;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_L)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getL() {
+        return L;
+      }
   public void setL(String L) {
     this.L = L;
   }
-
   public SyntheticsSSLCertificateIssuer O(String O) {
     this.O = O;
     return this;
   }
 
   /**
-   * Organization that issued the certificate.
-   *
+   * <p>Organization that issued the certificate.</p>
    * @return O
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_O)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getO() {
-    return O;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_O)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getO() {
+        return O;
+      }
   public void setO(String O) {
     this.O = O;
   }
-
   public SyntheticsSSLCertificateIssuer OU(String OU) {
     this.OU = OU;
     return this;
   }
 
   /**
-   * Organizational Unit that issued the certificate.
-   *
+   * <p>Organizational Unit that issued the certificate.</p>
    * @return OU
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_O_U)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getOU() {
-    return OU;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_O_U)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getOU() {
+        return OU;
+      }
   public void setOU(String OU) {
     this.OU = OU;
   }
-
   public SyntheticsSSLCertificateIssuer ST(String ST) {
     this.ST = ST;
     return this;
   }
 
   /**
-   * State Or Province Name that issued the certificate.
-   *
+   * <p>State Or Province Name that issued the certificate.</p>
    * @return ST
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_S_T)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getST() {
-    return ST;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_S_T)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getST() {
+        return ST;
+      }
   public void setST(String ST) {
     this.ST = ST;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -190,7 +197,7 @@ public class SyntheticsSSLCertificateIssuer {
   @JsonAnySetter
   public SyntheticsSSLCertificateIssuer putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -214,12 +221,14 @@ public class SyntheticsSSLCertificateIssuer {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsSSLCertificateIssuer object is equal to o. */
+  /**
+   * Return true if this SyntheticsSSLCertificateIssuer object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -228,21 +237,14 @@ public class SyntheticsSSLCertificateIssuer {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsSSLCertificateIssuer syntheticsSslCertificateIssuer =
-        (SyntheticsSSLCertificateIssuer) o;
-    return Objects.equals(this.C, syntheticsSslCertificateIssuer.C)
-        && Objects.equals(this.CN, syntheticsSslCertificateIssuer.CN)
-        && Objects.equals(this.L, syntheticsSslCertificateIssuer.L)
-        && Objects.equals(this.O, syntheticsSslCertificateIssuer.O)
-        && Objects.equals(this.OU, syntheticsSslCertificateIssuer.OU)
-        && Objects.equals(this.ST, syntheticsSslCertificateIssuer.ST)
-        && Objects.equals(
-            this.additionalProperties, syntheticsSslCertificateIssuer.additionalProperties);
+    SyntheticsSSLCertificateIssuer syntheticsSslCertificateIssuer = (SyntheticsSSLCertificateIssuer) o;
+    return Objects.equals(this.C, syntheticsSslCertificateIssuer.C) && Objects.equals(this.CN, syntheticsSslCertificateIssuer.CN) && Objects.equals(this.L, syntheticsSslCertificateIssuer.L) && Objects.equals(this.O, syntheticsSslCertificateIssuer.O) && Objects.equals(this.OU, syntheticsSslCertificateIssuer.OU) && Objects.equals(this.ST, syntheticsSslCertificateIssuer.ST) && Objects.equals(this.additionalProperties, syntheticsSslCertificateIssuer.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(C, CN, L, O, OU, ST, additionalProperties);
+    return Objects.hash(C,CN,L,O,OU,ST, additionalProperties);
   }
 
   @Override
@@ -263,7 +265,8 @@ public class SyntheticsSSLCertificateIssuer {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

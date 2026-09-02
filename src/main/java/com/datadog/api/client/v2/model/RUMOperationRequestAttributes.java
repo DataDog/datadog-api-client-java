@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,15 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating or updating a RUM operation. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for creating or updating a RUM operation.</p>
+ */
 @JsonPropertyOrder({
   RUMOperationRequestAttributes.JSON_PROPERTY_APPLICATION_ID,
   RUMOperationRequestAttributes.JSON_PROPERTY_CATEGORY,
@@ -32,10 +44,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   RUMOperationRequestAttributes.JSON_PROPERTY_NAME,
   RUMOperationRequestAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMOperationRequestAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
   private UUID applicationId;
 
@@ -64,125 +76,108 @@ public class RUMOperationRequestAttributes {
 
   @JsonCreator
   public RUMOperationRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_JOURNEY_RUM)
-          RUMOperationJourneyRum journeyRum,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags) {
-    this.journeyRum = journeyRum;
-    this.unparsed |= journeyRum.unparsed;
-    this.name = name;
-    this.tags = tags;
+            @JsonProperty(required=true, value=JSON_PROPERTY_JOURNEY_RUM)RUMOperationJourneyRum journeyRum,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TAGS)List<String> tags) {
+        this.journeyRum = journeyRum;
+        this.unparsed |= journeyRum.unparsed;
+        this.name = name;
+        this.tags = tags;
   }
-
   public RUMOperationRequestAttributes applicationId(UUID applicationId) {
     this.applicationId = applicationId;
     return this;
   }
 
   /**
-   * The RUM application ID the operation belongs to.
-   *
+   * <p>The RUM application ID the operation belongs to.</p>
    * @return applicationId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UUID getApplicationId() {
-    return applicationId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public UUID getApplicationId() {
+        return applicationId;
+      }
   public void setApplicationId(UUID applicationId) {
     this.applicationId = applicationId;
   }
-
   public RUMOperationRequestAttributes category(String category) {
     this.category = JsonNullable.<String>of(category);
     return this;
   }
 
   /**
-   * The category of the RUM operation.
-   *
+   * <p>The category of the RUM operation.</p>
    * @return category
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getCategory() {
-    return category.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getCategory() {
+        return category.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getCategory_JsonNullable() {
     return category;
   }
-
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
-  public void setCategory_JsonNullable(JsonNullable<String> category) {
+  @JsonProperty(JSON_PROPERTY_CATEGORY)public void setCategory_JsonNullable(JsonNullable<String> category) {
     this.category = category;
   }
-
   public void setCategory(String category) {
     this.category = JsonNullable.<String>of(category);
   }
-
   public RUMOperationRequestAttributes description(String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
 
   /**
-   * A description of the RUM operation.
-   *
+   * <p>A description of the RUM operation.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getDescription() {
-    return description.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getDescription() {
+        return description.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
   }
-
   public void setDescription(String description) {
     this.description = JsonNullable.<String>of(description);
   }
-
   public RUMOperationRequestAttributes displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
 
   /**
-   * A human-readable display name for the RUM operation.
-   *
+   * <p>A human-readable display name for the RUM operation.</p>
    * @return displayName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDisplayName() {
-    return displayName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDisplayName() {
+        return displayName;
+      }
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
-
   public RUMOperationRequestAttributes featureIds(List<String> featureIds) {
     this.featureIds = featureIds;
     return this;
   }
-
   public RUMOperationRequestAttributes addFeatureIdsItem(String featureIdsItem) {
     if (this.featureIds == null) {
       this.featureIds = new ArrayList<>();
@@ -192,21 +187,19 @@ public class RUMOperationRequestAttributes {
   }
 
   /**
-   * The list of feature IDs associated with the RUM operation.
-   *
+   * <p>The list of feature IDs associated with the RUM operation.</p>
    * @return featureIds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FEATURE_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getFeatureIds() {
-    return featureIds;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FEATURE_IDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getFeatureIds() {
+        return featureIds;
+      }
   public void setFeatureIds(List<String> featureIds) {
     this.featureIds = featureIds;
   }
-
   public RUMOperationRequestAttributes journeyRum(RUMOperationJourneyRum journeyRum) {
     this.journeyRum = journeyRum;
     this.unparsed |= journeyRum.unparsed;
@@ -214,77 +207,72 @@ public class RUMOperationRequestAttributes {
   }
 
   /**
-   * The definition of a RUM operation's journey, used to detect it from RUM events.
-   *
+   * <p>The definition of a RUM operation's journey, used to detect it from RUM events.</p>
    * @return journeyRum
-   */
-  @JsonProperty(JSON_PROPERTY_JOURNEY_RUM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RUMOperationJourneyRum getJourneyRum() {
-    return journeyRum;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_JOURNEY_RUM)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RUMOperationJourneyRum getJourneyRum() {
+        return journeyRum;
+      }
   public void setJourneyRum(RUMOperationJourneyRum journeyRum) {
     this.journeyRum = journeyRum;
     if (journeyRum != null) {
       this.unparsed |= journeyRum.unparsed;
     }
   }
-
   public RUMOperationRequestAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The unique name of the RUM operation. Must not contain spaces.
-   *
+   * <p>The unique name of the RUM operation. Must not contain spaces.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public RUMOperationRequestAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public RUMOperationRequestAttributes addTagsItem(String tagsItem) {
     this.tags.add(tagsItem);
     return this;
   }
 
   /**
-   * A list of tags associated with the RUM operation.
-   *
+   * <p>A list of tags associated with the RUM operation.</p>
    * @return tags
-   */
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -293,7 +281,7 @@ public class RUMOperationRequestAttributes {
   @JsonAnySetter
   public RUMOperationRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -317,12 +305,14 @@ public class RUMOperationRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RUMOperationRequestAttributes object is equal to o. */
+  /**
+   * Return true if this RUMOperationRequestAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -332,30 +322,13 @@ public class RUMOperationRequestAttributes {
       return false;
     }
     RUMOperationRequestAttributes rumOperationRequestAttributes = (RUMOperationRequestAttributes) o;
-    return Objects.equals(this.applicationId, rumOperationRequestAttributes.applicationId)
-        && Objects.equals(this.category, rumOperationRequestAttributes.category)
-        && Objects.equals(this.description, rumOperationRequestAttributes.description)
-        && Objects.equals(this.displayName, rumOperationRequestAttributes.displayName)
-        && Objects.equals(this.featureIds, rumOperationRequestAttributes.featureIds)
-        && Objects.equals(this.journeyRum, rumOperationRequestAttributes.journeyRum)
-        && Objects.equals(this.name, rumOperationRequestAttributes.name)
-        && Objects.equals(this.tags, rumOperationRequestAttributes.tags)
-        && Objects.equals(
-            this.additionalProperties, rumOperationRequestAttributes.additionalProperties);
+    return Objects.equals(this.applicationId, rumOperationRequestAttributes.applicationId) && Objects.equals(this.category, rumOperationRequestAttributes.category) && Objects.equals(this.description, rumOperationRequestAttributes.description) && Objects.equals(this.displayName, rumOperationRequestAttributes.displayName) && Objects.equals(this.featureIds, rumOperationRequestAttributes.featureIds) && Objects.equals(this.journeyRum, rumOperationRequestAttributes.journeyRum) && Objects.equals(this.name, rumOperationRequestAttributes.name) && Objects.equals(this.tags, rumOperationRequestAttributes.tags) && Objects.equals(this.additionalProperties, rumOperationRequestAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        applicationId,
-        category,
-        description,
-        displayName,
-        featureIds,
-        journeyRum,
-        name,
-        tags,
-        additionalProperties);
+    return Objects.hash(applicationId,category,description,displayName,featureIds,journeyRum,name,tags, additionalProperties);
   }
 
   @Override
@@ -378,7 +351,8 @@ public class RUMOperationRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

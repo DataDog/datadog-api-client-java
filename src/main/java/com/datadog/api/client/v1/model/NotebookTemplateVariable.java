@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Notebook template variable. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Notebook template variable.</p>
+ */
 @JsonPropertyOrder({
   NotebookTemplateVariable.JSON_PROPERTY_AVAILABLE_VALUES,
   NotebookTemplateVariable.JSON_PROPERTY_AVAILABLE_VALUES_QUERY,
@@ -30,10 +45,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookTemplateVariable.JSON_PROPERTY_PREFIX,
   NotebookTemplateVariable.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookTemplateVariable {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVAILABLE_VALUES = "available_values";
   private JsonNullable<List<String>> availableValues = JsonNullable.<List<String>>undefined();
 
@@ -65,15 +80,13 @@ public class NotebookTemplateVariable {
 
   @JsonCreator
   public NotebookTemplateVariable(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.name = name;
   }
-
   public NotebookTemplateVariable availableValues(List<String> availableValues) {
     this.availableValues = JsonNullable.<List<String>>of(availableValues);
     return this;
   }
-
   public NotebookTemplateVariable addAvailableValuesItem(String availableValuesItem) {
     if (this.availableValues == null || !this.availableValues.isPresent()) {
       this.availableValues = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -87,65 +100,54 @@ public class NotebookTemplateVariable {
   }
 
   /**
-   * The list of values that the template variable drop-down is limited to.
-   *
+   * <p>The list of values that the template variable drop-down is limited to.</p>
    * @return availableValues
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<String> getAvailableValues() {
-    return availableValues.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<String> getAvailableValues() {
+        return availableValues.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getAvailableValues_JsonNullable() {
     return availableValues;
   }
-
-  @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)
-  public void setAvailableValues_JsonNullable(JsonNullable<List<String>> availableValues) {
+  @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)public void setAvailableValues_JsonNullable(JsonNullable<List<String>> availableValues) {
     this.availableValues = availableValues;
   }
-
   public void setAvailableValues(List<String> availableValues) {
     this.availableValues = JsonNullable.<List<String>>of(availableValues);
   }
-
-  public NotebookTemplateVariable availableValuesQuery(
-      NotebookTemplateVariableAvailableValuesQuery availableValuesQuery) {
+  public NotebookTemplateVariable availableValuesQuery(NotebookTemplateVariableAvailableValuesQuery availableValuesQuery) {
     this.availableValuesQuery = availableValuesQuery;
     this.unparsed |= availableValuesQuery.unparsed;
     return this;
   }
 
   /**
-   * Query used to dynamically populate the list of available values for the template variable.
-   *
+   * <p>Query used to dynamically populate the list of available values for the template variable.</p>
    * @return availableValuesQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public NotebookTemplateVariableAvailableValuesQuery getAvailableValuesQuery() {
-    return availableValuesQuery;
-  }
-
-  public void setAvailableValuesQuery(
-      NotebookTemplateVariableAvailableValuesQuery availableValuesQuery) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public NotebookTemplateVariableAvailableValuesQuery getAvailableValuesQuery() {
+        return availableValuesQuery;
+      }
+  public void setAvailableValuesQuery(NotebookTemplateVariableAvailableValuesQuery availableValuesQuery) {
     this.availableValuesQuery = availableValuesQuery;
     if (availableValuesQuery != null) {
       this.unparsed |= availableValuesQuery.unparsed;
     }
   }
-
   public NotebookTemplateVariable dataSourceMappings(Map<String, String> dataSourceMappings) {
     this.dataSourceMappings = dataSourceMappings;
     return this;
   }
-
-  public NotebookTemplateVariable putDataSourceMappingsItem(
-      String key, String dataSourceMappingsItem) {
+  public NotebookTemplateVariable putDataSourceMappingsItem(String key, String dataSourceMappingsItem) {
     if (this.dataSourceMappings == null) {
       this.dataSourceMappings = new HashMap<>();
     }
@@ -154,61 +156,53 @@ public class NotebookTemplateVariable {
   }
 
   /**
-   * Mapping of data source names to template variable values.
-   *
+   * <p>Mapping of data source names to template variable values.</p>
    * @return dataSourceMappings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE_MAPPINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, String> getDataSourceMappings() {
-    return dataSourceMappings;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE_MAPPINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, String> getDataSourceMappings() {
+        return dataSourceMappings;
+      }
   public void setDataSourceMappings(Map<String, String> dataSourceMappings) {
     this.dataSourceMappings = dataSourceMappings;
   }
-
   public NotebookTemplateVariable _default(String _default) {
     this._default = JsonNullable.<String>of(_default);
     return this;
   }
 
   /**
-   * (deprecated) The default value for the template variable on notebook load. Cannot be used in
-   * conjunction with <code>defaults</code>.
-   *
+   * <p>(deprecated) The default value for the template variable on notebook load.
+   * Cannot be used in conjunction with <code>defaults</code>.</p>
    * @return _default
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getDefault() {
-    return _default.orElse(null);
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getDefault() {
+        return _default.orElse(null);
+      }
   @Deprecated
   @JsonProperty(JSON_PROPERTY_DEFAULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getDefault_JsonNullable() {
     return _default;
   }
-
-  @JsonProperty(JSON_PROPERTY_DEFAULT)
-  public void setDefault_JsonNullable(JsonNullable<String> _default) {
+  @JsonProperty(JSON_PROPERTY_DEFAULT)public void setDefault_JsonNullable(JsonNullable<String> _default) {
     this._default = _default;
   }
-
   public void setDefault(String _default) {
     this._default = JsonNullable.<String>of(_default);
   }
-
   public NotebookTemplateVariable defaults(List<String> defaults) {
     this.defaults = defaults;
     return this;
   }
-
   public NotebookTemplateVariable addDefaultsItem(String defaultsItem) {
     if (this.defaults == null) {
       this.defaults = new ArrayList<>();
@@ -218,117 +212,105 @@ public class NotebookTemplateVariable {
   }
 
   /**
-   * One or many default values for the template variable. Cannot be used in conjunction with <code>
-   * default</code>.
-   *
+   * <p>One or many default values for the template variable. Cannot be used in conjunction with <code>default</code>.</p>
    * @return defaults
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFAULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDefaults() {
-    return defaults;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DEFAULTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getDefaults() {
+        return defaults;
+      }
   public void setDefaults(List<String> defaults) {
     this.defaults = defaults;
   }
-
   public NotebookTemplateVariable name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the variable.
-   *
+   * <p>The name of the variable.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public NotebookTemplateVariable placement(String placement) {
     this.placement = placement;
     return this;
   }
 
   /**
-   * The placement of the template variable in the notebook.
-   *
+   * <p>The placement of the template variable in the notebook.</p>
    * @return placement
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PLACEMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPlacement() {
-    return placement;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PLACEMENT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPlacement() {
+        return placement;
+      }
   public void setPlacement(String placement) {
     this.placement = placement;
   }
-
   public NotebookTemplateVariable prefix(String prefix) {
     this.prefix = JsonNullable.<String>of(prefix);
     return this;
   }
 
   /**
-   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable
-   * drop-down.
-   *
+   * <p>The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.</p>
    * @return prefix
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getPrefix() {
-    return prefix.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getPrefix() {
+        return prefix.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PREFIX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getPrefix_JsonNullable() {
     return prefix;
   }
-
-  @JsonProperty(JSON_PROPERTY_PREFIX)
-  public void setPrefix_JsonNullable(JsonNullable<String> prefix) {
+  @JsonProperty(JSON_PROPERTY_PREFIX)public void setPrefix_JsonNullable(JsonNullable<String> prefix) {
     this.prefix = prefix;
   }
-
   public void setPrefix(String prefix) {
     this.prefix = JsonNullable.<String>of(prefix);
   }
-
   public NotebookTemplateVariable type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * The type of the template variable.
-   *
+   * <p>The type of the template variable.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
-  /** Return true if this NotebookTemplateVariable object is equal to o. */
+  /**
+   * Return true if this NotebookTemplateVariable object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -338,29 +320,13 @@ public class NotebookTemplateVariable {
       return false;
     }
     NotebookTemplateVariable notebookTemplateVariable = (NotebookTemplateVariable) o;
-    return Objects.equals(this.availableValues, notebookTemplateVariable.availableValues)
-        && Objects.equals(this.availableValuesQuery, notebookTemplateVariable.availableValuesQuery)
-        && Objects.equals(this.dataSourceMappings, notebookTemplateVariable.dataSourceMappings)
-        && Objects.equals(this._default, notebookTemplateVariable._default)
-        && Objects.equals(this.defaults, notebookTemplateVariable.defaults)
-        && Objects.equals(this.name, notebookTemplateVariable.name)
-        && Objects.equals(this.placement, notebookTemplateVariable.placement)
-        && Objects.equals(this.prefix, notebookTemplateVariable.prefix)
-        && Objects.equals(this.type, notebookTemplateVariable.type);
+    return Objects.equals(this.availableValues, notebookTemplateVariable.availableValues) && Objects.equals(this.availableValuesQuery, notebookTemplateVariable.availableValuesQuery) && Objects.equals(this.dataSourceMappings, notebookTemplateVariable.dataSourceMappings) && Objects.equals(this._default, notebookTemplateVariable._default) && Objects.equals(this.defaults, notebookTemplateVariable.defaults) && Objects.equals(this.name, notebookTemplateVariable.name) && Objects.equals(this.placement, notebookTemplateVariable.placement) && Objects.equals(this.prefix, notebookTemplateVariable.prefix) && Objects.equals(this.type, notebookTemplateVariable.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        availableValues,
-        availableValuesQuery,
-        dataSourceMappings,
-        _default,
-        defaults,
-        name,
-        placement,
-        prefix,
-        type);
+    return Objects.hash(availableValues,availableValuesQuery,dataSourceMappings,_default,defaults,name,placement,prefix,type);
   }
 
   @Override
@@ -368,9 +334,7 @@ public class NotebookTemplateVariable {
     StringBuilder sb = new StringBuilder();
     sb.append("class NotebookTemplateVariable {\n");
     sb.append("    availableValues: ").append(toIndentedString(availableValues)).append("\n");
-    sb.append("    availableValuesQuery: ")
-        .append(toIndentedString(availableValuesQuery))
-        .append("\n");
+    sb.append("    availableValuesQuery: ").append(toIndentedString(availableValuesQuery)).append("\n");
     sb.append("    dataSourceMappings: ").append(toIndentedString(dataSourceMappings)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    defaults: ").append(toIndentedString(defaults)).append("\n");
@@ -383,7 +347,8 @@ public class NotebookTemplateVariable {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

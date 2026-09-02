@@ -6,52 +6,73 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The kind of entity returned by a journey list query. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The kind of entity returned by a journey list query.</p>
+ */
 @JsonSerialize(using = ProductAnalyticsJourneyEntity.ProductAnalyticsJourneyEntitySerializer.class)
 public class ProductAnalyticsJourneyEntity extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("session", "user", "account"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("session", "user", "account"));
 
-  public static final ProductAnalyticsJourneyEntity SESSION =
-      new ProductAnalyticsJourneyEntity("session");
-  public static final ProductAnalyticsJourneyEntity USER =
-      new ProductAnalyticsJourneyEntity("user");
-  public static final ProductAnalyticsJourneyEntity ACCOUNT =
-      new ProductAnalyticsJourneyEntity("account");
+  public static final ProductAnalyticsJourneyEntity SESSION = new ProductAnalyticsJourneyEntity("session");
+  public static final ProductAnalyticsJourneyEntity USER = new ProductAnalyticsJourneyEntity("user");
+  public static final ProductAnalyticsJourneyEntity ACCOUNT = new ProductAnalyticsJourneyEntity("account");
+
 
   ProductAnalyticsJourneyEntity(String value) {
     super(value, allowedValues);
   }
 
-  public static class ProductAnalyticsJourneyEntitySerializer
-      extends StdSerializer<ProductAnalyticsJourneyEntity> {
-    public ProductAnalyticsJourneyEntitySerializer(Class<ProductAnalyticsJourneyEntity> t) {
-      super(t);
-    }
+  public static class ProductAnalyticsJourneyEntitySerializer extends StdSerializer<ProductAnalyticsJourneyEntity> {
+      public ProductAnalyticsJourneyEntitySerializer(Class<ProductAnalyticsJourneyEntity> t) {
+          super(t);
+      }
 
-    public ProductAnalyticsJourneyEntitySerializer() {
-      this(null);
-    }
+      public ProductAnalyticsJourneyEntitySerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ProductAnalyticsJourneyEntity value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ProductAnalyticsJourneyEntity value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

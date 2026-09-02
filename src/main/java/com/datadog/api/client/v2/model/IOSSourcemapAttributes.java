@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,22 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of an iOS dSYM source map. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of an iOS dSYM source map.</p>
+ */
 @JsonPropertyOrder({
   IOSSourcemapAttributes.JSON_PROPERTY_CREATED_AT,
   IOSSourcemapAttributes.JSON_PROPERTY_MAPKIND,
   IOSSourcemapAttributes.JSON_PROPERTY_SIZE,
   IOSSourcemapAttributes.JSON_PROPERTY_UUIDS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IOSSourcemapAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -45,104 +60,97 @@ public class IOSSourcemapAttributes {
 
   @JsonCreator
   public IOSSourcemapAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAPKIND) String mapkind,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SIZE) Long size) {
-    this.createdAt = createdAt;
-    this.mapkind = mapkind;
-    this.size = size;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MAPKIND)String mapkind,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SIZE)Long size) {
+        this.createdAt = createdAt;
+        this.mapkind = mapkind;
+        this.size = size;
   }
-
   public IOSSourcemapAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * The timestamp when the source map was created.
-   *
+   * <p>The timestamp when the source map was created.</p>
    * @return createdAt
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public IOSSourcemapAttributes mapkind(String mapkind) {
     this.mapkind = mapkind;
     return this;
   }
 
   /**
-   * The type of source map.
-   *
+   * <p>The type of source map.</p>
    * @return mapkind
-   */
-  @JsonProperty(JSON_PROPERTY_MAPKIND)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMapkind() {
-    return mapkind;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MAPKIND)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getMapkind() {
+        return mapkind;
+      }
   public void setMapkind(String mapkind) {
     this.mapkind = mapkind;
   }
-
   public IOSSourcemapAttributes size(Long size) {
     this.size = size;
     return this;
   }
 
   /**
-   * The size of the dSYM file in bytes.
-   *
+   * <p>The size of the dSYM file in bytes.</p>
    * @return size
-   */
-  @JsonProperty(JSON_PROPERTY_SIZE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getSize() {
-    return size;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getSize() {
+        return size;
+      }
   public void setSize(Long size) {
     this.size = size;
   }
-
   public IOSSourcemapAttributes uuids(String uuids) {
     this.uuids = uuids;
     return this;
   }
 
   /**
-   * The UUID(s) associated with the dSYM file.
-   *
+   * <p>The UUID(s) associated with the dSYM file.</p>
    * @return uuids
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UUIDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUuids() {
-    return uuids;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UUIDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getUuids() {
+        return uuids;
+      }
   public void setUuids(String uuids) {
     this.uuids = uuids;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -151,7 +159,7 @@ public class IOSSourcemapAttributes {
   @JsonAnySetter
   public IOSSourcemapAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -175,12 +183,14 @@ public class IOSSourcemapAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IOSSourcemapAttributes object is equal to o. */
+  /**
+   * Return true if this IOSSourcemapAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -190,16 +200,13 @@ public class IOSSourcemapAttributes {
       return false;
     }
     IOSSourcemapAttributes iosSourcemapAttributes = (IOSSourcemapAttributes) o;
-    return Objects.equals(this.createdAt, iosSourcemapAttributes.createdAt)
-        && Objects.equals(this.mapkind, iosSourcemapAttributes.mapkind)
-        && Objects.equals(this.size, iosSourcemapAttributes.size)
-        && Objects.equals(this.uuids, iosSourcemapAttributes.uuids)
-        && Objects.equals(this.additionalProperties, iosSourcemapAttributes.additionalProperties);
+    return Objects.equals(this.createdAt, iosSourcemapAttributes.createdAt) && Objects.equals(this.mapkind, iosSourcemapAttributes.mapkind) && Objects.equals(this.size, iosSourcemapAttributes.size) && Objects.equals(this.uuids, iosSourcemapAttributes.uuids) && Objects.equals(this.additionalProperties, iosSourcemapAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, mapkind, size, uuids, additionalProperties);
+    return Objects.hash(createdAt,mapkind,size,uuids, additionalProperties);
   }
 
   @Override
@@ -218,7 +225,8 @@ public class IOSSourcemapAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

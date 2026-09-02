@@ -6,55 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The type of the resource. */
-@JsonSerialize(
-    using =
-        SecurityMonitoringRuleBulkExportDataType.SecurityMonitoringRuleBulkExportDataTypeSerializer
-            .class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The type of the resource.</p>
+ */
+@JsonSerialize(using = SecurityMonitoringRuleBulkExportDataType.SecurityMonitoringRuleBulkExportDataTypeSerializer.class)
 public class SecurityMonitoringRuleBulkExportDataType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("security_monitoring_rules_bulk_export"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("security_monitoring_rules_bulk_export"));
 
-  public static final SecurityMonitoringRuleBulkExportDataType
-      SECURITY_MONITORING_RULES_BULK_EXPORT =
-          new SecurityMonitoringRuleBulkExportDataType("security_monitoring_rules_bulk_export");
+  public static final SecurityMonitoringRuleBulkExportDataType SECURITY_MONITORING_RULES_BULK_EXPORT = new SecurityMonitoringRuleBulkExportDataType("security_monitoring_rules_bulk_export");
+
 
   SecurityMonitoringRuleBulkExportDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringRuleBulkExportDataTypeSerializer
-      extends StdSerializer<SecurityMonitoringRuleBulkExportDataType> {
-    public SecurityMonitoringRuleBulkExportDataTypeSerializer(
-        Class<SecurityMonitoringRuleBulkExportDataType> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringRuleBulkExportDataTypeSerializer extends StdSerializer<SecurityMonitoringRuleBulkExportDataType> {
+      public SecurityMonitoringRuleBulkExportDataTypeSerializer(Class<SecurityMonitoringRuleBulkExportDataType> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringRuleBulkExportDataTypeSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringRuleBulkExportDataTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringRuleBulkExportDataType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringRuleBulkExportDataType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

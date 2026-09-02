@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The queries and formula used to calculate the SLI value. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The queries and formula used to calculate the SLI value.</p>
+ */
 @JsonPropertyOrder({
   SLOTimeSliceQuery.JSON_PROPERTY_FORMULAS,
   SLOTimeSliceQuery.JSON_PROPERTY_QUERIES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOTimeSliceQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORMULAS = "formulas";
   private List<SLOFormula> formulas = new ArrayList<>();
 
@@ -38,19 +52,17 @@ public class SLOTimeSliceQuery {
 
   @JsonCreator
   public SLOTimeSliceQuery(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FORMULAS) List<SLOFormula> formulas,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
-          List<SLODataSourceQueryDefinition> queries) {
-    this.formulas = formulas;
-    for (SLOFormula item : formulas) {
-      this.unparsed |= item.unparsed;
-    }
-    this.queries = queries;
-    for (SLODataSourceQueryDefinition item : queries) {
-      this.unparsed |= item.unparsed;
-    }
+            @JsonProperty(required=true, value=JSON_PROPERTY_FORMULAS)List<SLOFormula> formulas,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERIES)List<SLODataSourceQueryDefinition> queries) {
+        this.formulas = formulas;
+        for (SLOFormula item : formulas) {
+          this.unparsed |= item.unparsed;
+        }
+        this.queries = queries;
+        for (SLODataSourceQueryDefinition item : queries) {
+          this.unparsed |= item.unparsed;
+        }
   }
-
   public SLOTimeSliceQuery formulas(List<SLOFormula> formulas) {
     this.formulas = formulas;
     for (SLOFormula item : formulas) {
@@ -58,7 +70,6 @@ public class SLOTimeSliceQuery {
     }
     return this;
   }
-
   public SLOTimeSliceQuery addFormulasItem(SLOFormula formulasItem) {
     this.formulas.add(formulasItem);
     this.unparsed |= formulasItem.unparsed;
@@ -66,17 +77,15 @@ public class SLOTimeSliceQuery {
   }
 
   /**
-   * A list that contains exactly one formula, as only a single formula may be used in a time-slice
-   * SLO.
-   *
+   * <p>A list that contains exactly one formula, as only a single formula may be used in a time-slice SLO.</p>
    * @return formulas
-   */
-  @JsonProperty(JSON_PROPERTY_FORMULAS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SLOFormula> getFormulas() {
-    return formulas;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FORMULAS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<SLOFormula> getFormulas() {
+        return formulas;
+      }
   public void setFormulas(List<SLOFormula> formulas) {
     this.formulas = formulas;
     if (formulas != null) {
@@ -85,7 +94,6 @@ public class SLOTimeSliceQuery {
       }
     }
   }
-
   public SLOTimeSliceQuery queries(List<SLODataSourceQueryDefinition> queries) {
     this.queries = queries;
     for (SLODataSourceQueryDefinition item : queries) {
@@ -93,7 +101,6 @@ public class SLOTimeSliceQuery {
     }
     return this;
   }
-
   public SLOTimeSliceQuery addQueriesItem(SLODataSourceQueryDefinition queriesItem) {
     this.queries.add(queriesItem);
     this.unparsed |= queriesItem.unparsed;
@@ -101,16 +108,15 @@ public class SLOTimeSliceQuery {
   }
 
   /**
-   * A list of queries that are used to calculate the SLI value.
-   *
+   * <p>A list of queries that are used to calculate the SLI value.</p>
    * @return queries
-   */
-  @JsonProperty(JSON_PROPERTY_QUERIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SLODataSourceQueryDefinition> getQueries() {
-    return queries;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERIES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<SLODataSourceQueryDefinition> getQueries() {
+        return queries;
+      }
   public void setQueries(List<SLODataSourceQueryDefinition> queries) {
     this.queries = queries;
     if (queries != null) {
@@ -121,14 +127,15 @@ public class SLOTimeSliceQuery {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -137,7 +144,7 @@ public class SLOTimeSliceQuery {
   @JsonAnySetter
   public SLOTimeSliceQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -161,12 +168,14 @@ public class SLOTimeSliceQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SLOTimeSliceQuery object is equal to o. */
+  /**
+   * Return true if this SLOTimeSliceQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -176,14 +185,13 @@ public class SLOTimeSliceQuery {
       return false;
     }
     SLOTimeSliceQuery sloTimeSliceQuery = (SLOTimeSliceQuery) o;
-    return Objects.equals(this.formulas, sloTimeSliceQuery.formulas)
-        && Objects.equals(this.queries, sloTimeSliceQuery.queries)
-        && Objects.equals(this.additionalProperties, sloTimeSliceQuery.additionalProperties);
+    return Objects.equals(this.formulas, sloTimeSliceQuery.formulas) && Objects.equals(this.queries, sloTimeSliceQuery.queries) && Objects.equals(this.additionalProperties, sloTimeSliceQuery.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(formulas, queries, additionalProperties);
+    return Objects.hash(formulas,queries, additionalProperties);
   }
 
   @Override
@@ -200,7 +208,8 @@ public class SLOTimeSliceQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

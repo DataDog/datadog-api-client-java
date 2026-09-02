@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,22 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Request body for completing a multipart file upload. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Request body for completing a multipart file upload.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsTestFileCompleteMultipartUploadRequest.JSON_PROPERTY_KEY,
   SyntheticsTestFileCompleteMultipartUploadRequest.JSON_PROPERTY_PARTS,
   SyntheticsTestFileCompleteMultipartUploadRequest.JSON_PROPERTY_UPLOAD_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestFileCompleteMultipartUploadRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
 
@@ -42,65 +56,57 @@ public class SyntheticsTestFileCompleteMultipartUploadRequest {
 
   @JsonCreator
   public SyntheticsTestFileCompleteMultipartUploadRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_KEY) String key,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PARTS)
-          List<SyntheticsTestFileCompleteMultipartUploadPart> parts,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UPLOAD_ID) String uploadId) {
-    this.key = key;
-    this.parts = parts;
-    for (SyntheticsTestFileCompleteMultipartUploadPart item : parts) {
-      this.unparsed |= item.unparsed;
-    }
-    this.uploadId = uploadId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_KEY)String key,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PARTS)List<SyntheticsTestFileCompleteMultipartUploadPart> parts,
+            @JsonProperty(required=true, value=JSON_PROPERTY_UPLOAD_ID)String uploadId) {
+        this.key = key;
+        this.parts = parts;
+        for (SyntheticsTestFileCompleteMultipartUploadPart item : parts) {
+          this.unparsed |= item.unparsed;
+        }
+        this.uploadId = uploadId;
   }
-
   public SyntheticsTestFileCompleteMultipartUploadRequest key(String key) {
     this.key = key;
     return this;
   }
 
   /**
-   * The full storage path for the uploaded file.
-   *
+   * <p>The full storage path for the uploaded file.</p>
    * @return key
-   */
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getKey() {
-    return key;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getKey() {
+        return key;
+      }
   public void setKey(String key) {
     this.key = key;
   }
-
-  public SyntheticsTestFileCompleteMultipartUploadRequest parts(
-      List<SyntheticsTestFileCompleteMultipartUploadPart> parts) {
+  public SyntheticsTestFileCompleteMultipartUploadRequest parts(List<SyntheticsTestFileCompleteMultipartUploadPart> parts) {
     this.parts = parts;
     for (SyntheticsTestFileCompleteMultipartUploadPart item : parts) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public SyntheticsTestFileCompleteMultipartUploadRequest addPartsItem(
-      SyntheticsTestFileCompleteMultipartUploadPart partsItem) {
+  public SyntheticsTestFileCompleteMultipartUploadRequest addPartsItem(SyntheticsTestFileCompleteMultipartUploadPart partsItem) {
     this.parts.add(partsItem);
     this.unparsed |= partsItem.unparsed;
     return this;
   }
 
   /**
-   * Array of completed parts with their ETags.
-   *
+   * <p>Array of completed parts with their ETags.</p>
    * @return parts
-   */
-  @JsonProperty(JSON_PROPERTY_PARTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SyntheticsTestFileCompleteMultipartUploadPart> getParts() {
-    return parts;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PARTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<SyntheticsTestFileCompleteMultipartUploadPart> getParts() {
+        return parts;
+      }
   public void setParts(List<SyntheticsTestFileCompleteMultipartUploadPart> parts) {
     this.parts = parts;
     if (parts != null) {
@@ -109,46 +115,44 @@ public class SyntheticsTestFileCompleteMultipartUploadRequest {
       }
     }
   }
-
   public SyntheticsTestFileCompleteMultipartUploadRequest uploadId(String uploadId) {
     this.uploadId = uploadId;
     return this;
   }
 
   /**
-   * The upload ID returned when the multipart upload was initiated.
-   *
+   * <p>The upload ID returned when the multipart upload was initiated.</p>
    * @return uploadId
-   */
-  @JsonProperty(JSON_PROPERTY_UPLOAD_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUploadId() {
-    return uploadId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UPLOAD_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getUploadId() {
+        return uploadId;
+      }
   public void setUploadId(String uploadId) {
     this.uploadId = uploadId;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return SyntheticsTestFileCompleteMultipartUploadRequest
    */
   @JsonAnySetter
-  public SyntheticsTestFileCompleteMultipartUploadRequest putAdditionalProperty(
-      String key, Object value) {
+  public SyntheticsTestFileCompleteMultipartUploadRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -172,12 +176,14 @@ public class SyntheticsTestFileCompleteMultipartUploadRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestFileCompleteMultipartUploadRequest object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestFileCompleteMultipartUploadRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -186,20 +192,14 @@ public class SyntheticsTestFileCompleteMultipartUploadRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestFileCompleteMultipartUploadRequest
-        syntheticsTestFileCompleteMultipartUploadRequest =
-            (SyntheticsTestFileCompleteMultipartUploadRequest) o;
-    return Objects.equals(this.key, syntheticsTestFileCompleteMultipartUploadRequest.key)
-        && Objects.equals(this.parts, syntheticsTestFileCompleteMultipartUploadRequest.parts)
-        && Objects.equals(this.uploadId, syntheticsTestFileCompleteMultipartUploadRequest.uploadId)
-        && Objects.equals(
-            this.additionalProperties,
-            syntheticsTestFileCompleteMultipartUploadRequest.additionalProperties);
+    SyntheticsTestFileCompleteMultipartUploadRequest syntheticsTestFileCompleteMultipartUploadRequest = (SyntheticsTestFileCompleteMultipartUploadRequest) o;
+    return Objects.equals(this.key, syntheticsTestFileCompleteMultipartUploadRequest.key) && Objects.equals(this.parts, syntheticsTestFileCompleteMultipartUploadRequest.parts) && Objects.equals(this.uploadId, syntheticsTestFileCompleteMultipartUploadRequest.uploadId) && Objects.equals(this.additionalProperties, syntheticsTestFileCompleteMultipartUploadRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, parts, uploadId, additionalProperties);
+    return Objects.hash(key,parts,uploadId, additionalProperties);
   }
 
   @Override
@@ -217,7 +217,8 @@ public class SyntheticsTestFileCompleteMultipartUploadRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

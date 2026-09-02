@@ -6,45 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Amazon EventBridge resource type. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Amazon EventBridge resource type.</p>
+ */
 @JsonSerialize(using = AWSEventBridgeType.AWSEventBridgeTypeSerializer.class)
 public class AWSEventBridgeType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("event_bridge"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("event_bridge"));
 
   public static final AWSEventBridgeType EVENT_BRIDGE = new AWSEventBridgeType("event_bridge");
+
 
   AWSEventBridgeType(String value) {
     super(value, allowedValues);
   }
 
   public static class AWSEventBridgeTypeSerializer extends StdSerializer<AWSEventBridgeType> {
-    public AWSEventBridgeTypeSerializer(Class<AWSEventBridgeType> t) {
-      super(t);
-    }
+      public AWSEventBridgeTypeSerializer(Class<AWSEventBridgeType> t) {
+          super(t);
+      }
 
-    public AWSEventBridgeTypeSerializer() {
-      this(null);
-    }
+      public AWSEventBridgeTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(AWSEventBridgeType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(AWSEventBridgeType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

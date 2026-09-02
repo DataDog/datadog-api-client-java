@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of the analysis response, containing rule results and any top-level errors. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes of the analysis response, containing rule results and any top-level errors.</p>
+ */
 @JsonPropertyOrder({
   AnalysisResponseDataAttributes.JSON_PROPERTY_ERRORS,
   AnalysisResponseDataAttributes.JSON_PROPERTY_RULE_RESPONSES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AnalysisResponseDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = new ArrayList<>();
 
@@ -38,41 +52,36 @@ public class AnalysisResponseDataAttributes {
 
   @JsonCreator
   public AnalysisResponseDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ERRORS) List<String> errors,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RULE_RESPONSES)
-          List<AnalysisRuleResponse> ruleResponses) {
-    this.errors = errors;
-    this.ruleResponses = ruleResponses;
-    for (AnalysisRuleResponse item : ruleResponses) {
-      this.unparsed |= item.unparsed;
-    }
+            @JsonProperty(required=true, value=JSON_PROPERTY_ERRORS)List<String> errors,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RULE_RESPONSES)List<AnalysisRuleResponse> ruleResponses) {
+        this.errors = errors;
+        this.ruleResponses = ruleResponses;
+        for (AnalysisRuleResponse item : ruleResponses) {
+          this.unparsed |= item.unparsed;
+        }
   }
-
   public AnalysisResponseDataAttributes errors(List<String> errors) {
     this.errors = errors;
     return this;
   }
-
   public AnalysisResponseDataAttributes addErrorsItem(String errorsItem) {
     this.errors.add(errorsItem);
     return this;
   }
 
   /**
-   * Top-level error messages encountered during the analysis operation.
-   *
+   * <p>Top-level error messages encountered during the analysis operation.</p>
    * @return errors
-   */
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getErrors() {
-    return errors;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ERRORS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getErrors() {
+        return errors;
+      }
   public void setErrors(List<String> errors) {
     this.errors = errors;
   }
-
   public AnalysisResponseDataAttributes ruleResponses(List<AnalysisRuleResponse> ruleResponses) {
     this.ruleResponses = ruleResponses;
     for (AnalysisRuleResponse item : ruleResponses) {
@@ -80,25 +89,22 @@ public class AnalysisResponseDataAttributes {
     }
     return this;
   }
-
-  public AnalysisResponseDataAttributes addRuleResponsesItem(
-      AnalysisRuleResponse ruleResponsesItem) {
+  public AnalysisResponseDataAttributes addRuleResponsesItem(AnalysisRuleResponse ruleResponsesItem) {
     this.ruleResponses.add(ruleResponsesItem);
     this.unparsed |= ruleResponsesItem.unparsed;
     return this;
   }
 
   /**
-   * The list of results for each static analysis rule applied during analysis.
-   *
+   * <p>The list of results for each static analysis rule applied during analysis.</p>
    * @return ruleResponses
-   */
-  @JsonProperty(JSON_PROPERTY_RULE_RESPONSES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<AnalysisRuleResponse> getRuleResponses() {
-    return ruleResponses;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RULE_RESPONSES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<AnalysisRuleResponse> getRuleResponses() {
+        return ruleResponses;
+      }
   public void setRuleResponses(List<AnalysisRuleResponse> ruleResponses) {
     this.ruleResponses = ruleResponses;
     if (ruleResponses != null) {
@@ -109,14 +115,15 @@ public class AnalysisResponseDataAttributes {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -125,7 +132,7 @@ public class AnalysisResponseDataAttributes {
   @JsonAnySetter
   public AnalysisResponseDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -149,12 +156,14 @@ public class AnalysisResponseDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AnalysisResponseDataAttributes object is equal to o. */
+  /**
+   * Return true if this AnalysisResponseDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -163,17 +172,14 @@ public class AnalysisResponseDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AnalysisResponseDataAttributes analysisResponseDataAttributes =
-        (AnalysisResponseDataAttributes) o;
-    return Objects.equals(this.errors, analysisResponseDataAttributes.errors)
-        && Objects.equals(this.ruleResponses, analysisResponseDataAttributes.ruleResponses)
-        && Objects.equals(
-            this.additionalProperties, analysisResponseDataAttributes.additionalProperties);
+    AnalysisResponseDataAttributes analysisResponseDataAttributes = (AnalysisResponseDataAttributes) o;
+    return Objects.equals(this.errors, analysisResponseDataAttributes.errors) && Objects.equals(this.ruleResponses, analysisResponseDataAttributes.ruleResponses) && Objects.equals(this.additionalProperties, analysisResponseDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors, ruleResponses, additionalProperties);
+    return Objects.hash(errors,ruleResponses, additionalProperties);
   }
 
   @Override
@@ -190,7 +196,8 @@ public class AnalysisResponseDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

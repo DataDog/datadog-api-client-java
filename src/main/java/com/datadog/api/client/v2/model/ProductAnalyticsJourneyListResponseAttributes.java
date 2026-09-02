@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,22 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a journey list response. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of a journey list response.</p>
+ */
 @JsonPropertyOrder({
   ProductAnalyticsJourneyListResponseAttributes.JSON_PROPERTY_ENTITY,
   ProductAnalyticsJourneyListResponseAttributes.JSON_PROPERTY_RECORDS,
   ProductAnalyticsJourneyListResponseAttributes.JSON_PROPERTY_TOTAL_COUNT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsJourneyListResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENTITY = "entity";
   private ProductAnalyticsJourneyEntity entity;
 
@@ -42,107 +56,96 @@ public class ProductAnalyticsJourneyListResponseAttributes {
 
   @JsonCreator
   public ProductAnalyticsJourneyListResponseAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENTITY)
-          ProductAnalyticsJourneyEntity entity,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RECORDS)
-          List<Map<String, Object>> records,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_COUNT) Long totalCount) {
-    this.entity = entity;
-    this.unparsed |= !entity.isValid();
-    this.records = records;
-    this.totalCount = totalCount;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ENTITY)ProductAnalyticsJourneyEntity entity,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RECORDS)List<Map<String, Object>> records,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TOTAL_COUNT)Long totalCount) {
+        this.entity = entity;
+        this.unparsed |= !entity.isValid();
+        this.records = records;
+        this.totalCount = totalCount;
   }
-
-  public ProductAnalyticsJourneyListResponseAttributes entity(
-      ProductAnalyticsJourneyEntity entity) {
+  public ProductAnalyticsJourneyListResponseAttributes entity(ProductAnalyticsJourneyEntity entity) {
     this.entity = entity;
     this.unparsed |= !entity.isValid();
     return this;
   }
 
   /**
-   * The kind of entity returned by a journey list query.
-   *
+   * <p>The kind of entity returned by a journey list query.</p>
    * @return entity
-   */
-  @JsonProperty(JSON_PROPERTY_ENTITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsJourneyEntity getEntity() {
-    return entity;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ENTITY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsJourneyEntity getEntity() {
+        return entity;
+      }
   public void setEntity(ProductAnalyticsJourneyEntity entity) {
     if (!entity.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.entity = entity;
   }
-
   public ProductAnalyticsJourneyListResponseAttributes records(List<Map<String, Object>> records) {
     this.records = records;
     return this;
   }
-
-  public ProductAnalyticsJourneyListResponseAttributes addRecordsItem(
-      Map<String, Object> recordsItem) {
+  public ProductAnalyticsJourneyListResponseAttributes addRecordsItem(Map<String, Object> recordsItem) {
     this.records.add(recordsItem);
     return this;
   }
 
   /**
-   * The returned rows.
-   *
+   * <p>The returned rows.</p>
    * @return records
-   */
-  @JsonProperty(JSON_PROPERTY_RECORDS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Map<String, Object>> getRecords() {
-    return records;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RECORDS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<Map<String, Object>> getRecords() {
+        return records;
+      }
   public void setRecords(List<Map<String, Object>> records) {
     this.records = records;
   }
-
   public ProductAnalyticsJourneyListResponseAttributes totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
 
   /**
-   * Total number of rows matching the query, ignoring <code>limit</code>.
-   *
+   * <p>Total number of rows matching the query, ignoring <code>limit</code>.</p>
    * @return totalCount
-   */
-  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getTotalCount() {
-    return totalCount;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getTotalCount() {
+        return totalCount;
+      }
   public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ProductAnalyticsJourneyListResponseAttributes
    */
   @JsonAnySetter
-  public ProductAnalyticsJourneyListResponseAttributes putAdditionalProperty(
-      String key, Object value) {
+  public ProductAnalyticsJourneyListResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -166,12 +169,14 @@ public class ProductAnalyticsJourneyListResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ProductAnalyticsJourneyListResponseAttributes object is equal to o. */
+  /**
+   * Return true if this ProductAnalyticsJourneyListResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -180,19 +185,14 @@ public class ProductAnalyticsJourneyListResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsJourneyListResponseAttributes productAnalyticsJourneyListResponseAttributes =
-        (ProductAnalyticsJourneyListResponseAttributes) o;
-    return Objects.equals(this.entity, productAnalyticsJourneyListResponseAttributes.entity)
-        && Objects.equals(this.records, productAnalyticsJourneyListResponseAttributes.records)
-        && Objects.equals(this.totalCount, productAnalyticsJourneyListResponseAttributes.totalCount)
-        && Objects.equals(
-            this.additionalProperties,
-            productAnalyticsJourneyListResponseAttributes.additionalProperties);
+    ProductAnalyticsJourneyListResponseAttributes productAnalyticsJourneyListResponseAttributes = (ProductAnalyticsJourneyListResponseAttributes) o;
+    return Objects.equals(this.entity, productAnalyticsJourneyListResponseAttributes.entity) && Objects.equals(this.records, productAnalyticsJourneyListResponseAttributes.records) && Objects.equals(this.totalCount, productAnalyticsJourneyListResponseAttributes.totalCount) && Objects.equals(this.additionalProperties, productAnalyticsJourneyListResponseAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(entity, records, totalCount, additionalProperties);
+    return Objects.hash(entity,records,totalCount, additionalProperties);
   }
 
   @Override
@@ -210,7 +210,8 @@ public class ProductAnalyticsJourneyListResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

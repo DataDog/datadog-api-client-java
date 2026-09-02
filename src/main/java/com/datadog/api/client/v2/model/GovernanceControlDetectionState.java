@@ -6,73 +6,77 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * The current state of the detection. Possible values are <code>active</code>, <code>exception
- * </code>, <code>mitigated</code>, <code>inactive</code>, <code>obsolete</code>, <code>
- * resolved_externally</code>, and <code>mitigation_in_progress</code>.
+   * <p>The current state of the detection. Possible values are <code>active</code>, <code>exception</code>, <code>mitigated</code>, <code>inactive</code>, <code>obsolete</code>, <code>resolved_externally</code>, and <code>mitigation_in_progress</code>.</p>
  */
-@JsonSerialize(
-    using = GovernanceControlDetectionState.GovernanceControlDetectionStateSerializer.class)
+@JsonSerialize(using = GovernanceControlDetectionState.GovernanceControlDetectionStateSerializer.class)
 public class GovernanceControlDetectionState extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "active",
-              "exception",
-              "mitigated",
-              "inactive",
-              "obsolete",
-              "resolved_externally",
-              "mitigation_in_progress"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("active", "exception", "mitigated", "inactive", "obsolete", "resolved_externally", "mitigation_in_progress"));
 
-  public static final GovernanceControlDetectionState ACTIVE =
-      new GovernanceControlDetectionState("active");
-  public static final GovernanceControlDetectionState EXCEPTION =
-      new GovernanceControlDetectionState("exception");
-  public static final GovernanceControlDetectionState MITIGATED =
-      new GovernanceControlDetectionState("mitigated");
-  public static final GovernanceControlDetectionState INACTIVE =
-      new GovernanceControlDetectionState("inactive");
-  public static final GovernanceControlDetectionState OBSOLETE =
-      new GovernanceControlDetectionState("obsolete");
-  public static final GovernanceControlDetectionState RESOLVED_EXTERNALLY =
-      new GovernanceControlDetectionState("resolved_externally");
-  public static final GovernanceControlDetectionState MITIGATION_IN_PROGRESS =
-      new GovernanceControlDetectionState("mitigation_in_progress");
+  public static final GovernanceControlDetectionState ACTIVE = new GovernanceControlDetectionState("active");
+  public static final GovernanceControlDetectionState EXCEPTION = new GovernanceControlDetectionState("exception");
+  public static final GovernanceControlDetectionState MITIGATED = new GovernanceControlDetectionState("mitigated");
+  public static final GovernanceControlDetectionState INACTIVE = new GovernanceControlDetectionState("inactive");
+  public static final GovernanceControlDetectionState OBSOLETE = new GovernanceControlDetectionState("obsolete");
+  public static final GovernanceControlDetectionState RESOLVED_EXTERNALLY = new GovernanceControlDetectionState("resolved_externally");
+  public static final GovernanceControlDetectionState MITIGATION_IN_PROGRESS = new GovernanceControlDetectionState("mitigation_in_progress");
+
 
   GovernanceControlDetectionState(String value) {
     super(value, allowedValues);
   }
 
-  public static class GovernanceControlDetectionStateSerializer
-      extends StdSerializer<GovernanceControlDetectionState> {
-    public GovernanceControlDetectionStateSerializer(Class<GovernanceControlDetectionState> t) {
-      super(t);
-    }
+  public static class GovernanceControlDetectionStateSerializer extends StdSerializer<GovernanceControlDetectionState> {
+      public GovernanceControlDetectionStateSerializer(Class<GovernanceControlDetectionState> t) {
+          super(t);
+      }
 
-    public GovernanceControlDetectionStateSerializer() {
-      this(null);
-    }
+      public GovernanceControlDetectionStateSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        GovernanceControlDetectionState value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(GovernanceControlDetectionState value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

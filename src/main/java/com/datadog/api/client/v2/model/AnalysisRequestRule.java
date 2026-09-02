@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,12 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A static analysis rule to apply during code analysis. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A static analysis rule to apply during code analysis.</p>
+ */
 @JsonPropertyOrder({
   AnalysisRequestRule.JSON_PROPERTY_CATEGORY,
   AnalysisRequestRule.JSON_PROPERTY_CHECKSUM,
@@ -31,10 +46,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AnalysisRequestRule.JSON_PROPERTY_TREE_SITTER_QUERY,
   AnalysisRequestRule.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AnalysisRequestRule {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
@@ -69,258 +84,230 @@ public class AnalysisRequestRule {
 
   @JsonCreator
   public AnalysisRequestRule(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CATEGORY) String category,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CHECKSUM) String checksum,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CODE) String code,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LANGUAGE) String language,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEVERITY) String severity,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TREE_SITTER_QUERY)
-          String treeSitterQuery,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
-    this.category = category;
-    this.checksum = checksum;
-    this.code = code;
-    this.id = id;
-    this.language = language;
-    this.severity = severity;
-    this.treeSitterQuery = treeSitterQuery;
-    this.type = type;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CATEGORY)String category,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CHECKSUM)String checksum,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CODE)String code,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_LANGUAGE)String language,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SEVERITY)String severity,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TREE_SITTER_QUERY)String treeSitterQuery,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)String type) {
+        this.category = category;
+        this.checksum = checksum;
+        this.code = code;
+        this.id = id;
+        this.language = language;
+        this.severity = severity;
+        this.treeSitterQuery = treeSitterQuery;
+        this.type = type;
   }
-
   public AnalysisRequestRule category(String category) {
     this.category = category;
     return this;
   }
 
   /**
-   * The category of the rule (for example, <code>BEST_PRACTICES</code>, <code>SECURITY</code>).
-   *
+   * <p>The category of the rule (for example, <code>BEST_PRACTICES</code>, <code>SECURITY</code>).</p>
    * @return category
-   */
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getCategory() {
-    return category;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CATEGORY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getCategory() {
+        return category;
+      }
   public void setCategory(String category) {
     this.category = category;
   }
-
   public AnalysisRequestRule checksum(String checksum) {
     this.checksum = checksum;
     return this;
   }
 
   /**
-   * A checksum of the rule definition.
-   *
+   * <p>A checksum of the rule definition.</p>
    * @return checksum
-   */
-  @JsonProperty(JSON_PROPERTY_CHECKSUM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getChecksum() {
-    return checksum;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CHECKSUM)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getChecksum() {
+        return checksum;
+      }
   public void setChecksum(String checksum) {
     this.checksum = checksum;
   }
-
   public AnalysisRequestRule code(String code) {
     this.code = code;
     return this;
   }
 
   /**
-   * The base64-encoded rule implementation code.
-   *
+   * <p>The base64-encoded rule implementation code.</p>
    * @return code
-   */
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getCode() {
-    return code;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CODE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getCode() {
+        return code;
+      }
   public void setCode(String code) {
     this.code = code;
   }
-
   public AnalysisRequestRule entityChecked(String entityChecked) {
     this.entityChecked = JsonNullable.<String>of(entityChecked);
     return this;
   }
 
   /**
-   * The code entity type checked by the rule, applicable when rule type is <code>AST_CHECK</code>.
-   *
+   * <p>The code entity type checked by the rule, applicable when rule type is <code>AST_CHECK</code>.</p>
    * @return entityChecked
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getEntityChecked() {
-    return entityChecked.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getEntityChecked() {
+        return entityChecked.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_ENTITY_CHECKED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getEntityChecked_JsonNullable() {
     return entityChecked;
   }
-
-  @JsonProperty(JSON_PROPERTY_ENTITY_CHECKED)
-  public void setEntityChecked_JsonNullable(JsonNullable<String> entityChecked) {
+  @JsonProperty(JSON_PROPERTY_ENTITY_CHECKED)public void setEntityChecked_JsonNullable(JsonNullable<String> entityChecked) {
     this.entityChecked = entityChecked;
   }
-
   public void setEntityChecked(String entityChecked) {
     this.entityChecked = JsonNullable.<String>of(entityChecked);
   }
-
   public AnalysisRequestRule id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier of the rule.
-   *
+   * <p>The unique identifier of the rule.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public AnalysisRequestRule language(String language) {
     this.language = language;
     return this;
   }
 
   /**
-   * The programming language this rule targets.
-   *
+   * <p>The programming language this rule targets.</p>
    * @return language
-   */
-  @JsonProperty(JSON_PROPERTY_LANGUAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getLanguage() {
-    return language;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_LANGUAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getLanguage() {
+        return language;
+      }
   public void setLanguage(String language) {
     this.language = language;
   }
-
   public AnalysisRequestRule regex(String regex) {
     this.regex = JsonNullable.<String>of(regex);
     return this;
   }
 
   /**
-   * A base64-encoded regex pattern used by the rule, applicable when rule type is <code>REGEX
-   * </code>.
-   *
+   * <p>A base64-encoded regex pattern used by the rule, applicable when rule type is <code>REGEX</code>.</p>
    * @return regex
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getRegex() {
-    return regex.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getRegex() {
+        return regex.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_REGEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getRegex_JsonNullable() {
     return regex;
   }
-
-  @JsonProperty(JSON_PROPERTY_REGEX)
-  public void setRegex_JsonNullable(JsonNullable<String> regex) {
+  @JsonProperty(JSON_PROPERTY_REGEX)public void setRegex_JsonNullable(JsonNullable<String> regex) {
     this.regex = regex;
   }
-
   public void setRegex(String regex) {
     this.regex = JsonNullable.<String>of(regex);
   }
-
   public AnalysisRequestRule severity(String severity) {
     this.severity = severity;
     return this;
   }
 
   /**
-   * The severity of findings from this rule (for example, <code>ERROR</code>, <code>WARNING</code>
-   * ).
-   *
+   * <p>The severity of findings from this rule (for example, <code>ERROR</code>, <code>WARNING</code>).</p>
    * @return severity
-   */
-  @JsonProperty(JSON_PROPERTY_SEVERITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSeverity() {
-    return severity;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SEVERITY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getSeverity() {
+        return severity;
+      }
   public void setSeverity(String severity) {
     this.severity = severity;
   }
-
   public AnalysisRequestRule treeSitterQuery(String treeSitterQuery) {
     this.treeSitterQuery = treeSitterQuery;
     return this;
   }
 
   /**
-   * The base64-encoded tree-sitter query used by the rule.
-   *
+   * <p>The base64-encoded tree-sitter query used by the rule.</p>
    * @return treeSitterQuery
-   */
-  @JsonProperty(JSON_PROPERTY_TREE_SITTER_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTreeSitterQuery() {
-    return treeSitterQuery;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TREE_SITTER_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTreeSitterQuery() {
+        return treeSitterQuery;
+      }
   public void setTreeSitterQuery(String treeSitterQuery) {
     this.treeSitterQuery = treeSitterQuery;
   }
-
   public AnalysisRequestRule type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * The rule type indicating the detection mechanism (for example, <code>TREE_SITTER_QUERY</code>).
-   *
+   * <p>The rule type indicating the detection mechanism (for example, <code>TREE_SITTER_QUERY</code>).</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -329,7 +316,7 @@ public class AnalysisRequestRule {
   @JsonAnySetter
   public AnalysisRequestRule putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -353,12 +340,14 @@ public class AnalysisRequestRule {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AnalysisRequestRule object is equal to o. */
+  /**
+   * Return true if this AnalysisRequestRule object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -368,33 +357,13 @@ public class AnalysisRequestRule {
       return false;
     }
     AnalysisRequestRule analysisRequestRule = (AnalysisRequestRule) o;
-    return Objects.equals(this.category, analysisRequestRule.category)
-        && Objects.equals(this.checksum, analysisRequestRule.checksum)
-        && Objects.equals(this.code, analysisRequestRule.code)
-        && Objects.equals(this.entityChecked, analysisRequestRule.entityChecked)
-        && Objects.equals(this.id, analysisRequestRule.id)
-        && Objects.equals(this.language, analysisRequestRule.language)
-        && Objects.equals(this.regex, analysisRequestRule.regex)
-        && Objects.equals(this.severity, analysisRequestRule.severity)
-        && Objects.equals(this.treeSitterQuery, analysisRequestRule.treeSitterQuery)
-        && Objects.equals(this.type, analysisRequestRule.type)
-        && Objects.equals(this.additionalProperties, analysisRequestRule.additionalProperties);
+    return Objects.equals(this.category, analysisRequestRule.category) && Objects.equals(this.checksum, analysisRequestRule.checksum) && Objects.equals(this.code, analysisRequestRule.code) && Objects.equals(this.entityChecked, analysisRequestRule.entityChecked) && Objects.equals(this.id, analysisRequestRule.id) && Objects.equals(this.language, analysisRequestRule.language) && Objects.equals(this.regex, analysisRequestRule.regex) && Objects.equals(this.severity, analysisRequestRule.severity) && Objects.equals(this.treeSitterQuery, analysisRequestRule.treeSitterQuery) && Objects.equals(this.type, analysisRequestRule.type) && Objects.equals(this.additionalProperties, analysisRequestRule.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        category,
-        checksum,
-        code,
-        entityChecked,
-        id,
-        language,
-        regex,
-        severity,
-        treeSitterQuery,
-        type,
-        additionalProperties);
+    return Objects.hash(category,checksum,code,entityChecked,id,language,regex,severity,treeSitterQuery,type, additionalProperties);
   }
 
   @Override
@@ -419,7 +388,8 @@ public class AnalysisRequestRule {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

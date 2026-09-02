@@ -6,19 +6,46 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The JSON:API type for scorecard. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The JSON:API type for scorecard.</p>
+ */
 @JsonSerialize(using = ScorecardType.ScorecardTypeSerializer.class)
 public class ScorecardType extends ModelEnum<String> {
 
@@ -26,24 +53,24 @@ public class ScorecardType extends ModelEnum<String> {
 
   public static final ScorecardType SCORECARD = new ScorecardType("scorecard");
 
+
   ScorecardType(String value) {
     super(value, allowedValues);
   }
 
   public static class ScorecardTypeSerializer extends StdSerializer<ScorecardType> {
-    public ScorecardTypeSerializer(Class<ScorecardType> t) {
-      super(t);
-    }
+      public ScorecardTypeSerializer(Class<ScorecardType> t) {
+          super(t);
+      }
 
-    public ScorecardTypeSerializer() {
-      this(null);
-    }
+      public ScorecardTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(ScorecardType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ScorecardType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A specific date and time used to define the start or end of a Synthetics downtime time slot. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A specific date and time used to define the start or end of a Synthetics downtime time slot.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsDowntimeTimeSlotDate.JSON_PROPERTY_DAY,
   SyntheticsDowntimeTimeSlotDate.JSON_PROPERTY_HOUR,
@@ -25,10 +41,10 @@ import java.util.Objects;
   SyntheticsDowntimeTimeSlotDate.JSON_PROPERTY_MONTH,
   SyntheticsDowntimeTimeSlotDate.JSON_PROPERTY_YEAR
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsDowntimeTimeSlotDate {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DAY = "day";
   private Long day;
 
@@ -48,127 +64,118 @@ public class SyntheticsDowntimeTimeSlotDate {
 
   @JsonCreator
   public SyntheticsDowntimeTimeSlotDate(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DAY) Long day,
-      @JsonProperty(required = true, value = JSON_PROPERTY_HOUR) Long hour,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MINUTE) Long minute,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MONTH) Long month,
-      @JsonProperty(required = true, value = JSON_PROPERTY_YEAR) Long year) {
-    this.day = day;
-    this.hour = hour;
-    this.minute = minute;
-    this.month = month;
-    this.year = year;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DAY)Long day,
+            @JsonProperty(required=true, value=JSON_PROPERTY_HOUR)Long hour,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MINUTE)Long minute,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MONTH)Long month,
+            @JsonProperty(required=true, value=JSON_PROPERTY_YEAR)Long year) {
+        this.day = day;
+        this.hour = hour;
+        this.minute = minute;
+        this.month = month;
+        this.year = year;
   }
-
   public SyntheticsDowntimeTimeSlotDate day(Long day) {
     this.day = day;
     return this;
   }
 
   /**
-   * The day component of the date (1-31).
-   *
+   * <p>The day component of the date (1-31).</p>
    * @return day
-   */
-  @JsonProperty(JSON_PROPERTY_DAY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getDay() {
-    return day;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DAY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getDay() {
+        return day;
+      }
   public void setDay(Long day) {
     this.day = day;
   }
-
   public SyntheticsDowntimeTimeSlotDate hour(Long hour) {
     this.hour = hour;
     return this;
   }
 
   /**
-   * The hour component of the time (0-23).
-   *
+   * <p>The hour component of the time (0-23).</p>
    * @return hour
-   */
-  @JsonProperty(JSON_PROPERTY_HOUR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getHour() {
-    return hour;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_HOUR)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getHour() {
+        return hour;
+      }
   public void setHour(Long hour) {
     this.hour = hour;
   }
-
   public SyntheticsDowntimeTimeSlotDate minute(Long minute) {
     this.minute = minute;
     return this;
   }
 
   /**
-   * The minute component of the time (0-59).
-   *
+   * <p>The minute component of the time (0-59).</p>
    * @return minute
-   */
-  @JsonProperty(JSON_PROPERTY_MINUTE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getMinute() {
-    return minute;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MINUTE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getMinute() {
+        return minute;
+      }
   public void setMinute(Long minute) {
     this.minute = minute;
   }
-
   public SyntheticsDowntimeTimeSlotDate month(Long month) {
     this.month = month;
     return this;
   }
 
   /**
-   * The month component of the date (1-12).
-   *
+   * <p>The month component of the date (1-12).</p>
    * @return month
-   */
-  @JsonProperty(JSON_PROPERTY_MONTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getMonth() {
-    return month;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MONTH)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getMonth() {
+        return month;
+      }
   public void setMonth(Long month) {
     this.month = month;
   }
-
   public SyntheticsDowntimeTimeSlotDate year(Long year) {
     this.year = year;
     return this;
   }
 
   /**
-   * The year component of the date.
-   *
+   * <p>The year component of the date.</p>
    * @return year
-   */
-  @JsonProperty(JSON_PROPERTY_YEAR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getYear() {
-    return year;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_YEAR)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getYear() {
+        return year;
+      }
   public void setYear(Long year) {
     this.year = year;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -177,7 +184,7 @@ public class SyntheticsDowntimeTimeSlotDate {
   @JsonAnySetter
   public SyntheticsDowntimeTimeSlotDate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -201,12 +208,14 @@ public class SyntheticsDowntimeTimeSlotDate {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsDowntimeTimeSlotDate object is equal to o. */
+  /**
+   * Return true if this SyntheticsDowntimeTimeSlotDate object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -215,20 +224,14 @@ public class SyntheticsDowntimeTimeSlotDate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsDowntimeTimeSlotDate syntheticsDowntimeTimeSlotDate =
-        (SyntheticsDowntimeTimeSlotDate) o;
-    return Objects.equals(this.day, syntheticsDowntimeTimeSlotDate.day)
-        && Objects.equals(this.hour, syntheticsDowntimeTimeSlotDate.hour)
-        && Objects.equals(this.minute, syntheticsDowntimeTimeSlotDate.minute)
-        && Objects.equals(this.month, syntheticsDowntimeTimeSlotDate.month)
-        && Objects.equals(this.year, syntheticsDowntimeTimeSlotDate.year)
-        && Objects.equals(
-            this.additionalProperties, syntheticsDowntimeTimeSlotDate.additionalProperties);
+    SyntheticsDowntimeTimeSlotDate syntheticsDowntimeTimeSlotDate = (SyntheticsDowntimeTimeSlotDate) o;
+    return Objects.equals(this.day, syntheticsDowntimeTimeSlotDate.day) && Objects.equals(this.hour, syntheticsDowntimeTimeSlotDate.hour) && Objects.equals(this.minute, syntheticsDowntimeTimeSlotDate.minute) && Objects.equals(this.month, syntheticsDowntimeTimeSlotDate.month) && Objects.equals(this.year, syntheticsDowntimeTimeSlotDate.year) && Objects.equals(this.additionalProperties, syntheticsDowntimeTimeSlotDate.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(day, hour, minute, month, year, additionalProperties);
+    return Objects.hash(day,hour,minute,month,year, additionalProperties);
   }
 
   @Override
@@ -248,7 +251,8 @@ public class SyntheticsDowntimeTimeSlotDate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

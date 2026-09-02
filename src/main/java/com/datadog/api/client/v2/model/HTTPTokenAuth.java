@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The definition of <code>HTTPTokenAuth</code> object. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The definition of <code>HTTPTokenAuth</code> object.</p>
+ */
 @JsonPropertyOrder({
   HTTPTokenAuth.JSON_PROPERTY_BODY,
   HTTPTokenAuth.JSON_PROPERTY_HEADERS,
@@ -27,10 +41,10 @@ import java.util.Objects;
   HTTPTokenAuth.JSON_PROPERTY_TYPE,
   HTTPTokenAuth.JSON_PROPERTY_URL_PARAMETERS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HTTPTokenAuth {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BODY = "body";
   private HTTPBody body;
 
@@ -50,11 +64,10 @@ public class HTTPTokenAuth {
 
   @JsonCreator
   public HTTPTokenAuth(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HTTPTokenAuthType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)HTTPTokenAuthType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public HTTPTokenAuth body(HTTPBody body) {
     this.body = body;
     this.unparsed |= body.unparsed;
@@ -62,34 +75,31 @@ public class HTTPTokenAuth {
   }
 
   /**
-   * The definition of <code>HTTPBody</code> object.
-   *
+   * <p>The definition of <code>HTTPBody</code> object.</p>
    * @return body
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BODY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HTTPBody getBody() {
-    return body;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BODY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public HTTPBody getBody() {
+        return body;
+      }
   public void setBody(HTTPBody body) {
     this.body = body;
     if (body != null) {
       this.unparsed |= body.unparsed;
     }
   }
-
   public HTTPTokenAuth headers(List<HTTPHeader> headers) {
     this.headers = headers;
     if (headers != null) {
-      for (HTTPHeader item : headers) {
-        this.unparsed |= item.unparsed;
-      }
+    for (HTTPHeader item : headers) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public HTTPTokenAuth addHeadersItem(HTTPHeader headersItem) {
     if (this.headers == null) {
       this.headers = new ArrayList<>();
@@ -100,17 +110,16 @@ public class HTTPTokenAuth {
   }
 
   /**
-   * The <code>HTTPTokenAuth</code> <code>headers</code>.
-   *
+   * <p>The <code>HTTPTokenAuth</code> <code>headers</code>.</p>
    * @return headers
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEADERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<HTTPHeader> getHeaders() {
-    return headers;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HEADERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<HTTPHeader> getHeaders() {
+        return headers;
+      }
   public void setHeaders(List<HTTPHeader> headers) {
     this.headers = headers;
     if (headers != null) {
@@ -119,17 +128,15 @@ public class HTTPTokenAuth {
       }
     }
   }
-
   public HTTPTokenAuth tokens(List<HTTPToken> tokens) {
     this.tokens = tokens;
     if (tokens != null) {
-      for (HTTPToken item : tokens) {
-        this.unparsed |= item.unparsed;
-      }
+    for (HTTPToken item : tokens) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public HTTPTokenAuth addTokensItem(HTTPToken tokensItem) {
     if (this.tokens == null) {
       this.tokens = new ArrayList<>();
@@ -140,17 +147,16 @@ public class HTTPTokenAuth {
   }
 
   /**
-   * The <code>HTTPTokenAuth</code> <code>tokens</code>.
-   *
+   * <p>The <code>HTTPTokenAuth</code> <code>tokens</code>.</p>
    * @return tokens
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOKENS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<HTTPToken> getTokens() {
-    return tokens;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TOKENS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<HTTPToken> getTokens() {
+        return tokens;
+      }
   public void setTokens(List<HTTPToken> tokens) {
     this.tokens = tokens;
     if (tokens != null) {
@@ -159,7 +165,6 @@ public class HTTPTokenAuth {
       }
     }
   }
-
   public HTTPTokenAuth type(HTTPTokenAuthType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -167,33 +172,30 @@ public class HTTPTokenAuth {
   }
 
   /**
-   * The definition of <code>HTTPTokenAuthType</code> object.
-   *
+   * <p>The definition of <code>HTTPTokenAuthType</code> object.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public HTTPTokenAuthType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public HTTPTokenAuthType getType() {
+        return type;
+      }
   public void setType(HTTPTokenAuthType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
-
   public HTTPTokenAuth urlParameters(List<UrlParam> urlParameters) {
     this.urlParameters = urlParameters;
     if (urlParameters != null) {
-      for (UrlParam item : urlParameters) {
-        this.unparsed |= item.unparsed;
-      }
+    for (UrlParam item : urlParameters) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public HTTPTokenAuth addUrlParametersItem(UrlParam urlParametersItem) {
     if (this.urlParameters == null) {
       this.urlParameters = new ArrayList<>();
@@ -204,17 +206,16 @@ public class HTTPTokenAuth {
   }
 
   /**
-   * The <code>HTTPTokenAuth</code> <code>url_parameters</code>.
-   *
+   * <p>The <code>HTTPTokenAuth</code> <code>url_parameters</code>.</p>
    * @return urlParameters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URL_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<UrlParam> getUrlParameters() {
-    return urlParameters;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_URL_PARAMETERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<UrlParam> getUrlParameters() {
+        return urlParameters;
+      }
   public void setUrlParameters(List<UrlParam> urlParameters) {
     this.urlParameters = urlParameters;
     if (urlParameters != null) {
@@ -225,14 +226,15 @@ public class HTTPTokenAuth {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -241,7 +243,7 @@ public class HTTPTokenAuth {
   @JsonAnySetter
   public HTTPTokenAuth putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -265,12 +267,14 @@ public class HTTPTokenAuth {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HTTPTokenAuth object is equal to o. */
+  /**
+   * Return true if this HTTPTokenAuth object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -280,17 +284,13 @@ public class HTTPTokenAuth {
       return false;
     }
     HTTPTokenAuth httpTokenAuth = (HTTPTokenAuth) o;
-    return Objects.equals(this.body, httpTokenAuth.body)
-        && Objects.equals(this.headers, httpTokenAuth.headers)
-        && Objects.equals(this.tokens, httpTokenAuth.tokens)
-        && Objects.equals(this.type, httpTokenAuth.type)
-        && Objects.equals(this.urlParameters, httpTokenAuth.urlParameters)
-        && Objects.equals(this.additionalProperties, httpTokenAuth.additionalProperties);
+    return Objects.equals(this.body, httpTokenAuth.body) && Objects.equals(this.headers, httpTokenAuth.headers) && Objects.equals(this.tokens, httpTokenAuth.tokens) && Objects.equals(this.type, httpTokenAuth.type) && Objects.equals(this.urlParameters, httpTokenAuth.urlParameters) && Objects.equals(this.additionalProperties, httpTokenAuth.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, headers, tokens, type, urlParameters, additionalProperties);
+    return Objects.hash(body,headers,tokens,type,urlParameters, additionalProperties);
   }
 
   @Override
@@ -310,7 +310,8 @@ public class HTTPTokenAuth {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

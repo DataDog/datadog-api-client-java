@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A single security filter as it existed at a given configuration version. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A single security filter as it existed at a given configuration version.</p>
+ */
 @JsonPropertyOrder({
   SecurityFilterVersionEntry.JSON_PROPERTY_EXCLUSION_FILTERS,
   SecurityFilterVersionEntry.JSON_PROPERTY_FILTERED_DATA_TYPE,
@@ -30,10 +44,10 @@ import java.util.Objects;
   SecurityFilterVersionEntry.JSON_PROPERTY_QUERY,
   SecurityFilterVersionEntry.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterVersionEntry {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXCLUSION_FILTERS = "exclusion_filters";
   private List<SecurityFilterExclusionFilterResponse> exclusionFilters = new ArrayList<>();
 
@@ -62,57 +76,50 @@ public class SecurityFilterVersionEntry {
 
   @JsonCreator
   public SecurityFilterVersionEntry(
-      @JsonProperty(required = true, value = JSON_PROPERTY_EXCLUSION_FILTERS)
-          List<SecurityFilterExclusionFilterResponse> exclusionFilters,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FILTERED_DATA_TYPE)
-          SecurityFilterFilteredDataType filteredDataType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IS_BUILTIN) Boolean isBuiltin,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IS_ENABLED) Boolean isEnabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Integer version) {
-    this.exclusionFilters = exclusionFilters;
-    for (SecurityFilterExclusionFilterResponse item : exclusionFilters) {
-      this.unparsed |= item.unparsed;
-    }
-    this.filteredDataType = filteredDataType;
-    this.unparsed |= !filteredDataType.isValid();
-    this.id = id;
-    this.isBuiltin = isBuiltin;
-    this.isEnabled = isEnabled;
-    this.name = name;
-    this.query = query;
-    this.version = version;
+            @JsonProperty(required=true, value=JSON_PROPERTY_EXCLUSION_FILTERS)List<SecurityFilterExclusionFilterResponse> exclusionFilters,
+            @JsonProperty(required=true, value=JSON_PROPERTY_FILTERED_DATA_TYPE)SecurityFilterFilteredDataType filteredDataType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_IS_BUILTIN)Boolean isBuiltin,
+            @JsonProperty(required=true, value=JSON_PROPERTY_IS_ENABLED)Boolean isEnabled,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VERSION)Integer version) {
+        this.exclusionFilters = exclusionFilters;
+        for (SecurityFilterExclusionFilterResponse item : exclusionFilters) {
+          this.unparsed |= item.unparsed;
+        }
+        this.filteredDataType = filteredDataType;
+        this.unparsed |= !filteredDataType.isValid();
+        this.id = id;
+        this.isBuiltin = isBuiltin;
+        this.isEnabled = isEnabled;
+        this.name = name;
+        this.query = query;
+        this.version = version;
   }
-
-  public SecurityFilterVersionEntry exclusionFilters(
-      List<SecurityFilterExclusionFilterResponse> exclusionFilters) {
+  public SecurityFilterVersionEntry exclusionFilters(List<SecurityFilterExclusionFilterResponse> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
     for (SecurityFilterExclusionFilterResponse item : exclusionFilters) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public SecurityFilterVersionEntry addExclusionFiltersItem(
-      SecurityFilterExclusionFilterResponse exclusionFiltersItem) {
+  public SecurityFilterVersionEntry addExclusionFiltersItem(SecurityFilterExclusionFilterResponse exclusionFiltersItem) {
     this.exclusionFilters.add(exclusionFiltersItem);
     this.unparsed |= exclusionFiltersItem.unparsed;
     return this;
   }
 
   /**
-   * The list of exclusion filters applied in this security filter.
-   *
+   * <p>The list of exclusion filters applied in this security filter.</p>
    * @return exclusionFilters
-   */
-  @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SecurityFilterExclusionFilterResponse> getExclusionFilters() {
-    return exclusionFilters;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<SecurityFilterExclusionFilterResponse> getExclusionFilters() {
+        return exclusionFilters;
+      }
   public void setExclusionFilters(List<SecurityFilterExclusionFilterResponse> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
     if (exclusionFilters != null) {
@@ -121,161 +128,148 @@ public class SecurityFilterVersionEntry {
       }
     }
   }
-
-  public SecurityFilterVersionEntry filteredDataType(
-      SecurityFilterFilteredDataType filteredDataType) {
+  public SecurityFilterVersionEntry filteredDataType(SecurityFilterFilteredDataType filteredDataType) {
     this.filteredDataType = filteredDataType;
     this.unparsed |= !filteredDataType.isValid();
     return this;
   }
 
   /**
-   * The filtered data type.
-   *
+   * <p>The filtered data type.</p>
    * @return filteredDataType
-   */
-  @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityFilterFilteredDataType getFilteredDataType() {
-    return filteredDataType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SecurityFilterFilteredDataType getFilteredDataType() {
+        return filteredDataType;
+      }
   public void setFilteredDataType(SecurityFilterFilteredDataType filteredDataType) {
     if (!filteredDataType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.filteredDataType = filteredDataType;
   }
-
   public SecurityFilterVersionEntry id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the security filter.
-   *
+   * <p>The ID of the security filter.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public SecurityFilterVersionEntry isBuiltin(Boolean isBuiltin) {
     this.isBuiltin = isBuiltin;
     return this;
   }
 
   /**
-   * Whether the security filter is the built-in filter.
-   *
+   * <p>Whether the security filter is the built-in filter.</p>
    * @return isBuiltin
-   */
-  @JsonProperty(JSON_PROPERTY_IS_BUILTIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getIsBuiltin() {
-    return isBuiltin;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_IS_BUILTIN)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getIsBuiltin() {
+        return isBuiltin;
+      }
   public void setIsBuiltin(Boolean isBuiltin) {
     this.isBuiltin = isBuiltin;
   }
-
   public SecurityFilterVersionEntry isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * Whether the security filter is enabled.
-   *
+   * <p>Whether the security filter is enabled.</p>
    * @return isEnabled
-   */
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getIsEnabled() {
+        return isEnabled;
+      }
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
   public SecurityFilterVersionEntry name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the security filter.
-   *
+   * <p>The name of the security filter.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public SecurityFilterVersionEntry query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * The query of the security filter.
-   *
+   * <p>The query of the security filter.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
-
   public SecurityFilterVersionEntry version(Integer version) {
     this.version = version;
     return this;
   }
 
   /**
-   * The version of this security filter. maximum: 2147483647
-   *
+   * <p>The version of this security filter.</p>
+   * maximum: 2147483647
    * @return version
-   */
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getVersion() {
-    return version;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getVersion() {
+        return version;
+      }
   public void setVersion(Integer version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -284,7 +278,7 @@ public class SecurityFilterVersionEntry {
   @JsonAnySetter
   public SecurityFilterVersionEntry putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -308,12 +302,14 @@ public class SecurityFilterVersionEntry {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityFilterVersionEntry object is equal to o. */
+  /**
+   * Return true if this SecurityFilterVersionEntry object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -323,30 +319,13 @@ public class SecurityFilterVersionEntry {
       return false;
     }
     SecurityFilterVersionEntry securityFilterVersionEntry = (SecurityFilterVersionEntry) o;
-    return Objects.equals(this.exclusionFilters, securityFilterVersionEntry.exclusionFilters)
-        && Objects.equals(this.filteredDataType, securityFilterVersionEntry.filteredDataType)
-        && Objects.equals(this.id, securityFilterVersionEntry.id)
-        && Objects.equals(this.isBuiltin, securityFilterVersionEntry.isBuiltin)
-        && Objects.equals(this.isEnabled, securityFilterVersionEntry.isEnabled)
-        && Objects.equals(this.name, securityFilterVersionEntry.name)
-        && Objects.equals(this.query, securityFilterVersionEntry.query)
-        && Objects.equals(this.version, securityFilterVersionEntry.version)
-        && Objects.equals(
-            this.additionalProperties, securityFilterVersionEntry.additionalProperties);
+    return Objects.equals(this.exclusionFilters, securityFilterVersionEntry.exclusionFilters) && Objects.equals(this.filteredDataType, securityFilterVersionEntry.filteredDataType) && Objects.equals(this.id, securityFilterVersionEntry.id) && Objects.equals(this.isBuiltin, securityFilterVersionEntry.isBuiltin) && Objects.equals(this.isEnabled, securityFilterVersionEntry.isEnabled) && Objects.equals(this.name, securityFilterVersionEntry.name) && Objects.equals(this.query, securityFilterVersionEntry.query) && Objects.equals(this.version, securityFilterVersionEntry.version) && Objects.equals(this.additionalProperties, securityFilterVersionEntry.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        exclusionFilters,
-        filteredDataType,
-        id,
-        isBuiltin,
-        isEnabled,
-        name,
-        query,
-        version,
-        additionalProperties);
+    return Objects.hash(exclusionFilters,filteredDataType,id,isBuiltin,isEnabled,name,query,version, additionalProperties);
   }
 
   @Override
@@ -369,7 +348,8 @@ public class SecurityFilterVersionEntry {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,17 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Dataflows configured on the Twilio integration account, keyed by dataflow id. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Dataflows configured on the Twilio integration account, keyed by dataflow id.</p>
+ */
 @JsonPropertyOrder({
   TwilioIntegrationDataflowsResponse.JSON_PROPERTY_TWILIO_ALERTS_LOGS,
   TwilioIntegrationDataflowsResponse.JSON_PROPERTY_TWILIO_CALL_SUMMARIES_LOGS,
@@ -24,15 +41,14 @@ import java.util.Objects;
   TwilioIntegrationDataflowsResponse.JSON_PROPERTY_TWILIO_EVENTS_LOGS,
   TwilioIntegrationDataflowsResponse.JSON_PROPERTY_TWILIO_MESSAGES_LOGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TwilioIntegrationDataflowsResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_TWILIO_ALERTS_LOGS = "twilio-alerts-logs";
   private TwilioAlertsLogsIntegrationDataflowResponse twilioAlertsLogs;
 
-  public static final String JSON_PROPERTY_TWILIO_CALL_SUMMARIES_LOGS =
-      "twilio-call-summaries-logs";
+  public static final String JSON_PROPERTY_TWILIO_CALL_SUMMARIES_LOGS = "twilio-call-summaries-logs";
   private TwilioCallSummariesLogsIntegrationDataflowResponse twilioCallSummariesLogs;
 
   public static final String JSON_PROPERTY_TWILIO_CLOUD_COST_METRICS = "twilio-cloud-cost-metrics";
@@ -44,133 +60,116 @@ public class TwilioIntegrationDataflowsResponse {
   public static final String JSON_PROPERTY_TWILIO_MESSAGES_LOGS = "twilio-messages-logs";
   private TwilioMessagesLogsIntegrationDataflowResponse twilioMessagesLogs;
 
-  public TwilioIntegrationDataflowsResponse twilioAlertsLogs(
-      TwilioAlertsLogsIntegrationDataflowResponse twilioAlertsLogs) {
+  public TwilioIntegrationDataflowsResponse twilioAlertsLogs(TwilioAlertsLogsIntegrationDataflowResponse twilioAlertsLogs) {
     this.twilioAlertsLogs = twilioAlertsLogs;
     this.unparsed |= twilioAlertsLogs.unparsed;
     return this;
   }
 
   /**
-   * The Twilio alerts logs dataflow.
-   *
+   * <p>The Twilio alerts logs dataflow.</p>
    * @return twilioAlertsLogs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TWILIO_ALERTS_LOGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TwilioAlertsLogsIntegrationDataflowResponse getTwilioAlertsLogs() {
-    return twilioAlertsLogs;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TWILIO_ALERTS_LOGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TwilioAlertsLogsIntegrationDataflowResponse getTwilioAlertsLogs() {
+        return twilioAlertsLogs;
+      }
   public void setTwilioAlertsLogs(TwilioAlertsLogsIntegrationDataflowResponse twilioAlertsLogs) {
     this.twilioAlertsLogs = twilioAlertsLogs;
     if (twilioAlertsLogs != null) {
       this.unparsed |= twilioAlertsLogs.unparsed;
     }
   }
-
-  public TwilioIntegrationDataflowsResponse twilioCallSummariesLogs(
-      TwilioCallSummariesLogsIntegrationDataflowResponse twilioCallSummariesLogs) {
+  public TwilioIntegrationDataflowsResponse twilioCallSummariesLogs(TwilioCallSummariesLogsIntegrationDataflowResponse twilioCallSummariesLogs) {
     this.twilioCallSummariesLogs = twilioCallSummariesLogs;
     this.unparsed |= twilioCallSummariesLogs.unparsed;
     return this;
   }
 
   /**
-   * The Twilio call summaries logs dataflow.
-   *
+   * <p>The Twilio call summaries logs dataflow.</p>
    * @return twilioCallSummariesLogs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TWILIO_CALL_SUMMARIES_LOGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TwilioCallSummariesLogsIntegrationDataflowResponse getTwilioCallSummariesLogs() {
-    return twilioCallSummariesLogs;
-  }
-
-  public void setTwilioCallSummariesLogs(
-      TwilioCallSummariesLogsIntegrationDataflowResponse twilioCallSummariesLogs) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TWILIO_CALL_SUMMARIES_LOGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TwilioCallSummariesLogsIntegrationDataflowResponse getTwilioCallSummariesLogs() {
+        return twilioCallSummariesLogs;
+      }
+  public void setTwilioCallSummariesLogs(TwilioCallSummariesLogsIntegrationDataflowResponse twilioCallSummariesLogs) {
     this.twilioCallSummariesLogs = twilioCallSummariesLogs;
     if (twilioCallSummariesLogs != null) {
       this.unparsed |= twilioCallSummariesLogs.unparsed;
     }
   }
-
-  public TwilioIntegrationDataflowsResponse twilioCloudCostMetrics(
-      TwilioCloudCostMetricsIntegrationDataflowResponse twilioCloudCostMetrics) {
+  public TwilioIntegrationDataflowsResponse twilioCloudCostMetrics(TwilioCloudCostMetricsIntegrationDataflowResponse twilioCloudCostMetrics) {
     this.twilioCloudCostMetrics = twilioCloudCostMetrics;
     this.unparsed |= twilioCloudCostMetrics.unparsed;
     return this;
   }
 
   /**
-   * The Twilio cloud cost metrics dataflow.
-   *
+   * <p>The Twilio cloud cost metrics dataflow.</p>
    * @return twilioCloudCostMetrics
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TWILIO_CLOUD_COST_METRICS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TwilioCloudCostMetricsIntegrationDataflowResponse getTwilioCloudCostMetrics() {
-    return twilioCloudCostMetrics;
-  }
-
-  public void setTwilioCloudCostMetrics(
-      TwilioCloudCostMetricsIntegrationDataflowResponse twilioCloudCostMetrics) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TWILIO_CLOUD_COST_METRICS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TwilioCloudCostMetricsIntegrationDataflowResponse getTwilioCloudCostMetrics() {
+        return twilioCloudCostMetrics;
+      }
+  public void setTwilioCloudCostMetrics(TwilioCloudCostMetricsIntegrationDataflowResponse twilioCloudCostMetrics) {
     this.twilioCloudCostMetrics = twilioCloudCostMetrics;
     if (twilioCloudCostMetrics != null) {
       this.unparsed |= twilioCloudCostMetrics.unparsed;
     }
   }
-
-  public TwilioIntegrationDataflowsResponse twilioEventsLogs(
-      TwilioEventsLogsIntegrationDataflowResponse twilioEventsLogs) {
+  public TwilioIntegrationDataflowsResponse twilioEventsLogs(TwilioEventsLogsIntegrationDataflowResponse twilioEventsLogs) {
     this.twilioEventsLogs = twilioEventsLogs;
     this.unparsed |= twilioEventsLogs.unparsed;
     return this;
   }
 
   /**
-   * The Twilio events logs dataflow.
-   *
+   * <p>The Twilio events logs dataflow.</p>
    * @return twilioEventsLogs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TWILIO_EVENTS_LOGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TwilioEventsLogsIntegrationDataflowResponse getTwilioEventsLogs() {
-    return twilioEventsLogs;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TWILIO_EVENTS_LOGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TwilioEventsLogsIntegrationDataflowResponse getTwilioEventsLogs() {
+        return twilioEventsLogs;
+      }
   public void setTwilioEventsLogs(TwilioEventsLogsIntegrationDataflowResponse twilioEventsLogs) {
     this.twilioEventsLogs = twilioEventsLogs;
     if (twilioEventsLogs != null) {
       this.unparsed |= twilioEventsLogs.unparsed;
     }
   }
-
-  public TwilioIntegrationDataflowsResponse twilioMessagesLogs(
-      TwilioMessagesLogsIntegrationDataflowResponse twilioMessagesLogs) {
+  public TwilioIntegrationDataflowsResponse twilioMessagesLogs(TwilioMessagesLogsIntegrationDataflowResponse twilioMessagesLogs) {
     this.twilioMessagesLogs = twilioMessagesLogs;
     this.unparsed |= twilioMessagesLogs.unparsed;
     return this;
   }
 
   /**
-   * The Twilio messages logs dataflow.
-   *
+   * <p>The Twilio messages logs dataflow.</p>
    * @return twilioMessagesLogs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TWILIO_MESSAGES_LOGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TwilioMessagesLogsIntegrationDataflowResponse getTwilioMessagesLogs() {
-    return twilioMessagesLogs;
-  }
-
-  public void setTwilioMessagesLogs(
-      TwilioMessagesLogsIntegrationDataflowResponse twilioMessagesLogs) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TWILIO_MESSAGES_LOGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TwilioMessagesLogsIntegrationDataflowResponse getTwilioMessagesLogs() {
+        return twilioMessagesLogs;
+      }
+  public void setTwilioMessagesLogs(TwilioMessagesLogsIntegrationDataflowResponse twilioMessagesLogs) {
     this.twilioMessagesLogs = twilioMessagesLogs;
     if (twilioMessagesLogs != null) {
       this.unparsed |= twilioMessagesLogs.unparsed;
@@ -178,14 +177,15 @@ public class TwilioIntegrationDataflowsResponse {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -194,7 +194,7 @@ public class TwilioIntegrationDataflowsResponse {
   @JsonAnySetter
   public TwilioIntegrationDataflowsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -218,12 +218,14 @@ public class TwilioIntegrationDataflowsResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TwilioIntegrationDataflowsResponse object is equal to o. */
+  /**
+   * Return true if this TwilioIntegrationDataflowsResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -232,32 +234,14 @@ public class TwilioIntegrationDataflowsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TwilioIntegrationDataflowsResponse twilioIntegrationDataflowsResponse =
-        (TwilioIntegrationDataflowsResponse) o;
-    return Objects.equals(
-            this.twilioAlertsLogs, twilioIntegrationDataflowsResponse.twilioAlertsLogs)
-        && Objects.equals(
-            this.twilioCallSummariesLogs,
-            twilioIntegrationDataflowsResponse.twilioCallSummariesLogs)
-        && Objects.equals(
-            this.twilioCloudCostMetrics, twilioIntegrationDataflowsResponse.twilioCloudCostMetrics)
-        && Objects.equals(
-            this.twilioEventsLogs, twilioIntegrationDataflowsResponse.twilioEventsLogs)
-        && Objects.equals(
-            this.twilioMessagesLogs, twilioIntegrationDataflowsResponse.twilioMessagesLogs)
-        && Objects.equals(
-            this.additionalProperties, twilioIntegrationDataflowsResponse.additionalProperties);
+    TwilioIntegrationDataflowsResponse twilioIntegrationDataflowsResponse = (TwilioIntegrationDataflowsResponse) o;
+    return Objects.equals(this.twilioAlertsLogs, twilioIntegrationDataflowsResponse.twilioAlertsLogs) && Objects.equals(this.twilioCallSummariesLogs, twilioIntegrationDataflowsResponse.twilioCallSummariesLogs) && Objects.equals(this.twilioCloudCostMetrics, twilioIntegrationDataflowsResponse.twilioCloudCostMetrics) && Objects.equals(this.twilioEventsLogs, twilioIntegrationDataflowsResponse.twilioEventsLogs) && Objects.equals(this.twilioMessagesLogs, twilioIntegrationDataflowsResponse.twilioMessagesLogs) && Objects.equals(this.additionalProperties, twilioIntegrationDataflowsResponse.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        twilioAlertsLogs,
-        twilioCallSummariesLogs,
-        twilioCloudCostMetrics,
-        twilioEventsLogs,
-        twilioMessagesLogs,
-        additionalProperties);
+    return Objects.hash(twilioAlertsLogs,twilioCallSummariesLogs,twilioCloudCostMetrics,twilioEventsLogs,twilioMessagesLogs, additionalProperties);
   }
 
   @Override
@@ -265,12 +249,8 @@ public class TwilioIntegrationDataflowsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class TwilioIntegrationDataflowsResponse {\n");
     sb.append("    twilioAlertsLogs: ").append(toIndentedString(twilioAlertsLogs)).append("\n");
-    sb.append("    twilioCallSummariesLogs: ")
-        .append(toIndentedString(twilioCallSummariesLogs))
-        .append("\n");
-    sb.append("    twilioCloudCostMetrics: ")
-        .append(toIndentedString(twilioCloudCostMetrics))
-        .append("\n");
+    sb.append("    twilioCallSummariesLogs: ").append(toIndentedString(twilioCallSummariesLogs)).append("\n");
+    sb.append("    twilioCloudCostMetrics: ").append(toIndentedString(twilioCloudCostMetrics)).append("\n");
     sb.append("    twilioEventsLogs: ").append(toIndentedString(twilioEventsLogs)).append("\n");
     sb.append("    twilioMessagesLogs: ").append(toIndentedString(twilioMessagesLogs)).append("\n");
     sb.append("    additionalProperties: ")
@@ -281,7 +261,8 @@ public class TwilioIntegrationDataflowsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

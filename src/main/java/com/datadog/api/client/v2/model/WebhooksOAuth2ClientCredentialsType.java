@@ -6,51 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** OAuth2 client credentials resource type. */
-@JsonSerialize(
-    using = WebhooksOAuth2ClientCredentialsType.WebhooksOAuth2ClientCredentialsTypeSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>OAuth2 client credentials resource type.</p>
+ */
+@JsonSerialize(using = WebhooksOAuth2ClientCredentialsType.WebhooksOAuth2ClientCredentialsTypeSerializer.class)
 public class WebhooksOAuth2ClientCredentialsType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("webhooks-auth-method-oauth2-client-credentials"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("webhooks-auth-method-oauth2-client-credentials"));
 
-  public static final WebhooksOAuth2ClientCredentialsType
-      WEBHOOKS_AUTH_METHOD_OAUTH2_CLIENT_CREDENTIALS =
-          new WebhooksOAuth2ClientCredentialsType("webhooks-auth-method-oauth2-client-credentials");
+  public static final WebhooksOAuth2ClientCredentialsType WEBHOOKS_AUTH_METHOD_OAUTH2_CLIENT_CREDENTIALS = new WebhooksOAuth2ClientCredentialsType("webhooks-auth-method-oauth2-client-credentials");
+
 
   WebhooksOAuth2ClientCredentialsType(String value) {
     super(value, allowedValues);
   }
 
-  public static class WebhooksOAuth2ClientCredentialsTypeSerializer
-      extends StdSerializer<WebhooksOAuth2ClientCredentialsType> {
-    public WebhooksOAuth2ClientCredentialsTypeSerializer(
-        Class<WebhooksOAuth2ClientCredentialsType> t) {
-      super(t);
-    }
+  public static class WebhooksOAuth2ClientCredentialsTypeSerializer extends StdSerializer<WebhooksOAuth2ClientCredentialsType> {
+      public WebhooksOAuth2ClientCredentialsTypeSerializer(Class<WebhooksOAuth2ClientCredentialsType> t) {
+          super(t);
+      }
 
-    public WebhooksOAuth2ClientCredentialsTypeSerializer() {
-      this(null);
-    }
+      public WebhooksOAuth2ClientCredentialsTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        WebhooksOAuth2ClientCredentialsType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(WebhooksOAuth2ClientCredentialsType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

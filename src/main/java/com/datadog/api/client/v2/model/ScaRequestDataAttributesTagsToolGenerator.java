@@ -6,21 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Metadata about the tool that generated the SCA tags. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Metadata about the tool that generated the SCA tags.</p>
+ */
 @JsonPropertyOrder({
   ScaRequestDataAttributesTagsToolGenerator.JSON_PROPERTY_NAME,
   ScaRequestDataAttributesTagsToolGenerator.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScaRequestDataAttributesTagsToolGenerator {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -33,43 +54,42 @@ public class ScaRequestDataAttributesTagsToolGenerator {
   }
 
   /**
-   * The name of the tag generator.
-   *
+   * <p>The name of the tag generator.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public ScaRequestDataAttributesTagsToolGenerator version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * The version of the tag generator.
-   *
+   * <p>The version of the tag generator.</p>
    * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getVersion() {
-    return version;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getVersion() {
+        return version;
+      }
   public void setVersion(String version) {
     this.version = version;
   }
 
-  /** Return true if this ScaRequestDataAttributesTagsToolGenerator object is equal to o. */
+  /**
+   * Return true if this ScaRequestDataAttributesTagsToolGenerator object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -78,15 +98,14 @@ public class ScaRequestDataAttributesTagsToolGenerator {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScaRequestDataAttributesTagsToolGenerator scaRequestDataAttributesTagsToolGenerator =
-        (ScaRequestDataAttributesTagsToolGenerator) o;
-    return Objects.equals(this.name, scaRequestDataAttributesTagsToolGenerator.name)
-        && Objects.equals(this.version, scaRequestDataAttributesTagsToolGenerator.version);
+    ScaRequestDataAttributesTagsToolGenerator scaRequestDataAttributesTagsToolGenerator = (ScaRequestDataAttributesTagsToolGenerator) o;
+    return Objects.equals(this.name, scaRequestDataAttributesTagsToolGenerator.name) && Objects.equals(this.version, scaRequestDataAttributesTagsToolGenerator.version);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version);
+    return Objects.hash(name,version);
   }
 
   @Override
@@ -100,7 +119,8 @@ public class ScaRequestDataAttributesTagsToolGenerator {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

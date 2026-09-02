@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Query for matching rule on signals. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Query for matching rule on signals.</p>
+ */
 @JsonPropertyOrder({
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_AGGREGATION,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_CORRELATED_BY_FIELDS,
@@ -30,10 +45,10 @@ import java.util.Objects;
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_NAME,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_RULE_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalRuleResponseQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private SecurityMonitoringRuleQueryAggregation aggregation;
 
@@ -61,40 +76,34 @@ public class SecurityMonitoringSignalRuleResponseQuery {
   public static final String JSON_PROPERTY_RULE_ID = "ruleId";
   private String ruleId;
 
-  public SecurityMonitoringSignalRuleResponseQuery aggregation(
-      SecurityMonitoringRuleQueryAggregation aggregation) {
+  public SecurityMonitoringSignalRuleResponseQuery aggregation(SecurityMonitoringRuleQueryAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
     return this;
   }
 
   /**
-   * The aggregation type.
-   *
+   * <p>The aggregation type.</p>
    * @return aggregation
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleQueryAggregation getAggregation() {
-    return aggregation;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SecurityMonitoringRuleQueryAggregation getAggregation() {
+        return aggregation;
+      }
   public void setAggregation(SecurityMonitoringRuleQueryAggregation aggregation) {
     if (!aggregation.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
-
-  public SecurityMonitoringSignalRuleResponseQuery correlatedByFields(
-      List<String> correlatedByFields) {
+  public SecurityMonitoringSignalRuleResponseQuery correlatedByFields(List<String> correlatedByFields) {
     this.correlatedByFields = correlatedByFields;
     return this;
   }
-
-  public SecurityMonitoringSignalRuleResponseQuery addCorrelatedByFieldsItem(
-      String correlatedByFieldsItem) {
+  public SecurityMonitoringSignalRuleResponseQuery addCorrelatedByFieldsItem(String correlatedByFieldsItem) {
     if (this.correlatedByFields == null) {
       this.correlatedByFields = new ArrayList<>();
     }
@@ -103,71 +112,63 @@ public class SecurityMonitoringSignalRuleResponseQuery {
   }
 
   /**
-   * Fields to correlate by.
-   *
+   * <p>Fields to correlate by.</p>
    * @return correlatedByFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CORRELATED_BY_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getCorrelatedByFields() {
-    return correlatedByFields;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CORRELATED_BY_FIELDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getCorrelatedByFields() {
+        return correlatedByFields;
+      }
   public void setCorrelatedByFields(List<String> correlatedByFields) {
     this.correlatedByFields = correlatedByFields;
   }
-
-  public SecurityMonitoringSignalRuleResponseQuery correlatedQueryIndex(
-      Integer correlatedQueryIndex) {
+  public SecurityMonitoringSignalRuleResponseQuery correlatedQueryIndex(Integer correlatedQueryIndex) {
     this.correlatedQueryIndex = correlatedQueryIndex;
     return this;
   }
 
   /**
-   * Index of the rule query used to retrieve the correlated field. maximum: 9
-   *
+   * <p>Index of the rule query used to retrieve the correlated field.</p>
+   * maximum: 9
    * @return correlatedQueryIndex
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CORRELATED_QUERY_INDEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCorrelatedQueryIndex() {
-    return correlatedQueryIndex;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CORRELATED_QUERY_INDEX)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getCorrelatedQueryIndex() {
+        return correlatedQueryIndex;
+      }
   public void setCorrelatedQueryIndex(Integer correlatedQueryIndex) {
     this.correlatedQueryIndex = correlatedQueryIndex;
   }
-
   public SecurityMonitoringSignalRuleResponseQuery defaultRuleId(String defaultRuleId) {
     this.defaultRuleId = defaultRuleId;
     return this;
   }
 
   /**
-   * Default Rule ID to match on signals.
-   *
+   * <p>Default Rule ID to match on signals.</p>
    * @return defaultRuleId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFAULT_RULE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDefaultRuleId() {
-    return defaultRuleId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DEFAULT_RULE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDefaultRuleId() {
+        return defaultRuleId;
+      }
   public void setDefaultRuleId(String defaultRuleId) {
     this.defaultRuleId = defaultRuleId;
   }
-
   public SecurityMonitoringSignalRuleResponseQuery distinctFields(List<String> distinctFields) {
     this.distinctFields = distinctFields;
     return this;
   }
-
-  public SecurityMonitoringSignalRuleResponseQuery addDistinctFieldsItem(
-      String distinctFieldsItem) {
+  public SecurityMonitoringSignalRuleResponseQuery addDistinctFieldsItem(String distinctFieldsItem) {
     if (this.distinctFields == null) {
       this.distinctFields = new ArrayList<>();
     }
@@ -176,26 +177,23 @@ public class SecurityMonitoringSignalRuleResponseQuery {
   }
 
   /**
-   * Field for which the cardinality is measured. Sent as an array.
-   *
+   * <p>Field for which the cardinality is measured. Sent as an array.</p>
    * @return distinctFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISTINCT_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDistinctFields() {
-    return distinctFields;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DISTINCT_FIELDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getDistinctFields() {
+        return distinctFields;
+      }
   public void setDistinctFields(List<String> distinctFields) {
     this.distinctFields = distinctFields;
   }
-
   public SecurityMonitoringSignalRuleResponseQuery groupByFields(List<String> groupByFields) {
     this.groupByFields = groupByFields;
     return this;
   }
-
   public SecurityMonitoringSignalRuleResponseQuery addGroupByFieldsItem(String groupByFieldsItem) {
     if (this.groupByFields == null) {
       this.groupByFields = new ArrayList<>();
@@ -205,26 +203,23 @@ public class SecurityMonitoringSignalRuleResponseQuery {
   }
 
   /**
-   * Fields to group by.
-   *
+   * <p>Fields to group by.</p>
    * @return groupByFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_BY_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getGroupByFields() {
-    return groupByFields;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GROUP_BY_FIELDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getGroupByFields() {
+        return groupByFields;
+      }
   public void setGroupByFields(List<String> groupByFields) {
     this.groupByFields = groupByFields;
   }
-
   public SecurityMonitoringSignalRuleResponseQuery metrics(List<String> metrics) {
     this.metrics = metrics;
     return this;
   }
-
   public SecurityMonitoringSignalRuleResponseQuery addMetricsItem(String metricsItem) {
     if (this.metrics == null) {
       this.metrics = new ArrayList<>();
@@ -234,72 +229,68 @@ public class SecurityMonitoringSignalRuleResponseQuery {
   }
 
   /**
-   * Group of target fields to aggregate over.
-   *
+   * <p>Group of target fields to aggregate over.</p>
    * @return metrics
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRICS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getMetrics() {
-    return metrics;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METRICS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getMetrics() {
+        return metrics;
+      }
   public void setMetrics(List<String> metrics) {
     this.metrics = metrics;
   }
-
   public SecurityMonitoringSignalRuleResponseQuery name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the query.
-   *
+   * <p>Name of the query.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public SecurityMonitoringSignalRuleResponseQuery ruleId(String ruleId) {
     this.ruleId = ruleId;
     return this;
   }
 
   /**
-   * Rule ID to match on signals.
-   *
+   * <p>Rule ID to match on signals.</p>
    * @return ruleId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRuleId() {
-    return ruleId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RULE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getRuleId() {
+        return ruleId;
+      }
   public void setRuleId(String ruleId) {
     this.ruleId = ruleId;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -308,7 +299,7 @@ public class SecurityMonitoringSignalRuleResponseQuery {
   @JsonAnySetter
   public SecurityMonitoringSignalRuleResponseQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -332,12 +323,14 @@ public class SecurityMonitoringSignalRuleResponseQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringSignalRuleResponseQuery object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringSignalRuleResponseQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -346,41 +339,14 @@ public class SecurityMonitoringSignalRuleResponseQuery {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalRuleResponseQuery securityMonitoringSignalRuleResponseQuery =
-        (SecurityMonitoringSignalRuleResponseQuery) o;
-    return Objects.equals(this.aggregation, securityMonitoringSignalRuleResponseQuery.aggregation)
-        && Objects.equals(
-            this.correlatedByFields, securityMonitoringSignalRuleResponseQuery.correlatedByFields)
-        && Objects.equals(
-            this.correlatedQueryIndex,
-            securityMonitoringSignalRuleResponseQuery.correlatedQueryIndex)
-        && Objects.equals(
-            this.defaultRuleId, securityMonitoringSignalRuleResponseQuery.defaultRuleId)
-        && Objects.equals(
-            this.distinctFields, securityMonitoringSignalRuleResponseQuery.distinctFields)
-        && Objects.equals(
-            this.groupByFields, securityMonitoringSignalRuleResponseQuery.groupByFields)
-        && Objects.equals(this.metrics, securityMonitoringSignalRuleResponseQuery.metrics)
-        && Objects.equals(this.name, securityMonitoringSignalRuleResponseQuery.name)
-        && Objects.equals(this.ruleId, securityMonitoringSignalRuleResponseQuery.ruleId)
-        && Objects.equals(
-            this.additionalProperties,
-            securityMonitoringSignalRuleResponseQuery.additionalProperties);
+    SecurityMonitoringSignalRuleResponseQuery securityMonitoringSignalRuleResponseQuery = (SecurityMonitoringSignalRuleResponseQuery) o;
+    return Objects.equals(this.aggregation, securityMonitoringSignalRuleResponseQuery.aggregation) && Objects.equals(this.correlatedByFields, securityMonitoringSignalRuleResponseQuery.correlatedByFields) && Objects.equals(this.correlatedQueryIndex, securityMonitoringSignalRuleResponseQuery.correlatedQueryIndex) && Objects.equals(this.defaultRuleId, securityMonitoringSignalRuleResponseQuery.defaultRuleId) && Objects.equals(this.distinctFields, securityMonitoringSignalRuleResponseQuery.distinctFields) && Objects.equals(this.groupByFields, securityMonitoringSignalRuleResponseQuery.groupByFields) && Objects.equals(this.metrics, securityMonitoringSignalRuleResponseQuery.metrics) && Objects.equals(this.name, securityMonitoringSignalRuleResponseQuery.name) && Objects.equals(this.ruleId, securityMonitoringSignalRuleResponseQuery.ruleId) && Objects.equals(this.additionalProperties, securityMonitoringSignalRuleResponseQuery.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        aggregation,
-        correlatedByFields,
-        correlatedQueryIndex,
-        defaultRuleId,
-        distinctFields,
-        groupByFields,
-        metrics,
-        name,
-        ruleId,
-        additionalProperties);
+    return Objects.hash(aggregation,correlatedByFields,correlatedQueryIndex,defaultRuleId,distinctFields,groupByFields,metrics,name,ruleId, additionalProperties);
   }
 
   @Override
@@ -389,9 +355,7 @@ public class SecurityMonitoringSignalRuleResponseQuery {
     sb.append("class SecurityMonitoringSignalRuleResponseQuery {\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    correlatedByFields: ").append(toIndentedString(correlatedByFields)).append("\n");
-    sb.append("    correlatedQueryIndex: ")
-        .append(toIndentedString(correlatedQueryIndex))
-        .append("\n");
+    sb.append("    correlatedQueryIndex: ").append(toIndentedString(correlatedQueryIndex)).append("\n");
     sb.append("    defaultRuleId: ").append(toIndentedString(defaultRuleId)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
@@ -406,7 +370,8 @@ public class SecurityMonitoringSignalRuleResponseQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,14 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Monitor options for deployment rules. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Monitor options for deployment rules.</p>
+ */
 @JsonPropertyOrder({
   DeploymentRuleOptionsMonitor.JSON_PROPERTY_DURATION,
   DeploymentRuleOptionsMonitor.JSON_PROPERTY_FAIL_ON_NO_DATA,
@@ -21,10 +41,10 @@ import java.util.Objects;
   DeploymentRuleOptionsMonitor.JSON_PROPERTY_QUERY,
   DeploymentRuleOptionsMonitor.JSON_PROPERTY_WARMUP
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DeploymentRuleOptionsMonitor {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Long duration;
 
@@ -44,115 +64,108 @@ public class DeploymentRuleOptionsMonitor {
 
   @JsonCreator
   public DeploymentRuleOptionsMonitor(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.query = query;
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query) {
+        this.query = query;
   }
-
   public DeploymentRuleOptionsMonitor duration(Long duration) {
     this.duration = duration;
     return this;
   }
 
   /**
-   * Seconds the monitor needs to stay in OK status for the rule to pass.
-   *
+   * <p>Seconds the monitor needs to stay in OK status for the rule to pass.</p>
    * @return duration
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDuration() {
-    return duration;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DURATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDuration() {
+        return duration;
+      }
   public void setDuration(Long duration) {
     this.duration = duration;
   }
-
   public DeploymentRuleOptionsMonitor failOnNoData(Boolean failOnNoData) {
     this.failOnNoData = failOnNoData;
     return this;
   }
 
   /**
-   * Whether the rule should fail if a matching monitor group is in a NO DATA state.
-   *
+   * <p>Whether the rule should fail if a matching monitor group is in a NO DATA state.</p>
    * @return failOnNoData
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAIL_ON_NO_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getFailOnNoData() {
-    return failOnNoData;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FAIL_ON_NO_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getFailOnNoData() {
+        return failOnNoData;
+      }
   public void setFailOnNoData(Boolean failOnNoData) {
     this.failOnNoData = failOnNoData;
   }
-
   public DeploymentRuleOptionsMonitor failOnNoGroupsFound(Boolean failOnNoGroupsFound) {
     this.failOnNoGroupsFound = failOnNoGroupsFound;
     return this;
   }
 
   /**
-   * Whether the rule should fail if no monitor groups are found for the query.
-   *
+   * <p>Whether the rule should fail if no monitor groups are found for the query.</p>
    * @return failOnNoGroupsFound
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAIL_ON_NO_GROUPS_FOUND)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getFailOnNoGroupsFound() {
-    return failOnNoGroupsFound;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FAIL_ON_NO_GROUPS_FOUND)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getFailOnNoGroupsFound() {
+        return failOnNoGroupsFound;
+      }
   public void setFailOnNoGroupsFound(Boolean failOnNoGroupsFound) {
     this.failOnNoGroupsFound = failOnNoGroupsFound;
   }
-
   public DeploymentRuleOptionsMonitor query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * Monitors that match this query are evaluated.
-   *
+   * <p>Monitors that match this query are evaluated.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
-
   public DeploymentRuleOptionsMonitor warmup(Long warmup) {
     this.warmup = warmup;
     return this;
   }
 
   /**
-   * Seconds to wait after a deployment starts before evaluating the monitor's status. minimum: 0
-   *
+   * <p>Seconds to wait after a deployment starts before evaluating the monitor's status.</p>
+   * minimum: 0
    * @return warmup
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARMUP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getWarmup() {
-    return warmup;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WARMUP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getWarmup() {
+        return warmup;
+      }
   public void setWarmup(Long warmup) {
     this.warmup = warmup;
   }
 
-  /** Return true if this DeploymentRuleOptionsMonitor object is equal to o. */
+  /**
+   * Return true if this DeploymentRuleOptionsMonitor object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -162,17 +175,13 @@ public class DeploymentRuleOptionsMonitor {
       return false;
     }
     DeploymentRuleOptionsMonitor deploymentRuleOptionsMonitor = (DeploymentRuleOptionsMonitor) o;
-    return Objects.equals(this.duration, deploymentRuleOptionsMonitor.duration)
-        && Objects.equals(this.failOnNoData, deploymentRuleOptionsMonitor.failOnNoData)
-        && Objects.equals(
-            this.failOnNoGroupsFound, deploymentRuleOptionsMonitor.failOnNoGroupsFound)
-        && Objects.equals(this.query, deploymentRuleOptionsMonitor.query)
-        && Objects.equals(this.warmup, deploymentRuleOptionsMonitor.warmup);
+    return Objects.equals(this.duration, deploymentRuleOptionsMonitor.duration) && Objects.equals(this.failOnNoData, deploymentRuleOptionsMonitor.failOnNoData) && Objects.equals(this.failOnNoGroupsFound, deploymentRuleOptionsMonitor.failOnNoGroupsFound) && Objects.equals(this.query, deploymentRuleOptionsMonitor.query) && Objects.equals(this.warmup, deploymentRuleOptionsMonitor.warmup);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, failOnNoData, failOnNoGroupsFound, query, warmup);
+    return Objects.hash(duration,failOnNoData,failOnNoGroupsFound,query,warmup);
   }
 
   @Override
@@ -181,9 +190,7 @@ public class DeploymentRuleOptionsMonitor {
     sb.append("class DeploymentRuleOptionsMonitor {\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    failOnNoData: ").append(toIndentedString(failOnNoData)).append("\n");
-    sb.append("    failOnNoGroupsFound: ")
-        .append(toIndentedString(failOnNoGroupsFound))
-        .append("\n");
+    sb.append("    failOnNoGroupsFound: ").append(toIndentedString(failOnNoGroupsFound)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    warmup: ").append(toIndentedString(warmup)).append("\n");
     sb.append('}');
@@ -191,7 +198,8 @@ public class DeploymentRuleOptionsMonitor {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

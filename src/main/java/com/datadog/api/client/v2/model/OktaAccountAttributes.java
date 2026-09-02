@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes object for an Okta account. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes object for an Okta account.</p>
+ */
 @JsonPropertyOrder({
   OktaAccountAttributes.JSON_PROPERTY_API_KEY,
   OktaAccountAttributes.JSON_PROPERTY_AUTH_METHOD,
@@ -26,10 +42,10 @@ import java.util.Objects;
   OktaAccountAttributes.JSON_PROPERTY_DOMAIN,
   OktaAccountAttributes.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OktaAccountAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
   private String apiKey;
 
@@ -52,146 +68,135 @@ public class OktaAccountAttributes {
 
   @JsonCreator
   public OktaAccountAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUTH_METHOD) String authMethod,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DOMAIN) String domain,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.authMethod = authMethod;
-    this.domain = domain;
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_AUTH_METHOD)String authMethod,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DOMAIN)String domain,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.authMethod = authMethod;
+        this.domain = domain;
+        this.name = name;
   }
-
   public OktaAccountAttributes apiKey(String apiKey) {
     this.apiKey = apiKey;
     return this;
   }
 
   /**
-   * The API key of the Okta account.
-   *
+   * <p>The API key of the Okta account.</p>
    * @return apiKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiKey() {
-    return apiKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_API_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getApiKey() {
+        return apiKey;
+      }
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
   }
-
   public OktaAccountAttributes authMethod(String authMethod) {
     this.authMethod = authMethod;
     return this;
   }
 
   /**
-   * The authorization method for an Okta account.
-   *
+   * <p>The authorization method for an Okta account.</p>
    * @return authMethod
-   */
-  @JsonProperty(JSON_PROPERTY_AUTH_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAuthMethod() {
-    return authMethod;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AUTH_METHOD)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAuthMethod() {
+        return authMethod;
+      }
   public void setAuthMethod(String authMethod) {
     this.authMethod = authMethod;
   }
-
   public OktaAccountAttributes clientId(String clientId) {
     this.clientId = clientId;
     return this;
   }
 
   /**
-   * The Client ID of an Okta app integration.
-   *
+   * <p>The Client ID of an Okta app integration.</p>
    * @return clientId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getClientId() {
-    return clientId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getClientId() {
+        return clientId;
+      }
   public void setClientId(String clientId) {
     this.clientId = clientId;
   }
-
   public OktaAccountAttributes clientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
     return this;
   }
 
   /**
-   * The client secret of an Okta app integration.
-   *
+   * <p>The client secret of an Okta app integration.</p>
    * @return clientSecret
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getClientSecret() {
-    return clientSecret;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getClientSecret() {
+        return clientSecret;
+      }
   public void setClientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
   }
-
   public OktaAccountAttributes domain(String domain) {
     this.domain = domain;
     return this;
   }
 
   /**
-   * The domain of the Okta account.
-   *
+   * <p>The domain of the Okta account.</p>
    * @return domain
-   */
-  @JsonProperty(JSON_PROPERTY_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDomain() {
-    return domain;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DOMAIN)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDomain() {
+        return domain;
+      }
   public void setDomain(String domain) {
     this.domain = domain;
   }
-
   public OktaAccountAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the Okta account.
-   *
+   * <p>The name of the Okta account.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -200,7 +205,7 @@ public class OktaAccountAttributes {
   @JsonAnySetter
   public OktaAccountAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -224,12 +229,14 @@ public class OktaAccountAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this OktaAccountAttributes object is equal to o. */
+  /**
+   * Return true if this OktaAccountAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -239,19 +246,13 @@ public class OktaAccountAttributes {
       return false;
     }
     OktaAccountAttributes oktaAccountAttributes = (OktaAccountAttributes) o;
-    return Objects.equals(this.apiKey, oktaAccountAttributes.apiKey)
-        && Objects.equals(this.authMethod, oktaAccountAttributes.authMethod)
-        && Objects.equals(this.clientId, oktaAccountAttributes.clientId)
-        && Objects.equals(this.clientSecret, oktaAccountAttributes.clientSecret)
-        && Objects.equals(this.domain, oktaAccountAttributes.domain)
-        && Objects.equals(this.name, oktaAccountAttributes.name)
-        && Objects.equals(this.additionalProperties, oktaAccountAttributes.additionalProperties);
+    return Objects.equals(this.apiKey, oktaAccountAttributes.apiKey) && Objects.equals(this.authMethod, oktaAccountAttributes.authMethod) && Objects.equals(this.clientId, oktaAccountAttributes.clientId) && Objects.equals(this.clientSecret, oktaAccountAttributes.clientSecret) && Objects.equals(this.domain, oktaAccountAttributes.domain) && Objects.equals(this.name, oktaAccountAttributes.name) && Objects.equals(this.additionalProperties, oktaAccountAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        apiKey, authMethod, clientId, clientSecret, domain, name, additionalProperties);
+    return Objects.hash(apiKey,authMethod,clientId,clientSecret,domain,name, additionalProperties);
   }
 
   @Override
@@ -272,7 +273,8 @@ public class OktaAccountAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

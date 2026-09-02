@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,12 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A topic discovered by an Agent Observability patterns run. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A topic discovered by an Agent Observability patterns run.</p>
+ */
 @JsonPropertyOrder({
   LLMObsPatternsTopic.JSON_PROPERTY_CREATED_AT,
   LLMObsPatternsTopic.JSON_PROPERTY_DESCRIPTION,
@@ -31,10 +46,10 @@ import java.util.Objects;
   LLMObsPatternsTopic.JSON_PROPERTY_POINT_COUNT,
   LLMObsPatternsTopic.JSON_PROPERTY_RUN_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsPatternsTopic {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -69,238 +84,218 @@ public class LLMObsPatternsTopic {
 
   @JsonCreator
   public LLMObsPatternsTopic(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FIRST_SEEN_AT)
-          OffsetDateTime firstSeenAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_HIERARCHY_LEVEL) Long hierarchyLevel,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IS_VALIDATED) Boolean isValidated,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PARENT_TOPIC_ID) String parentTopicId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_POINT_COUNT) Long pointCount,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RUN_ID) String runId) {
-    this.createdAt = createdAt;
-    this.description = description;
-    this.firstSeenAt = firstSeenAt;
-    this.hierarchyLevel = hierarchyLevel;
-    this.id = id;
-    this.isValidated = isValidated;
-    this.name = name;
-    this.parentTopicId = parentTopicId;
-    this.pointCount = pointCount;
-    this.runId = runId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESCRIPTION)String description,
+            @JsonProperty(required=true, value=JSON_PROPERTY_FIRST_SEEN_AT)OffsetDateTime firstSeenAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_HIERARCHY_LEVEL)Long hierarchyLevel,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_IS_VALIDATED)Boolean isValidated,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PARENT_TOPIC_ID)String parentTopicId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_POINT_COUNT)Long pointCount,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RUN_ID)String runId) {
+        this.createdAt = createdAt;
+        this.description = description;
+        this.firstSeenAt = firstSeenAt;
+        this.hierarchyLevel = hierarchyLevel;
+        this.id = id;
+        this.isValidated = isValidated;
+        this.name = name;
+        this.parentTopicId = parentTopicId;
+        this.pointCount = pointCount;
+        this.runId = runId;
   }
-
   public LLMObsPatternsTopic createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Timestamp when the topic was created.
-   *
+   * <p>Timestamp when the topic was created.</p>
    * @return createdAt
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public LLMObsPatternsTopic description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Description of the topic.
-   *
+   * <p>Description of the topic.</p>
    * @return description
-   */
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public LLMObsPatternsTopic firstSeenAt(OffsetDateTime firstSeenAt) {
     this.firstSeenAt = firstSeenAt;
     return this;
   }
 
   /**
-   * Timestamp when the topic was first seen.
-   *
+   * <p>Timestamp when the topic was first seen.</p>
    * @return firstSeenAt
-   */
-  @JsonProperty(JSON_PROPERTY_FIRST_SEEN_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getFirstSeenAt() {
-    return firstSeenAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FIRST_SEEN_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getFirstSeenAt() {
+        return firstSeenAt;
+      }
   public void setFirstSeenAt(OffsetDateTime firstSeenAt) {
     this.firstSeenAt = firstSeenAt;
   }
-
   public LLMObsPatternsTopic hierarchyLevel(Long hierarchyLevel) {
     this.hierarchyLevel = hierarchyLevel;
     return this;
   }
 
   /**
-   * Level of the topic in the hierarchy. Level 0 is a leaf topic.
-   *
+   * <p>Level of the topic in the hierarchy. Level 0 is a leaf topic.</p>
    * @return hierarchyLevel
-   */
-  @JsonProperty(JSON_PROPERTY_HIERARCHY_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getHierarchyLevel() {
-    return hierarchyLevel;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_HIERARCHY_LEVEL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getHierarchyLevel() {
+        return hierarchyLevel;
+      }
   public void setHierarchyLevel(Long hierarchyLevel) {
     this.hierarchyLevel = hierarchyLevel;
   }
-
   public LLMObsPatternsTopic id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Unique identifier of the topic.
-   *
+   * <p>Unique identifier of the topic.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public LLMObsPatternsTopic isValidated(Boolean isValidated) {
     this.isValidated = isValidated;
     return this;
   }
 
   /**
-   * Whether the topic has been validated.
-   *
+   * <p>Whether the topic has been validated.</p>
    * @return isValidated
-   */
-  @JsonProperty(JSON_PROPERTY_IS_VALIDATED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getIsValidated() {
-    return isValidated;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_IS_VALIDATED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getIsValidated() {
+        return isValidated;
+      }
   public void setIsValidated(Boolean isValidated) {
     this.isValidated = isValidated;
   }
-
   public LLMObsPatternsTopic name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the topic.
-   *
+   * <p>Name of the topic.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public LLMObsPatternsTopic parentTopicId(String parentTopicId) {
     this.parentTopicId = parentTopicId;
     return this;
   }
 
   /**
-   * Identifier of the parent topic. Empty for top-level topics.
-   *
+   * <p>Identifier of the parent topic. Empty for top-level topics.</p>
    * @return parentTopicId
-   */
-  @JsonProperty(JSON_PROPERTY_PARENT_TOPIC_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getParentTopicId() {
-    return parentTopicId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PARENT_TOPIC_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getParentTopicId() {
+        return parentTopicId;
+      }
   public void setParentTopicId(String parentTopicId) {
     this.parentTopicId = parentTopicId;
   }
-
   public LLMObsPatternsTopic pointCount(Long pointCount) {
     this.pointCount = pointCount;
     return this;
   }
 
   /**
-   * Number of data points assigned to the topic.
-   *
+   * <p>Number of data points assigned to the topic.</p>
    * @return pointCount
-   */
-  @JsonProperty(JSON_PROPERTY_POINT_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getPointCount() {
-    return pointCount;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_POINT_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getPointCount() {
+        return pointCount;
+      }
   public void setPointCount(Long pointCount) {
     this.pointCount = pointCount;
   }
-
   public LLMObsPatternsTopic runId(String runId) {
     this.runId = runId;
     return this;
   }
 
   /**
-   * Identifier of the run that produced the topic.
-   *
+   * <p>Identifier of the run that produced the topic.</p>
    * @return runId
-   */
-  @JsonProperty(JSON_PROPERTY_RUN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getRunId() {
-    return runId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RUN_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getRunId() {
+        return runId;
+      }
   public void setRunId(String runId) {
     this.runId = runId;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -309,7 +304,7 @@ public class LLMObsPatternsTopic {
   @JsonAnySetter
   public LLMObsPatternsTopic putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -333,12 +328,14 @@ public class LLMObsPatternsTopic {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsPatternsTopic object is equal to o. */
+  /**
+   * Return true if this LLMObsPatternsTopic object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -348,33 +345,13 @@ public class LLMObsPatternsTopic {
       return false;
     }
     LLMObsPatternsTopic llmObsPatternsTopic = (LLMObsPatternsTopic) o;
-    return Objects.equals(this.createdAt, llmObsPatternsTopic.createdAt)
-        && Objects.equals(this.description, llmObsPatternsTopic.description)
-        && Objects.equals(this.firstSeenAt, llmObsPatternsTopic.firstSeenAt)
-        && Objects.equals(this.hierarchyLevel, llmObsPatternsTopic.hierarchyLevel)
-        && Objects.equals(this.id, llmObsPatternsTopic.id)
-        && Objects.equals(this.isValidated, llmObsPatternsTopic.isValidated)
-        && Objects.equals(this.name, llmObsPatternsTopic.name)
-        && Objects.equals(this.parentTopicId, llmObsPatternsTopic.parentTopicId)
-        && Objects.equals(this.pointCount, llmObsPatternsTopic.pointCount)
-        && Objects.equals(this.runId, llmObsPatternsTopic.runId)
-        && Objects.equals(this.additionalProperties, llmObsPatternsTopic.additionalProperties);
+    return Objects.equals(this.createdAt, llmObsPatternsTopic.createdAt) && Objects.equals(this.description, llmObsPatternsTopic.description) && Objects.equals(this.firstSeenAt, llmObsPatternsTopic.firstSeenAt) && Objects.equals(this.hierarchyLevel, llmObsPatternsTopic.hierarchyLevel) && Objects.equals(this.id, llmObsPatternsTopic.id) && Objects.equals(this.isValidated, llmObsPatternsTopic.isValidated) && Objects.equals(this.name, llmObsPatternsTopic.name) && Objects.equals(this.parentTopicId, llmObsPatternsTopic.parentTopicId) && Objects.equals(this.pointCount, llmObsPatternsTopic.pointCount) && Objects.equals(this.runId, llmObsPatternsTopic.runId) && Objects.equals(this.additionalProperties, llmObsPatternsTopic.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdAt,
-        description,
-        firstSeenAt,
-        hierarchyLevel,
-        id,
-        isValidated,
-        name,
-        parentTopicId,
-        pointCount,
-        runId,
-        additionalProperties);
+    return Objects.hash(createdAt,description,firstSeenAt,hierarchyLevel,id,isValidated,name,parentTopicId,pointCount,runId, additionalProperties);
   }
 
   @Override
@@ -399,7 +376,8 @@ public class LLMObsPatternsTopic {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

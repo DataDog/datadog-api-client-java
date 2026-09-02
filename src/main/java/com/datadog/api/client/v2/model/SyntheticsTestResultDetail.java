@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Full result details for a Synthetic test execution. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Full result details for a Synthetic test execution.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsTestResultDetail.JSON_PROPERTY_ASSERTIONS,
   SyntheticsTestResultDetail.JSON_PROPERTY_BUCKET_KEYS,
@@ -62,10 +77,10 @@ import java.util.Objects;
   SyntheticsTestResultDetail.JSON_PROPERTY_UNHEALTHY,
   SyntheticsTestResultDetail.JSON_PROPERTY_VARIABLES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestResultDetail {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsTestResultAssertionResult> assertions = null;
 
@@ -78,8 +93,7 @@ public class SyntheticsTestResultDetail {
   public static final String JSON_PROPERTY_CERT = "cert";
   private SyntheticsTestResultCertificate cert;
 
-  public static final String JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR =
-      "compressed_json_descriptor";
+  public static final String JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR = "compressed_json_descriptor";
   private String compressedJsonDescriptor;
 
   public static final String JSON_PROPERTY_COMPRESSED_STEPS = "compressed_steps";
@@ -190,19 +204,16 @@ public class SyntheticsTestResultDetail {
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private SyntheticsTestResultVariables variables;
 
-  public SyntheticsTestResultDetail assertions(
-      List<SyntheticsTestResultAssertionResult> assertions) {
+  public SyntheticsTestResultDetail assertions(List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
     if (assertions != null) {
-      for (SyntheticsTestResultAssertionResult item : assertions) {
-        this.unparsed |= item.unparsed;
-      }
+    for (SyntheticsTestResultAssertionResult item : assertions) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public SyntheticsTestResultDetail addAssertionsItem(
-      SyntheticsTestResultAssertionResult assertionsItem) {
+  public SyntheticsTestResultDetail addAssertionsItem(SyntheticsTestResultAssertionResult assertionsItem) {
     if (this.assertions == null) {
       this.assertions = new ArrayList<>();
     }
@@ -212,17 +223,16 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Assertion results produced by the test.
-   *
+   * <p>Assertion results produced by the test.</p>
    * @return assertions
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASSERTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsTestResultAssertionResult> getAssertions() {
-    return assertions;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ASSERTIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsTestResultAssertionResult> getAssertions() {
+        return assertions;
+      }
   public void setAssertions(List<SyntheticsTestResultAssertionResult> assertions) {
     this.assertions = assertions;
     if (assertions != null) {
@@ -231,7 +241,6 @@ public class SyntheticsTestResultDetail {
       }
     }
   }
-
   public SyntheticsTestResultDetail bucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
     this.bucketKeys = bucketKeys;
     this.unparsed |= bucketKeys.unparsed;
@@ -239,46 +248,41 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Storage bucket keys for artifacts produced during a step or test.
-   *
+   * <p>Storage bucket keys for artifacts produced during a step or test.</p>
    * @return bucketKeys
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BUCKET_KEYS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultBucketKeys getBucketKeys() {
-    return bucketKeys;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BUCKET_KEYS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultBucketKeys getBucketKeys() {
+        return bucketKeys;
+      }
   public void setBucketKeys(SyntheticsTestResultBucketKeys bucketKeys) {
     this.bucketKeys = bucketKeys;
     if (bucketKeys != null) {
       this.unparsed |= bucketKeys.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail callType(String callType) {
     this.callType = callType;
     return this;
   }
 
   /**
-   * gRPC call type (for example, <code>unary</code>, <code>healthCheck</code>, or <code>reflection
-   * </code>).
-   *
+   * <p>gRPC call type (for example, <code>unary</code>, <code>healthCheck</code>, or <code>reflection</code>).</p>
    * @return callType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CALL_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCallType() {
-    return callType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CALL_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCallType() {
+        return callType;
+      }
   public void setCallType(String callType) {
     this.callType = callType;
   }
-
   public SyntheticsTestResultDetail cert(SyntheticsTestResultCertificate cert) {
     this.cert = cert;
     this.unparsed |= cert.unparsed;
@@ -286,88 +290,79 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * SSL/TLS certificate information returned from an SSL test.
-   *
+   * <p>SSL/TLS certificate information returned from an SSL test.</p>
    * @return cert
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CERT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultCertificate getCert() {
-    return cert;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CERT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultCertificate getCert() {
+        return cert;
+      }
   public void setCert(SyntheticsTestResultCertificate cert) {
     this.cert = cert;
     if (cert != null) {
       this.unparsed |= cert.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail compressedJsonDescriptor(String compressedJsonDescriptor) {
     this.compressedJsonDescriptor = compressedJsonDescriptor;
     return this;
   }
 
   /**
-   * Compressed JSON descriptor for the test (internal format).
-   *
+   * <p>Compressed JSON descriptor for the test (internal format).</p>
    * @return compressedJsonDescriptor
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCompressedJsonDescriptor() {
-    return compressedJsonDescriptor;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCompressedJsonDescriptor() {
+        return compressedJsonDescriptor;
+      }
   public void setCompressedJsonDescriptor(String compressedJsonDescriptor) {
     this.compressedJsonDescriptor = compressedJsonDescriptor;
   }
-
   public SyntheticsTestResultDetail compressedSteps(String compressedSteps) {
     this.compressedSteps = compressedSteps;
     return this;
   }
 
   /**
-   * Compressed representation of the test steps (internal format).
-   *
+   * <p>Compressed representation of the test steps (internal format).</p>
    * @return compressedSteps
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPRESSED_STEPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCompressedSteps() {
-    return compressedSteps;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPRESSED_STEPS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCompressedSteps() {
+        return compressedSteps;
+      }
   public void setCompressedSteps(String compressedSteps) {
     this.compressedSteps = compressedSteps;
   }
-
   public SyntheticsTestResultDetail connectionOutcome(String connectionOutcome) {
     this.connectionOutcome = connectionOutcome;
     return this;
   }
 
   /**
-   * Outcome of the connection attempt (for example, <code>established</code>, <code>refused</code>
-   * ).
-   *
+   * <p>Outcome of the connection attempt (for example, <code>established</code>, <code>refused</code>).</p>
    * @return connectionOutcome
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONNECTION_OUTCOME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getConnectionOutcome() {
-    return connectionOutcome;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONNECTION_OUTCOME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getConnectionOutcome() {
+        return connectionOutcome;
+      }
   public void setConnectionOutcome(String connectionOutcome) {
     this.connectionOutcome = connectionOutcome;
   }
-
   public SyntheticsTestResultDetail dnsResolution(SyntheticsTestResultDnsResolution dnsResolution) {
     this.dnsResolution = dnsResolution;
     this.unparsed |= dnsResolution.unparsed;
@@ -375,66 +370,60 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * DNS resolution details recorded during the test execution.
-   *
+   * <p>DNS resolution details recorded during the test execution.</p>
    * @return dnsResolution
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DNS_RESOLUTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultDnsResolution getDnsResolution() {
-    return dnsResolution;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DNS_RESOLUTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultDnsResolution getDnsResolution() {
+        return dnsResolution;
+      }
   public void setDnsResolution(SyntheticsTestResultDnsResolution dnsResolution) {
     this.dnsResolution = dnsResolution;
     if (dnsResolution != null) {
       this.unparsed |= dnsResolution.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail duration(Double duration) {
     this.duration = duration;
     return this;
   }
 
   /**
-   * Duration of the test execution (in milliseconds).
-   *
+   * <p>Duration of the test execution (in milliseconds).</p>
    * @return duration
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getDuration() {
-    return duration;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DURATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getDuration() {
+        return duration;
+      }
   public void setDuration(Double duration) {
     this.duration = duration;
   }
-
   public SyntheticsTestResultDetail exitedOnStepSuccess(Boolean exitedOnStepSuccess) {
     this.exitedOnStepSuccess = exitedOnStepSuccess;
     return this;
   }
 
   /**
-   * Whether the test exited early because a step marked with <code>exitIfSucceed</code> passed.
-   *
+   * <p>Whether the test exited early because a step marked with <code>exitIfSucceed</code> passed.</p>
    * @return exitedOnStepSuccess
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXITED_ON_STEP_SUCCESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getExitedOnStepSuccess() {
-    return exitedOnStepSuccess;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EXITED_ON_STEP_SUCCESS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getExitedOnStepSuccess() {
+        return exitedOnStepSuccess;
+      }
   public void setExitedOnStepSuccess(Boolean exitedOnStepSuccess) {
     this.exitedOnStepSuccess = exitedOnStepSuccess;
   }
-
   public SyntheticsTestResultDetail failure(SyntheticsTestResultFailure failure) {
     this.failure = failure;
     this.unparsed |= failure.unparsed;
@@ -442,45 +431,41 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Details about the failure of a Synthetic test.
-   *
+   * <p>Details about the failure of a Synthetic test.</p>
    * @return failure
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAILURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultFailure getFailure() {
-    return failure;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FAILURE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultFailure getFailure() {
+        return failure;
+      }
   public void setFailure(SyntheticsTestResultFailure failure) {
     this.failure = failure;
     if (failure != null) {
       this.unparsed |= failure.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail finishedAt(Long finishedAt) {
     this.finishedAt = finishedAt;
     return this;
   }
 
   /**
-   * Timestamp of when the test finished (in milliseconds).
-   *
+   * <p>Timestamp of when the test finished (in milliseconds).</p>
    * @return finishedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FINISHED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFinishedAt() {
-    return finishedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FINISHED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFinishedAt() {
+        return finishedAt;
+      }
   public void setFinishedAt(Long finishedAt) {
     this.finishedAt = finishedAt;
   }
-
   public SyntheticsTestResultDetail handshake(SyntheticsTestResultHandshake handshake) {
     this.handshake = handshake;
     this.unparsed |= handshake.unparsed;
@@ -488,108 +473,98 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Handshake request and response for protocol-level tests.
-   *
+   * <p>Handshake request and response for protocol-level tests.</p>
    * @return handshake
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDSHAKE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultHandshake getHandshake() {
-    return handshake;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HANDSHAKE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultHandshake getHandshake() {
+        return handshake;
+      }
   public void setHandshake(SyntheticsTestResultHandshake handshake) {
     this.handshake = handshake;
     if (handshake != null) {
       this.unparsed |= handshake.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier for this result.
-   *
+   * <p>The unique identifier for this result.</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public SyntheticsTestResultDetail initialId(String initialId) {
     this.initialId = initialId;
     return this;
   }
 
   /**
-   * The initial result ID before any retries.
-   *
+   * <p>The initial result ID before any retries.</p>
    * @return initialId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INITIAL_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getInitialId() {
-    return initialId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INITIAL_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getInitialId() {
+        return initialId;
+      }
   public void setInitialId(String initialId) {
     this.initialId = initialId;
   }
-
   public SyntheticsTestResultDetail isFastRetry(Boolean isFastRetry) {
     this.isFastRetry = isFastRetry;
     return this;
   }
 
   /**
-   * Whether this result is from a fast retry.
-   *
+   * <p>Whether this result is from a fast retry.</p>
    * @return isFastRetry
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_FAST_RETRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsFastRetry() {
-    return isFastRetry;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_FAST_RETRY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsFastRetry() {
+        return isFastRetry;
+      }
   public void setIsFastRetry(Boolean isFastRetry) {
     this.isFastRetry = isFastRetry;
   }
-
   public SyntheticsTestResultDetail isLastRetry(Boolean isLastRetry) {
     this.isLastRetry = isLastRetry;
     return this;
   }
 
   /**
-   * Whether this result is from the last retry.
-   *
+   * <p>Whether this result is from the last retry.</p>
    * @return isLastRetry
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_LAST_RETRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsLastRetry() {
-    return isLastRetry;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_LAST_RETRY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsLastRetry() {
+        return isLastRetry;
+      }
   public void setIsLastRetry(Boolean isLastRetry) {
     this.isLastRetry = isLastRetry;
   }
-
   public SyntheticsTestResultDetail netpath(SyntheticsTestResultNetpath netpath) {
     this.netpath = netpath;
     this.unparsed |= netpath.unparsed;
@@ -597,24 +572,22 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Network Path test result capturing the path between source and destination.
-   *
+   * <p>Network Path test result capturing the path between source and destination.</p>
    * @return netpath
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NETPATH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultNetpath getNetpath() {
-    return netpath;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NETPATH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultNetpath getNetpath() {
+        return netpath;
+      }
   public void setNetpath(SyntheticsTestResultNetpath netpath) {
     this.netpath = netpath;
     if (netpath != null) {
       this.unparsed |= netpath.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail netstats(SyntheticsTestResultNetstats netstats) {
     this.netstats = netstats;
     this.unparsed |= netstats.unparsed;
@@ -622,24 +595,22 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Aggregated network statistics from the test execution.
-   *
+   * <p>Aggregated network statistics from the test execution.</p>
    * @return netstats
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NETSTATS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultNetstats getNetstats() {
-    return netstats;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NETSTATS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultNetstats getNetstats() {
+        return netstats;
+      }
   public void setNetstats(SyntheticsTestResultNetstats netstats) {
     this.netstats = netstats;
     if (netstats != null) {
       this.unparsed |= netstats.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail ocsp(SyntheticsTestResultOCSPResponse ocsp) {
     this.ocsp = ocsp;
     this.unparsed |= ocsp.unparsed;
@@ -647,24 +618,22 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * OCSP response received while validating a certificate.
-   *
+   * <p>OCSP response received while validating a certificate.</p>
    * @return ocsp
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OCSP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultOCSPResponse getOcsp() {
-    return ocsp;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OCSP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultOCSPResponse getOcsp() {
+        return ocsp;
+      }
   public void setOcsp(SyntheticsTestResultOCSPResponse ocsp) {
     this.ocsp = ocsp;
     if (ocsp != null) {
       this.unparsed |= ocsp.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail ping(SyntheticsTestResultTracerouteHop ping) {
     this.ping = ping;
     this.unparsed |= ping.unparsed;
@@ -672,66 +641,60 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * A network probe result, used for traceroute hops and ping summaries.
-   *
+   * <p>A network probe result, used for traceroute hops and ping summaries.</p>
    * @return ping
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultTracerouteHop getPing() {
-    return ping;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultTracerouteHop getPing() {
+        return ping;
+      }
   public void setPing(SyntheticsTestResultTracerouteHop ping) {
     this.ping = ping;
     if (ping != null) {
       this.unparsed |= ping.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail receivedEmailCount(Long receivedEmailCount) {
     this.receivedEmailCount = receivedEmailCount;
     return this;
   }
 
   /**
-   * Number of emails received during the test (email tests).
-   *
+   * <p>Number of emails received during the test (email tests).</p>
    * @return receivedEmailCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECEIVED_EMAIL_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getReceivedEmailCount() {
-    return receivedEmailCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RECEIVED_EMAIL_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getReceivedEmailCount() {
+        return receivedEmailCount;
+      }
   public void setReceivedEmailCount(Long receivedEmailCount) {
     this.receivedEmailCount = receivedEmailCount;
   }
-
   public SyntheticsTestResultDetail receivedMessage(String receivedMessage) {
     this.receivedMessage = receivedMessage;
     return this;
   }
 
   /**
-   * Message received from the target (for WebSocket/TCP/UDP tests).
-   *
+   * <p>Message received from the target (for WebSocket/TCP/UDP tests).</p>
    * @return receivedMessage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECEIVED_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getReceivedMessage() {
-    return receivedMessage;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RECEIVED_MESSAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getReceivedMessage() {
+        return receivedMessage;
+      }
   public void setReceivedMessage(String receivedMessage) {
     this.receivedMessage = receivedMessage;
   }
-
   public SyntheticsTestResultDetail request(SyntheticsTestResultRequestInfo request) {
     this.request = request;
     this.unparsed |= request.unparsed;
@@ -739,45 +702,41 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Details of the outgoing request made during the test execution.
-   *
+   * <p>Details of the outgoing request made during the test execution.</p>
    * @return request
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultRequestInfo getRequest() {
-    return request;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REQUEST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultRequestInfo getRequest() {
+        return request;
+      }
   public void setRequest(SyntheticsTestResultRequestInfo request) {
     this.request = request;
     if (request != null) {
       this.unparsed |= request.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail resolvedIp(String resolvedIp) {
     this.resolvedIp = resolvedIp;
     return this;
   }
 
   /**
-   * IP address resolved for the target host.
-   *
+   * <p>IP address resolved for the target host.</p>
    * @return resolvedIp
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESOLVED_IP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getResolvedIp() {
-    return resolvedIp;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESOLVED_IP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getResolvedIp() {
+        return resolvedIp;
+      }
   public void setResolvedIp(String resolvedIp) {
     this.resolvedIp = resolvedIp;
   }
-
   public SyntheticsTestResultDetail response(SyntheticsTestResultResponseInfo response) {
     this.response = response;
     this.unparsed |= response.unparsed;
@@ -785,24 +744,22 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Details of the response received during the test execution.
-   *
+   * <p>Details of the response received during the test execution.</p>
    * @return response
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultResponseInfo getResponse() {
-    return response;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESPONSE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultResponseInfo getResponse() {
+        return response;
+      }
   public void setResponse(SyntheticsTestResultResponseInfo response) {
     this.response = response;
     if (response != null) {
       this.unparsed |= response.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail runType(SyntheticsTestResultRunType runType) {
     this.runType = runType;
     this.unparsed |= !runType.isValid();
@@ -810,87 +767,79 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * The type of run for a Synthetic test result.
-   *
+   * <p>The type of run for a Synthetic test result.</p>
    * @return runType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUN_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultRunType getRunType() {
-    return runType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUN_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultRunType getRunType() {
+        return runType;
+      }
   public void setRunType(SyntheticsTestResultRunType runType) {
     if (!runType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.runType = runType;
   }
-
   public SyntheticsTestResultDetail sentMessage(String sentMessage) {
     this.sentMessage = sentMessage;
     return this;
   }
 
   /**
-   * Message sent to the target (for WebSocket/TCP/UDP tests).
-   *
+   * <p>Message sent to the target (for WebSocket/TCP/UDP tests).</p>
    * @return sentMessage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SENT_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSentMessage() {
-    return sentMessage;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SENT_MESSAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSentMessage() {
+        return sentMessage;
+      }
   public void setSentMessage(String sentMessage) {
     this.sentMessage = sentMessage;
   }
-
   public SyntheticsTestResultDetail startUrl(String startUrl) {
     this.startUrl = startUrl;
     return this;
   }
 
   /**
-   * Start URL for the test (browser tests).
-   *
+   * <p>Start URL for the test (browser tests).</p>
    * @return startUrl
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStartUrl() {
-    return startUrl;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_START_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getStartUrl() {
+        return startUrl;
+      }
   public void setStartUrl(String startUrl) {
     this.startUrl = startUrl;
   }
-
   public SyntheticsTestResultDetail startedAt(Long startedAt) {
     this.startedAt = startedAt;
     return this;
   }
 
   /**
-   * Timestamp of when the test started (in milliseconds).
-   *
+   * <p>Timestamp of when the test started (in milliseconds).</p>
    * @return startedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STARTED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getStartedAt() {
-    return startedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STARTED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getStartedAt() {
+        return startedAt;
+      }
   public void setStartedAt(Long startedAt) {
     this.startedAt = startedAt;
   }
-
   public SyntheticsTestResultDetail status(SyntheticsTestResultStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -898,34 +847,31 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Status of a Synthetic test result.
-   *
+   * <p>Status of a Synthetic test result.</p>
    * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultStatus getStatus() {
-    return status;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultStatus getStatus() {
+        return status;
+      }
   public void setStatus(SyntheticsTestResultStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
-
   public SyntheticsTestResultDetail steps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
     if (steps != null) {
-      for (SyntheticsTestResultStep item : steps) {
-        this.unparsed |= item.unparsed;
-      }
+    for (SyntheticsTestResultStep item : steps) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public SyntheticsTestResultDetail addStepsItem(SyntheticsTestResultStep stepsItem) {
     if (this.steps == null) {
       this.steps = new ArrayList<>();
@@ -936,17 +882,16 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Step results (for browser, mobile, and multistep API tests).
-   *
+   * <p>Step results (for browser, mobile, and multistep API tests).</p>
    * @return steps
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STEPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsTestResultStep> getSteps() {
-    return steps;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STEPS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsTestResultStep> getSteps() {
+        return steps;
+      }
   public void setSteps(List<SyntheticsTestResultStep> steps) {
     this.steps = steps;
     if (steps != null) {
@@ -955,33 +900,29 @@ public class SyntheticsTestResultDetail {
       }
     }
   }
-
   public SyntheticsTestResultDetail timeToInteractive(Long timeToInteractive) {
     this.timeToInteractive = timeToInteractive;
     return this;
   }
 
   /**
-   * Time to interactive in milliseconds (browser tests).
-   *
+   * <p>Time to interactive in milliseconds (browser tests).</p>
    * @return timeToInteractive
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTimeToInteractive() {
-    return timeToInteractive;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTimeToInteractive() {
+        return timeToInteractive;
+      }
   public void setTimeToInteractive(Long timeToInteractive) {
     this.timeToInteractive = timeToInteractive;
   }
-
   public SyntheticsTestResultDetail timings(Map<String, Object> timings) {
     this.timings = timings;
     return this;
   }
-
   public SyntheticsTestResultDetail putTimingsItem(String key, Object timingsItem) {
     if (this.timings == null) {
       this.timings = new HashMap<>();
@@ -991,21 +932,19 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Timing breakdown of the test request phases (for example, DNS, TCP, TLS, first byte).
-   *
+   * <p>Timing breakdown of the test request phases (for example, DNS, TCP, TLS, first byte).</p>
    * @return timings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getTimings() {
-    return timings;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIMINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getTimings() {
+        return timings;
+      }
   public void setTimings(Map<String, Object> timings) {
     this.timings = timings;
   }
-
   public SyntheticsTestResultDetail trace(SyntheticsTestResultTrace trace) {
     this.trace = trace;
     this.unparsed |= trace.unparsed;
@@ -1013,36 +952,32 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Trace identifiers associated with a Synthetic test result.
-   *
+   * <p>Trace identifiers associated with a Synthetic test result.</p>
    * @return trace
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRACE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultTrace getTrace() {
-    return trace;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRACE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultTrace getTrace() {
+        return trace;
+      }
   public void setTrace(SyntheticsTestResultTrace trace) {
     this.trace = trace;
     if (trace != null) {
       this.unparsed |= trace.unparsed;
     }
   }
-
   public SyntheticsTestResultDetail traceroute(List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
     if (traceroute != null) {
-      for (SyntheticsTestResultTracerouteHop item : traceroute) {
-        this.unparsed |= item.unparsed;
-      }
+    for (SyntheticsTestResultTracerouteHop item : traceroute) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
-  public SyntheticsTestResultDetail addTracerouteItem(
-      SyntheticsTestResultTracerouteHop tracerouteItem) {
+  public SyntheticsTestResultDetail addTracerouteItem(SyntheticsTestResultTracerouteHop tracerouteItem) {
     if (this.traceroute == null) {
       this.traceroute = new ArrayList<>();
     }
@@ -1052,17 +987,16 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Traceroute hop results (for network tests).
-   *
+   * <p>Traceroute hop results (for network tests).</p>
    * @return traceroute
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRACEROUTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsTestResultTracerouteHop> getTraceroute() {
-    return traceroute;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRACEROUTE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsTestResultTracerouteHop> getTraceroute() {
+        return traceroute;
+      }
   public void setTraceroute(List<SyntheticsTestResultTracerouteHop> traceroute) {
     this.traceroute = traceroute;
     if (traceroute != null) {
@@ -1071,59 +1005,53 @@ public class SyntheticsTestResultDetail {
       }
     }
   }
-
   public SyntheticsTestResultDetail triggeredAt(Long triggeredAt) {
     this.triggeredAt = triggeredAt;
     return this;
   }
 
   /**
-   * Timestamp of when the test was triggered (in milliseconds).
-   *
+   * <p>Timestamp of when the test was triggered (in milliseconds).</p>
    * @return triggeredAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIGGERED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTriggeredAt() {
-    return triggeredAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRIGGERED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTriggeredAt() {
+        return triggeredAt;
+      }
   public void setTriggeredAt(Long triggeredAt) {
     this.triggeredAt = triggeredAt;
   }
-
   public SyntheticsTestResultDetail tunnel(Boolean tunnel) {
     this.tunnel = tunnel;
     return this;
   }
 
   /**
-   * Whether the test was executed through a tunnel.
-   *
+   * <p>Whether the test was executed through a tunnel.</p>
    * @return tunnel
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TUNNEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getTunnel() {
-    return tunnel;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TUNNEL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getTunnel() {
+        return tunnel;
+      }
   public void setTunnel(Boolean tunnel) {
     this.tunnel = tunnel;
   }
-
   public SyntheticsTestResultDetail turns(List<SyntheticsTestResultTurn> turns) {
     this.turns = turns;
     if (turns != null) {
-      for (SyntheticsTestResultTurn item : turns) {
-        this.unparsed |= item.unparsed;
-      }
+    for (SyntheticsTestResultTurn item : turns) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public SyntheticsTestResultDetail addTurnsItem(SyntheticsTestResultTurn turnsItem) {
     if (this.turns == null) {
       this.turns = new ArrayList<>();
@@ -1134,17 +1062,16 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Turns executed by a goal-based browser test.
-   *
+   * <p>Turns executed by a goal-based browser test.</p>
    * @return turns
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TURNS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsTestResultTurn> getTurns() {
-    return turns;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TURNS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsTestResultTurn> getTurns() {
+        return turns;
+      }
   public void setTurns(List<SyntheticsTestResultTurn> turns) {
     this.turns = turns;
     if (turns != null) {
@@ -1153,28 +1080,25 @@ public class SyntheticsTestResultDetail {
       }
     }
   }
-
   public SyntheticsTestResultDetail unhealthy(Boolean unhealthy) {
     this.unhealthy = unhealthy;
     return this;
   }
 
   /**
-   * Whether the test runner was unhealthy at the time of execution.
-   *
+   * <p>Whether the test runner was unhealthy at the time of execution.</p>
    * @return unhealthy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNHEALTHY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getUnhealthy() {
-    return unhealthy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UNHEALTHY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getUnhealthy() {
+        return unhealthy;
+      }
   public void setUnhealthy(Boolean unhealthy) {
     this.unhealthy = unhealthy;
   }
-
   public SyntheticsTestResultDetail variables(SyntheticsTestResultVariables variables) {
     this.variables = variables;
     this.unparsed |= variables.unparsed;
@@ -1182,17 +1106,16 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Variables captured during a test step.
-   *
+   * <p>Variables captured during a test step.</p>
    * @return variables
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VARIABLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultVariables getVariables() {
-    return variables;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VARIABLES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultVariables getVariables() {
+        return variables;
+      }
   public void setVariables(SyntheticsTestResultVariables variables) {
     this.variables = variables;
     if (variables != null) {
@@ -1201,14 +1124,15 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -1217,7 +1141,7 @@ public class SyntheticsTestResultDetail {
   @JsonAnySetter
   public SyntheticsTestResultDetail putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -1241,12 +1165,14 @@ public class SyntheticsTestResultDetail {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestResultDetail object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestResultDetail object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1256,97 +1182,13 @@ public class SyntheticsTestResultDetail {
       return false;
     }
     SyntheticsTestResultDetail syntheticsTestResultDetail = (SyntheticsTestResultDetail) o;
-    return Objects.equals(this.assertions, syntheticsTestResultDetail.assertions)
-        && Objects.equals(this.bucketKeys, syntheticsTestResultDetail.bucketKeys)
-        && Objects.equals(this.callType, syntheticsTestResultDetail.callType)
-        && Objects.equals(this.cert, syntheticsTestResultDetail.cert)
-        && Objects.equals(
-            this.compressedJsonDescriptor, syntheticsTestResultDetail.compressedJsonDescriptor)
-        && Objects.equals(this.compressedSteps, syntheticsTestResultDetail.compressedSteps)
-        && Objects.equals(this.connectionOutcome, syntheticsTestResultDetail.connectionOutcome)
-        && Objects.equals(this.dnsResolution, syntheticsTestResultDetail.dnsResolution)
-        && Objects.equals(this.duration, syntheticsTestResultDetail.duration)
-        && Objects.equals(this.exitedOnStepSuccess, syntheticsTestResultDetail.exitedOnStepSuccess)
-        && Objects.equals(this.failure, syntheticsTestResultDetail.failure)
-        && Objects.equals(this.finishedAt, syntheticsTestResultDetail.finishedAt)
-        && Objects.equals(this.handshake, syntheticsTestResultDetail.handshake)
-        && Objects.equals(this.id, syntheticsTestResultDetail.id)
-        && Objects.equals(this.initialId, syntheticsTestResultDetail.initialId)
-        && Objects.equals(this.isFastRetry, syntheticsTestResultDetail.isFastRetry)
-        && Objects.equals(this.isLastRetry, syntheticsTestResultDetail.isLastRetry)
-        && Objects.equals(this.netpath, syntheticsTestResultDetail.netpath)
-        && Objects.equals(this.netstats, syntheticsTestResultDetail.netstats)
-        && Objects.equals(this.ocsp, syntheticsTestResultDetail.ocsp)
-        && Objects.equals(this.ping, syntheticsTestResultDetail.ping)
-        && Objects.equals(this.receivedEmailCount, syntheticsTestResultDetail.receivedEmailCount)
-        && Objects.equals(this.receivedMessage, syntheticsTestResultDetail.receivedMessage)
-        && Objects.equals(this.request, syntheticsTestResultDetail.request)
-        && Objects.equals(this.resolvedIp, syntheticsTestResultDetail.resolvedIp)
-        && Objects.equals(this.response, syntheticsTestResultDetail.response)
-        && Objects.equals(this.runType, syntheticsTestResultDetail.runType)
-        && Objects.equals(this.sentMessage, syntheticsTestResultDetail.sentMessage)
-        && Objects.equals(this.startUrl, syntheticsTestResultDetail.startUrl)
-        && Objects.equals(this.startedAt, syntheticsTestResultDetail.startedAt)
-        && Objects.equals(this.status, syntheticsTestResultDetail.status)
-        && Objects.equals(this.steps, syntheticsTestResultDetail.steps)
-        && Objects.equals(this.timeToInteractive, syntheticsTestResultDetail.timeToInteractive)
-        && Objects.equals(this.timings, syntheticsTestResultDetail.timings)
-        && Objects.equals(this.trace, syntheticsTestResultDetail.trace)
-        && Objects.equals(this.traceroute, syntheticsTestResultDetail.traceroute)
-        && Objects.equals(this.triggeredAt, syntheticsTestResultDetail.triggeredAt)
-        && Objects.equals(this.tunnel, syntheticsTestResultDetail.tunnel)
-        && Objects.equals(this.turns, syntheticsTestResultDetail.turns)
-        && Objects.equals(this.unhealthy, syntheticsTestResultDetail.unhealthy)
-        && Objects.equals(this.variables, syntheticsTestResultDetail.variables)
-        && Objects.equals(
-            this.additionalProperties, syntheticsTestResultDetail.additionalProperties);
+    return Objects.equals(this.assertions, syntheticsTestResultDetail.assertions) && Objects.equals(this.bucketKeys, syntheticsTestResultDetail.bucketKeys) && Objects.equals(this.callType, syntheticsTestResultDetail.callType) && Objects.equals(this.cert, syntheticsTestResultDetail.cert) && Objects.equals(this.compressedJsonDescriptor, syntheticsTestResultDetail.compressedJsonDescriptor) && Objects.equals(this.compressedSteps, syntheticsTestResultDetail.compressedSteps) && Objects.equals(this.connectionOutcome, syntheticsTestResultDetail.connectionOutcome) && Objects.equals(this.dnsResolution, syntheticsTestResultDetail.dnsResolution) && Objects.equals(this.duration, syntheticsTestResultDetail.duration) && Objects.equals(this.exitedOnStepSuccess, syntheticsTestResultDetail.exitedOnStepSuccess) && Objects.equals(this.failure, syntheticsTestResultDetail.failure) && Objects.equals(this.finishedAt, syntheticsTestResultDetail.finishedAt) && Objects.equals(this.handshake, syntheticsTestResultDetail.handshake) && Objects.equals(this.id, syntheticsTestResultDetail.id) && Objects.equals(this.initialId, syntheticsTestResultDetail.initialId) && Objects.equals(this.isFastRetry, syntheticsTestResultDetail.isFastRetry) && Objects.equals(this.isLastRetry, syntheticsTestResultDetail.isLastRetry) && Objects.equals(this.netpath, syntheticsTestResultDetail.netpath) && Objects.equals(this.netstats, syntheticsTestResultDetail.netstats) && Objects.equals(this.ocsp, syntheticsTestResultDetail.ocsp) && Objects.equals(this.ping, syntheticsTestResultDetail.ping) && Objects.equals(this.receivedEmailCount, syntheticsTestResultDetail.receivedEmailCount) && Objects.equals(this.receivedMessage, syntheticsTestResultDetail.receivedMessage) && Objects.equals(this.request, syntheticsTestResultDetail.request) && Objects.equals(this.resolvedIp, syntheticsTestResultDetail.resolvedIp) && Objects.equals(this.response, syntheticsTestResultDetail.response) && Objects.equals(this.runType, syntheticsTestResultDetail.runType) && Objects.equals(this.sentMessage, syntheticsTestResultDetail.sentMessage) && Objects.equals(this.startUrl, syntheticsTestResultDetail.startUrl) && Objects.equals(this.startedAt, syntheticsTestResultDetail.startedAt) && Objects.equals(this.status, syntheticsTestResultDetail.status) && Objects.equals(this.steps, syntheticsTestResultDetail.steps) && Objects.equals(this.timeToInteractive, syntheticsTestResultDetail.timeToInteractive) && Objects.equals(this.timings, syntheticsTestResultDetail.timings) && Objects.equals(this.trace, syntheticsTestResultDetail.trace) && Objects.equals(this.traceroute, syntheticsTestResultDetail.traceroute) && Objects.equals(this.triggeredAt, syntheticsTestResultDetail.triggeredAt) && Objects.equals(this.tunnel, syntheticsTestResultDetail.tunnel) && Objects.equals(this.turns, syntheticsTestResultDetail.turns) && Objects.equals(this.unhealthy, syntheticsTestResultDetail.unhealthy) && Objects.equals(this.variables, syntheticsTestResultDetail.variables) && Objects.equals(this.additionalProperties, syntheticsTestResultDetail.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        assertions,
-        bucketKeys,
-        callType,
-        cert,
-        compressedJsonDescriptor,
-        compressedSteps,
-        connectionOutcome,
-        dnsResolution,
-        duration,
-        exitedOnStepSuccess,
-        failure,
-        finishedAt,
-        handshake,
-        id,
-        initialId,
-        isFastRetry,
-        isLastRetry,
-        netpath,
-        netstats,
-        ocsp,
-        ping,
-        receivedEmailCount,
-        receivedMessage,
-        request,
-        resolvedIp,
-        response,
-        runType,
-        sentMessage,
-        startUrl,
-        startedAt,
-        status,
-        steps,
-        timeToInteractive,
-        timings,
-        trace,
-        traceroute,
-        triggeredAt,
-        tunnel,
-        turns,
-        unhealthy,
-        variables,
-        additionalProperties);
+    return Objects.hash(assertions,bucketKeys,callType,cert,compressedJsonDescriptor,compressedSteps,connectionOutcome,dnsResolution,duration,exitedOnStepSuccess,failure,finishedAt,handshake,id,initialId,isFastRetry,isLastRetry,netpath,netstats,ocsp,ping,receivedEmailCount,receivedMessage,request,resolvedIp,response,runType,sentMessage,startUrl,startedAt,status,steps,timeToInteractive,timings,trace,traceroute,triggeredAt,tunnel,turns,unhealthy,variables, additionalProperties);
   }
 
   @Override
@@ -1357,16 +1199,12 @@ public class SyntheticsTestResultDetail {
     sb.append("    bucketKeys: ").append(toIndentedString(bucketKeys)).append("\n");
     sb.append("    callType: ").append(toIndentedString(callType)).append("\n");
     sb.append("    cert: ").append(toIndentedString(cert)).append("\n");
-    sb.append("    compressedJsonDescriptor: ")
-        .append(toIndentedString(compressedJsonDescriptor))
-        .append("\n");
+    sb.append("    compressedJsonDescriptor: ").append(toIndentedString(compressedJsonDescriptor)).append("\n");
     sb.append("    compressedSteps: ").append(toIndentedString(compressedSteps)).append("\n");
     sb.append("    connectionOutcome: ").append(toIndentedString(connectionOutcome)).append("\n");
     sb.append("    dnsResolution: ").append(toIndentedString(dnsResolution)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    exitedOnStepSuccess: ")
-        .append(toIndentedString(exitedOnStepSuccess))
-        .append("\n");
+    sb.append("    exitedOnStepSuccess: ").append(toIndentedString(exitedOnStepSuccess)).append("\n");
     sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
     sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
     sb.append("    handshake: ").append(toIndentedString(handshake)).append("\n");
@@ -1406,7 +1244,8 @@ public class SyntheticsTestResultDetail {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

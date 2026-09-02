@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,24 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of an Agent Observability patterns run status. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of an Agent Observability patterns run status.</p>
+ */
 @JsonPropertyOrder({
   LLMObsPatternsRunStatusResponseAttributes.JSON_PROPERTY_CREATED_AT,
   LLMObsPatternsRunStatusResponseAttributes.JSON_PROPERTY_PROGRESS,
   LLMObsPatternsRunStatusResponseAttributes.JSON_PROPERTY_STATUS,
   LLMObsPatternsRunStatusResponseAttributes.JSON_PROPERTY_STEP
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsPatternsRunStatusResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -47,67 +60,59 @@ public class LLMObsPatternsRunStatusResponseAttributes {
 
   @JsonCreator
   public LLMObsPatternsRunStatusResponseAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROGRESS)
-          List<LLMObsPatternsActivityProgress> progress,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS) String status,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STEP) String step) {
-    this.createdAt = createdAt;
-    this.progress = progress;
-    for (LLMObsPatternsActivityProgress item : progress) {
-      this.unparsed |= item.unparsed;
-    }
-    this.status = status;
-    this.step = step;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)OffsetDateTime createdAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PROGRESS)List<LLMObsPatternsActivityProgress> progress,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STATUS)String status,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STEP)String step) {
+        this.createdAt = createdAt;
+        this.progress = progress;
+        for (LLMObsPatternsActivityProgress item : progress) {
+          this.unparsed |= item.unparsed;
+        }
+        this.status = status;
+        this.step = step;
   }
-
   public LLMObsPatternsRunStatusResponseAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Timestamp when the run was created.
-   *
+   * <p>Timestamp when the run was created.</p>
    * @return createdAt
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
-  public LLMObsPatternsRunStatusResponseAttributes progress(
-      List<LLMObsPatternsActivityProgress> progress) {
+  public LLMObsPatternsRunStatusResponseAttributes progress(List<LLMObsPatternsActivityProgress> progress) {
     this.progress = progress;
     for (LLMObsPatternsActivityProgress item : progress) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public LLMObsPatternsRunStatusResponseAttributes addProgressItem(
-      LLMObsPatternsActivityProgress progressItem) {
+  public LLMObsPatternsRunStatusResponseAttributes addProgressItem(LLMObsPatternsActivityProgress progressItem) {
     this.progress.add(progressItem);
     this.unparsed |= progressItem.unparsed;
     return this;
   }
 
   /**
-   * List of step-by-step progress entries for a patterns run.
-   *
+   * <p>List of step-by-step progress entries for a patterns run.</p>
    * @return progress
-   */
-  @JsonProperty(JSON_PROPERTY_PROGRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<LLMObsPatternsActivityProgress> getProgress() {
-    return progress;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PROGRESS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<LLMObsPatternsActivityProgress> getProgress() {
+        return progress;
+      }
   public void setProgress(List<LLMObsPatternsActivityProgress> progress) {
     this.progress = progress;
     if (progress != null) {
@@ -116,56 +121,53 @@ public class LLMObsPatternsRunStatusResponseAttributes {
       }
     }
   }
-
   public LLMObsPatternsRunStatusResponseAttributes status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * Overall status of the run.
-   *
+   * <p>Overall status of the run.</p>
    * @return status
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getStatus() {
-    return status;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getStatus() {
+        return status;
+      }
   public void setStatus(String status) {
     this.status = status;
   }
-
   public LLMObsPatternsRunStatusResponseAttributes step(String step) {
     this.step = step;
     return this;
   }
 
   /**
-   * The current step of the run.
-   *
+   * <p>The current step of the run.</p>
    * @return step
-   */
-  @JsonProperty(JSON_PROPERTY_STEP)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getStep() {
-    return step;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STEP)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getStep() {
+        return step;
+      }
   public void setStep(String step) {
     this.step = step;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -174,7 +176,7 @@ public class LLMObsPatternsRunStatusResponseAttributes {
   @JsonAnySetter
   public LLMObsPatternsRunStatusResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -198,12 +200,14 @@ public class LLMObsPatternsRunStatusResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsPatternsRunStatusResponseAttributes object is equal to o. */
+  /**
+   * Return true if this LLMObsPatternsRunStatusResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -212,20 +216,14 @@ public class LLMObsPatternsRunStatusResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsPatternsRunStatusResponseAttributes llmObsPatternsRunStatusResponseAttributes =
-        (LLMObsPatternsRunStatusResponseAttributes) o;
-    return Objects.equals(this.createdAt, llmObsPatternsRunStatusResponseAttributes.createdAt)
-        && Objects.equals(this.progress, llmObsPatternsRunStatusResponseAttributes.progress)
-        && Objects.equals(this.status, llmObsPatternsRunStatusResponseAttributes.status)
-        && Objects.equals(this.step, llmObsPatternsRunStatusResponseAttributes.step)
-        && Objects.equals(
-            this.additionalProperties,
-            llmObsPatternsRunStatusResponseAttributes.additionalProperties);
+    LLMObsPatternsRunStatusResponseAttributes llmObsPatternsRunStatusResponseAttributes = (LLMObsPatternsRunStatusResponseAttributes) o;
+    return Objects.equals(this.createdAt, llmObsPatternsRunStatusResponseAttributes.createdAt) && Objects.equals(this.progress, llmObsPatternsRunStatusResponseAttributes.progress) && Objects.equals(this.status, llmObsPatternsRunStatusResponseAttributes.status) && Objects.equals(this.step, llmObsPatternsRunStatusResponseAttributes.step) && Objects.equals(this.additionalProperties, llmObsPatternsRunStatusResponseAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, progress, status, step, additionalProperties);
+    return Objects.hash(createdAt,progress,status,step, additionalProperties);
   }
 
   @Override
@@ -244,7 +242,8 @@ public class LLMObsPatternsRunStatusResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

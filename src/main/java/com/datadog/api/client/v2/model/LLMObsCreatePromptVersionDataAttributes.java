@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,15 +25,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Attributes for creating a new version of an Agent Observability prompt. <code>template</code> is
- * required; all other attributes are optional.
+   * <p>Attributes for creating a new version of an Agent Observability prompt. <code>template</code> is required; all other attributes are optional.</p>
  */
 @JsonPropertyOrder({
   LLMObsCreatePromptVersionDataAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -30,10 +41,10 @@ import java.util.Objects;
   LLMObsCreatePromptVersionDataAttributes.JSON_PROPERTY_TEMPLATE,
   LLMObsCreatePromptVersionDataAttributes.JSON_PROPERTY_USER_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsCreatePromptVersionDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -53,38 +64,33 @@ public class LLMObsCreatePromptVersionDataAttributes {
 
   @JsonCreator
   public LLMObsCreatePromptVersionDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TEMPLATE)
-          LLMObsPromptTemplate template) {
-    this.template = template;
-    this.unparsed |= template.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_TEMPLATE)LLMObsPromptTemplate template) {
+        this.template = template;
+        this.unparsed |= template.unparsed;
   }
-
   public LLMObsCreatePromptVersionDataAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Optional description of this version.
-   *
+   * <p>Optional description of this version.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public LLMObsCreatePromptVersionDataAttributes envIds(List<String> envIds) {
     this.envIds = envIds;
     return this;
   }
-
   public LLMObsCreatePromptVersionDataAttributes addEnvIdsItem(String envIdsItem) {
     if (this.envIds == null) {
       this.envIds = new ArrayList<>();
@@ -94,29 +100,24 @@ public class LLMObsCreatePromptVersionDataAttributes {
   }
 
   /**
-   * Optional feature-flag environment UUIDs the service attempts to enable and configure to use
-   * this version as their default after creation.
-   *
+   * <p>Optional feature-flag environment UUIDs the service attempts to enable and configure to use this version as their default after creation.</p>
    * @return envIds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENV_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getEnvIds() {
-    return envIds;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENV_IDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getEnvIds() {
+        return envIds;
+      }
   public void setEnvIds(List<String> envIds) {
     this.envIds = envIds;
   }
-
   public LLMObsCreatePromptVersionDataAttributes labels(List<LLMObsPromptVersionLabel> labels) {
     this.labels = labels;
     return this;
   }
-
-  public LLMObsCreatePromptVersionDataAttributes addLabelsItem(
-      LLMObsPromptVersionLabel labelsItem) {
+  public LLMObsCreatePromptVersionDataAttributes addLabelsItem(LLMObsPromptVersionLabel labelsItem) {
     if (this.labels == null) {
       this.labels = new ArrayList<>();
     }
@@ -126,24 +127,22 @@ public class LLMObsCreatePromptVersionDataAttributes {
   }
 
   /**
-   * Optional labels to attach to this version. Do not use this attribute for new integrations.
-   *
+   * <p>Optional labels to attach to this version. Do not use this attribute for new integrations.</p>
    * @return labels
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LABELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LLMObsPromptVersionLabel> getLabels() {
-    return labels;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LABELS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<LLMObsPromptVersionLabel> getLabels() {
+        return labels;
+      }
   @Deprecated
   public void setLabels(List<LLMObsPromptVersionLabel> labels) {
     this.labels = labels;
   }
-
   public LLMObsCreatePromptVersionDataAttributes template(LLMObsPromptTemplate template) {
     this.template = template;
     this.unparsed |= template.unparsed;
@@ -151,53 +150,51 @@ public class LLMObsCreatePromptVersionDataAttributes {
   }
 
   /**
-   * A text template or a list of chat messages.
-   *
+   * <p>A text template or a list of chat messages.</p>
    * @return template
-   */
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsPromptTemplate getTemplate() {
-    return template;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TEMPLATE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public LLMObsPromptTemplate getTemplate() {
+        return template;
+      }
   public void setTemplate(LLMObsPromptTemplate template) {
     this.template = template;
     if (template != null) {
       this.unparsed |= template.unparsed;
     }
   }
-
   public LLMObsCreatePromptVersionDataAttributes userVersion(String userVersion) {
     this.userVersion = userVersion;
     return this;
   }
 
   /**
-   * Optional user-supplied version identifier for this version.
-   *
+   * <p>Optional user-supplied version identifier for this version.</p>
    * @return userVersion
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUserVersion() {
-    return userVersion;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USER_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getUserVersion() {
+        return userVersion;
+      }
   public void setUserVersion(String userVersion) {
     this.userVersion = userVersion;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -206,7 +203,7 @@ public class LLMObsCreatePromptVersionDataAttributes {
   @JsonAnySetter
   public LLMObsCreatePromptVersionDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -230,12 +227,14 @@ public class LLMObsCreatePromptVersionDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsCreatePromptVersionDataAttributes object is equal to o. */
+  /**
+   * Return true if this LLMObsCreatePromptVersionDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -244,21 +243,14 @@ public class LLMObsCreatePromptVersionDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsCreatePromptVersionDataAttributes llmObsCreatePromptVersionDataAttributes =
-        (LLMObsCreatePromptVersionDataAttributes) o;
-    return Objects.equals(this.description, llmObsCreatePromptVersionDataAttributes.description)
-        && Objects.equals(this.envIds, llmObsCreatePromptVersionDataAttributes.envIds)
-        && Objects.equals(this.labels, llmObsCreatePromptVersionDataAttributes.labels)
-        && Objects.equals(this.template, llmObsCreatePromptVersionDataAttributes.template)
-        && Objects.equals(this.userVersion, llmObsCreatePromptVersionDataAttributes.userVersion)
-        && Objects.equals(
-            this.additionalProperties,
-            llmObsCreatePromptVersionDataAttributes.additionalProperties);
+    LLMObsCreatePromptVersionDataAttributes llmObsCreatePromptVersionDataAttributes = (LLMObsCreatePromptVersionDataAttributes) o;
+    return Objects.equals(this.description, llmObsCreatePromptVersionDataAttributes.description) && Objects.equals(this.envIds, llmObsCreatePromptVersionDataAttributes.envIds) && Objects.equals(this.labels, llmObsCreatePromptVersionDataAttributes.labels) && Objects.equals(this.template, llmObsCreatePromptVersionDataAttributes.template) && Objects.equals(this.userVersion, llmObsCreatePromptVersionDataAttributes.userVersion) && Objects.equals(this.additionalProperties, llmObsCreatePromptVersionDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, envIds, labels, template, userVersion, additionalProperties);
+    return Objects.hash(description,envIds,labels,template,userVersion, additionalProperties);
   }
 
   @Override
@@ -278,7 +270,8 @@ public class LLMObsCreatePromptVersionDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

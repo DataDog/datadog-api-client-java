@@ -6,17 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a Synthetic test result. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of a Synthetic test result.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsTestResultAttributes.JSON_PROPERTY_BATCH,
   SyntheticsTestResultAttributes.JSON_PROPERTY_CI,
@@ -27,10 +44,10 @@ import java.util.Objects;
   SyntheticsTestResultAttributes.JSON_PROPERTY_TEST_SUB_TYPE,
   SyntheticsTestResultAttributes.JSON_PROPERTY_TEST_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestResultAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BATCH = "batch";
   private SyntheticsTestResultBatch batch;
 
@@ -62,24 +79,22 @@ public class SyntheticsTestResultAttributes {
   }
 
   /**
-   * Batch information for the test result.
-   *
+   * <p>Batch information for the test result.</p>
    * @return batch
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BATCH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultBatch getBatch() {
-    return batch;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BATCH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultBatch getBatch() {
+        return batch;
+      }
   public void setBatch(SyntheticsTestResultBatch batch) {
     this.batch = batch;
     if (batch != null) {
       this.unparsed |= batch.unparsed;
     }
   }
-
   public SyntheticsTestResultAttributes ci(SyntheticsTestResultCI ci) {
     this.ci = ci;
     this.unparsed |= ci.unparsed;
@@ -87,24 +102,22 @@ public class SyntheticsTestResultAttributes {
   }
 
   /**
-   * CI information associated with the test result.
-   *
+   * <p>CI information associated with the test result.</p>
    * @return ci
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultCI getCi() {
-    return ci;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CI)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultCI getCi() {
+        return ci;
+      }
   public void setCi(SyntheticsTestResultCI ci) {
     this.ci = ci;
     if (ci != null) {
       this.unparsed |= ci.unparsed;
     }
   }
-
   public SyntheticsTestResultAttributes device(SyntheticsTestResultDevice device) {
     this.device = device;
     this.unparsed |= device.unparsed;
@@ -112,24 +125,22 @@ public class SyntheticsTestResultAttributes {
   }
 
   /**
-   * Device information for the test result (browser and mobile tests).
-   *
+   * <p>Device information for the test result (browser and mobile tests).</p>
    * @return device
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultDevice getDevice() {
-    return device;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DEVICE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultDevice getDevice() {
+        return device;
+      }
   public void setDevice(SyntheticsTestResultDevice device) {
     this.device = device;
     if (device != null) {
       this.unparsed |= device.unparsed;
     }
   }
-
   public SyntheticsTestResultAttributes git(SyntheticsTestResultGit git) {
     this.git = git;
     this.unparsed |= git.unparsed;
@@ -137,24 +148,22 @@ public class SyntheticsTestResultAttributes {
   }
 
   /**
-   * Git information associated with the test result.
-   *
+   * <p>Git information associated with the test result.</p>
    * @return git
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultGit getGit() {
-    return git;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultGit getGit() {
+        return git;
+      }
   public void setGit(SyntheticsTestResultGit git) {
     this.git = git;
     if (git != null) {
       this.unparsed |= git.unparsed;
     }
   }
-
   public SyntheticsTestResultAttributes location(SyntheticsTestResultLocation location) {
     this.location = location;
     this.unparsed |= location.unparsed;
@@ -162,24 +171,22 @@ public class SyntheticsTestResultAttributes {
   }
 
   /**
-   * Location information for a Synthetic test result.
-   *
+   * <p>Location information for a Synthetic test result.</p>
    * @return location
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOCATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultLocation getLocation() {
-    return location;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOCATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultLocation getLocation() {
+        return location;
+      }
   public void setLocation(SyntheticsTestResultLocation location) {
     this.location = location;
     if (location != null) {
       this.unparsed |= location.unparsed;
     }
   }
-
   public SyntheticsTestResultAttributes result(SyntheticsTestResultDetail result) {
     this.result = result;
     this.unparsed |= result.unparsed;
@@ -187,24 +194,22 @@ public class SyntheticsTestResultAttributes {
   }
 
   /**
-   * Full result details for a Synthetic test execution.
-   *
+   * <p>Full result details for a Synthetic test execution.</p>
    * @return result
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestResultDetail getResult() {
-    return result;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESULT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestResultDetail getResult() {
+        return result;
+      }
   public void setResult(SyntheticsTestResultDetail result) {
     this.result = result;
     if (result != null) {
       this.unparsed |= result.unparsed;
     }
   }
-
   public SyntheticsTestResultAttributes testSubType(SyntheticsTestSubType testSubType) {
     this.testSubType = testSubType;
     this.unparsed |= !testSubType.isValid();
@@ -212,24 +217,22 @@ public class SyntheticsTestResultAttributes {
   }
 
   /**
-   * Subtype of the Synthetic test that produced this result.
-   *
+   * <p>Subtype of the Synthetic test that produced this result.</p>
    * @return testSubType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_SUB_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestSubType getTestSubType() {
-    return testSubType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEST_SUB_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestSubType getTestSubType() {
+        return testSubType;
+      }
   public void setTestSubType(SyntheticsTestSubType testSubType) {
     if (!testSubType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.testSubType = testSubType;
   }
-
   public SyntheticsTestResultAttributes testType(SyntheticsTestType testType) {
     this.testType = testType;
     this.unparsed |= !testType.isValid();
@@ -237,33 +240,33 @@ public class SyntheticsTestResultAttributes {
   }
 
   /**
-   * Type of the Synthetic test that produced this result.
-   *
+   * <p>Type of the Synthetic test that produced this result.</p>
    * @return testType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestType getTestType() {
-    return testType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEST_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestType getTestType() {
+        return testType;
+      }
   public void setTestType(SyntheticsTestType testType) {
     if (!testType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.testType = testType;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -272,7 +275,7 @@ public class SyntheticsTestResultAttributes {
   @JsonAnySetter
   public SyntheticsTestResultAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -296,12 +299,14 @@ public class SyntheticsTestResultAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestResultAttributes object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestResultAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -310,24 +315,14 @@ public class SyntheticsTestResultAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestResultAttributes syntheticsTestResultAttributes =
-        (SyntheticsTestResultAttributes) o;
-    return Objects.equals(this.batch, syntheticsTestResultAttributes.batch)
-        && Objects.equals(this.ci, syntheticsTestResultAttributes.ci)
-        && Objects.equals(this.device, syntheticsTestResultAttributes.device)
-        && Objects.equals(this.git, syntheticsTestResultAttributes.git)
-        && Objects.equals(this.location, syntheticsTestResultAttributes.location)
-        && Objects.equals(this.result, syntheticsTestResultAttributes.result)
-        && Objects.equals(this.testSubType, syntheticsTestResultAttributes.testSubType)
-        && Objects.equals(this.testType, syntheticsTestResultAttributes.testType)
-        && Objects.equals(
-            this.additionalProperties, syntheticsTestResultAttributes.additionalProperties);
+    SyntheticsTestResultAttributes syntheticsTestResultAttributes = (SyntheticsTestResultAttributes) o;
+    return Objects.equals(this.batch, syntheticsTestResultAttributes.batch) && Objects.equals(this.ci, syntheticsTestResultAttributes.ci) && Objects.equals(this.device, syntheticsTestResultAttributes.device) && Objects.equals(this.git, syntheticsTestResultAttributes.git) && Objects.equals(this.location, syntheticsTestResultAttributes.location) && Objects.equals(this.result, syntheticsTestResultAttributes.result) && Objects.equals(this.testSubType, syntheticsTestResultAttributes.testSubType) && Objects.equals(this.testType, syntheticsTestResultAttributes.testType) && Objects.equals(this.additionalProperties, syntheticsTestResultAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        batch, ci, device, git, location, result, testSubType, testType, additionalProperties);
+    return Objects.hash(batch,ci,device,git,location,result,testSubType,testType, additionalProperties);
   }
 
   @Override
@@ -350,7 +345,8 @@ public class SyntheticsTestResultAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object representing an event. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object representing an event.</p>
+ */
 @JsonPropertyOrder({
   EventCreateRequest.JSON_PROPERTY_AGGREGATION_KEY,
   EventCreateRequest.JSON_PROPERTY_ALERT_TYPE,
@@ -34,10 +47,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   EventCreateRequest.JSON_PROPERTY_TEXT,
   EventCreateRequest.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventCreateRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION_KEY = "aggregation_key";
   private String aggregationKey;
 
@@ -75,34 +88,31 @@ public class EventCreateRequest {
 
   @JsonCreator
   public EventCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TEXT) String text,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
-    this.text = text;
-    this.title = title;
+            @JsonProperty(required=true, value=JSON_PROPERTY_TEXT)String text,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TITLE)String title) {
+        this.text = text;
+        this.title = title;
   }
-
   public EventCreateRequest aggregationKey(String aggregationKey) {
     this.aggregationKey = aggregationKey;
     return this;
   }
 
   /**
-   * An arbitrary string to use for aggregation. Limited to 100 characters. If you specify a key,
-   * all events using that key are grouped together in the Event Stream.
-   *
+   * <p>An arbitrary string to use for aggregation. Limited to 100 characters.
+   * If you specify a key, all events using that key are grouped together in the Event Stream.</p>
    * @return aggregationKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGGREGATION_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAggregationKey() {
-    return aggregationKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AGGREGATION_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAggregationKey() {
+        return aggregationKey;
+      }
   public void setAggregationKey(String aggregationKey) {
     this.aggregationKey = aggregationKey;
   }
-
   public EventCreateRequest alertType(EventAlertType alertType) {
     this.alertType = alertType;
     this.unparsed |= !alertType.isValid();
@@ -110,175 +120,155 @@ public class EventCreateRequest {
   }
 
   /**
-   * If an alert event is enabled, set its type. For example, <code>error</code>, <code>warning
-   * </code>, <code>info</code>, <code>success</code>, <code>user_update</code>, <code>
-   * recommendation</code>, and <code>snapshot</code>.
-   *
+   * <p>If an alert event is enabled, set its type.
+   * For example, <code>error</code>, <code>warning</code>, <code>info</code>, <code>success</code>, <code>user_update</code>,
+   * <code>recommendation</code>, and <code>snapshot</code>.</p>
    * @return alertType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALERT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EventAlertType getAlertType() {
-    return alertType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ALERT_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public EventAlertType getAlertType() {
+        return alertType;
+      }
   public void setAlertType(EventAlertType alertType) {
     if (!alertType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.alertType = alertType;
   }
-
   public EventCreateRequest dateHappened(Long dateHappened) {
     this.dateHappened = dateHappened;
     return this;
   }
 
   /**
-   * POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited to events
-   * no older than 18 hours
-   *
+   * <p>POSIX timestamp of the event. Must be sent as an integer (that is no quotes).
+   * Limited to events no older than 18 hours</p>
    * @return dateHappened
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATE_HAPPENED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDateHappened() {
-    return dateHappened;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATE_HAPPENED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDateHappened() {
+        return dateHappened;
+      }
   public void setDateHappened(Long dateHappened) {
     this.dateHappened = dateHappened;
   }
-
   public EventCreateRequest deviceName(String deviceName) {
     this.deviceName = deviceName;
     return this;
   }
 
   /**
-   * A device name.
-   *
+   * <p>A device name.</p>
    * @return deviceName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDeviceName() {
-    return deviceName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDeviceName() {
+        return deviceName;
+      }
   public void setDeviceName(String deviceName) {
     this.deviceName = deviceName;
   }
-
   public EventCreateRequest host(String host) {
     this.host = host;
     return this;
   }
 
   /**
-   * Host name to associate with the event. Any tags associated with the host are also applied to
-   * this event.
-   *
+   * <p>Host name to associate with the event.
+   * Any tags associated with the host are also applied to this event.</p>
    * @return host
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHost() {
-    return host;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HOST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getHost() {
+        return host;
+      }
   public void setHost(String host) {
     this.host = host;
   }
-
   public EventCreateRequest priority(EventPriority priority) {
     this.priority = JsonNullable.<EventPriority>of(priority);
     return this;
   }
 
   /**
-   * The priority of the event. For example, <code>normal</code> or <code>low</code>.
-   *
+   * <p>The priority of the event. For example, <code>normal</code> or <code>low</code>.</p>
    * @return priority
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public EventPriority getPriority() {
-    return priority.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public EventPriority getPriority() {
+        return priority.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<EventPriority> getPriority_JsonNullable() {
     return priority;
   }
-
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  public void setPriority_JsonNullable(JsonNullable<EventPriority> priority) {
+  @JsonProperty(JSON_PROPERTY_PRIORITY)public void setPriority_JsonNullable(JsonNullable<EventPriority> priority) {
     this.priority = priority;
   }
-
   public void setPriority(EventPriority priority) {
     if (!priority.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.priority = JsonNullable.<EventPriority>of(priority);
   }
-
   public EventCreateRequest relatedEventId(Long relatedEventId) {
     this.relatedEventId = relatedEventId;
     return this;
   }
 
   /**
-   * ID of the parent event. Must be sent as an integer (that is no quotes).
-   *
+   * <p>ID of the parent event. Must be sent as an integer (that is no quotes).</p>
    * @return relatedEventId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATED_EVENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRelatedEventId() {
-    return relatedEventId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RELATED_EVENT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRelatedEventId() {
+        return relatedEventId;
+      }
   public void setRelatedEventId(Long relatedEventId) {
     this.relatedEventId = relatedEventId;
   }
-
   public EventCreateRequest sourceTypeName(String sourceTypeName) {
     this.sourceTypeName = sourceTypeName;
     return this;
   }
 
   /**
-   * The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef,
-   * puppet, git, bitbucket, etc. A complete list of source attribute values <a
-   * href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">available
-   * here</a>.
-   *
+   * <p>The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc.
+   * A complete list of source attribute values <a href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">available here</a>.</p>
    * @return sourceTypeName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCE_TYPE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSourceTypeName() {
-    return sourceTypeName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOURCE_TYPE_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSourceTypeName() {
+        return sourceTypeName;
+      }
   public void setSourceTypeName(String sourceTypeName) {
     this.sourceTypeName = sourceTypeName;
   }
-
   public EventCreateRequest tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public EventCreateRequest addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -288,72 +278,68 @@ public class EventCreateRequest {
   }
 
   /**
-   * A list of tags to apply to the event.
-   *
+   * <p>A list of tags to apply to the event.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public EventCreateRequest text(String text) {
     this.text = text;
     return this;
   }
 
   /**
-   * The body of the event. Limited to 4000 characters. The text supports markdown. To use markdown
-   * in the event text, start the text block with <code>%%% \n</code> and end the text block with
-   * <code>\n %%%</code>. Use <code>msg_text</code> with the Datadog Ruby library.
-   *
+   * <p>The body of the event. Limited to 4000 characters. The text supports markdown.
+   * To use markdown in the event text, start the text block with <code>%%% \n</code> and end the text block with <code>\n %%%</code>.
+   * Use <code>msg_text</code> with the Datadog Ruby library.</p>
    * @return text
-   */
-  @JsonProperty(JSON_PROPERTY_TEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getText() {
-    return text;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TEXT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getText() {
+        return text;
+      }
   public void setText(String text) {
     this.text = text;
   }
-
   public EventCreateRequest title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The event title.
-   *
+   * <p>The event title.</p>
    * @return title
-   */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -362,7 +348,7 @@ public class EventCreateRequest {
   @JsonAnySetter
   public EventCreateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -386,12 +372,14 @@ public class EventCreateRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this EventCreateRequest object is equal to o. */
+  /**
+   * Return true if this EventCreateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -401,35 +389,13 @@ public class EventCreateRequest {
       return false;
     }
     EventCreateRequest eventCreateRequest = (EventCreateRequest) o;
-    return Objects.equals(this.aggregationKey, eventCreateRequest.aggregationKey)
-        && Objects.equals(this.alertType, eventCreateRequest.alertType)
-        && Objects.equals(this.dateHappened, eventCreateRequest.dateHappened)
-        && Objects.equals(this.deviceName, eventCreateRequest.deviceName)
-        && Objects.equals(this.host, eventCreateRequest.host)
-        && Objects.equals(this.priority, eventCreateRequest.priority)
-        && Objects.equals(this.relatedEventId, eventCreateRequest.relatedEventId)
-        && Objects.equals(this.sourceTypeName, eventCreateRequest.sourceTypeName)
-        && Objects.equals(this.tags, eventCreateRequest.tags)
-        && Objects.equals(this.text, eventCreateRequest.text)
-        && Objects.equals(this.title, eventCreateRequest.title)
-        && Objects.equals(this.additionalProperties, eventCreateRequest.additionalProperties);
+    return Objects.equals(this.aggregationKey, eventCreateRequest.aggregationKey) && Objects.equals(this.alertType, eventCreateRequest.alertType) && Objects.equals(this.dateHappened, eventCreateRequest.dateHappened) && Objects.equals(this.deviceName, eventCreateRequest.deviceName) && Objects.equals(this.host, eventCreateRequest.host) && Objects.equals(this.priority, eventCreateRequest.priority) && Objects.equals(this.relatedEventId, eventCreateRequest.relatedEventId) && Objects.equals(this.sourceTypeName, eventCreateRequest.sourceTypeName) && Objects.equals(this.tags, eventCreateRequest.tags) && Objects.equals(this.text, eventCreateRequest.text) && Objects.equals(this.title, eventCreateRequest.title) && Objects.equals(this.additionalProperties, eventCreateRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        aggregationKey,
-        alertType,
-        dateHappened,
-        deviceName,
-        host,
-        priority,
-        relatedEventId,
-        sourceTypeName,
-        tags,
-        text,
-        title,
-        additionalProperties);
+    return Objects.hash(aggregationKey,alertType,dateHappened,deviceName,host,priority,relatedEventId,sourceTypeName,tags,text,title, additionalProperties);
   }
 
   @Override
@@ -455,7 +421,8 @@ public class EventCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

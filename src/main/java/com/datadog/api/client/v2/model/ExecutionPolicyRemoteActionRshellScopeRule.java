@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A rule restricting remote shell access to specific paths. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A rule restricting remote shell access to specific paths.</p>
+ */
 @JsonPropertyOrder({
   ExecutionPolicyRemoteActionRshellScopeRule.JSON_PROPERTY_ACCESS,
   ExecutionPolicyRemoteActionRshellScopeRule.JSON_PROPERTY_TARGET_PATHS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ExecutionPolicyRemoteActionRshellScopeRule {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS = "access";
   private ExecutionPolicyRemoteActionRshellAccess access;
 
@@ -38,83 +52,76 @@ public class ExecutionPolicyRemoteActionRshellScopeRule {
 
   @JsonCreator
   public ExecutionPolicyRemoteActionRshellScopeRule(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACCESS)
-          ExecutionPolicyRemoteActionRshellAccess access,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET_PATHS) List<String> targetPaths) {
-    this.access = access;
-    this.unparsed |= !access.isValid();
-    this.targetPaths = targetPaths;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ACCESS)ExecutionPolicyRemoteActionRshellAccess access,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET_PATHS)List<String> targetPaths) {
+        this.access = access;
+        this.unparsed |= !access.isValid();
+        this.targetPaths = targetPaths;
   }
-
-  public ExecutionPolicyRemoteActionRshellScopeRule access(
-      ExecutionPolicyRemoteActionRshellAccess access) {
+  public ExecutionPolicyRemoteActionRshellScopeRule access(ExecutionPolicyRemoteActionRshellAccess access) {
     this.access = access;
     this.unparsed |= !access.isValid();
     return this;
   }
 
   /**
-   * The level of remote shell access granted for the target paths.
-   *
+   * <p>The level of remote shell access granted for the target paths.</p>
    * @return access
-   */
-  @JsonProperty(JSON_PROPERTY_ACCESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ExecutionPolicyRemoteActionRshellAccess getAccess() {
-    return access;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ACCESS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ExecutionPolicyRemoteActionRshellAccess getAccess() {
+        return access;
+      }
   public void setAccess(ExecutionPolicyRemoteActionRshellAccess access) {
     if (!access.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.access = access;
   }
-
   public ExecutionPolicyRemoteActionRshellScopeRule targetPaths(List<String> targetPaths) {
     this.targetPaths = targetPaths;
     return this;
   }
-
   public ExecutionPolicyRemoteActionRshellScopeRule addTargetPathsItem(String targetPathsItem) {
     this.targetPaths.add(targetPathsItem);
     return this;
   }
 
   /**
-   * The file system paths this rule applies to.
-   *
+   * <p>The file system paths this rule applies to.</p>
    * @return targetPaths
-   */
-  @JsonProperty(JSON_PROPERTY_TARGET_PATHS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getTargetPaths() {
-    return targetPaths;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TARGET_PATHS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getTargetPaths() {
+        return targetPaths;
+      }
   public void setTargetPaths(List<String> targetPaths) {
     this.targetPaths = targetPaths;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ExecutionPolicyRemoteActionRshellScopeRule
    */
   @JsonAnySetter
-  public ExecutionPolicyRemoteActionRshellScopeRule putAdditionalProperty(
-      String key, Object value) {
+  public ExecutionPolicyRemoteActionRshellScopeRule putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -138,12 +145,14 @@ public class ExecutionPolicyRemoteActionRshellScopeRule {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ExecutionPolicyRemoteActionRshellScopeRule object is equal to o. */
+  /**
+   * Return true if this ExecutionPolicyRemoteActionRshellScopeRule object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -152,18 +161,14 @@ public class ExecutionPolicyRemoteActionRshellScopeRule {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExecutionPolicyRemoteActionRshellScopeRule executionPolicyRemoteActionRshellScopeRule =
-        (ExecutionPolicyRemoteActionRshellScopeRule) o;
-    return Objects.equals(this.access, executionPolicyRemoteActionRshellScopeRule.access)
-        && Objects.equals(this.targetPaths, executionPolicyRemoteActionRshellScopeRule.targetPaths)
-        && Objects.equals(
-            this.additionalProperties,
-            executionPolicyRemoteActionRshellScopeRule.additionalProperties);
+    ExecutionPolicyRemoteActionRshellScopeRule executionPolicyRemoteActionRshellScopeRule = (ExecutionPolicyRemoteActionRshellScopeRule) o;
+    return Objects.equals(this.access, executionPolicyRemoteActionRshellScopeRule.access) && Objects.equals(this.targetPaths, executionPolicyRemoteActionRshellScopeRule.targetPaths) && Objects.equals(this.additionalProperties, executionPolicyRemoteActionRshellScopeRule.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(access, targetPaths, additionalProperties);
+    return Objects.hash(access,targetPaths, additionalProperties);
   }
 
   @Override
@@ -180,7 +185,8 @@ public class ExecutionPolicyRemoteActionRshellScopeRule {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of an entity risk score. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of an entity risk score.</p>
+ */
 @JsonPropertyOrder({
   SecurityEntityRiskScoreAttributes.JSON_PROPERTY_ACCOUNT_IDS,
   SecurityEntityRiskScoreAttributes.JSON_PROPERTY_CONFIG_RISKS,
@@ -38,10 +52,10 @@ import java.util.Objects;
   SecurityEntityRiskScoreAttributes.JSON_PROPERTY_SEVERITY,
   SecurityEntityRiskScoreAttributes.JSON_PROPERTY_SIGNALS_DETECTED
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityEntityRiskScoreAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_IDS = "accountIds";
   private List<String> accountIds = new ArrayList<>();
 
@@ -94,67 +108,56 @@ public class SecurityEntityRiskScoreAttributes {
 
   @JsonCreator
   public SecurityEntityRiskScoreAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_IDS) List<String> accountIds,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG_RISKS)
-          SecurityEntityConfigRisks configRisks,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENTITY_METADATA)
-          SecurityEntityMetadata entityMetadata,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENTITY_PROVIDERS)
-          List<String> entityProviders,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENTITY_SUB_TYPES)
-          List<String> entitySubTypes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FIRST_DETECTED) Long firstDetected,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LAST_ACTIVITY_TITLE)
-          String lastActivityTitle,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LAST_DETECTED) Long lastDetected,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RISK_SCORE) Long riskScore,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RISK_SCORE_EVOLUTION)
-          Long riskScoreEvolution,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEVERITY)
-          SecurityEntityRiskScoreAttributesSeverity severity,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SIGNALS_DETECTED) Long signalsDetected) {
-    this.accountIds = accountIds;
-    this.configRisks = configRisks;
-    this.unparsed |= configRisks.unparsed;
-    this.entityMetadata = entityMetadata;
-    this.unparsed |= entityMetadata.unparsed;
-    this.entityProviders = entityProviders;
-    this.entitySubTypes = entitySubTypes;
-    this.firstDetected = firstDetected;
-    this.lastActivityTitle = lastActivityTitle;
-    this.lastDetected = lastDetected;
-    this.riskScore = riskScore;
-    this.riskScoreEvolution = riskScoreEvolution;
-    this.severity = severity;
-    this.unparsed |= !severity.isValid();
-    this.signalsDetected = signalsDetected;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ACCOUNT_IDS)List<String> accountIds,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CONFIG_RISKS)SecurityEntityConfigRisks configRisks,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ENTITY_METADATA)SecurityEntityMetadata entityMetadata,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ENTITY_PROVIDERS)List<String> entityProviders,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ENTITY_SUB_TYPES)List<String> entitySubTypes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_FIRST_DETECTED)Long firstDetected,
+            @JsonProperty(required=true, value=JSON_PROPERTY_LAST_ACTIVITY_TITLE)String lastActivityTitle,
+            @JsonProperty(required=true, value=JSON_PROPERTY_LAST_DETECTED)Long lastDetected,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RISK_SCORE)Long riskScore,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RISK_SCORE_EVOLUTION)Long riskScoreEvolution,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SEVERITY)SecurityEntityRiskScoreAttributesSeverity severity,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SIGNALS_DETECTED)Long signalsDetected) {
+        this.accountIds = accountIds;
+        this.configRisks = configRisks;
+        this.unparsed |= configRisks.unparsed;
+        this.entityMetadata = entityMetadata;
+        this.unparsed |= entityMetadata.unparsed;
+        this.entityProviders = entityProviders;
+        this.entitySubTypes = entitySubTypes;
+        this.firstDetected = firstDetected;
+        this.lastActivityTitle = lastActivityTitle;
+        this.lastDetected = lastDetected;
+        this.riskScore = riskScore;
+        this.riskScoreEvolution = riskScoreEvolution;
+        this.severity = severity;
+        this.unparsed |= !severity.isValid();
+        this.signalsDetected = signalsDetected;
   }
-
   public SecurityEntityRiskScoreAttributes accountIds(List<String> accountIds) {
     this.accountIds = accountIds;
     return this;
   }
-
   public SecurityEntityRiskScoreAttributes addAccountIdsItem(String accountIdsItem) {
     this.accountIds.add(accountIdsItem);
     return this;
   }
 
   /**
-   * Cloud account IDs associated with the entity.
-   *
+   * <p>Cloud account IDs associated with the entity.</p>
    * @return accountIds
-   */
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_IDS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getAccountIds() {
-    return accountIds;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ACCOUNT_IDS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getAccountIds() {
+        return accountIds;
+      }
   public void setAccountIds(List<String> accountIds) {
     this.accountIds = accountIds;
   }
-
   public SecurityEntityRiskScoreAttributes configRisks(SecurityEntityConfigRisks configRisks) {
     this.configRisks = configRisks;
     this.unparsed |= configRisks.unparsed;
@@ -162,23 +165,21 @@ public class SecurityEntityRiskScoreAttributes {
   }
 
   /**
-   * Configuration risks associated with the entity
-   *
+   * <p>Configuration risks associated with the entity</p>
    * @return configRisks
-   */
-  @JsonProperty(JSON_PROPERTY_CONFIG_RISKS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityEntityConfigRisks getConfigRisks() {
-    return configRisks;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CONFIG_RISKS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SecurityEntityConfigRisks getConfigRisks() {
+        return configRisks;
+      }
   public void setConfigRisks(SecurityEntityConfigRisks configRisks) {
     this.configRisks = configRisks;
     if (configRisks != null) {
       this.unparsed |= configRisks.unparsed;
     }
   }
-
   public SecurityEntityRiskScoreAttributes entityMetadata(SecurityEntityMetadata entityMetadata) {
     this.entityMetadata = entityMetadata;
     this.unparsed |= entityMetadata.unparsed;
@@ -186,74 +187,66 @@ public class SecurityEntityRiskScoreAttributes {
   }
 
   /**
-   * Metadata about the entity from cloud providers
-   *
+   * <p>Metadata about the entity from cloud providers</p>
    * @return entityMetadata
-   */
-  @JsonProperty(JSON_PROPERTY_ENTITY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityEntityMetadata getEntityMetadata() {
-    return entityMetadata;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ENTITY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SecurityEntityMetadata getEntityMetadata() {
+        return entityMetadata;
+      }
   public void setEntityMetadata(SecurityEntityMetadata entityMetadata) {
     this.entityMetadata = entityMetadata;
     if (entityMetadata != null) {
       this.unparsed |= entityMetadata.unparsed;
     }
   }
-
   public SecurityEntityRiskScoreAttributes entityName(String entityName) {
     this.entityName = entityName;
     return this;
   }
 
   /**
-   * Human-readable name of the entity.
-   *
+   * <p>Human-readable name of the entity.</p>
    * @return entityName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENTITY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEntityName() {
-    return entityName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENTITY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEntityName() {
+        return entityName;
+      }
   public void setEntityName(String entityName) {
     this.entityName = entityName;
   }
-
   public SecurityEntityRiskScoreAttributes entityProviders(List<String> entityProviders) {
     this.entityProviders = entityProviders;
     return this;
   }
-
   public SecurityEntityRiskScoreAttributes addEntityProvidersItem(String entityProvidersItem) {
     this.entityProviders.add(entityProvidersItem);
     return this;
   }
 
   /**
-   * Cloud providers associated with the entity.
-   *
+   * <p>Cloud providers associated with the entity.</p>
    * @return entityProviders
-   */
-  @JsonProperty(JSON_PROPERTY_ENTITY_PROVIDERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getEntityProviders() {
-    return entityProviders;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ENTITY_PROVIDERS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getEntityProviders() {
+        return entityProviders;
+      }
   public void setEntityProviders(List<String> entityProviders) {
     this.entityProviders = entityProviders;
   }
-
   public SecurityEntityRiskScoreAttributes entityRoles(List<String> entityRoles) {
     this.entityRoles = entityRoles;
     return this;
   }
-
   public SecurityEntityRiskScoreAttributes addEntityRolesItem(String entityRolesItem) {
     if (this.entityRoles == null) {
       this.entityRoles = new ArrayList<>();
@@ -263,72 +256,64 @@ public class SecurityEntityRiskScoreAttributes {
   }
 
   /**
-   * Roles associated with the entity.
-   *
+   * <p>Roles associated with the entity.</p>
    * @return entityRoles
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENTITY_ROLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getEntityRoles() {
-    return entityRoles;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENTITY_ROLES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getEntityRoles() {
+        return entityRoles;
+      }
   public void setEntityRoles(List<String> entityRoles) {
     this.entityRoles = entityRoles;
   }
-
   public SecurityEntityRiskScoreAttributes entitySubTypes(List<String> entitySubTypes) {
     this.entitySubTypes = entitySubTypes;
     return this;
   }
-
   public SecurityEntityRiskScoreAttributes addEntitySubTypesItem(String entitySubTypesItem) {
     this.entitySubTypes.add(entitySubTypesItem);
     return this;
   }
 
   /**
-   * Sub-types associated with the entity.
-   *
+   * <p>Sub-types associated with the entity.</p>
    * @return entitySubTypes
-   */
-  @JsonProperty(JSON_PROPERTY_ENTITY_SUB_TYPES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getEntitySubTypes() {
-    return entitySubTypes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ENTITY_SUB_TYPES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getEntitySubTypes() {
+        return entitySubTypes;
+      }
   public void setEntitySubTypes(List<String> entitySubTypes) {
     this.entitySubTypes = entitySubTypes;
   }
-
   public SecurityEntityRiskScoreAttributes entityType(String entityType) {
     this.entityType = entityType;
     return this;
   }
 
   /**
-   * Type of the entity (for example, aws_iam_user, aws_ec2_instance).
-   *
+   * <p>Type of the entity (for example, aws_iam_user, aws_ec2_instance).</p>
    * @return entityType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEntityType() {
-    return entityType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEntityType() {
+        return entityType;
+      }
   public void setEntityType(String entityType) {
     this.entityType = entityType;
   }
-
   public SecurityEntityRiskScoreAttributes entityTypes(List<String> entityTypes) {
     this.entityTypes = entityTypes;
     return this;
   }
-
   public SecurityEntityRiskScoreAttributes addEntityTypesItem(String entityTypesItem) {
     if (this.entityTypes == null) {
       this.entityTypes = new ArrayList<>();
@@ -338,175 +323,160 @@ public class SecurityEntityRiskScoreAttributes {
   }
 
   /**
-   * All types associated with the entity.
-   *
+   * <p>All types associated with the entity.</p>
    * @return entityTypes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getEntityTypes() {
-    return entityTypes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getEntityTypes() {
+        return entityTypes;
+      }
   public void setEntityTypes(List<String> entityTypes) {
     this.entityTypes = entityTypes;
   }
-
   public SecurityEntityRiskScoreAttributes firstDetected(Long firstDetected) {
     this.firstDetected = firstDetected;
     return this;
   }
 
   /**
-   * Timestamp when the entity was first detected (Unix milliseconds).
-   *
+   * <p>Timestamp when the entity was first detected (Unix milliseconds).</p>
    * @return firstDetected
-   */
-  @JsonProperty(JSON_PROPERTY_FIRST_DETECTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getFirstDetected() {
-    return firstDetected;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FIRST_DETECTED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getFirstDetected() {
+        return firstDetected;
+      }
   public void setFirstDetected(Long firstDetected) {
     this.firstDetected = firstDetected;
   }
-
   public SecurityEntityRiskScoreAttributes lastActivityTitle(String lastActivityTitle) {
     this.lastActivityTitle = lastActivityTitle;
     return this;
   }
 
   /**
-   * Title of the most recent signal detected for this entity.
-   *
+   * <p>Title of the most recent signal detected for this entity.</p>
    * @return lastActivityTitle
-   */
-  @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getLastActivityTitle() {
-    return lastActivityTitle;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getLastActivityTitle() {
+        return lastActivityTitle;
+      }
   public void setLastActivityTitle(String lastActivityTitle) {
     this.lastActivityTitle = lastActivityTitle;
   }
-
   public SecurityEntityRiskScoreAttributes lastDetected(Long lastDetected) {
     this.lastDetected = lastDetected;
     return this;
   }
 
   /**
-   * Timestamp when the entity was last detected (Unix milliseconds).
-   *
+   * <p>Timestamp when the entity was last detected (Unix milliseconds).</p>
    * @return lastDetected
-   */
-  @JsonProperty(JSON_PROPERTY_LAST_DETECTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getLastDetected() {
-    return lastDetected;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_LAST_DETECTED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getLastDetected() {
+        return lastDetected;
+      }
   public void setLastDetected(Long lastDetected) {
     this.lastDetected = lastDetected;
   }
-
   public SecurityEntityRiskScoreAttributes riskScore(Long riskScore) {
     this.riskScore = riskScore;
     return this;
   }
 
   /**
-   * Current risk score for the entity.
-   *
+   * <p>Current risk score for the entity.</p>
    * @return riskScore
-   */
-  @JsonProperty(JSON_PROPERTY_RISK_SCORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getRiskScore() {
-    return riskScore;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RISK_SCORE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getRiskScore() {
+        return riskScore;
+      }
   public void setRiskScore(Long riskScore) {
     this.riskScore = riskScore;
   }
-
   public SecurityEntityRiskScoreAttributes riskScoreEvolution(Long riskScoreEvolution) {
     this.riskScoreEvolution = riskScoreEvolution;
     return this;
   }
 
   /**
-   * Change in risk score compared to previous period.
-   *
+   * <p>Change in risk score compared to previous period.</p>
    * @return riskScoreEvolution
-   */
-  @JsonProperty(JSON_PROPERTY_RISK_SCORE_EVOLUTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getRiskScoreEvolution() {
-    return riskScoreEvolution;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RISK_SCORE_EVOLUTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getRiskScoreEvolution() {
+        return riskScoreEvolution;
+      }
   public void setRiskScoreEvolution(Long riskScoreEvolution) {
     this.riskScoreEvolution = riskScoreEvolution;
   }
-
-  public SecurityEntityRiskScoreAttributes severity(
-      SecurityEntityRiskScoreAttributesSeverity severity) {
+  public SecurityEntityRiskScoreAttributes severity(SecurityEntityRiskScoreAttributesSeverity severity) {
     this.severity = severity;
     this.unparsed |= !severity.isValid();
     return this;
   }
 
   /**
-   * Severity level based on risk score
-   *
+   * <p>Severity level based on risk score</p>
    * @return severity
-   */
-  @JsonProperty(JSON_PROPERTY_SEVERITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityEntityRiskScoreAttributesSeverity getSeverity() {
-    return severity;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SEVERITY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SecurityEntityRiskScoreAttributesSeverity getSeverity() {
+        return severity;
+      }
   public void setSeverity(SecurityEntityRiskScoreAttributesSeverity severity) {
     if (!severity.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.severity = severity;
   }
-
   public SecurityEntityRiskScoreAttributes signalsDetected(Long signalsDetected) {
     this.signalsDetected = signalsDetected;
     return this;
   }
 
   /**
-   * Number of security signals detected for this entity.
-   *
+   * <p>Number of security signals detected for this entity.</p>
    * @return signalsDetected
-   */
-  @JsonProperty(JSON_PROPERTY_SIGNALS_DETECTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getSignalsDetected() {
-    return signalsDetected;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SIGNALS_DETECTED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getSignalsDetected() {
+        return signalsDetected;
+      }
   public void setSignalsDetected(Long signalsDetected) {
     this.signalsDetected = signalsDetected;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -515,7 +485,7 @@ public class SecurityEntityRiskScoreAttributes {
   @JsonAnySetter
   public SecurityEntityRiskScoreAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -539,12 +509,14 @@ public class SecurityEntityRiskScoreAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityEntityRiskScoreAttributes object is equal to o. */
+  /**
+   * Return true if this SecurityEntityRiskScoreAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -553,50 +525,14 @@ public class SecurityEntityRiskScoreAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityEntityRiskScoreAttributes securityEntityRiskScoreAttributes =
-        (SecurityEntityRiskScoreAttributes) o;
-    return Objects.equals(this.accountIds, securityEntityRiskScoreAttributes.accountIds)
-        && Objects.equals(this.configRisks, securityEntityRiskScoreAttributes.configRisks)
-        && Objects.equals(this.entityMetadata, securityEntityRiskScoreAttributes.entityMetadata)
-        && Objects.equals(this.entityName, securityEntityRiskScoreAttributes.entityName)
-        && Objects.equals(this.entityProviders, securityEntityRiskScoreAttributes.entityProviders)
-        && Objects.equals(this.entityRoles, securityEntityRiskScoreAttributes.entityRoles)
-        && Objects.equals(this.entitySubTypes, securityEntityRiskScoreAttributes.entitySubTypes)
-        && Objects.equals(this.entityType, securityEntityRiskScoreAttributes.entityType)
-        && Objects.equals(this.entityTypes, securityEntityRiskScoreAttributes.entityTypes)
-        && Objects.equals(this.firstDetected, securityEntityRiskScoreAttributes.firstDetected)
-        && Objects.equals(
-            this.lastActivityTitle, securityEntityRiskScoreAttributes.lastActivityTitle)
-        && Objects.equals(this.lastDetected, securityEntityRiskScoreAttributes.lastDetected)
-        && Objects.equals(this.riskScore, securityEntityRiskScoreAttributes.riskScore)
-        && Objects.equals(
-            this.riskScoreEvolution, securityEntityRiskScoreAttributes.riskScoreEvolution)
-        && Objects.equals(this.severity, securityEntityRiskScoreAttributes.severity)
-        && Objects.equals(this.signalsDetected, securityEntityRiskScoreAttributes.signalsDetected)
-        && Objects.equals(
-            this.additionalProperties, securityEntityRiskScoreAttributes.additionalProperties);
+    SecurityEntityRiskScoreAttributes securityEntityRiskScoreAttributes = (SecurityEntityRiskScoreAttributes) o;
+    return Objects.equals(this.accountIds, securityEntityRiskScoreAttributes.accountIds) && Objects.equals(this.configRisks, securityEntityRiskScoreAttributes.configRisks) && Objects.equals(this.entityMetadata, securityEntityRiskScoreAttributes.entityMetadata) && Objects.equals(this.entityName, securityEntityRiskScoreAttributes.entityName) && Objects.equals(this.entityProviders, securityEntityRiskScoreAttributes.entityProviders) && Objects.equals(this.entityRoles, securityEntityRiskScoreAttributes.entityRoles) && Objects.equals(this.entitySubTypes, securityEntityRiskScoreAttributes.entitySubTypes) && Objects.equals(this.entityType, securityEntityRiskScoreAttributes.entityType) && Objects.equals(this.entityTypes, securityEntityRiskScoreAttributes.entityTypes) && Objects.equals(this.firstDetected, securityEntityRiskScoreAttributes.firstDetected) && Objects.equals(this.lastActivityTitle, securityEntityRiskScoreAttributes.lastActivityTitle) && Objects.equals(this.lastDetected, securityEntityRiskScoreAttributes.lastDetected) && Objects.equals(this.riskScore, securityEntityRiskScoreAttributes.riskScore) && Objects.equals(this.riskScoreEvolution, securityEntityRiskScoreAttributes.riskScoreEvolution) && Objects.equals(this.severity, securityEntityRiskScoreAttributes.severity) && Objects.equals(this.signalsDetected, securityEntityRiskScoreAttributes.signalsDetected) && Objects.equals(this.additionalProperties, securityEntityRiskScoreAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        accountIds,
-        configRisks,
-        entityMetadata,
-        entityName,
-        entityProviders,
-        entityRoles,
-        entitySubTypes,
-        entityType,
-        entityTypes,
-        firstDetected,
-        lastActivityTitle,
-        lastDetected,
-        riskScore,
-        riskScoreEvolution,
-        severity,
-        signalsDetected,
-        additionalProperties);
+    return Objects.hash(accountIds,configRisks,entityMetadata,entityName,entityProviders,entityRoles,entitySubTypes,entityType,entityTypes,firstDetected,lastActivityTitle,lastDetected,riskScore,riskScoreEvolution,severity,signalsDetected, additionalProperties);
   }
 
   @Override
@@ -627,7 +563,8 @@ public class SecurityEntityRiskScoreAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

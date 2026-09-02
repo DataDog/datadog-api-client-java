@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Updated heat map widget. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Updated heat map widget.</p>
+ */
 @JsonPropertyOrder({
   HeatMapWidgetRequest.JSON_PROPERTY_APM_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
@@ -36,10 +51,10 @@ import java.util.Objects;
   HeatMapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_STYLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HeatMapWidgetRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
 
@@ -92,24 +107,22 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return apmQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APM_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getApmQuery() {
-    return apmQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APM_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getApmQuery() {
+        return apmQuery;
+      }
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
     if (apmQuery != null) {
       this.unparsed |= apmQuery.unparsed;
     }
   }
-
   public HeatMapWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     this.unparsed |= eventQuery.unparsed;
@@ -117,34 +130,31 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * The event query.
-   *
+   * <p>The event query.</p>
    * @return eventQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EventQueryDefinition getEventQuery() {
-    return eventQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public EventQueryDefinition getEventQuery() {
+        return eventQuery;
+      }
   public void setEventQuery(EventQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     if (eventQuery != null) {
       this.unparsed |= eventQuery.unparsed;
     }
   }
-
   public HeatMapWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
     if (formulas != null) {
-      for (WidgetFormula item : formulas) {
-        this.unparsed |= item.unparsed;
-      }
+    for (WidgetFormula item : formulas) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public HeatMapWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
     if (this.formulas == null) {
       this.formulas = new ArrayList<>();
@@ -155,17 +165,16 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * List of formulas that operate on queries.
-   *
+   * <p>List of formulas that operate on queries.</p>
    * @return formulas
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORMULAS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<WidgetFormula> getFormulas() {
-    return formulas;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FORMULAS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<WidgetFormula> getFormulas() {
+        return formulas;
+      }
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
     if (formulas != null) {
@@ -174,7 +183,6 @@ public class HeatMapWidgetRequest {
       }
     }
   }
-
   public HeatMapWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     this.unparsed |= logQuery.unparsed;
@@ -182,24 +190,22 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return logQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOG_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getLogQuery() {
-    return logQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOG_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getLogQuery() {
+        return logQuery;
+      }
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     if (logQuery != null) {
       this.unparsed |= logQuery.unparsed;
     }
   }
-
   public HeatMapWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
     this.unparsed |= networkQuery.unparsed;
@@ -207,24 +213,22 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return networkQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getNetworkQuery() {
-    return networkQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getNetworkQuery() {
+        return networkQuery;
+      }
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
     if (networkQuery != null) {
       this.unparsed |= networkQuery.unparsed;
     }
   }
-
   public HeatMapWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
     this.unparsed |= processQuery.unparsed;
@@ -232,24 +236,22 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * The process query to use in the widget.
-   *
+   * <p>The process query to use in the widget.</p>
    * @return processQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProcessQueryDefinition getProcessQuery() {
-    return processQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ProcessQueryDefinition getProcessQuery() {
+        return processQuery;
+      }
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
     if (processQuery != null) {
       this.unparsed |= processQuery.unparsed;
     }
   }
-
   public HeatMapWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
     this.unparsed |= profileMetricsQuery.unparsed;
@@ -257,58 +259,53 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return profileMetricsQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getProfileMetricsQuery() {
-    return profileMetricsQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getProfileMetricsQuery() {
+        return profileMetricsQuery;
+      }
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
     if (profileMetricsQuery != null) {
       this.unparsed |= profileMetricsQuery.unparsed;
     }
   }
-
   public HeatMapWidgetRequest q(String q) {
     this.q = q;
     return this;
   }
 
   /**
-   * Widget query. Deprecated - Use <code>queries</code> and <code>formulas</code> instead.
-   *
+   * <p>Widget query. Deprecated - Use <code>queries</code> and <code>formulas</code> instead.</p>
    * @return q
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_Q)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getQ() {
-    return q;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_Q)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getQ() {
+        return q;
+      }
   @Deprecated
   public void setQ(String q) {
     this.q = q;
   }
-
   public HeatMapWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
     if (queries != null) {
-      for (FormulaAndFunctionQueryDefinition item : queries) {
-        this.unparsed |= item.unparsed;
-      }
+    for (FormulaAndFunctionQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public HeatMapWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
     if (this.queries == null) {
       this.queries = new ArrayList<>();
@@ -319,17 +316,16 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * List of queries that can be returned directly or used in formulas.
-   *
+   * <p>List of queries that can be returned directly or used in formulas.</p>
    * @return queries
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FormulaAndFunctionQueryDefinition> getQueries() {
-    return queries;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_QUERIES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<FormulaAndFunctionQueryDefinition> getQueries() {
+        return queries;
+      }
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
     if (queries != null) {
@@ -338,7 +334,6 @@ public class HeatMapWidgetRequest {
       }
     }
   }
-
   public HeatMapWidgetRequest query(FormulaAndFunctionMetricQueryDefinition query) {
     this.query = query;
     this.unparsed |= query.unparsed;
@@ -346,24 +341,22 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * A formula and functions metrics query.
-   *
+   * <p>A formula and functions metrics query.</p>
    * @return query
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FormulaAndFunctionMetricQueryDefinition getQuery() {
-    return query;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public FormulaAndFunctionMetricQueryDefinition getQuery() {
+        return query;
+      }
   public void setQuery(FormulaAndFunctionMetricQueryDefinition query) {
     this.query = query;
     if (query != null) {
       this.unparsed |= query.unparsed;
     }
   }
-
   public HeatMapWidgetRequest requestType(WidgetHistogramRequestType requestType) {
     this.requestType = requestType;
     this.unparsed |= !requestType.isValid();
@@ -371,25 +364,22 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Request type for distribution of point values for distribution metrics. Query space aggregator
-   * must be <code>histogram:&lt;metric name&gt;</code> for points distributions.
-   *
+   * <p>Request type for distribution of point values for distribution metrics. Query space aggregator must be <code>histogram:&lt;metric name&gt;</code> for points distributions.</p>
    * @return requestType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetHistogramRequestType getRequestType() {
-    return requestType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetHistogramRequestType getRequestType() {
+        return requestType;
+      }
   public void setRequestType(WidgetHistogramRequestType requestType) {
     if (!requestType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.requestType = requestType;
   }
-
   public HeatMapWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
     this.unparsed |= !responseFormat.isValid();
@@ -397,25 +387,22 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap
-   * widgets.
-   *
+   * <p>Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.</p>
    * @return responseFormat
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FormulaAndFunctionResponseFormat getResponseFormat() {
-    return responseFormat;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public FormulaAndFunctionResponseFormat getResponseFormat() {
+        return responseFormat;
+      }
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     if (!responseFormat.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.responseFormat = responseFormat;
   }
-
   public HeatMapWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     this.unparsed |= rumQuery.unparsed;
@@ -423,24 +410,22 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return rumQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getRumQuery() {
-    return rumQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getRumQuery() {
+        return rumQuery;
+      }
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     if (rumQuery != null) {
       this.unparsed |= rumQuery.unparsed;
     }
   }
-
   public HeatMapWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
     this.unparsed |= securityQuery.unparsed;
@@ -448,24 +433,22 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return securityQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getSecurityQuery() {
-    return securityQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getSecurityQuery() {
+        return securityQuery;
+      }
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
     if (securityQuery != null) {
       this.unparsed |= securityQuery.unparsed;
     }
   }
-
   public HeatMapWidgetRequest style(WidgetStyle style) {
     this.style = style;
     this.unparsed |= style.unparsed;
@@ -473,17 +456,16 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Widget style definition.
-   *
+   * <p>Widget style definition.</p>
    * @return style
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STYLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetStyle getStyle() {
-    return style;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STYLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetStyle getStyle() {
+        return style;
+      }
   public void setStyle(WidgetStyle style) {
     this.style = style;
     if (style != null) {
@@ -492,14 +474,15 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -508,7 +491,7 @@ public class HeatMapWidgetRequest {
   @JsonAnySetter
   public HeatMapWidgetRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -532,12 +515,14 @@ public class HeatMapWidgetRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HeatMapWidgetRequest object is equal to o. */
+  /**
+   * Return true if this HeatMapWidgetRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -547,43 +532,13 @@ public class HeatMapWidgetRequest {
       return false;
     }
     HeatMapWidgetRequest heatMapWidgetRequest = (HeatMapWidgetRequest) o;
-    return Objects.equals(this.apmQuery, heatMapWidgetRequest.apmQuery)
-        && Objects.equals(this.eventQuery, heatMapWidgetRequest.eventQuery)
-        && Objects.equals(this.formulas, heatMapWidgetRequest.formulas)
-        && Objects.equals(this.logQuery, heatMapWidgetRequest.logQuery)
-        && Objects.equals(this.networkQuery, heatMapWidgetRequest.networkQuery)
-        && Objects.equals(this.processQuery, heatMapWidgetRequest.processQuery)
-        && Objects.equals(this.profileMetricsQuery, heatMapWidgetRequest.profileMetricsQuery)
-        && Objects.equals(this.q, heatMapWidgetRequest.q)
-        && Objects.equals(this.queries, heatMapWidgetRequest.queries)
-        && Objects.equals(this.query, heatMapWidgetRequest.query)
-        && Objects.equals(this.requestType, heatMapWidgetRequest.requestType)
-        && Objects.equals(this.responseFormat, heatMapWidgetRequest.responseFormat)
-        && Objects.equals(this.rumQuery, heatMapWidgetRequest.rumQuery)
-        && Objects.equals(this.securityQuery, heatMapWidgetRequest.securityQuery)
-        && Objects.equals(this.style, heatMapWidgetRequest.style)
-        && Objects.equals(this.additionalProperties, heatMapWidgetRequest.additionalProperties);
+    return Objects.equals(this.apmQuery, heatMapWidgetRequest.apmQuery) && Objects.equals(this.eventQuery, heatMapWidgetRequest.eventQuery) && Objects.equals(this.formulas, heatMapWidgetRequest.formulas) && Objects.equals(this.logQuery, heatMapWidgetRequest.logQuery) && Objects.equals(this.networkQuery, heatMapWidgetRequest.networkQuery) && Objects.equals(this.processQuery, heatMapWidgetRequest.processQuery) && Objects.equals(this.profileMetricsQuery, heatMapWidgetRequest.profileMetricsQuery) && Objects.equals(this.q, heatMapWidgetRequest.q) && Objects.equals(this.queries, heatMapWidgetRequest.queries) && Objects.equals(this.query, heatMapWidgetRequest.query) && Objects.equals(this.requestType, heatMapWidgetRequest.requestType) && Objects.equals(this.responseFormat, heatMapWidgetRequest.responseFormat) && Objects.equals(this.rumQuery, heatMapWidgetRequest.rumQuery) && Objects.equals(this.securityQuery, heatMapWidgetRequest.securityQuery) && Objects.equals(this.style, heatMapWidgetRequest.style) && Objects.equals(this.additionalProperties, heatMapWidgetRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        apmQuery,
-        eventQuery,
-        formulas,
-        logQuery,
-        networkQuery,
-        processQuery,
-        profileMetricsQuery,
-        q,
-        queries,
-        query,
-        requestType,
-        responseFormat,
-        rumQuery,
-        securityQuery,
-        style,
-        additionalProperties);
+    return Objects.hash(apmQuery,eventQuery,formulas,logQuery,networkQuery,processQuery,profileMetricsQuery,q,queries,query,requestType,responseFormat,rumQuery,securityQuery,style, additionalProperties);
   }
 
   @Override
@@ -596,9 +551,7 @@ public class HeatMapWidgetRequest {
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
-    sb.append("    profileMetricsQuery: ")
-        .append(toIndentedString(profileMetricsQuery))
-        .append("\n");
+    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
@@ -615,7 +568,8 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

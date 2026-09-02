@@ -6,27 +6,38 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Response with hourly report of all data billed by Datadog for all organizations.
- *
- * <p>For SDK users only: all fields at this response level are accessible through the <code>
- * additionalProperties</code> map. Existing typed-field getters are unchanged. New billing
- * dimensions will not have typed-field getters. Use <a
- * href="https://docs.datadoghq.com/api/latest/usage-metering/get-available-fields-for-usage-summary/">Get
- * available fields for usage summary</a> to enumerate every available key.
+   * <p>Response with hourly report of all data billed by Datadog for all organizations.</p>
+   * <p>For SDK users only: all fields at this response level are accessible through the
+   * <code>additionalProperties</code> map. Existing typed-field getters are unchanged. New billing
+   * dimensions will not have typed-field getters. Use
+   * <a href="https://docs.datadoghq.com/api/latest/usage-metering/get-available-fields-for-usage-summary/">Get available fields for usage summary</a>
+   * to enumerate every available key.</p>
  */
 @JsonPropertyOrder({
   UsageSummaryDate.JSON_PROPERTY_AGENT_HOST_TOP99P,
@@ -289,14 +300,10 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDRUN_INSTANCES_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_AVG,
-  UsageSummaryDate
-      .JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG,
-  UsageSummaryDate
-      .JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG,
-  UsageSummaryDate
-      .JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_CONTAINERAPP_INSTANCES_AVG,
-  UsageSummaryDate
-      .JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG,
+  UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG,
+  UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG,
+  UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_CONTAINERAPP_INSTANCES_AVG,
+  UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG,
@@ -335,41 +342,35 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSummaryDate {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P = "agent_host_top99p";
   private Long agentHostTop99p;
 
-  public static final String JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM =
-      "ai_credits_agent_builder_ai_credits_sum";
+  public static final String JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM = "ai_credits_agent_builder_ai_credits_sum";
   private Long aiCreditsAgentBuilderAiCreditsSum;
 
-  public static final String JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM =
-      "ai_credits_bits_assistant_ai_credits_sum";
+  public static final String JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM = "ai_credits_bits_assistant_ai_credits_sum";
   private Long aiCreditsBitsAssistantAiCreditsSum;
 
-  public static final String JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM =
-      "ai_credits_bits_dev_ai_credits_sum";
+  public static final String JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM = "ai_credits_bits_dev_ai_credits_sum";
   private Long aiCreditsBitsDevAiCreditsSum;
 
-  public static final String JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM =
-      "ai_credits_bits_sre_ai_credits_sum";
+  public static final String JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM = "ai_credits_bits_sre_ai_credits_sum";
   private Long aiCreditsBitsSreAiCreditsSum;
 
   public static final String JSON_PROPERTY_AI_CREDITS_SUM = "ai_credits_sum";
   private Long aiCreditsSum;
 
-  public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P =
-      "apm_azure_app_service_host_top99p";
+  public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P = "apm_azure_app_service_host_top99p";
   private Long apmAzureAppServiceHostTop99p;
 
   public static final String JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P = "apm_devsecops_host_top99p";
   private Long apmDevsecopsHostTop99p;
 
-  public static final String JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P =
-      "apm_enterprise_standalone_hosts_top99p";
+  public static final String JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P = "apm_enterprise_standalone_hosts_top99p";
   private Long apmEnterpriseStandaloneHostsTop99p;
 
   public static final String JSON_PROPERTY_APM_FARGATE_COUNT_AVG = "apm_fargate_count_avg";
@@ -378,8 +379,7 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
   private Long apmHostTop99p;
 
-  public static final String JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P =
-      "apm_pro_standalone_hosts_top99p";
+  public static final String JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P = "apm_pro_standalone_hosts_top99p";
   private Long apmProStandaloneHostsTop99p;
 
   public static final String JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG = "appsec_fargate_count_avg";
@@ -388,19 +388,16 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_ASM_SERVERLESS_SUM = "asm_serverless_sum";
   private Long asmServerlessSum;
 
-  public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM =
-      "audit_logs_lines_indexed_sum";
+  public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM = "audit_logs_lines_indexed_sum";
   private Long auditLogsLinesIndexedSum;
 
   public static final String JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM = "audit_trail_enabled_hwm";
   private Long auditTrailEnabledHwm;
 
-  public static final String JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM =
-      "audit_trail_event_forwarding_events_sum";
+  public static final String JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM = "audit_trail_event_forwarding_events_sum";
   private Long auditTrailEventForwardingEventsSum;
 
-  public static final String JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS =
-      "avg_profiled_fargate_tasks";
+  public static final String JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS = "avg_profiled_fargate_tasks";
   private Long avgProfiledFargateTasks;
 
   public static final String JSON_PROPERTY_AWS_HOST_TOP99P = "aws_host_top99p";
@@ -409,27 +406,22 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT = "aws_lambda_func_count";
   private Long awsLambdaFuncCount;
 
-  public static final String JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM =
-      "aws_lambda_invocations_sum";
+  public static final String JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM = "aws_lambda_invocations_sum";
   private Long awsLambdaInvocationsSum;
 
   public static final String JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P = "azure_app_service_top99p";
   private Long azureAppServiceTop99p;
 
-  public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM =
-      "billable_ingested_bytes_sum";
+  public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM = "billable_ingested_bytes_sum";
   private Long billableIngestedBytesSum;
 
-  public static final String JSON_PROPERTY_BITS_AI_INVESTIGATIONS_SUM =
-      "bits_ai_investigations_sum";
+  public static final String JSON_PROPERTY_BITS_AI_INVESTIGATIONS_SUM = "bits_ai_investigations_sum";
   private Long bitsAiInvestigationsSum;
 
-  public static final String JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM =
-      "browser_rum_lite_session_count_sum";
+  public static final String JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM = "browser_rum_lite_session_count_sum";
   private Long browserRumLiteSessionCountSum;
 
-  public static final String JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM =
-      "browser_rum_replay_session_count_sum";
+  public static final String JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM = "browser_rum_replay_session_count_sum";
   private Long browserRumReplaySessionCountSum;
 
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS_SUM = "browser_rum_units_sum";
@@ -474,69 +466,55 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_CCM_SNOWFLAKE_SPEND_LAST = "ccm_snowflake_spend_last";
   private Long ccmSnowflakeSpendLast;
 
-  public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST =
-      "ccm_spend_monitored_ent_last";
+  public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST = "ccm_spend_monitored_ent_last";
   private Long ccmSpendMonitoredEntLast;
 
-  public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST =
-      "ccm_spend_monitored_pro_last";
+  public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST = "ccm_spend_monitored_pro_last";
   private Long ccmSpendMonitoredProLast;
 
   public static final String JSON_PROPERTY_CCM_TWILIO_SPEND_LAST = "ccm_twilio_spend_last";
   private Long ccmTwilioSpendLast;
 
-  public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM =
-      "ci_pipeline_indexed_spans_sum";
+  public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM = "ci_pipeline_indexed_spans_sum";
   private Long ciPipelineIndexedSpansSum;
 
   public static final String JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM = "ci_test_indexed_spans_sum";
   private Long ciTestIndexedSpansSum;
 
-  public static final String JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM =
-      "ci_visibility_itr_committers_hwm";
+  public static final String JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM = "ci_visibility_itr_committers_hwm";
   private Long ciVisibilityItrCommittersHwm;
 
-  public static final String JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM =
-      "ci_visibility_pipeline_committers_hwm";
+  public static final String JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM = "ci_visibility_pipeline_committers_hwm";
   private Long ciVisibilityPipelineCommittersHwm;
 
-  public static final String JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM =
-      "ci_visibility_test_committers_hwm";
+  public static final String JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM = "ci_visibility_test_committers_hwm";
   private Long ciVisibilityTestCommittersHwm;
 
-  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG =
-      "cloud_cost_management_aws_host_count_avg";
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG = "cloud_cost_management_aws_host_count_avg";
   private Long cloudCostManagementAwsHostCountAvg;
 
-  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG =
-      "cloud_cost_management_azure_host_count_avg";
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG = "cloud_cost_management_azure_host_count_avg";
   private Long cloudCostManagementAzureHostCountAvg;
 
-  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG =
-      "cloud_cost_management_gcp_host_count_avg";
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG = "cloud_cost_management_gcp_host_count_avg";
   private Long cloudCostManagementGcpHostCountAvg;
 
-  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG =
-      "cloud_cost_management_host_count_avg";
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG = "cloud_cost_management_host_count_avg";
   private Long cloudCostManagementHostCountAvg;
 
-  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG =
-      "cloud_cost_management_oci_host_count_avg";
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG = "cloud_cost_management_oci_host_count_avg";
   private Long cloudCostManagementOciHostCountAvg;
 
   public static final String JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM = "cloud_siem_events_sum";
   private Long cloudSiemEventsSum;
 
-  public static final String JSON_PROPERTY_CLOUD_SIEM_INDEXED_LOGS_SUM =
-      "cloud_siem_indexed_logs_sum";
+  public static final String JSON_PROPERTY_CLOUD_SIEM_INDEXED_LOGS_SUM = "cloud_siem_indexed_logs_sum";
   private Long cloudSiemIndexedLogsSum;
 
-  public static final String JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM =
-      "code_analysis_sa_committers_hwm";
+  public static final String JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM = "code_analysis_sa_committers_hwm";
   private Long codeAnalysisSaCommittersHwm;
 
-  public static final String JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM =
-      "code_analysis_sca_committers_hwm";
+  public static final String JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM = "code_analysis_sca_committers_hwm";
   private Long codeAnalysisScaCommittersHwm;
 
   public static final String JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P = "code_security_host_top99p";
@@ -551,60 +529,46 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_CONTAINER_HWM = "container_hwm";
   private Long containerHwm;
 
-  public static final String JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM =
-      "csm_container_enterprise_compliance_count_sum";
+  public static final String JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM = "csm_container_enterprise_compliance_count_sum";
   private Long csmContainerEnterpriseComplianceCountSum;
 
-  public static final String JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM =
-      "csm_container_enterprise_cws_count_sum";
+  public static final String JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM = "csm_container_enterprise_cws_count_sum";
   private Long csmContainerEnterpriseCwsCountSum;
 
-  public static final String JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM =
-      "csm_container_enterprise_total_count_sum";
+  public static final String JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM = "csm_container_enterprise_total_count_sum";
   private Long csmContainerEnterpriseTotalCountSum;
 
-  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P =
-      "csm_host_enterprise_aas_host_count_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P = "csm_host_enterprise_aas_host_count_top99p";
   private Long csmHostEnterpriseAasHostCountTop99p;
 
-  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P =
-      "csm_host_enterprise_aws_host_count_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P = "csm_host_enterprise_aws_host_count_top99p";
   private Long csmHostEnterpriseAwsHostCountTop99p;
 
-  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P =
-      "csm_host_enterprise_azure_host_count_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P = "csm_host_enterprise_azure_host_count_top99p";
   private Long csmHostEnterpriseAzureHostCountTop99p;
 
-  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P =
-      "csm_host_enterprise_compliance_host_count_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P = "csm_host_enterprise_compliance_host_count_top99p";
   private Long csmHostEnterpriseComplianceHostCountTop99p;
 
-  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P =
-      "csm_host_enterprise_cws_host_count_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P = "csm_host_enterprise_cws_host_count_top99p";
   private Long csmHostEnterpriseCwsHostCountTop99p;
 
-  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P =
-      "csm_host_enterprise_gcp_host_count_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P = "csm_host_enterprise_gcp_host_count_top99p";
   private Long csmHostEnterpriseGcpHostCountTop99p;
 
-  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P =
-      "csm_host_enterprise_oci_host_count_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P = "csm_host_enterprise_oci_host_count_top99p";
   private Long csmHostEnterpriseOciHostCountTop99p;
 
-  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P =
-      "csm_host_enterprise_total_host_count_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P = "csm_host_enterprise_total_host_count_top99p";
   private Long csmHostEnterpriseTotalHostCountTop99p;
 
-  public static final String JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM =
-      "csm_host_pro_hosts_agentless_scanners_sum";
+  public static final String JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM = "csm_host_pro_hosts_agentless_scanners_sum";
   private Long csmHostProHostsAgentlessScannersSum;
 
-  public static final String JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P =
-      "csm_host_pro_hosts_agentless_scanners_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P = "csm_host_pro_hosts_agentless_scanners_top99p";
   private Long csmHostProHostsAgentlessScannersTop99p;
 
-  public static final String JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P =
-      "csm_host_pro_oci_host_count_top99p";
+  public static final String JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P = "csm_host_pro_oci_host_count_top99p";
   private Long csmHostProOciHostCountTop99p;
 
   public static final String JSON_PROPERTY_CSPM_AAS_HOST_TOP99P = "cspm_aas_host_top99p";
@@ -628,12 +592,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_CSPM_HOST_TOP99P = "cspm_host_top99p";
   private Long cspmHostTop99p;
 
-  public static final String JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM =
-      "cspm_hosts_agentless_scanners_sum";
+  public static final String JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM = "cspm_hosts_agentless_scanners_sum";
   private Long cspmHostsAgentlessScannersSum;
 
-  public static final String JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P =
-      "cspm_hosts_agentless_scanners_top99p";
+  public static final String JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P = "cspm_hosts_agentless_scanners_top99p";
   private Long cspmHostsAgentlessScannersTop99p;
 
   public static final String JSON_PROPERTY_CUSTOM_TS_AVG = "custom_ts_avg";
@@ -648,16 +610,13 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_CWS_HOST_TOP99P = "cws_host_top99p";
   private Long cwsHostTop99p;
 
-  public static final String JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM =
-      "data_jobs_monitoring_host_hr_sum";
+  public static final String JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM = "data_jobs_monitoring_host_hr_sum";
   private Long dataJobsMonitoringHostHrSum;
 
-  public static final String JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM =
-      "data_stream_monitoring_host_count_sum";
+  public static final String JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM = "data_stream_monitoring_host_count_sum";
   private Long dataStreamMonitoringHostCountSum;
 
-  public static final String JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P =
-      "data_stream_monitoring_host_count_top99p";
+  public static final String JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P = "data_stream_monitoring_host_count_top99p";
   private Long dataStreamMonitoringHostCountTop99p;
 
   public static final String JSON_PROPERTY_DATE = "date";
@@ -669,15 +628,13 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_DBM_QUERIES_COUNT_AVG = "dbm_queries_count_avg";
   private Long dbmQueriesCountAvg;
 
-  public static final String JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM =
-      "do_jobs_monitoring_orchestrators_job_hours_sum";
+  public static final String JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM = "do_jobs_monitoring_orchestrators_job_hours_sum";
   private Long doJobsMonitoringOrchestratorsJobHoursSum;
 
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM = "eph_infra_host_agent_sum";
   private Long ephInfraHostAgentSum;
 
-  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM =
-      "eph_infra_host_alibaba_sum";
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM = "eph_infra_host_alibaba_sum";
   private Long ephInfraHostAlibabaSum;
 
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM = "eph_infra_host_aws_sum";
@@ -686,12 +643,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM = "eph_infra_host_azure_sum";
   private Long ephInfraHostAzureSum;
 
-  public static final String JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_SUM =
-      "eph_infra_host_basic_infra_basic_agent_sum";
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_SUM = "eph_infra_host_basic_infra_basic_agent_sum";
   private Long ephInfraHostBasicInfraBasicAgentSum;
 
-  public static final String JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_SUM =
-      "eph_infra_host_basic_infra_basic_vsphere_sum";
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_SUM = "eph_infra_host_basic_infra_basic_vsphere_sum";
   private Long ephInfraHostBasicInfraBasicVsphereSum;
 
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_BASIC_SUM = "eph_infra_host_basic_sum";
@@ -706,67 +661,52 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_HEROKU_SUM = "eph_infra_host_heroku_sum";
   private Long ephInfraHostHerokuSum;
 
-  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ONLY_AAS_SUM =
-      "eph_infra_host_only_aas_sum";
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ONLY_AAS_SUM = "eph_infra_host_only_aas_sum";
   private Long ephInfraHostOnlyAasSum;
 
-  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM =
-      "eph_infra_host_only_vsphere_sum";
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM = "eph_infra_host_only_vsphere_sum";
   private Long ephInfraHostOnlyVsphereSum;
 
-  public static final String JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM =
-      "eph_infra_host_opentelemetry_apm_sum";
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM = "eph_infra_host_opentelemetry_apm_sum";
   private Long ephInfraHostOpentelemetryApmSum;
 
-  public static final String JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM =
-      "eph_infra_host_opentelemetry_sum";
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM = "eph_infra_host_opentelemetry_sum";
   private Long ephInfraHostOpentelemetrySum;
 
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_PRO_SUM = "eph_infra_host_pro_sum";
   private Long ephInfraHostProSum;
 
-  public static final String JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM =
-      "eph_infra_host_proplus_sum";
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM = "eph_infra_host_proplus_sum";
   private Long ephInfraHostProplusSum;
 
-  public static final String JSON_PROPERTY_EPH_INFRA_HOST_PROXMOX_SUM =
-      "eph_infra_host_proxmox_sum";
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_PROXMOX_SUM = "eph_infra_host_proxmox_sum";
   private Long ephInfraHostProxmoxSum;
 
-  public static final String JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM =
-      "error_tracking_apm_error_events_sum";
+  public static final String JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM = "error_tracking_apm_error_events_sum";
   private Long errorTrackingApmErrorEventsSum;
 
-  public static final String JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM =
-      "error_tracking_error_events_sum";
+  public static final String JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM = "error_tracking_error_events_sum";
   private Long errorTrackingErrorEventsSum;
 
   public static final String JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM = "error_tracking_events_sum";
   private Long errorTrackingEventsSum;
 
-  public static final String JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM =
-      "error_tracking_rum_error_events_sum";
+  public static final String JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM = "error_tracking_rum_error_events_sum";
   private Long errorTrackingRumErrorEventsSum;
 
-  public static final String JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM =
-      "event_management_correlation_correlated_events_sum";
+  public static final String JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM = "event_management_correlation_correlated_events_sum";
   private Long eventManagementCorrelationCorrelatedEventsSum;
 
-  public static final String
-      JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM =
-          "event_management_correlation_correlated_related_events_sum";
+  public static final String JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM = "event_management_correlation_correlated_related_events_sum";
   private Long eventManagementCorrelationCorrelatedRelatedEventsSum;
 
-  public static final String JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM =
-      "event_management_correlation_sum";
+  public static final String JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM = "event_management_correlation_sum";
   private Long eventManagementCorrelationSum;
 
-  public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG =
-      "fargate_container_profiler_profiling_fargate_avg";
+  public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG = "fargate_container_profiler_profiling_fargate_avg";
   private Long fargateContainerProfilerProfilingFargateAvg;
 
-  public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG =
-      "fargate_container_profiler_profiling_fargate_eks_avg";
+  public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG = "fargate_container_profiler_profiling_fargate_eks_avg";
   private Long fargateContainerProfilerProfilingFargateEksAvg;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG = "fargate_tasks_count_avg";
@@ -775,46 +715,37 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM = "fargate_tasks_count_hwm";
   private Long fargateTasksCountHwm;
 
-  public static final String JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM =
-      "feature_flags_config_requests_sum";
+  public static final String JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM = "feature_flags_config_requests_sum";
   private Long featureFlagsConfigRequestsSum;
 
-  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG =
-      "flex_logs_compute_large_avg";
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG = "flex_logs_compute_large_avg";
   private Long flexLogsComputeLargeAvg;
 
-  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG =
-      "flex_logs_compute_medium_avg";
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG = "flex_logs_compute_medium_avg";
   private Long flexLogsComputeMediumAvg;
 
-  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG =
-      "flex_logs_compute_small_avg";
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG = "flex_logs_compute_small_avg";
   private Long flexLogsComputeSmallAvg;
 
-  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG =
-      "flex_logs_compute_xlarge_avg";
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG = "flex_logs_compute_xlarge_avg";
   private Long flexLogsComputeXlargeAvg;
 
-  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG =
-      "flex_logs_compute_xsmall_avg";
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG = "flex_logs_compute_xsmall_avg";
   private Long flexLogsComputeXsmallAvg;
 
   public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_AVG = "flex_logs_starter_avg";
   private Long flexLogsStarterAvg;
 
-  public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG =
-      "flex_logs_starter_storage_index_avg";
+  public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG = "flex_logs_starter_storage_index_avg";
   private Long flexLogsStarterStorageIndexAvg;
 
-  public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG =
-      "flex_logs_starter_storage_retention_adjustment_avg";
+  public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG = "flex_logs_starter_storage_retention_adjustment_avg";
   private Long flexLogsStarterStorageRetentionAdjustmentAvg;
 
   public static final String JSON_PROPERTY_FLEX_STORED_LOGS_AVG = "flex_stored_logs_avg";
   private Long flexStoredLogsAvg;
 
-  public static final String JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM =
-      "forwarding_events_bytes_sum";
+  public static final String JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM = "forwarding_events_bytes_sum";
   private Long forwardingEventsBytesSum;
 
   public static final String JSON_PROPERTY_GCP_HOST_TOP99P = "gcp_host_top99p";
@@ -823,12 +754,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_HEROKU_HOST_TOP99P = "heroku_host_top99p";
   private Long herokuHostTop99p;
 
-  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM =
-      "incident_management_monthly_active_users_hwm";
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM = "incident_management_monthly_active_users_hwm";
   private Long incidentManagementMonthlyActiveUsersHwm;
 
-  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM =
-      "incident_management_seats_hwm";
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM = "incident_management_seats_hwm";
   private Long incidentManagementSeatsHwm;
 
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM = "indexed_events_count_sum";
@@ -840,131 +769,100 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_INFRA_CPU_AVG = "infra_cpu_avg";
   private Long infraCpuAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG =
-      "infra_cpu_default_infra_host_vcpu_agent_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG = "infra_cpu_default_infra_host_vcpu_agent_avg";
   private Long infraCpuDefaultInfraHostVcpuAgentAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG =
-      "infra_cpu_default_infra_host_vcpu_agent_basic_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG = "infra_cpu_default_infra_host_vcpu_agent_basic_avg";
   private Long infraCpuDefaultInfraHostVcpuAgentBasicAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM =
-      "infra_cpu_default_infra_host_vcpu_agent_basic_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM = "infra_cpu_default_infra_host_vcpu_agent_basic_sum";
   private Long infraCpuDefaultInfraHostVcpuAgentBasicSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM =
-      "infra_cpu_default_infra_host_vcpu_agent_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM = "infra_cpu_default_infra_host_vcpu_agent_sum";
   private Long infraCpuDefaultInfraHostVcpuAgentSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG =
-      "infra_cpu_default_infra_host_vcpu_aws_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG = "infra_cpu_default_infra_host_vcpu_aws_avg";
   private Long infraCpuDefaultInfraHostVcpuAwsAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM =
-      "infra_cpu_default_infra_host_vcpu_aws_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM = "infra_cpu_default_infra_host_vcpu_aws_sum";
   private Long infraCpuDefaultInfraHostVcpuAwsSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG =
-      "infra_cpu_default_infra_host_vcpu_azure_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG = "infra_cpu_default_infra_host_vcpu_azure_avg";
   private Long infraCpuDefaultInfraHostVcpuAzureAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM =
-      "infra_cpu_default_infra_host_vcpu_azure_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM = "infra_cpu_default_infra_host_vcpu_azure_sum";
   private Long infraCpuDefaultInfraHostVcpuAzureSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG =
-      "infra_cpu_default_infra_host_vcpu_gcp_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG = "infra_cpu_default_infra_host_vcpu_gcp_avg";
   private Long infraCpuDefaultInfraHostVcpuGcpAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM =
-      "infra_cpu_default_infra_host_vcpu_gcp_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM = "infra_cpu_default_infra_host_vcpu_gcp_sum";
   private Long infraCpuDefaultInfraHostVcpuGcpSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG =
-      "infra_cpu_default_infra_host_vcpu_nutanix_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG = "infra_cpu_default_infra_host_vcpu_nutanix_avg";
   private Long infraCpuDefaultInfraHostVcpuNutanixAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG =
-      "infra_cpu_default_infra_host_vcpu_nutanix_basic_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG = "infra_cpu_default_infra_host_vcpu_nutanix_basic_avg";
   private Long infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM =
-      "infra_cpu_default_infra_host_vcpu_nutanix_basic_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM = "infra_cpu_default_infra_host_vcpu_nutanix_basic_sum";
   private Long infraCpuDefaultInfraHostVcpuNutanixBasicSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM =
-      "infra_cpu_default_infra_host_vcpu_nutanix_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM = "infra_cpu_default_infra_host_vcpu_nutanix_sum";
   private Long infraCpuDefaultInfraHostVcpuNutanixSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG =
-      "infra_cpu_default_infra_host_vcpu_opentelemetry_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG = "infra_cpu_default_infra_host_vcpu_opentelemetry_avg";
   private Long infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM =
-      "infra_cpu_default_infra_host_vcpu_opentelemetry_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM = "infra_cpu_default_infra_host_vcpu_opentelemetry_sum";
   private Long infraCpuDefaultInfraHostVcpuOpentelemetrySum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG =
-      "infra_cpu_observed_infra_host_vcpu_agent_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG = "infra_cpu_observed_infra_host_vcpu_agent_avg";
   private Long infraCpuObservedInfraHostVcpuAgentAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM =
-      "infra_cpu_observed_infra_host_vcpu_agent_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM = "infra_cpu_observed_infra_host_vcpu_agent_sum";
   private Long infraCpuObservedInfraHostVcpuAgentSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG =
-      "infra_cpu_observed_infra_host_vcpu_aws_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG = "infra_cpu_observed_infra_host_vcpu_aws_avg";
   private Long infraCpuObservedInfraHostVcpuAwsAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM =
-      "infra_cpu_observed_infra_host_vcpu_aws_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM = "infra_cpu_observed_infra_host_vcpu_aws_sum";
   private Long infraCpuObservedInfraHostVcpuAwsSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG =
-      "infra_cpu_observed_infra_host_vcpu_azure_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG = "infra_cpu_observed_infra_host_vcpu_azure_avg";
   private Long infraCpuObservedInfraHostVcpuAzureAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM =
-      "infra_cpu_observed_infra_host_vcpu_azure_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM = "infra_cpu_observed_infra_host_vcpu_azure_sum";
   private Long infraCpuObservedInfraHostVcpuAzureSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG =
-      "infra_cpu_observed_infra_host_vcpu_gcp_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG = "infra_cpu_observed_infra_host_vcpu_gcp_avg";
   private Long infraCpuObservedInfraHostVcpuGcpAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM =
-      "infra_cpu_observed_infra_host_vcpu_gcp_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM = "infra_cpu_observed_infra_host_vcpu_gcp_sum";
   private Long infraCpuObservedInfraHostVcpuGcpSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG =
-      "infra_cpu_observed_infra_host_vcpu_nutanix_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG = "infra_cpu_observed_infra_host_vcpu_nutanix_avg";
   private Long infraCpuObservedInfraHostVcpuNutanixAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM =
-      "infra_cpu_observed_infra_host_vcpu_nutanix_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM = "infra_cpu_observed_infra_host_vcpu_nutanix_sum";
   private Long infraCpuObservedInfraHostVcpuNutanixSum;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG =
-      "infra_cpu_observed_infra_host_vcpu_opentelemetry_avg";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG = "infra_cpu_observed_infra_host_vcpu_opentelemetry_avg";
   private Long infraCpuObservedInfraHostVcpuOpentelemetryAvg;
 
-  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM =
-      "infra_cpu_observed_infra_host_vcpu_opentelemetry_sum";
+  public static final String JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM = "infra_cpu_observed_infra_host_vcpu_opentelemetry_sum";
   private Long infraCpuObservedInfraHostVcpuOpentelemetrySum;
 
   public static final String JSON_PROPERTY_INFRA_CPU_SUM = "infra_cpu_sum";
   private Long infraCpuSum;
 
-  public static final String JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P =
-      "infra_edge_monitoring_devices_top99p";
+  public static final String JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P = "infra_edge_monitoring_devices_top99p";
   private Long infraEdgeMonitoringDevicesTop99p;
 
-  public static final String JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_TOP99P =
-      "infra_host_basic_infra_basic_agent_top99p";
+  public static final String JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_TOP99P = "infra_host_basic_infra_basic_agent_top99p";
   private Long infraHostBasicInfraBasicAgentTop99p;
 
-  public static final String JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P =
-      "infra_host_basic_infra_basic_vsphere_top99p";
+  public static final String JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P = "infra_host_basic_infra_basic_vsphere_top99p";
   private Long infraHostBasicInfraBasicVsphereTop99p;
 
   public static final String JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P = "infra_host_basic_top99p";
@@ -973,8 +871,7 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_INFRA_HOST_TOP99P = "infra_host_top99p";
   private Long infraHostTop99p;
 
-  public static final String JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG =
-      "infra_storage_mgmt_objects_count_avg";
+  public static final String JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG = "infra_storage_mgmt_objects_count_avg";
   private Long infraStorageMgmtObjectsCountAvg;
 
   public static final String JSON_PROPERTY_INGEST_POINTS_SUM = "ingest_points_sum";
@@ -995,62 +892,49 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_IOT_DEVICE_TOP99P = "iot_device_top99p";
   private Long iotDeviceTop99p;
 
-  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM =
-      "llm_observability_15day_retention_spans_sum";
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM = "llm_observability_15day_retention_spans_sum";
   private Long llmObservability15dayRetentionSpansSum;
 
-  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM =
-      "llm_observability_30day_retention_spans_sum";
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM = "llm_observability_30day_retention_spans_sum";
   private Long llmObservability30dayRetentionSpansSum;
 
-  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM =
-      "llm_observability_60day_retention_spans_sum";
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM = "llm_observability_60day_retention_spans_sum";
   private Long llmObservability60dayRetentionSpansSum;
 
-  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM =
-      "llm_observability_90day_retention_spans_sum";
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM = "llm_observability_90day_retention_spans_sum";
   private Long llmObservability90dayRetentionSpansSum;
 
-  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM =
-      "llm_observability_min_spend_sum";
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM = "llm_observability_min_spend_sum";
   private Long llmObservabilityMinSpendSum;
 
   public static final String JSON_PROPERTY_LLM_OBSERVABILITY_SUM = "llm_observability_sum";
   private Long llmObservabilitySum;
 
-  public static final String JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM =
-      "logs_archive_search_gb_scanned_sum";
+  public static final String JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM = "logs_archive_search_gb_scanned_sum";
   private Long logsArchiveSearchGbScannedSum;
 
   public static final String JSON_PROPERTY_METRIC_NAMES_SUM = "metric_names_sum";
   private Long metricNamesSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM =
-      "mobile_rum_lite_session_count_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM = "mobile_rum_lite_session_count_sum";
   private Long mobileRumLiteSessionCountSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM =
-      "mobile_rum_session_count_android_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM = "mobile_rum_session_count_android_sum";
   private Long mobileRumSessionCountAndroidSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM =
-      "mobile_rum_session_count_flutter_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM = "mobile_rum_session_count_flutter_sum";
   private Long mobileRumSessionCountFlutterSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM =
-      "mobile_rum_session_count_ios_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM = "mobile_rum_session_count_ios_sum";
   private Long mobileRumSessionCountIosSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM =
-      "mobile_rum_session_count_reactnative_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM = "mobile_rum_session_count_reactnative_sum";
   private Long mobileRumSessionCountReactnativeSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM =
-      "mobile_rum_session_count_roku_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM = "mobile_rum_session_count_roku_sum";
   private Long mobileRumSessionCountRokuSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM =
-      "mobile_rum_session_count_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM = "mobile_rum_session_count_sum";
   private Long mobileRumSessionCountSum;
 
   public static final String JSON_PROPERTY_MOBILE_RUM_UNITS_SUM = "mobile_rum_units_sum";
@@ -1059,12 +943,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM = "ndm_netflow_events_sum";
   private Long ndmNetflowEventsSum;
 
-  public static final String JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM =
-      "netflow_indexed_events_count_sum";
+  public static final String JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM = "netflow_indexed_events_count_sum";
   private Long netflowIndexedEventsCountSum;
 
-  public static final String JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_TOP99P =
-      "network_device_wireless_top99p";
+  public static final String JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_TOP99P = "network_device_wireless_top99p";
   private Long networkDeviceWirelessTop99p;
 
   public static final String JSON_PROPERTY_NETWORK_PATH_SUM = "network_path_sum";
@@ -1073,8 +955,7 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P = "npm_host_top99p";
   private Long npmHostTop99p;
 
-  public static final String JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM =
-      "observability_pipelines_bytes_processed_sum";
+  public static final String JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM = "observability_pipelines_bytes_processed_sum";
   private Long observabilityPipelinesBytesProcessedSum;
 
   public static final String JSON_PROPERTY_OCI_HOST_SUM = "oci_host_sum";
@@ -1086,12 +967,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_ON_CALL_SEAT_HWM = "on_call_seat_hwm";
   private Long onCallSeatHwm;
 
-  public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM =
-      "online_archive_events_count_sum";
+  public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM = "online_archive_events_count_sum";
   private Long onlineArchiveEventsCountSum;
 
-  public static final String JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P =
-      "opentelemetry_apm_host_top99p";
+  public static final String JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P = "opentelemetry_apm_host_top99p";
   private Long opentelemetryApmHostTop99p;
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P = "opentelemetry_host_top99p";
@@ -1103,8 +982,7 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_SUM = "product_analytics_sum";
   private Long productAnalyticsSum;
 
-  public static final String JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P =
-      "profiling_aas_count_top99p";
+  public static final String JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P = "profiling_aas_count_top99p";
   private Long profilingAasCountTop99p;
 
   public static final String JSON_PROPERTY_PROFILING_HOST_TOP99P = "profiling_host_top99p";
@@ -1119,20 +997,16 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_PUBLISHED_APP_HWM = "published_app_hwm";
   private Long publishedAppHwm;
 
-  public static final String JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT =
-      "rum_browser_and_mobile_session_count";
+  public static final String JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT = "rum_browser_and_mobile_session_count";
   private Long rumBrowserAndMobileSessionCount;
 
-  public static final String JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM =
-      "rum_browser_legacy_session_count_sum";
+  public static final String JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM = "rum_browser_legacy_session_count_sum";
   private Long rumBrowserLegacySessionCountSum;
 
-  public static final String JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM =
-      "rum_browser_lite_session_count_sum";
+  public static final String JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM = "rum_browser_lite_session_count_sum";
   private Long rumBrowserLiteSessionCountSum;
 
-  public static final String JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM =
-      "rum_browser_replay_session_count_sum";
+  public static final String JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM = "rum_browser_replay_session_count_sum";
   private Long rumBrowserReplaySessionCountSum;
 
   public static final String JSON_PROPERTY_RUM_INDEXED_SESSIONS_SUM = "rum_indexed_sessions_sum";
@@ -1141,87 +1015,67 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_RUM_INGESTED_SESSIONS_SUM = "rum_ingested_sessions_sum";
   private Long rumIngestedSessionsSum;
 
-  public static final String JSON_PROPERTY_RUM_LITE_SESSION_COUNT_SUM =
-      "rum_lite_session_count_sum";
+  public static final String JSON_PROPERTY_RUM_LITE_SESSION_COUNT_SUM = "rum_lite_session_count_sum";
   private Long rumLiteSessionCountSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM =
-      "rum_mobile_legacy_session_count_android_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM = "rum_mobile_legacy_session_count_android_sum";
   private Long rumMobileLegacySessionCountAndroidSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM =
-      "rum_mobile_legacy_session_count_flutter_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM = "rum_mobile_legacy_session_count_flutter_sum";
   private Long rumMobileLegacySessionCountFlutterSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM =
-      "rum_mobile_legacy_session_count_ios_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM = "rum_mobile_legacy_session_count_ios_sum";
   private Long rumMobileLegacySessionCountIosSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM =
-      "rum_mobile_legacy_session_count_reactnative_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM = "rum_mobile_legacy_session_count_reactnative_sum";
   private Long rumMobileLegacySessionCountReactnativeSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM =
-      "rum_mobile_legacy_session_count_roku_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM = "rum_mobile_legacy_session_count_roku_sum";
   private Long rumMobileLegacySessionCountRokuSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM =
-      "rum_mobile_lite_session_count_android_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM = "rum_mobile_lite_session_count_android_sum";
   private Long rumMobileLiteSessionCountAndroidSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM =
-      "rum_mobile_lite_session_count_flutter_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM = "rum_mobile_lite_session_count_flutter_sum";
   private Long rumMobileLiteSessionCountFlutterSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM =
-      "rum_mobile_lite_session_count_ios_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM = "rum_mobile_lite_session_count_ios_sum";
   private Long rumMobileLiteSessionCountIosSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM =
-      "rum_mobile_lite_session_count_kotlinmultiplatform_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM = "rum_mobile_lite_session_count_kotlinmultiplatform_sum";
   private Long rumMobileLiteSessionCountKotlinmultiplatformSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM =
-      "rum_mobile_lite_session_count_reactnative_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM = "rum_mobile_lite_session_count_reactnative_sum";
   private Long rumMobileLiteSessionCountReactnativeSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM =
-      "rum_mobile_lite_session_count_roku_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM = "rum_mobile_lite_session_count_roku_sum";
   private Long rumMobileLiteSessionCountRokuSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM =
-      "rum_mobile_lite_session_count_unity_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM = "rum_mobile_lite_session_count_unity_sum";
   private Long rumMobileLiteSessionCountUnitySum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM =
-      "rum_mobile_replay_session_count_android_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM = "rum_mobile_replay_session_count_android_sum";
   private Long rumMobileReplaySessionCountAndroidSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM =
-      "rum_mobile_replay_session_count_ios_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM = "rum_mobile_replay_session_count_ios_sum";
   private Long rumMobileReplaySessionCountIosSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM =
-      "rum_mobile_replay_session_count_kotlinmultiplatform_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM = "rum_mobile_replay_session_count_kotlinmultiplatform_sum";
   private Long rumMobileReplaySessionCountKotlinmultiplatformSum;
 
-  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM =
-      "rum_mobile_replay_session_count_reactnative_sum";
+  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM = "rum_mobile_replay_session_count_reactnative_sum";
   private Long rumMobileReplaySessionCountReactnativeSum;
 
-  public static final String JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM =
-      "rum_replay_session_count_sum";
+  public static final String JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM = "rum_replay_session_count_sum";
   private Long rumReplaySessionCountSum;
 
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_SUM = "rum_session_count_sum";
   private Long rumSessionCountSum;
 
-  public static final String JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_SUM =
-      "rum_session_replay_add_on_sum";
+  public static final String JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_SUM = "rum_session_replay_add_on_sum";
   private Long rumSessionReplayAddOnSum;
 
-  public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM =
-      "rum_total_session_count_sum";
+  public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM = "rum_total_session_count_sum";
   private Long rumTotalSessionCountSum;
 
   public static final String JSON_PROPERTY_RUM_UNITS_SUM = "rum_units_sum";
@@ -1236,106 +1090,76 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM = "sds_apm_scanned_bytes_sum";
   private Long sdsApmScannedBytesSum;
 
-  public static final String JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM =
-      "sds_events_scanned_bytes_sum";
+  public static final String JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM = "sds_events_scanned_bytes_sum";
   private Long sdsEventsScannedBytesSum;
 
-  public static final String JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM =
-      "sds_logs_scanned_bytes_sum";
+  public static final String JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM = "sds_logs_scanned_bytes_sum";
   private Long sdsLogsScannedBytesSum;
 
   public static final String JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM = "sds_rum_scanned_bytes_sum";
   private Long sdsRumScannedBytesSum;
 
-  public static final String JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM =
-      "sds_total_scanned_bytes_sum";
+  public static final String JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM = "sds_total_scanned_bytes_sum";
   private Long sdsTotalScannedBytesSum;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_APPSERVICE_INSTANCES_AVG =
-      "serverless_apps_apm_apm_azure_appservice_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_APPSERVICE_INSTANCES_AVG = "serverless_apps_apm_apm_azure_appservice_instances_avg";
   private Long serverlessAppsApmApmAzureAppserviceInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG =
-          "serverless_apps_apm_apm_azure_azurefunction_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG = "serverless_apps_apm_apm_azure_azurefunction_instances_avg";
   private Long serverlessAppsApmApmAzureAzurefunctionInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_CONTAINERAPP_INSTANCES_AVG =
-          "serverless_apps_apm_apm_azure_containerapp_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_CONTAINERAPP_INSTANCES_AVG = "serverless_apps_apm_apm_azure_containerapp_instances_avg";
   private Long serverlessAppsApmApmAzureContainerappInstancesAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_FARGATE_ECS_TASKS_AVG =
-      "serverless_apps_apm_apm_fargate_ecs_tasks_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_FARGATE_ECS_TASKS_AVG = "serverless_apps_apm_apm_fargate_ecs_tasks_avg";
   private Long serverlessAppsApmApmFargateEcsTasksAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG =
-      "serverless_apps_apm_apm_gcp_cloudfunction_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG = "serverless_apps_apm_apm_gcp_cloudfunction_instances_avg";
   private Long serverlessAppsApmApmGcpCloudfunctionInstancesAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDRUN_INSTANCES_AVG =
-      "serverless_apps_apm_apm_gcp_cloudrun_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDRUN_INSTANCES_AVG = "serverless_apps_apm_apm_gcp_cloudrun_instances_avg";
   private Long serverlessAppsApmApmGcpCloudrunInstancesAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG =
-      "serverless_apps_apm_apm_gcp_gke_autopilot_pods_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG = "serverless_apps_apm_apm_gcp_gke_autopilot_pods_avg";
   private Long serverlessAppsApmApmGcpGkeAutopilotPodsAvg;
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_AVG = "serverless_apps_apm_avg";
   private Long serverlessAppsApmAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG =
-          "serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG = "serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg";
   private Long serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG =
-          "serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG = "serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg";
   private Long serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_CONTAINERAPP_INSTANCES_AVG =
-          "serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_CONTAINERAPP_INSTANCES_AVG = "serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg";
   private Long serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG =
-          "serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG = "serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg";
   private Long serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG =
-          "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG = "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg";
   private Long serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG =
-          "serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG = "serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg";
   private Long serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG =
-      "serverless_apps_apm_excl_fargate_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG = "serverless_apps_apm_excl_fargate_avg";
   private Long serverlessAppsApmExclFargateAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_CONTAINER_APP_INSTANCES_AVG =
-      "serverless_apps_azure_container_app_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_CONTAINER_APP_INSTANCES_AVG = "serverless_apps_azure_container_app_instances_avg";
   private Long serverlessAppsAzureContainerAppInstancesAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG =
-      "serverless_apps_azure_count_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG = "serverless_apps_azure_count_avg";
   private Long serverlessAppsAzureCountAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_FUNCTION_APP_INSTANCES_AVG =
-      "serverless_apps_azure_function_app_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_FUNCTION_APP_INSTANCES_AVG = "serverless_apps_azure_function_app_instances_avg";
   private Long serverlessAppsAzureFunctionAppInstancesAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG =
-      "serverless_apps_azure_web_app_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG = "serverless_apps_azure_web_app_instances_avg";
   private Long serverlessAppsAzureWebAppInstancesAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG =
-      "serverless_apps_dsm_fargate_tasks_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG = "serverless_apps_dsm_fargate_tasks_avg";
   private Long serverlessAppsDsmFargateTasksAvg;
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_ECS_AVG = "serverless_apps_ecs_avg";
@@ -1344,58 +1168,40 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_SERVERLESS_APPS_EKS_AVG = "serverless_apps_eks_avg";
   private Long serverlessAppsEksAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AVG =
-      "serverless_apps_excl_fargate_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AVG = "serverless_apps_excl_fargate_avg";
   private Long serverlessAppsExclFargateAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_CONTAINER_APP_INSTANCES_AVG =
-          "serverless_apps_excl_fargate_azure_container_app_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_CONTAINER_APP_INSTANCES_AVG = "serverless_apps_excl_fargate_azure_container_app_instances_avg";
   private Long serverlessAppsExclFargateAzureContainerAppInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_FUNCTION_APP_INSTANCES_AVG =
-          "serverless_apps_excl_fargate_azure_function_app_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_FUNCTION_APP_INSTANCES_AVG = "serverless_apps_excl_fargate_azure_function_app_instances_avg";
   private Long serverlessAppsExclFargateAzureFunctionAppInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_WEB_APP_INSTANCES_AVG =
-          "serverless_apps_excl_fargate_azure_web_app_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_WEB_APP_INSTANCES_AVG = "serverless_apps_excl_fargate_azure_web_app_instances_avg";
   private Long serverlessAppsExclFargateAzureWebAppInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG =
-          "serverless_apps_excl_fargate_google_cloud_functions_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG = "serverless_apps_excl_fargate_google_cloud_functions_instances_avg";
   private Long serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_RUN_INSTANCES_AVG =
-          "serverless_apps_excl_fargate_google_cloud_run_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_RUN_INSTANCES_AVG = "serverless_apps_excl_fargate_google_cloud_run_instances_avg";
   private Long serverlessAppsExclFargateGoogleCloudRunInstancesAvg;
 
-  public static final String
-      JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG =
-          "serverless_apps_excl_fargate_infra_gcp_gke_autopilot_pods_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG = "serverless_apps_excl_fargate_infra_gcp_gke_autopilot_pods_avg";
   private Long serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG =
-      "serverless_apps_google_cloud_functions_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG = "serverless_apps_google_cloud_functions_instances_avg";
   private Long serverlessAppsGoogleCloudFunctionsInstancesAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_RUN_INSTANCES_AVG =
-      "serverless_apps_google_cloud_run_instances_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_RUN_INSTANCES_AVG = "serverless_apps_google_cloud_run_instances_avg";
   private Long serverlessAppsGoogleCloudRunInstancesAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG =
-      "serverless_apps_google_count_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG = "serverless_apps_google_count_avg";
   private Long serverlessAppsGoogleCountAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG =
-      "serverless_apps_infra_gcp_gke_autopilot_pods_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG = "serverless_apps_infra_gcp_gke_autopilot_pods_avg";
   private Long serverlessAppsInfraGcpGkeAutopilotPodsAvg;
 
-  public static final String JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG =
-      "serverless_apps_total_count_avg";
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG = "serverless_apps_total_count_avg";
   private Long serverlessAppsTotalCountAvg;
 
   public static final String JSON_PROPERTY_SIEM_12MO_RETENTION_SUM = "siem_12mo_retention_sum";
@@ -1404,8 +1210,7 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_SIEM_6MO_RETENTION_SUM = "siem_6mo_retention_sum";
   private Long siem6moRetentionSum;
 
-  public static final String JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM =
-      "siem_analyzed_logs_add_on_count_sum";
+  public static final String JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM = "siem_analyzed_logs_add_on_count_sum";
   private Long siemAnalyzedLogsAddOnCountSum;
 
   public static final String JSON_PROPERTY_SNMP_DEVICE_COUNT_SUM = "snmp_device_count_sum";
@@ -1414,43 +1219,34 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_SNMP_DEVICE_COUNT_TOP99P = "snmp_device_count_top99p";
   private Long snmpDeviceCountTop99p;
 
-  public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM =
-      "synthetics_browser_check_calls_count_sum";
+  public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM = "synthetics_browser_check_calls_count_sum";
   private Long syntheticsBrowserCheckCallsCountSum;
 
-  public static final String JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM =
-      "synthetics_check_calls_count_sum";
+  public static final String JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM = "synthetics_check_calls_count_sum";
   private Long syntheticsCheckCallsCountSum;
 
-  public static final String JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM =
-      "synthetics_mobile_test_runs_sum";
+  public static final String JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM = "synthetics_mobile_test_runs_sum";
   private Long syntheticsMobileTestRunsSum;
 
-  public static final String JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM =
-      "synthetics_parallel_testing_max_slots_hwm";
+  public static final String JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM = "synthetics_parallel_testing_max_slots_hwm";
   private Long syntheticsParallelTestingMaxSlotsHwm;
 
-  public static final String JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM =
-      "trace_search_indexed_events_count_sum";
+  public static final String JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM = "trace_search_indexed_events_count_sum";
   private Long traceSearchIndexedEventsCountSum;
 
-  public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM =
-      "twol_ingested_events_bytes_sum";
+  public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM = "twol_ingested_events_bytes_sum";
   private Long twolIngestedEventsBytesSum;
 
-  public static final String JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P =
-      "universal_service_monitoring_host_top99p";
+  public static final String JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P = "universal_service_monitoring_host_top99p";
   private Long universalServiceMonitoringHostTop99p;
 
   public static final String JSON_PROPERTY_VSPHERE_HOST_TOP99P = "vsphere_host_top99p";
   private Long vsphereHostTop99p;
 
-  public static final String JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P =
-      "vuln_management_host_count_top99p";
+  public static final String JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P = "vuln_management_host_count_top99p";
   private Long vulnManagementHostCountTop99p;
 
-  public static final String JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM =
-      "workflow_executions_usage_sum";
+  public static final String JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM = "workflow_executions_usage_sum";
   private Long workflowExecutionsUsageSum;
 
   public UsageSummaryDate agentHostTop99p(Long agentHostTop99p) {
@@ -1459,5142 +1255,4245 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all agent hosts over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the 99th percentile of all agent hosts over all hours in the current date for all organizations.</p>
    * @return agentHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGENT_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAgentHostTop99p() {
-    return agentHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AGENT_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAgentHostTop99p() {
+        return agentHostTop99p;
+      }
   public void setAgentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_AGENT_HOST_TOP99P, agentHostTop99p);
   }
-
-  public UsageSummaryDate aiCreditsAgentBuilderAiCreditsSum(
-      Long aiCreditsAgentBuilderAiCreditsSum) {
+  public UsageSummaryDate aiCreditsAgentBuilderAiCreditsSum(Long aiCreditsAgentBuilderAiCreditsSum) {
     this.aiCreditsAgentBuilderAiCreditsSum = aiCreditsAgentBuilderAiCreditsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all AI credits used by Agent Builder over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the sum of all AI credits used by Agent Builder over all hours in the current date for all organizations.</p>
    * @return aiCreditsAgentBuilderAiCreditsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAiCreditsAgentBuilderAiCreditsSum() {
-    return aiCreditsAgentBuilderAiCreditsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAiCreditsAgentBuilderAiCreditsSum() {
+        return aiCreditsAgentBuilderAiCreditsSum;
+      }
   public void setAiCreditsAgentBuilderAiCreditsSum(Long aiCreditsAgentBuilderAiCreditsSum) {
     this.aiCreditsAgentBuilderAiCreditsSum = aiCreditsAgentBuilderAiCreditsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM, aiCreditsAgentBuilderAiCreditsSum);
+    putAdditionalProperty(JSON_PROPERTY_AI_CREDITS_AGENT_BUILDER_AI_CREDITS_SUM, aiCreditsAgentBuilderAiCreditsSum);
   }
-
-  public UsageSummaryDate aiCreditsBitsAssistantAiCreditsSum(
-      Long aiCreditsBitsAssistantAiCreditsSum) {
+  public UsageSummaryDate aiCreditsBitsAssistantAiCreditsSum(Long aiCreditsBitsAssistantAiCreditsSum) {
     this.aiCreditsBitsAssistantAiCreditsSum = aiCreditsBitsAssistantAiCreditsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all AI credits used by Bits AI Assistant over all hours in the current date
-   * for all organizations.
-   *
+   * <p>Shows the sum of all AI credits used by Bits AI Assistant over all hours in the current date for all organizations.</p>
    * @return aiCreditsBitsAssistantAiCreditsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAiCreditsBitsAssistantAiCreditsSum() {
-    return aiCreditsBitsAssistantAiCreditsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAiCreditsBitsAssistantAiCreditsSum() {
+        return aiCreditsBitsAssistantAiCreditsSum;
+      }
   public void setAiCreditsBitsAssistantAiCreditsSum(Long aiCreditsBitsAssistantAiCreditsSum) {
     this.aiCreditsBitsAssistantAiCreditsSum = aiCreditsBitsAssistantAiCreditsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM, aiCreditsBitsAssistantAiCreditsSum);
+    putAdditionalProperty(JSON_PROPERTY_AI_CREDITS_BITS_ASSISTANT_AI_CREDITS_SUM, aiCreditsBitsAssistantAiCreditsSum);
   }
-
   public UsageSummaryDate aiCreditsBitsDevAiCreditsSum(Long aiCreditsBitsDevAiCreditsSum) {
     this.aiCreditsBitsDevAiCreditsSum = aiCreditsBitsDevAiCreditsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all AI credits used by Bits AI Dev over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all AI credits used by Bits AI Dev over all hours in the current date for all organizations.</p>
    * @return aiCreditsBitsDevAiCreditsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAiCreditsBitsDevAiCreditsSum() {
-    return aiCreditsBitsDevAiCreditsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAiCreditsBitsDevAiCreditsSum() {
+        return aiCreditsBitsDevAiCreditsSum;
+      }
   public void setAiCreditsBitsDevAiCreditsSum(Long aiCreditsBitsDevAiCreditsSum) {
     this.aiCreditsBitsDevAiCreditsSum = aiCreditsBitsDevAiCreditsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM, aiCreditsBitsDevAiCreditsSum);
+    putAdditionalProperty(JSON_PROPERTY_AI_CREDITS_BITS_DEV_AI_CREDITS_SUM, aiCreditsBitsDevAiCreditsSum);
   }
-
   public UsageSummaryDate aiCreditsBitsSreAiCreditsSum(Long aiCreditsBitsSreAiCreditsSum) {
     this.aiCreditsBitsSreAiCreditsSum = aiCreditsBitsSreAiCreditsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all AI credits used by Bits AI SRE over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all AI credits used by Bits AI SRE over all hours in the current date for all organizations.</p>
    * @return aiCreditsBitsSreAiCreditsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAiCreditsBitsSreAiCreditsSum() {
-    return aiCreditsBitsSreAiCreditsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAiCreditsBitsSreAiCreditsSum() {
+        return aiCreditsBitsSreAiCreditsSum;
+      }
   public void setAiCreditsBitsSreAiCreditsSum(Long aiCreditsBitsSreAiCreditsSum) {
     this.aiCreditsBitsSreAiCreditsSum = aiCreditsBitsSreAiCreditsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM, aiCreditsBitsSreAiCreditsSum);
+    putAdditionalProperty(JSON_PROPERTY_AI_CREDITS_BITS_SRE_AI_CREDITS_SUM, aiCreditsBitsSreAiCreditsSum);
   }
-
   public UsageSummaryDate aiCreditsSum(Long aiCreditsSum) {
     this.aiCreditsSum = aiCreditsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all AI credits over all hours in the current date for all organizations.
-   *
+   * <p>Shows the sum of all AI credits over all hours in the current date for all organizations.</p>
    * @return aiCreditsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AI_CREDITS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAiCreditsSum() {
-    return aiCreditsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AI_CREDITS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAiCreditsSum() {
+        return aiCreditsSum;
+      }
   public void setAiCreditsSum(Long aiCreditsSum) {
     this.aiCreditsSum = aiCreditsSum;
     putAdditionalProperty(JSON_PROPERTY_AI_CREDITS_SUM, aiCreditsSum);
   }
-
   public UsageSummaryDate apmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
     this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Azure app services using APM over all hours in the current
-   * date all organizations.
-   *
+   * <p>Shows the 99th percentile of all Azure app services using APM over all hours in the current date all organizations.</p>
    * @return apmAzureAppServiceHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmAzureAppServiceHostTop99p() {
-    return apmAzureAppServiceHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getApmAzureAppServiceHostTop99p() {
+        return apmAzureAppServiceHostTop99p;
+      }
   public void setApmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
     this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P, apmAzureAppServiceHostTop99p);
+    putAdditionalProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P, apmAzureAppServiceHostTop99p);
   }
-
   public UsageSummaryDate apmDevsecopsHostTop99p(Long apmDevsecopsHostTop99p) {
     this.apmDevsecopsHostTop99p = apmDevsecopsHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for the
-   * given org.
-   *
+   * <p>Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for the given org.</p>
    * @return apmDevsecopsHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmDevsecopsHostTop99p() {
-    return apmDevsecopsHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getApmDevsecopsHostTop99p() {
+        return apmDevsecopsHostTop99p;
+      }
   public void setApmDevsecopsHostTop99p(Long apmDevsecopsHostTop99p) {
     this.apmDevsecopsHostTop99p = apmDevsecopsHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P, apmDevsecopsHostTop99p);
   }
-
-  public UsageSummaryDate apmEnterpriseStandaloneHostsTop99p(
-      Long apmEnterpriseStandaloneHostsTop99p) {
+  public UsageSummaryDate apmEnterpriseStandaloneHostsTop99p(Long apmEnterpriseStandaloneHostsTop99p) {
     this.apmEnterpriseStandaloneHostsTop99p = apmEnterpriseStandaloneHostsTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all distinct standalone Enterprise hosts over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all distinct standalone Enterprise hosts over all hours in the current date for all organizations.</p>
    * @return apmEnterpriseStandaloneHostsTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmEnterpriseStandaloneHostsTop99p() {
-    return apmEnterpriseStandaloneHostsTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getApmEnterpriseStandaloneHostsTop99p() {
+        return apmEnterpriseStandaloneHostsTop99p;
+      }
   public void setApmEnterpriseStandaloneHostsTop99p(Long apmEnterpriseStandaloneHostsTop99p) {
     this.apmEnterpriseStandaloneHostsTop99p = apmEnterpriseStandaloneHostsTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P, apmEnterpriseStandaloneHostsTop99p);
+    putAdditionalProperty(JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P, apmEnterpriseStandaloneHostsTop99p);
   }
-
   public UsageSummaryDate apmFargateCountAvg(Long apmFargateCountAvg) {
     this.apmFargateCountAvg = apmFargateCountAvg;
     return this;
   }
 
   /**
-   * Shows the average of all APM ECS Fargate tasks over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the average of all APM ECS Fargate tasks over all hours in the current date for all organizations.</p>
    * @return apmFargateCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APM_FARGATE_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmFargateCountAvg() {
-    return apmFargateCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APM_FARGATE_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getApmFargateCountAvg() {
+        return apmFargateCountAvg;
+      }
   public void setApmFargateCountAvg(Long apmFargateCountAvg) {
     this.apmFargateCountAvg = apmFargateCountAvg;
     putAdditionalProperty(JSON_PROPERTY_APM_FARGATE_COUNT_AVG, apmFargateCountAvg);
   }
-
   public UsageSummaryDate apmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all organizations.</p>
    * @return apmHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APM_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmHostTop99p() {
-    return apmHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APM_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getApmHostTop99p() {
+        return apmHostTop99p;
+      }
   public void setApmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_APM_HOST_TOP99P, apmHostTop99p);
   }
-
   public UsageSummaryDate apmProStandaloneHostsTop99p(Long apmProStandaloneHostsTop99p) {
     this.apmProStandaloneHostsTop99p = apmProStandaloneHostsTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all distinct standalone Pro hosts over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all distinct standalone Pro hosts over all hours in the current date for all organizations.</p>
    * @return apmProStandaloneHostsTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmProStandaloneHostsTop99p() {
-    return apmProStandaloneHostsTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getApmProStandaloneHostsTop99p() {
+        return apmProStandaloneHostsTop99p;
+      }
   public void setApmProStandaloneHostsTop99p(Long apmProStandaloneHostsTop99p) {
     this.apmProStandaloneHostsTop99p = apmProStandaloneHostsTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P, apmProStandaloneHostsTop99p);
+    putAdditionalProperty(JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P, apmProStandaloneHostsTop99p);
   }
-
   public UsageSummaryDate appsecFargateCountAvg(Long appsecFargateCountAvg) {
     this.appsecFargateCountAvg = appsecFargateCountAvg;
     return this;
   }
 
   /**
-   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current date for all organizations.</p>
    * @return appsecFargateCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAppsecFargateCountAvg() {
-    return appsecFargateCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAppsecFargateCountAvg() {
+        return appsecFargateCountAvg;
+      }
   public void setAppsecFargateCountAvg(Long appsecFargateCountAvg) {
     this.appsecFargateCountAvg = appsecFargateCountAvg;
     putAdditionalProperty(JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG, appsecFargateCountAvg);
   }
-
   public UsageSummaryDate asmServerlessSum(Long asmServerlessSum) {
     this.asmServerlessSum = asmServerlessSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Application Security Monitoring Serverless invocations over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the sum of all Application Security Monitoring Serverless invocations over all hours in the current date for all organizations.</p>
    * @return asmServerlessSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASM_SERVERLESS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAsmServerlessSum() {
-    return asmServerlessSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ASM_SERVERLESS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAsmServerlessSum() {
+        return asmServerlessSum;
+      }
   public void setAsmServerlessSum(Long asmServerlessSum) {
     this.asmServerlessSum = asmServerlessSum;
     putAdditionalProperty(JSON_PROPERTY_ASM_SERVERLESS_SUM, asmServerlessSum);
   }
-
   public UsageSummaryDate auditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
     this.auditLogsLinesIndexedSum = auditLogsLinesIndexedSum;
     return this;
   }
 
   /**
-   * Shows the sum of audit logs lines indexed over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of audit logs lines indexed over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return auditLogsLinesIndexedSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAuditLogsLinesIndexedSum() {
-    return auditLogsLinesIndexedSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAuditLogsLinesIndexedSum() {
+        return auditLogsLinesIndexedSum;
+      }
   @Deprecated
   public void setAuditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
     this.auditLogsLinesIndexedSum = auditLogsLinesIndexedSum;
     putAdditionalProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM, auditLogsLinesIndexedSum);
   }
-
   public UsageSummaryDate auditTrailEnabledHwm(Long auditTrailEnabledHwm) {
     this.auditTrailEnabledHwm = auditTrailEnabledHwm;
     return this;
   }
 
   /**
-   * Shows the number of organizations that had Audit Trail enabled in the current date.
-   *
+   * <p>Shows the number of organizations that had Audit Trail enabled in the current date.</p>
    * @return auditTrailEnabledHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAuditTrailEnabledHwm() {
-    return auditTrailEnabledHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAuditTrailEnabledHwm() {
+        return auditTrailEnabledHwm;
+      }
   public void setAuditTrailEnabledHwm(Long auditTrailEnabledHwm) {
     this.auditTrailEnabledHwm = auditTrailEnabledHwm;
     putAdditionalProperty(JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM, auditTrailEnabledHwm);
   }
-
-  public UsageSummaryDate auditTrailEventForwardingEventsSum(
-      Long auditTrailEventForwardingEventsSum) {
+  public UsageSummaryDate auditTrailEventForwardingEventsSum(Long auditTrailEventForwardingEventsSum) {
     this.auditTrailEventForwardingEventsSum = auditTrailEventForwardingEventsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Audit Trail event forwarding events over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the sum of all Audit Trail event forwarding events over all hours in the current date for all organizations.</p>
    * @return auditTrailEventForwardingEventsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAuditTrailEventForwardingEventsSum() {
-    return auditTrailEventForwardingEventsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAuditTrailEventForwardingEventsSum() {
+        return auditTrailEventForwardingEventsSum;
+      }
   public void setAuditTrailEventForwardingEventsSum(Long auditTrailEventForwardingEventsSum) {
     this.auditTrailEventForwardingEventsSum = auditTrailEventForwardingEventsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM, auditTrailEventForwardingEventsSum);
+    putAdditionalProperty(JSON_PROPERTY_AUDIT_TRAIL_EVENT_FORWARDING_EVENTS_SUM, auditTrailEventForwardingEventsSum);
   }
-
   public UsageSummaryDate avgProfiledFargateTasks(Long avgProfiledFargateTasks) {
     this.avgProfiledFargateTasks = avgProfiledFargateTasks;
     return this;
   }
 
   /**
-   * The average total count for Fargate Container Profiler over all hours in the current date for
-   * all organizations.
-   *
+   * <p>The average total count for Fargate Container Profiler over all hours in the current date for all organizations.</p>
    * @return avgProfiledFargateTasks
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAvgProfiledFargateTasks() {
-    return avgProfiledFargateTasks;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAvgProfiledFargateTasks() {
+        return avgProfiledFargateTasks;
+      }
   public void setAvgProfiledFargateTasks(Long avgProfiledFargateTasks) {
     this.avgProfiledFargateTasks = avgProfiledFargateTasks;
     putAdditionalProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS, avgProfiledFargateTasks);
   }
-
   public UsageSummaryDate awsHostTop99p(Long awsHostTop99p) {
     this.awsHostTop99p = awsHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all AWS hosts over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the 99th percentile of all AWS hosts over all hours in the current date for all organizations.</p>
    * @return awsHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AWS_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAwsHostTop99p() {
-    return awsHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AWS_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAwsHostTop99p() {
+        return awsHostTop99p;
+      }
   public void setAwsHostTop99p(Long awsHostTop99p) {
     this.awsHostTop99p = awsHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_AWS_HOST_TOP99P, awsHostTop99p);
   }
-
   public UsageSummaryDate awsLambdaFuncCount(Long awsLambdaFuncCount) {
     this.awsLambdaFuncCount = awsLambdaFuncCount;
     return this;
   }
 
   /**
-   * Shows the average of the number of functions that executed 1 or more times each hour in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average of the number of functions that executed 1 or more times each hour in the current date for all organizations.</p>
    * @return awsLambdaFuncCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAwsLambdaFuncCount() {
-    return awsLambdaFuncCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAwsLambdaFuncCount() {
+        return awsLambdaFuncCount;
+      }
   public void setAwsLambdaFuncCount(Long awsLambdaFuncCount) {
     this.awsLambdaFuncCount = awsLambdaFuncCount;
     putAdditionalProperty(JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT, awsLambdaFuncCount);
   }
-
   public UsageSummaryDate awsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all AWS Lambda invocations over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all AWS Lambda invocations over all hours in the current date for all organizations.</p>
    * @return awsLambdaInvocationsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAwsLambdaInvocationsSum() {
-    return awsLambdaInvocationsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAwsLambdaInvocationsSum() {
+        return awsLambdaInvocationsSum;
+      }
   public void setAwsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
     putAdditionalProperty(JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM, awsLambdaInvocationsSum);
   }
-
   public UsageSummaryDate azureAppServiceTop99p(Long azureAppServiceTop99p) {
     this.azureAppServiceTop99p = azureAppServiceTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Azure app services over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the 99th percentile of all Azure app services over all hours in the current date for all organizations.</p>
    * @return azureAppServiceTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAzureAppServiceTop99p() {
-    return azureAppServiceTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getAzureAppServiceTop99p() {
+        return azureAppServiceTop99p;
+      }
   public void setAzureAppServiceTop99p(Long azureAppServiceTop99p) {
     this.azureAppServiceTop99p = azureAppServiceTop99p;
     putAdditionalProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P, azureAppServiceTop99p);
   }
-
   public UsageSummaryDate billableIngestedBytesSum(Long billableIngestedBytesSum) {
     this.billableIngestedBytesSum = billableIngestedBytesSum;
     return this;
   }
 
   /**
-   * Shows the sum of all log bytes ingested over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all log bytes ingested over all hours in the current date for all organizations.</p>
    * @return billableIngestedBytesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBillableIngestedBytesSum() {
-    return billableIngestedBytesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getBillableIngestedBytesSum() {
+        return billableIngestedBytesSum;
+      }
   public void setBillableIngestedBytesSum(Long billableIngestedBytesSum) {
     this.billableIngestedBytesSum = billableIngestedBytesSum;
     putAdditionalProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM, billableIngestedBytesSum);
   }
-
   public UsageSummaryDate bitsAiInvestigationsSum(Long bitsAiInvestigationsSum) {
     this.bitsAiInvestigationsSum = bitsAiInvestigationsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Bits AI Investigations over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all Bits AI Investigations over all hours in the current date for all organizations.</p>
    * @return bitsAiInvestigationsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BITS_AI_INVESTIGATIONS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBitsAiInvestigationsSum() {
-    return bitsAiInvestigationsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BITS_AI_INVESTIGATIONS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getBitsAiInvestigationsSum() {
+        return bitsAiInvestigationsSum;
+      }
   public void setBitsAiInvestigationsSum(Long bitsAiInvestigationsSum) {
     this.bitsAiInvestigationsSum = bitsAiInvestigationsSum;
     putAdditionalProperty(JSON_PROPERTY_BITS_AI_INVESTIGATIONS_SUM, bitsAiInvestigationsSum);
   }
-
   public UsageSummaryDate browserRumLiteSessionCountSum(Long browserRumLiteSessionCountSum) {
     this.browserRumLiteSessionCountSum = browserRumLiteSessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all browser lite sessions over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all browser lite sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return browserRumLiteSessionCountSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBrowserRumLiteSessionCountSum() {
-    return browserRumLiteSessionCountSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getBrowserRumLiteSessionCountSum() {
+        return browserRumLiteSessionCountSum;
+      }
   @Deprecated
   public void setBrowserRumLiteSessionCountSum(Long browserRumLiteSessionCountSum) {
     this.browserRumLiteSessionCountSum = browserRumLiteSessionCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM, browserRumLiteSessionCountSum);
+    putAdditionalProperty(JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM, browserRumLiteSessionCountSum);
   }
-
   public UsageSummaryDate browserRumReplaySessionCountSum(Long browserRumReplaySessionCountSum) {
     this.browserRumReplaySessionCountSum = browserRumReplaySessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all browser replay sessions over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all browser replay sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return browserRumReplaySessionCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBrowserRumReplaySessionCountSum() {
-    return browserRumReplaySessionCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getBrowserRumReplaySessionCountSum() {
+        return browserRumReplaySessionCountSum;
+      }
   public void setBrowserRumReplaySessionCountSum(Long browserRumReplaySessionCountSum) {
     this.browserRumReplaySessionCountSum = browserRumReplaySessionCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM, browserRumReplaySessionCountSum);
+    putAdditionalProperty(JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM, browserRumReplaySessionCountSum);
   }
-
   public UsageSummaryDate browserRumUnitsSum(Long browserRumUnitsSum) {
     this.browserRumUnitsSum = browserRumUnitsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all browser RUM units over all hours in the current date for all organizations
-   * (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all browser RUM units over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return browserRumUnitsSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBrowserRumUnitsSum() {
-    return browserRumUnitsSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getBrowserRumUnitsSum() {
+        return browserRumUnitsSum;
+      }
   @Deprecated
   public void setBrowserRumUnitsSum(Long browserRumUnitsSum) {
     this.browserRumUnitsSum = browserRumUnitsSum;
     putAdditionalProperty(JSON_PROPERTY_BROWSER_RUM_UNITS_SUM, browserRumUnitsSum);
   }
-
   public UsageSummaryDate ccmAnthropicSpendLast(Long ccmAnthropicSpendLast) {
     this.ccmAnthropicSpendLast = ccmAnthropicSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of Anthropic cloud spend monitored over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the last value of Anthropic cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmAnthropicSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_ANTHROPIC_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmAnthropicSpendLast() {
-    return ccmAnthropicSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_ANTHROPIC_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmAnthropicSpendLast() {
+        return ccmAnthropicSpendLast;
+      }
   public void setCcmAnthropicSpendLast(Long ccmAnthropicSpendLast) {
     this.ccmAnthropicSpendLast = ccmAnthropicSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_ANTHROPIC_SPEND_LAST, ccmAnthropicSpendLast);
   }
-
   public UsageSummaryDate ccmAwsSpendLast(Long ccmAwsSpendLast) {
     this.ccmAwsSpendLast = ccmAwsSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of AWS cloud spend monitored over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the last value of AWS cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmAwsSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_AWS_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmAwsSpendLast() {
-    return ccmAwsSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_AWS_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmAwsSpendLast() {
+        return ccmAwsSpendLast;
+      }
   public void setCcmAwsSpendLast(Long ccmAwsSpendLast) {
     this.ccmAwsSpendLast = ccmAwsSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_AWS_SPEND_LAST, ccmAwsSpendLast);
   }
-
   public UsageSummaryDate ccmAzureSpendLast(Long ccmAzureSpendLast) {
     this.ccmAzureSpendLast = ccmAzureSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of Azure cloud spend monitored over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the last value of Azure cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmAzureSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_AZURE_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmAzureSpendLast() {
-    return ccmAzureSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_AZURE_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmAzureSpendLast() {
+        return ccmAzureSpendLast;
+      }
   public void setCcmAzureSpendLast(Long ccmAzureSpendLast) {
     this.ccmAzureSpendLast = ccmAzureSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_AZURE_SPEND_LAST, ccmAzureSpendLast);
   }
-
   public UsageSummaryDate ccmConfluentSpendLast(Long ccmConfluentSpendLast) {
     this.ccmConfluentSpendLast = ccmConfluentSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of Confluent cloud spend monitored over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the last value of Confluent cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmConfluentSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_CONFLUENT_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmConfluentSpendLast() {
-    return ccmConfluentSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_CONFLUENT_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmConfluentSpendLast() {
+        return ccmConfluentSpendLast;
+      }
   public void setCcmConfluentSpendLast(Long ccmConfluentSpendLast) {
     this.ccmConfluentSpendLast = ccmConfluentSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_CONFLUENT_SPEND_LAST, ccmConfluentSpendLast);
   }
-
   public UsageSummaryDate ccmDatabricksSpendLast(Long ccmDatabricksSpendLast) {
     this.ccmDatabricksSpendLast = ccmDatabricksSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of Databricks cloud spend monitored over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the last value of Databricks cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmDatabricksSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_DATABRICKS_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmDatabricksSpendLast() {
-    return ccmDatabricksSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_DATABRICKS_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmDatabricksSpendLast() {
+        return ccmDatabricksSpendLast;
+      }
   public void setCcmDatabricksSpendLast(Long ccmDatabricksSpendLast) {
     this.ccmDatabricksSpendLast = ccmDatabricksSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_DATABRICKS_SPEND_LAST, ccmDatabricksSpendLast);
   }
-
   public UsageSummaryDate ccmElasticSpendLast(Long ccmElasticSpendLast) {
     this.ccmElasticSpendLast = ccmElasticSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of Elastic cloud spend monitored over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the last value of Elastic cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmElasticSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_ELASTIC_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmElasticSpendLast() {
-    return ccmElasticSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_ELASTIC_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmElasticSpendLast() {
+        return ccmElasticSpendLast;
+      }
   public void setCcmElasticSpendLast(Long ccmElasticSpendLast) {
     this.ccmElasticSpendLast = ccmElasticSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_ELASTIC_SPEND_LAST, ccmElasticSpendLast);
   }
-
   public UsageSummaryDate ccmFastlySpendLast(Long ccmFastlySpendLast) {
     this.ccmFastlySpendLast = ccmFastlySpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of Fastly cloud spend monitored over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the last value of Fastly cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmFastlySpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_FASTLY_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmFastlySpendLast() {
-    return ccmFastlySpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_FASTLY_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmFastlySpendLast() {
+        return ccmFastlySpendLast;
+      }
   public void setCcmFastlySpendLast(Long ccmFastlySpendLast) {
     this.ccmFastlySpendLast = ccmFastlySpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_FASTLY_SPEND_LAST, ccmFastlySpendLast);
   }
-
   public UsageSummaryDate ccmGcpSpendLast(Long ccmGcpSpendLast) {
     this.ccmGcpSpendLast = ccmGcpSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of GCP cloud spend monitored over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the last value of GCP cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmGcpSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_GCP_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmGcpSpendLast() {
-    return ccmGcpSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_GCP_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmGcpSpendLast() {
+        return ccmGcpSpendLast;
+      }
   public void setCcmGcpSpendLast(Long ccmGcpSpendLast) {
     this.ccmGcpSpendLast = ccmGcpSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_GCP_SPEND_LAST, ccmGcpSpendLast);
   }
-
   public UsageSummaryDate ccmGithubSpendLast(Long ccmGithubSpendLast) {
     this.ccmGithubSpendLast = ccmGithubSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of GitHub cloud spend monitored over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the last value of GitHub cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmGithubSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_GITHUB_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmGithubSpendLast() {
-    return ccmGithubSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_GITHUB_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmGithubSpendLast() {
+        return ccmGithubSpendLast;
+      }
   public void setCcmGithubSpendLast(Long ccmGithubSpendLast) {
     this.ccmGithubSpendLast = ccmGithubSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_GITHUB_SPEND_LAST, ccmGithubSpendLast);
   }
-
   public UsageSummaryDate ccmMongodbSpendLast(Long ccmMongodbSpendLast) {
     this.ccmMongodbSpendLast = ccmMongodbSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of MongoDB cloud spend monitored over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the last value of MongoDB cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmMongodbSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_MONGODB_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmMongodbSpendLast() {
-    return ccmMongodbSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_MONGODB_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmMongodbSpendLast() {
+        return ccmMongodbSpendLast;
+      }
   public void setCcmMongodbSpendLast(Long ccmMongodbSpendLast) {
     this.ccmMongodbSpendLast = ccmMongodbSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_MONGODB_SPEND_LAST, ccmMongodbSpendLast);
   }
-
   public UsageSummaryDate ccmOciSpendLast(Long ccmOciSpendLast) {
     this.ccmOciSpendLast = ccmOciSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of OCI cloud spend monitored over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the last value of OCI cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmOciSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_OCI_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmOciSpendLast() {
-    return ccmOciSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_OCI_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmOciSpendLast() {
+        return ccmOciSpendLast;
+      }
   public void setCcmOciSpendLast(Long ccmOciSpendLast) {
     this.ccmOciSpendLast = ccmOciSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_OCI_SPEND_LAST, ccmOciSpendLast);
   }
-
   public UsageSummaryDate ccmOpenaiSpendLast(Long ccmOpenaiSpendLast) {
     this.ccmOpenaiSpendLast = ccmOpenaiSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of OpenAI cloud spend monitored over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the last value of OpenAI cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmOpenaiSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_OPENAI_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmOpenaiSpendLast() {
-    return ccmOpenaiSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_OPENAI_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmOpenaiSpendLast() {
+        return ccmOpenaiSpendLast;
+      }
   public void setCcmOpenaiSpendLast(Long ccmOpenaiSpendLast) {
     this.ccmOpenaiSpendLast = ccmOpenaiSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_OPENAI_SPEND_LAST, ccmOpenaiSpendLast);
   }
-
   public UsageSummaryDate ccmSnowflakeSpendLast(Long ccmSnowflakeSpendLast) {
     this.ccmSnowflakeSpendLast = ccmSnowflakeSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of Snowflake cloud spend monitored over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the last value of Snowflake cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmSnowflakeSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_SNOWFLAKE_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmSnowflakeSpendLast() {
-    return ccmSnowflakeSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_SNOWFLAKE_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmSnowflakeSpendLast() {
+        return ccmSnowflakeSpendLast;
+      }
   public void setCcmSnowflakeSpendLast(Long ccmSnowflakeSpendLast) {
     this.ccmSnowflakeSpendLast = ccmSnowflakeSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_SNOWFLAKE_SPEND_LAST, ccmSnowflakeSpendLast);
   }
-
   public UsageSummaryDate ccmSpendMonitoredEntLast(Long ccmSpendMonitoredEntLast) {
     this.ccmSpendMonitoredEntLast = ccmSpendMonitoredEntLast;
     return this;
   }
 
   /**
-   * Shows the last value of the amount of cloud spend monitored for Enterprise over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the last value of the amount of cloud spend monitored for Enterprise over all hours in the current date for all organizations.</p>
    * @return ccmSpendMonitoredEntLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmSpendMonitoredEntLast() {
-    return ccmSpendMonitoredEntLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmSpendMonitoredEntLast() {
+        return ccmSpendMonitoredEntLast;
+      }
   public void setCcmSpendMonitoredEntLast(Long ccmSpendMonitoredEntLast) {
     this.ccmSpendMonitoredEntLast = ccmSpendMonitoredEntLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST, ccmSpendMonitoredEntLast);
   }
-
   public UsageSummaryDate ccmSpendMonitoredProLast(Long ccmSpendMonitoredProLast) {
     this.ccmSpendMonitoredProLast = ccmSpendMonitoredProLast;
     return this;
   }
 
   /**
-   * Shows the last value of the amount of cloud spend monitored for Pro over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the last value of the amount of cloud spend monitored for Pro over all hours in the current date for all organizations.</p>
    * @return ccmSpendMonitoredProLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmSpendMonitoredProLast() {
-    return ccmSpendMonitoredProLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmSpendMonitoredProLast() {
+        return ccmSpendMonitoredProLast;
+      }
   public void setCcmSpendMonitoredProLast(Long ccmSpendMonitoredProLast) {
     this.ccmSpendMonitoredProLast = ccmSpendMonitoredProLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST, ccmSpendMonitoredProLast);
   }
-
   public UsageSummaryDate ccmTwilioSpendLast(Long ccmTwilioSpendLast) {
     this.ccmTwilioSpendLast = ccmTwilioSpendLast;
     return this;
   }
 
   /**
-   * Shows the last value of Twilio cloud spend monitored over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the last value of Twilio cloud spend monitored over all hours in the current date for all organizations.</p>
    * @return ccmTwilioSpendLast
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_TWILIO_SPEND_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCcmTwilioSpendLast() {
-    return ccmTwilioSpendLast;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CCM_TWILIO_SPEND_LAST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCcmTwilioSpendLast() {
+        return ccmTwilioSpendLast;
+      }
   public void setCcmTwilioSpendLast(Long ccmTwilioSpendLast) {
     this.ccmTwilioSpendLast = ccmTwilioSpendLast;
     putAdditionalProperty(JSON_PROPERTY_CCM_TWILIO_SPEND_LAST, ccmTwilioSpendLast);
   }
-
   public UsageSummaryDate ciPipelineIndexedSpansSum(Long ciPipelineIndexedSpansSum) {
     this.ciPipelineIndexedSpansSum = ciPipelineIndexedSpansSum;
     return this;
   }
 
   /**
-   * Shows the sum of all CI pipeline indexed spans over all hours in the current month for all
-   * organizations.
-   *
+   * <p>Shows the sum of all CI pipeline indexed spans over all hours in the current month for all organizations.</p>
    * @return ciPipelineIndexedSpansSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCiPipelineIndexedSpansSum() {
-    return ciPipelineIndexedSpansSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCiPipelineIndexedSpansSum() {
+        return ciPipelineIndexedSpansSum;
+      }
   public void setCiPipelineIndexedSpansSum(Long ciPipelineIndexedSpansSum) {
     this.ciPipelineIndexedSpansSum = ciPipelineIndexedSpansSum;
     putAdditionalProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM, ciPipelineIndexedSpansSum);
   }
-
   public UsageSummaryDate ciTestIndexedSpansSum(Long ciTestIndexedSpansSum) {
     this.ciTestIndexedSpansSum = ciTestIndexedSpansSum;
     return this;
   }
 
   /**
-   * Shows the sum of all CI test indexed spans over all hours in the current month for all
-   * organizations.
-   *
+   * <p>Shows the sum of all CI test indexed spans over all hours in the current month for all organizations.</p>
    * @return ciTestIndexedSpansSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCiTestIndexedSpansSum() {
-    return ciTestIndexedSpansSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCiTestIndexedSpansSum() {
+        return ciTestIndexedSpansSum;
+      }
   public void setCiTestIndexedSpansSum(Long ciTestIndexedSpansSum) {
     this.ciTestIndexedSpansSum = ciTestIndexedSpansSum;
     putAdditionalProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM, ciTestIndexedSpansSum);
   }
-
   public UsageSummaryDate ciVisibilityItrCommittersHwm(Long ciVisibilityItrCommittersHwm) {
     this.ciVisibilityItrCommittersHwm = ciVisibilityItrCommittersHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of all CI visibility intelligent test runner committers over all
-   * hours in the current month for all organizations.
-   *
+   * <p>Shows the high-water mark of all CI visibility intelligent test runner committers over all hours in the current month for all organizations.</p>
    * @return ciVisibilityItrCommittersHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCiVisibilityItrCommittersHwm() {
-    return ciVisibilityItrCommittersHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCiVisibilityItrCommittersHwm() {
+        return ciVisibilityItrCommittersHwm;
+      }
   public void setCiVisibilityItrCommittersHwm(Long ciVisibilityItrCommittersHwm) {
     this.ciVisibilityItrCommittersHwm = ciVisibilityItrCommittersHwm;
-    putAdditionalProperty(
-        JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM, ciVisibilityItrCommittersHwm);
+    putAdditionalProperty(JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM, ciVisibilityItrCommittersHwm);
   }
-
-  public UsageSummaryDate ciVisibilityPipelineCommittersHwm(
-      Long ciVisibilityPipelineCommittersHwm) {
+  public UsageSummaryDate ciVisibilityPipelineCommittersHwm(Long ciVisibilityPipelineCommittersHwm) {
     this.ciVisibilityPipelineCommittersHwm = ciVisibilityPipelineCommittersHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of all CI visibility pipeline committers over all hours in the
-   * current month for all organizations.
-   *
+   * <p>Shows the high-water mark of all CI visibility pipeline committers over all hours in the current month for all organizations.</p>
    * @return ciVisibilityPipelineCommittersHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCiVisibilityPipelineCommittersHwm() {
-    return ciVisibilityPipelineCommittersHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCiVisibilityPipelineCommittersHwm() {
+        return ciVisibilityPipelineCommittersHwm;
+      }
   public void setCiVisibilityPipelineCommittersHwm(Long ciVisibilityPipelineCommittersHwm) {
     this.ciVisibilityPipelineCommittersHwm = ciVisibilityPipelineCommittersHwm;
-    putAdditionalProperty(
-        JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM, ciVisibilityPipelineCommittersHwm);
+    putAdditionalProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM, ciVisibilityPipelineCommittersHwm);
   }
-
   public UsageSummaryDate ciVisibilityTestCommittersHwm(Long ciVisibilityTestCommittersHwm) {
     this.ciVisibilityTestCommittersHwm = ciVisibilityTestCommittersHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of all CI visibility test committers over all hours in the current
-   * month for all organizations.
-   *
+   * <p>Shows the high-water mark of all CI visibility test committers over all hours in the current month for all organizations.</p>
    * @return ciVisibilityTestCommittersHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCiVisibilityTestCommittersHwm() {
-    return ciVisibilityTestCommittersHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCiVisibilityTestCommittersHwm() {
+        return ciVisibilityTestCommittersHwm;
+      }
   public void setCiVisibilityTestCommittersHwm(Long ciVisibilityTestCommittersHwm) {
     this.ciVisibilityTestCommittersHwm = ciVisibilityTestCommittersHwm;
-    putAdditionalProperty(
-        JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM, ciVisibilityTestCommittersHwm);
+    putAdditionalProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM, ciVisibilityTestCommittersHwm);
   }
-
-  public UsageSummaryDate cloudCostManagementAwsHostCountAvg(
-      Long cloudCostManagementAwsHostCountAvg) {
+  public UsageSummaryDate cloudCostManagementAwsHostCountAvg(Long cloudCostManagementAwsHostCountAvg) {
     this.cloudCostManagementAwsHostCountAvg = cloudCostManagementAwsHostCountAvg;
     return this;
   }
 
   /**
-   * Host count average of Cloud Cost Management for AWS for the given date and given organization.
-   *
+   * <p>Host count average of Cloud Cost Management for AWS for the given date and given organization.</p>
    * @return cloudCostManagementAwsHostCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCloudCostManagementAwsHostCountAvg() {
-    return cloudCostManagementAwsHostCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCloudCostManagementAwsHostCountAvg() {
+        return cloudCostManagementAwsHostCountAvg;
+      }
   public void setCloudCostManagementAwsHostCountAvg(Long cloudCostManagementAwsHostCountAvg) {
     this.cloudCostManagementAwsHostCountAvg = cloudCostManagementAwsHostCountAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG, cloudCostManagementAwsHostCountAvg);
+    putAdditionalProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG, cloudCostManagementAwsHostCountAvg);
   }
-
-  public UsageSummaryDate cloudCostManagementAzureHostCountAvg(
-      Long cloudCostManagementAzureHostCountAvg) {
+  public UsageSummaryDate cloudCostManagementAzureHostCountAvg(Long cloudCostManagementAzureHostCountAvg) {
     this.cloudCostManagementAzureHostCountAvg = cloudCostManagementAzureHostCountAvg;
     return this;
   }
 
   /**
-   * Host count average of Cloud Cost Management for Azure for the given date and given
-   * organization.
-   *
+   * <p>Host count average of Cloud Cost Management for Azure for the given date and given organization.</p>
    * @return cloudCostManagementAzureHostCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCloudCostManagementAzureHostCountAvg() {
-    return cloudCostManagementAzureHostCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCloudCostManagementAzureHostCountAvg() {
+        return cloudCostManagementAzureHostCountAvg;
+      }
   public void setCloudCostManagementAzureHostCountAvg(Long cloudCostManagementAzureHostCountAvg) {
     this.cloudCostManagementAzureHostCountAvg = cloudCostManagementAzureHostCountAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG,
-        cloudCostManagementAzureHostCountAvg);
+    putAdditionalProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG, cloudCostManagementAzureHostCountAvg);
   }
-
-  public UsageSummaryDate cloudCostManagementGcpHostCountAvg(
-      Long cloudCostManagementGcpHostCountAvg) {
+  public UsageSummaryDate cloudCostManagementGcpHostCountAvg(Long cloudCostManagementGcpHostCountAvg) {
     this.cloudCostManagementGcpHostCountAvg = cloudCostManagementGcpHostCountAvg;
     return this;
   }
 
   /**
-   * Host count average of Cloud Cost Management for GCP for the given date and given organization.
-   *
+   * <p>Host count average of Cloud Cost Management for GCP for the given date and given organization.</p>
    * @return cloudCostManagementGcpHostCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCloudCostManagementGcpHostCountAvg() {
-    return cloudCostManagementGcpHostCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCloudCostManagementGcpHostCountAvg() {
+        return cloudCostManagementGcpHostCountAvg;
+      }
   public void setCloudCostManagementGcpHostCountAvg(Long cloudCostManagementGcpHostCountAvg) {
     this.cloudCostManagementGcpHostCountAvg = cloudCostManagementGcpHostCountAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG, cloudCostManagementGcpHostCountAvg);
+    putAdditionalProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG, cloudCostManagementGcpHostCountAvg);
   }
-
   public UsageSummaryDate cloudCostManagementHostCountAvg(Long cloudCostManagementHostCountAvg) {
     this.cloudCostManagementHostCountAvg = cloudCostManagementHostCountAvg;
     return this;
   }
 
   /**
-   * Host count average of Cloud Cost Management for all cloud providers for the given date and
-   * given organization.
-   *
+   * <p>Host count average of Cloud Cost Management for all cloud providers for the given date and given organization.</p>
    * @return cloudCostManagementHostCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCloudCostManagementHostCountAvg() {
-    return cloudCostManagementHostCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCloudCostManagementHostCountAvg() {
+        return cloudCostManagementHostCountAvg;
+      }
   public void setCloudCostManagementHostCountAvg(Long cloudCostManagementHostCountAvg) {
     this.cloudCostManagementHostCountAvg = cloudCostManagementHostCountAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG, cloudCostManagementHostCountAvg);
+    putAdditionalProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG, cloudCostManagementHostCountAvg);
   }
-
-  public UsageSummaryDate cloudCostManagementOciHostCountAvg(
-      Long cloudCostManagementOciHostCountAvg) {
+  public UsageSummaryDate cloudCostManagementOciHostCountAvg(Long cloudCostManagementOciHostCountAvg) {
     this.cloudCostManagementOciHostCountAvg = cloudCostManagementOciHostCountAvg;
     return this;
   }
 
   /**
-   * Average host count for Cloud Cost Management on OCI for the given date and organization.
-   *
+   * <p>Average host count for Cloud Cost Management on OCI for the given date and organization.</p>
    * @return cloudCostManagementOciHostCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCloudCostManagementOciHostCountAvg() {
-    return cloudCostManagementOciHostCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCloudCostManagementOciHostCountAvg() {
+        return cloudCostManagementOciHostCountAvg;
+      }
   public void setCloudCostManagementOciHostCountAvg(Long cloudCostManagementOciHostCountAvg) {
     this.cloudCostManagementOciHostCountAvg = cloudCostManagementOciHostCountAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG, cloudCostManagementOciHostCountAvg);
+    putAdditionalProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG, cloudCostManagementOciHostCountAvg);
   }
-
   public UsageSummaryDate cloudSiemEventsSum(Long cloudSiemEventsSum) {
     this.cloudSiemEventsSum = cloudSiemEventsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Cloud Security Information and Event Management events over all hours in
-   * the current date for the given org.
-   *
+   * <p>Shows the sum of all Cloud Security Information and Event Management events over all hours in the current date for the given org.</p>
    * @return cloudSiemEventsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCloudSiemEventsSum() {
-    return cloudSiemEventsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCloudSiemEventsSum() {
+        return cloudSiemEventsSum;
+      }
   public void setCloudSiemEventsSum(Long cloudSiemEventsSum) {
     this.cloudSiemEventsSum = cloudSiemEventsSum;
     putAdditionalProperty(JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM, cloudSiemEventsSum);
   }
-
   public UsageSummaryDate cloudSiemIndexedLogsSum(Long cloudSiemIndexedLogsSum) {
     this.cloudSiemIndexedLogsSum = cloudSiemIndexedLogsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Cloud SIEM Indexed Logs over all hours in the current date for the given
-   * org.
-   *
+   * <p>Shows the sum of all Cloud SIEM Indexed Logs over all hours in the current date for the given org.</p>
    * @return cloudSiemIndexedLogsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_INDEXED_LOGS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCloudSiemIndexedLogsSum() {
-    return cloudSiemIndexedLogsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_INDEXED_LOGS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCloudSiemIndexedLogsSum() {
+        return cloudSiemIndexedLogsSum;
+      }
   public void setCloudSiemIndexedLogsSum(Long cloudSiemIndexedLogsSum) {
     this.cloudSiemIndexedLogsSum = cloudSiemIndexedLogsSum;
     putAdditionalProperty(JSON_PROPERTY_CLOUD_SIEM_INDEXED_LOGS_SUM, cloudSiemIndexedLogsSum);
   }
-
   public UsageSummaryDate codeAnalysisSaCommittersHwm(Long codeAnalysisSaCommittersHwm) {
     this.codeAnalysisSaCommittersHwm = codeAnalysisSaCommittersHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of all Static Analysis committers over all hours in the current date
-   * for the given org.
-   *
+   * <p>Shows the high-water mark of all Static Analysis committers over all hours in the current date for the given org.</p>
    * @return codeAnalysisSaCommittersHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCodeAnalysisSaCommittersHwm() {
-    return codeAnalysisSaCommittersHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCodeAnalysisSaCommittersHwm() {
+        return codeAnalysisSaCommittersHwm;
+      }
   public void setCodeAnalysisSaCommittersHwm(Long codeAnalysisSaCommittersHwm) {
     this.codeAnalysisSaCommittersHwm = codeAnalysisSaCommittersHwm;
-    putAdditionalProperty(
-        JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM, codeAnalysisSaCommittersHwm);
+    putAdditionalProperty(JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM, codeAnalysisSaCommittersHwm);
   }
-
   public UsageSummaryDate codeAnalysisScaCommittersHwm(Long codeAnalysisScaCommittersHwm) {
     this.codeAnalysisScaCommittersHwm = codeAnalysisScaCommittersHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of all static Software Composition Analysis committers over all hours
-   * in the current date for the given org.
-   *
+   * <p>Shows the high-water mark of all static Software Composition Analysis committers over all hours in the current date for the given org.</p>
    * @return codeAnalysisScaCommittersHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCodeAnalysisScaCommittersHwm() {
-    return codeAnalysisScaCommittersHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCodeAnalysisScaCommittersHwm() {
+        return codeAnalysisScaCommittersHwm;
+      }
   public void setCodeAnalysisScaCommittersHwm(Long codeAnalysisScaCommittersHwm) {
     this.codeAnalysisScaCommittersHwm = codeAnalysisScaCommittersHwm;
-    putAdditionalProperty(
-        JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM, codeAnalysisScaCommittersHwm);
+    putAdditionalProperty(JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM, codeAnalysisScaCommittersHwm);
   }
-
   public UsageSummaryDate codeSecurityHostTop99p(Long codeSecurityHostTop99p) {
     this.codeSecurityHostTop99p = codeSecurityHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Code Security hosts over all hours in the current date for the
-   * given org.
-   *
+   * <p>Shows the 99th percentile of all Code Security hosts over all hours in the current date for the given org.</p>
    * @return codeSecurityHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCodeSecurityHostTop99p() {
-    return codeSecurityHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCodeSecurityHostTop99p() {
+        return codeSecurityHostTop99p;
+      }
   public void setCodeSecurityHostTop99p(Long codeSecurityHostTop99p) {
     this.codeSecurityHostTop99p = codeSecurityHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P, codeSecurityHostTop99p);
   }
-
   public UsageSummaryDate containerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
     return this;
   }
 
   /**
-   * Shows the average of all distinct containers over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the average of all distinct containers over all hours in the current date for all organizations.</p>
    * @return containerAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTAINER_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getContainerAvg() {
-    return containerAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONTAINER_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getContainerAvg() {
+        return containerAvg;
+      }
   public void setContainerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
     putAdditionalProperty(JSON_PROPERTY_CONTAINER_AVG, containerAvg);
   }
-
   public UsageSummaryDate containerExclAgentAvg(Long containerExclAgentAvg) {
     this.containerExclAgentAvg = containerExclAgentAvg;
     return this;
   }
 
   /**
-   * Shows the average of containers without the Datadog Agent over all hours in the current date
-   * for all organizations.
-   *
+   * <p>Shows the average of containers without the Datadog Agent over all hours in the current date for all organizations.</p>
    * @return containerExclAgentAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getContainerExclAgentAvg() {
-    return containerExclAgentAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getContainerExclAgentAvg() {
+        return containerExclAgentAvg;
+      }
   public void setContainerExclAgentAvg(Long containerExclAgentAvg) {
     this.containerExclAgentAvg = containerExclAgentAvg;
     putAdditionalProperty(JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG, containerExclAgentAvg);
   }
-
   public UsageSummaryDate containerHwm(Long containerHwm) {
     this.containerHwm = containerHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of all distinct containers over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the high-water mark of all distinct containers over all hours in the current date for all organizations.</p>
    * @return containerHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTAINER_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getContainerHwm() {
-    return containerHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONTAINER_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getContainerHwm() {
+        return containerHwm;
+      }
   public void setContainerHwm(Long containerHwm) {
     this.containerHwm = containerHwm;
     putAdditionalProperty(JSON_PROPERTY_CONTAINER_HWM, containerHwm);
   }
-
-  public UsageSummaryDate csmContainerEnterpriseComplianceCountSum(
-      Long csmContainerEnterpriseComplianceCountSum) {
+  public UsageSummaryDate csmContainerEnterpriseComplianceCountSum(Long csmContainerEnterpriseComplianceCountSum) {
     this.csmContainerEnterpriseComplianceCountSum = csmContainerEnterpriseComplianceCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours
-   * in the current date for the given org.
-   *
+   * <p>Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current date for the given org.</p>
    * @return csmContainerEnterpriseComplianceCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmContainerEnterpriseComplianceCountSum() {
-    return csmContainerEnterpriseComplianceCountSum;
-  }
-
-  public void setCsmContainerEnterpriseComplianceCountSum(
-      Long csmContainerEnterpriseComplianceCountSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmContainerEnterpriseComplianceCountSum() {
+        return csmContainerEnterpriseComplianceCountSum;
+      }
+  public void setCsmContainerEnterpriseComplianceCountSum(Long csmContainerEnterpriseComplianceCountSum) {
     this.csmContainerEnterpriseComplianceCountSum = csmContainerEnterpriseComplianceCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM,
-        csmContainerEnterpriseComplianceCountSum);
+    putAdditionalProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM, csmContainerEnterpriseComplianceCountSum);
   }
-
-  public UsageSummaryDate csmContainerEnterpriseCwsCountSum(
-      Long csmContainerEnterpriseCwsCountSum) {
+  public UsageSummaryDate csmContainerEnterpriseCwsCountSum(Long csmContainerEnterpriseCwsCountSum) {
     this.csmContainerEnterpriseCwsCountSum = csmContainerEnterpriseCwsCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers
-   * over all hours in the current date for the given org.
-   *
+   * <p>Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current date for the given org.</p>
    * @return csmContainerEnterpriseCwsCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmContainerEnterpriseCwsCountSum() {
-    return csmContainerEnterpriseCwsCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmContainerEnterpriseCwsCountSum() {
+        return csmContainerEnterpriseCwsCountSum;
+      }
   public void setCsmContainerEnterpriseCwsCountSum(Long csmContainerEnterpriseCwsCountSum) {
     this.csmContainerEnterpriseCwsCountSum = csmContainerEnterpriseCwsCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM, csmContainerEnterpriseCwsCountSum);
+    putAdditionalProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM, csmContainerEnterpriseCwsCountSum);
   }
-
-  public UsageSummaryDate csmContainerEnterpriseTotalCountSum(
-      Long csmContainerEnterpriseTotalCountSum) {
+  public UsageSummaryDate csmContainerEnterpriseTotalCountSum(Long csmContainerEnterpriseTotalCountSum) {
     this.csmContainerEnterpriseTotalCountSum = csmContainerEnterpriseTotalCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Cloud Security Management Enterprise containers over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current date for the given org.</p>
    * @return csmContainerEnterpriseTotalCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmContainerEnterpriseTotalCountSum() {
-    return csmContainerEnterpriseTotalCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmContainerEnterpriseTotalCountSum() {
+        return csmContainerEnterpriseTotalCountSum;
+      }
   public void setCsmContainerEnterpriseTotalCountSum(Long csmContainerEnterpriseTotalCountSum) {
     this.csmContainerEnterpriseTotalCountSum = csmContainerEnterpriseTotalCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM,
-        csmContainerEnterpriseTotalCountSum);
+    putAdditionalProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM, csmContainerEnterpriseTotalCountSum);
   }
-
-  public UsageSummaryDate csmHostEnterpriseAasHostCountTop99p(
-      Long csmHostEnterpriseAasHostCountTop99p) {
+  public UsageSummaryDate csmHostEnterpriseAasHostCountTop99p(Long csmHostEnterpriseAasHostCountTop99p) {
     this.csmHostEnterpriseAasHostCountTop99p = csmHostEnterpriseAasHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts
-   * over all hours in the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current date for the given org.</p>
    * @return csmHostEnterpriseAasHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostEnterpriseAasHostCountTop99p() {
-    return csmHostEnterpriseAasHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostEnterpriseAasHostCountTop99p() {
+        return csmHostEnterpriseAasHostCountTop99p;
+      }
   public void setCsmHostEnterpriseAasHostCountTop99p(Long csmHostEnterpriseAasHostCountTop99p) {
     this.csmHostEnterpriseAasHostCountTop99p = csmHostEnterpriseAasHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P,
-        csmHostEnterpriseAasHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P, csmHostEnterpriseAasHostCountTop99p);
   }
-
-  public UsageSummaryDate csmHostEnterpriseAwsHostCountTop99p(
-      Long csmHostEnterpriseAwsHostCountTop99p) {
+  public UsageSummaryDate csmHostEnterpriseAwsHostCountTop99p(Long csmHostEnterpriseAwsHostCountTop99p) {
     this.csmHostEnterpriseAwsHostCountTop99p = csmHostEnterpriseAwsHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours
-   * in the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours in the current date for the given org.</p>
    * @return csmHostEnterpriseAwsHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostEnterpriseAwsHostCountTop99p() {
-    return csmHostEnterpriseAwsHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostEnterpriseAwsHostCountTop99p() {
+        return csmHostEnterpriseAwsHostCountTop99p;
+      }
   public void setCsmHostEnterpriseAwsHostCountTop99p(Long csmHostEnterpriseAwsHostCountTop99p) {
     this.csmHostEnterpriseAwsHostCountTop99p = csmHostEnterpriseAwsHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P,
-        csmHostEnterpriseAwsHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P, csmHostEnterpriseAwsHostCountTop99p);
   }
-
-  public UsageSummaryDate csmHostEnterpriseAzureHostCountTop99p(
-      Long csmHostEnterpriseAzureHostCountTop99p) {
+  public UsageSummaryDate csmHostEnterpriseAzureHostCountTop99p(Long csmHostEnterpriseAzureHostCountTop99p) {
     this.csmHostEnterpriseAzureHostCountTop99p = csmHostEnterpriseAzureHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all
-   * hours in the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours in the current date for the given org.</p>
    * @return csmHostEnterpriseAzureHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostEnterpriseAzureHostCountTop99p() {
-    return csmHostEnterpriseAzureHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostEnterpriseAzureHostCountTop99p() {
+        return csmHostEnterpriseAzureHostCountTop99p;
+      }
   public void setCsmHostEnterpriseAzureHostCountTop99p(Long csmHostEnterpriseAzureHostCountTop99p) {
     this.csmHostEnterpriseAzureHostCountTop99p = csmHostEnterpriseAzureHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P,
-        csmHostEnterpriseAzureHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P, csmHostEnterpriseAzureHostCountTop99p);
   }
-
-  public UsageSummaryDate csmHostEnterpriseComplianceHostCountTop99p(
-      Long csmHostEnterpriseComplianceHostCountTop99p) {
+  public UsageSummaryDate csmHostEnterpriseComplianceHostCountTop99p(Long csmHostEnterpriseComplianceHostCountTop99p) {
     this.csmHostEnterpriseComplianceHostCountTop99p = csmHostEnterpriseComplianceHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all
-   * hours in the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours in the current date for the given org.</p>
    * @return csmHostEnterpriseComplianceHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostEnterpriseComplianceHostCountTop99p() {
-    return csmHostEnterpriseComplianceHostCountTop99p;
-  }
-
-  public void setCsmHostEnterpriseComplianceHostCountTop99p(
-      Long csmHostEnterpriseComplianceHostCountTop99p) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostEnterpriseComplianceHostCountTop99p() {
+        return csmHostEnterpriseComplianceHostCountTop99p;
+      }
+  public void setCsmHostEnterpriseComplianceHostCountTop99p(Long csmHostEnterpriseComplianceHostCountTop99p) {
     this.csmHostEnterpriseComplianceHostCountTop99p = csmHostEnterpriseComplianceHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P,
-        csmHostEnterpriseComplianceHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P, csmHostEnterpriseComplianceHostCountTop99p);
   }
-
-  public UsageSummaryDate csmHostEnterpriseCwsHostCountTop99p(
-      Long csmHostEnterpriseCwsHostCountTop99p) {
+  public UsageSummaryDate csmHostEnterpriseCwsHostCountTop99p(Long csmHostEnterpriseCwsHostCountTop99p) {
     this.csmHostEnterpriseCwsHostCountTop99p = csmHostEnterpriseCwsHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security
-   * hosts over all hours in the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours in the current date for the given org.</p>
    * @return csmHostEnterpriseCwsHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostEnterpriseCwsHostCountTop99p() {
-    return csmHostEnterpriseCwsHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostEnterpriseCwsHostCountTop99p() {
+        return csmHostEnterpriseCwsHostCountTop99p;
+      }
   public void setCsmHostEnterpriseCwsHostCountTop99p(Long csmHostEnterpriseCwsHostCountTop99p) {
     this.csmHostEnterpriseCwsHostCountTop99p = csmHostEnterpriseCwsHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P,
-        csmHostEnterpriseCwsHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P, csmHostEnterpriseCwsHostCountTop99p);
   }
-
-  public UsageSummaryDate csmHostEnterpriseGcpHostCountTop99p(
-      Long csmHostEnterpriseGcpHostCountTop99p) {
+  public UsageSummaryDate csmHostEnterpriseGcpHostCountTop99p(Long csmHostEnterpriseGcpHostCountTop99p) {
     this.csmHostEnterpriseGcpHostCountTop99p = csmHostEnterpriseGcpHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours
-   * in the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current date for the given org.</p>
    * @return csmHostEnterpriseGcpHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostEnterpriseGcpHostCountTop99p() {
-    return csmHostEnterpriseGcpHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostEnterpriseGcpHostCountTop99p() {
+        return csmHostEnterpriseGcpHostCountTop99p;
+      }
   public void setCsmHostEnterpriseGcpHostCountTop99p(Long csmHostEnterpriseGcpHostCountTop99p) {
     this.csmHostEnterpriseGcpHostCountTop99p = csmHostEnterpriseGcpHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P,
-        csmHostEnterpriseGcpHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P, csmHostEnterpriseGcpHostCountTop99p);
   }
-
-  public UsageSummaryDate csmHostEnterpriseOciHostCountTop99p(
-      Long csmHostEnterpriseOciHostCountTop99p) {
+  public UsageSummaryDate csmHostEnterpriseOciHostCountTop99p(Long csmHostEnterpriseOciHostCountTop99p) {
     this.csmHostEnterpriseOciHostCountTop99p = csmHostEnterpriseOciHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise OCI hosts over all hours
-   * in the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Enterprise OCI hosts over all hours in the current date for the given org.</p>
    * @return csmHostEnterpriseOciHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostEnterpriseOciHostCountTop99p() {
-    return csmHostEnterpriseOciHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostEnterpriseOciHostCountTop99p() {
+        return csmHostEnterpriseOciHostCountTop99p;
+      }
   public void setCsmHostEnterpriseOciHostCountTop99p(Long csmHostEnterpriseOciHostCountTop99p) {
     this.csmHostEnterpriseOciHostCountTop99p = csmHostEnterpriseOciHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P,
-        csmHostEnterpriseOciHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P, csmHostEnterpriseOciHostCountTop99p);
   }
-
-  public UsageSummaryDate csmHostEnterpriseTotalHostCountTop99p(
-      Long csmHostEnterpriseTotalHostCountTop99p) {
+  public UsageSummaryDate csmHostEnterpriseTotalHostCountTop99p(Long csmHostEnterpriseTotalHostCountTop99p) {
     this.csmHostEnterpriseTotalHostCountTop99p = csmHostEnterpriseTotalHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in
-   * the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current date for the given org.</p>
    * @return csmHostEnterpriseTotalHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostEnterpriseTotalHostCountTop99p() {
-    return csmHostEnterpriseTotalHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostEnterpriseTotalHostCountTop99p() {
+        return csmHostEnterpriseTotalHostCountTop99p;
+      }
   public void setCsmHostEnterpriseTotalHostCountTop99p(Long csmHostEnterpriseTotalHostCountTop99p) {
     this.csmHostEnterpriseTotalHostCountTop99p = csmHostEnterpriseTotalHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P,
-        csmHostEnterpriseTotalHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P, csmHostEnterpriseTotalHostCountTop99p);
   }
-
-  public UsageSummaryDate csmHostProHostsAgentlessScannersSum(
-      Long csmHostProHostsAgentlessScannersSum) {
+  public UsageSummaryDate csmHostProHostsAgentlessScannersSum(Long csmHostProHostsAgentlessScannersSum) {
     this.csmHostProHostsAgentlessScannersSum = csmHostProHostsAgentlessScannersSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in
-   * the current date for the given org.
-   *
+   * <p>Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current date for the given org.</p>
    * @return csmHostProHostsAgentlessScannersSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostProHostsAgentlessScannersSum() {
-    return csmHostProHostsAgentlessScannersSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostProHostsAgentlessScannersSum() {
+        return csmHostProHostsAgentlessScannersSum;
+      }
   public void setCsmHostProHostsAgentlessScannersSum(Long csmHostProHostsAgentlessScannersSum) {
     this.csmHostProHostsAgentlessScannersSum = csmHostProHostsAgentlessScannersSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM,
-        csmHostProHostsAgentlessScannersSum);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_SUM, csmHostProHostsAgentlessScannersSum);
   }
-
-  public UsageSummaryDate csmHostProHostsAgentlessScannersTop99p(
-      Long csmHostProHostsAgentlessScannersTop99p) {
+  public UsageSummaryDate csmHostProHostsAgentlessScannersTop99p(Long csmHostProHostsAgentlessScannersTop99p) {
     this.csmHostProHostsAgentlessScannersTop99p = csmHostProHostsAgentlessScannersTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all
-   * hours in the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current date for the given org.</p>
    * @return csmHostProHostsAgentlessScannersTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostProHostsAgentlessScannersTop99p() {
-    return csmHostProHostsAgentlessScannersTop99p;
-  }
-
-  public void setCsmHostProHostsAgentlessScannersTop99p(
-      Long csmHostProHostsAgentlessScannersTop99p) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostProHostsAgentlessScannersTop99p() {
+        return csmHostProHostsAgentlessScannersTop99p;
+      }
+  public void setCsmHostProHostsAgentlessScannersTop99p(Long csmHostProHostsAgentlessScannersTop99p) {
     this.csmHostProHostsAgentlessScannersTop99p = csmHostProHostsAgentlessScannersTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P,
-        csmHostProHostsAgentlessScannersTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_PRO_HOSTS_AGENTLESS_SCANNERS_TOP99P, csmHostProHostsAgentlessScannersTop99p);
   }
-
   public UsageSummaryDate csmHostProOciHostCountTop99p(Long csmHostProOciHostCountTop99p) {
     this.csmHostProOciHostCountTop99p = csmHostProOciHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Pro OCI hosts over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Pro OCI hosts over all hours in the current date for the given org.</p>
    * @return csmHostProOciHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCsmHostProOciHostCountTop99p() {
-    return csmHostProOciHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCsmHostProOciHostCountTop99p() {
+        return csmHostProOciHostCountTop99p;
+      }
   public void setCsmHostProOciHostCountTop99p(Long csmHostProOciHostCountTop99p) {
     this.csmHostProOciHostCountTop99p = csmHostProOciHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P, csmHostProOciHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P, csmHostProOciHostCountTop99p);
   }
-
   public UsageSummaryDate cspmAasHostTop99p(Long cspmAasHostTop99p) {
     this.cspmAasHostTop99p = cspmAasHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over
-   * all hours in the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over all hours in the current date for all organizations.</p>
    * @return cspmAasHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_AAS_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmAasHostTop99p() {
-    return cspmAasHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSPM_AAS_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCspmAasHostTop99p() {
+        return cspmAasHostTop99p;
+      }
   public void setCspmAasHostTop99p(Long cspmAasHostTop99p) {
     this.cspmAasHostTop99p = cspmAasHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_CSPM_AAS_HOST_TOP99P, cspmAasHostTop99p);
   }
-
   public UsageSummaryDate cspmAwsHostTop99p(Long cspmAwsHostTop99p) {
     this.cspmAwsHostTop99p = cspmAwsHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Pro AWS hosts over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Pro AWS hosts over all hours in the current date for all organizations.</p>
    * @return cspmAwsHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_AWS_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmAwsHostTop99p() {
-    return cspmAwsHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSPM_AWS_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCspmAwsHostTop99p() {
+        return cspmAwsHostTop99p;
+      }
   public void setCspmAwsHostTop99p(Long cspmAwsHostTop99p) {
     this.cspmAwsHostTop99p = cspmAwsHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_CSPM_AWS_HOST_TOP99P, cspmAwsHostTop99p);
   }
-
   public UsageSummaryDate cspmAzureHostTop99p(Long cspmAzureHostTop99p) {
     this.cspmAzureHostTop99p = cspmAzureHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Pro Azure hosts over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Pro Azure hosts over all hours in the current date for all organizations.</p>
    * @return cspmAzureHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmAzureHostTop99p() {
-    return cspmAzureHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCspmAzureHostTop99p() {
+        return cspmAzureHostTop99p;
+      }
   public void setCspmAzureHostTop99p(Long cspmAzureHostTop99p) {
     this.cspmAzureHostTop99p = cspmAzureHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P, cspmAzureHostTop99p);
   }
-
   public UsageSummaryDate cspmContainerAvg(Long cspmContainerAvg) {
     this.cspmContainerAvg = cspmContainerAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Cloud Security Management Pro containers over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average number of Cloud Security Management Pro containers over all hours in the current date for all organizations.</p>
    * @return cspmContainerAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmContainerAvg() {
-    return cspmContainerAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCspmContainerAvg() {
+        return cspmContainerAvg;
+      }
   public void setCspmContainerAvg(Long cspmContainerAvg) {
     this.cspmContainerAvg = cspmContainerAvg;
     putAdditionalProperty(JSON_PROPERTY_CSPM_CONTAINER_AVG, cspmContainerAvg);
   }
-
   public UsageSummaryDate cspmContainerHwm(Long cspmContainerHwm) {
     this.cspmContainerHwm = cspmContainerHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of Cloud Security Management Pro containers over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the high-water mark of Cloud Security Management Pro containers over all hours in the current date for all organizations.</p>
    * @return cspmContainerHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmContainerHwm() {
-    return cspmContainerHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCspmContainerHwm() {
+        return cspmContainerHwm;
+      }
   public void setCspmContainerHwm(Long cspmContainerHwm) {
     this.cspmContainerHwm = cspmContainerHwm;
     putAdditionalProperty(JSON_PROPERTY_CSPM_CONTAINER_HWM, cspmContainerHwm);
   }
-
   public UsageSummaryDate cspmGcpHostTop99p(Long cspmGcpHostTop99p) {
     this.cspmGcpHostTop99p = cspmGcpHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the current date for all organizations.</p>
    * @return cspmGcpHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_GCP_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmGcpHostTop99p() {
-    return cspmGcpHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSPM_GCP_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCspmGcpHostTop99p() {
+        return cspmGcpHostTop99p;
+      }
   public void setCspmGcpHostTop99p(Long cspmGcpHostTop99p) {
     this.cspmGcpHostTop99p = cspmGcpHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_CSPM_GCP_HOST_TOP99P, cspmGcpHostTop99p);
   }
-
   public UsageSummaryDate cspmHostTop99p(Long cspmHostTop99p) {
     this.cspmHostTop99p = cspmHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the current date for all organizations.</p>
    * @return cspmHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmHostTop99p() {
-    return cspmHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSPM_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCspmHostTop99p() {
+        return cspmHostTop99p;
+      }
   public void setCspmHostTop99p(Long cspmHostTop99p) {
     this.cspmHostTop99p = cspmHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_CSPM_HOST_TOP99P, cspmHostTop99p);
   }
-
   public UsageSummaryDate cspmHostsAgentlessScannersSum(Long cspmHostsAgentlessScannersSum) {
     this.cspmHostsAgentlessScannersSum = cspmHostsAgentlessScannersSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current date for all organizations.</p>
    * @return cspmHostsAgentlessScannersSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmHostsAgentlessScannersSum() {
-    return cspmHostsAgentlessScannersSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCspmHostsAgentlessScannersSum() {
+        return cspmHostsAgentlessScannersSum;
+      }
   public void setCspmHostsAgentlessScannersSum(Long cspmHostsAgentlessScannersSum) {
     this.cspmHostsAgentlessScannersSum = cspmHostsAgentlessScannersSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM, cspmHostsAgentlessScannersSum);
+    putAdditionalProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_SUM, cspmHostsAgentlessScannersSum);
   }
-
   public UsageSummaryDate cspmHostsAgentlessScannersTop99p(Long cspmHostsAgentlessScannersTop99p) {
     this.cspmHostsAgentlessScannersTop99p = cspmHostsAgentlessScannersTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all
-   * hours in the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current date for all organizations.</p>
    * @return cspmHostsAgentlessScannersTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmHostsAgentlessScannersTop99p() {
-    return cspmHostsAgentlessScannersTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCspmHostsAgentlessScannersTop99p() {
+        return cspmHostsAgentlessScannersTop99p;
+      }
   public void setCspmHostsAgentlessScannersTop99p(Long cspmHostsAgentlessScannersTop99p) {
     this.cspmHostsAgentlessScannersTop99p = cspmHostsAgentlessScannersTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P, cspmHostsAgentlessScannersTop99p);
+    putAdditionalProperty(JSON_PROPERTY_CSPM_HOSTS_AGENTLESS_SCANNERS_TOP99P, cspmHostsAgentlessScannersTop99p);
   }
-
   public UsageSummaryDate customTsAvg(Long customTsAvg) {
     this.customTsAvg = customTsAvg;
     return this;
   }
 
   /**
-   * Shows the average number of distinct custom metrics over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the average number of distinct custom metrics over all hours in the current date for all organizations.</p>
    * @return customTsAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_TS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCustomTsAvg() {
-    return customTsAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CUSTOM_TS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCustomTsAvg() {
+        return customTsAvg;
+      }
   public void setCustomTsAvg(Long customTsAvg) {
     this.customTsAvg = customTsAvg;
     putAdditionalProperty(JSON_PROPERTY_CUSTOM_TS_AVG, customTsAvg);
   }
-
   public UsageSummaryDate cwsContainerCountAvg(Long cwsContainerCountAvg) {
     this.cwsContainerCountAvg = cwsContainerCountAvg;
     return this;
   }
 
   /**
-   * Shows the average of all distinct Cloud Workload Security containers over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average of all distinct Cloud Workload Security containers over all hours in the current date for all organizations.</p>
    * @return cwsContainerCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCwsContainerCountAvg() {
-    return cwsContainerCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCwsContainerCountAvg() {
+        return cwsContainerCountAvg;
+      }
   public void setCwsContainerCountAvg(Long cwsContainerCountAvg) {
     this.cwsContainerCountAvg = cwsContainerCountAvg;
     putAdditionalProperty(JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG, cwsContainerCountAvg);
   }
-
   public UsageSummaryDate cwsFargateTaskAvg(Long cwsFargateTaskAvg) {
     this.cwsFargateTaskAvg = cwsFargateTaskAvg;
     return this;
   }
 
   /**
-   * Shows the average of all distinct Cloud Workload Security Fargate tasks over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average of all distinct Cloud Workload Security Fargate tasks over all hours in the current date for all organizations.</p>
    * @return cwsFargateTaskAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CWS_FARGATE_TASK_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCwsFargateTaskAvg() {
-    return cwsFargateTaskAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CWS_FARGATE_TASK_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCwsFargateTaskAvg() {
+        return cwsFargateTaskAvg;
+      }
   public void setCwsFargateTaskAvg(Long cwsFargateTaskAvg) {
     this.cwsFargateTaskAvg = cwsFargateTaskAvg;
     putAdditionalProperty(JSON_PROPERTY_CWS_FARGATE_TASK_AVG, cwsFargateTaskAvg);
   }
-
   public UsageSummaryDate cwsHostTop99p(Long cwsHostTop99p) {
     this.cwsHostTop99p = cwsHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for all organizations.</p>
    * @return cwsHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CWS_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCwsHostTop99p() {
-    return cwsHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CWS_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCwsHostTop99p() {
+        return cwsHostTop99p;
+      }
   public void setCwsHostTop99p(Long cwsHostTop99p) {
     this.cwsHostTop99p = cwsHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_CWS_HOST_TOP99P, cwsHostTop99p);
   }
-
   public UsageSummaryDate dataJobsMonitoringHostHrSum(Long dataJobsMonitoringHostHrSum) {
     this.dataJobsMonitoringHostHrSum = dataJobsMonitoringHostHrSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for the
-   * given org.
-   *
+   * <p>Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for the given org.</p>
    * @return dataJobsMonitoringHostHrSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDataJobsMonitoringHostHrSum() {
-    return dataJobsMonitoringHostHrSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDataJobsMonitoringHostHrSum() {
+        return dataJobsMonitoringHostHrSum;
+      }
   public void setDataJobsMonitoringHostHrSum(Long dataJobsMonitoringHostHrSum) {
     this.dataJobsMonitoringHostHrSum = dataJobsMonitoringHostHrSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM, dataJobsMonitoringHostHrSum);
+    putAdditionalProperty(JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM, dataJobsMonitoringHostHrSum);
   }
-
   public UsageSummaryDate dataStreamMonitoringHostCountSum(Long dataStreamMonitoringHostCountSum) {
     this.dataStreamMonitoringHostCountSum = dataStreamMonitoringHostCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Data Streams Monitoring hosts over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all Data Streams Monitoring hosts over all hours in the current date for all organizations.</p>
    * @return dataStreamMonitoringHostCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDataStreamMonitoringHostCountSum() {
-    return dataStreamMonitoringHostCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDataStreamMonitoringHostCountSum() {
+        return dataStreamMonitoringHostCountSum;
+      }
   public void setDataStreamMonitoringHostCountSum(Long dataStreamMonitoringHostCountSum) {
     this.dataStreamMonitoringHostCountSum = dataStreamMonitoringHostCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM, dataStreamMonitoringHostCountSum);
+    putAdditionalProperty(JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_SUM, dataStreamMonitoringHostCountSum);
   }
-
-  public UsageSummaryDate dataStreamMonitoringHostCountTop99p(
-      Long dataStreamMonitoringHostCountTop99p) {
+  public UsageSummaryDate dataStreamMonitoringHostCountTop99p(Long dataStreamMonitoringHostCountTop99p) {
     this.dataStreamMonitoringHostCountTop99p = dataStreamMonitoringHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Data Streams Monitoring hosts over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Data Streams Monitoring hosts over all hours in the current date for all organizations.</p>
    * @return dataStreamMonitoringHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDataStreamMonitoringHostCountTop99p() {
-    return dataStreamMonitoringHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDataStreamMonitoringHostCountTop99p() {
+        return dataStreamMonitoringHostCountTop99p;
+      }
   public void setDataStreamMonitoringHostCountTop99p(Long dataStreamMonitoringHostCountTop99p) {
     this.dataStreamMonitoringHostCountTop99p = dataStreamMonitoringHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P,
-        dataStreamMonitoringHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_DATA_STREAM_MONITORING_HOST_COUNT_TOP99P, dataStreamMonitoringHostCountTop99p);
   }
-
   public UsageSummaryDate date(OffsetDateTime date) {
     this.date = date;
     return this;
   }
 
   /**
-   * The date for the usage.
-   *
+   * <p>The date for the usage.</p>
    * @return date
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getDate() {
-    return date;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getDate() {
+        return date;
+      }
   public void setDate(OffsetDateTime date) {
     this.date = date;
     putAdditionalProperty(JSON_PROPERTY_DATE, date);
   }
-
   public UsageSummaryDate dbmHostTop99p(Long dbmHostTop99p) {
     this.dbmHostTop99p = dbmHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current date
-   * for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Database Monitoring hosts over all hours in the current date for all organizations.</p>
    * @return dbmHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DBM_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDbmHostTop99p() {
-    return dbmHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DBM_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDbmHostTop99p() {
+        return dbmHostTop99p;
+      }
   public void setDbmHostTop99p(Long dbmHostTop99p) {
     this.dbmHostTop99p = dbmHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_DBM_HOST_TOP99P, dbmHostTop99p);
   }
-
   public UsageSummaryDate dbmQueriesCountAvg(Long dbmQueriesCountAvg) {
     this.dbmQueriesCountAvg = dbmQueriesCountAvg;
     return this;
   }
 
   /**
-   * Shows the average of all normalized Database Monitoring queries over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the average of all normalized Database Monitoring queries over all hours in the current date for all organizations.</p>
    * @return dbmQueriesCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDbmQueriesCountAvg() {
-    return dbmQueriesCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DBM_QUERIES_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDbmQueriesCountAvg() {
+        return dbmQueriesCountAvg;
+      }
   public void setDbmQueriesCountAvg(Long dbmQueriesCountAvg) {
     this.dbmQueriesCountAvg = dbmQueriesCountAvg;
     putAdditionalProperty(JSON_PROPERTY_DBM_QUERIES_COUNT_AVG, dbmQueriesCountAvg);
   }
-
-  public UsageSummaryDate doJobsMonitoringOrchestratorsJobHoursSum(
-      Long doJobsMonitoringOrchestratorsJobHoursSum) {
+  public UsageSummaryDate doJobsMonitoringOrchestratorsJobHoursSum(Long doJobsMonitoringOrchestratorsJobHoursSum) {
     this.doJobsMonitoringOrchestratorsJobHoursSum = doJobsMonitoringOrchestratorsJobHoursSum;
     return this;
   }
 
   /**
-   * Shows the sum of all orchestrator job hours over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all orchestrator job hours over all hours in the current date for all organizations.</p>
    * @return doJobsMonitoringOrchestratorsJobHoursSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDoJobsMonitoringOrchestratorsJobHoursSum() {
-    return doJobsMonitoringOrchestratorsJobHoursSum;
-  }
-
-  public void setDoJobsMonitoringOrchestratorsJobHoursSum(
-      Long doJobsMonitoringOrchestratorsJobHoursSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDoJobsMonitoringOrchestratorsJobHoursSum() {
+        return doJobsMonitoringOrchestratorsJobHoursSum;
+      }
+  public void setDoJobsMonitoringOrchestratorsJobHoursSum(Long doJobsMonitoringOrchestratorsJobHoursSum) {
     this.doJobsMonitoringOrchestratorsJobHoursSum = doJobsMonitoringOrchestratorsJobHoursSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM,
-        doJobsMonitoringOrchestratorsJobHoursSum);
+    putAdditionalProperty(JSON_PROPERTY_DO_JOBS_MONITORING_ORCHESTRATORS_JOB_HOURS_SUM, doJobsMonitoringOrchestratorsJobHoursSum);
   }
-
   public UsageSummaryDate ephInfraHostAgentSum(Long ephInfraHostAgentSum) {
     this.ephInfraHostAgentSum = ephInfraHostAgentSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in
-   * the current date for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current date for the given org.</p>
    * @return ephInfraHostAgentSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostAgentSum() {
-    return ephInfraHostAgentSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostAgentSum() {
+        return ephInfraHostAgentSum;
+      }
   public void setEphInfraHostAgentSum(Long ephInfraHostAgentSum) {
     this.ephInfraHostAgentSum = ephInfraHostAgentSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM, ephInfraHostAgentSum);
   }
-
   public UsageSummaryDate ephInfraHostAlibabaSum(Long ephInfraHostAlibabaSum) {
     this.ephInfraHostAlibabaSum = ephInfraHostAlibabaSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current
-   * date for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current date for the given org.</p>
    * @return ephInfraHostAlibabaSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostAlibabaSum() {
-    return ephInfraHostAlibabaSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostAlibabaSum() {
+        return ephInfraHostAlibabaSum;
+      }
   public void setEphInfraHostAlibabaSum(Long ephInfraHostAlibabaSum) {
     this.ephInfraHostAlibabaSum = ephInfraHostAlibabaSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM, ephInfraHostAlibabaSum);
   }
-
   public UsageSummaryDate ephInfraHostAwsSum(Long ephInfraHostAwsSum) {
     this.ephInfraHostAwsSum = ephInfraHostAwsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date
-   * for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date for the given org.</p>
    * @return ephInfraHostAwsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostAwsSum() {
-    return ephInfraHostAwsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostAwsSum() {
+        return ephInfraHostAwsSum;
+      }
   public void setEphInfraHostAwsSum(Long ephInfraHostAwsSum) {
     this.ephInfraHostAwsSum = ephInfraHostAwsSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM, ephInfraHostAwsSum);
   }
-
   public UsageSummaryDate ephInfraHostAzureSum(Long ephInfraHostAzureSum) {
     this.ephInfraHostAzureSum = ephInfraHostAzureSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date
-   * for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date for the given org.</p>
    * @return ephInfraHostAzureSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostAzureSum() {
-    return ephInfraHostAzureSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostAzureSum() {
+        return ephInfraHostAzureSum;
+      }
   public void setEphInfraHostAzureSum(Long ephInfraHostAzureSum) {
     this.ephInfraHostAzureSum = ephInfraHostAzureSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM, ephInfraHostAzureSum);
   }
-
-  public UsageSummaryDate ephInfraHostBasicInfraBasicAgentSum(
-      Long ephInfraHostBasicInfraBasicAgentSum) {
+  public UsageSummaryDate ephInfraHostBasicInfraBasicAgentSum(Long ephInfraHostBasicInfraBasicAgentSum) {
     this.ephInfraHostBasicInfraBasicAgentSum = ephInfraHostBasicInfraBasicAgentSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts for Basic tier with the Datadog Agent over
-   * all hours in the current date for all organizations.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts for Basic tier with the Datadog Agent over all hours in the current date for all organizations.</p>
    * @return ephInfraHostBasicInfraBasicAgentSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostBasicInfraBasicAgentSum() {
-    return ephInfraHostBasicInfraBasicAgentSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostBasicInfraBasicAgentSum() {
+        return ephInfraHostBasicInfraBasicAgentSum;
+      }
   public void setEphInfraHostBasicInfraBasicAgentSum(Long ephInfraHostBasicInfraBasicAgentSum) {
     this.ephInfraHostBasicInfraBasicAgentSum = ephInfraHostBasicInfraBasicAgentSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_SUM,
-        ephInfraHostBasicInfraBasicAgentSum);
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_SUM, ephInfraHostBasicInfraBasicAgentSum);
   }
-
-  public UsageSummaryDate ephInfraHostBasicInfraBasicVsphereSum(
-      Long ephInfraHostBasicInfraBasicVsphereSum) {
+  public UsageSummaryDate ephInfraHostBasicInfraBasicVsphereSum(Long ephInfraHostBasicInfraBasicVsphereSum) {
     this.ephInfraHostBasicInfraBasicVsphereSum = ephInfraHostBasicInfraBasicVsphereSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts for Basic tier on vSphere over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts for Basic tier on vSphere over all hours in the current date for all organizations.</p>
    * @return ephInfraHostBasicInfraBasicVsphereSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostBasicInfraBasicVsphereSum() {
-    return ephInfraHostBasicInfraBasicVsphereSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostBasicInfraBasicVsphereSum() {
+        return ephInfraHostBasicInfraBasicVsphereSum;
+      }
   public void setEphInfraHostBasicInfraBasicVsphereSum(Long ephInfraHostBasicInfraBasicVsphereSum) {
     this.ephInfraHostBasicInfraBasicVsphereSum = ephInfraHostBasicInfraBasicVsphereSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_SUM,
-        ephInfraHostBasicInfraBasicVsphereSum);
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_SUM, ephInfraHostBasicInfraBasicVsphereSum);
   }
-
   public UsageSummaryDate ephInfraHostBasicSum(Long ephInfraHostBasicSum) {
     this.ephInfraHostBasicSum = ephInfraHostBasicSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts for Basic tier over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts for Basic tier over all hours in the current date for all organizations.</p>
    * @return ephInfraHostBasicSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostBasicSum() {
-    return ephInfraHostBasicSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostBasicSum() {
+        return ephInfraHostBasicSum;
+      }
   public void setEphInfraHostBasicSum(Long ephInfraHostBasicSum) {
     this.ephInfraHostBasicSum = ephInfraHostBasicSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_SUM, ephInfraHostBasicSum);
   }
-
   public UsageSummaryDate ephInfraHostEntSum(Long ephInfraHostEntSum) {
     this.ephInfraHostEntSum = ephInfraHostEntSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current date for the given org.</p>
    * @return ephInfraHostEntSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ENT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostEntSum() {
-    return ephInfraHostEntSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ENT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostEntSum() {
+        return ephInfraHostEntSum;
+      }
   public void setEphInfraHostEntSum(Long ephInfraHostEntSum) {
     this.ephInfraHostEntSum = ephInfraHostEntSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_ENT_SUM, ephInfraHostEntSum);
   }
-
   public UsageSummaryDate ephInfraHostGcpSum(Long ephInfraHostGcpSum) {
     this.ephInfraHostGcpSum = ephInfraHostGcpSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date
-   * for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date for the given org.</p>
    * @return ephInfraHostGcpSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_GCP_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostGcpSum() {
-    return ephInfraHostGcpSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_GCP_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostGcpSum() {
+        return ephInfraHostGcpSum;
+      }
   public void setEphInfraHostGcpSum(Long ephInfraHostGcpSum) {
     this.ephInfraHostGcpSum = ephInfraHostGcpSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_GCP_SUM, ephInfraHostGcpSum);
   }
-
   public UsageSummaryDate ephInfraHostHerokuSum(Long ephInfraHostHerokuSum) {
     this.ephInfraHostHerokuSum = ephInfraHostHerokuSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current
-   * date for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current date for the given org.</p>
    * @return ephInfraHostHerokuSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_HEROKU_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostHerokuSum() {
-    return ephInfraHostHerokuSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_HEROKU_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostHerokuSum() {
+        return ephInfraHostHerokuSum;
+      }
   public void setEphInfraHostHerokuSum(Long ephInfraHostHerokuSum) {
     this.ephInfraHostHerokuSum = ephInfraHostHerokuSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_HEROKU_SUM, ephInfraHostHerokuSum);
   }
-
   public UsageSummaryDate ephInfraHostOnlyAasSum(Long ephInfraHostOnlyAasSum) {
     this.ephInfraHostOnlyAasSum = ephInfraHostOnlyAasSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours
-   * in the current date for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours in the current date for the given org.</p>
    * @return ephInfraHostOnlyAasSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ONLY_AAS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostOnlyAasSum() {
-    return ephInfraHostOnlyAasSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ONLY_AAS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostOnlyAasSum() {
+        return ephInfraHostOnlyAasSum;
+      }
   public void setEphInfraHostOnlyAasSum(Long ephInfraHostOnlyAasSum) {
     this.ephInfraHostOnlyAasSum = ephInfraHostOnlyAasSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_ONLY_AAS_SUM, ephInfraHostOnlyAasSum);
   }
-
   public UsageSummaryDate ephInfraHostOnlyVsphereSum(Long ephInfraHostOnlyVsphereSum) {
     this.ephInfraHostOnlyVsphereSum = ephInfraHostOnlyVsphereSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the current date for the given org.</p>
    * @return ephInfraHostOnlyVsphereSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostOnlyVsphereSum() {
-    return ephInfraHostOnlyVsphereSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostOnlyVsphereSum() {
+        return ephInfraHostOnlyVsphereSum;
+      }
   public void setEphInfraHostOnlyVsphereSum(Long ephInfraHostOnlyVsphereSum) {
     this.ephInfraHostOnlyVsphereSum = ephInfraHostOnlyVsphereSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM, ephInfraHostOnlyVsphereSum);
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM, ephInfraHostOnlyVsphereSum);
   }
-
   public UsageSummaryDate ephInfraHostOpentelemetryApmSum(Long ephInfraHostOpentelemetryApmSum) {
     this.ephInfraHostOpentelemetryApmSum = ephInfraHostOpentelemetryApmSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry
-   * Collector over all hours in the current date for the given org.
-   *
+   * <p>Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.</p>
    * @return ephInfraHostOpentelemetryApmSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostOpentelemetryApmSum() {
-    return ephInfraHostOpentelemetryApmSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostOpentelemetryApmSum() {
+        return ephInfraHostOpentelemetryApmSum;
+      }
   public void setEphInfraHostOpentelemetryApmSum(Long ephInfraHostOpentelemetryApmSum) {
     this.ephInfraHostOpentelemetryApmSum = ephInfraHostOpentelemetryApmSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM, ephInfraHostOpentelemetryApmSum);
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM, ephInfraHostOpentelemetryApmSum);
   }
-
   public UsageSummaryDate ephInfraHostOpentelemetrySum(Long ephInfraHostOpentelemetrySum) {
     this.ephInfraHostOpentelemetrySum = ephInfraHostOpentelemetrySum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry
-   * Collector over all hours in the current date for the given org.
-   *
+   * <p>Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.</p>
    * @return ephInfraHostOpentelemetrySum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostOpentelemetrySum() {
-    return ephInfraHostOpentelemetrySum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostOpentelemetrySum() {
+        return ephInfraHostOpentelemetrySum;
+      }
   public void setEphInfraHostOpentelemetrySum(Long ephInfraHostOpentelemetrySum) {
     this.ephInfraHostOpentelemetrySum = ephInfraHostOpentelemetrySum;
-    putAdditionalProperty(
-        JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM, ephInfraHostOpentelemetrySum);
+    putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM, ephInfraHostOpentelemetrySum);
   }
-
   public UsageSummaryDate ephInfraHostProSum(Long ephInfraHostProSum) {
     this.ephInfraHostProSum = ephInfraHostProSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date
-   * for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date for the given org.</p>
    * @return ephInfraHostProSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_PRO_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostProSum() {
-    return ephInfraHostProSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_PRO_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostProSum() {
+        return ephInfraHostProSum;
+      }
   public void setEphInfraHostProSum(Long ephInfraHostProSum) {
     this.ephInfraHostProSum = ephInfraHostProSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_PRO_SUM, ephInfraHostProSum);
   }
-
   public UsageSummaryDate ephInfraHostProplusSum(Long ephInfraHostProplusSum) {
     this.ephInfraHostProplusSum = ephInfraHostProplusSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current
-   * date for the given org.
-   *
+   * <p>Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current date for the given org.</p>
    * @return ephInfraHostProplusSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostProplusSum() {
-    return ephInfraHostProplusSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostProplusSum() {
+        return ephInfraHostProplusSum;
+      }
   public void setEphInfraHostProplusSum(Long ephInfraHostProplusSum) {
     this.ephInfraHostProplusSum = ephInfraHostProplusSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM, ephInfraHostProplusSum);
   }
-
   public UsageSummaryDate ephInfraHostProxmoxSum(Long ephInfraHostProxmoxSum) {
     this.ephInfraHostProxmoxSum = ephInfraHostProxmoxSum;
     return this;
   }
 
   /**
-   * Sum of all ephemeral infrastructure hosts for Proxmox over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Sum of all ephemeral infrastructure hosts for Proxmox over all hours in the current date for all organizations.</p>
    * @return ephInfraHostProxmoxSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROXMOX_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEphInfraHostProxmoxSum() {
-    return ephInfraHostProxmoxSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROXMOX_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEphInfraHostProxmoxSum() {
+        return ephInfraHostProxmoxSum;
+      }
   public void setEphInfraHostProxmoxSum(Long ephInfraHostProxmoxSum) {
     this.ephInfraHostProxmoxSum = ephInfraHostProxmoxSum;
     putAdditionalProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROXMOX_SUM, ephInfraHostProxmoxSum);
   }
-
   public UsageSummaryDate errorTrackingApmErrorEventsSum(Long errorTrackingApmErrorEventsSum) {
     this.errorTrackingApmErrorEventsSum = errorTrackingApmErrorEventsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Error Tracking APM error events over all hours in the current date for the
-   * given org.
-   *
+   * <p>Shows the sum of all Error Tracking APM error events over all hours in the current date for the given org.</p>
    * @return errorTrackingApmErrorEventsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getErrorTrackingApmErrorEventsSum() {
-    return errorTrackingApmErrorEventsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getErrorTrackingApmErrorEventsSum() {
+        return errorTrackingApmErrorEventsSum;
+      }
   public void setErrorTrackingApmErrorEventsSum(Long errorTrackingApmErrorEventsSum) {
     this.errorTrackingApmErrorEventsSum = errorTrackingApmErrorEventsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM, errorTrackingApmErrorEventsSum);
+    putAdditionalProperty(JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM, errorTrackingApmErrorEventsSum);
   }
-
   public UsageSummaryDate errorTrackingErrorEventsSum(Long errorTrackingErrorEventsSum) {
     this.errorTrackingErrorEventsSum = errorTrackingErrorEventsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Error Tracking error events over all hours in the current date for the
-   * given org.
-   *
+   * <p>Shows the sum of all Error Tracking error events over all hours in the current date for the given org.</p>
    * @return errorTrackingErrorEventsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getErrorTrackingErrorEventsSum() {
-    return errorTrackingErrorEventsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getErrorTrackingErrorEventsSum() {
+        return errorTrackingErrorEventsSum;
+      }
   public void setErrorTrackingErrorEventsSum(Long errorTrackingErrorEventsSum) {
     this.errorTrackingErrorEventsSum = errorTrackingErrorEventsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM, errorTrackingErrorEventsSum);
+    putAdditionalProperty(JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM, errorTrackingErrorEventsSum);
   }
-
   public UsageSummaryDate errorTrackingEventsSum(Long errorTrackingEventsSum) {
     this.errorTrackingEventsSum = errorTrackingEventsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Error Tracking events over all hours in the current date for the given
-   * org.
-   *
+   * <p>Shows the sum of all Error Tracking events over all hours in the current date for the given org.</p>
    * @return errorTrackingEventsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getErrorTrackingEventsSum() {
-    return errorTrackingEventsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getErrorTrackingEventsSum() {
+        return errorTrackingEventsSum;
+      }
   public void setErrorTrackingEventsSum(Long errorTrackingEventsSum) {
     this.errorTrackingEventsSum = errorTrackingEventsSum;
     putAdditionalProperty(JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM, errorTrackingEventsSum);
   }
-
   public UsageSummaryDate errorTrackingRumErrorEventsSum(Long errorTrackingRumErrorEventsSum) {
     this.errorTrackingRumErrorEventsSum = errorTrackingRumErrorEventsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Error Tracking RUM error events over all hours in the current date for the
-   * given org.
-   *
+   * <p>Shows the sum of all Error Tracking RUM error events over all hours in the current date for the given org.</p>
    * @return errorTrackingRumErrorEventsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getErrorTrackingRumErrorEventsSum() {
-    return errorTrackingRumErrorEventsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getErrorTrackingRumErrorEventsSum() {
+        return errorTrackingRumErrorEventsSum;
+      }
   public void setErrorTrackingRumErrorEventsSum(Long errorTrackingRumErrorEventsSum) {
     this.errorTrackingRumErrorEventsSum = errorTrackingRumErrorEventsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM, errorTrackingRumErrorEventsSum);
+    putAdditionalProperty(JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM, errorTrackingRumErrorEventsSum);
   }
-
-  public UsageSummaryDate eventManagementCorrelationCorrelatedEventsSum(
-      Long eventManagementCorrelationCorrelatedEventsSum) {
-    this.eventManagementCorrelationCorrelatedEventsSum =
-        eventManagementCorrelationCorrelatedEventsSum;
+  public UsageSummaryDate eventManagementCorrelationCorrelatedEventsSum(Long eventManagementCorrelationCorrelatedEventsSum) {
+    this.eventManagementCorrelationCorrelatedEventsSum = eventManagementCorrelationCorrelatedEventsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Event Management correlated events over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the sum of all Event Management correlated events over all hours in the current date for all organizations.</p>
    * @return eventManagementCorrelationCorrelatedEventsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEventManagementCorrelationCorrelatedEventsSum() {
-    return eventManagementCorrelationCorrelatedEventsSum;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEventManagementCorrelationCorrelatedEventsSum() {
+        return eventManagementCorrelationCorrelatedEventsSum;
+      }
+  public void setEventManagementCorrelationCorrelatedEventsSum(Long eventManagementCorrelationCorrelatedEventsSum) {
+    this.eventManagementCorrelationCorrelatedEventsSum = eventManagementCorrelationCorrelatedEventsSum;
+    putAdditionalProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM, eventManagementCorrelationCorrelatedEventsSum);
   }
-
-  public void setEventManagementCorrelationCorrelatedEventsSum(
-      Long eventManagementCorrelationCorrelatedEventsSum) {
-    this.eventManagementCorrelationCorrelatedEventsSum =
-        eventManagementCorrelationCorrelatedEventsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM,
-        eventManagementCorrelationCorrelatedEventsSum);
-  }
-
-  public UsageSummaryDate eventManagementCorrelationCorrelatedRelatedEventsSum(
-      Long eventManagementCorrelationCorrelatedRelatedEventsSum) {
-    this.eventManagementCorrelationCorrelatedRelatedEventsSum =
-        eventManagementCorrelationCorrelatedRelatedEventsSum;
+  public UsageSummaryDate eventManagementCorrelationCorrelatedRelatedEventsSum(Long eventManagementCorrelationCorrelatedRelatedEventsSum) {
+    this.eventManagementCorrelationCorrelatedRelatedEventsSum = eventManagementCorrelationCorrelatedRelatedEventsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Event Management correlated related events over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the sum of all Event Management correlated related events over all hours in the current date for all organizations.</p>
    * @return eventManagementCorrelationCorrelatedRelatedEventsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEventManagementCorrelationCorrelatedRelatedEventsSum() {
-    return eventManagementCorrelationCorrelatedRelatedEventsSum;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEventManagementCorrelationCorrelatedRelatedEventsSum() {
+        return eventManagementCorrelationCorrelatedRelatedEventsSum;
+      }
+  public void setEventManagementCorrelationCorrelatedRelatedEventsSum(Long eventManagementCorrelationCorrelatedRelatedEventsSum) {
+    this.eventManagementCorrelationCorrelatedRelatedEventsSum = eventManagementCorrelationCorrelatedRelatedEventsSum;
+    putAdditionalProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM, eventManagementCorrelationCorrelatedRelatedEventsSum);
   }
-
-  public void setEventManagementCorrelationCorrelatedRelatedEventsSum(
-      Long eventManagementCorrelationCorrelatedRelatedEventsSum) {
-    this.eventManagementCorrelationCorrelatedRelatedEventsSum =
-        eventManagementCorrelationCorrelatedRelatedEventsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM,
-        eventManagementCorrelationCorrelatedRelatedEventsSum);
-  }
-
   public UsageSummaryDate eventManagementCorrelationSum(Long eventManagementCorrelationSum) {
     this.eventManagementCorrelationSum = eventManagementCorrelationSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Event Management correlations over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all Event Management correlations over all hours in the current date for all organizations.</p>
    * @return eventManagementCorrelationSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEventManagementCorrelationSum() {
-    return eventManagementCorrelationSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEventManagementCorrelationSum() {
+        return eventManagementCorrelationSum;
+      }
   public void setEventManagementCorrelationSum(Long eventManagementCorrelationSum) {
     this.eventManagementCorrelationSum = eventManagementCorrelationSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM, eventManagementCorrelationSum);
+    putAdditionalProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM, eventManagementCorrelationSum);
   }
-
-  public UsageSummaryDate fargateContainerProfilerProfilingFargateAvg(
-      Long fargateContainerProfilerProfilingFargateAvg) {
+  public UsageSummaryDate fargateContainerProfilerProfilingFargateAvg(Long fargateContainerProfilerProfilingFargateAvg) {
     this.fargateContainerProfilerProfilingFargateAvg = fargateContainerProfilerProfilingFargateAvg;
     return this;
   }
 
   /**
-   * The average number of Profiling Fargate tasks over all hours in the current date for all
-   * organizations.
-   *
+   * <p>The average number of Profiling Fargate tasks over all hours in the current date for all organizations.</p>
    * @return fargateContainerProfilerProfilingFargateAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFargateContainerProfilerProfilingFargateAvg() {
-    return fargateContainerProfilerProfilingFargateAvg;
-  }
-
-  public void setFargateContainerProfilerProfilingFargateAvg(
-      Long fargateContainerProfilerProfilingFargateAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFargateContainerProfilerProfilingFargateAvg() {
+        return fargateContainerProfilerProfilingFargateAvg;
+      }
+  public void setFargateContainerProfilerProfilingFargateAvg(Long fargateContainerProfilerProfilingFargateAvg) {
     this.fargateContainerProfilerProfilingFargateAvg = fargateContainerProfilerProfilingFargateAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG,
-        fargateContainerProfilerProfilingFargateAvg);
+    putAdditionalProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG, fargateContainerProfilerProfilingFargateAvg);
   }
-
-  public UsageSummaryDate fargateContainerProfilerProfilingFargateEksAvg(
-      Long fargateContainerProfilerProfilingFargateEksAvg) {
-    this.fargateContainerProfilerProfilingFargateEksAvg =
-        fargateContainerProfilerProfilingFargateEksAvg;
+  public UsageSummaryDate fargateContainerProfilerProfilingFargateEksAvg(Long fargateContainerProfilerProfilingFargateEksAvg) {
+    this.fargateContainerProfilerProfilingFargateEksAvg = fargateContainerProfilerProfilingFargateEksAvg;
     return this;
   }
 
   /**
-   * The average number of Profiling Fargate Elastic Kubernetes Service tasks over all hours in the
-   * current date for all organizations.
-   *
+   * <p>The average number of Profiling Fargate Elastic Kubernetes Service tasks over all hours in the current date for all organizations.</p>
    * @return fargateContainerProfilerProfilingFargateEksAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFargateContainerProfilerProfilingFargateEksAvg() {
-    return fargateContainerProfilerProfilingFargateEksAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFargateContainerProfilerProfilingFargateEksAvg() {
+        return fargateContainerProfilerProfilingFargateEksAvg;
+      }
+  public void setFargateContainerProfilerProfilingFargateEksAvg(Long fargateContainerProfilerProfilingFargateEksAvg) {
+    this.fargateContainerProfilerProfilingFargateEksAvg = fargateContainerProfilerProfilingFargateEksAvg;
+    putAdditionalProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG, fargateContainerProfilerProfilingFargateEksAvg);
   }
-
-  public void setFargateContainerProfilerProfilingFargateEksAvg(
-      Long fargateContainerProfilerProfilingFargateEksAvg) {
-    this.fargateContainerProfilerProfilingFargateEksAvg =
-        fargateContainerProfilerProfilingFargateEksAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG,
-        fargateContainerProfilerProfilingFargateEksAvg);
-  }
-
   public UsageSummaryDate fargateTasksCountAvg(Long fargateTasksCountAvg) {
     this.fargateTasksCountAvg = fargateTasksCountAvg;
     return this;
   }
 
   /**
-   * Shows the high-watermark of all Fargate tasks over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations.</p>
    * @return fargateTasksCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFargateTasksCountAvg() {
-    return fargateTasksCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFargateTasksCountAvg() {
+        return fargateTasksCountAvg;
+      }
   public void setFargateTasksCountAvg(Long fargateTasksCountAvg) {
     this.fargateTasksCountAvg = fargateTasksCountAvg;
     putAdditionalProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG, fargateTasksCountAvg);
   }
-
   public UsageSummaryDate fargateTasksCountHwm(Long fargateTasksCountHwm) {
     this.fargateTasksCountHwm = fargateTasksCountHwm;
     return this;
   }
 
   /**
-   * Shows the average of all Fargate tasks over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the average of all Fargate tasks over all hours in the current date for all organizations.</p>
    * @return fargateTasksCountHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFargateTasksCountHwm() {
-    return fargateTasksCountHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFargateTasksCountHwm() {
+        return fargateTasksCountHwm;
+      }
   public void setFargateTasksCountHwm(Long fargateTasksCountHwm) {
     this.fargateTasksCountHwm = fargateTasksCountHwm;
     putAdditionalProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM, fargateTasksCountHwm);
   }
-
   public UsageSummaryDate featureFlagsConfigRequestsSum(Long featureFlagsConfigRequestsSum) {
     this.featureFlagsConfigRequestsSum = featureFlagsConfigRequestsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Feature Flags Client-Side SDK config requests over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all Feature Flags Client-Side SDK config requests over all hours in the current date for all organizations.</p>
    * @return featureFlagsConfigRequestsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFeatureFlagsConfigRequestsSum() {
-    return featureFlagsConfigRequestsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFeatureFlagsConfigRequestsSum() {
+        return featureFlagsConfigRequestsSum;
+      }
   public void setFeatureFlagsConfigRequestsSum(Long featureFlagsConfigRequestsSum) {
     this.featureFlagsConfigRequestsSum = featureFlagsConfigRequestsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM, featureFlagsConfigRequestsSum);
+    putAdditionalProperty(JSON_PROPERTY_FEATURE_FLAGS_CONFIG_REQUESTS_SUM, featureFlagsConfigRequestsSum);
   }
-
   public UsageSummaryDate flexLogsComputeLargeAvg(Long flexLogsComputeLargeAvg) {
     this.flexLogsComputeLargeAvg = flexLogsComputeLargeAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Flex Logs Compute Large Instances over all hours in the current
-   * date for the given org.
-   *
+   * <p>Shows the average number of Flex Logs Compute Large Instances over all hours in the current date for the given org.</p>
    * @return flexLogsComputeLargeAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFlexLogsComputeLargeAvg() {
-    return flexLogsComputeLargeAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFlexLogsComputeLargeAvg() {
+        return flexLogsComputeLargeAvg;
+      }
   public void setFlexLogsComputeLargeAvg(Long flexLogsComputeLargeAvg) {
     this.flexLogsComputeLargeAvg = flexLogsComputeLargeAvg;
     putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG, flexLogsComputeLargeAvg);
   }
-
   public UsageSummaryDate flexLogsComputeMediumAvg(Long flexLogsComputeMediumAvg) {
     this.flexLogsComputeMediumAvg = flexLogsComputeMediumAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Flex Logs Compute Medium Instances over all hours in the current
-   * date for the given org.
-   *
+   * <p>Shows the average number of Flex Logs Compute Medium Instances over all hours in the current date for the given org.</p>
    * @return flexLogsComputeMediumAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFlexLogsComputeMediumAvg() {
-    return flexLogsComputeMediumAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFlexLogsComputeMediumAvg() {
+        return flexLogsComputeMediumAvg;
+      }
   public void setFlexLogsComputeMediumAvg(Long flexLogsComputeMediumAvg) {
     this.flexLogsComputeMediumAvg = flexLogsComputeMediumAvg;
     putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG, flexLogsComputeMediumAvg);
   }
-
   public UsageSummaryDate flexLogsComputeSmallAvg(Long flexLogsComputeSmallAvg) {
     this.flexLogsComputeSmallAvg = flexLogsComputeSmallAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Flex Logs Compute Small Instances over all hours in the current
-   * date for the given org.
-   *
+   * <p>Shows the average number of Flex Logs Compute Small Instances over all hours in the current date for the given org.</p>
    * @return flexLogsComputeSmallAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFlexLogsComputeSmallAvg() {
-    return flexLogsComputeSmallAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFlexLogsComputeSmallAvg() {
+        return flexLogsComputeSmallAvg;
+      }
   public void setFlexLogsComputeSmallAvg(Long flexLogsComputeSmallAvg) {
     this.flexLogsComputeSmallAvg = flexLogsComputeSmallAvg;
     putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG, flexLogsComputeSmallAvg);
   }
-
   public UsageSummaryDate flexLogsComputeXlargeAvg(Long flexLogsComputeXlargeAvg) {
     this.flexLogsComputeXlargeAvg = flexLogsComputeXlargeAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Flex Logs Compute Extra Large Instances over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the average number of Flex Logs Compute Extra Large Instances over all hours in the current date for the given org.</p>
    * @return flexLogsComputeXlargeAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFlexLogsComputeXlargeAvg() {
-    return flexLogsComputeXlargeAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFlexLogsComputeXlargeAvg() {
+        return flexLogsComputeXlargeAvg;
+      }
   public void setFlexLogsComputeXlargeAvg(Long flexLogsComputeXlargeAvg) {
     this.flexLogsComputeXlargeAvg = flexLogsComputeXlargeAvg;
     putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG, flexLogsComputeXlargeAvg);
   }
-
   public UsageSummaryDate flexLogsComputeXsmallAvg(Long flexLogsComputeXsmallAvg) {
     this.flexLogsComputeXsmallAvg = flexLogsComputeXsmallAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current date for the given org.</p>
    * @return flexLogsComputeXsmallAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFlexLogsComputeXsmallAvg() {
-    return flexLogsComputeXsmallAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFlexLogsComputeXsmallAvg() {
+        return flexLogsComputeXsmallAvg;
+      }
   public void setFlexLogsComputeXsmallAvg(Long flexLogsComputeXsmallAvg) {
     this.flexLogsComputeXsmallAvg = flexLogsComputeXsmallAvg;
     putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG, flexLogsComputeXsmallAvg);
   }
-
   public UsageSummaryDate flexLogsStarterAvg(Long flexLogsStarterAvg) {
     this.flexLogsStarterAvg = flexLogsStarterAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Flex Logs Starter Instances over all hours in the current date for
-   * the given org.
-   *
+   * <p>Shows the average number of Flex Logs Starter Instances over all hours in the current date for the given org.</p>
    * @return flexLogsStarterAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFlexLogsStarterAvg() {
-    return flexLogsStarterAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFlexLogsStarterAvg() {
+        return flexLogsStarterAvg;
+      }
   public void setFlexLogsStarterAvg(Long flexLogsStarterAvg) {
     this.flexLogsStarterAvg = flexLogsStarterAvg;
     putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_AVG, flexLogsStarterAvg);
   }
-
   public UsageSummaryDate flexLogsStarterStorageIndexAvg(Long flexLogsStarterStorageIndexAvg) {
     this.flexLogsStarterStorageIndexAvg = flexLogsStarterStorageIndexAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the current date for the given org.</p>
    * @return flexLogsStarterStorageIndexAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFlexLogsStarterStorageIndexAvg() {
-    return flexLogsStarterStorageIndexAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFlexLogsStarterStorageIndexAvg() {
+        return flexLogsStarterStorageIndexAvg;
+      }
   public void setFlexLogsStarterStorageIndexAvg(Long flexLogsStarterStorageIndexAvg) {
     this.flexLogsStarterStorageIndexAvg = flexLogsStarterStorageIndexAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG, flexLogsStarterStorageIndexAvg);
+    putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG, flexLogsStarterStorageIndexAvg);
   }
-
-  public UsageSummaryDate flexLogsStarterStorageRetentionAdjustmentAvg(
-      Long flexLogsStarterStorageRetentionAdjustmentAvg) {
-    this.flexLogsStarterStorageRetentionAdjustmentAvg =
-        flexLogsStarterStorageRetentionAdjustmentAvg;
+  public UsageSummaryDate flexLogsStarterStorageRetentionAdjustmentAvg(Long flexLogsStarterStorageRetentionAdjustmentAvg) {
+    this.flexLogsStarterStorageRetentionAdjustmentAvg = flexLogsStarterStorageRetentionAdjustmentAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all
-   * hours in the current date for the given org.
-   *
+   * <p>Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all hours in the current date for the given org.</p>
    * @return flexLogsStarterStorageRetentionAdjustmentAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFlexLogsStarterStorageRetentionAdjustmentAvg() {
-    return flexLogsStarterStorageRetentionAdjustmentAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFlexLogsStarterStorageRetentionAdjustmentAvg() {
+        return flexLogsStarterStorageRetentionAdjustmentAvg;
+      }
+  public void setFlexLogsStarterStorageRetentionAdjustmentAvg(Long flexLogsStarterStorageRetentionAdjustmentAvg) {
+    this.flexLogsStarterStorageRetentionAdjustmentAvg = flexLogsStarterStorageRetentionAdjustmentAvg;
+    putAdditionalProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG, flexLogsStarterStorageRetentionAdjustmentAvg);
   }
-
-  public void setFlexLogsStarterStorageRetentionAdjustmentAvg(
-      Long flexLogsStarterStorageRetentionAdjustmentAvg) {
-    this.flexLogsStarterStorageRetentionAdjustmentAvg =
-        flexLogsStarterStorageRetentionAdjustmentAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG,
-        flexLogsStarterStorageRetentionAdjustmentAvg);
-  }
-
   public UsageSummaryDate flexStoredLogsAvg(Long flexStoredLogsAvg) {
     this.flexStoredLogsAvg = flexStoredLogsAvg;
     return this;
   }
 
   /**
-   * Shows the average of all Flex Stored Logs over all hours in the current date for the given org.
-   *
+   * <p>Shows the average of all Flex Stored Logs over all hours in the current date for the given org.</p>
    * @return flexStoredLogsAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLEX_STORED_LOGS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFlexStoredLogsAvg() {
-    return flexStoredLogsAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLEX_STORED_LOGS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFlexStoredLogsAvg() {
+        return flexStoredLogsAvg;
+      }
   public void setFlexStoredLogsAvg(Long flexStoredLogsAvg) {
     this.flexStoredLogsAvg = flexStoredLogsAvg;
     putAdditionalProperty(JSON_PROPERTY_FLEX_STORED_LOGS_AVG, flexStoredLogsAvg);
   }
-
   public UsageSummaryDate forwardingEventsBytesSum(Long forwardingEventsBytesSum) {
     this.forwardingEventsBytesSum = forwardingEventsBytesSum;
     return this;
   }
 
   /**
-   * Shows the sum of all log bytes forwarded over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all log bytes forwarded over all hours in the current date for all organizations.</p>
    * @return forwardingEventsBytesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getForwardingEventsBytesSum() {
-    return forwardingEventsBytesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getForwardingEventsBytesSum() {
+        return forwardingEventsBytesSum;
+      }
   public void setForwardingEventsBytesSum(Long forwardingEventsBytesSum) {
     this.forwardingEventsBytesSum = forwardingEventsBytesSum;
     putAdditionalProperty(JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM, forwardingEventsBytesSum);
   }
-
   public UsageSummaryDate gcpHostTop99p(Long gcpHostTop99p) {
     this.gcpHostTop99p = gcpHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all GCP hosts over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations.</p>
    * @return gcpHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GCP_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getGcpHostTop99p() {
-    return gcpHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GCP_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getGcpHostTop99p() {
+        return gcpHostTop99p;
+      }
   public void setGcpHostTop99p(Long gcpHostTop99p) {
     this.gcpHostTop99p = gcpHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_GCP_HOST_TOP99P, gcpHostTop99p);
   }
-
   public UsageSummaryDate herokuHostTop99p(Long herokuHostTop99p) {
     this.herokuHostTop99p = herokuHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Heroku dynos over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the 99th percentile of all Heroku dynos over all hours in the current date for all organizations.</p>
    * @return herokuHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getHerokuHostTop99p() {
-    return herokuHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getHerokuHostTop99p() {
+        return herokuHostTop99p;
+      }
   public void setHerokuHostTop99p(Long herokuHostTop99p) {
     this.herokuHostTop99p = herokuHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P, herokuHostTop99p);
   }
-
-  public UsageSummaryDate incidentManagementMonthlyActiveUsersHwm(
-      Long incidentManagementMonthlyActiveUsersHwm) {
+  public UsageSummaryDate incidentManagementMonthlyActiveUsersHwm(Long incidentManagementMonthlyActiveUsersHwm) {
     this.incidentManagementMonthlyActiveUsersHwm = incidentManagementMonthlyActiveUsersHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of incident management monthly active users over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations.</p>
    * @return incidentManagementMonthlyActiveUsersHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIncidentManagementMonthlyActiveUsersHwm() {
-    return incidentManagementMonthlyActiveUsersHwm;
-  }
-
-  public void setIncidentManagementMonthlyActiveUsersHwm(
-      Long incidentManagementMonthlyActiveUsersHwm) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIncidentManagementMonthlyActiveUsersHwm() {
+        return incidentManagementMonthlyActiveUsersHwm;
+      }
+  public void setIncidentManagementMonthlyActiveUsersHwm(Long incidentManagementMonthlyActiveUsersHwm) {
     this.incidentManagementMonthlyActiveUsersHwm = incidentManagementMonthlyActiveUsersHwm;
-    putAdditionalProperty(
-        JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
-        incidentManagementMonthlyActiveUsersHwm);
+    putAdditionalProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM, incidentManagementMonthlyActiveUsersHwm);
   }
-
   public UsageSummaryDate incidentManagementSeatsHwm(Long incidentManagementSeatsHwm) {
     this.incidentManagementSeatsHwm = incidentManagementSeatsHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of Incident Management seats over all hours on the current date for
-   * all organizations.
-   *
+   * <p>Shows the high-water mark of Incident Management seats over all hours on the current date for all organizations.</p>
    * @return incidentManagementSeatsHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIncidentManagementSeatsHwm() {
-    return incidentManagementSeatsHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIncidentManagementSeatsHwm() {
+        return incidentManagementSeatsHwm;
+      }
   public void setIncidentManagementSeatsHwm(Long incidentManagementSeatsHwm) {
     this.incidentManagementSeatsHwm = incidentManagementSeatsHwm;
     putAdditionalProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM, incidentManagementSeatsHwm);
   }
-
   public UsageSummaryDate indexedEventsCountSum(Long indexedEventsCountSum) {
     this.indexedEventsCountSum = indexedEventsCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all log events indexed over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all log events indexed over all hours in the current date for all organizations.</p>
    * @return indexedEventsCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedEventsCountSum() {
-    return indexedEventsCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIndexedEventsCountSum() {
+        return indexedEventsCountSum;
+      }
   public void setIndexedEventsCountSum(Long indexedEventsCountSum) {
     this.indexedEventsCountSum = indexedEventsCountSum;
     putAdditionalProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM, indexedEventsCountSum);
   }
-
   public UsageSummaryDate indexedPointsSum(Long indexedPointsSum) {
     this.indexedPointsSum = indexedPointsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all indexed custom metrics points over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all indexed custom metrics points over all hours in the current date for all organizations.</p>
    * @return indexedPointsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXED_POINTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedPointsSum() {
-    return indexedPointsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INDEXED_POINTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIndexedPointsSum() {
+        return indexedPointsSum;
+      }
   public void setIndexedPointsSum(Long indexedPointsSum) {
     this.indexedPointsSum = indexedPointsSum;
     putAdditionalProperty(JSON_PROPERTY_INDEXED_POINTS_SUM, indexedPointsSum);
   }
-
   public UsageSummaryDate infraCpuAvg(Long infraCpuAvg) {
     this.infraCpuAvg = infraCpuAvg;
     return this;
   }
 
   /**
-   * Shows the average of all Infrastructure vCPU cores over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the average of all Infrastructure vCPU cores over all hours in the current date for all organizations.</p>
    * @return infraCpuAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuAvg() {
-    return infraCpuAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuAvg() {
+        return infraCpuAvg;
+      }
   public void setInfraCpuAvg(Long infraCpuAvg) {
     this.infraCpuAvg = infraCpuAvg;
     putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_AVG, infraCpuAvg);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentAvg(
-      Long infraCpuDefaultInfraHostVcpuAgentAvg) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentAvg(Long infraCpuDefaultInfraHostVcpuAgentAvg) {
     this.infraCpuDefaultInfraHostVcpuAgentAvg = infraCpuDefaultInfraHostVcpuAgentAvg;
     return this;
   }
 
   /**
-   * Shows the average of all default Infrastructure host vCPU cores reported by the Datadog Agent
-   * over all hours in the current date for all organizations.
-   *
+   * <p>Shows the average of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuAgentAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuAgentAvg() {
-    return infraCpuDefaultInfraHostVcpuAgentAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuAgentAvg() {
+        return infraCpuDefaultInfraHostVcpuAgentAvg;
+      }
   public void setInfraCpuDefaultInfraHostVcpuAgentAvg(Long infraCpuDefaultInfraHostVcpuAgentAvg) {
     this.infraCpuDefaultInfraHostVcpuAgentAvg = infraCpuDefaultInfraHostVcpuAgentAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG,
-        infraCpuDefaultInfraHostVcpuAgentAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_AVG, infraCpuDefaultInfraHostVcpuAgentAvg);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentBasicAvg(
-      Long infraCpuDefaultInfraHostVcpuAgentBasicAvg) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentBasicAvg(Long infraCpuDefaultInfraHostVcpuAgentBasicAvg) {
     this.infraCpuDefaultInfraHostVcpuAgentBasicAvg = infraCpuDefaultInfraHostVcpuAgentBasicAvg;
     return this;
   }
 
   /**
-   * Shows the average of all default basic Infrastructure host vCPU cores reported by the Datadog
-   * Agent over all hours in the current date for all organizations.
-   *
+   * <p>Shows the average of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuAgentBasicAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuAgentBasicAvg() {
-    return infraCpuDefaultInfraHostVcpuAgentBasicAvg;
-  }
-
-  public void setInfraCpuDefaultInfraHostVcpuAgentBasicAvg(
-      Long infraCpuDefaultInfraHostVcpuAgentBasicAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuAgentBasicAvg() {
+        return infraCpuDefaultInfraHostVcpuAgentBasicAvg;
+      }
+  public void setInfraCpuDefaultInfraHostVcpuAgentBasicAvg(Long infraCpuDefaultInfraHostVcpuAgentBasicAvg) {
     this.infraCpuDefaultInfraHostVcpuAgentBasicAvg = infraCpuDefaultInfraHostVcpuAgentBasicAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG,
-        infraCpuDefaultInfraHostVcpuAgentBasicAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_AVG, infraCpuDefaultInfraHostVcpuAgentBasicAvg);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentBasicSum(
-      Long infraCpuDefaultInfraHostVcpuAgentBasicSum) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentBasicSum(Long infraCpuDefaultInfraHostVcpuAgentBasicSum) {
     this.infraCpuDefaultInfraHostVcpuAgentBasicSum = infraCpuDefaultInfraHostVcpuAgentBasicSum;
     return this;
   }
 
   /**
-   * Shows the sum of all default basic Infrastructure host vCPU cores reported by the Datadog Agent
-   * over all hours in the current date for all organizations.
-   *
+   * <p>Shows the sum of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuAgentBasicSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuAgentBasicSum() {
-    return infraCpuDefaultInfraHostVcpuAgentBasicSum;
-  }
-
-  public void setInfraCpuDefaultInfraHostVcpuAgentBasicSum(
-      Long infraCpuDefaultInfraHostVcpuAgentBasicSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuAgentBasicSum() {
+        return infraCpuDefaultInfraHostVcpuAgentBasicSum;
+      }
+  public void setInfraCpuDefaultInfraHostVcpuAgentBasicSum(Long infraCpuDefaultInfraHostVcpuAgentBasicSum) {
     this.infraCpuDefaultInfraHostVcpuAgentBasicSum = infraCpuDefaultInfraHostVcpuAgentBasicSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM,
-        infraCpuDefaultInfraHostVcpuAgentBasicSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_BASIC_SUM, infraCpuDefaultInfraHostVcpuAgentBasicSum);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentSum(
-      Long infraCpuDefaultInfraHostVcpuAgentSum) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAgentSum(Long infraCpuDefaultInfraHostVcpuAgentSum) {
     this.infraCpuDefaultInfraHostVcpuAgentSum = infraCpuDefaultInfraHostVcpuAgentSum;
     return this;
   }
 
   /**
-   * Shows the sum of all default Infrastructure host vCPU cores reported by the Datadog Agent over
-   * all hours in the current date for all organizations.
-   *
+   * <p>Shows the sum of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuAgentSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuAgentSum() {
-    return infraCpuDefaultInfraHostVcpuAgentSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuAgentSum() {
+        return infraCpuDefaultInfraHostVcpuAgentSum;
+      }
   public void setInfraCpuDefaultInfraHostVcpuAgentSum(Long infraCpuDefaultInfraHostVcpuAgentSum) {
     this.infraCpuDefaultInfraHostVcpuAgentSum = infraCpuDefaultInfraHostVcpuAgentSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM,
-        infraCpuDefaultInfraHostVcpuAgentSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AGENT_SUM, infraCpuDefaultInfraHostVcpuAgentSum);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAwsAvg(
-      Long infraCpuDefaultInfraHostVcpuAwsAvg) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAwsAvg(Long infraCpuDefaultInfraHostVcpuAwsAvg) {
     this.infraCpuDefaultInfraHostVcpuAwsAvg = infraCpuDefaultInfraHostVcpuAwsAvg;
     return this;
   }
 
   /**
-   * Shows the average of all default Infrastructure host vCPU cores on AWS over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average of all default Infrastructure host vCPU cores on AWS over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuAwsAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuAwsAvg() {
-    return infraCpuDefaultInfraHostVcpuAwsAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuAwsAvg() {
+        return infraCpuDefaultInfraHostVcpuAwsAvg;
+      }
   public void setInfraCpuDefaultInfraHostVcpuAwsAvg(Long infraCpuDefaultInfraHostVcpuAwsAvg) {
     this.infraCpuDefaultInfraHostVcpuAwsAvg = infraCpuDefaultInfraHostVcpuAwsAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG,
-        infraCpuDefaultInfraHostVcpuAwsAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_AVG, infraCpuDefaultInfraHostVcpuAwsAvg);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAwsSum(
-      Long infraCpuDefaultInfraHostVcpuAwsSum) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAwsSum(Long infraCpuDefaultInfraHostVcpuAwsSum) {
     this.infraCpuDefaultInfraHostVcpuAwsSum = infraCpuDefaultInfraHostVcpuAwsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all default Infrastructure host vCPU cores on AWS over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all default Infrastructure host vCPU cores on AWS over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuAwsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuAwsSum() {
-    return infraCpuDefaultInfraHostVcpuAwsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuAwsSum() {
+        return infraCpuDefaultInfraHostVcpuAwsSum;
+      }
   public void setInfraCpuDefaultInfraHostVcpuAwsSum(Long infraCpuDefaultInfraHostVcpuAwsSum) {
     this.infraCpuDefaultInfraHostVcpuAwsSum = infraCpuDefaultInfraHostVcpuAwsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM,
-        infraCpuDefaultInfraHostVcpuAwsSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AWS_SUM, infraCpuDefaultInfraHostVcpuAwsSum);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAzureAvg(
-      Long infraCpuDefaultInfraHostVcpuAzureAvg) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAzureAvg(Long infraCpuDefaultInfraHostVcpuAzureAvg) {
     this.infraCpuDefaultInfraHostVcpuAzureAvg = infraCpuDefaultInfraHostVcpuAzureAvg;
     return this;
   }
 
   /**
-   * Shows the average of all default Infrastructure host vCPU cores on Azure over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average of all default Infrastructure host vCPU cores on Azure over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuAzureAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuAzureAvg() {
-    return infraCpuDefaultInfraHostVcpuAzureAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuAzureAvg() {
+        return infraCpuDefaultInfraHostVcpuAzureAvg;
+      }
   public void setInfraCpuDefaultInfraHostVcpuAzureAvg(Long infraCpuDefaultInfraHostVcpuAzureAvg) {
     this.infraCpuDefaultInfraHostVcpuAzureAvg = infraCpuDefaultInfraHostVcpuAzureAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG,
-        infraCpuDefaultInfraHostVcpuAzureAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_AVG, infraCpuDefaultInfraHostVcpuAzureAvg);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAzureSum(
-      Long infraCpuDefaultInfraHostVcpuAzureSum) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuAzureSum(Long infraCpuDefaultInfraHostVcpuAzureSum) {
     this.infraCpuDefaultInfraHostVcpuAzureSum = infraCpuDefaultInfraHostVcpuAzureSum;
     return this;
   }
 
   /**
-   * Shows the sum of all default Infrastructure host vCPU cores on Azure over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all default Infrastructure host vCPU cores on Azure over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuAzureSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuAzureSum() {
-    return infraCpuDefaultInfraHostVcpuAzureSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuAzureSum() {
+        return infraCpuDefaultInfraHostVcpuAzureSum;
+      }
   public void setInfraCpuDefaultInfraHostVcpuAzureSum(Long infraCpuDefaultInfraHostVcpuAzureSum) {
     this.infraCpuDefaultInfraHostVcpuAzureSum = infraCpuDefaultInfraHostVcpuAzureSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM,
-        infraCpuDefaultInfraHostVcpuAzureSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_AZURE_SUM, infraCpuDefaultInfraHostVcpuAzureSum);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuGcpAvg(
-      Long infraCpuDefaultInfraHostVcpuGcpAvg) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuGcpAvg(Long infraCpuDefaultInfraHostVcpuGcpAvg) {
     this.infraCpuDefaultInfraHostVcpuGcpAvg = infraCpuDefaultInfraHostVcpuGcpAvg;
     return this;
   }
 
   /**
-   * Shows the average of all default Infrastructure host vCPU cores on GCP over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average of all default Infrastructure host vCPU cores on GCP over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuGcpAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuGcpAvg() {
-    return infraCpuDefaultInfraHostVcpuGcpAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuGcpAvg() {
+        return infraCpuDefaultInfraHostVcpuGcpAvg;
+      }
   public void setInfraCpuDefaultInfraHostVcpuGcpAvg(Long infraCpuDefaultInfraHostVcpuGcpAvg) {
     this.infraCpuDefaultInfraHostVcpuGcpAvg = infraCpuDefaultInfraHostVcpuGcpAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG,
-        infraCpuDefaultInfraHostVcpuGcpAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_AVG, infraCpuDefaultInfraHostVcpuGcpAvg);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuGcpSum(
-      Long infraCpuDefaultInfraHostVcpuGcpSum) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuGcpSum(Long infraCpuDefaultInfraHostVcpuGcpSum) {
     this.infraCpuDefaultInfraHostVcpuGcpSum = infraCpuDefaultInfraHostVcpuGcpSum;
     return this;
   }
 
   /**
-   * Shows the sum of all default Infrastructure host vCPU cores on GCP over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all default Infrastructure host vCPU cores on GCP over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuGcpSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuGcpSum() {
-    return infraCpuDefaultInfraHostVcpuGcpSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuGcpSum() {
+        return infraCpuDefaultInfraHostVcpuGcpSum;
+      }
   public void setInfraCpuDefaultInfraHostVcpuGcpSum(Long infraCpuDefaultInfraHostVcpuGcpSum) {
     this.infraCpuDefaultInfraHostVcpuGcpSum = infraCpuDefaultInfraHostVcpuGcpSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM,
-        infraCpuDefaultInfraHostVcpuGcpSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_GCP_SUM, infraCpuDefaultInfraHostVcpuGcpSum);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixAvg(
-      Long infraCpuDefaultInfraHostVcpuNutanixAvg) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixAvg(Long infraCpuDefaultInfraHostVcpuNutanixAvg) {
     this.infraCpuDefaultInfraHostVcpuNutanixAvg = infraCpuDefaultInfraHostVcpuNutanixAvg;
     return this;
   }
 
   /**
-   * Shows the average of all default Infrastructure host vCPU cores on Nutanix over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the average of all default Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuNutanixAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuNutanixAvg() {
-    return infraCpuDefaultInfraHostVcpuNutanixAvg;
-  }
-
-  public void setInfraCpuDefaultInfraHostVcpuNutanixAvg(
-      Long infraCpuDefaultInfraHostVcpuNutanixAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuNutanixAvg() {
+        return infraCpuDefaultInfraHostVcpuNutanixAvg;
+      }
+  public void setInfraCpuDefaultInfraHostVcpuNutanixAvg(Long infraCpuDefaultInfraHostVcpuNutanixAvg) {
     this.infraCpuDefaultInfraHostVcpuNutanixAvg = infraCpuDefaultInfraHostVcpuNutanixAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG,
-        infraCpuDefaultInfraHostVcpuNutanixAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_AVG, infraCpuDefaultInfraHostVcpuNutanixAvg);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixBasicAvg(
-      Long infraCpuDefaultInfraHostVcpuNutanixBasicAvg) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixBasicAvg(Long infraCpuDefaultInfraHostVcpuNutanixBasicAvg) {
     this.infraCpuDefaultInfraHostVcpuNutanixBasicAvg = infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
     return this;
   }
 
   /**
-   * Shows the average of all default basic Infrastructure host vCPU cores on Nutanix over all hours
-   * in the current date for all organizations.
-   *
+   * <p>Shows the average of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuNutanixBasicAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuNutanixBasicAvg() {
-    return infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
-  }
-
-  public void setInfraCpuDefaultInfraHostVcpuNutanixBasicAvg(
-      Long infraCpuDefaultInfraHostVcpuNutanixBasicAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuNutanixBasicAvg() {
+        return infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
+      }
+  public void setInfraCpuDefaultInfraHostVcpuNutanixBasicAvg(Long infraCpuDefaultInfraHostVcpuNutanixBasicAvg) {
     this.infraCpuDefaultInfraHostVcpuNutanixBasicAvg = infraCpuDefaultInfraHostVcpuNutanixBasicAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG,
-        infraCpuDefaultInfraHostVcpuNutanixBasicAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_AVG, infraCpuDefaultInfraHostVcpuNutanixBasicAvg);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixBasicSum(
-      Long infraCpuDefaultInfraHostVcpuNutanixBasicSum) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixBasicSum(Long infraCpuDefaultInfraHostVcpuNutanixBasicSum) {
     this.infraCpuDefaultInfraHostVcpuNutanixBasicSum = infraCpuDefaultInfraHostVcpuNutanixBasicSum;
     return this;
   }
 
   /**
-   * Shows the sum of all default basic Infrastructure host vCPU cores on Nutanix over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the sum of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuNutanixBasicSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuNutanixBasicSum() {
-    return infraCpuDefaultInfraHostVcpuNutanixBasicSum;
-  }
-
-  public void setInfraCpuDefaultInfraHostVcpuNutanixBasicSum(
-      Long infraCpuDefaultInfraHostVcpuNutanixBasicSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuNutanixBasicSum() {
+        return infraCpuDefaultInfraHostVcpuNutanixBasicSum;
+      }
+  public void setInfraCpuDefaultInfraHostVcpuNutanixBasicSum(Long infraCpuDefaultInfraHostVcpuNutanixBasicSum) {
     this.infraCpuDefaultInfraHostVcpuNutanixBasicSum = infraCpuDefaultInfraHostVcpuNutanixBasicSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM,
-        infraCpuDefaultInfraHostVcpuNutanixBasicSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_BASIC_SUM, infraCpuDefaultInfraHostVcpuNutanixBasicSum);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixSum(
-      Long infraCpuDefaultInfraHostVcpuNutanixSum) {
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuNutanixSum(Long infraCpuDefaultInfraHostVcpuNutanixSum) {
     this.infraCpuDefaultInfraHostVcpuNutanixSum = infraCpuDefaultInfraHostVcpuNutanixSum;
     return this;
   }
 
   /**
-   * Shows the sum of all default Infrastructure host vCPU cores on Nutanix over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all default Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuNutanixSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuNutanixSum() {
-    return infraCpuDefaultInfraHostVcpuNutanixSum;
-  }
-
-  public void setInfraCpuDefaultInfraHostVcpuNutanixSum(
-      Long infraCpuDefaultInfraHostVcpuNutanixSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuNutanixSum() {
+        return infraCpuDefaultInfraHostVcpuNutanixSum;
+      }
+  public void setInfraCpuDefaultInfraHostVcpuNutanixSum(Long infraCpuDefaultInfraHostVcpuNutanixSum) {
     this.infraCpuDefaultInfraHostVcpuNutanixSum = infraCpuDefaultInfraHostVcpuNutanixSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM,
-        infraCpuDefaultInfraHostVcpuNutanixSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_NUTANIX_SUM, infraCpuDefaultInfraHostVcpuNutanixSum);
   }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuOpentelemetryAvg(
-      Long infraCpuDefaultInfraHostVcpuOpentelemetryAvg) {
-    this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg =
-        infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuOpentelemetryAvg(Long infraCpuDefaultInfraHostVcpuOpentelemetryAvg) {
+    this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg = infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
     return this;
   }
 
   /**
-   * Shows the average of all default Infrastructure host vCPU cores reported by OpenTelemetry over
-   * all hours in the current date for all organizations.
-   *
+   * <p>Shows the average of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuOpentelemetryAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuOpentelemetryAvg() {
-    return infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuOpentelemetryAvg() {
+        return infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
+      }
+  public void setInfraCpuDefaultInfraHostVcpuOpentelemetryAvg(Long infraCpuDefaultInfraHostVcpuOpentelemetryAvg) {
+    this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg = infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG, infraCpuDefaultInfraHostVcpuOpentelemetryAvg);
   }
-
-  public void setInfraCpuDefaultInfraHostVcpuOpentelemetryAvg(
-      Long infraCpuDefaultInfraHostVcpuOpentelemetryAvg) {
-    this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg =
-        infraCpuDefaultInfraHostVcpuOpentelemetryAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_AVG,
-        infraCpuDefaultInfraHostVcpuOpentelemetryAvg);
-  }
-
-  public UsageSummaryDate infraCpuDefaultInfraHostVcpuOpentelemetrySum(
-      Long infraCpuDefaultInfraHostVcpuOpentelemetrySum) {
-    this.infraCpuDefaultInfraHostVcpuOpentelemetrySum =
-        infraCpuDefaultInfraHostVcpuOpentelemetrySum;
+  public UsageSummaryDate infraCpuDefaultInfraHostVcpuOpentelemetrySum(Long infraCpuDefaultInfraHostVcpuOpentelemetrySum) {
+    this.infraCpuDefaultInfraHostVcpuOpentelemetrySum = infraCpuDefaultInfraHostVcpuOpentelemetrySum;
     return this;
   }
 
   /**
-   * Shows the sum of all default Infrastructure host vCPU cores reported by OpenTelemetry over all
-   * hours in the current date for all organizations.
-   *
+   * <p>Shows the sum of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current date for all organizations.</p>
    * @return infraCpuDefaultInfraHostVcpuOpentelemetrySum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuDefaultInfraHostVcpuOpentelemetrySum() {
-    return infraCpuDefaultInfraHostVcpuOpentelemetrySum;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuDefaultInfraHostVcpuOpentelemetrySum() {
+        return infraCpuDefaultInfraHostVcpuOpentelemetrySum;
+      }
+  public void setInfraCpuDefaultInfraHostVcpuOpentelemetrySum(Long infraCpuDefaultInfraHostVcpuOpentelemetrySum) {
+    this.infraCpuDefaultInfraHostVcpuOpentelemetrySum = infraCpuDefaultInfraHostVcpuOpentelemetrySum;
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM, infraCpuDefaultInfraHostVcpuOpentelemetrySum);
   }
-
-  public void setInfraCpuDefaultInfraHostVcpuOpentelemetrySum(
-      Long infraCpuDefaultInfraHostVcpuOpentelemetrySum) {
-    this.infraCpuDefaultInfraHostVcpuOpentelemetrySum =
-        infraCpuDefaultInfraHostVcpuOpentelemetrySum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_DEFAULT_INFRA_HOST_VCPU_OPENTELEMETRY_SUM,
-        infraCpuDefaultInfraHostVcpuOpentelemetrySum);
-  }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuAgentAvg(
-      Long infraCpuObservedInfraHostVcpuAgentAvg) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuAgentAvg(Long infraCpuObservedInfraHostVcpuAgentAvg) {
     this.infraCpuObservedInfraHostVcpuAgentAvg = infraCpuObservedInfraHostVcpuAgentAvg;
     return this;
   }
 
   /**
-   * Shows the average of all observed Infrastructure host vCPU cores reported by the Datadog Agent
-   * over all hours in the current date for all organizations.
-   *
+   * <p>Shows the average of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuAgentAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuAgentAvg() {
-    return infraCpuObservedInfraHostVcpuAgentAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuAgentAvg() {
+        return infraCpuObservedInfraHostVcpuAgentAvg;
+      }
   public void setInfraCpuObservedInfraHostVcpuAgentAvg(Long infraCpuObservedInfraHostVcpuAgentAvg) {
     this.infraCpuObservedInfraHostVcpuAgentAvg = infraCpuObservedInfraHostVcpuAgentAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG,
-        infraCpuObservedInfraHostVcpuAgentAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_AVG, infraCpuObservedInfraHostVcpuAgentAvg);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuAgentSum(
-      Long infraCpuObservedInfraHostVcpuAgentSum) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuAgentSum(Long infraCpuObservedInfraHostVcpuAgentSum) {
     this.infraCpuObservedInfraHostVcpuAgentSum = infraCpuObservedInfraHostVcpuAgentSum;
     return this;
   }
 
   /**
-   * Shows the sum of all observed Infrastructure host vCPU cores reported by the Datadog Agent over
-   * all hours in the current date for all organizations.
-   *
+   * <p>Shows the sum of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuAgentSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuAgentSum() {
-    return infraCpuObservedInfraHostVcpuAgentSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuAgentSum() {
+        return infraCpuObservedInfraHostVcpuAgentSum;
+      }
   public void setInfraCpuObservedInfraHostVcpuAgentSum(Long infraCpuObservedInfraHostVcpuAgentSum) {
     this.infraCpuObservedInfraHostVcpuAgentSum = infraCpuObservedInfraHostVcpuAgentSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM,
-        infraCpuObservedInfraHostVcpuAgentSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AGENT_SUM, infraCpuObservedInfraHostVcpuAgentSum);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuAwsAvg(
-      Long infraCpuObservedInfraHostVcpuAwsAvg) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuAwsAvg(Long infraCpuObservedInfraHostVcpuAwsAvg) {
     this.infraCpuObservedInfraHostVcpuAwsAvg = infraCpuObservedInfraHostVcpuAwsAvg;
     return this;
   }
 
   /**
-   * Shows the average of all observed Infrastructure host vCPU cores on AWS over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average of all observed Infrastructure host vCPU cores on AWS over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuAwsAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuAwsAvg() {
-    return infraCpuObservedInfraHostVcpuAwsAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuAwsAvg() {
+        return infraCpuObservedInfraHostVcpuAwsAvg;
+      }
   public void setInfraCpuObservedInfraHostVcpuAwsAvg(Long infraCpuObservedInfraHostVcpuAwsAvg) {
     this.infraCpuObservedInfraHostVcpuAwsAvg = infraCpuObservedInfraHostVcpuAwsAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG,
-        infraCpuObservedInfraHostVcpuAwsAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_AVG, infraCpuObservedInfraHostVcpuAwsAvg);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuAwsSum(
-      Long infraCpuObservedInfraHostVcpuAwsSum) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuAwsSum(Long infraCpuObservedInfraHostVcpuAwsSum) {
     this.infraCpuObservedInfraHostVcpuAwsSum = infraCpuObservedInfraHostVcpuAwsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all observed Infrastructure host vCPU cores on AWS over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all observed Infrastructure host vCPU cores on AWS over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuAwsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuAwsSum() {
-    return infraCpuObservedInfraHostVcpuAwsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuAwsSum() {
+        return infraCpuObservedInfraHostVcpuAwsSum;
+      }
   public void setInfraCpuObservedInfraHostVcpuAwsSum(Long infraCpuObservedInfraHostVcpuAwsSum) {
     this.infraCpuObservedInfraHostVcpuAwsSum = infraCpuObservedInfraHostVcpuAwsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM,
-        infraCpuObservedInfraHostVcpuAwsSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AWS_SUM, infraCpuObservedInfraHostVcpuAwsSum);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuAzureAvg(
-      Long infraCpuObservedInfraHostVcpuAzureAvg) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuAzureAvg(Long infraCpuObservedInfraHostVcpuAzureAvg) {
     this.infraCpuObservedInfraHostVcpuAzureAvg = infraCpuObservedInfraHostVcpuAzureAvg;
     return this;
   }
 
   /**
-   * Shows the average of all observed Infrastructure host vCPU cores on Azure over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average of all observed Infrastructure host vCPU cores on Azure over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuAzureAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuAzureAvg() {
-    return infraCpuObservedInfraHostVcpuAzureAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuAzureAvg() {
+        return infraCpuObservedInfraHostVcpuAzureAvg;
+      }
   public void setInfraCpuObservedInfraHostVcpuAzureAvg(Long infraCpuObservedInfraHostVcpuAzureAvg) {
     this.infraCpuObservedInfraHostVcpuAzureAvg = infraCpuObservedInfraHostVcpuAzureAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG,
-        infraCpuObservedInfraHostVcpuAzureAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_AVG, infraCpuObservedInfraHostVcpuAzureAvg);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuAzureSum(
-      Long infraCpuObservedInfraHostVcpuAzureSum) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuAzureSum(Long infraCpuObservedInfraHostVcpuAzureSum) {
     this.infraCpuObservedInfraHostVcpuAzureSum = infraCpuObservedInfraHostVcpuAzureSum;
     return this;
   }
 
   /**
-   * Shows the sum of all observed Infrastructure host vCPU cores on Azure over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all observed Infrastructure host vCPU cores on Azure over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuAzureSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuAzureSum() {
-    return infraCpuObservedInfraHostVcpuAzureSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuAzureSum() {
+        return infraCpuObservedInfraHostVcpuAzureSum;
+      }
   public void setInfraCpuObservedInfraHostVcpuAzureSum(Long infraCpuObservedInfraHostVcpuAzureSum) {
     this.infraCpuObservedInfraHostVcpuAzureSum = infraCpuObservedInfraHostVcpuAzureSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM,
-        infraCpuObservedInfraHostVcpuAzureSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_AZURE_SUM, infraCpuObservedInfraHostVcpuAzureSum);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuGcpAvg(
-      Long infraCpuObservedInfraHostVcpuGcpAvg) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuGcpAvg(Long infraCpuObservedInfraHostVcpuGcpAvg) {
     this.infraCpuObservedInfraHostVcpuGcpAvg = infraCpuObservedInfraHostVcpuGcpAvg;
     return this;
   }
 
   /**
-   * Shows the average of all observed Infrastructure host vCPU cores on GCP over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the average of all observed Infrastructure host vCPU cores on GCP over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuGcpAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuGcpAvg() {
-    return infraCpuObservedInfraHostVcpuGcpAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuGcpAvg() {
+        return infraCpuObservedInfraHostVcpuGcpAvg;
+      }
   public void setInfraCpuObservedInfraHostVcpuGcpAvg(Long infraCpuObservedInfraHostVcpuGcpAvg) {
     this.infraCpuObservedInfraHostVcpuGcpAvg = infraCpuObservedInfraHostVcpuGcpAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG,
-        infraCpuObservedInfraHostVcpuGcpAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_AVG, infraCpuObservedInfraHostVcpuGcpAvg);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuGcpSum(
-      Long infraCpuObservedInfraHostVcpuGcpSum) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuGcpSum(Long infraCpuObservedInfraHostVcpuGcpSum) {
     this.infraCpuObservedInfraHostVcpuGcpSum = infraCpuObservedInfraHostVcpuGcpSum;
     return this;
   }
 
   /**
-   * Shows the sum of all observed Infrastructure host vCPU cores on GCP over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all observed Infrastructure host vCPU cores on GCP over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuGcpSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuGcpSum() {
-    return infraCpuObservedInfraHostVcpuGcpSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuGcpSum() {
+        return infraCpuObservedInfraHostVcpuGcpSum;
+      }
   public void setInfraCpuObservedInfraHostVcpuGcpSum(Long infraCpuObservedInfraHostVcpuGcpSum) {
     this.infraCpuObservedInfraHostVcpuGcpSum = infraCpuObservedInfraHostVcpuGcpSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM,
-        infraCpuObservedInfraHostVcpuGcpSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_GCP_SUM, infraCpuObservedInfraHostVcpuGcpSum);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuNutanixAvg(
-      Long infraCpuObservedInfraHostVcpuNutanixAvg) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuNutanixAvg(Long infraCpuObservedInfraHostVcpuNutanixAvg) {
     this.infraCpuObservedInfraHostVcpuNutanixAvg = infraCpuObservedInfraHostVcpuNutanixAvg;
     return this;
   }
 
   /**
-   * Shows the average of all observed Infrastructure host vCPU cores on Nutanix over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the average of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuNutanixAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuNutanixAvg() {
-    return infraCpuObservedInfraHostVcpuNutanixAvg;
-  }
-
-  public void setInfraCpuObservedInfraHostVcpuNutanixAvg(
-      Long infraCpuObservedInfraHostVcpuNutanixAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuNutanixAvg() {
+        return infraCpuObservedInfraHostVcpuNutanixAvg;
+      }
+  public void setInfraCpuObservedInfraHostVcpuNutanixAvg(Long infraCpuObservedInfraHostVcpuNutanixAvg) {
     this.infraCpuObservedInfraHostVcpuNutanixAvg = infraCpuObservedInfraHostVcpuNutanixAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG,
-        infraCpuObservedInfraHostVcpuNutanixAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_AVG, infraCpuObservedInfraHostVcpuNutanixAvg);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuNutanixSum(
-      Long infraCpuObservedInfraHostVcpuNutanixSum) {
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuNutanixSum(Long infraCpuObservedInfraHostVcpuNutanixSum) {
     this.infraCpuObservedInfraHostVcpuNutanixSum = infraCpuObservedInfraHostVcpuNutanixSum;
     return this;
   }
 
   /**
-   * Shows the sum of all observed Infrastructure host vCPU cores on Nutanix over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuNutanixSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuNutanixSum() {
-    return infraCpuObservedInfraHostVcpuNutanixSum;
-  }
-
-  public void setInfraCpuObservedInfraHostVcpuNutanixSum(
-      Long infraCpuObservedInfraHostVcpuNutanixSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuNutanixSum() {
+        return infraCpuObservedInfraHostVcpuNutanixSum;
+      }
+  public void setInfraCpuObservedInfraHostVcpuNutanixSum(Long infraCpuObservedInfraHostVcpuNutanixSum) {
     this.infraCpuObservedInfraHostVcpuNutanixSum = infraCpuObservedInfraHostVcpuNutanixSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM,
-        infraCpuObservedInfraHostVcpuNutanixSum);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_NUTANIX_SUM, infraCpuObservedInfraHostVcpuNutanixSum);
   }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuOpentelemetryAvg(
-      Long infraCpuObservedInfraHostVcpuOpentelemetryAvg) {
-    this.infraCpuObservedInfraHostVcpuOpentelemetryAvg =
-        infraCpuObservedInfraHostVcpuOpentelemetryAvg;
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuOpentelemetryAvg(Long infraCpuObservedInfraHostVcpuOpentelemetryAvg) {
+    this.infraCpuObservedInfraHostVcpuOpentelemetryAvg = infraCpuObservedInfraHostVcpuOpentelemetryAvg;
     return this;
   }
 
   /**
-   * Shows the average of all observed Infrastructure host vCPU cores reported by OpenTelemetry over
-   * all hours in the current date for all organizations.
-   *
+   * <p>Shows the average of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuOpentelemetryAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuOpentelemetryAvg() {
-    return infraCpuObservedInfraHostVcpuOpentelemetryAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuOpentelemetryAvg() {
+        return infraCpuObservedInfraHostVcpuOpentelemetryAvg;
+      }
+  public void setInfraCpuObservedInfraHostVcpuOpentelemetryAvg(Long infraCpuObservedInfraHostVcpuOpentelemetryAvg) {
+    this.infraCpuObservedInfraHostVcpuOpentelemetryAvg = infraCpuObservedInfraHostVcpuOpentelemetryAvg;
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG, infraCpuObservedInfraHostVcpuOpentelemetryAvg);
   }
-
-  public void setInfraCpuObservedInfraHostVcpuOpentelemetryAvg(
-      Long infraCpuObservedInfraHostVcpuOpentelemetryAvg) {
-    this.infraCpuObservedInfraHostVcpuOpentelemetryAvg =
-        infraCpuObservedInfraHostVcpuOpentelemetryAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_AVG,
-        infraCpuObservedInfraHostVcpuOpentelemetryAvg);
-  }
-
-  public UsageSummaryDate infraCpuObservedInfraHostVcpuOpentelemetrySum(
-      Long infraCpuObservedInfraHostVcpuOpentelemetrySum) {
-    this.infraCpuObservedInfraHostVcpuOpentelemetrySum =
-        infraCpuObservedInfraHostVcpuOpentelemetrySum;
+  public UsageSummaryDate infraCpuObservedInfraHostVcpuOpentelemetrySum(Long infraCpuObservedInfraHostVcpuOpentelemetrySum) {
+    this.infraCpuObservedInfraHostVcpuOpentelemetrySum = infraCpuObservedInfraHostVcpuOpentelemetrySum;
     return this;
   }
 
   /**
-   * Shows the sum of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all
-   * hours in the current date for all organizations.
-   *
+   * <p>Shows the sum of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current date for all organizations.</p>
    * @return infraCpuObservedInfraHostVcpuOpentelemetrySum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuObservedInfraHostVcpuOpentelemetrySum() {
-    return infraCpuObservedInfraHostVcpuOpentelemetrySum;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuObservedInfraHostVcpuOpentelemetrySum() {
+        return infraCpuObservedInfraHostVcpuOpentelemetrySum;
+      }
+  public void setInfraCpuObservedInfraHostVcpuOpentelemetrySum(Long infraCpuObservedInfraHostVcpuOpentelemetrySum) {
+    this.infraCpuObservedInfraHostVcpuOpentelemetrySum = infraCpuObservedInfraHostVcpuOpentelemetrySum;
+    putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM, infraCpuObservedInfraHostVcpuOpentelemetrySum);
   }
-
-  public void setInfraCpuObservedInfraHostVcpuOpentelemetrySum(
-      Long infraCpuObservedInfraHostVcpuOpentelemetrySum) {
-    this.infraCpuObservedInfraHostVcpuOpentelemetrySum =
-        infraCpuObservedInfraHostVcpuOpentelemetrySum;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_CPU_OBSERVED_INFRA_HOST_VCPU_OPENTELEMETRY_SUM,
-        infraCpuObservedInfraHostVcpuOpentelemetrySum);
-  }
-
   public UsageSummaryDate infraCpuSum(Long infraCpuSum) {
     this.infraCpuSum = infraCpuSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Infrastructure vCPU cores over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all Infrastructure vCPU cores over all hours in the current date for all organizations.</p>
    * @return infraCpuSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_CPU_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraCpuSum() {
-    return infraCpuSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_CPU_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraCpuSum() {
+        return infraCpuSum;
+      }
   public void setInfraCpuSum(Long infraCpuSum) {
     this.infraCpuSum = infraCpuSum;
     putAdditionalProperty(JSON_PROPERTY_INFRA_CPU_SUM, infraCpuSum);
   }
-
   public UsageSummaryDate infraEdgeMonitoringDevicesTop99p(Long infraEdgeMonitoringDevicesTop99p) {
     this.infraEdgeMonitoringDevicesTop99p = infraEdgeMonitoringDevicesTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Edge Devices Monitoring devices over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Edge Devices Monitoring devices over all hours in the current date for all organizations.</p>
    * @return infraEdgeMonitoringDevicesTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraEdgeMonitoringDevicesTop99p() {
-    return infraEdgeMonitoringDevicesTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraEdgeMonitoringDevicesTop99p() {
+        return infraEdgeMonitoringDevicesTop99p;
+      }
   public void setInfraEdgeMonitoringDevicesTop99p(Long infraEdgeMonitoringDevicesTop99p) {
     this.infraEdgeMonitoringDevicesTop99p = infraEdgeMonitoringDevicesTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P, infraEdgeMonitoringDevicesTop99p);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P, infraEdgeMonitoringDevicesTop99p);
   }
-
-  public UsageSummaryDate infraHostBasicInfraBasicAgentTop99p(
-      Long infraHostBasicInfraBasicAgentTop99p) {
+  public UsageSummaryDate infraHostBasicInfraBasicAgentTop99p(Long infraHostBasicInfraBasicAgentTop99p) {
     this.infraHostBasicInfraBasicAgentTop99p = infraHostBasicInfraBasicAgentTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier with the Datadog
-   * Agent over all hours in the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all distinct infrastructure hosts for Basic tier with the Datadog Agent over all hours in the current date for all organizations.</p>
    * @return infraHostBasicInfraBasicAgentTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraHostBasicInfraBasicAgentTop99p() {
-    return infraHostBasicInfraBasicAgentTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraHostBasicInfraBasicAgentTop99p() {
+        return infraHostBasicInfraBasicAgentTop99p;
+      }
   public void setInfraHostBasicInfraBasicAgentTop99p(Long infraHostBasicInfraBasicAgentTop99p) {
     this.infraHostBasicInfraBasicAgentTop99p = infraHostBasicInfraBasicAgentTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_TOP99P,
-        infraHostBasicInfraBasicAgentTop99p);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_AGENT_TOP99P, infraHostBasicInfraBasicAgentTop99p);
   }
-
-  public UsageSummaryDate infraHostBasicInfraBasicVsphereTop99p(
-      Long infraHostBasicInfraBasicVsphereTop99p) {
+  public UsageSummaryDate infraHostBasicInfraBasicVsphereTop99p(Long infraHostBasicInfraBasicVsphereTop99p) {
     this.infraHostBasicInfraBasicVsphereTop99p = infraHostBasicInfraBasicVsphereTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier on vSphere over
-   * all hours in the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all distinct infrastructure hosts for Basic tier on vSphere over all hours in the current date for all organizations.</p>
    * @return infraHostBasicInfraBasicVsphereTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraHostBasicInfraBasicVsphereTop99p() {
-    return infraHostBasicInfraBasicVsphereTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraHostBasicInfraBasicVsphereTop99p() {
+        return infraHostBasicInfraBasicVsphereTop99p;
+      }
   public void setInfraHostBasicInfraBasicVsphereTop99p(Long infraHostBasicInfraBasicVsphereTop99p) {
     this.infraHostBasicInfraBasicVsphereTop99p = infraHostBasicInfraBasicVsphereTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P,
-        infraHostBasicInfraBasicVsphereTop99p);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_HOST_BASIC_INFRA_BASIC_VSPHERE_TOP99P, infraHostBasicInfraBasicVsphereTop99p);
   }
-
   public UsageSummaryDate infraHostBasicTop99p(Long infraHostBasicTop99p) {
     this.infraHostBasicTop99p = infraHostBasicTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all distinct infrastructure hosts for Basic tier over all hours in the current date for all organizations.</p>
    * @return infraHostBasicTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraHostBasicTop99p() {
-    return infraHostBasicTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraHostBasicTop99p() {
+        return infraHostBasicTop99p;
+      }
   public void setInfraHostBasicTop99p(Long infraHostBasicTop99p) {
     this.infraHostBasicTop99p = infraHostBasicTop99p;
     putAdditionalProperty(JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P, infraHostBasicTop99p);
   }
-
   public UsageSummaryDate infraHostTop99p(Long infraHostTop99p) {
     this.infraHostTop99p = infraHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations.</p>
    * @return infraHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraHostTop99p() {
-    return infraHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraHostTop99p() {
+        return infraHostTop99p;
+      }
   public void setInfraHostTop99p(Long infraHostTop99p) {
     this.infraHostTop99p = infraHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_INFRA_HOST_TOP99P, infraHostTop99p);
   }
-
   public UsageSummaryDate infraStorageMgmtObjectsCountAvg(Long infraStorageMgmtObjectsCountAvg) {
     this.infraStorageMgmtObjectsCountAvg = infraStorageMgmtObjectsCountAvg;
     return this;
   }
 
   /**
-   * Shows the average number of storage management objects over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the average number of storage management objects over all hours in the current date for all organizations.</p>
    * @return infraStorageMgmtObjectsCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraStorageMgmtObjectsCountAvg() {
-    return infraStorageMgmtObjectsCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInfraStorageMgmtObjectsCountAvg() {
+        return infraStorageMgmtObjectsCountAvg;
+      }
   public void setInfraStorageMgmtObjectsCountAvg(Long infraStorageMgmtObjectsCountAvg) {
     this.infraStorageMgmtObjectsCountAvg = infraStorageMgmtObjectsCountAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG, infraStorageMgmtObjectsCountAvg);
+    putAdditionalProperty(JSON_PROPERTY_INFRA_STORAGE_MGMT_OBJECTS_COUNT_AVG, infraStorageMgmtObjectsCountAvg);
   }
-
   public UsageSummaryDate ingestPointsSum(Long ingestPointsSum) {
     this.ingestPointsSum = ingestPointsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ingested custom metrics points over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all ingested custom metrics points over all hours in the current date for all organizations.</p>
    * @return ingestPointsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INGEST_POINTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIngestPointsSum() {
-    return ingestPointsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INGEST_POINTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIngestPointsSum() {
+        return ingestPointsSum;
+      }
   public void setIngestPointsSum(Long ingestPointsSum) {
     this.ingestPointsSum = ingestPointsSum;
     putAdditionalProperty(JSON_PROPERTY_INGEST_POINTS_SUM, ingestPointsSum);
   }
-
   public UsageSummaryDate ingestedEventsBytesSum(Long ingestedEventsBytesSum) {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
     return this;
   }
 
   /**
-   * Shows the sum of all log bytes ingested over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all log bytes ingested over all hours in the current date for all organizations.</p>
    * @return ingestedEventsBytesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIngestedEventsBytesSum() {
-    return ingestedEventsBytesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIngestedEventsBytesSum() {
+        return ingestedEventsBytesSum;
+      }
   public void setIngestedEventsBytesSum(Long ingestedEventsBytesSum) {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
     putAdditionalProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM, ingestedEventsBytesSum);
   }
-
   public UsageSummaryDate iotApmHostSum(Long iotApmHostSum) {
     this.iotApmHostSum = iotApmHostSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Application Performance Monitoring IoT hosts over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the sum of all Application Performance Monitoring IoT hosts over all hours in the current date for all organizations.</p>
    * @return iotApmHostSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IOT_APM_HOST_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIotApmHostSum() {
-    return iotApmHostSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IOT_APM_HOST_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIotApmHostSum() {
+        return iotApmHostSum;
+      }
   public void setIotApmHostSum(Long iotApmHostSum) {
     this.iotApmHostSum = iotApmHostSum;
     putAdditionalProperty(JSON_PROPERTY_IOT_APM_HOST_SUM, iotApmHostSum);
   }
-
   public UsageSummaryDate iotApmHostTop99p(Long iotApmHostTop99p) {
     this.iotApmHostTop99p = iotApmHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Application Performance Monitoring IoT hosts over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Application Performance Monitoring IoT hosts over all hours in the current date for all organizations.</p>
    * @return iotApmHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IOT_APM_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIotApmHostTop99p() {
-    return iotApmHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IOT_APM_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIotApmHostTop99p() {
+        return iotApmHostTop99p;
+      }
   public void setIotApmHostTop99p(Long iotApmHostTop99p) {
     this.iotApmHostTop99p = iotApmHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_IOT_APM_HOST_TOP99P, iotApmHostTop99p);
   }
-
   public UsageSummaryDate iotDeviceSum(Long iotDeviceSum) {
     this.iotDeviceSum = iotDeviceSum;
     return this;
   }
 
   /**
-   * Shows the sum of all IoT devices over all hours in the current date for all organizations.
-   *
+   * <p>Shows the sum of all IoT devices over all hours in the current date for all organizations.</p>
    * @return iotDeviceSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIotDeviceSum() {
-    return iotDeviceSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IOT_DEVICE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIotDeviceSum() {
+        return iotDeviceSum;
+      }
   public void setIotDeviceSum(Long iotDeviceSum) {
     this.iotDeviceSum = iotDeviceSum;
     putAdditionalProperty(JSON_PROPERTY_IOT_DEVICE_SUM, iotDeviceSum);
   }
-
   public UsageSummaryDate iotDeviceTop99p(Long iotDeviceTop99p) {
     this.iotDeviceTop99p = iotDeviceTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all IoT devices over all hours in the current date all
-   * organizations.
-   *
+   * <p>Shows the 99th percentile of all IoT devices over all hours in the current date all organizations.</p>
    * @return iotDeviceTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIotDeviceTop99p() {
-    return iotDeviceTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIotDeviceTop99p() {
+        return iotDeviceTop99p;
+      }
   public void setIotDeviceTop99p(Long iotDeviceTop99p) {
     this.iotDeviceTop99p = iotDeviceTop99p;
     putAdditionalProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P, iotDeviceTop99p);
   }
-
-  public UsageSummaryDate llmObservability15dayRetentionSpansSum(
-      Long llmObservability15dayRetentionSpansSum) {
+  public UsageSummaryDate llmObservability15dayRetentionSpansSum(Long llmObservability15dayRetentionSpansSum) {
     this.llmObservability15dayRetentionSpansSum = llmObservability15dayRetentionSpansSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Agent Observability 15-day retention spans over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the sum of all Agent Observability 15-day retention spans over all hours in the current date for all organizations.</p>
    * @return llmObservability15dayRetentionSpansSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLlmObservability15dayRetentionSpansSum() {
-    return llmObservability15dayRetentionSpansSum;
-  }
-
-  public void setLlmObservability15dayRetentionSpansSum(
-      Long llmObservability15dayRetentionSpansSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLlmObservability15dayRetentionSpansSum() {
+        return llmObservability15dayRetentionSpansSum;
+      }
+  public void setLlmObservability15dayRetentionSpansSum(Long llmObservability15dayRetentionSpansSum) {
     this.llmObservability15dayRetentionSpansSum = llmObservability15dayRetentionSpansSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM,
-        llmObservability15dayRetentionSpansSum);
+    putAdditionalProperty(JSON_PROPERTY_LLM_OBSERVABILITY_15DAY_RETENTION_SPANS_SUM, llmObservability15dayRetentionSpansSum);
   }
-
-  public UsageSummaryDate llmObservability30dayRetentionSpansSum(
-      Long llmObservability30dayRetentionSpansSum) {
+  public UsageSummaryDate llmObservability30dayRetentionSpansSum(Long llmObservability30dayRetentionSpansSum) {
     this.llmObservability30dayRetentionSpansSum = llmObservability30dayRetentionSpansSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Agent Observability 30-day retention spans over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the sum of all Agent Observability 30-day retention spans over all hours in the current date for all organizations.</p>
    * @return llmObservability30dayRetentionSpansSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLlmObservability30dayRetentionSpansSum() {
-    return llmObservability30dayRetentionSpansSum;
-  }
-
-  public void setLlmObservability30dayRetentionSpansSum(
-      Long llmObservability30dayRetentionSpansSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLlmObservability30dayRetentionSpansSum() {
+        return llmObservability30dayRetentionSpansSum;
+      }
+  public void setLlmObservability30dayRetentionSpansSum(Long llmObservability30dayRetentionSpansSum) {
     this.llmObservability30dayRetentionSpansSum = llmObservability30dayRetentionSpansSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM,
-        llmObservability30dayRetentionSpansSum);
+    putAdditionalProperty(JSON_PROPERTY_LLM_OBSERVABILITY_30DAY_RETENTION_SPANS_SUM, llmObservability30dayRetentionSpansSum);
   }
-
-  public UsageSummaryDate llmObservability60dayRetentionSpansSum(
-      Long llmObservability60dayRetentionSpansSum) {
+  public UsageSummaryDate llmObservability60dayRetentionSpansSum(Long llmObservability60dayRetentionSpansSum) {
     this.llmObservability60dayRetentionSpansSum = llmObservability60dayRetentionSpansSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Agent Observability 60-day retention spans over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the sum of all Agent Observability 60-day retention spans over all hours in the current date for all organizations.</p>
    * @return llmObservability60dayRetentionSpansSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLlmObservability60dayRetentionSpansSum() {
-    return llmObservability60dayRetentionSpansSum;
-  }
-
-  public void setLlmObservability60dayRetentionSpansSum(
-      Long llmObservability60dayRetentionSpansSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLlmObservability60dayRetentionSpansSum() {
+        return llmObservability60dayRetentionSpansSum;
+      }
+  public void setLlmObservability60dayRetentionSpansSum(Long llmObservability60dayRetentionSpansSum) {
     this.llmObservability60dayRetentionSpansSum = llmObservability60dayRetentionSpansSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM,
-        llmObservability60dayRetentionSpansSum);
+    putAdditionalProperty(JSON_PROPERTY_LLM_OBSERVABILITY_60DAY_RETENTION_SPANS_SUM, llmObservability60dayRetentionSpansSum);
   }
-
-  public UsageSummaryDate llmObservability90dayRetentionSpansSum(
-      Long llmObservability90dayRetentionSpansSum) {
+  public UsageSummaryDate llmObservability90dayRetentionSpansSum(Long llmObservability90dayRetentionSpansSum) {
     this.llmObservability90dayRetentionSpansSum = llmObservability90dayRetentionSpansSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Agent Observability 90-day retention spans over all hours in the current
-   * date for all organizations.
-   *
+   * <p>Shows the sum of all Agent Observability 90-day retention spans over all hours in the current date for all organizations.</p>
    * @return llmObservability90dayRetentionSpansSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLlmObservability90dayRetentionSpansSum() {
-    return llmObservability90dayRetentionSpansSum;
-  }
-
-  public void setLlmObservability90dayRetentionSpansSum(
-      Long llmObservability90dayRetentionSpansSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLlmObservability90dayRetentionSpansSum() {
+        return llmObservability90dayRetentionSpansSum;
+      }
+  public void setLlmObservability90dayRetentionSpansSum(Long llmObservability90dayRetentionSpansSum) {
     this.llmObservability90dayRetentionSpansSum = llmObservability90dayRetentionSpansSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM,
-        llmObservability90dayRetentionSpansSum);
+    putAdditionalProperty(JSON_PROPERTY_LLM_OBSERVABILITY_90DAY_RETENTION_SPANS_SUM, llmObservability90dayRetentionSpansSum);
   }
-
   public UsageSummaryDate llmObservabilityMinSpendSum(Long llmObservabilityMinSpendSum) {
     this.llmObservabilityMinSpendSum = llmObservabilityMinSpendSum;
     return this;
   }
 
   /**
-   * Sum of all Agent observability minimum spend over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Sum of all Agent observability minimum spend over all hours in the current date for all organizations.</p>
    * @return llmObservabilityMinSpendSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLlmObservabilityMinSpendSum() {
-    return llmObservabilityMinSpendSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLlmObservabilityMinSpendSum() {
+        return llmObservabilityMinSpendSum;
+      }
   public void setLlmObservabilityMinSpendSum(Long llmObservabilityMinSpendSum) {
     this.llmObservabilityMinSpendSum = llmObservabilityMinSpendSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM, llmObservabilityMinSpendSum);
+    putAdditionalProperty(JSON_PROPERTY_LLM_OBSERVABILITY_MIN_SPEND_SUM, llmObservabilityMinSpendSum);
   }
-
   public UsageSummaryDate llmObservabilitySum(Long llmObservabilitySum) {
     this.llmObservabilitySum = llmObservabilitySum;
     return this;
   }
 
   /**
-   * Sum of all Agent observability sessions over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Sum of all Agent observability sessions over all hours in the current date for all organizations.</p>
    * @return llmObservabilitySum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLlmObservabilitySum() {
-    return llmObservabilitySum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLlmObservabilitySum() {
+        return llmObservabilitySum;
+      }
   public void setLlmObservabilitySum(Long llmObservabilitySum) {
     this.llmObservabilitySum = llmObservabilitySum;
     putAdditionalProperty(JSON_PROPERTY_LLM_OBSERVABILITY_SUM, llmObservabilitySum);
   }
-
   public UsageSummaryDate logsArchiveSearchGbScannedSum(Long logsArchiveSearchGbScannedSum) {
     this.logsArchiveSearchGbScannedSum = logsArchiveSearchGbScannedSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Logs Archive Search scanned data over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the sum of all Logs Archive Search scanned data over all hours in the current date for all organizations.</p>
    * @return logsArchiveSearchGbScannedSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsArchiveSearchGbScannedSum() {
-    return logsArchiveSearchGbScannedSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLogsArchiveSearchGbScannedSum() {
+        return logsArchiveSearchGbScannedSum;
+      }
   public void setLogsArchiveSearchGbScannedSum(Long logsArchiveSearchGbScannedSum) {
     this.logsArchiveSearchGbScannedSum = logsArchiveSearchGbScannedSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM, logsArchiveSearchGbScannedSum);
+    putAdditionalProperty(JSON_PROPERTY_LOGS_ARCHIVE_SEARCH_GB_SCANNED_SUM, logsArchiveSearchGbScannedSum);
   }
-
   public UsageSummaryDate metricNamesSum(Long metricNamesSum) {
     this.metricNamesSum = metricNamesSum;
     return this;
   }
 
   /**
-   * Shows the sum of all custom metric names over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all custom metric names over all hours in the current date for all organizations.</p>
    * @return metricNamesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRIC_NAMES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMetricNamesSum() {
-    return metricNamesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METRIC_NAMES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMetricNamesSum() {
+        return metricNamesSum;
+      }
   public void setMetricNamesSum(Long metricNamesSum) {
     this.metricNamesSum = metricNamesSum;
     putAdditionalProperty(JSON_PROPERTY_METRIC_NAMES_SUM, metricNamesSum);
   }
-
   public UsageSummaryDate mobileRumLiteSessionCountSum(Long mobileRumLiteSessionCountSum) {
     this.mobileRumLiteSessionCountSum = mobileRumLiteSessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile lite sessions over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile lite sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return mobileRumLiteSessionCountSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumLiteSessionCountSum() {
-    return mobileRumLiteSessionCountSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMobileRumLiteSessionCountSum() {
+        return mobileRumLiteSessionCountSum;
+      }
   @Deprecated
   public void setMobileRumLiteSessionCountSum(Long mobileRumLiteSessionCountSum) {
     this.mobileRumLiteSessionCountSum = mobileRumLiteSessionCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM, mobileRumLiteSessionCountSum);
+    putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM, mobileRumLiteSessionCountSum);
   }
-
   public UsageSummaryDate mobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
     this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM sessions on Android over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM sessions on Android over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return mobileRumSessionCountAndroidSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumSessionCountAndroidSum() {
-    return mobileRumSessionCountAndroidSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMobileRumSessionCountAndroidSum() {
+        return mobileRumSessionCountAndroidSum;
+      }
   @Deprecated
   public void setMobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
     this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM, mobileRumSessionCountAndroidSum);
+    putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM, mobileRumSessionCountAndroidSum);
   }
-
   public UsageSummaryDate mobileRumSessionCountFlutterSum(Long mobileRumSessionCountFlutterSum) {
     this.mobileRumSessionCountFlutterSum = mobileRumSessionCountFlutterSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM sessions on Flutter over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM sessions on Flutter over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return mobileRumSessionCountFlutterSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumSessionCountFlutterSum() {
-    return mobileRumSessionCountFlutterSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMobileRumSessionCountFlutterSum() {
+        return mobileRumSessionCountFlutterSum;
+      }
   @Deprecated
   public void setMobileRumSessionCountFlutterSum(Long mobileRumSessionCountFlutterSum) {
     this.mobileRumSessionCountFlutterSum = mobileRumSessionCountFlutterSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM, mobileRumSessionCountFlutterSum);
+    putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM, mobileRumSessionCountFlutterSum);
   }
-
   public UsageSummaryDate mobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
     this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM sessions on iOS over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM sessions on iOS over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return mobileRumSessionCountIosSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumSessionCountIosSum() {
-    return mobileRumSessionCountIosSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMobileRumSessionCountIosSum() {
+        return mobileRumSessionCountIosSum;
+      }
   @Deprecated
   public void setMobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
     this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM, mobileRumSessionCountIosSum);
+    putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM, mobileRumSessionCountIosSum);
   }
-
-  public UsageSummaryDate mobileRumSessionCountReactnativeSum(
-      Long mobileRumSessionCountReactnativeSum) {
+  public UsageSummaryDate mobileRumSessionCountReactnativeSum(Long mobileRumSessionCountReactnativeSum) {
     this.mobileRumSessionCountReactnativeSum = mobileRumSessionCountReactnativeSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM sessions on React Native over all hours in the current date for
-   * all organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM sessions on React Native over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return mobileRumSessionCountReactnativeSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumSessionCountReactnativeSum() {
-    return mobileRumSessionCountReactnativeSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMobileRumSessionCountReactnativeSum() {
+        return mobileRumSessionCountReactnativeSum;
+      }
   @Deprecated
   public void setMobileRumSessionCountReactnativeSum(Long mobileRumSessionCountReactnativeSum) {
     this.mobileRumSessionCountReactnativeSum = mobileRumSessionCountReactnativeSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM,
-        mobileRumSessionCountReactnativeSum);
+    putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM, mobileRumSessionCountReactnativeSum);
   }
-
   public UsageSummaryDate mobileRumSessionCountRokuSum(Long mobileRumSessionCountRokuSum) {
     this.mobileRumSessionCountRokuSum = mobileRumSessionCountRokuSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM sessions on Roku over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM sessions on Roku over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return mobileRumSessionCountRokuSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumSessionCountRokuSum() {
-    return mobileRumSessionCountRokuSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMobileRumSessionCountRokuSum() {
+        return mobileRumSessionCountRokuSum;
+      }
   @Deprecated
   public void setMobileRumSessionCountRokuSum(Long mobileRumSessionCountRokuSum) {
     this.mobileRumSessionCountRokuSum = mobileRumSessionCountRokuSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM, mobileRumSessionCountRokuSum);
+    putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM, mobileRumSessionCountRokuSum);
   }
-
   public UsageSummaryDate mobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM sessions over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return mobileRumSessionCountSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumSessionCountSum() {
-    return mobileRumSessionCountSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMobileRumSessionCountSum() {
+        return mobileRumSessionCountSum;
+      }
   @Deprecated
   public void setMobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
     putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM, mobileRumSessionCountSum);
   }
-
   public UsageSummaryDate mobileRumUnitsSum(Long mobileRumUnitsSum) {
     this.mobileRumUnitsSum = mobileRumUnitsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM units over all hours in the current date for all organizations
-   * (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM units over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return mobileRumUnitsSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumUnitsSum() {
-    return mobileRumUnitsSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMobileRumUnitsSum() {
+        return mobileRumUnitsSum;
+      }
   @Deprecated
   public void setMobileRumUnitsSum(Long mobileRumUnitsSum) {
     this.mobileRumUnitsSum = mobileRumUnitsSum;
     putAdditionalProperty(JSON_PROPERTY_MOBILE_RUM_UNITS_SUM, mobileRumUnitsSum);
   }
-
   public UsageSummaryDate ndmNetflowEventsSum(Long ndmNetflowEventsSum) {
     this.ndmNetflowEventsSum = ndmNetflowEventsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current
-   * date for the given org.
-   *
+   * <p>Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for the given org.</p>
    * @return ndmNetflowEventsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNdmNetflowEventsSum() {
-    return ndmNetflowEventsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getNdmNetflowEventsSum() {
+        return ndmNetflowEventsSum;
+      }
   public void setNdmNetflowEventsSum(Long ndmNetflowEventsSum) {
     this.ndmNetflowEventsSum = ndmNetflowEventsSum;
     putAdditionalProperty(JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM, ndmNetflowEventsSum);
   }
-
   public UsageSummaryDate netflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Network flows indexed over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all Network flows indexed over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return netflowIndexedEventsCountSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNetflowIndexedEventsCountSum() {
-    return netflowIndexedEventsCountSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getNetflowIndexedEventsCountSum() {
+        return netflowIndexedEventsCountSum;
+      }
   @Deprecated
   public void setNetflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM, netflowIndexedEventsCountSum);
+    putAdditionalProperty(JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM, netflowIndexedEventsCountSum);
   }
-
   public UsageSummaryDate networkDeviceWirelessTop99p(Long networkDeviceWirelessTop99p) {
     this.networkDeviceWirelessTop99p = networkDeviceWirelessTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Network Device Monitoring wireless devices over all hours in
-   * the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Network Device Monitoring wireless devices over all hours in the current date for all organizations.</p>
    * @return networkDeviceWirelessTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNetworkDeviceWirelessTop99p() {
-    return networkDeviceWirelessTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getNetworkDeviceWirelessTop99p() {
+        return networkDeviceWirelessTop99p;
+      }
   public void setNetworkDeviceWirelessTop99p(Long networkDeviceWirelessTop99p) {
     this.networkDeviceWirelessTop99p = networkDeviceWirelessTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_TOP99P, networkDeviceWirelessTop99p);
+    putAdditionalProperty(JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_TOP99P, networkDeviceWirelessTop99p);
   }
-
   public UsageSummaryDate networkPathSum(Long networkPathSum) {
     this.networkPathSum = networkPathSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Network Path scheduled tests over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all Network Path scheduled tests over all hours in the current date for all organizations.</p>
    * @return networkPathSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NETWORK_PATH_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNetworkPathSum() {
-    return networkPathSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NETWORK_PATH_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getNetworkPathSum() {
+        return networkPathSum;
+      }
   public void setNetworkPathSum(Long networkPathSum) {
     this.networkPathSum = networkPathSum;
     putAdditionalProperty(JSON_PROPERTY_NETWORK_PATH_SUM, networkPathSum);
   }
-
   public UsageSummaryDate npmHostTop99p(Long npmHostTop99p) {
     this.npmHostTop99p = npmHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all distinct Cloud Network Monitoring hosts (formerly known as
-   * Network hosts) over all hours in the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all distinct Cloud Network Monitoring hosts (formerly known as Network hosts) over all hours in the current date for all organizations.</p>
    * @return npmHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NPM_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNpmHostTop99p() {
-    return npmHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NPM_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getNpmHostTop99p() {
+        return npmHostTop99p;
+      }
   public void setNpmHostTop99p(Long npmHostTop99p) {
     this.npmHostTop99p = npmHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_NPM_HOST_TOP99P, npmHostTop99p);
   }
-
-  public UsageSummaryDate observabilityPipelinesBytesProcessedSum(
-      Long observabilityPipelinesBytesProcessedSum) {
+  public UsageSummaryDate observabilityPipelinesBytesProcessedSum(Long observabilityPipelinesBytesProcessedSum) {
     this.observabilityPipelinesBytesProcessedSum = observabilityPipelinesBytesProcessedSum;
     return this;
   }
 
   /**
-   * Sum of all observability pipelines bytes processed over all hours in the current date for the
-   * given org.
-   *
+   * <p>Sum of all observability pipelines bytes processed over all hours in the current date for the given org.</p>
    * @return observabilityPipelinesBytesProcessedSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getObservabilityPipelinesBytesProcessedSum() {
-    return observabilityPipelinesBytesProcessedSum;
-  }
-
-  public void setObservabilityPipelinesBytesProcessedSum(
-      Long observabilityPipelinesBytesProcessedSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getObservabilityPipelinesBytesProcessedSum() {
+        return observabilityPipelinesBytesProcessedSum;
+      }
+  public void setObservabilityPipelinesBytesProcessedSum(Long observabilityPipelinesBytesProcessedSum) {
     this.observabilityPipelinesBytesProcessedSum = observabilityPipelinesBytesProcessedSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
-        observabilityPipelinesBytesProcessedSum);
+    putAdditionalProperty(JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM, observabilityPipelinesBytesProcessedSum);
   }
-
   public UsageSummaryDate ociHostSum(Long ociHostSum) {
     this.ociHostSum = ociHostSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for
-   * the given org.
-   *
+   * <p>Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.</p>
    * @return ociHostSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OCI_HOST_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOciHostSum() {
-    return ociHostSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OCI_HOST_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOciHostSum() {
+        return ociHostSum;
+      }
   public void setOciHostSum(Long ociHostSum) {
     this.ociHostSum = ociHostSum;
     putAdditionalProperty(JSON_PROPERTY_OCI_HOST_SUM, ociHostSum);
   }
-
   public UsageSummaryDate ociHostTop99p(Long ociHostTop99p) {
     this.ociHostTop99p = ociHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.</p>
    * @return ociHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OCI_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOciHostTop99p() {
-    return ociHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OCI_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOciHostTop99p() {
+        return ociHostTop99p;
+      }
   public void setOciHostTop99p(Long ociHostTop99p) {
     this.ociHostTop99p = ociHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_OCI_HOST_TOP99P, ociHostTop99p);
   }
-
   public UsageSummaryDate onCallSeatHwm(Long onCallSeatHwm) {
     this.onCallSeatHwm = onCallSeatHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of On-Call seats over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the high-water mark of On-Call seats over all hours in the current date for all organizations.</p>
    * @return onCallSeatHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ON_CALL_SEAT_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOnCallSeatHwm() {
-    return onCallSeatHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ON_CALL_SEAT_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOnCallSeatHwm() {
+        return onCallSeatHwm;
+      }
   public void setOnCallSeatHwm(Long onCallSeatHwm) {
     this.onCallSeatHwm = onCallSeatHwm;
     putAdditionalProperty(JSON_PROPERTY_ON_CALL_SEAT_HWM, onCallSeatHwm);
   }
-
   public UsageSummaryDate onlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
     this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
     return this;
   }
 
   /**
-   * Sum of all online archived events over all hours in the current date for all organizations.
-   *
+   * <p>Sum of all online archived events over all hours in the current date for all organizations.</p>
    * @return onlineArchiveEventsCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOnlineArchiveEventsCountSum() {
-    return onlineArchiveEventsCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOnlineArchiveEventsCountSum() {
+        return onlineArchiveEventsCountSum;
+      }
   public void setOnlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
     this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM, onlineArchiveEventsCountSum);
+    putAdditionalProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM, onlineArchiveEventsCountSum);
   }
-
   public UsageSummaryDate opentelemetryApmHostTop99p(Long opentelemetryApmHostTop99p) {
     this.opentelemetryApmHostTop99p = opentelemetryApmHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry
-   * Collector over all hours in the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.</p>
    * @return opentelemetryApmHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOpentelemetryApmHostTop99p() {
-    return opentelemetryApmHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOpentelemetryApmHostTop99p() {
+        return opentelemetryApmHostTop99p;
+      }
   public void setOpentelemetryApmHostTop99p(Long opentelemetryApmHostTop99p) {
     this.opentelemetryApmHostTop99p = opentelemetryApmHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P, opentelemetryApmHostTop99p);
   }
-
   public UsageSummaryDate opentelemetryHostTop99p(Long opentelemetryHostTop99p) {
     this.opentelemetryHostTop99p = opentelemetryHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry
-   * Collector over all hours in the current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.</p>
    * @return opentelemetryHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOpentelemetryHostTop99p() {
-    return opentelemetryHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOpentelemetryHostTop99p() {
+        return opentelemetryHostTop99p;
+      }
   public void setOpentelemetryHostTop99p(Long opentelemetryHostTop99p) {
     this.opentelemetryHostTop99p = opentelemetryHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P, opentelemetryHostTop99p);
   }
-
   public UsageSummaryDate orgs(List<UsageSummaryDateOrg> orgs) {
     this.orgs = orgs;
     if (orgs != null) {
-      for (UsageSummaryDateOrg item : orgs) {
-        this.unparsed |= item.unparsed;
-      }
+    for (UsageSummaryDateOrg item : orgs) {
+      this.unparsed |= item.unparsed;
+    }
     }
     return this;
   }
-
   public UsageSummaryDate addOrgsItem(UsageSummaryDateOrg orgsItem) {
     if (this.orgs == null) {
       this.orgs = new ArrayList<>();
@@ -6605,17 +5504,16 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Organizations associated with a user.
-   *
+   * <p>Organizations associated with a user.</p>
    * @return orgs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<UsageSummaryDateOrg> getOrgs() {
-    return orgs;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ORGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<UsageSummaryDateOrg> getOrgs() {
+        return orgs;
+      }
   public void setOrgs(List<UsageSummaryDateOrg> orgs) {
     this.orgs = orgs;
     if (orgs != null) {
@@ -6625,2293 +5523,1823 @@ public class UsageSummaryDate {
     }
     putAdditionalProperty(JSON_PROPERTY_ORGS, orgs);
   }
-
   public UsageSummaryDate productAnalyticsSum(Long productAnalyticsSum) {
     this.productAnalyticsSum = productAnalyticsSum;
     return this;
   }
 
   /**
-   * Sum of all product analytics sessions over all hours in the current date for all organizations.
-   *
+   * <p>Sum of all product analytics sessions over all hours in the current date for all organizations.</p>
    * @return productAnalyticsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getProductAnalyticsSum() {
-    return productAnalyticsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getProductAnalyticsSum() {
+        return productAnalyticsSum;
+      }
   public void setProductAnalyticsSum(Long productAnalyticsSum) {
     this.productAnalyticsSum = productAnalyticsSum;
     putAdditionalProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SUM, productAnalyticsSum);
   }
-
   public UsageSummaryDate profilingAasCountTop99p(Long profilingAasCountTop99p) {
     this.profilingAasCountTop99p = profilingAasCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all profiled Azure app services over all hours in the current date
-   * for all organizations.
-   *
+   * <p>Shows the 99th percentile of all profiled Azure app services over all hours in the current date for all organizations.</p>
    * @return profilingAasCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getProfilingAasCountTop99p() {
-    return profilingAasCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getProfilingAasCountTop99p() {
+        return profilingAasCountTop99p;
+      }
   public void setProfilingAasCountTop99p(Long profilingAasCountTop99p) {
     this.profilingAasCountTop99p = profilingAasCountTop99p;
     putAdditionalProperty(JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P, profilingAasCountTop99p);
   }
-
   public UsageSummaryDate profilingHostTop99p(Long profilingHostTop99p) {
     this.profilingHostTop99p = profilingHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all profiled hosts over all hours within the current date for all
-   * organizations.
-   *
+   * <p>Shows the 99th percentile of all profiled hosts over all hours within the current date for all organizations.</p>
    * @return profilingHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROFILING_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getProfilingHostTop99p() {
-    return profilingHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROFILING_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getProfilingHostTop99p() {
+        return profilingHostTop99p;
+      }
   public void setProfilingHostTop99p(Long profilingHostTop99p) {
     this.profilingHostTop99p = profilingHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_PROFILING_HOST_TOP99P, profilingHostTop99p);
   }
-
   public UsageSummaryDate proxmoxHostSum(Long proxmoxHostSum) {
     this.proxmoxHostSum = proxmoxHostSum;
     return this;
   }
 
   /**
-   * Sum of all Proxmox hosts over all hours in the current date for all organizations.
-   *
+   * <p>Sum of all Proxmox hosts over all hours in the current date for all organizations.</p>
    * @return proxmoxHostSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROXMOX_HOST_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getProxmoxHostSum() {
-    return proxmoxHostSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROXMOX_HOST_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getProxmoxHostSum() {
+        return proxmoxHostSum;
+      }
   public void setProxmoxHostSum(Long proxmoxHostSum) {
     this.proxmoxHostSum = proxmoxHostSum;
     putAdditionalProperty(JSON_PROPERTY_PROXMOX_HOST_SUM, proxmoxHostSum);
   }
-
   public UsageSummaryDate proxmoxHostTop99p(Long proxmoxHostTop99p) {
     this.proxmoxHostTop99p = proxmoxHostTop99p;
     return this;
   }
 
   /**
-   * 99th percentile of all Proxmox hosts over all hours in the current date for all organizations.
-   *
+   * <p>99th percentile of all Proxmox hosts over all hours in the current date for all organizations.</p>
    * @return proxmoxHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROXMOX_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getProxmoxHostTop99p() {
-    return proxmoxHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROXMOX_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getProxmoxHostTop99p() {
+        return proxmoxHostTop99p;
+      }
   public void setProxmoxHostTop99p(Long proxmoxHostTop99p) {
     this.proxmoxHostTop99p = proxmoxHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_PROXMOX_HOST_TOP99P, proxmoxHostTop99p);
   }
-
   public UsageSummaryDate publishedAppHwm(Long publishedAppHwm) {
     this.publishedAppHwm = publishedAppHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of all published applications over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the high-water mark of all published applications over all hours in the current date for all organizations.</p>
    * @return publishedAppHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PUBLISHED_APP_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getPublishedAppHwm() {
-    return publishedAppHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PUBLISHED_APP_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getPublishedAppHwm() {
+        return publishedAppHwm;
+      }
   public void setPublishedAppHwm(Long publishedAppHwm) {
     this.publishedAppHwm = publishedAppHwm;
     putAdditionalProperty(JSON_PROPERTY_PUBLISHED_APP_HWM, publishedAppHwm);
   }
-
   public UsageSummaryDate rumBrowserAndMobileSessionCount(Long rumBrowserAndMobileSessionCount) {
     this.rumBrowserAndMobileSessionCount = rumBrowserAndMobileSessionCount;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in
-   * the current month for all organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return rumBrowserAndMobileSessionCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumBrowserAndMobileSessionCount() {
-    return rumBrowserAndMobileSessionCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumBrowserAndMobileSessionCount() {
+        return rumBrowserAndMobileSessionCount;
+      }
   public void setRumBrowserAndMobileSessionCount(Long rumBrowserAndMobileSessionCount) {
     this.rumBrowserAndMobileSessionCount = rumBrowserAndMobileSessionCount;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT, rumBrowserAndMobileSessionCount);
+    putAdditionalProperty(JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT, rumBrowserAndMobileSessionCount);
   }
-
   public UsageSummaryDate rumBrowserLegacySessionCountSum(Long rumBrowserLegacySessionCountSum) {
     this.rumBrowserLegacySessionCountSum = rumBrowserLegacySessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all browser RUM legacy sessions over all hours in the current date for all
-   * organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all browser RUM legacy sessions over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumBrowserLegacySessionCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumBrowserLegacySessionCountSum() {
-    return rumBrowserLegacySessionCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumBrowserLegacySessionCountSum() {
+        return rumBrowserLegacySessionCountSum;
+      }
   public void setRumBrowserLegacySessionCountSum(Long rumBrowserLegacySessionCountSum) {
     this.rumBrowserLegacySessionCountSum = rumBrowserLegacySessionCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM, rumBrowserLegacySessionCountSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM, rumBrowserLegacySessionCountSum);
   }
-
   public UsageSummaryDate rumBrowserLiteSessionCountSum(Long rumBrowserLiteSessionCountSum) {
     this.rumBrowserLiteSessionCountSum = rumBrowserLiteSessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all browser RUM lite sessions over all hours in the current date for all
-   * organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all browser RUM lite sessions over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumBrowserLiteSessionCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumBrowserLiteSessionCountSum() {
-    return rumBrowserLiteSessionCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumBrowserLiteSessionCountSum() {
+        return rumBrowserLiteSessionCountSum;
+      }
   public void setRumBrowserLiteSessionCountSum(Long rumBrowserLiteSessionCountSum) {
     this.rumBrowserLiteSessionCountSum = rumBrowserLiteSessionCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM, rumBrowserLiteSessionCountSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM, rumBrowserLiteSessionCountSum);
   }
-
   public UsageSummaryDate rumBrowserReplaySessionCountSum(Long rumBrowserReplaySessionCountSum) {
     this.rumBrowserReplaySessionCountSum = rumBrowserReplaySessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all browser RUM Session Replay counts over all hours in the current date for
-   * all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all browser RUM Session Replay counts over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumBrowserReplaySessionCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumBrowserReplaySessionCountSum() {
-    return rumBrowserReplaySessionCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumBrowserReplaySessionCountSum() {
+        return rumBrowserReplaySessionCountSum;
+      }
   public void setRumBrowserReplaySessionCountSum(Long rumBrowserReplaySessionCountSum) {
     this.rumBrowserReplaySessionCountSum = rumBrowserReplaySessionCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM, rumBrowserReplaySessionCountSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM, rumBrowserReplaySessionCountSum);
   }
-
   public UsageSummaryDate rumIndexedSessionsSum(Long rumIndexedSessionsSum) {
     this.rumIndexedSessionsSum = rumIndexedSessionsSum;
     return this;
   }
 
   /**
-   * Sum of all RUM indexed sessions over all hours in the current date for all organizations.
-   *
+   * <p>Sum of all RUM indexed sessions over all hours in the current date for all organizations.</p>
    * @return rumIndexedSessionsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_INDEXED_SESSIONS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumIndexedSessionsSum() {
-    return rumIndexedSessionsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_INDEXED_SESSIONS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumIndexedSessionsSum() {
+        return rumIndexedSessionsSum;
+      }
   public void setRumIndexedSessionsSum(Long rumIndexedSessionsSum) {
     this.rumIndexedSessionsSum = rumIndexedSessionsSum;
     putAdditionalProperty(JSON_PROPERTY_RUM_INDEXED_SESSIONS_SUM, rumIndexedSessionsSum);
   }
-
   public UsageSummaryDate rumIngestedSessionsSum(Long rumIngestedSessionsSum) {
     this.rumIngestedSessionsSum = rumIngestedSessionsSum;
     return this;
   }
 
   /**
-   * Sum of all RUM ingested sessions over all hours in the current date for all organizations.
-   *
+   * <p>Sum of all RUM ingested sessions over all hours in the current date for all organizations.</p>
    * @return rumIngestedSessionsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_INGESTED_SESSIONS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumIngestedSessionsSum() {
-    return rumIngestedSessionsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_INGESTED_SESSIONS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumIngestedSessionsSum() {
+        return rumIngestedSessionsSum;
+      }
   public void setRumIngestedSessionsSum(Long rumIngestedSessionsSum) {
     this.rumIngestedSessionsSum = rumIngestedSessionsSum;
     putAdditionalProperty(JSON_PROPERTY_RUM_INGESTED_SESSIONS_SUM, rumIngestedSessionsSum);
   }
-
   public UsageSummaryDate rumLiteSessionCountSum(Long rumLiteSessionCountSum) {
     this.rumLiteSessionCountSum = rumLiteSessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all RUM lite sessions (browser and mobile) over all hours in the current date
-   * for all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all RUM lite sessions (browser and mobile) over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumLiteSessionCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_LITE_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumLiteSessionCountSum() {
-    return rumLiteSessionCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_LITE_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumLiteSessionCountSum() {
+        return rumLiteSessionCountSum;
+      }
   public void setRumLiteSessionCountSum(Long rumLiteSessionCountSum) {
     this.rumLiteSessionCountSum = rumLiteSessionCountSum;
     putAdditionalProperty(JSON_PROPERTY_RUM_LITE_SESSION_COUNT_SUM, rumLiteSessionCountSum);
   }
-
-  public UsageSummaryDate rumMobileLegacySessionCountAndroidSum(
-      Long rumMobileLegacySessionCountAndroidSum) {
+  public UsageSummaryDate rumMobileLegacySessionCountAndroidSum(Long rumMobileLegacySessionCountAndroidSum) {
     this.rumMobileLegacySessionCountAndroidSum = rumMobileLegacySessionCountAndroidSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM legacy sessions on Android over all hours in the current date
-   * for all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM legacy sessions on Android over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLegacySessionCountAndroidSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLegacySessionCountAndroidSum() {
-    return rumMobileLegacySessionCountAndroidSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLegacySessionCountAndroidSum() {
+        return rumMobileLegacySessionCountAndroidSum;
+      }
   public void setRumMobileLegacySessionCountAndroidSum(Long rumMobileLegacySessionCountAndroidSum) {
     this.rumMobileLegacySessionCountAndroidSum = rumMobileLegacySessionCountAndroidSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM,
-        rumMobileLegacySessionCountAndroidSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM, rumMobileLegacySessionCountAndroidSum);
   }
-
-  public UsageSummaryDate rumMobileLegacySessionCountFlutterSum(
-      Long rumMobileLegacySessionCountFlutterSum) {
+  public UsageSummaryDate rumMobileLegacySessionCountFlutterSum(Long rumMobileLegacySessionCountFlutterSum) {
     this.rumMobileLegacySessionCountFlutterSum = rumMobileLegacySessionCountFlutterSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM legacy Sessions on Flutter over all hours in the current date
-   * for all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM legacy Sessions on Flutter over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLegacySessionCountFlutterSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLegacySessionCountFlutterSum() {
-    return rumMobileLegacySessionCountFlutterSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLegacySessionCountFlutterSum() {
+        return rumMobileLegacySessionCountFlutterSum;
+      }
   public void setRumMobileLegacySessionCountFlutterSum(Long rumMobileLegacySessionCountFlutterSum) {
     this.rumMobileLegacySessionCountFlutterSum = rumMobileLegacySessionCountFlutterSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM,
-        rumMobileLegacySessionCountFlutterSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM, rumMobileLegacySessionCountFlutterSum);
   }
-
-  public UsageSummaryDate rumMobileLegacySessionCountIosSum(
-      Long rumMobileLegacySessionCountIosSum) {
+  public UsageSummaryDate rumMobileLegacySessionCountIosSum(Long rumMobileLegacySessionCountIosSum) {
     this.rumMobileLegacySessionCountIosSum = rumMobileLegacySessionCountIosSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM legacy sessions on iOS over all hours in the current date for
-   * all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM legacy sessions on iOS over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLegacySessionCountIosSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLegacySessionCountIosSum() {
-    return rumMobileLegacySessionCountIosSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLegacySessionCountIosSum() {
+        return rumMobileLegacySessionCountIosSum;
+      }
   public void setRumMobileLegacySessionCountIosSum(Long rumMobileLegacySessionCountIosSum) {
     this.rumMobileLegacySessionCountIosSum = rumMobileLegacySessionCountIosSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM, rumMobileLegacySessionCountIosSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM, rumMobileLegacySessionCountIosSum);
   }
-
-  public UsageSummaryDate rumMobileLegacySessionCountReactnativeSum(
-      Long rumMobileLegacySessionCountReactnativeSum) {
+  public UsageSummaryDate rumMobileLegacySessionCountReactnativeSum(Long rumMobileLegacySessionCountReactnativeSum) {
     this.rumMobileLegacySessionCountReactnativeSum = rumMobileLegacySessionCountReactnativeSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM legacy sessions on React Native over all hours in the current
-   * date for all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM legacy sessions on React Native over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLegacySessionCountReactnativeSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLegacySessionCountReactnativeSum() {
-    return rumMobileLegacySessionCountReactnativeSum;
-  }
-
-  public void setRumMobileLegacySessionCountReactnativeSum(
-      Long rumMobileLegacySessionCountReactnativeSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLegacySessionCountReactnativeSum() {
+        return rumMobileLegacySessionCountReactnativeSum;
+      }
+  public void setRumMobileLegacySessionCountReactnativeSum(Long rumMobileLegacySessionCountReactnativeSum) {
     this.rumMobileLegacySessionCountReactnativeSum = rumMobileLegacySessionCountReactnativeSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM,
-        rumMobileLegacySessionCountReactnativeSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM, rumMobileLegacySessionCountReactnativeSum);
   }
-
-  public UsageSummaryDate rumMobileLegacySessionCountRokuSum(
-      Long rumMobileLegacySessionCountRokuSum) {
+  public UsageSummaryDate rumMobileLegacySessionCountRokuSum(Long rumMobileLegacySessionCountRokuSum) {
     this.rumMobileLegacySessionCountRokuSum = rumMobileLegacySessionCountRokuSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM legacy sessions on Roku over all hours in the current date for
-   * all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM legacy sessions on Roku over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLegacySessionCountRokuSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLegacySessionCountRokuSum() {
-    return rumMobileLegacySessionCountRokuSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLegacySessionCountRokuSum() {
+        return rumMobileLegacySessionCountRokuSum;
+      }
   public void setRumMobileLegacySessionCountRokuSum(Long rumMobileLegacySessionCountRokuSum) {
     this.rumMobileLegacySessionCountRokuSum = rumMobileLegacySessionCountRokuSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM, rumMobileLegacySessionCountRokuSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM, rumMobileLegacySessionCountRokuSum);
   }
-
-  public UsageSummaryDate rumMobileLiteSessionCountAndroidSum(
-      Long rumMobileLiteSessionCountAndroidSum) {
+  public UsageSummaryDate rumMobileLiteSessionCountAndroidSum(Long rumMobileLiteSessionCountAndroidSum) {
     this.rumMobileLiteSessionCountAndroidSum = rumMobileLiteSessionCountAndroidSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM lite sessions on Android over all hours in the current date for
-   * all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM lite sessions on Android over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLiteSessionCountAndroidSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLiteSessionCountAndroidSum() {
-    return rumMobileLiteSessionCountAndroidSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLiteSessionCountAndroidSum() {
+        return rumMobileLiteSessionCountAndroidSum;
+      }
   public void setRumMobileLiteSessionCountAndroidSum(Long rumMobileLiteSessionCountAndroidSum) {
     this.rumMobileLiteSessionCountAndroidSum = rumMobileLiteSessionCountAndroidSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM,
-        rumMobileLiteSessionCountAndroidSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM, rumMobileLiteSessionCountAndroidSum);
   }
-
-  public UsageSummaryDate rumMobileLiteSessionCountFlutterSum(
-      Long rumMobileLiteSessionCountFlutterSum) {
+  public UsageSummaryDate rumMobileLiteSessionCountFlutterSum(Long rumMobileLiteSessionCountFlutterSum) {
     this.rumMobileLiteSessionCountFlutterSum = rumMobileLiteSessionCountFlutterSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM lite sessions on Flutter over all hours in the current date for
-   * all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM lite sessions on Flutter over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLiteSessionCountFlutterSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLiteSessionCountFlutterSum() {
-    return rumMobileLiteSessionCountFlutterSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLiteSessionCountFlutterSum() {
+        return rumMobileLiteSessionCountFlutterSum;
+      }
   public void setRumMobileLiteSessionCountFlutterSum(Long rumMobileLiteSessionCountFlutterSum) {
     this.rumMobileLiteSessionCountFlutterSum = rumMobileLiteSessionCountFlutterSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM,
-        rumMobileLiteSessionCountFlutterSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM, rumMobileLiteSessionCountFlutterSum);
   }
-
   public UsageSummaryDate rumMobileLiteSessionCountIosSum(Long rumMobileLiteSessionCountIosSum) {
     this.rumMobileLiteSessionCountIosSum = rumMobileLiteSessionCountIosSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM lite sessions on iOS over all hours in the current date for all
-   * organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM lite sessions on iOS over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLiteSessionCountIosSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLiteSessionCountIosSum() {
-    return rumMobileLiteSessionCountIosSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLiteSessionCountIosSum() {
+        return rumMobileLiteSessionCountIosSum;
+      }
   public void setRumMobileLiteSessionCountIosSum(Long rumMobileLiteSessionCountIosSum) {
     this.rumMobileLiteSessionCountIosSum = rumMobileLiteSessionCountIosSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM, rumMobileLiteSessionCountIosSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM, rumMobileLiteSessionCountIosSum);
   }
-
-  public UsageSummaryDate rumMobileLiteSessionCountKotlinmultiplatformSum(
-      Long rumMobileLiteSessionCountKotlinmultiplatformSum) {
-    this.rumMobileLiteSessionCountKotlinmultiplatformSum =
-        rumMobileLiteSessionCountKotlinmultiplatformSum;
+  public UsageSummaryDate rumMobileLiteSessionCountKotlinmultiplatformSum(Long rumMobileLiteSessionCountKotlinmultiplatformSum) {
+    this.rumMobileLiteSessionCountKotlinmultiplatformSum = rumMobileLiteSessionCountKotlinmultiplatformSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM lite sessions on Kotlin Multiplatform over all hours within the
-   * current date for all organizations.
-   *
+   * <p>Shows the sum of all mobile RUM lite sessions on Kotlin Multiplatform over all hours within the current date for all organizations.</p>
    * @return rumMobileLiteSessionCountKotlinmultiplatformSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLiteSessionCountKotlinmultiplatformSum() {
-    return rumMobileLiteSessionCountKotlinmultiplatformSum;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLiteSessionCountKotlinmultiplatformSum() {
+        return rumMobileLiteSessionCountKotlinmultiplatformSum;
+      }
+  public void setRumMobileLiteSessionCountKotlinmultiplatformSum(Long rumMobileLiteSessionCountKotlinmultiplatformSum) {
+    this.rumMobileLiteSessionCountKotlinmultiplatformSum = rumMobileLiteSessionCountKotlinmultiplatformSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM, rumMobileLiteSessionCountKotlinmultiplatformSum);
   }
-
-  public void setRumMobileLiteSessionCountKotlinmultiplatformSum(
-      Long rumMobileLiteSessionCountKotlinmultiplatformSum) {
-    this.rumMobileLiteSessionCountKotlinmultiplatformSum =
-        rumMobileLiteSessionCountKotlinmultiplatformSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM,
-        rumMobileLiteSessionCountKotlinmultiplatformSum);
-  }
-
-  public UsageSummaryDate rumMobileLiteSessionCountReactnativeSum(
-      Long rumMobileLiteSessionCountReactnativeSum) {
+  public UsageSummaryDate rumMobileLiteSessionCountReactnativeSum(Long rumMobileLiteSessionCountReactnativeSum) {
     this.rumMobileLiteSessionCountReactnativeSum = rumMobileLiteSessionCountReactnativeSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM lite sessions on React Native over all hours in the current
-   * date for all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM lite sessions on React Native over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLiteSessionCountReactnativeSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLiteSessionCountReactnativeSum() {
-    return rumMobileLiteSessionCountReactnativeSum;
-  }
-
-  public void setRumMobileLiteSessionCountReactnativeSum(
-      Long rumMobileLiteSessionCountReactnativeSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLiteSessionCountReactnativeSum() {
+        return rumMobileLiteSessionCountReactnativeSum;
+      }
+  public void setRumMobileLiteSessionCountReactnativeSum(Long rumMobileLiteSessionCountReactnativeSum) {
     this.rumMobileLiteSessionCountReactnativeSum = rumMobileLiteSessionCountReactnativeSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM,
-        rumMobileLiteSessionCountReactnativeSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM, rumMobileLiteSessionCountReactnativeSum);
   }
-
   public UsageSummaryDate rumMobileLiteSessionCountRokuSum(Long rumMobileLiteSessionCountRokuSum) {
     this.rumMobileLiteSessionCountRokuSum = rumMobileLiteSessionCountRokuSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM lite sessions on Roku over all hours within the current date
-   * for all organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all mobile RUM lite sessions on Roku over all hours within the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumMobileLiteSessionCountRokuSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLiteSessionCountRokuSum() {
-    return rumMobileLiteSessionCountRokuSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLiteSessionCountRokuSum() {
+        return rumMobileLiteSessionCountRokuSum;
+      }
   public void setRumMobileLiteSessionCountRokuSum(Long rumMobileLiteSessionCountRokuSum) {
     this.rumMobileLiteSessionCountRokuSum = rumMobileLiteSessionCountRokuSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM, rumMobileLiteSessionCountRokuSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM, rumMobileLiteSessionCountRokuSum);
   }
-
-  public UsageSummaryDate rumMobileLiteSessionCountUnitySum(
-      Long rumMobileLiteSessionCountUnitySum) {
+  public UsageSummaryDate rumMobileLiteSessionCountUnitySum(Long rumMobileLiteSessionCountUnitySum) {
     this.rumMobileLiteSessionCountUnitySum = rumMobileLiteSessionCountUnitySum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM lite sessions on Unity over all hours within the current date
-   * for all organizations.
-   *
+   * <p>Shows the sum of all mobile RUM lite sessions on Unity over all hours within the current date for all organizations.</p>
    * @return rumMobileLiteSessionCountUnitySum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileLiteSessionCountUnitySum() {
-    return rumMobileLiteSessionCountUnitySum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileLiteSessionCountUnitySum() {
+        return rumMobileLiteSessionCountUnitySum;
+      }
   public void setRumMobileLiteSessionCountUnitySum(Long rumMobileLiteSessionCountUnitySum) {
     this.rumMobileLiteSessionCountUnitySum = rumMobileLiteSessionCountUnitySum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM, rumMobileLiteSessionCountUnitySum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM, rumMobileLiteSessionCountUnitySum);
   }
-
-  public UsageSummaryDate rumMobileReplaySessionCountAndroidSum(
-      Long rumMobileReplaySessionCountAndroidSum) {
+  public UsageSummaryDate rumMobileReplaySessionCountAndroidSum(Long rumMobileReplaySessionCountAndroidSum) {
     this.rumMobileReplaySessionCountAndroidSum = rumMobileReplaySessionCountAndroidSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM replay sessions on Android over all hours within the current
-   * date for the given org.
-   *
+   * <p>Shows the sum of all mobile RUM replay sessions on Android over all hours within the current date for the given org.</p>
    * @return rumMobileReplaySessionCountAndroidSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileReplaySessionCountAndroidSum() {
-    return rumMobileReplaySessionCountAndroidSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileReplaySessionCountAndroidSum() {
+        return rumMobileReplaySessionCountAndroidSum;
+      }
   public void setRumMobileReplaySessionCountAndroidSum(Long rumMobileReplaySessionCountAndroidSum) {
     this.rumMobileReplaySessionCountAndroidSum = rumMobileReplaySessionCountAndroidSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM,
-        rumMobileReplaySessionCountAndroidSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM, rumMobileReplaySessionCountAndroidSum);
   }
-
-  public UsageSummaryDate rumMobileReplaySessionCountIosSum(
-      Long rumMobileReplaySessionCountIosSum) {
+  public UsageSummaryDate rumMobileReplaySessionCountIosSum(Long rumMobileReplaySessionCountIosSum) {
     this.rumMobileReplaySessionCountIosSum = rumMobileReplaySessionCountIosSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current date
-   * for the given org.
-   *
+   * <p>Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current date for the given org.</p>
    * @return rumMobileReplaySessionCountIosSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileReplaySessionCountIosSum() {
-    return rumMobileReplaySessionCountIosSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileReplaySessionCountIosSum() {
+        return rumMobileReplaySessionCountIosSum;
+      }
   public void setRumMobileReplaySessionCountIosSum(Long rumMobileReplaySessionCountIosSum) {
     this.rumMobileReplaySessionCountIosSum = rumMobileReplaySessionCountIosSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM, rumMobileReplaySessionCountIosSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM, rumMobileReplaySessionCountIosSum);
   }
-
-  public UsageSummaryDate rumMobileReplaySessionCountKotlinmultiplatformSum(
-      Long rumMobileReplaySessionCountKotlinmultiplatformSum) {
-    this.rumMobileReplaySessionCountKotlinmultiplatformSum =
-        rumMobileReplaySessionCountKotlinmultiplatformSum;
+  public UsageSummaryDate rumMobileReplaySessionCountKotlinmultiplatformSum(Long rumMobileReplaySessionCountKotlinmultiplatformSum) {
+    this.rumMobileReplaySessionCountKotlinmultiplatformSum = rumMobileReplaySessionCountKotlinmultiplatformSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM replay sessions on Kotlin Multiplatform over all hours within
-   * the current date for all organizations.
-   *
+   * <p>Shows the sum of all mobile RUM replay sessions on Kotlin Multiplatform over all hours within the current date for all organizations.</p>
    * @return rumMobileReplaySessionCountKotlinmultiplatformSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileReplaySessionCountKotlinmultiplatformSum() {
-    return rumMobileReplaySessionCountKotlinmultiplatformSum;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileReplaySessionCountKotlinmultiplatformSum() {
+        return rumMobileReplaySessionCountKotlinmultiplatformSum;
+      }
+  public void setRumMobileReplaySessionCountKotlinmultiplatformSum(Long rumMobileReplaySessionCountKotlinmultiplatformSum) {
+    this.rumMobileReplaySessionCountKotlinmultiplatformSum = rumMobileReplaySessionCountKotlinmultiplatformSum;
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM, rumMobileReplaySessionCountKotlinmultiplatformSum);
   }
-
-  public void setRumMobileReplaySessionCountKotlinmultiplatformSum(
-      Long rumMobileReplaySessionCountKotlinmultiplatformSum) {
-    this.rumMobileReplaySessionCountKotlinmultiplatformSum =
-        rumMobileReplaySessionCountKotlinmultiplatformSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM,
-        rumMobileReplaySessionCountKotlinmultiplatformSum);
-  }
-
-  public UsageSummaryDate rumMobileReplaySessionCountReactnativeSum(
-      Long rumMobileReplaySessionCountReactnativeSum) {
+  public UsageSummaryDate rumMobileReplaySessionCountReactnativeSum(Long rumMobileReplaySessionCountReactnativeSum) {
     this.rumMobileReplaySessionCountReactnativeSum = rumMobileReplaySessionCountReactnativeSum;
     return this;
   }
 
   /**
-   * Shows the sum of all mobile RUM replay sessions on React Native over all hours within the
-   * current date for the given org.
-   *
+   * <p>Shows the sum of all mobile RUM replay sessions on React Native over all hours within the current date for the given org.</p>
    * @return rumMobileReplaySessionCountReactnativeSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumMobileReplaySessionCountReactnativeSum() {
-    return rumMobileReplaySessionCountReactnativeSum;
-  }
-
-  public void setRumMobileReplaySessionCountReactnativeSum(
-      Long rumMobileReplaySessionCountReactnativeSum) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumMobileReplaySessionCountReactnativeSum() {
+        return rumMobileReplaySessionCountReactnativeSum;
+      }
+  public void setRumMobileReplaySessionCountReactnativeSum(Long rumMobileReplaySessionCountReactnativeSum) {
     this.rumMobileReplaySessionCountReactnativeSum = rumMobileReplaySessionCountReactnativeSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM,
-        rumMobileReplaySessionCountReactnativeSum);
+    putAdditionalProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM, rumMobileReplaySessionCountReactnativeSum);
   }
-
   public UsageSummaryDate rumReplaySessionCountSum(Long rumReplaySessionCountSum) {
     this.rumReplaySessionCountSum = rumReplaySessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all RUM Session Replay counts over all hours in the current date for all
-   * organizations (To be introduced on October 1st, 2024).
-   *
+   * <p>Shows the sum of all RUM Session Replay counts over all hours in the current date for all organizations (To be introduced on October 1st, 2024).</p>
    * @return rumReplaySessionCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumReplaySessionCountSum() {
-    return rumReplaySessionCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumReplaySessionCountSum() {
+        return rumReplaySessionCountSum;
+      }
   public void setRumReplaySessionCountSum(Long rumReplaySessionCountSum) {
     this.rumReplaySessionCountSum = rumReplaySessionCountSum;
     putAdditionalProperty(JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM, rumReplaySessionCountSum);
   }
-
   public UsageSummaryDate rumSessionCountSum(Long rumSessionCountSum) {
     this.rumSessionCountSum = rumSessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all browser RUM lite sessions over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all browser RUM lite sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return rumSessionCountSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumSessionCountSum() {
-    return rumSessionCountSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumSessionCountSum() {
+        return rumSessionCountSum;
+      }
   @Deprecated
   public void setRumSessionCountSum(Long rumSessionCountSum) {
     this.rumSessionCountSum = rumSessionCountSum;
     putAdditionalProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM, rumSessionCountSum);
   }
-
   public UsageSummaryDate rumSessionReplayAddOnSum(Long rumSessionReplayAddOnSum) {
     this.rumSessionReplayAddOnSum = rumSessionReplayAddOnSum;
     return this;
   }
 
   /**
-   * Sum of all RUM session replay add-on sessions over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Sum of all RUM session replay add-on sessions over all hours in the current date for all organizations.</p>
    * @return rumSessionReplayAddOnSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumSessionReplayAddOnSum() {
-    return rumSessionReplayAddOnSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumSessionReplayAddOnSum() {
+        return rumSessionReplayAddOnSum;
+      }
   public void setRumSessionReplayAddOnSum(Long rumSessionReplayAddOnSum) {
     this.rumSessionReplayAddOnSum = rumSessionReplayAddOnSum;
     putAdditionalProperty(JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_SUM, rumSessionReplayAddOnSum);
   }
-
   public UsageSummaryDate rumTotalSessionCountSum(Long rumTotalSessionCountSum) {
     this.rumTotalSessionCountSum = rumTotalSessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of RUM sessions (browser and mobile) over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of RUM sessions (browser and mobile) over all hours in the current date for all organizations.</p>
    * @return rumTotalSessionCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumTotalSessionCountSum() {
-    return rumTotalSessionCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumTotalSessionCountSum() {
+        return rumTotalSessionCountSum;
+      }
   public void setRumTotalSessionCountSum(Long rumTotalSessionCountSum) {
     this.rumTotalSessionCountSum = rumTotalSessionCountSum;
     putAdditionalProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM, rumTotalSessionCountSum);
   }
-
   public UsageSummaryDate rumUnitsSum(Long rumUnitsSum) {
     this.rumUnitsSum = rumUnitsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all browser and mobile RUM units over all hours in the current date for all
-   * organizations (To be deprecated on October 1st, 2024).
-   *
+   * <p>Shows the sum of all browser and mobile RUM units over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).</p>
    * @return rumUnitsSum
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_UNITS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumUnitsSum() {
-    return rumUnitsSum;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_UNITS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getRumUnitsSum() {
+        return rumUnitsSum;
+      }
   @Deprecated
   public void setRumUnitsSum(Long rumUnitsSum) {
     this.rumUnitsSum = rumUnitsSum;
     putAdditionalProperty(JSON_PROPERTY_RUM_UNITS_SUM, rumUnitsSum);
   }
-
   public UsageSummaryDate scaFargateCountAvg(Long scaFargateCountAvg) {
     this.scaFargateCountAvg = scaFargateCountAvg;
     return this;
   }
 
   /**
-   * Shows the average of all Software Composition Analysis Fargate tasks over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.</p>
    * @return scaFargateCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getScaFargateCountAvg() {
-    return scaFargateCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getScaFargateCountAvg() {
+        return scaFargateCountAvg;
+      }
   public void setScaFargateCountAvg(Long scaFargateCountAvg) {
     this.scaFargateCountAvg = scaFargateCountAvg;
     putAdditionalProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_AVG, scaFargateCountAvg);
   }
-
   public UsageSummaryDate scaFargateCountHwm(Long scaFargateCountHwm) {
     this.scaFargateCountHwm = scaFargateCountHwm;
     return this;
   }
 
   /**
-   * Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over
-   * all hours in the current date for the given org.
-   *
+   * <p>Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.</p>
    * @return scaFargateCountHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getScaFargateCountHwm() {
-    return scaFargateCountHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getScaFargateCountHwm() {
+        return scaFargateCountHwm;
+      }
   public void setScaFargateCountHwm(Long scaFargateCountHwm) {
     this.scaFargateCountHwm = scaFargateCountHwm;
     putAdditionalProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_HWM, scaFargateCountHwm);
   }
-
   public UsageSummaryDate sdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
     this.sdsApmScannedBytesSum = sdsApmScannedBytesSum;
     return this;
   }
 
   /**
-   * Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for all organizations.</p>
    * @return sdsApmScannedBytesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSdsApmScannedBytesSum() {
-    return sdsApmScannedBytesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSdsApmScannedBytesSum() {
+        return sdsApmScannedBytesSum;
+      }
   public void setSdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
     this.sdsApmScannedBytesSum = sdsApmScannedBytesSum;
     putAdditionalProperty(JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM, sdsApmScannedBytesSum);
   }
-
   public UsageSummaryDate sdsEventsScannedBytesSum(Long sdsEventsScannedBytesSum) {
     this.sdsEventsScannedBytesSum = sdsEventsScannedBytesSum;
     return this;
   }
 
   /**
-   * Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the current date for all organizations.</p>
    * @return sdsEventsScannedBytesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSdsEventsScannedBytesSum() {
-    return sdsEventsScannedBytesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSdsEventsScannedBytesSum() {
+        return sdsEventsScannedBytesSum;
+      }
   public void setSdsEventsScannedBytesSum(Long sdsEventsScannedBytesSum) {
     this.sdsEventsScannedBytesSum = sdsEventsScannedBytesSum;
     putAdditionalProperty(JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM, sdsEventsScannedBytesSum);
   }
-
   public UsageSummaryDate sdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
     this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
     return this;
   }
 
   /**
-   * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours
-   * in the current month for all organizations.
-   *
+   * <p>Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.</p>
    * @return sdsLogsScannedBytesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSdsLogsScannedBytesSum() {
-    return sdsLogsScannedBytesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSdsLogsScannedBytesSum() {
+        return sdsLogsScannedBytesSum;
+      }
   public void setSdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
     this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
     putAdditionalProperty(JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM, sdsLogsScannedBytesSum);
   }
-
   public UsageSummaryDate sdsRumScannedBytesSum(Long sdsRumScannedBytesSum) {
     this.sdsRumScannedBytesSum = sdsRumScannedBytesSum;
     return this;
   }
 
   /**
-   * Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for all organizations.</p>
    * @return sdsRumScannedBytesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSdsRumScannedBytesSum() {
-    return sdsRumScannedBytesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSdsRumScannedBytesSum() {
+        return sdsRumScannedBytesSum;
+      }
   public void setSdsRumScannedBytesSum(Long sdsRumScannedBytesSum) {
     this.sdsRumScannedBytesSum = sdsRumScannedBytesSum;
     putAdditionalProperty(JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM, sdsRumScannedBytesSum);
   }
-
   public UsageSummaryDate sdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
     this.sdsTotalScannedBytesSum = sdsTotalScannedBytesSum;
     return this;
   }
 
   /**
-   * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over
-   * all hours in the current month for all organizations.
-   *
+   * <p>Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.</p>
    * @return sdsTotalScannedBytesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSdsTotalScannedBytesSum() {
-    return sdsTotalScannedBytesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSdsTotalScannedBytesSum() {
+        return sdsTotalScannedBytesSum;
+      }
   public void setSdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
     this.sdsTotalScannedBytesSum = sdsTotalScannedBytesSum;
     putAdditionalProperty(JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM, sdsTotalScannedBytesSum);
   }
-
-  public UsageSummaryDate serverlessAppsApmApmAzureAppserviceInstancesAvg(
-      Long serverlessAppsApmApmAzureAppserviceInstancesAvg) {
-    this.serverlessAppsApmApmAzureAppserviceInstancesAvg =
-        serverlessAppsApmApmAzureAppserviceInstancesAvg;
+  public UsageSummaryDate serverlessAppsApmApmAzureAppserviceInstancesAvg(Long serverlessAppsApmApmAzureAppserviceInstancesAvg) {
+    this.serverlessAppsApmApmAzureAppserviceInstancesAvg = serverlessAppsApmApmAzureAppserviceInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring for Azure
-   * App Service instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring for Azure App Service instances for the current date for all organizations.</p>
    * @return serverlessAppsApmApmAzureAppserviceInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_APPSERVICE_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmApmAzureAppserviceInstancesAvg() {
-    return serverlessAppsApmApmAzureAppserviceInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_APPSERVICE_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmApmAzureAppserviceInstancesAvg() {
+        return serverlessAppsApmApmAzureAppserviceInstancesAvg;
+      }
+  public void setServerlessAppsApmApmAzureAppserviceInstancesAvg(Long serverlessAppsApmApmAzureAppserviceInstancesAvg) {
+    this.serverlessAppsApmApmAzureAppserviceInstancesAvg = serverlessAppsApmApmAzureAppserviceInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_APPSERVICE_INSTANCES_AVG, serverlessAppsApmApmAzureAppserviceInstancesAvg);
   }
-
-  public void setServerlessAppsApmApmAzureAppserviceInstancesAvg(
-      Long serverlessAppsApmApmAzureAppserviceInstancesAvg) {
-    this.serverlessAppsApmApmAzureAppserviceInstancesAvg =
-        serverlessAppsApmApmAzureAppserviceInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_APPSERVICE_INSTANCES_AVG,
-        serverlessAppsApmApmAzureAppserviceInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsApmApmAzureAzurefunctionInstancesAvg(
-      Long serverlessAppsApmApmAzureAzurefunctionInstancesAvg) {
-    this.serverlessAppsApmApmAzureAzurefunctionInstancesAvg =
-        serverlessAppsApmApmAzureAzurefunctionInstancesAvg;
+  public UsageSummaryDate serverlessAppsApmApmAzureAzurefunctionInstancesAvg(Long serverlessAppsApmApmAzureAzurefunctionInstancesAvg) {
+    this.serverlessAppsApmApmAzureAzurefunctionInstancesAvg = serverlessAppsApmApmAzureAzurefunctionInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring for Azure
-   * Function instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring for Azure Function instances for the current date for all organizations.</p>
    * @return serverlessAppsApmApmAzureAzurefunctionInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmApmAzureAzurefunctionInstancesAvg() {
-    return serverlessAppsApmApmAzureAzurefunctionInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmApmAzureAzurefunctionInstancesAvg() {
+        return serverlessAppsApmApmAzureAzurefunctionInstancesAvg;
+      }
+  public void setServerlessAppsApmApmAzureAzurefunctionInstancesAvg(Long serverlessAppsApmApmAzureAzurefunctionInstancesAvg) {
+    this.serverlessAppsApmApmAzureAzurefunctionInstancesAvg = serverlessAppsApmApmAzureAzurefunctionInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG, serverlessAppsApmApmAzureAzurefunctionInstancesAvg);
   }
-
-  public void setServerlessAppsApmApmAzureAzurefunctionInstancesAvg(
-      Long serverlessAppsApmApmAzureAzurefunctionInstancesAvg) {
-    this.serverlessAppsApmApmAzureAzurefunctionInstancesAvg =
-        serverlessAppsApmApmAzureAzurefunctionInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG,
-        serverlessAppsApmApmAzureAzurefunctionInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsApmApmAzureContainerappInstancesAvg(
-      Long serverlessAppsApmApmAzureContainerappInstancesAvg) {
-    this.serverlessAppsApmApmAzureContainerappInstancesAvg =
-        serverlessAppsApmApmAzureContainerappInstancesAvg;
+  public UsageSummaryDate serverlessAppsApmApmAzureContainerappInstancesAvg(Long serverlessAppsApmApmAzureContainerappInstancesAvg) {
+    this.serverlessAppsApmApmAzureContainerappInstancesAvg = serverlessAppsApmApmAzureContainerappInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring for Azure
-   * Container App instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring for Azure Container App instances for the current date for all organizations.</p>
    * @return serverlessAppsApmApmAzureContainerappInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_CONTAINERAPP_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmApmAzureContainerappInstancesAvg() {
-    return serverlessAppsApmApmAzureContainerappInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_CONTAINERAPP_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmApmAzureContainerappInstancesAvg() {
+        return serverlessAppsApmApmAzureContainerappInstancesAvg;
+      }
+  public void setServerlessAppsApmApmAzureContainerappInstancesAvg(Long serverlessAppsApmApmAzureContainerappInstancesAvg) {
+    this.serverlessAppsApmApmAzureContainerappInstancesAvg = serverlessAppsApmApmAzureContainerappInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_CONTAINERAPP_INSTANCES_AVG, serverlessAppsApmApmAzureContainerappInstancesAvg);
   }
-
-  public void setServerlessAppsApmApmAzureContainerappInstancesAvg(
-      Long serverlessAppsApmApmAzureContainerappInstancesAvg) {
-    this.serverlessAppsApmApmAzureContainerappInstancesAvg =
-        serverlessAppsApmApmAzureContainerappInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_AZURE_CONTAINERAPP_INSTANCES_AVG,
-        serverlessAppsApmApmAzureContainerappInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsApmApmFargateEcsTasksAvg(
-      Long serverlessAppsApmApmFargateEcsTasksAvg) {
+  public UsageSummaryDate serverlessAppsApmApmFargateEcsTasksAvg(Long serverlessAppsApmApmFargateEcsTasksAvg) {
     this.serverlessAppsApmApmFargateEcsTasksAvg = serverlessAppsApmApmFargateEcsTasksAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring for Fargate
-   * Elastic Container Service tasks for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring for Fargate Elastic Container Service tasks for the current date for all organizations.</p>
    * @return serverlessAppsApmApmFargateEcsTasksAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_FARGATE_ECS_TASKS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmApmFargateEcsTasksAvg() {
-    return serverlessAppsApmApmFargateEcsTasksAvg;
-  }
-
-  public void setServerlessAppsApmApmFargateEcsTasksAvg(
-      Long serverlessAppsApmApmFargateEcsTasksAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_FARGATE_ECS_TASKS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmApmFargateEcsTasksAvg() {
+        return serverlessAppsApmApmFargateEcsTasksAvg;
+      }
+  public void setServerlessAppsApmApmFargateEcsTasksAvg(Long serverlessAppsApmApmFargateEcsTasksAvg) {
     this.serverlessAppsApmApmFargateEcsTasksAvg = serverlessAppsApmApmFargateEcsTasksAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_FARGATE_ECS_TASKS_AVG,
-        serverlessAppsApmApmFargateEcsTasksAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_FARGATE_ECS_TASKS_AVG, serverlessAppsApmApmFargateEcsTasksAvg);
   }
-
-  public UsageSummaryDate serverlessAppsApmApmGcpCloudfunctionInstancesAvg(
-      Long serverlessAppsApmApmGcpCloudfunctionInstancesAvg) {
-    this.serverlessAppsApmApmGcpCloudfunctionInstancesAvg =
-        serverlessAppsApmApmGcpCloudfunctionInstancesAvg;
+  public UsageSummaryDate serverlessAppsApmApmGcpCloudfunctionInstancesAvg(Long serverlessAppsApmApmGcpCloudfunctionInstancesAvg) {
+    this.serverlessAppsApmApmGcpCloudfunctionInstancesAvg = serverlessAppsApmApmGcpCloudfunctionInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring for Google
-   * Cloud Platform Cloud Function instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring for Google Cloud Platform Cloud Function instances for the current date for all organizations.</p>
    * @return serverlessAppsApmApmGcpCloudfunctionInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmApmGcpCloudfunctionInstancesAvg() {
-    return serverlessAppsApmApmGcpCloudfunctionInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmApmGcpCloudfunctionInstancesAvg() {
+        return serverlessAppsApmApmGcpCloudfunctionInstancesAvg;
+      }
+  public void setServerlessAppsApmApmGcpCloudfunctionInstancesAvg(Long serverlessAppsApmApmGcpCloudfunctionInstancesAvg) {
+    this.serverlessAppsApmApmGcpCloudfunctionInstancesAvg = serverlessAppsApmApmGcpCloudfunctionInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG, serverlessAppsApmApmGcpCloudfunctionInstancesAvg);
   }
-
-  public void setServerlessAppsApmApmGcpCloudfunctionInstancesAvg(
-      Long serverlessAppsApmApmGcpCloudfunctionInstancesAvg) {
-    this.serverlessAppsApmApmGcpCloudfunctionInstancesAvg =
-        serverlessAppsApmApmGcpCloudfunctionInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG,
-        serverlessAppsApmApmGcpCloudfunctionInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsApmApmGcpCloudrunInstancesAvg(
-      Long serverlessAppsApmApmGcpCloudrunInstancesAvg) {
+  public UsageSummaryDate serverlessAppsApmApmGcpCloudrunInstancesAvg(Long serverlessAppsApmApmGcpCloudrunInstancesAvg) {
     this.serverlessAppsApmApmGcpCloudrunInstancesAvg = serverlessAppsApmApmGcpCloudrunInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring for Google
-   * Cloud Platform Cloud Run instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring for Google Cloud Platform Cloud Run instances for the current date for all organizations.</p>
    * @return serverlessAppsApmApmGcpCloudrunInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDRUN_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmApmGcpCloudrunInstancesAvg() {
-    return serverlessAppsApmApmGcpCloudrunInstancesAvg;
-  }
-
-  public void setServerlessAppsApmApmGcpCloudrunInstancesAvg(
-      Long serverlessAppsApmApmGcpCloudrunInstancesAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDRUN_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmApmGcpCloudrunInstancesAvg() {
+        return serverlessAppsApmApmGcpCloudrunInstancesAvg;
+      }
+  public void setServerlessAppsApmApmGcpCloudrunInstancesAvg(Long serverlessAppsApmApmGcpCloudrunInstancesAvg) {
     this.serverlessAppsApmApmGcpCloudrunInstancesAvg = serverlessAppsApmApmGcpCloudrunInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDRUN_INSTANCES_AVG,
-        serverlessAppsApmApmGcpCloudrunInstancesAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_CLOUDRUN_INSTANCES_AVG, serverlessAppsApmApmGcpCloudrunInstancesAvg);
   }
-
-  public UsageSummaryDate serverlessAppsApmApmGcpGkeAutopilotPodsAvg(
-      Long serverlessAppsApmApmGcpGkeAutopilotPodsAvg) {
+  public UsageSummaryDate serverlessAppsApmApmGcpGkeAutopilotPodsAvg(Long serverlessAppsApmApmGcpGkeAutopilotPodsAvg) {
     this.serverlessAppsApmApmGcpGkeAutopilotPodsAvg = serverlessAppsApmApmGcpGkeAutopilotPodsAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring for Google
-   * Kubernetes Engine Autopilot pods for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring for Google Kubernetes Engine Autopilot pods for the current date for all organizations.</p>
    * @return serverlessAppsApmApmGcpGkeAutopilotPodsAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmApmGcpGkeAutopilotPodsAvg() {
-    return serverlessAppsApmApmGcpGkeAutopilotPodsAvg;
-  }
-
-  public void setServerlessAppsApmApmGcpGkeAutopilotPodsAvg(
-      Long serverlessAppsApmApmGcpGkeAutopilotPodsAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmApmGcpGkeAutopilotPodsAvg() {
+        return serverlessAppsApmApmGcpGkeAutopilotPodsAvg;
+      }
+  public void setServerlessAppsApmApmGcpGkeAutopilotPodsAvg(Long serverlessAppsApmApmGcpGkeAutopilotPodsAvg) {
     this.serverlessAppsApmApmGcpGkeAutopilotPodsAvg = serverlessAppsApmApmGcpGkeAutopilotPodsAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG,
-        serverlessAppsApmApmGcpGkeAutopilotPodsAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_APM_GCP_GKE_AUTOPILOT_PODS_AVG, serverlessAppsApmApmGcpGkeAutopilotPodsAvg);
   }
-
   public UsageSummaryDate serverlessAppsApmAvg(Long serverlessAppsApmAvg) {
     this.serverlessAppsApmAvg = serverlessAppsApmAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring for the
-   * current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring for the current date for all organizations.</p>
    * @return serverlessAppsApmAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmAvg() {
-    return serverlessAppsApmAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmAvg() {
+        return serverlessAppsApmAvg;
+      }
   public void setServerlessAppsApmAvg(Long serverlessAppsApmAvg) {
     this.serverlessAppsApmAvg = serverlessAppsApmAvg;
     putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_AVG, serverlessAppsApmAvg);
   }
-
-  public UsageSummaryDate serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg(
-      Long serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg =
-        serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg;
+  public UsageSummaryDate serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg(Long serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg = serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring excluding
-   * Fargate for Azure App Service instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Azure App Service instances for the current date for all organizations.</p>
    * @return serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmExclFargateApmAzureAppserviceInstancesAvg() {
-    return serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmExclFargateApmAzureAppserviceInstancesAvg() {
+        return serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg;
+      }
+  public void setServerlessAppsApmExclFargateApmAzureAppserviceInstancesAvg(Long serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg = serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG, serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg);
   }
-
-  public void setServerlessAppsApmExclFargateApmAzureAppserviceInstancesAvg(
-      Long serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg =
-        serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_APPSERVICE_INSTANCES_AVG,
-        serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg(
-      Long serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg =
-        serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg;
+  public UsageSummaryDate serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg(Long serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg = serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring excluding
-   * Fargate for Azure Function instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Azure Function instances for the current date for all organizations.</p>
    * @return serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(
-      JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg() {
-    return serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg() {
+        return serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg;
+      }
+  public void setServerlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg(Long serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg = serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG, serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg);
   }
-
-  public void setServerlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg(
-      Long serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg =
-        serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_AZUREFUNCTION_INSTANCES_AVG,
-        serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg(
-      Long serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg =
-        serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg;
+  public UsageSummaryDate serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg(Long serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg = serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring excluding
-   * Fargate for Azure Container App instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Azure Container App instances for the current date for all organizations.</p>
    * @return serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_CONTAINERAPP_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmExclFargateApmAzureContainerappInstancesAvg() {
-    return serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_CONTAINERAPP_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmExclFargateApmAzureContainerappInstancesAvg() {
+        return serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg;
+      }
+  public void setServerlessAppsApmExclFargateApmAzureContainerappInstancesAvg(Long serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg = serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_CONTAINERAPP_INSTANCES_AVG, serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg);
   }
-
-  public void setServerlessAppsApmExclFargateApmAzureContainerappInstancesAvg(
-      Long serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg =
-        serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_AZURE_CONTAINERAPP_INSTANCES_AVG,
-        serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg(
-      Long serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg =
-        serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg;
+  public UsageSummaryDate serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg(Long serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg = serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring excluding
-   * Fargate for Google Cloud Platform Cloud Function instances for the current date for all
-   * organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Cloud Platform Cloud Function instances for the current date for all organizations.</p>
    * @return serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg() {
-    return serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg() {
+        return serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg;
+      }
+  public void setServerlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg(Long serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg = serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG, serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg);
   }
-
-  public void setServerlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg(
-      Long serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg =
-        serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDFUNCTION_INSTANCES_AVG,
-        serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg(
-      Long serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg =
-        serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg;
+  public UsageSummaryDate serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg(Long serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg = serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring excluding
-   * Fargate for Google Cloud Platform Cloud Run instances for the current date for all
-   * organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Cloud Platform Cloud Run instances for the current date for all organizations.</p>
    * @return serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmExclFargateApmGcpCloudrunInstancesAvg() {
-    return serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmExclFargateApmGcpCloudrunInstancesAvg() {
+        return serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg;
+      }
+  public void setServerlessAppsApmExclFargateApmGcpCloudrunInstancesAvg(Long serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg) {
+    this.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg = serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG, serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg);
   }
-
-  public void setServerlessAppsApmExclFargateApmGcpCloudrunInstancesAvg(
-      Long serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg) {
-    this.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg =
-        serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_CLOUDRUN_INSTANCES_AVG,
-        serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg(
-      Long serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg) {
-    this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg =
-        serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg;
+  public UsageSummaryDate serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg(Long serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg) {
+    this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg = serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring excluding
-   * Fargate for Google Kubernetes Engine Autopilot pods for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Kubernetes Engine Autopilot pods for the current date for all organizations.</p>
    * @return serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg() {
-    return serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg() {
+        return serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg;
+      }
+  public void setServerlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg(Long serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg) {
+    this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg = serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG, serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg);
   }
-
-  public void setServerlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg(
-      Long serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg) {
-    this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg =
-        serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_APM_GCP_GKE_AUTOPILOT_PODS_AVG,
-        serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg);
-  }
-
   public UsageSummaryDate serverlessAppsApmExclFargateAvg(Long serverlessAppsApmExclFargateAvg) {
     this.serverlessAppsApmExclFargateAvg = serverlessAppsApmExclFargateAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps with Application Performance Monitoring excluding
-   * Fargate for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for the current date for all organizations.</p>
    * @return serverlessAppsApmExclFargateAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsApmExclFargateAvg() {
-    return serverlessAppsApmExclFargateAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsApmExclFargateAvg() {
+        return serverlessAppsApmExclFargateAvg;
+      }
   public void setServerlessAppsApmExclFargateAvg(Long serverlessAppsApmExclFargateAvg) {
     this.serverlessAppsApmExclFargateAvg = serverlessAppsApmExclFargateAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG, serverlessAppsApmExclFargateAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_EXCL_FARGATE_AVG, serverlessAppsApmExclFargateAvg);
   }
-
-  public UsageSummaryDate serverlessAppsAzureContainerAppInstancesAvg(
-      Long serverlessAppsAzureContainerAppInstancesAvg) {
+  public UsageSummaryDate serverlessAppsAzureContainerAppInstancesAvg(Long serverlessAppsAzureContainerAppInstancesAvg) {
     this.serverlessAppsAzureContainerAppInstancesAvg = serverlessAppsAzureContainerAppInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Azure Container App instances for the current
-   * date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps for Azure Container App instances for the current date for all organizations.</p>
    * @return serverlessAppsAzureContainerAppInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_CONTAINER_APP_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsAzureContainerAppInstancesAvg() {
-    return serverlessAppsAzureContainerAppInstancesAvg;
-  }
-
-  public void setServerlessAppsAzureContainerAppInstancesAvg(
-      Long serverlessAppsAzureContainerAppInstancesAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_CONTAINER_APP_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsAzureContainerAppInstancesAvg() {
+        return serverlessAppsAzureContainerAppInstancesAvg;
+      }
+  public void setServerlessAppsAzureContainerAppInstancesAvg(Long serverlessAppsAzureContainerAppInstancesAvg) {
     this.serverlessAppsAzureContainerAppInstancesAvg = serverlessAppsAzureContainerAppInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_AZURE_CONTAINER_APP_INSTANCES_AVG,
-        serverlessAppsAzureContainerAppInstancesAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_CONTAINER_APP_INSTANCES_AVG, serverlessAppsAzureContainerAppInstancesAvg);
   }
-
   public UsageSummaryDate serverlessAppsAzureCountAvg(Long serverlessAppsAzureCountAvg) {
     this.serverlessAppsAzureCountAvg = serverlessAppsAzureCountAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Azure for the given date and given org.
-   *
+   * <p>Shows the average number of Serverless Apps for Azure for the given date and given org.</p>
    * @return serverlessAppsAzureCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsAzureCountAvg() {
-    return serverlessAppsAzureCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsAzureCountAvg() {
+        return serverlessAppsAzureCountAvg;
+      }
   public void setServerlessAppsAzureCountAvg(Long serverlessAppsAzureCountAvg) {
     this.serverlessAppsAzureCountAvg = serverlessAppsAzureCountAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG, serverlessAppsAzureCountAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG, serverlessAppsAzureCountAvg);
   }
-
-  public UsageSummaryDate serverlessAppsAzureFunctionAppInstancesAvg(
-      Long serverlessAppsAzureFunctionAppInstancesAvg) {
+  public UsageSummaryDate serverlessAppsAzureFunctionAppInstancesAvg(Long serverlessAppsAzureFunctionAppInstancesAvg) {
     this.serverlessAppsAzureFunctionAppInstancesAvg = serverlessAppsAzureFunctionAppInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Azure Function App instances for the current
-   * date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps for Azure Function App instances for the current date for all organizations.</p>
    * @return serverlessAppsAzureFunctionAppInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_FUNCTION_APP_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsAzureFunctionAppInstancesAvg() {
-    return serverlessAppsAzureFunctionAppInstancesAvg;
-  }
-
-  public void setServerlessAppsAzureFunctionAppInstancesAvg(
-      Long serverlessAppsAzureFunctionAppInstancesAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_FUNCTION_APP_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsAzureFunctionAppInstancesAvg() {
+        return serverlessAppsAzureFunctionAppInstancesAvg;
+      }
+  public void setServerlessAppsAzureFunctionAppInstancesAvg(Long serverlessAppsAzureFunctionAppInstancesAvg) {
     this.serverlessAppsAzureFunctionAppInstancesAvg = serverlessAppsAzureFunctionAppInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_AZURE_FUNCTION_APP_INSTANCES_AVG,
-        serverlessAppsAzureFunctionAppInstancesAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_FUNCTION_APP_INSTANCES_AVG, serverlessAppsAzureFunctionAppInstancesAvg);
   }
-
-  public UsageSummaryDate serverlessAppsAzureWebAppInstancesAvg(
-      Long serverlessAppsAzureWebAppInstancesAvg) {
+  public UsageSummaryDate serverlessAppsAzureWebAppInstancesAvg(Long serverlessAppsAzureWebAppInstancesAvg) {
     this.serverlessAppsAzureWebAppInstancesAvg = serverlessAppsAzureWebAppInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Azure Web App instances for the current date
-   * for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps for Azure Web App instances for the current date for all organizations.</p>
    * @return serverlessAppsAzureWebAppInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsAzureWebAppInstancesAvg() {
-    return serverlessAppsAzureWebAppInstancesAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsAzureWebAppInstancesAvg() {
+        return serverlessAppsAzureWebAppInstancesAvg;
+      }
   public void setServerlessAppsAzureWebAppInstancesAvg(Long serverlessAppsAzureWebAppInstancesAvg) {
     this.serverlessAppsAzureWebAppInstancesAvg = serverlessAppsAzureWebAppInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG,
-        serverlessAppsAzureWebAppInstancesAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_WEB_APP_INSTANCES_AVG, serverlessAppsAzureWebAppInstancesAvg);
   }
-
   public UsageSummaryDate serverlessAppsDsmFargateTasksAvg(Long serverlessAppsDsmFargateTasksAvg) {
     this.serverlessAppsDsmFargateTasksAvg = serverlessAppsDsmFargateTasksAvg;
     return this;
   }
 
   /**
-   * Shows the average number of DSM Fargate ECS tasks monitored under Serverless Apps DSM for the
-   * current date for all organizations.
-   *
+   * <p>Shows the average number of DSM Fargate ECS tasks monitored under Serverless Apps DSM for the current date for all organizations.</p>
    * @return serverlessAppsDsmFargateTasksAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsDsmFargateTasksAvg() {
-    return serverlessAppsDsmFargateTasksAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsDsmFargateTasksAvg() {
+        return serverlessAppsDsmFargateTasksAvg;
+      }
   public void setServerlessAppsDsmFargateTasksAvg(Long serverlessAppsDsmFargateTasksAvg) {
     this.serverlessAppsDsmFargateTasksAvg = serverlessAppsDsmFargateTasksAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG, serverlessAppsDsmFargateTasksAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_DSM_FARGATE_TASKS_AVG, serverlessAppsDsmFargateTasksAvg);
   }
-
   public UsageSummaryDate serverlessAppsEcsAvg(Long serverlessAppsEcsAvg) {
     this.serverlessAppsEcsAvg = serverlessAppsEcsAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Elastic Container Service for the current date
-   * for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps for Elastic Container Service for the current date for all organizations.</p>
    * @return serverlessAppsEcsAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_ECS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsEcsAvg() {
-    return serverlessAppsEcsAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_ECS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsEcsAvg() {
+        return serverlessAppsEcsAvg;
+      }
   public void setServerlessAppsEcsAvg(Long serverlessAppsEcsAvg) {
     this.serverlessAppsEcsAvg = serverlessAppsEcsAvg;
     putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_ECS_AVG, serverlessAppsEcsAvg);
   }
-
   public UsageSummaryDate serverlessAppsEksAvg(Long serverlessAppsEksAvg) {
     this.serverlessAppsEksAvg = serverlessAppsEksAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Elastic Kubernetes Service for the current date
-   * for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps for Elastic Kubernetes Service for the current date for all organizations.</p>
    * @return serverlessAppsEksAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EKS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsEksAvg() {
-    return serverlessAppsEksAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EKS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsEksAvg() {
+        return serverlessAppsEksAvg;
+      }
   public void setServerlessAppsEksAvg(Long serverlessAppsEksAvg) {
     this.serverlessAppsEksAvg = serverlessAppsEksAvg;
     putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_EKS_AVG, serverlessAppsEksAvg);
   }
-
   public UsageSummaryDate serverlessAppsExclFargateAvg(Long serverlessAppsExclFargateAvg) {
     this.serverlessAppsExclFargateAvg = serverlessAppsExclFargateAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps excluding Fargate for the current date for all
-   * organizations.
-   *
+   * <p>Shows the average number of Serverless Apps excluding Fargate for the current date for all organizations.</p>
    * @return serverlessAppsExclFargateAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsExclFargateAvg() {
-    return serverlessAppsExclFargateAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsExclFargateAvg() {
+        return serverlessAppsExclFargateAvg;
+      }
   public void setServerlessAppsExclFargateAvg(Long serverlessAppsExclFargateAvg) {
     this.serverlessAppsExclFargateAvg = serverlessAppsExclFargateAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AVG, serverlessAppsExclFargateAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AVG, serverlessAppsExclFargateAvg);
   }
-
-  public UsageSummaryDate serverlessAppsExclFargateAzureContainerAppInstancesAvg(
-      Long serverlessAppsExclFargateAzureContainerAppInstancesAvg) {
-    this.serverlessAppsExclFargateAzureContainerAppInstancesAvg =
-        serverlessAppsExclFargateAzureContainerAppInstancesAvg;
+  public UsageSummaryDate serverlessAppsExclFargateAzureContainerAppInstancesAvg(Long serverlessAppsExclFargateAzureContainerAppInstancesAvg) {
+    this.serverlessAppsExclFargateAzureContainerAppInstancesAvg = serverlessAppsExclFargateAzureContainerAppInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps excluding Fargate for Azure Container App instances
-   * for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps excluding Fargate for Azure Container App instances for the current date for all organizations.</p>
    * @return serverlessAppsExclFargateAzureContainerAppInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_CONTAINER_APP_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsExclFargateAzureContainerAppInstancesAvg() {
-    return serverlessAppsExclFargateAzureContainerAppInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_CONTAINER_APP_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsExclFargateAzureContainerAppInstancesAvg() {
+        return serverlessAppsExclFargateAzureContainerAppInstancesAvg;
+      }
+  public void setServerlessAppsExclFargateAzureContainerAppInstancesAvg(Long serverlessAppsExclFargateAzureContainerAppInstancesAvg) {
+    this.serverlessAppsExclFargateAzureContainerAppInstancesAvg = serverlessAppsExclFargateAzureContainerAppInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_CONTAINER_APP_INSTANCES_AVG, serverlessAppsExclFargateAzureContainerAppInstancesAvg);
   }
-
-  public void setServerlessAppsExclFargateAzureContainerAppInstancesAvg(
-      Long serverlessAppsExclFargateAzureContainerAppInstancesAvg) {
-    this.serverlessAppsExclFargateAzureContainerAppInstancesAvg =
-        serverlessAppsExclFargateAzureContainerAppInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_CONTAINER_APP_INSTANCES_AVG,
-        serverlessAppsExclFargateAzureContainerAppInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsExclFargateAzureFunctionAppInstancesAvg(
-      Long serverlessAppsExclFargateAzureFunctionAppInstancesAvg) {
-    this.serverlessAppsExclFargateAzureFunctionAppInstancesAvg =
-        serverlessAppsExclFargateAzureFunctionAppInstancesAvg;
+  public UsageSummaryDate serverlessAppsExclFargateAzureFunctionAppInstancesAvg(Long serverlessAppsExclFargateAzureFunctionAppInstancesAvg) {
+    this.serverlessAppsExclFargateAzureFunctionAppInstancesAvg = serverlessAppsExclFargateAzureFunctionAppInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps excluding Fargate for Azure Function App instances
-   * for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps excluding Fargate for Azure Function App instances for the current date for all organizations.</p>
    * @return serverlessAppsExclFargateAzureFunctionAppInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_FUNCTION_APP_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsExclFargateAzureFunctionAppInstancesAvg() {
-    return serverlessAppsExclFargateAzureFunctionAppInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_FUNCTION_APP_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsExclFargateAzureFunctionAppInstancesAvg() {
+        return serverlessAppsExclFargateAzureFunctionAppInstancesAvg;
+      }
+  public void setServerlessAppsExclFargateAzureFunctionAppInstancesAvg(Long serverlessAppsExclFargateAzureFunctionAppInstancesAvg) {
+    this.serverlessAppsExclFargateAzureFunctionAppInstancesAvg = serverlessAppsExclFargateAzureFunctionAppInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_FUNCTION_APP_INSTANCES_AVG, serverlessAppsExclFargateAzureFunctionAppInstancesAvg);
   }
-
-  public void setServerlessAppsExclFargateAzureFunctionAppInstancesAvg(
-      Long serverlessAppsExclFargateAzureFunctionAppInstancesAvg) {
-    this.serverlessAppsExclFargateAzureFunctionAppInstancesAvg =
-        serverlessAppsExclFargateAzureFunctionAppInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_FUNCTION_APP_INSTANCES_AVG,
-        serverlessAppsExclFargateAzureFunctionAppInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsExclFargateAzureWebAppInstancesAvg(
-      Long serverlessAppsExclFargateAzureWebAppInstancesAvg) {
-    this.serverlessAppsExclFargateAzureWebAppInstancesAvg =
-        serverlessAppsExclFargateAzureWebAppInstancesAvg;
+  public UsageSummaryDate serverlessAppsExclFargateAzureWebAppInstancesAvg(Long serverlessAppsExclFargateAzureWebAppInstancesAvg) {
+    this.serverlessAppsExclFargateAzureWebAppInstancesAvg = serverlessAppsExclFargateAzureWebAppInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps excluding Fargate for Azure Web App instances for
-   * the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps excluding Fargate for Azure Web App instances for the current date for all organizations.</p>
    * @return serverlessAppsExclFargateAzureWebAppInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_WEB_APP_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsExclFargateAzureWebAppInstancesAvg() {
-    return serverlessAppsExclFargateAzureWebAppInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_WEB_APP_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsExclFargateAzureWebAppInstancesAvg() {
+        return serverlessAppsExclFargateAzureWebAppInstancesAvg;
+      }
+  public void setServerlessAppsExclFargateAzureWebAppInstancesAvg(Long serverlessAppsExclFargateAzureWebAppInstancesAvg) {
+    this.serverlessAppsExclFargateAzureWebAppInstancesAvg = serverlessAppsExclFargateAzureWebAppInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_WEB_APP_INSTANCES_AVG, serverlessAppsExclFargateAzureWebAppInstancesAvg);
   }
-
-  public void setServerlessAppsExclFargateAzureWebAppInstancesAvg(
-      Long serverlessAppsExclFargateAzureWebAppInstancesAvg) {
-    this.serverlessAppsExclFargateAzureWebAppInstancesAvg =
-        serverlessAppsExclFargateAzureWebAppInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_AZURE_WEB_APP_INSTANCES_AVG,
-        serverlessAppsExclFargateAzureWebAppInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg(
-      Long serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg) {
-    this.serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg =
-        serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg;
+  public UsageSummaryDate serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg(Long serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg) {
+    this.serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg = serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps excluding Fargate for Google Cloud Platform Cloud
-   * Functions instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps excluding Fargate for Google Cloud Platform Cloud Functions instances for the current date for all organizations.</p>
    * @return serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsExclFargateGoogleCloudFunctionsInstancesAvg() {
-    return serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsExclFargateGoogleCloudFunctionsInstancesAvg() {
+        return serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg;
+      }
+  public void setServerlessAppsExclFargateGoogleCloudFunctionsInstancesAvg(Long serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg) {
+    this.serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg = serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG, serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg);
   }
-
-  public void setServerlessAppsExclFargateGoogleCloudFunctionsInstancesAvg(
-      Long serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg) {
-    this.serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg =
-        serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG,
-        serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsExclFargateGoogleCloudRunInstancesAvg(
-      Long serverlessAppsExclFargateGoogleCloudRunInstancesAvg) {
-    this.serverlessAppsExclFargateGoogleCloudRunInstancesAvg =
-        serverlessAppsExclFargateGoogleCloudRunInstancesAvg;
+  public UsageSummaryDate serverlessAppsExclFargateGoogleCloudRunInstancesAvg(Long serverlessAppsExclFargateGoogleCloudRunInstancesAvg) {
+    this.serverlessAppsExclFargateGoogleCloudRunInstancesAvg = serverlessAppsExclFargateGoogleCloudRunInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps excluding Fargate for Google Cloud Platform Cloud
-   * Run instances for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps excluding Fargate for Google Cloud Platform Cloud Run instances for the current date for all organizations.</p>
    * @return serverlessAppsExclFargateGoogleCloudRunInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_RUN_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsExclFargateGoogleCloudRunInstancesAvg() {
-    return serverlessAppsExclFargateGoogleCloudRunInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_RUN_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsExclFargateGoogleCloudRunInstancesAvg() {
+        return serverlessAppsExclFargateGoogleCloudRunInstancesAvg;
+      }
+  public void setServerlessAppsExclFargateGoogleCloudRunInstancesAvg(Long serverlessAppsExclFargateGoogleCloudRunInstancesAvg) {
+    this.serverlessAppsExclFargateGoogleCloudRunInstancesAvg = serverlessAppsExclFargateGoogleCloudRunInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_RUN_INSTANCES_AVG, serverlessAppsExclFargateGoogleCloudRunInstancesAvg);
   }
-
-  public void setServerlessAppsExclFargateGoogleCloudRunInstancesAvg(
-      Long serverlessAppsExclFargateGoogleCloudRunInstancesAvg) {
-    this.serverlessAppsExclFargateGoogleCloudRunInstancesAvg =
-        serverlessAppsExclFargateGoogleCloudRunInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_GOOGLE_CLOUD_RUN_INSTANCES_AVG,
-        serverlessAppsExclFargateGoogleCloudRunInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg(
-      Long serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg) {
-    this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg =
-        serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg;
+  public UsageSummaryDate serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg(Long serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg) {
+    this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg = serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps excluding Fargate for Google Kubernetes Engine
-   * Autopilot pods for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps excluding Fargate for Google Kubernetes Engine Autopilot pods for the current date for all organizations.</p>
    * @return serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg() {
-    return serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg() {
+        return serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg;
+      }
+  public void setServerlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg(Long serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg) {
+    this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg = serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG, serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg);
   }
-
-  public void setServerlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg(
-      Long serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg) {
-    this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg =
-        serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_EXCL_FARGATE_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG,
-        serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsGoogleCloudFunctionsInstancesAvg(
-      Long serverlessAppsGoogleCloudFunctionsInstancesAvg) {
-    this.serverlessAppsGoogleCloudFunctionsInstancesAvg =
-        serverlessAppsGoogleCloudFunctionsInstancesAvg;
+  public UsageSummaryDate serverlessAppsGoogleCloudFunctionsInstancesAvg(Long serverlessAppsGoogleCloudFunctionsInstancesAvg) {
+    this.serverlessAppsGoogleCloudFunctionsInstancesAvg = serverlessAppsGoogleCloudFunctionsInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Google Cloud Platform Cloud Functions instances
-   * for the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps for Google Cloud Platform Cloud Functions instances for the current date for all organizations.</p>
    * @return serverlessAppsGoogleCloudFunctionsInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsGoogleCloudFunctionsInstancesAvg() {
-    return serverlessAppsGoogleCloudFunctionsInstancesAvg;
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsGoogleCloudFunctionsInstancesAvg() {
+        return serverlessAppsGoogleCloudFunctionsInstancesAvg;
+      }
+  public void setServerlessAppsGoogleCloudFunctionsInstancesAvg(Long serverlessAppsGoogleCloudFunctionsInstancesAvg) {
+    this.serverlessAppsGoogleCloudFunctionsInstancesAvg = serverlessAppsGoogleCloudFunctionsInstancesAvg;
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG, serverlessAppsGoogleCloudFunctionsInstancesAvg);
   }
-
-  public void setServerlessAppsGoogleCloudFunctionsInstancesAvg(
-      Long serverlessAppsGoogleCloudFunctionsInstancesAvg) {
-    this.serverlessAppsGoogleCloudFunctionsInstancesAvg =
-        serverlessAppsGoogleCloudFunctionsInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_FUNCTIONS_INSTANCES_AVG,
-        serverlessAppsGoogleCloudFunctionsInstancesAvg);
-  }
-
-  public UsageSummaryDate serverlessAppsGoogleCloudRunInstancesAvg(
-      Long serverlessAppsGoogleCloudRunInstancesAvg) {
+  public UsageSummaryDate serverlessAppsGoogleCloudRunInstancesAvg(Long serverlessAppsGoogleCloudRunInstancesAvg) {
     this.serverlessAppsGoogleCloudRunInstancesAvg = serverlessAppsGoogleCloudRunInstancesAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Google Cloud Platform Cloud Run instances for
-   * the current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps for Google Cloud Platform Cloud Run instances for the current date for all organizations.</p>
    * @return serverlessAppsGoogleCloudRunInstancesAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_RUN_INSTANCES_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsGoogleCloudRunInstancesAvg() {
-    return serverlessAppsGoogleCloudRunInstancesAvg;
-  }
-
-  public void setServerlessAppsGoogleCloudRunInstancesAvg(
-      Long serverlessAppsGoogleCloudRunInstancesAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_RUN_INSTANCES_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsGoogleCloudRunInstancesAvg() {
+        return serverlessAppsGoogleCloudRunInstancesAvg;
+      }
+  public void setServerlessAppsGoogleCloudRunInstancesAvg(Long serverlessAppsGoogleCloudRunInstancesAvg) {
     this.serverlessAppsGoogleCloudRunInstancesAvg = serverlessAppsGoogleCloudRunInstancesAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_RUN_INSTANCES_AVG,
-        serverlessAppsGoogleCloudRunInstancesAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_CLOUD_RUN_INSTANCES_AVG, serverlessAppsGoogleCloudRunInstancesAvg);
   }
-
   public UsageSummaryDate serverlessAppsGoogleCountAvg(Long serverlessAppsGoogleCountAvg) {
     this.serverlessAppsGoogleCountAvg = serverlessAppsGoogleCountAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Google Cloud for the given date and given org.
-   *
+   * <p>Shows the average number of Serverless Apps for Google Cloud for the given date and given org.</p>
    * @return serverlessAppsGoogleCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsGoogleCountAvg() {
-    return serverlessAppsGoogleCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsGoogleCountAvg() {
+        return serverlessAppsGoogleCountAvg;
+      }
   public void setServerlessAppsGoogleCountAvg(Long serverlessAppsGoogleCountAvg) {
     this.serverlessAppsGoogleCountAvg = serverlessAppsGoogleCountAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG, serverlessAppsGoogleCountAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG, serverlessAppsGoogleCountAvg);
   }
-
-  public UsageSummaryDate serverlessAppsInfraGcpGkeAutopilotPodsAvg(
-      Long serverlessAppsInfraGcpGkeAutopilotPodsAvg) {
+  public UsageSummaryDate serverlessAppsInfraGcpGkeAutopilotPodsAvg(Long serverlessAppsInfraGcpGkeAutopilotPodsAvg) {
     this.serverlessAppsInfraGcpGkeAutopilotPodsAvg = serverlessAppsInfraGcpGkeAutopilotPodsAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Google Kubernetes Engine Autopilot pods for the
-   * current date for all organizations.
-   *
+   * <p>Shows the average number of Serverless Apps for Google Kubernetes Engine Autopilot pods for the current date for all organizations.</p>
    * @return serverlessAppsInfraGcpGkeAutopilotPodsAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsInfraGcpGkeAutopilotPodsAvg() {
-    return serverlessAppsInfraGcpGkeAutopilotPodsAvg;
-  }
-
-  public void setServerlessAppsInfraGcpGkeAutopilotPodsAvg(
-      Long serverlessAppsInfraGcpGkeAutopilotPodsAvg) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsInfraGcpGkeAutopilotPodsAvg() {
+        return serverlessAppsInfraGcpGkeAutopilotPodsAvg;
+      }
+  public void setServerlessAppsInfraGcpGkeAutopilotPodsAvg(Long serverlessAppsInfraGcpGkeAutopilotPodsAvg) {
     this.serverlessAppsInfraGcpGkeAutopilotPodsAvg = serverlessAppsInfraGcpGkeAutopilotPodsAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG,
-        serverlessAppsInfraGcpGkeAutopilotPodsAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_INFRA_GCP_GKE_AUTOPILOT_PODS_AVG, serverlessAppsInfraGcpGkeAutopilotPodsAvg);
   }
-
   public UsageSummaryDate serverlessAppsTotalCountAvg(Long serverlessAppsTotalCountAvg) {
     this.serverlessAppsTotalCountAvg = serverlessAppsTotalCountAvg;
     return this;
   }
 
   /**
-   * Shows the average number of Serverless Apps for Azure and Google Cloud for the given date and
-   * given org.
-   *
+   * <p>Shows the average number of Serverless Apps for Azure and Google Cloud for the given date and given org.</p>
    * @return serverlessAppsTotalCountAvg
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getServerlessAppsTotalCountAvg() {
-    return serverlessAppsTotalCountAvg;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getServerlessAppsTotalCountAvg() {
+        return serverlessAppsTotalCountAvg;
+      }
   public void setServerlessAppsTotalCountAvg(Long serverlessAppsTotalCountAvg) {
     this.serverlessAppsTotalCountAvg = serverlessAppsTotalCountAvg;
-    putAdditionalProperty(
-        JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG, serverlessAppsTotalCountAvg);
+    putAdditionalProperty(JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG, serverlessAppsTotalCountAvg);
   }
-
   public UsageSummaryDate siem12moRetentionSum(Long siem12moRetentionSum) {
     this.siem12moRetentionSum = siem12moRetentionSum;
     return this;
   }
 
   /**
-   * Shows the sum of Cloud SIEM Indexed Logs (12-month retention) over all hours in the current
-   * date for the given org.
-   *
+   * <p>Shows the sum of Cloud SIEM Indexed Logs (12-month retention) over all hours in the current date for the given org.</p>
    * @return siem12moRetentionSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIEM_12MO_RETENTION_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSiem12moRetentionSum() {
-    return siem12moRetentionSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SIEM_12MO_RETENTION_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSiem12moRetentionSum() {
+        return siem12moRetentionSum;
+      }
   public void setSiem12moRetentionSum(Long siem12moRetentionSum) {
     this.siem12moRetentionSum = siem12moRetentionSum;
     putAdditionalProperty(JSON_PROPERTY_SIEM_12MO_RETENTION_SUM, siem12moRetentionSum);
   }
-
   public UsageSummaryDate siem6moRetentionSum(Long siem6moRetentionSum) {
     this.siem6moRetentionSum = siem6moRetentionSum;
     return this;
   }
 
   /**
-   * Shows the sum of Cloud SIEM Indexed Logs (6-month retention) over all hours in the current date
-   * for the given org.
-   *
+   * <p>Shows the sum of Cloud SIEM Indexed Logs (6-month retention) over all hours in the current date for the given org.</p>
    * @return siem6moRetentionSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIEM_6MO_RETENTION_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSiem6moRetentionSum() {
-    return siem6moRetentionSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SIEM_6MO_RETENTION_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSiem6moRetentionSum() {
+        return siem6moRetentionSum;
+      }
   public void setSiem6moRetentionSum(Long siem6moRetentionSum) {
     this.siem6moRetentionSum = siem6moRetentionSum;
     putAdditionalProperty(JSON_PROPERTY_SIEM_6MO_RETENTION_SUM, siem6moRetentionSum);
   }
-
   public UsageSummaryDate siemAnalyzedLogsAddOnCountSum(Long siemAnalyzedLogsAddOnCountSum) {
     this.siemAnalyzedLogsAddOnCountSum = siemAnalyzedLogsAddOnCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for
-   * the given org.
-   *
+   * <p>Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for the given org.</p>
    * @return siemAnalyzedLogsAddOnCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSiemAnalyzedLogsAddOnCountSum() {
-    return siemAnalyzedLogsAddOnCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSiemAnalyzedLogsAddOnCountSum() {
+        return siemAnalyzedLogsAddOnCountSum;
+      }
   public void setSiemAnalyzedLogsAddOnCountSum(Long siemAnalyzedLogsAddOnCountSum) {
     this.siemAnalyzedLogsAddOnCountSum = siemAnalyzedLogsAddOnCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM, siemAnalyzedLogsAddOnCountSum);
+    putAdditionalProperty(JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM, siemAnalyzedLogsAddOnCountSum);
   }
-
   public UsageSummaryDate snmpDeviceCountSum(Long snmpDeviceCountSum) {
     this.snmpDeviceCountSum = snmpDeviceCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Network Device Monitoring devices over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the sum of all Network Device Monitoring devices over all hours in the current date for all organizations.</p>
    * @return snmpDeviceCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSnmpDeviceCountSum() {
-    return snmpDeviceCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSnmpDeviceCountSum() {
+        return snmpDeviceCountSum;
+      }
   public void setSnmpDeviceCountSum(Long snmpDeviceCountSum) {
     this.snmpDeviceCountSum = snmpDeviceCountSum;
     putAdditionalProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_SUM, snmpDeviceCountSum);
   }
-
   public UsageSummaryDate snmpDeviceCountTop99p(Long snmpDeviceCountTop99p) {
     this.snmpDeviceCountTop99p = snmpDeviceCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Network Device Monitoring devices over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the 99th percentile of all Network Device Monitoring devices over all hours in the current date for all organizations.</p>
    * @return snmpDeviceCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSnmpDeviceCountTop99p() {
-    return snmpDeviceCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSnmpDeviceCountTop99p() {
+        return snmpDeviceCountTop99p;
+      }
   public void setSnmpDeviceCountTop99p(Long snmpDeviceCountTop99p) {
     this.snmpDeviceCountTop99p = snmpDeviceCountTop99p;
     putAdditionalProperty(JSON_PROPERTY_SNMP_DEVICE_COUNT_TOP99P, snmpDeviceCountTop99p);
   }
-
-  public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(
-      Long syntheticsBrowserCheckCallsCountSum) {
+  public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Synthetic browser tests over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations.</p>
    * @return syntheticsBrowserCheckCallsCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSyntheticsBrowserCheckCallsCountSum() {
-    return syntheticsBrowserCheckCallsCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSyntheticsBrowserCheckCallsCountSum() {
+        return syntheticsBrowserCheckCallsCountSum;
+      }
   public void setSyntheticsBrowserCheckCallsCountSum(Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
-        syntheticsBrowserCheckCallsCountSum);
+    putAdditionalProperty(JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM, syntheticsBrowserCheckCallsCountSum);
   }
-
   public UsageSummaryDate syntheticsCheckCallsCountSum(Long syntheticsCheckCallsCountSum) {
     this.syntheticsCheckCallsCountSum = syntheticsCheckCallsCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Synthetic API tests over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all Synthetic API tests over all hours in the current date for all organizations.</p>
    * @return syntheticsCheckCallsCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSyntheticsCheckCallsCountSum() {
-    return syntheticsCheckCallsCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSyntheticsCheckCallsCountSum() {
+        return syntheticsCheckCallsCountSum;
+      }
   public void setSyntheticsCheckCallsCountSum(Long syntheticsCheckCallsCountSum) {
     this.syntheticsCheckCallsCountSum = syntheticsCheckCallsCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM, syntheticsCheckCallsCountSum);
+    putAdditionalProperty(JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM, syntheticsCheckCallsCountSum);
   }
-
   public UsageSummaryDate syntheticsMobileTestRunsSum(Long syntheticsMobileTestRunsSum) {
     this.syntheticsMobileTestRunsSum = syntheticsMobileTestRunsSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Synthetic mobile application tests over all hours in the current date for
-   * all organizations.
-   *
+   * <p>Shows the sum of all Synthetic mobile application tests over all hours in the current date for all organizations.</p>
    * @return syntheticsMobileTestRunsSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSyntheticsMobileTestRunsSum() {
-    return syntheticsMobileTestRunsSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSyntheticsMobileTestRunsSum() {
+        return syntheticsMobileTestRunsSum;
+      }
   public void setSyntheticsMobileTestRunsSum(Long syntheticsMobileTestRunsSum) {
     this.syntheticsMobileTestRunsSum = syntheticsMobileTestRunsSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM, syntheticsMobileTestRunsSum);
+    putAdditionalProperty(JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM, syntheticsMobileTestRunsSum);
   }
-
-  public UsageSummaryDate syntheticsParallelTestingMaxSlotsHwm(
-      Long syntheticsParallelTestingMaxSlotsHwm) {
+  public UsageSummaryDate syntheticsParallelTestingMaxSlotsHwm(Long syntheticsParallelTestingMaxSlotsHwm) {
     this.syntheticsParallelTestingMaxSlotsHwm = syntheticsParallelTestingMaxSlotsHwm;
     return this;
   }
 
   /**
-   * Shows the high-water mark of used synthetics parallel testing slots over all hours in the
-   * current date for all organizations.
-   *
+   * <p>Shows the high-water mark of used synthetics parallel testing slots over all hours in the current date for all organizations.</p>
    * @return syntheticsParallelTestingMaxSlotsHwm
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSyntheticsParallelTestingMaxSlotsHwm() {
-    return syntheticsParallelTestingMaxSlotsHwm;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getSyntheticsParallelTestingMaxSlotsHwm() {
+        return syntheticsParallelTestingMaxSlotsHwm;
+      }
   public void setSyntheticsParallelTestingMaxSlotsHwm(Long syntheticsParallelTestingMaxSlotsHwm) {
     this.syntheticsParallelTestingMaxSlotsHwm = syntheticsParallelTestingMaxSlotsHwm;
-    putAdditionalProperty(
-        JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM,
-        syntheticsParallelTestingMaxSlotsHwm);
+    putAdditionalProperty(JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM, syntheticsParallelTestingMaxSlotsHwm);
   }
-
   public UsageSummaryDate traceSearchIndexedEventsCountSum(Long traceSearchIndexedEventsCountSum) {
     this.traceSearchIndexedEventsCountSum = traceSearchIndexedEventsCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all Indexed Spans indexed over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all Indexed Spans indexed over all hours in the current date for all organizations.</p>
    * @return traceSearchIndexedEventsCountSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTraceSearchIndexedEventsCountSum() {
-    return traceSearchIndexedEventsCountSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTraceSearchIndexedEventsCountSum() {
+        return traceSearchIndexedEventsCountSum;
+      }
   public void setTraceSearchIndexedEventsCountSum(Long traceSearchIndexedEventsCountSum) {
     this.traceSearchIndexedEventsCountSum = traceSearchIndexedEventsCountSum;
-    putAdditionalProperty(
-        JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM, traceSearchIndexedEventsCountSum);
+    putAdditionalProperty(JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM, traceSearchIndexedEventsCountSum);
   }
-
   public UsageSummaryDate twolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
     this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
     return this;
   }
 
   /**
-   * Shows the sum of all ingested APM span bytes over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the sum of all ingested APM span bytes over all hours in the current date for all organizations.</p>
    * @return twolIngestedEventsBytesSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTwolIngestedEventsBytesSum() {
-    return twolIngestedEventsBytesSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTwolIngestedEventsBytesSum() {
+        return twolIngestedEventsBytesSum;
+      }
   public void setTwolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
     this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
     putAdditionalProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM, twolIngestedEventsBytesSum);
   }
-
-  public UsageSummaryDate universalServiceMonitoringHostTop99p(
-      Long universalServiceMonitoringHostTop99p) {
+  public UsageSummaryDate universalServiceMonitoringHostTop99p(Long universalServiceMonitoringHostTop99p) {
     this.universalServiceMonitoringHostTop99p = universalServiceMonitoringHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all universal service management hosts over all hours in the
-   * current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all universal service management hosts over all hours in the current date for the given org.</p>
    * @return universalServiceMonitoringHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getUniversalServiceMonitoringHostTop99p() {
-    return universalServiceMonitoringHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getUniversalServiceMonitoringHostTop99p() {
+        return universalServiceMonitoringHostTop99p;
+      }
   public void setUniversalServiceMonitoringHostTop99p(Long universalServiceMonitoringHostTop99p) {
     this.universalServiceMonitoringHostTop99p = universalServiceMonitoringHostTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P,
-        universalServiceMonitoringHostTop99p);
+    putAdditionalProperty(JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P, universalServiceMonitoringHostTop99p);
   }
-
   public UsageSummaryDate vsphereHostTop99p(Long vsphereHostTop99p) {
     this.vsphereHostTop99p = vsphereHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all vSphere hosts over all hours in the current date for all
-   * organizations.
-   *
+   * <p>Shows the 99th percentile of all vSphere hosts over all hours in the current date for all organizations.</p>
    * @return vsphereHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getVsphereHostTop99p() {
-    return vsphereHostTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getVsphereHostTop99p() {
+        return vsphereHostTop99p;
+      }
   public void setVsphereHostTop99p(Long vsphereHostTop99p) {
     this.vsphereHostTop99p = vsphereHostTop99p;
     putAdditionalProperty(JSON_PROPERTY_VSPHERE_HOST_TOP99P, vsphereHostTop99p);
   }
-
   public UsageSummaryDate vulnManagementHostCountTop99p(Long vulnManagementHostCountTop99p) {
     this.vulnManagementHostCountTop99p = vulnManagementHostCountTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in
-   * the current date for the given org.
-   *
+   * <p>Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in the current date for the given org.</p>
    * @return vulnManagementHostCountTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getVulnManagementHostCountTop99p() {
-    return vulnManagementHostCountTop99p;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getVulnManagementHostCountTop99p() {
+        return vulnManagementHostCountTop99p;
+      }
   public void setVulnManagementHostCountTop99p(Long vulnManagementHostCountTop99p) {
     this.vulnManagementHostCountTop99p = vulnManagementHostCountTop99p;
-    putAdditionalProperty(
-        JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P, vulnManagementHostCountTop99p);
+    putAdditionalProperty(JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P, vulnManagementHostCountTop99p);
   }
-
   public UsageSummaryDate workflowExecutionsUsageSum(Long workflowExecutionsUsageSum) {
     this.workflowExecutionsUsageSum = workflowExecutionsUsageSum;
     return this;
   }
 
   /**
-   * Sum of all workflows executed over all hours in the current date for all organizations.
-   *
+   * <p>Sum of all workflows executed over all hours in the current date for all organizations.</p>
    * @return workflowExecutionsUsageSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getWorkflowExecutionsUsageSum() {
-    return workflowExecutionsUsageSum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getWorkflowExecutionsUsageSum() {
+        return workflowExecutionsUsageSum;
+      }
   public void setWorkflowExecutionsUsageSum(Long workflowExecutionsUsageSum) {
     this.workflowExecutionsUsageSum = workflowExecutionsUsageSum;
     putAdditionalProperty(JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM, workflowExecutionsUsageSum);
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -8920,7 +7348,7 @@ public class UsageSummaryDate {
   @JsonAnySetter
   public UsageSummaryDate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -8944,12 +7372,14 @@ public class UsageSummaryDate {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this UsageSummaryDate object is equal to o. */
+  /**
+   * Return true if this UsageSummaryDate object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -8959,900 +7389,13 @@ public class UsageSummaryDate {
       return false;
     }
     UsageSummaryDate usageSummaryDate = (UsageSummaryDate) o;
-    return Objects.equals(this.agentHostTop99p, usageSummaryDate.agentHostTop99p)
-        && Objects.equals(
-            this.aiCreditsAgentBuilderAiCreditsSum,
-            usageSummaryDate.aiCreditsAgentBuilderAiCreditsSum)
-        && Objects.equals(
-            this.aiCreditsBitsAssistantAiCreditsSum,
-            usageSummaryDate.aiCreditsBitsAssistantAiCreditsSum)
-        && Objects.equals(
-            this.aiCreditsBitsDevAiCreditsSum, usageSummaryDate.aiCreditsBitsDevAiCreditsSum)
-        && Objects.equals(
-            this.aiCreditsBitsSreAiCreditsSum, usageSummaryDate.aiCreditsBitsSreAiCreditsSum)
-        && Objects.equals(this.aiCreditsSum, usageSummaryDate.aiCreditsSum)
-        && Objects.equals(
-            this.apmAzureAppServiceHostTop99p, usageSummaryDate.apmAzureAppServiceHostTop99p)
-        && Objects.equals(this.apmDevsecopsHostTop99p, usageSummaryDate.apmDevsecopsHostTop99p)
-        && Objects.equals(
-            this.apmEnterpriseStandaloneHostsTop99p,
-            usageSummaryDate.apmEnterpriseStandaloneHostsTop99p)
-        && Objects.equals(this.apmFargateCountAvg, usageSummaryDate.apmFargateCountAvg)
-        && Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p)
-        && Objects.equals(
-            this.apmProStandaloneHostsTop99p, usageSummaryDate.apmProStandaloneHostsTop99p)
-        && Objects.equals(this.appsecFargateCountAvg, usageSummaryDate.appsecFargateCountAvg)
-        && Objects.equals(this.asmServerlessSum, usageSummaryDate.asmServerlessSum)
-        && Objects.equals(this.auditLogsLinesIndexedSum, usageSummaryDate.auditLogsLinesIndexedSum)
-        && Objects.equals(this.auditTrailEnabledHwm, usageSummaryDate.auditTrailEnabledHwm)
-        && Objects.equals(
-            this.auditTrailEventForwardingEventsSum,
-            usageSummaryDate.auditTrailEventForwardingEventsSum)
-        && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDate.avgProfiledFargateTasks)
-        && Objects.equals(this.awsHostTop99p, usageSummaryDate.awsHostTop99p)
-        && Objects.equals(this.awsLambdaFuncCount, usageSummaryDate.awsLambdaFuncCount)
-        && Objects.equals(this.awsLambdaInvocationsSum, usageSummaryDate.awsLambdaInvocationsSum)
-        && Objects.equals(this.azureAppServiceTop99p, usageSummaryDate.azureAppServiceTop99p)
-        && Objects.equals(this.billableIngestedBytesSum, usageSummaryDate.billableIngestedBytesSum)
-        && Objects.equals(this.bitsAiInvestigationsSum, usageSummaryDate.bitsAiInvestigationsSum)
-        && Objects.equals(
-            this.browserRumLiteSessionCountSum, usageSummaryDate.browserRumLiteSessionCountSum)
-        && Objects.equals(
-            this.browserRumReplaySessionCountSum, usageSummaryDate.browserRumReplaySessionCountSum)
-        && Objects.equals(this.browserRumUnitsSum, usageSummaryDate.browserRumUnitsSum)
-        && Objects.equals(this.ccmAnthropicSpendLast, usageSummaryDate.ccmAnthropicSpendLast)
-        && Objects.equals(this.ccmAwsSpendLast, usageSummaryDate.ccmAwsSpendLast)
-        && Objects.equals(this.ccmAzureSpendLast, usageSummaryDate.ccmAzureSpendLast)
-        && Objects.equals(this.ccmConfluentSpendLast, usageSummaryDate.ccmConfluentSpendLast)
-        && Objects.equals(this.ccmDatabricksSpendLast, usageSummaryDate.ccmDatabricksSpendLast)
-        && Objects.equals(this.ccmElasticSpendLast, usageSummaryDate.ccmElasticSpendLast)
-        && Objects.equals(this.ccmFastlySpendLast, usageSummaryDate.ccmFastlySpendLast)
-        && Objects.equals(this.ccmGcpSpendLast, usageSummaryDate.ccmGcpSpendLast)
-        && Objects.equals(this.ccmGithubSpendLast, usageSummaryDate.ccmGithubSpendLast)
-        && Objects.equals(this.ccmMongodbSpendLast, usageSummaryDate.ccmMongodbSpendLast)
-        && Objects.equals(this.ccmOciSpendLast, usageSummaryDate.ccmOciSpendLast)
-        && Objects.equals(this.ccmOpenaiSpendLast, usageSummaryDate.ccmOpenaiSpendLast)
-        && Objects.equals(this.ccmSnowflakeSpendLast, usageSummaryDate.ccmSnowflakeSpendLast)
-        && Objects.equals(this.ccmSpendMonitoredEntLast, usageSummaryDate.ccmSpendMonitoredEntLast)
-        && Objects.equals(this.ccmSpendMonitoredProLast, usageSummaryDate.ccmSpendMonitoredProLast)
-        && Objects.equals(this.ccmTwilioSpendLast, usageSummaryDate.ccmTwilioSpendLast)
-        && Objects.equals(
-            this.ciPipelineIndexedSpansSum, usageSummaryDate.ciPipelineIndexedSpansSum)
-        && Objects.equals(this.ciTestIndexedSpansSum, usageSummaryDate.ciTestIndexedSpansSum)
-        && Objects.equals(
-            this.ciVisibilityItrCommittersHwm, usageSummaryDate.ciVisibilityItrCommittersHwm)
-        && Objects.equals(
-            this.ciVisibilityPipelineCommittersHwm,
-            usageSummaryDate.ciVisibilityPipelineCommittersHwm)
-        && Objects.equals(
-            this.ciVisibilityTestCommittersHwm, usageSummaryDate.ciVisibilityTestCommittersHwm)
-        && Objects.equals(
-            this.cloudCostManagementAwsHostCountAvg,
-            usageSummaryDate.cloudCostManagementAwsHostCountAvg)
-        && Objects.equals(
-            this.cloudCostManagementAzureHostCountAvg,
-            usageSummaryDate.cloudCostManagementAzureHostCountAvg)
-        && Objects.equals(
-            this.cloudCostManagementGcpHostCountAvg,
-            usageSummaryDate.cloudCostManagementGcpHostCountAvg)
-        && Objects.equals(
-            this.cloudCostManagementHostCountAvg, usageSummaryDate.cloudCostManagementHostCountAvg)
-        && Objects.equals(
-            this.cloudCostManagementOciHostCountAvg,
-            usageSummaryDate.cloudCostManagementOciHostCountAvg)
-        && Objects.equals(this.cloudSiemEventsSum, usageSummaryDate.cloudSiemEventsSum)
-        && Objects.equals(this.cloudSiemIndexedLogsSum, usageSummaryDate.cloudSiemIndexedLogsSum)
-        && Objects.equals(
-            this.codeAnalysisSaCommittersHwm, usageSummaryDate.codeAnalysisSaCommittersHwm)
-        && Objects.equals(
-            this.codeAnalysisScaCommittersHwm, usageSummaryDate.codeAnalysisScaCommittersHwm)
-        && Objects.equals(this.codeSecurityHostTop99p, usageSummaryDate.codeSecurityHostTop99p)
-        && Objects.equals(this.containerAvg, usageSummaryDate.containerAvg)
-        && Objects.equals(this.containerExclAgentAvg, usageSummaryDate.containerExclAgentAvg)
-        && Objects.equals(this.containerHwm, usageSummaryDate.containerHwm)
-        && Objects.equals(
-            this.csmContainerEnterpriseComplianceCountSum,
-            usageSummaryDate.csmContainerEnterpriseComplianceCountSum)
-        && Objects.equals(
-            this.csmContainerEnterpriseCwsCountSum,
-            usageSummaryDate.csmContainerEnterpriseCwsCountSum)
-        && Objects.equals(
-            this.csmContainerEnterpriseTotalCountSum,
-            usageSummaryDate.csmContainerEnterpriseTotalCountSum)
-        && Objects.equals(
-            this.csmHostEnterpriseAasHostCountTop99p,
-            usageSummaryDate.csmHostEnterpriseAasHostCountTop99p)
-        && Objects.equals(
-            this.csmHostEnterpriseAwsHostCountTop99p,
-            usageSummaryDate.csmHostEnterpriseAwsHostCountTop99p)
-        && Objects.equals(
-            this.csmHostEnterpriseAzureHostCountTop99p,
-            usageSummaryDate.csmHostEnterpriseAzureHostCountTop99p)
-        && Objects.equals(
-            this.csmHostEnterpriseComplianceHostCountTop99p,
-            usageSummaryDate.csmHostEnterpriseComplianceHostCountTop99p)
-        && Objects.equals(
-            this.csmHostEnterpriseCwsHostCountTop99p,
-            usageSummaryDate.csmHostEnterpriseCwsHostCountTop99p)
-        && Objects.equals(
-            this.csmHostEnterpriseGcpHostCountTop99p,
-            usageSummaryDate.csmHostEnterpriseGcpHostCountTop99p)
-        && Objects.equals(
-            this.csmHostEnterpriseOciHostCountTop99p,
-            usageSummaryDate.csmHostEnterpriseOciHostCountTop99p)
-        && Objects.equals(
-            this.csmHostEnterpriseTotalHostCountTop99p,
-            usageSummaryDate.csmHostEnterpriseTotalHostCountTop99p)
-        && Objects.equals(
-            this.csmHostProHostsAgentlessScannersSum,
-            usageSummaryDate.csmHostProHostsAgentlessScannersSum)
-        && Objects.equals(
-            this.csmHostProHostsAgentlessScannersTop99p,
-            usageSummaryDate.csmHostProHostsAgentlessScannersTop99p)
-        && Objects.equals(
-            this.csmHostProOciHostCountTop99p, usageSummaryDate.csmHostProOciHostCountTop99p)
-        && Objects.equals(this.cspmAasHostTop99p, usageSummaryDate.cspmAasHostTop99p)
-        && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDate.cspmAwsHostTop99p)
-        && Objects.equals(this.cspmAzureHostTop99p, usageSummaryDate.cspmAzureHostTop99p)
-        && Objects.equals(this.cspmContainerAvg, usageSummaryDate.cspmContainerAvg)
-        && Objects.equals(this.cspmContainerHwm, usageSummaryDate.cspmContainerHwm)
-        && Objects.equals(this.cspmGcpHostTop99p, usageSummaryDate.cspmGcpHostTop99p)
-        && Objects.equals(this.cspmHostTop99p, usageSummaryDate.cspmHostTop99p)
-        && Objects.equals(
-            this.cspmHostsAgentlessScannersSum, usageSummaryDate.cspmHostsAgentlessScannersSum)
-        && Objects.equals(
-            this.cspmHostsAgentlessScannersTop99p,
-            usageSummaryDate.cspmHostsAgentlessScannersTop99p)
-        && Objects.equals(this.customTsAvg, usageSummaryDate.customTsAvg)
-        && Objects.equals(this.cwsContainerCountAvg, usageSummaryDate.cwsContainerCountAvg)
-        && Objects.equals(this.cwsFargateTaskAvg, usageSummaryDate.cwsFargateTaskAvg)
-        && Objects.equals(this.cwsHostTop99p, usageSummaryDate.cwsHostTop99p)
-        && Objects.equals(
-            this.dataJobsMonitoringHostHrSum, usageSummaryDate.dataJobsMonitoringHostHrSum)
-        && Objects.equals(
-            this.dataStreamMonitoringHostCountSum,
-            usageSummaryDate.dataStreamMonitoringHostCountSum)
-        && Objects.equals(
-            this.dataStreamMonitoringHostCountTop99p,
-            usageSummaryDate.dataStreamMonitoringHostCountTop99p)
-        && Objects.equals(this.date, usageSummaryDate.date)
-        && Objects.equals(this.dbmHostTop99p, usageSummaryDate.dbmHostTop99p)
-        && Objects.equals(this.dbmQueriesCountAvg, usageSummaryDate.dbmQueriesCountAvg)
-        && Objects.equals(
-            this.doJobsMonitoringOrchestratorsJobHoursSum,
-            usageSummaryDate.doJobsMonitoringOrchestratorsJobHoursSum)
-        && Objects.equals(this.ephInfraHostAgentSum, usageSummaryDate.ephInfraHostAgentSum)
-        && Objects.equals(this.ephInfraHostAlibabaSum, usageSummaryDate.ephInfraHostAlibabaSum)
-        && Objects.equals(this.ephInfraHostAwsSum, usageSummaryDate.ephInfraHostAwsSum)
-        && Objects.equals(this.ephInfraHostAzureSum, usageSummaryDate.ephInfraHostAzureSum)
-        && Objects.equals(
-            this.ephInfraHostBasicInfraBasicAgentSum,
-            usageSummaryDate.ephInfraHostBasicInfraBasicAgentSum)
-        && Objects.equals(
-            this.ephInfraHostBasicInfraBasicVsphereSum,
-            usageSummaryDate.ephInfraHostBasicInfraBasicVsphereSum)
-        && Objects.equals(this.ephInfraHostBasicSum, usageSummaryDate.ephInfraHostBasicSum)
-        && Objects.equals(this.ephInfraHostEntSum, usageSummaryDate.ephInfraHostEntSum)
-        && Objects.equals(this.ephInfraHostGcpSum, usageSummaryDate.ephInfraHostGcpSum)
-        && Objects.equals(this.ephInfraHostHerokuSum, usageSummaryDate.ephInfraHostHerokuSum)
-        && Objects.equals(this.ephInfraHostOnlyAasSum, usageSummaryDate.ephInfraHostOnlyAasSum)
-        && Objects.equals(
-            this.ephInfraHostOnlyVsphereSum, usageSummaryDate.ephInfraHostOnlyVsphereSum)
-        && Objects.equals(
-            this.ephInfraHostOpentelemetryApmSum, usageSummaryDate.ephInfraHostOpentelemetryApmSum)
-        && Objects.equals(
-            this.ephInfraHostOpentelemetrySum, usageSummaryDate.ephInfraHostOpentelemetrySum)
-        && Objects.equals(this.ephInfraHostProSum, usageSummaryDate.ephInfraHostProSum)
-        && Objects.equals(this.ephInfraHostProplusSum, usageSummaryDate.ephInfraHostProplusSum)
-        && Objects.equals(this.ephInfraHostProxmoxSum, usageSummaryDate.ephInfraHostProxmoxSum)
-        && Objects.equals(
-            this.errorTrackingApmErrorEventsSum, usageSummaryDate.errorTrackingApmErrorEventsSum)
-        && Objects.equals(
-            this.errorTrackingErrorEventsSum, usageSummaryDate.errorTrackingErrorEventsSum)
-        && Objects.equals(this.errorTrackingEventsSum, usageSummaryDate.errorTrackingEventsSum)
-        && Objects.equals(
-            this.errorTrackingRumErrorEventsSum, usageSummaryDate.errorTrackingRumErrorEventsSum)
-        && Objects.equals(
-            this.eventManagementCorrelationCorrelatedEventsSum,
-            usageSummaryDate.eventManagementCorrelationCorrelatedEventsSum)
-        && Objects.equals(
-            this.eventManagementCorrelationCorrelatedRelatedEventsSum,
-            usageSummaryDate.eventManagementCorrelationCorrelatedRelatedEventsSum)
-        && Objects.equals(
-            this.eventManagementCorrelationSum, usageSummaryDate.eventManagementCorrelationSum)
-        && Objects.equals(
-            this.fargateContainerProfilerProfilingFargateAvg,
-            usageSummaryDate.fargateContainerProfilerProfilingFargateAvg)
-        && Objects.equals(
-            this.fargateContainerProfilerProfilingFargateEksAvg,
-            usageSummaryDate.fargateContainerProfilerProfilingFargateEksAvg)
-        && Objects.equals(this.fargateTasksCountAvg, usageSummaryDate.fargateTasksCountAvg)
-        && Objects.equals(this.fargateTasksCountHwm, usageSummaryDate.fargateTasksCountHwm)
-        && Objects.equals(
-            this.featureFlagsConfigRequestsSum, usageSummaryDate.featureFlagsConfigRequestsSum)
-        && Objects.equals(this.flexLogsComputeLargeAvg, usageSummaryDate.flexLogsComputeLargeAvg)
-        && Objects.equals(this.flexLogsComputeMediumAvg, usageSummaryDate.flexLogsComputeMediumAvg)
-        && Objects.equals(this.flexLogsComputeSmallAvg, usageSummaryDate.flexLogsComputeSmallAvg)
-        && Objects.equals(this.flexLogsComputeXlargeAvg, usageSummaryDate.flexLogsComputeXlargeAvg)
-        && Objects.equals(this.flexLogsComputeXsmallAvg, usageSummaryDate.flexLogsComputeXsmallAvg)
-        && Objects.equals(this.flexLogsStarterAvg, usageSummaryDate.flexLogsStarterAvg)
-        && Objects.equals(
-            this.flexLogsStarterStorageIndexAvg, usageSummaryDate.flexLogsStarterStorageIndexAvg)
-        && Objects.equals(
-            this.flexLogsStarterStorageRetentionAdjustmentAvg,
-            usageSummaryDate.flexLogsStarterStorageRetentionAdjustmentAvg)
-        && Objects.equals(this.flexStoredLogsAvg, usageSummaryDate.flexStoredLogsAvg)
-        && Objects.equals(this.forwardingEventsBytesSum, usageSummaryDate.forwardingEventsBytesSum)
-        && Objects.equals(this.gcpHostTop99p, usageSummaryDate.gcpHostTop99p)
-        && Objects.equals(this.herokuHostTop99p, usageSummaryDate.herokuHostTop99p)
-        && Objects.equals(
-            this.incidentManagementMonthlyActiveUsersHwm,
-            usageSummaryDate.incidentManagementMonthlyActiveUsersHwm)
-        && Objects.equals(
-            this.incidentManagementSeatsHwm, usageSummaryDate.incidentManagementSeatsHwm)
-        && Objects.equals(this.indexedEventsCountSum, usageSummaryDate.indexedEventsCountSum)
-        && Objects.equals(this.indexedPointsSum, usageSummaryDate.indexedPointsSum)
-        && Objects.equals(this.infraCpuAvg, usageSummaryDate.infraCpuAvg)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuAgentAvg,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuAgentAvg)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuAgentBasicAvg,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuAgentBasicAvg)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuAgentBasicSum,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuAgentBasicSum)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuAgentSum,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuAgentSum)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuAwsAvg,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuAwsAvg)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuAwsSum,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuAwsSum)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuAzureAvg,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuAzureAvg)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuAzureSum,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuAzureSum)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuGcpAvg,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuGcpAvg)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuGcpSum,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuGcpSum)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuNutanixAvg,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuNutanixAvg)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuNutanixBasicAvg,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuNutanixBasicAvg)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuNutanixBasicSum,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuNutanixBasicSum)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuNutanixSum,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuNutanixSum)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuOpentelemetryAvg)
-        && Objects.equals(
-            this.infraCpuDefaultInfraHostVcpuOpentelemetrySum,
-            usageSummaryDate.infraCpuDefaultInfraHostVcpuOpentelemetrySum)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuAgentAvg,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuAgentAvg)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuAgentSum,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuAgentSum)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuAwsAvg,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuAwsAvg)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuAwsSum,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuAwsSum)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuAzureAvg,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuAzureAvg)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuAzureSum,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuAzureSum)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuGcpAvg,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuGcpAvg)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuGcpSum,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuGcpSum)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuNutanixAvg,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuNutanixAvg)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuNutanixSum,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuNutanixSum)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuOpentelemetryAvg,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuOpentelemetryAvg)
-        && Objects.equals(
-            this.infraCpuObservedInfraHostVcpuOpentelemetrySum,
-            usageSummaryDate.infraCpuObservedInfraHostVcpuOpentelemetrySum)
-        && Objects.equals(this.infraCpuSum, usageSummaryDate.infraCpuSum)
-        && Objects.equals(
-            this.infraEdgeMonitoringDevicesTop99p,
-            usageSummaryDate.infraEdgeMonitoringDevicesTop99p)
-        && Objects.equals(
-            this.infraHostBasicInfraBasicAgentTop99p,
-            usageSummaryDate.infraHostBasicInfraBasicAgentTop99p)
-        && Objects.equals(
-            this.infraHostBasicInfraBasicVsphereTop99p,
-            usageSummaryDate.infraHostBasicInfraBasicVsphereTop99p)
-        && Objects.equals(this.infraHostBasicTop99p, usageSummaryDate.infraHostBasicTop99p)
-        && Objects.equals(this.infraHostTop99p, usageSummaryDate.infraHostTop99p)
-        && Objects.equals(
-            this.infraStorageMgmtObjectsCountAvg, usageSummaryDate.infraStorageMgmtObjectsCountAvg)
-        && Objects.equals(this.ingestPointsSum, usageSummaryDate.ingestPointsSum)
-        && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDate.ingestedEventsBytesSum)
-        && Objects.equals(this.iotApmHostSum, usageSummaryDate.iotApmHostSum)
-        && Objects.equals(this.iotApmHostTop99p, usageSummaryDate.iotApmHostTop99p)
-        && Objects.equals(this.iotDeviceSum, usageSummaryDate.iotDeviceSum)
-        && Objects.equals(this.iotDeviceTop99p, usageSummaryDate.iotDeviceTop99p)
-        && Objects.equals(
-            this.llmObservability15dayRetentionSpansSum,
-            usageSummaryDate.llmObservability15dayRetentionSpansSum)
-        && Objects.equals(
-            this.llmObservability30dayRetentionSpansSum,
-            usageSummaryDate.llmObservability30dayRetentionSpansSum)
-        && Objects.equals(
-            this.llmObservability60dayRetentionSpansSum,
-            usageSummaryDate.llmObservability60dayRetentionSpansSum)
-        && Objects.equals(
-            this.llmObservability90dayRetentionSpansSum,
-            usageSummaryDate.llmObservability90dayRetentionSpansSum)
-        && Objects.equals(
-            this.llmObservabilityMinSpendSum, usageSummaryDate.llmObservabilityMinSpendSum)
-        && Objects.equals(this.llmObservabilitySum, usageSummaryDate.llmObservabilitySum)
-        && Objects.equals(
-            this.logsArchiveSearchGbScannedSum, usageSummaryDate.logsArchiveSearchGbScannedSum)
-        && Objects.equals(this.metricNamesSum, usageSummaryDate.metricNamesSum)
-        && Objects.equals(
-            this.mobileRumLiteSessionCountSum, usageSummaryDate.mobileRumLiteSessionCountSum)
-        && Objects.equals(
-            this.mobileRumSessionCountAndroidSum, usageSummaryDate.mobileRumSessionCountAndroidSum)
-        && Objects.equals(
-            this.mobileRumSessionCountFlutterSum, usageSummaryDate.mobileRumSessionCountFlutterSum)
-        && Objects.equals(
-            this.mobileRumSessionCountIosSum, usageSummaryDate.mobileRumSessionCountIosSum)
-        && Objects.equals(
-            this.mobileRumSessionCountReactnativeSum,
-            usageSummaryDate.mobileRumSessionCountReactnativeSum)
-        && Objects.equals(
-            this.mobileRumSessionCountRokuSum, usageSummaryDate.mobileRumSessionCountRokuSum)
-        && Objects.equals(this.mobileRumSessionCountSum, usageSummaryDate.mobileRumSessionCountSum)
-        && Objects.equals(this.mobileRumUnitsSum, usageSummaryDate.mobileRumUnitsSum)
-        && Objects.equals(this.ndmNetflowEventsSum, usageSummaryDate.ndmNetflowEventsSum)
-        && Objects.equals(
-            this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum)
-        && Objects.equals(
-            this.networkDeviceWirelessTop99p, usageSummaryDate.networkDeviceWirelessTop99p)
-        && Objects.equals(this.networkPathSum, usageSummaryDate.networkPathSum)
-        && Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p)
-        && Objects.equals(
-            this.observabilityPipelinesBytesProcessedSum,
-            usageSummaryDate.observabilityPipelinesBytesProcessedSum)
-        && Objects.equals(this.ociHostSum, usageSummaryDate.ociHostSum)
-        && Objects.equals(this.ociHostTop99p, usageSummaryDate.ociHostTop99p)
-        && Objects.equals(this.onCallSeatHwm, usageSummaryDate.onCallSeatHwm)
-        && Objects.equals(
-            this.onlineArchiveEventsCountSum, usageSummaryDate.onlineArchiveEventsCountSum)
-        && Objects.equals(
-            this.opentelemetryApmHostTop99p, usageSummaryDate.opentelemetryApmHostTop99p)
-        && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDate.opentelemetryHostTop99p)
-        && Objects.equals(this.orgs, usageSummaryDate.orgs)
-        && Objects.equals(this.productAnalyticsSum, usageSummaryDate.productAnalyticsSum)
-        && Objects.equals(this.profilingAasCountTop99p, usageSummaryDate.profilingAasCountTop99p)
-        && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
-        && Objects.equals(this.proxmoxHostSum, usageSummaryDate.proxmoxHostSum)
-        && Objects.equals(this.proxmoxHostTop99p, usageSummaryDate.proxmoxHostTop99p)
-        && Objects.equals(this.publishedAppHwm, usageSummaryDate.publishedAppHwm)
-        && Objects.equals(
-            this.rumBrowserAndMobileSessionCount, usageSummaryDate.rumBrowserAndMobileSessionCount)
-        && Objects.equals(
-            this.rumBrowserLegacySessionCountSum, usageSummaryDate.rumBrowserLegacySessionCountSum)
-        && Objects.equals(
-            this.rumBrowserLiteSessionCountSum, usageSummaryDate.rumBrowserLiteSessionCountSum)
-        && Objects.equals(
-            this.rumBrowserReplaySessionCountSum, usageSummaryDate.rumBrowserReplaySessionCountSum)
-        && Objects.equals(this.rumIndexedSessionsSum, usageSummaryDate.rumIndexedSessionsSum)
-        && Objects.equals(this.rumIngestedSessionsSum, usageSummaryDate.rumIngestedSessionsSum)
-        && Objects.equals(this.rumLiteSessionCountSum, usageSummaryDate.rumLiteSessionCountSum)
-        && Objects.equals(
-            this.rumMobileLegacySessionCountAndroidSum,
-            usageSummaryDate.rumMobileLegacySessionCountAndroidSum)
-        && Objects.equals(
-            this.rumMobileLegacySessionCountFlutterSum,
-            usageSummaryDate.rumMobileLegacySessionCountFlutterSum)
-        && Objects.equals(
-            this.rumMobileLegacySessionCountIosSum,
-            usageSummaryDate.rumMobileLegacySessionCountIosSum)
-        && Objects.equals(
-            this.rumMobileLegacySessionCountReactnativeSum,
-            usageSummaryDate.rumMobileLegacySessionCountReactnativeSum)
-        && Objects.equals(
-            this.rumMobileLegacySessionCountRokuSum,
-            usageSummaryDate.rumMobileLegacySessionCountRokuSum)
-        && Objects.equals(
-            this.rumMobileLiteSessionCountAndroidSum,
-            usageSummaryDate.rumMobileLiteSessionCountAndroidSum)
-        && Objects.equals(
-            this.rumMobileLiteSessionCountFlutterSum,
-            usageSummaryDate.rumMobileLiteSessionCountFlutterSum)
-        && Objects.equals(
-            this.rumMobileLiteSessionCountIosSum, usageSummaryDate.rumMobileLiteSessionCountIosSum)
-        && Objects.equals(
-            this.rumMobileLiteSessionCountKotlinmultiplatformSum,
-            usageSummaryDate.rumMobileLiteSessionCountKotlinmultiplatformSum)
-        && Objects.equals(
-            this.rumMobileLiteSessionCountReactnativeSum,
-            usageSummaryDate.rumMobileLiteSessionCountReactnativeSum)
-        && Objects.equals(
-            this.rumMobileLiteSessionCountRokuSum,
-            usageSummaryDate.rumMobileLiteSessionCountRokuSum)
-        && Objects.equals(
-            this.rumMobileLiteSessionCountUnitySum,
-            usageSummaryDate.rumMobileLiteSessionCountUnitySum)
-        && Objects.equals(
-            this.rumMobileReplaySessionCountAndroidSum,
-            usageSummaryDate.rumMobileReplaySessionCountAndroidSum)
-        && Objects.equals(
-            this.rumMobileReplaySessionCountIosSum,
-            usageSummaryDate.rumMobileReplaySessionCountIosSum)
-        && Objects.equals(
-            this.rumMobileReplaySessionCountKotlinmultiplatformSum,
-            usageSummaryDate.rumMobileReplaySessionCountKotlinmultiplatformSum)
-        && Objects.equals(
-            this.rumMobileReplaySessionCountReactnativeSum,
-            usageSummaryDate.rumMobileReplaySessionCountReactnativeSum)
-        && Objects.equals(this.rumReplaySessionCountSum, usageSummaryDate.rumReplaySessionCountSum)
-        && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum)
-        && Objects.equals(this.rumSessionReplayAddOnSum, usageSummaryDate.rumSessionReplayAddOnSum)
-        && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum)
-        && Objects.equals(this.rumUnitsSum, usageSummaryDate.rumUnitsSum)
-        && Objects.equals(this.scaFargateCountAvg, usageSummaryDate.scaFargateCountAvg)
-        && Objects.equals(this.scaFargateCountHwm, usageSummaryDate.scaFargateCountHwm)
-        && Objects.equals(this.sdsApmScannedBytesSum, usageSummaryDate.sdsApmScannedBytesSum)
-        && Objects.equals(this.sdsEventsScannedBytesSum, usageSummaryDate.sdsEventsScannedBytesSum)
-        && Objects.equals(this.sdsLogsScannedBytesSum, usageSummaryDate.sdsLogsScannedBytesSum)
-        && Objects.equals(this.sdsRumScannedBytesSum, usageSummaryDate.sdsRumScannedBytesSum)
-        && Objects.equals(this.sdsTotalScannedBytesSum, usageSummaryDate.sdsTotalScannedBytesSum)
-        && Objects.equals(
-            this.serverlessAppsApmApmAzureAppserviceInstancesAvg,
-            usageSummaryDate.serverlessAppsApmApmAzureAppserviceInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmApmAzureAzurefunctionInstancesAvg,
-            usageSummaryDate.serverlessAppsApmApmAzureAzurefunctionInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmApmAzureContainerappInstancesAvg,
-            usageSummaryDate.serverlessAppsApmApmAzureContainerappInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmApmFargateEcsTasksAvg,
-            usageSummaryDate.serverlessAppsApmApmFargateEcsTasksAvg)
-        && Objects.equals(
-            this.serverlessAppsApmApmGcpCloudfunctionInstancesAvg,
-            usageSummaryDate.serverlessAppsApmApmGcpCloudfunctionInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmApmGcpCloudrunInstancesAvg,
-            usageSummaryDate.serverlessAppsApmApmGcpCloudrunInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmApmGcpGkeAutopilotPodsAvg,
-            usageSummaryDate.serverlessAppsApmApmGcpGkeAutopilotPodsAvg)
-        && Objects.equals(this.serverlessAppsApmAvg, usageSummaryDate.serverlessAppsApmAvg)
-        && Objects.equals(
-            this.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg,
-            usageSummaryDate.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg,
-            usageSummaryDate.serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg,
-            usageSummaryDate.serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg,
-            usageSummaryDate.serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg,
-            usageSummaryDate.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg,
-            usageSummaryDate.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg)
-        && Objects.equals(
-            this.serverlessAppsApmExclFargateAvg, usageSummaryDate.serverlessAppsApmExclFargateAvg)
-        && Objects.equals(
-            this.serverlessAppsAzureContainerAppInstancesAvg,
-            usageSummaryDate.serverlessAppsAzureContainerAppInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsAzureCountAvg, usageSummaryDate.serverlessAppsAzureCountAvg)
-        && Objects.equals(
-            this.serverlessAppsAzureFunctionAppInstancesAvg,
-            usageSummaryDate.serverlessAppsAzureFunctionAppInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsAzureWebAppInstancesAvg,
-            usageSummaryDate.serverlessAppsAzureWebAppInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsDsmFargateTasksAvg,
-            usageSummaryDate.serverlessAppsDsmFargateTasksAvg)
-        && Objects.equals(this.serverlessAppsEcsAvg, usageSummaryDate.serverlessAppsEcsAvg)
-        && Objects.equals(this.serverlessAppsEksAvg, usageSummaryDate.serverlessAppsEksAvg)
-        && Objects.equals(
-            this.serverlessAppsExclFargateAvg, usageSummaryDate.serverlessAppsExclFargateAvg)
-        && Objects.equals(
-            this.serverlessAppsExclFargateAzureContainerAppInstancesAvg,
-            usageSummaryDate.serverlessAppsExclFargateAzureContainerAppInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsExclFargateAzureFunctionAppInstancesAvg,
-            usageSummaryDate.serverlessAppsExclFargateAzureFunctionAppInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsExclFargateAzureWebAppInstancesAvg,
-            usageSummaryDate.serverlessAppsExclFargateAzureWebAppInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg,
-            usageSummaryDate.serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsExclFargateGoogleCloudRunInstancesAvg,
-            usageSummaryDate.serverlessAppsExclFargateGoogleCloudRunInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg,
-            usageSummaryDate.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg)
-        && Objects.equals(
-            this.serverlessAppsGoogleCloudFunctionsInstancesAvg,
-            usageSummaryDate.serverlessAppsGoogleCloudFunctionsInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsGoogleCloudRunInstancesAvg,
-            usageSummaryDate.serverlessAppsGoogleCloudRunInstancesAvg)
-        && Objects.equals(
-            this.serverlessAppsGoogleCountAvg, usageSummaryDate.serverlessAppsGoogleCountAvg)
-        && Objects.equals(
-            this.serverlessAppsInfraGcpGkeAutopilotPodsAvg,
-            usageSummaryDate.serverlessAppsInfraGcpGkeAutopilotPodsAvg)
-        && Objects.equals(
-            this.serverlessAppsTotalCountAvg, usageSummaryDate.serverlessAppsTotalCountAvg)
-        && Objects.equals(this.siem12moRetentionSum, usageSummaryDate.siem12moRetentionSum)
-        && Objects.equals(this.siem6moRetentionSum, usageSummaryDate.siem6moRetentionSum)
-        && Objects.equals(
-            this.siemAnalyzedLogsAddOnCountSum, usageSummaryDate.siemAnalyzedLogsAddOnCountSum)
-        && Objects.equals(this.snmpDeviceCountSum, usageSummaryDate.snmpDeviceCountSum)
-        && Objects.equals(this.snmpDeviceCountTop99p, usageSummaryDate.snmpDeviceCountTop99p)
-        && Objects.equals(
-            this.syntheticsBrowserCheckCallsCountSum,
-            usageSummaryDate.syntheticsBrowserCheckCallsCountSum)
-        && Objects.equals(
-            this.syntheticsCheckCallsCountSum, usageSummaryDate.syntheticsCheckCallsCountSum)
-        && Objects.equals(
-            this.syntheticsMobileTestRunsSum, usageSummaryDate.syntheticsMobileTestRunsSum)
-        && Objects.equals(
-            this.syntheticsParallelTestingMaxSlotsHwm,
-            usageSummaryDate.syntheticsParallelTestingMaxSlotsHwm)
-        && Objects.equals(
-            this.traceSearchIndexedEventsCountSum,
-            usageSummaryDate.traceSearchIndexedEventsCountSum)
-        && Objects.equals(
-            this.twolIngestedEventsBytesSum, usageSummaryDate.twolIngestedEventsBytesSum)
-        && Objects.equals(
-            this.universalServiceMonitoringHostTop99p,
-            usageSummaryDate.universalServiceMonitoringHostTop99p)
-        && Objects.equals(this.vsphereHostTop99p, usageSummaryDate.vsphereHostTop99p)
-        && Objects.equals(
-            this.vulnManagementHostCountTop99p, usageSummaryDate.vulnManagementHostCountTop99p)
-        && Objects.equals(
-            this.workflowExecutionsUsageSum, usageSummaryDate.workflowExecutionsUsageSum)
-        && Objects.equals(this.additionalProperties, usageSummaryDate.additionalProperties);
+    return Objects.equals(this.agentHostTop99p, usageSummaryDate.agentHostTop99p) && Objects.equals(this.aiCreditsAgentBuilderAiCreditsSum, usageSummaryDate.aiCreditsAgentBuilderAiCreditsSum) && Objects.equals(this.aiCreditsBitsAssistantAiCreditsSum, usageSummaryDate.aiCreditsBitsAssistantAiCreditsSum) && Objects.equals(this.aiCreditsBitsDevAiCreditsSum, usageSummaryDate.aiCreditsBitsDevAiCreditsSum) && Objects.equals(this.aiCreditsBitsSreAiCreditsSum, usageSummaryDate.aiCreditsBitsSreAiCreditsSum) && Objects.equals(this.aiCreditsSum, usageSummaryDate.aiCreditsSum) && Objects.equals(this.apmAzureAppServiceHostTop99p, usageSummaryDate.apmAzureAppServiceHostTop99p) && Objects.equals(this.apmDevsecopsHostTop99p, usageSummaryDate.apmDevsecopsHostTop99p) && Objects.equals(this.apmEnterpriseStandaloneHostsTop99p, usageSummaryDate.apmEnterpriseStandaloneHostsTop99p) && Objects.equals(this.apmFargateCountAvg, usageSummaryDate.apmFargateCountAvg) && Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p) && Objects.equals(this.apmProStandaloneHostsTop99p, usageSummaryDate.apmProStandaloneHostsTop99p) && Objects.equals(this.appsecFargateCountAvg, usageSummaryDate.appsecFargateCountAvg) && Objects.equals(this.asmServerlessSum, usageSummaryDate.asmServerlessSum) && Objects.equals(this.auditLogsLinesIndexedSum, usageSummaryDate.auditLogsLinesIndexedSum) && Objects.equals(this.auditTrailEnabledHwm, usageSummaryDate.auditTrailEnabledHwm) && Objects.equals(this.auditTrailEventForwardingEventsSum, usageSummaryDate.auditTrailEventForwardingEventsSum) && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDate.avgProfiledFargateTasks) && Objects.equals(this.awsHostTop99p, usageSummaryDate.awsHostTop99p) && Objects.equals(this.awsLambdaFuncCount, usageSummaryDate.awsLambdaFuncCount) && Objects.equals(this.awsLambdaInvocationsSum, usageSummaryDate.awsLambdaInvocationsSum) && Objects.equals(this.azureAppServiceTop99p, usageSummaryDate.azureAppServiceTop99p) && Objects.equals(this.billableIngestedBytesSum, usageSummaryDate.billableIngestedBytesSum) && Objects.equals(this.bitsAiInvestigationsSum, usageSummaryDate.bitsAiInvestigationsSum) && Objects.equals(this.browserRumLiteSessionCountSum, usageSummaryDate.browserRumLiteSessionCountSum) && Objects.equals(this.browserRumReplaySessionCountSum, usageSummaryDate.browserRumReplaySessionCountSum) && Objects.equals(this.browserRumUnitsSum, usageSummaryDate.browserRumUnitsSum) && Objects.equals(this.ccmAnthropicSpendLast, usageSummaryDate.ccmAnthropicSpendLast) && Objects.equals(this.ccmAwsSpendLast, usageSummaryDate.ccmAwsSpendLast) && Objects.equals(this.ccmAzureSpendLast, usageSummaryDate.ccmAzureSpendLast) && Objects.equals(this.ccmConfluentSpendLast, usageSummaryDate.ccmConfluentSpendLast) && Objects.equals(this.ccmDatabricksSpendLast, usageSummaryDate.ccmDatabricksSpendLast) && Objects.equals(this.ccmElasticSpendLast, usageSummaryDate.ccmElasticSpendLast) && Objects.equals(this.ccmFastlySpendLast, usageSummaryDate.ccmFastlySpendLast) && Objects.equals(this.ccmGcpSpendLast, usageSummaryDate.ccmGcpSpendLast) && Objects.equals(this.ccmGithubSpendLast, usageSummaryDate.ccmGithubSpendLast) && Objects.equals(this.ccmMongodbSpendLast, usageSummaryDate.ccmMongodbSpendLast) && Objects.equals(this.ccmOciSpendLast, usageSummaryDate.ccmOciSpendLast) && Objects.equals(this.ccmOpenaiSpendLast, usageSummaryDate.ccmOpenaiSpendLast) && Objects.equals(this.ccmSnowflakeSpendLast, usageSummaryDate.ccmSnowflakeSpendLast) && Objects.equals(this.ccmSpendMonitoredEntLast, usageSummaryDate.ccmSpendMonitoredEntLast) && Objects.equals(this.ccmSpendMonitoredProLast, usageSummaryDate.ccmSpendMonitoredProLast) && Objects.equals(this.ccmTwilioSpendLast, usageSummaryDate.ccmTwilioSpendLast) && Objects.equals(this.ciPipelineIndexedSpansSum, usageSummaryDate.ciPipelineIndexedSpansSum) && Objects.equals(this.ciTestIndexedSpansSum, usageSummaryDate.ciTestIndexedSpansSum) && Objects.equals(this.ciVisibilityItrCommittersHwm, usageSummaryDate.ciVisibilityItrCommittersHwm) && Objects.equals(this.ciVisibilityPipelineCommittersHwm, usageSummaryDate.ciVisibilityPipelineCommittersHwm) && Objects.equals(this.ciVisibilityTestCommittersHwm, usageSummaryDate.ciVisibilityTestCommittersHwm) && Objects.equals(this.cloudCostManagementAwsHostCountAvg, usageSummaryDate.cloudCostManagementAwsHostCountAvg) && Objects.equals(this.cloudCostManagementAzureHostCountAvg, usageSummaryDate.cloudCostManagementAzureHostCountAvg) && Objects.equals(this.cloudCostManagementGcpHostCountAvg, usageSummaryDate.cloudCostManagementGcpHostCountAvg) && Objects.equals(this.cloudCostManagementHostCountAvg, usageSummaryDate.cloudCostManagementHostCountAvg) && Objects.equals(this.cloudCostManagementOciHostCountAvg, usageSummaryDate.cloudCostManagementOciHostCountAvg) && Objects.equals(this.cloudSiemEventsSum, usageSummaryDate.cloudSiemEventsSum) && Objects.equals(this.cloudSiemIndexedLogsSum, usageSummaryDate.cloudSiemIndexedLogsSum) && Objects.equals(this.codeAnalysisSaCommittersHwm, usageSummaryDate.codeAnalysisSaCommittersHwm) && Objects.equals(this.codeAnalysisScaCommittersHwm, usageSummaryDate.codeAnalysisScaCommittersHwm) && Objects.equals(this.codeSecurityHostTop99p, usageSummaryDate.codeSecurityHostTop99p) && Objects.equals(this.containerAvg, usageSummaryDate.containerAvg) && Objects.equals(this.containerExclAgentAvg, usageSummaryDate.containerExclAgentAvg) && Objects.equals(this.containerHwm, usageSummaryDate.containerHwm) && Objects.equals(this.csmContainerEnterpriseComplianceCountSum, usageSummaryDate.csmContainerEnterpriseComplianceCountSum) && Objects.equals(this.csmContainerEnterpriseCwsCountSum, usageSummaryDate.csmContainerEnterpriseCwsCountSum) && Objects.equals(this.csmContainerEnterpriseTotalCountSum, usageSummaryDate.csmContainerEnterpriseTotalCountSum) && Objects.equals(this.csmHostEnterpriseAasHostCountTop99p, usageSummaryDate.csmHostEnterpriseAasHostCountTop99p) && Objects.equals(this.csmHostEnterpriseAwsHostCountTop99p, usageSummaryDate.csmHostEnterpriseAwsHostCountTop99p) && Objects.equals(this.csmHostEnterpriseAzureHostCountTop99p, usageSummaryDate.csmHostEnterpriseAzureHostCountTop99p) && Objects.equals(this.csmHostEnterpriseComplianceHostCountTop99p, usageSummaryDate.csmHostEnterpriseComplianceHostCountTop99p) && Objects.equals(this.csmHostEnterpriseCwsHostCountTop99p, usageSummaryDate.csmHostEnterpriseCwsHostCountTop99p) && Objects.equals(this.csmHostEnterpriseGcpHostCountTop99p, usageSummaryDate.csmHostEnterpriseGcpHostCountTop99p) && Objects.equals(this.csmHostEnterpriseOciHostCountTop99p, usageSummaryDate.csmHostEnterpriseOciHostCountTop99p) && Objects.equals(this.csmHostEnterpriseTotalHostCountTop99p, usageSummaryDate.csmHostEnterpriseTotalHostCountTop99p) && Objects.equals(this.csmHostProHostsAgentlessScannersSum, usageSummaryDate.csmHostProHostsAgentlessScannersSum) && Objects.equals(this.csmHostProHostsAgentlessScannersTop99p, usageSummaryDate.csmHostProHostsAgentlessScannersTop99p) && Objects.equals(this.csmHostProOciHostCountTop99p, usageSummaryDate.csmHostProOciHostCountTop99p) && Objects.equals(this.cspmAasHostTop99p, usageSummaryDate.cspmAasHostTop99p) && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDate.cspmAwsHostTop99p) && Objects.equals(this.cspmAzureHostTop99p, usageSummaryDate.cspmAzureHostTop99p) && Objects.equals(this.cspmContainerAvg, usageSummaryDate.cspmContainerAvg) && Objects.equals(this.cspmContainerHwm, usageSummaryDate.cspmContainerHwm) && Objects.equals(this.cspmGcpHostTop99p, usageSummaryDate.cspmGcpHostTop99p) && Objects.equals(this.cspmHostTop99p, usageSummaryDate.cspmHostTop99p) && Objects.equals(this.cspmHostsAgentlessScannersSum, usageSummaryDate.cspmHostsAgentlessScannersSum) && Objects.equals(this.cspmHostsAgentlessScannersTop99p, usageSummaryDate.cspmHostsAgentlessScannersTop99p) && Objects.equals(this.customTsAvg, usageSummaryDate.customTsAvg) && Objects.equals(this.cwsContainerCountAvg, usageSummaryDate.cwsContainerCountAvg) && Objects.equals(this.cwsFargateTaskAvg, usageSummaryDate.cwsFargateTaskAvg) && Objects.equals(this.cwsHostTop99p, usageSummaryDate.cwsHostTop99p) && Objects.equals(this.dataJobsMonitoringHostHrSum, usageSummaryDate.dataJobsMonitoringHostHrSum) && Objects.equals(this.dataStreamMonitoringHostCountSum, usageSummaryDate.dataStreamMonitoringHostCountSum) && Objects.equals(this.dataStreamMonitoringHostCountTop99p, usageSummaryDate.dataStreamMonitoringHostCountTop99p) && Objects.equals(this.date, usageSummaryDate.date) && Objects.equals(this.dbmHostTop99p, usageSummaryDate.dbmHostTop99p) && Objects.equals(this.dbmQueriesCountAvg, usageSummaryDate.dbmQueriesCountAvg) && Objects.equals(this.doJobsMonitoringOrchestratorsJobHoursSum, usageSummaryDate.doJobsMonitoringOrchestratorsJobHoursSum) && Objects.equals(this.ephInfraHostAgentSum, usageSummaryDate.ephInfraHostAgentSum) && Objects.equals(this.ephInfraHostAlibabaSum, usageSummaryDate.ephInfraHostAlibabaSum) && Objects.equals(this.ephInfraHostAwsSum, usageSummaryDate.ephInfraHostAwsSum) && Objects.equals(this.ephInfraHostAzureSum, usageSummaryDate.ephInfraHostAzureSum) && Objects.equals(this.ephInfraHostBasicInfraBasicAgentSum, usageSummaryDate.ephInfraHostBasicInfraBasicAgentSum) && Objects.equals(this.ephInfraHostBasicInfraBasicVsphereSum, usageSummaryDate.ephInfraHostBasicInfraBasicVsphereSum) && Objects.equals(this.ephInfraHostBasicSum, usageSummaryDate.ephInfraHostBasicSum) && Objects.equals(this.ephInfraHostEntSum, usageSummaryDate.ephInfraHostEntSum) && Objects.equals(this.ephInfraHostGcpSum, usageSummaryDate.ephInfraHostGcpSum) && Objects.equals(this.ephInfraHostHerokuSum, usageSummaryDate.ephInfraHostHerokuSum) && Objects.equals(this.ephInfraHostOnlyAasSum, usageSummaryDate.ephInfraHostOnlyAasSum) && Objects.equals(this.ephInfraHostOnlyVsphereSum, usageSummaryDate.ephInfraHostOnlyVsphereSum) && Objects.equals(this.ephInfraHostOpentelemetryApmSum, usageSummaryDate.ephInfraHostOpentelemetryApmSum) && Objects.equals(this.ephInfraHostOpentelemetrySum, usageSummaryDate.ephInfraHostOpentelemetrySum) && Objects.equals(this.ephInfraHostProSum, usageSummaryDate.ephInfraHostProSum) && Objects.equals(this.ephInfraHostProplusSum, usageSummaryDate.ephInfraHostProplusSum) && Objects.equals(this.ephInfraHostProxmoxSum, usageSummaryDate.ephInfraHostProxmoxSum) && Objects.equals(this.errorTrackingApmErrorEventsSum, usageSummaryDate.errorTrackingApmErrorEventsSum) && Objects.equals(this.errorTrackingErrorEventsSum, usageSummaryDate.errorTrackingErrorEventsSum) && Objects.equals(this.errorTrackingEventsSum, usageSummaryDate.errorTrackingEventsSum) && Objects.equals(this.errorTrackingRumErrorEventsSum, usageSummaryDate.errorTrackingRumErrorEventsSum) && Objects.equals(this.eventManagementCorrelationCorrelatedEventsSum, usageSummaryDate.eventManagementCorrelationCorrelatedEventsSum) && Objects.equals(this.eventManagementCorrelationCorrelatedRelatedEventsSum, usageSummaryDate.eventManagementCorrelationCorrelatedRelatedEventsSum) && Objects.equals(this.eventManagementCorrelationSum, usageSummaryDate.eventManagementCorrelationSum) && Objects.equals(this.fargateContainerProfilerProfilingFargateAvg, usageSummaryDate.fargateContainerProfilerProfilingFargateAvg) && Objects.equals(this.fargateContainerProfilerProfilingFargateEksAvg, usageSummaryDate.fargateContainerProfilerProfilingFargateEksAvg) && Objects.equals(this.fargateTasksCountAvg, usageSummaryDate.fargateTasksCountAvg) && Objects.equals(this.fargateTasksCountHwm, usageSummaryDate.fargateTasksCountHwm) && Objects.equals(this.featureFlagsConfigRequestsSum, usageSummaryDate.featureFlagsConfigRequestsSum) && Objects.equals(this.flexLogsComputeLargeAvg, usageSummaryDate.flexLogsComputeLargeAvg) && Objects.equals(this.flexLogsComputeMediumAvg, usageSummaryDate.flexLogsComputeMediumAvg) && Objects.equals(this.flexLogsComputeSmallAvg, usageSummaryDate.flexLogsComputeSmallAvg) && Objects.equals(this.flexLogsComputeXlargeAvg, usageSummaryDate.flexLogsComputeXlargeAvg) && Objects.equals(this.flexLogsComputeXsmallAvg, usageSummaryDate.flexLogsComputeXsmallAvg) && Objects.equals(this.flexLogsStarterAvg, usageSummaryDate.flexLogsStarterAvg) && Objects.equals(this.flexLogsStarterStorageIndexAvg, usageSummaryDate.flexLogsStarterStorageIndexAvg) && Objects.equals(this.flexLogsStarterStorageRetentionAdjustmentAvg, usageSummaryDate.flexLogsStarterStorageRetentionAdjustmentAvg) && Objects.equals(this.flexStoredLogsAvg, usageSummaryDate.flexStoredLogsAvg) && Objects.equals(this.forwardingEventsBytesSum, usageSummaryDate.forwardingEventsBytesSum) && Objects.equals(this.gcpHostTop99p, usageSummaryDate.gcpHostTop99p) && Objects.equals(this.herokuHostTop99p, usageSummaryDate.herokuHostTop99p) && Objects.equals(this.incidentManagementMonthlyActiveUsersHwm, usageSummaryDate.incidentManagementMonthlyActiveUsersHwm) && Objects.equals(this.incidentManagementSeatsHwm, usageSummaryDate.incidentManagementSeatsHwm) && Objects.equals(this.indexedEventsCountSum, usageSummaryDate.indexedEventsCountSum) && Objects.equals(this.indexedPointsSum, usageSummaryDate.indexedPointsSum) && Objects.equals(this.infraCpuAvg, usageSummaryDate.infraCpuAvg) && Objects.equals(this.infraCpuDefaultInfraHostVcpuAgentAvg, usageSummaryDate.infraCpuDefaultInfraHostVcpuAgentAvg) && Objects.equals(this.infraCpuDefaultInfraHostVcpuAgentBasicAvg, usageSummaryDate.infraCpuDefaultInfraHostVcpuAgentBasicAvg) && Objects.equals(this.infraCpuDefaultInfraHostVcpuAgentBasicSum, usageSummaryDate.infraCpuDefaultInfraHostVcpuAgentBasicSum) && Objects.equals(this.infraCpuDefaultInfraHostVcpuAgentSum, usageSummaryDate.infraCpuDefaultInfraHostVcpuAgentSum) && Objects.equals(this.infraCpuDefaultInfraHostVcpuAwsAvg, usageSummaryDate.infraCpuDefaultInfraHostVcpuAwsAvg) && Objects.equals(this.infraCpuDefaultInfraHostVcpuAwsSum, usageSummaryDate.infraCpuDefaultInfraHostVcpuAwsSum) && Objects.equals(this.infraCpuDefaultInfraHostVcpuAzureAvg, usageSummaryDate.infraCpuDefaultInfraHostVcpuAzureAvg) && Objects.equals(this.infraCpuDefaultInfraHostVcpuAzureSum, usageSummaryDate.infraCpuDefaultInfraHostVcpuAzureSum) && Objects.equals(this.infraCpuDefaultInfraHostVcpuGcpAvg, usageSummaryDate.infraCpuDefaultInfraHostVcpuGcpAvg) && Objects.equals(this.infraCpuDefaultInfraHostVcpuGcpSum, usageSummaryDate.infraCpuDefaultInfraHostVcpuGcpSum) && Objects.equals(this.infraCpuDefaultInfraHostVcpuNutanixAvg, usageSummaryDate.infraCpuDefaultInfraHostVcpuNutanixAvg) && Objects.equals(this.infraCpuDefaultInfraHostVcpuNutanixBasicAvg, usageSummaryDate.infraCpuDefaultInfraHostVcpuNutanixBasicAvg) && Objects.equals(this.infraCpuDefaultInfraHostVcpuNutanixBasicSum, usageSummaryDate.infraCpuDefaultInfraHostVcpuNutanixBasicSum) && Objects.equals(this.infraCpuDefaultInfraHostVcpuNutanixSum, usageSummaryDate.infraCpuDefaultInfraHostVcpuNutanixSum) && Objects.equals(this.infraCpuDefaultInfraHostVcpuOpentelemetryAvg, usageSummaryDate.infraCpuDefaultInfraHostVcpuOpentelemetryAvg) && Objects.equals(this.infraCpuDefaultInfraHostVcpuOpentelemetrySum, usageSummaryDate.infraCpuDefaultInfraHostVcpuOpentelemetrySum) && Objects.equals(this.infraCpuObservedInfraHostVcpuAgentAvg, usageSummaryDate.infraCpuObservedInfraHostVcpuAgentAvg) && Objects.equals(this.infraCpuObservedInfraHostVcpuAgentSum, usageSummaryDate.infraCpuObservedInfraHostVcpuAgentSum) && Objects.equals(this.infraCpuObservedInfraHostVcpuAwsAvg, usageSummaryDate.infraCpuObservedInfraHostVcpuAwsAvg) && Objects.equals(this.infraCpuObservedInfraHostVcpuAwsSum, usageSummaryDate.infraCpuObservedInfraHostVcpuAwsSum) && Objects.equals(this.infraCpuObservedInfraHostVcpuAzureAvg, usageSummaryDate.infraCpuObservedInfraHostVcpuAzureAvg) && Objects.equals(this.infraCpuObservedInfraHostVcpuAzureSum, usageSummaryDate.infraCpuObservedInfraHostVcpuAzureSum) && Objects.equals(this.infraCpuObservedInfraHostVcpuGcpAvg, usageSummaryDate.infraCpuObservedInfraHostVcpuGcpAvg) && Objects.equals(this.infraCpuObservedInfraHostVcpuGcpSum, usageSummaryDate.infraCpuObservedInfraHostVcpuGcpSum) && Objects.equals(this.infraCpuObservedInfraHostVcpuNutanixAvg, usageSummaryDate.infraCpuObservedInfraHostVcpuNutanixAvg) && Objects.equals(this.infraCpuObservedInfraHostVcpuNutanixSum, usageSummaryDate.infraCpuObservedInfraHostVcpuNutanixSum) && Objects.equals(this.infraCpuObservedInfraHostVcpuOpentelemetryAvg, usageSummaryDate.infraCpuObservedInfraHostVcpuOpentelemetryAvg) && Objects.equals(this.infraCpuObservedInfraHostVcpuOpentelemetrySum, usageSummaryDate.infraCpuObservedInfraHostVcpuOpentelemetrySum) && Objects.equals(this.infraCpuSum, usageSummaryDate.infraCpuSum) && Objects.equals(this.infraEdgeMonitoringDevicesTop99p, usageSummaryDate.infraEdgeMonitoringDevicesTop99p) && Objects.equals(this.infraHostBasicInfraBasicAgentTop99p, usageSummaryDate.infraHostBasicInfraBasicAgentTop99p) && Objects.equals(this.infraHostBasicInfraBasicVsphereTop99p, usageSummaryDate.infraHostBasicInfraBasicVsphereTop99p) && Objects.equals(this.infraHostBasicTop99p, usageSummaryDate.infraHostBasicTop99p) && Objects.equals(this.infraHostTop99p, usageSummaryDate.infraHostTop99p) && Objects.equals(this.infraStorageMgmtObjectsCountAvg, usageSummaryDate.infraStorageMgmtObjectsCountAvg) && Objects.equals(this.ingestPointsSum, usageSummaryDate.ingestPointsSum) && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDate.ingestedEventsBytesSum) && Objects.equals(this.iotApmHostSum, usageSummaryDate.iotApmHostSum) && Objects.equals(this.iotApmHostTop99p, usageSummaryDate.iotApmHostTop99p) && Objects.equals(this.iotDeviceSum, usageSummaryDate.iotDeviceSum) && Objects.equals(this.iotDeviceTop99p, usageSummaryDate.iotDeviceTop99p) && Objects.equals(this.llmObservability15dayRetentionSpansSum, usageSummaryDate.llmObservability15dayRetentionSpansSum) && Objects.equals(this.llmObservability30dayRetentionSpansSum, usageSummaryDate.llmObservability30dayRetentionSpansSum) && Objects.equals(this.llmObservability60dayRetentionSpansSum, usageSummaryDate.llmObservability60dayRetentionSpansSum) && Objects.equals(this.llmObservability90dayRetentionSpansSum, usageSummaryDate.llmObservability90dayRetentionSpansSum) && Objects.equals(this.llmObservabilityMinSpendSum, usageSummaryDate.llmObservabilityMinSpendSum) && Objects.equals(this.llmObservabilitySum, usageSummaryDate.llmObservabilitySum) && Objects.equals(this.logsArchiveSearchGbScannedSum, usageSummaryDate.logsArchiveSearchGbScannedSum) && Objects.equals(this.metricNamesSum, usageSummaryDate.metricNamesSum) && Objects.equals(this.mobileRumLiteSessionCountSum, usageSummaryDate.mobileRumLiteSessionCountSum) && Objects.equals(this.mobileRumSessionCountAndroidSum, usageSummaryDate.mobileRumSessionCountAndroidSum) && Objects.equals(this.mobileRumSessionCountFlutterSum, usageSummaryDate.mobileRumSessionCountFlutterSum) && Objects.equals(this.mobileRumSessionCountIosSum, usageSummaryDate.mobileRumSessionCountIosSum) && Objects.equals(this.mobileRumSessionCountReactnativeSum, usageSummaryDate.mobileRumSessionCountReactnativeSum) && Objects.equals(this.mobileRumSessionCountRokuSum, usageSummaryDate.mobileRumSessionCountRokuSum) && Objects.equals(this.mobileRumSessionCountSum, usageSummaryDate.mobileRumSessionCountSum) && Objects.equals(this.mobileRumUnitsSum, usageSummaryDate.mobileRumUnitsSum) && Objects.equals(this.ndmNetflowEventsSum, usageSummaryDate.ndmNetflowEventsSum) && Objects.equals(this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum) && Objects.equals(this.networkDeviceWirelessTop99p, usageSummaryDate.networkDeviceWirelessTop99p) && Objects.equals(this.networkPathSum, usageSummaryDate.networkPathSum) && Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p) && Objects.equals(this.observabilityPipelinesBytesProcessedSum, usageSummaryDate.observabilityPipelinesBytesProcessedSum) && Objects.equals(this.ociHostSum, usageSummaryDate.ociHostSum) && Objects.equals(this.ociHostTop99p, usageSummaryDate.ociHostTop99p) && Objects.equals(this.onCallSeatHwm, usageSummaryDate.onCallSeatHwm) && Objects.equals(this.onlineArchiveEventsCountSum, usageSummaryDate.onlineArchiveEventsCountSum) && Objects.equals(this.opentelemetryApmHostTop99p, usageSummaryDate.opentelemetryApmHostTop99p) && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDate.opentelemetryHostTop99p) && Objects.equals(this.orgs, usageSummaryDate.orgs) && Objects.equals(this.productAnalyticsSum, usageSummaryDate.productAnalyticsSum) && Objects.equals(this.profilingAasCountTop99p, usageSummaryDate.profilingAasCountTop99p) && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p) && Objects.equals(this.proxmoxHostSum, usageSummaryDate.proxmoxHostSum) && Objects.equals(this.proxmoxHostTop99p, usageSummaryDate.proxmoxHostTop99p) && Objects.equals(this.publishedAppHwm, usageSummaryDate.publishedAppHwm) && Objects.equals(this.rumBrowserAndMobileSessionCount, usageSummaryDate.rumBrowserAndMobileSessionCount) && Objects.equals(this.rumBrowserLegacySessionCountSum, usageSummaryDate.rumBrowserLegacySessionCountSum) && Objects.equals(this.rumBrowserLiteSessionCountSum, usageSummaryDate.rumBrowserLiteSessionCountSum) && Objects.equals(this.rumBrowserReplaySessionCountSum, usageSummaryDate.rumBrowserReplaySessionCountSum) && Objects.equals(this.rumIndexedSessionsSum, usageSummaryDate.rumIndexedSessionsSum) && Objects.equals(this.rumIngestedSessionsSum, usageSummaryDate.rumIngestedSessionsSum) && Objects.equals(this.rumLiteSessionCountSum, usageSummaryDate.rumLiteSessionCountSum) && Objects.equals(this.rumMobileLegacySessionCountAndroidSum, usageSummaryDate.rumMobileLegacySessionCountAndroidSum) && Objects.equals(this.rumMobileLegacySessionCountFlutterSum, usageSummaryDate.rumMobileLegacySessionCountFlutterSum) && Objects.equals(this.rumMobileLegacySessionCountIosSum, usageSummaryDate.rumMobileLegacySessionCountIosSum) && Objects.equals(this.rumMobileLegacySessionCountReactnativeSum, usageSummaryDate.rumMobileLegacySessionCountReactnativeSum) && Objects.equals(this.rumMobileLegacySessionCountRokuSum, usageSummaryDate.rumMobileLegacySessionCountRokuSum) && Objects.equals(this.rumMobileLiteSessionCountAndroidSum, usageSummaryDate.rumMobileLiteSessionCountAndroidSum) && Objects.equals(this.rumMobileLiteSessionCountFlutterSum, usageSummaryDate.rumMobileLiteSessionCountFlutterSum) && Objects.equals(this.rumMobileLiteSessionCountIosSum, usageSummaryDate.rumMobileLiteSessionCountIosSum) && Objects.equals(this.rumMobileLiteSessionCountKotlinmultiplatformSum, usageSummaryDate.rumMobileLiteSessionCountKotlinmultiplatformSum) && Objects.equals(this.rumMobileLiteSessionCountReactnativeSum, usageSummaryDate.rumMobileLiteSessionCountReactnativeSum) && Objects.equals(this.rumMobileLiteSessionCountRokuSum, usageSummaryDate.rumMobileLiteSessionCountRokuSum) && Objects.equals(this.rumMobileLiteSessionCountUnitySum, usageSummaryDate.rumMobileLiteSessionCountUnitySum) && Objects.equals(this.rumMobileReplaySessionCountAndroidSum, usageSummaryDate.rumMobileReplaySessionCountAndroidSum) && Objects.equals(this.rumMobileReplaySessionCountIosSum, usageSummaryDate.rumMobileReplaySessionCountIosSum) && Objects.equals(this.rumMobileReplaySessionCountKotlinmultiplatformSum, usageSummaryDate.rumMobileReplaySessionCountKotlinmultiplatformSum) && Objects.equals(this.rumMobileReplaySessionCountReactnativeSum, usageSummaryDate.rumMobileReplaySessionCountReactnativeSum) && Objects.equals(this.rumReplaySessionCountSum, usageSummaryDate.rumReplaySessionCountSum) && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum) && Objects.equals(this.rumSessionReplayAddOnSum, usageSummaryDate.rumSessionReplayAddOnSum) && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum) && Objects.equals(this.rumUnitsSum, usageSummaryDate.rumUnitsSum) && Objects.equals(this.scaFargateCountAvg, usageSummaryDate.scaFargateCountAvg) && Objects.equals(this.scaFargateCountHwm, usageSummaryDate.scaFargateCountHwm) && Objects.equals(this.sdsApmScannedBytesSum, usageSummaryDate.sdsApmScannedBytesSum) && Objects.equals(this.sdsEventsScannedBytesSum, usageSummaryDate.sdsEventsScannedBytesSum) && Objects.equals(this.sdsLogsScannedBytesSum, usageSummaryDate.sdsLogsScannedBytesSum) && Objects.equals(this.sdsRumScannedBytesSum, usageSummaryDate.sdsRumScannedBytesSum) && Objects.equals(this.sdsTotalScannedBytesSum, usageSummaryDate.sdsTotalScannedBytesSum) && Objects.equals(this.serverlessAppsApmApmAzureAppserviceInstancesAvg, usageSummaryDate.serverlessAppsApmApmAzureAppserviceInstancesAvg) && Objects.equals(this.serverlessAppsApmApmAzureAzurefunctionInstancesAvg, usageSummaryDate.serverlessAppsApmApmAzureAzurefunctionInstancesAvg) && Objects.equals(this.serverlessAppsApmApmAzureContainerappInstancesAvg, usageSummaryDate.serverlessAppsApmApmAzureContainerappInstancesAvg) && Objects.equals(this.serverlessAppsApmApmFargateEcsTasksAvg, usageSummaryDate.serverlessAppsApmApmFargateEcsTasksAvg) && Objects.equals(this.serverlessAppsApmApmGcpCloudfunctionInstancesAvg, usageSummaryDate.serverlessAppsApmApmGcpCloudfunctionInstancesAvg) && Objects.equals(this.serverlessAppsApmApmGcpCloudrunInstancesAvg, usageSummaryDate.serverlessAppsApmApmGcpCloudrunInstancesAvg) && Objects.equals(this.serverlessAppsApmApmGcpGkeAutopilotPodsAvg, usageSummaryDate.serverlessAppsApmApmGcpGkeAutopilotPodsAvg) && Objects.equals(this.serverlessAppsApmAvg, usageSummaryDate.serverlessAppsApmAvg) && Objects.equals(this.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg, usageSummaryDate.serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg) && Objects.equals(this.serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg, usageSummaryDate.serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg) && Objects.equals(this.serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg, usageSummaryDate.serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg) && Objects.equals(this.serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg, usageSummaryDate.serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg) && Objects.equals(this.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg, usageSummaryDate.serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg) && Objects.equals(this.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg, usageSummaryDate.serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg) && Objects.equals(this.serverlessAppsApmExclFargateAvg, usageSummaryDate.serverlessAppsApmExclFargateAvg) && Objects.equals(this.serverlessAppsAzureContainerAppInstancesAvg, usageSummaryDate.serverlessAppsAzureContainerAppInstancesAvg) && Objects.equals(this.serverlessAppsAzureCountAvg, usageSummaryDate.serverlessAppsAzureCountAvg) && Objects.equals(this.serverlessAppsAzureFunctionAppInstancesAvg, usageSummaryDate.serverlessAppsAzureFunctionAppInstancesAvg) && Objects.equals(this.serverlessAppsAzureWebAppInstancesAvg, usageSummaryDate.serverlessAppsAzureWebAppInstancesAvg) && Objects.equals(this.serverlessAppsDsmFargateTasksAvg, usageSummaryDate.serverlessAppsDsmFargateTasksAvg) && Objects.equals(this.serverlessAppsEcsAvg, usageSummaryDate.serverlessAppsEcsAvg) && Objects.equals(this.serverlessAppsEksAvg, usageSummaryDate.serverlessAppsEksAvg) && Objects.equals(this.serverlessAppsExclFargateAvg, usageSummaryDate.serverlessAppsExclFargateAvg) && Objects.equals(this.serverlessAppsExclFargateAzureContainerAppInstancesAvg, usageSummaryDate.serverlessAppsExclFargateAzureContainerAppInstancesAvg) && Objects.equals(this.serverlessAppsExclFargateAzureFunctionAppInstancesAvg, usageSummaryDate.serverlessAppsExclFargateAzureFunctionAppInstancesAvg) && Objects.equals(this.serverlessAppsExclFargateAzureWebAppInstancesAvg, usageSummaryDate.serverlessAppsExclFargateAzureWebAppInstancesAvg) && Objects.equals(this.serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg, usageSummaryDate.serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg) && Objects.equals(this.serverlessAppsExclFargateGoogleCloudRunInstancesAvg, usageSummaryDate.serverlessAppsExclFargateGoogleCloudRunInstancesAvg) && Objects.equals(this.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg, usageSummaryDate.serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg) && Objects.equals(this.serverlessAppsGoogleCloudFunctionsInstancesAvg, usageSummaryDate.serverlessAppsGoogleCloudFunctionsInstancesAvg) && Objects.equals(this.serverlessAppsGoogleCloudRunInstancesAvg, usageSummaryDate.serverlessAppsGoogleCloudRunInstancesAvg) && Objects.equals(this.serverlessAppsGoogleCountAvg, usageSummaryDate.serverlessAppsGoogleCountAvg) && Objects.equals(this.serverlessAppsInfraGcpGkeAutopilotPodsAvg, usageSummaryDate.serverlessAppsInfraGcpGkeAutopilotPodsAvg) && Objects.equals(this.serverlessAppsTotalCountAvg, usageSummaryDate.serverlessAppsTotalCountAvg) && Objects.equals(this.siem12moRetentionSum, usageSummaryDate.siem12moRetentionSum) && Objects.equals(this.siem6moRetentionSum, usageSummaryDate.siem6moRetentionSum) && Objects.equals(this.siemAnalyzedLogsAddOnCountSum, usageSummaryDate.siemAnalyzedLogsAddOnCountSum) && Objects.equals(this.snmpDeviceCountSum, usageSummaryDate.snmpDeviceCountSum) && Objects.equals(this.snmpDeviceCountTop99p, usageSummaryDate.snmpDeviceCountTop99p) && Objects.equals(this.syntheticsBrowserCheckCallsCountSum, usageSummaryDate.syntheticsBrowserCheckCallsCountSum) && Objects.equals(this.syntheticsCheckCallsCountSum, usageSummaryDate.syntheticsCheckCallsCountSum) && Objects.equals(this.syntheticsMobileTestRunsSum, usageSummaryDate.syntheticsMobileTestRunsSum) && Objects.equals(this.syntheticsParallelTestingMaxSlotsHwm, usageSummaryDate.syntheticsParallelTestingMaxSlotsHwm) && Objects.equals(this.traceSearchIndexedEventsCountSum, usageSummaryDate.traceSearchIndexedEventsCountSum) && Objects.equals(this.twolIngestedEventsBytesSum, usageSummaryDate.twolIngestedEventsBytesSum) && Objects.equals(this.universalServiceMonitoringHostTop99p, usageSummaryDate.universalServiceMonitoringHostTop99p) && Objects.equals(this.vsphereHostTop99p, usageSummaryDate.vsphereHostTop99p) && Objects.equals(this.vulnManagementHostCountTop99p, usageSummaryDate.vulnManagementHostCountTop99p) && Objects.equals(this.workflowExecutionsUsageSum, usageSummaryDate.workflowExecutionsUsageSum) && Objects.equals(this.additionalProperties, usageSummaryDate.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        agentHostTop99p,
-        aiCreditsAgentBuilderAiCreditsSum,
-        aiCreditsBitsAssistantAiCreditsSum,
-        aiCreditsBitsDevAiCreditsSum,
-        aiCreditsBitsSreAiCreditsSum,
-        aiCreditsSum,
-        apmAzureAppServiceHostTop99p,
-        apmDevsecopsHostTop99p,
-        apmEnterpriseStandaloneHostsTop99p,
-        apmFargateCountAvg,
-        apmHostTop99p,
-        apmProStandaloneHostsTop99p,
-        appsecFargateCountAvg,
-        asmServerlessSum,
-        auditLogsLinesIndexedSum,
-        auditTrailEnabledHwm,
-        auditTrailEventForwardingEventsSum,
-        avgProfiledFargateTasks,
-        awsHostTop99p,
-        awsLambdaFuncCount,
-        awsLambdaInvocationsSum,
-        azureAppServiceTop99p,
-        billableIngestedBytesSum,
-        bitsAiInvestigationsSum,
-        browserRumLiteSessionCountSum,
-        browserRumReplaySessionCountSum,
-        browserRumUnitsSum,
-        ccmAnthropicSpendLast,
-        ccmAwsSpendLast,
-        ccmAzureSpendLast,
-        ccmConfluentSpendLast,
-        ccmDatabricksSpendLast,
-        ccmElasticSpendLast,
-        ccmFastlySpendLast,
-        ccmGcpSpendLast,
-        ccmGithubSpendLast,
-        ccmMongodbSpendLast,
-        ccmOciSpendLast,
-        ccmOpenaiSpendLast,
-        ccmSnowflakeSpendLast,
-        ccmSpendMonitoredEntLast,
-        ccmSpendMonitoredProLast,
-        ccmTwilioSpendLast,
-        ciPipelineIndexedSpansSum,
-        ciTestIndexedSpansSum,
-        ciVisibilityItrCommittersHwm,
-        ciVisibilityPipelineCommittersHwm,
-        ciVisibilityTestCommittersHwm,
-        cloudCostManagementAwsHostCountAvg,
-        cloudCostManagementAzureHostCountAvg,
-        cloudCostManagementGcpHostCountAvg,
-        cloudCostManagementHostCountAvg,
-        cloudCostManagementOciHostCountAvg,
-        cloudSiemEventsSum,
-        cloudSiemIndexedLogsSum,
-        codeAnalysisSaCommittersHwm,
-        codeAnalysisScaCommittersHwm,
-        codeSecurityHostTop99p,
-        containerAvg,
-        containerExclAgentAvg,
-        containerHwm,
-        csmContainerEnterpriseComplianceCountSum,
-        csmContainerEnterpriseCwsCountSum,
-        csmContainerEnterpriseTotalCountSum,
-        csmHostEnterpriseAasHostCountTop99p,
-        csmHostEnterpriseAwsHostCountTop99p,
-        csmHostEnterpriseAzureHostCountTop99p,
-        csmHostEnterpriseComplianceHostCountTop99p,
-        csmHostEnterpriseCwsHostCountTop99p,
-        csmHostEnterpriseGcpHostCountTop99p,
-        csmHostEnterpriseOciHostCountTop99p,
-        csmHostEnterpriseTotalHostCountTop99p,
-        csmHostProHostsAgentlessScannersSum,
-        csmHostProHostsAgentlessScannersTop99p,
-        csmHostProOciHostCountTop99p,
-        cspmAasHostTop99p,
-        cspmAwsHostTop99p,
-        cspmAzureHostTop99p,
-        cspmContainerAvg,
-        cspmContainerHwm,
-        cspmGcpHostTop99p,
-        cspmHostTop99p,
-        cspmHostsAgentlessScannersSum,
-        cspmHostsAgentlessScannersTop99p,
-        customTsAvg,
-        cwsContainerCountAvg,
-        cwsFargateTaskAvg,
-        cwsHostTop99p,
-        dataJobsMonitoringHostHrSum,
-        dataStreamMonitoringHostCountSum,
-        dataStreamMonitoringHostCountTop99p,
-        date,
-        dbmHostTop99p,
-        dbmQueriesCountAvg,
-        doJobsMonitoringOrchestratorsJobHoursSum,
-        ephInfraHostAgentSum,
-        ephInfraHostAlibabaSum,
-        ephInfraHostAwsSum,
-        ephInfraHostAzureSum,
-        ephInfraHostBasicInfraBasicAgentSum,
-        ephInfraHostBasicInfraBasicVsphereSum,
-        ephInfraHostBasicSum,
-        ephInfraHostEntSum,
-        ephInfraHostGcpSum,
-        ephInfraHostHerokuSum,
-        ephInfraHostOnlyAasSum,
-        ephInfraHostOnlyVsphereSum,
-        ephInfraHostOpentelemetryApmSum,
-        ephInfraHostOpentelemetrySum,
-        ephInfraHostProSum,
-        ephInfraHostProplusSum,
-        ephInfraHostProxmoxSum,
-        errorTrackingApmErrorEventsSum,
-        errorTrackingErrorEventsSum,
-        errorTrackingEventsSum,
-        errorTrackingRumErrorEventsSum,
-        eventManagementCorrelationCorrelatedEventsSum,
-        eventManagementCorrelationCorrelatedRelatedEventsSum,
-        eventManagementCorrelationSum,
-        fargateContainerProfilerProfilingFargateAvg,
-        fargateContainerProfilerProfilingFargateEksAvg,
-        fargateTasksCountAvg,
-        fargateTasksCountHwm,
-        featureFlagsConfigRequestsSum,
-        flexLogsComputeLargeAvg,
-        flexLogsComputeMediumAvg,
-        flexLogsComputeSmallAvg,
-        flexLogsComputeXlargeAvg,
-        flexLogsComputeXsmallAvg,
-        flexLogsStarterAvg,
-        flexLogsStarterStorageIndexAvg,
-        flexLogsStarterStorageRetentionAdjustmentAvg,
-        flexStoredLogsAvg,
-        forwardingEventsBytesSum,
-        gcpHostTop99p,
-        herokuHostTop99p,
-        incidentManagementMonthlyActiveUsersHwm,
-        incidentManagementSeatsHwm,
-        indexedEventsCountSum,
-        indexedPointsSum,
-        infraCpuAvg,
-        infraCpuDefaultInfraHostVcpuAgentAvg,
-        infraCpuDefaultInfraHostVcpuAgentBasicAvg,
-        infraCpuDefaultInfraHostVcpuAgentBasicSum,
-        infraCpuDefaultInfraHostVcpuAgentSum,
-        infraCpuDefaultInfraHostVcpuAwsAvg,
-        infraCpuDefaultInfraHostVcpuAwsSum,
-        infraCpuDefaultInfraHostVcpuAzureAvg,
-        infraCpuDefaultInfraHostVcpuAzureSum,
-        infraCpuDefaultInfraHostVcpuGcpAvg,
-        infraCpuDefaultInfraHostVcpuGcpSum,
-        infraCpuDefaultInfraHostVcpuNutanixAvg,
-        infraCpuDefaultInfraHostVcpuNutanixBasicAvg,
-        infraCpuDefaultInfraHostVcpuNutanixBasicSum,
-        infraCpuDefaultInfraHostVcpuNutanixSum,
-        infraCpuDefaultInfraHostVcpuOpentelemetryAvg,
-        infraCpuDefaultInfraHostVcpuOpentelemetrySum,
-        infraCpuObservedInfraHostVcpuAgentAvg,
-        infraCpuObservedInfraHostVcpuAgentSum,
-        infraCpuObservedInfraHostVcpuAwsAvg,
-        infraCpuObservedInfraHostVcpuAwsSum,
-        infraCpuObservedInfraHostVcpuAzureAvg,
-        infraCpuObservedInfraHostVcpuAzureSum,
-        infraCpuObservedInfraHostVcpuGcpAvg,
-        infraCpuObservedInfraHostVcpuGcpSum,
-        infraCpuObservedInfraHostVcpuNutanixAvg,
-        infraCpuObservedInfraHostVcpuNutanixSum,
-        infraCpuObservedInfraHostVcpuOpentelemetryAvg,
-        infraCpuObservedInfraHostVcpuOpentelemetrySum,
-        infraCpuSum,
-        infraEdgeMonitoringDevicesTop99p,
-        infraHostBasicInfraBasicAgentTop99p,
-        infraHostBasicInfraBasicVsphereTop99p,
-        infraHostBasicTop99p,
-        infraHostTop99p,
-        infraStorageMgmtObjectsCountAvg,
-        ingestPointsSum,
-        ingestedEventsBytesSum,
-        iotApmHostSum,
-        iotApmHostTop99p,
-        iotDeviceSum,
-        iotDeviceTop99p,
-        llmObservability15dayRetentionSpansSum,
-        llmObservability30dayRetentionSpansSum,
-        llmObservability60dayRetentionSpansSum,
-        llmObservability90dayRetentionSpansSum,
-        llmObservabilityMinSpendSum,
-        llmObservabilitySum,
-        logsArchiveSearchGbScannedSum,
-        metricNamesSum,
-        mobileRumLiteSessionCountSum,
-        mobileRumSessionCountAndroidSum,
-        mobileRumSessionCountFlutterSum,
-        mobileRumSessionCountIosSum,
-        mobileRumSessionCountReactnativeSum,
-        mobileRumSessionCountRokuSum,
-        mobileRumSessionCountSum,
-        mobileRumUnitsSum,
-        ndmNetflowEventsSum,
-        netflowIndexedEventsCountSum,
-        networkDeviceWirelessTop99p,
-        networkPathSum,
-        npmHostTop99p,
-        observabilityPipelinesBytesProcessedSum,
-        ociHostSum,
-        ociHostTop99p,
-        onCallSeatHwm,
-        onlineArchiveEventsCountSum,
-        opentelemetryApmHostTop99p,
-        opentelemetryHostTop99p,
-        orgs,
-        productAnalyticsSum,
-        profilingAasCountTop99p,
-        profilingHostTop99p,
-        proxmoxHostSum,
-        proxmoxHostTop99p,
-        publishedAppHwm,
-        rumBrowserAndMobileSessionCount,
-        rumBrowserLegacySessionCountSum,
-        rumBrowserLiteSessionCountSum,
-        rumBrowserReplaySessionCountSum,
-        rumIndexedSessionsSum,
-        rumIngestedSessionsSum,
-        rumLiteSessionCountSum,
-        rumMobileLegacySessionCountAndroidSum,
-        rumMobileLegacySessionCountFlutterSum,
-        rumMobileLegacySessionCountIosSum,
-        rumMobileLegacySessionCountReactnativeSum,
-        rumMobileLegacySessionCountRokuSum,
-        rumMobileLiteSessionCountAndroidSum,
-        rumMobileLiteSessionCountFlutterSum,
-        rumMobileLiteSessionCountIosSum,
-        rumMobileLiteSessionCountKotlinmultiplatformSum,
-        rumMobileLiteSessionCountReactnativeSum,
-        rumMobileLiteSessionCountRokuSum,
-        rumMobileLiteSessionCountUnitySum,
-        rumMobileReplaySessionCountAndroidSum,
-        rumMobileReplaySessionCountIosSum,
-        rumMobileReplaySessionCountKotlinmultiplatformSum,
-        rumMobileReplaySessionCountReactnativeSum,
-        rumReplaySessionCountSum,
-        rumSessionCountSum,
-        rumSessionReplayAddOnSum,
-        rumTotalSessionCountSum,
-        rumUnitsSum,
-        scaFargateCountAvg,
-        scaFargateCountHwm,
-        sdsApmScannedBytesSum,
-        sdsEventsScannedBytesSum,
-        sdsLogsScannedBytesSum,
-        sdsRumScannedBytesSum,
-        sdsTotalScannedBytesSum,
-        serverlessAppsApmApmAzureAppserviceInstancesAvg,
-        serverlessAppsApmApmAzureAzurefunctionInstancesAvg,
-        serverlessAppsApmApmAzureContainerappInstancesAvg,
-        serverlessAppsApmApmFargateEcsTasksAvg,
-        serverlessAppsApmApmGcpCloudfunctionInstancesAvg,
-        serverlessAppsApmApmGcpCloudrunInstancesAvg,
-        serverlessAppsApmApmGcpGkeAutopilotPodsAvg,
-        serverlessAppsApmAvg,
-        serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg,
-        serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg,
-        serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg,
-        serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg,
-        serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg,
-        serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg,
-        serverlessAppsApmExclFargateAvg,
-        serverlessAppsAzureContainerAppInstancesAvg,
-        serverlessAppsAzureCountAvg,
-        serverlessAppsAzureFunctionAppInstancesAvg,
-        serverlessAppsAzureWebAppInstancesAvg,
-        serverlessAppsDsmFargateTasksAvg,
-        serverlessAppsEcsAvg,
-        serverlessAppsEksAvg,
-        serverlessAppsExclFargateAvg,
-        serverlessAppsExclFargateAzureContainerAppInstancesAvg,
-        serverlessAppsExclFargateAzureFunctionAppInstancesAvg,
-        serverlessAppsExclFargateAzureWebAppInstancesAvg,
-        serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg,
-        serverlessAppsExclFargateGoogleCloudRunInstancesAvg,
-        serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg,
-        serverlessAppsGoogleCloudFunctionsInstancesAvg,
-        serverlessAppsGoogleCloudRunInstancesAvg,
-        serverlessAppsGoogleCountAvg,
-        serverlessAppsInfraGcpGkeAutopilotPodsAvg,
-        serverlessAppsTotalCountAvg,
-        siem12moRetentionSum,
-        siem6moRetentionSum,
-        siemAnalyzedLogsAddOnCountSum,
-        snmpDeviceCountSum,
-        snmpDeviceCountTop99p,
-        syntheticsBrowserCheckCallsCountSum,
-        syntheticsCheckCallsCountSum,
-        syntheticsMobileTestRunsSum,
-        syntheticsParallelTestingMaxSlotsHwm,
-        traceSearchIndexedEventsCountSum,
-        twolIngestedEventsBytesSum,
-        universalServiceMonitoringHostTop99p,
-        vsphereHostTop99p,
-        vulnManagementHostCountTop99p,
-        workflowExecutionsUsageSum,
-        additionalProperties);
+    return Objects.hash(agentHostTop99p,aiCreditsAgentBuilderAiCreditsSum,aiCreditsBitsAssistantAiCreditsSum,aiCreditsBitsDevAiCreditsSum,aiCreditsBitsSreAiCreditsSum,aiCreditsSum,apmAzureAppServiceHostTop99p,apmDevsecopsHostTop99p,apmEnterpriseStandaloneHostsTop99p,apmFargateCountAvg,apmHostTop99p,apmProStandaloneHostsTop99p,appsecFargateCountAvg,asmServerlessSum,auditLogsLinesIndexedSum,auditTrailEnabledHwm,auditTrailEventForwardingEventsSum,avgProfiledFargateTasks,awsHostTop99p,awsLambdaFuncCount,awsLambdaInvocationsSum,azureAppServiceTop99p,billableIngestedBytesSum,bitsAiInvestigationsSum,browserRumLiteSessionCountSum,browserRumReplaySessionCountSum,browserRumUnitsSum,ccmAnthropicSpendLast,ccmAwsSpendLast,ccmAzureSpendLast,ccmConfluentSpendLast,ccmDatabricksSpendLast,ccmElasticSpendLast,ccmFastlySpendLast,ccmGcpSpendLast,ccmGithubSpendLast,ccmMongodbSpendLast,ccmOciSpendLast,ccmOpenaiSpendLast,ccmSnowflakeSpendLast,ccmSpendMonitoredEntLast,ccmSpendMonitoredProLast,ccmTwilioSpendLast,ciPipelineIndexedSpansSum,ciTestIndexedSpansSum,ciVisibilityItrCommittersHwm,ciVisibilityPipelineCommittersHwm,ciVisibilityTestCommittersHwm,cloudCostManagementAwsHostCountAvg,cloudCostManagementAzureHostCountAvg,cloudCostManagementGcpHostCountAvg,cloudCostManagementHostCountAvg,cloudCostManagementOciHostCountAvg,cloudSiemEventsSum,cloudSiemIndexedLogsSum,codeAnalysisSaCommittersHwm,codeAnalysisScaCommittersHwm,codeSecurityHostTop99p,containerAvg,containerExclAgentAvg,containerHwm,csmContainerEnterpriseComplianceCountSum,csmContainerEnterpriseCwsCountSum,csmContainerEnterpriseTotalCountSum,csmHostEnterpriseAasHostCountTop99p,csmHostEnterpriseAwsHostCountTop99p,csmHostEnterpriseAzureHostCountTop99p,csmHostEnterpriseComplianceHostCountTop99p,csmHostEnterpriseCwsHostCountTop99p,csmHostEnterpriseGcpHostCountTop99p,csmHostEnterpriseOciHostCountTop99p,csmHostEnterpriseTotalHostCountTop99p,csmHostProHostsAgentlessScannersSum,csmHostProHostsAgentlessScannersTop99p,csmHostProOciHostCountTop99p,cspmAasHostTop99p,cspmAwsHostTop99p,cspmAzureHostTop99p,cspmContainerAvg,cspmContainerHwm,cspmGcpHostTop99p,cspmHostTop99p,cspmHostsAgentlessScannersSum,cspmHostsAgentlessScannersTop99p,customTsAvg,cwsContainerCountAvg,cwsFargateTaskAvg,cwsHostTop99p,dataJobsMonitoringHostHrSum,dataStreamMonitoringHostCountSum,dataStreamMonitoringHostCountTop99p,date,dbmHostTop99p,dbmQueriesCountAvg,doJobsMonitoringOrchestratorsJobHoursSum,ephInfraHostAgentSum,ephInfraHostAlibabaSum,ephInfraHostAwsSum,ephInfraHostAzureSum,ephInfraHostBasicInfraBasicAgentSum,ephInfraHostBasicInfraBasicVsphereSum,ephInfraHostBasicSum,ephInfraHostEntSum,ephInfraHostGcpSum,ephInfraHostHerokuSum,ephInfraHostOnlyAasSum,ephInfraHostOnlyVsphereSum,ephInfraHostOpentelemetryApmSum,ephInfraHostOpentelemetrySum,ephInfraHostProSum,ephInfraHostProplusSum,ephInfraHostProxmoxSum,errorTrackingApmErrorEventsSum,errorTrackingErrorEventsSum,errorTrackingEventsSum,errorTrackingRumErrorEventsSum,eventManagementCorrelationCorrelatedEventsSum,eventManagementCorrelationCorrelatedRelatedEventsSum,eventManagementCorrelationSum,fargateContainerProfilerProfilingFargateAvg,fargateContainerProfilerProfilingFargateEksAvg,fargateTasksCountAvg,fargateTasksCountHwm,featureFlagsConfigRequestsSum,flexLogsComputeLargeAvg,flexLogsComputeMediumAvg,flexLogsComputeSmallAvg,flexLogsComputeXlargeAvg,flexLogsComputeXsmallAvg,flexLogsStarterAvg,flexLogsStarterStorageIndexAvg,flexLogsStarterStorageRetentionAdjustmentAvg,flexStoredLogsAvg,forwardingEventsBytesSum,gcpHostTop99p,herokuHostTop99p,incidentManagementMonthlyActiveUsersHwm,incidentManagementSeatsHwm,indexedEventsCountSum,indexedPointsSum,infraCpuAvg,infraCpuDefaultInfraHostVcpuAgentAvg,infraCpuDefaultInfraHostVcpuAgentBasicAvg,infraCpuDefaultInfraHostVcpuAgentBasicSum,infraCpuDefaultInfraHostVcpuAgentSum,infraCpuDefaultInfraHostVcpuAwsAvg,infraCpuDefaultInfraHostVcpuAwsSum,infraCpuDefaultInfraHostVcpuAzureAvg,infraCpuDefaultInfraHostVcpuAzureSum,infraCpuDefaultInfraHostVcpuGcpAvg,infraCpuDefaultInfraHostVcpuGcpSum,infraCpuDefaultInfraHostVcpuNutanixAvg,infraCpuDefaultInfraHostVcpuNutanixBasicAvg,infraCpuDefaultInfraHostVcpuNutanixBasicSum,infraCpuDefaultInfraHostVcpuNutanixSum,infraCpuDefaultInfraHostVcpuOpentelemetryAvg,infraCpuDefaultInfraHostVcpuOpentelemetrySum,infraCpuObservedInfraHostVcpuAgentAvg,infraCpuObservedInfraHostVcpuAgentSum,infraCpuObservedInfraHostVcpuAwsAvg,infraCpuObservedInfraHostVcpuAwsSum,infraCpuObservedInfraHostVcpuAzureAvg,infraCpuObservedInfraHostVcpuAzureSum,infraCpuObservedInfraHostVcpuGcpAvg,infraCpuObservedInfraHostVcpuGcpSum,infraCpuObservedInfraHostVcpuNutanixAvg,infraCpuObservedInfraHostVcpuNutanixSum,infraCpuObservedInfraHostVcpuOpentelemetryAvg,infraCpuObservedInfraHostVcpuOpentelemetrySum,infraCpuSum,infraEdgeMonitoringDevicesTop99p,infraHostBasicInfraBasicAgentTop99p,infraHostBasicInfraBasicVsphereTop99p,infraHostBasicTop99p,infraHostTop99p,infraStorageMgmtObjectsCountAvg,ingestPointsSum,ingestedEventsBytesSum,iotApmHostSum,iotApmHostTop99p,iotDeviceSum,iotDeviceTop99p,llmObservability15dayRetentionSpansSum,llmObservability30dayRetentionSpansSum,llmObservability60dayRetentionSpansSum,llmObservability90dayRetentionSpansSum,llmObservabilityMinSpendSum,llmObservabilitySum,logsArchiveSearchGbScannedSum,metricNamesSum,mobileRumLiteSessionCountSum,mobileRumSessionCountAndroidSum,mobileRumSessionCountFlutterSum,mobileRumSessionCountIosSum,mobileRumSessionCountReactnativeSum,mobileRumSessionCountRokuSum,mobileRumSessionCountSum,mobileRumUnitsSum,ndmNetflowEventsSum,netflowIndexedEventsCountSum,networkDeviceWirelessTop99p,networkPathSum,npmHostTop99p,observabilityPipelinesBytesProcessedSum,ociHostSum,ociHostTop99p,onCallSeatHwm,onlineArchiveEventsCountSum,opentelemetryApmHostTop99p,opentelemetryHostTop99p,orgs,productAnalyticsSum,profilingAasCountTop99p,profilingHostTop99p,proxmoxHostSum,proxmoxHostTop99p,publishedAppHwm,rumBrowserAndMobileSessionCount,rumBrowserLegacySessionCountSum,rumBrowserLiteSessionCountSum,rumBrowserReplaySessionCountSum,rumIndexedSessionsSum,rumIngestedSessionsSum,rumLiteSessionCountSum,rumMobileLegacySessionCountAndroidSum,rumMobileLegacySessionCountFlutterSum,rumMobileLegacySessionCountIosSum,rumMobileLegacySessionCountReactnativeSum,rumMobileLegacySessionCountRokuSum,rumMobileLiteSessionCountAndroidSum,rumMobileLiteSessionCountFlutterSum,rumMobileLiteSessionCountIosSum,rumMobileLiteSessionCountKotlinmultiplatformSum,rumMobileLiteSessionCountReactnativeSum,rumMobileLiteSessionCountRokuSum,rumMobileLiteSessionCountUnitySum,rumMobileReplaySessionCountAndroidSum,rumMobileReplaySessionCountIosSum,rumMobileReplaySessionCountKotlinmultiplatformSum,rumMobileReplaySessionCountReactnativeSum,rumReplaySessionCountSum,rumSessionCountSum,rumSessionReplayAddOnSum,rumTotalSessionCountSum,rumUnitsSum,scaFargateCountAvg,scaFargateCountHwm,sdsApmScannedBytesSum,sdsEventsScannedBytesSum,sdsLogsScannedBytesSum,sdsRumScannedBytesSum,sdsTotalScannedBytesSum,serverlessAppsApmApmAzureAppserviceInstancesAvg,serverlessAppsApmApmAzureAzurefunctionInstancesAvg,serverlessAppsApmApmAzureContainerappInstancesAvg,serverlessAppsApmApmFargateEcsTasksAvg,serverlessAppsApmApmGcpCloudfunctionInstancesAvg,serverlessAppsApmApmGcpCloudrunInstancesAvg,serverlessAppsApmApmGcpGkeAutopilotPodsAvg,serverlessAppsApmAvg,serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg,serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg,serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg,serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg,serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg,serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg,serverlessAppsApmExclFargateAvg,serverlessAppsAzureContainerAppInstancesAvg,serverlessAppsAzureCountAvg,serverlessAppsAzureFunctionAppInstancesAvg,serverlessAppsAzureWebAppInstancesAvg,serverlessAppsDsmFargateTasksAvg,serverlessAppsEcsAvg,serverlessAppsEksAvg,serverlessAppsExclFargateAvg,serverlessAppsExclFargateAzureContainerAppInstancesAvg,serverlessAppsExclFargateAzureFunctionAppInstancesAvg,serverlessAppsExclFargateAzureWebAppInstancesAvg,serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg,serverlessAppsExclFargateGoogleCloudRunInstancesAvg,serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg,serverlessAppsGoogleCloudFunctionsInstancesAvg,serverlessAppsGoogleCloudRunInstancesAvg,serverlessAppsGoogleCountAvg,serverlessAppsInfraGcpGkeAutopilotPodsAvg,serverlessAppsTotalCountAvg,siem12moRetentionSum,siem6moRetentionSum,siemAnalyzedLogsAddOnCountSum,snmpDeviceCountSum,snmpDeviceCountTop99p,syntheticsBrowserCheckCallsCountSum,syntheticsCheckCallsCountSum,syntheticsMobileTestRunsSum,syntheticsParallelTestingMaxSlotsHwm,traceSearchIndexedEventsCountSum,twolIngestedEventsBytesSum,universalServiceMonitoringHostTop99p,vsphereHostTop99p,vulnManagementHostCountTop99p,workflowExecutionsUsageSum, additionalProperties);
   }
 
   @Override
@@ -9860,778 +7403,306 @@ public class UsageSummaryDate {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageSummaryDate {\n");
     sb.append("    agentHostTop99p: ").append(toIndentedString(agentHostTop99p)).append("\n");
-    sb.append("    aiCreditsAgentBuilderAiCreditsSum: ")
-        .append(toIndentedString(aiCreditsAgentBuilderAiCreditsSum))
-        .append("\n");
-    sb.append("    aiCreditsBitsAssistantAiCreditsSum: ")
-        .append(toIndentedString(aiCreditsBitsAssistantAiCreditsSum))
-        .append("\n");
-    sb.append("    aiCreditsBitsDevAiCreditsSum: ")
-        .append(toIndentedString(aiCreditsBitsDevAiCreditsSum))
-        .append("\n");
-    sb.append("    aiCreditsBitsSreAiCreditsSum: ")
-        .append(toIndentedString(aiCreditsBitsSreAiCreditsSum))
-        .append("\n");
+    sb.append("    aiCreditsAgentBuilderAiCreditsSum: ").append(toIndentedString(aiCreditsAgentBuilderAiCreditsSum)).append("\n");
+    sb.append("    aiCreditsBitsAssistantAiCreditsSum: ").append(toIndentedString(aiCreditsBitsAssistantAiCreditsSum)).append("\n");
+    sb.append("    aiCreditsBitsDevAiCreditsSum: ").append(toIndentedString(aiCreditsBitsDevAiCreditsSum)).append("\n");
+    sb.append("    aiCreditsBitsSreAiCreditsSum: ").append(toIndentedString(aiCreditsBitsSreAiCreditsSum)).append("\n");
     sb.append("    aiCreditsSum: ").append(toIndentedString(aiCreditsSum)).append("\n");
-    sb.append("    apmAzureAppServiceHostTop99p: ")
-        .append(toIndentedString(apmAzureAppServiceHostTop99p))
-        .append("\n");
-    sb.append("    apmDevsecopsHostTop99p: ")
-        .append(toIndentedString(apmDevsecopsHostTop99p))
-        .append("\n");
-    sb.append("    apmEnterpriseStandaloneHostsTop99p: ")
-        .append(toIndentedString(apmEnterpriseStandaloneHostsTop99p))
-        .append("\n");
+    sb.append("    apmAzureAppServiceHostTop99p: ").append(toIndentedString(apmAzureAppServiceHostTop99p)).append("\n");
+    sb.append("    apmDevsecopsHostTop99p: ").append(toIndentedString(apmDevsecopsHostTop99p)).append("\n");
+    sb.append("    apmEnterpriseStandaloneHostsTop99p: ").append(toIndentedString(apmEnterpriseStandaloneHostsTop99p)).append("\n");
     sb.append("    apmFargateCountAvg: ").append(toIndentedString(apmFargateCountAvg)).append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
-    sb.append("    apmProStandaloneHostsTop99p: ")
-        .append(toIndentedString(apmProStandaloneHostsTop99p))
-        .append("\n");
-    sb.append("    appsecFargateCountAvg: ")
-        .append(toIndentedString(appsecFargateCountAvg))
-        .append("\n");
+    sb.append("    apmProStandaloneHostsTop99p: ").append(toIndentedString(apmProStandaloneHostsTop99p)).append("\n");
+    sb.append("    appsecFargateCountAvg: ").append(toIndentedString(appsecFargateCountAvg)).append("\n");
     sb.append("    asmServerlessSum: ").append(toIndentedString(asmServerlessSum)).append("\n");
-    sb.append("    auditLogsLinesIndexedSum: ")
-        .append(toIndentedString(auditLogsLinesIndexedSum))
-        .append("\n");
-    sb.append("    auditTrailEnabledHwm: ")
-        .append(toIndentedString(auditTrailEnabledHwm))
-        .append("\n");
-    sb.append("    auditTrailEventForwardingEventsSum: ")
-        .append(toIndentedString(auditTrailEventForwardingEventsSum))
-        .append("\n");
-    sb.append("    avgProfiledFargateTasks: ")
-        .append(toIndentedString(avgProfiledFargateTasks))
-        .append("\n");
+    sb.append("    auditLogsLinesIndexedSum: ").append(toIndentedString(auditLogsLinesIndexedSum)).append("\n");
+    sb.append("    auditTrailEnabledHwm: ").append(toIndentedString(auditTrailEnabledHwm)).append("\n");
+    sb.append("    auditTrailEventForwardingEventsSum: ").append(toIndentedString(auditTrailEventForwardingEventsSum)).append("\n");
+    sb.append("    avgProfiledFargateTasks: ").append(toIndentedString(avgProfiledFargateTasks)).append("\n");
     sb.append("    awsHostTop99p: ").append(toIndentedString(awsHostTop99p)).append("\n");
     sb.append("    awsLambdaFuncCount: ").append(toIndentedString(awsLambdaFuncCount)).append("\n");
-    sb.append("    awsLambdaInvocationsSum: ")
-        .append(toIndentedString(awsLambdaInvocationsSum))
-        .append("\n");
-    sb.append("    azureAppServiceTop99p: ")
-        .append(toIndentedString(azureAppServiceTop99p))
-        .append("\n");
-    sb.append("    billableIngestedBytesSum: ")
-        .append(toIndentedString(billableIngestedBytesSum))
-        .append("\n");
-    sb.append("    bitsAiInvestigationsSum: ")
-        .append(toIndentedString(bitsAiInvestigationsSum))
-        .append("\n");
-    sb.append("    browserRumLiteSessionCountSum: ")
-        .append(toIndentedString(browserRumLiteSessionCountSum))
-        .append("\n");
-    sb.append("    browserRumReplaySessionCountSum: ")
-        .append(toIndentedString(browserRumReplaySessionCountSum))
-        .append("\n");
+    sb.append("    awsLambdaInvocationsSum: ").append(toIndentedString(awsLambdaInvocationsSum)).append("\n");
+    sb.append("    azureAppServiceTop99p: ").append(toIndentedString(azureAppServiceTop99p)).append("\n");
+    sb.append("    billableIngestedBytesSum: ").append(toIndentedString(billableIngestedBytesSum)).append("\n");
+    sb.append("    bitsAiInvestigationsSum: ").append(toIndentedString(bitsAiInvestigationsSum)).append("\n");
+    sb.append("    browserRumLiteSessionCountSum: ").append(toIndentedString(browserRumLiteSessionCountSum)).append("\n");
+    sb.append("    browserRumReplaySessionCountSum: ").append(toIndentedString(browserRumReplaySessionCountSum)).append("\n");
     sb.append("    browserRumUnitsSum: ").append(toIndentedString(browserRumUnitsSum)).append("\n");
-    sb.append("    ccmAnthropicSpendLast: ")
-        .append(toIndentedString(ccmAnthropicSpendLast))
-        .append("\n");
+    sb.append("    ccmAnthropicSpendLast: ").append(toIndentedString(ccmAnthropicSpendLast)).append("\n");
     sb.append("    ccmAwsSpendLast: ").append(toIndentedString(ccmAwsSpendLast)).append("\n");
     sb.append("    ccmAzureSpendLast: ").append(toIndentedString(ccmAzureSpendLast)).append("\n");
-    sb.append("    ccmConfluentSpendLast: ")
-        .append(toIndentedString(ccmConfluentSpendLast))
-        .append("\n");
-    sb.append("    ccmDatabricksSpendLast: ")
-        .append(toIndentedString(ccmDatabricksSpendLast))
-        .append("\n");
-    sb.append("    ccmElasticSpendLast: ")
-        .append(toIndentedString(ccmElasticSpendLast))
-        .append("\n");
+    sb.append("    ccmConfluentSpendLast: ").append(toIndentedString(ccmConfluentSpendLast)).append("\n");
+    sb.append("    ccmDatabricksSpendLast: ").append(toIndentedString(ccmDatabricksSpendLast)).append("\n");
+    sb.append("    ccmElasticSpendLast: ").append(toIndentedString(ccmElasticSpendLast)).append("\n");
     sb.append("    ccmFastlySpendLast: ").append(toIndentedString(ccmFastlySpendLast)).append("\n");
     sb.append("    ccmGcpSpendLast: ").append(toIndentedString(ccmGcpSpendLast)).append("\n");
     sb.append("    ccmGithubSpendLast: ").append(toIndentedString(ccmGithubSpendLast)).append("\n");
-    sb.append("    ccmMongodbSpendLast: ")
-        .append(toIndentedString(ccmMongodbSpendLast))
-        .append("\n");
+    sb.append("    ccmMongodbSpendLast: ").append(toIndentedString(ccmMongodbSpendLast)).append("\n");
     sb.append("    ccmOciSpendLast: ").append(toIndentedString(ccmOciSpendLast)).append("\n");
     sb.append("    ccmOpenaiSpendLast: ").append(toIndentedString(ccmOpenaiSpendLast)).append("\n");
-    sb.append("    ccmSnowflakeSpendLast: ")
-        .append(toIndentedString(ccmSnowflakeSpendLast))
-        .append("\n");
-    sb.append("    ccmSpendMonitoredEntLast: ")
-        .append(toIndentedString(ccmSpendMonitoredEntLast))
-        .append("\n");
-    sb.append("    ccmSpendMonitoredProLast: ")
-        .append(toIndentedString(ccmSpendMonitoredProLast))
-        .append("\n");
+    sb.append("    ccmSnowflakeSpendLast: ").append(toIndentedString(ccmSnowflakeSpendLast)).append("\n");
+    sb.append("    ccmSpendMonitoredEntLast: ").append(toIndentedString(ccmSpendMonitoredEntLast)).append("\n");
+    sb.append("    ccmSpendMonitoredProLast: ").append(toIndentedString(ccmSpendMonitoredProLast)).append("\n");
     sb.append("    ccmTwilioSpendLast: ").append(toIndentedString(ccmTwilioSpendLast)).append("\n");
-    sb.append("    ciPipelineIndexedSpansSum: ")
-        .append(toIndentedString(ciPipelineIndexedSpansSum))
-        .append("\n");
-    sb.append("    ciTestIndexedSpansSum: ")
-        .append(toIndentedString(ciTestIndexedSpansSum))
-        .append("\n");
-    sb.append("    ciVisibilityItrCommittersHwm: ")
-        .append(toIndentedString(ciVisibilityItrCommittersHwm))
-        .append("\n");
-    sb.append("    ciVisibilityPipelineCommittersHwm: ")
-        .append(toIndentedString(ciVisibilityPipelineCommittersHwm))
-        .append("\n");
-    sb.append("    ciVisibilityTestCommittersHwm: ")
-        .append(toIndentedString(ciVisibilityTestCommittersHwm))
-        .append("\n");
-    sb.append("    cloudCostManagementAwsHostCountAvg: ")
-        .append(toIndentedString(cloudCostManagementAwsHostCountAvg))
-        .append("\n");
-    sb.append("    cloudCostManagementAzureHostCountAvg: ")
-        .append(toIndentedString(cloudCostManagementAzureHostCountAvg))
-        .append("\n");
-    sb.append("    cloudCostManagementGcpHostCountAvg: ")
-        .append(toIndentedString(cloudCostManagementGcpHostCountAvg))
-        .append("\n");
-    sb.append("    cloudCostManagementHostCountAvg: ")
-        .append(toIndentedString(cloudCostManagementHostCountAvg))
-        .append("\n");
-    sb.append("    cloudCostManagementOciHostCountAvg: ")
-        .append(toIndentedString(cloudCostManagementOciHostCountAvg))
-        .append("\n");
+    sb.append("    ciPipelineIndexedSpansSum: ").append(toIndentedString(ciPipelineIndexedSpansSum)).append("\n");
+    sb.append("    ciTestIndexedSpansSum: ").append(toIndentedString(ciTestIndexedSpansSum)).append("\n");
+    sb.append("    ciVisibilityItrCommittersHwm: ").append(toIndentedString(ciVisibilityItrCommittersHwm)).append("\n");
+    sb.append("    ciVisibilityPipelineCommittersHwm: ").append(toIndentedString(ciVisibilityPipelineCommittersHwm)).append("\n");
+    sb.append("    ciVisibilityTestCommittersHwm: ").append(toIndentedString(ciVisibilityTestCommittersHwm)).append("\n");
+    sb.append("    cloudCostManagementAwsHostCountAvg: ").append(toIndentedString(cloudCostManagementAwsHostCountAvg)).append("\n");
+    sb.append("    cloudCostManagementAzureHostCountAvg: ").append(toIndentedString(cloudCostManagementAzureHostCountAvg)).append("\n");
+    sb.append("    cloudCostManagementGcpHostCountAvg: ").append(toIndentedString(cloudCostManagementGcpHostCountAvg)).append("\n");
+    sb.append("    cloudCostManagementHostCountAvg: ").append(toIndentedString(cloudCostManagementHostCountAvg)).append("\n");
+    sb.append("    cloudCostManagementOciHostCountAvg: ").append(toIndentedString(cloudCostManagementOciHostCountAvg)).append("\n");
     sb.append("    cloudSiemEventsSum: ").append(toIndentedString(cloudSiemEventsSum)).append("\n");
-    sb.append("    cloudSiemIndexedLogsSum: ")
-        .append(toIndentedString(cloudSiemIndexedLogsSum))
-        .append("\n");
-    sb.append("    codeAnalysisSaCommittersHwm: ")
-        .append(toIndentedString(codeAnalysisSaCommittersHwm))
-        .append("\n");
-    sb.append("    codeAnalysisScaCommittersHwm: ")
-        .append(toIndentedString(codeAnalysisScaCommittersHwm))
-        .append("\n");
-    sb.append("    codeSecurityHostTop99p: ")
-        .append(toIndentedString(codeSecurityHostTop99p))
-        .append("\n");
+    sb.append("    cloudSiemIndexedLogsSum: ").append(toIndentedString(cloudSiemIndexedLogsSum)).append("\n");
+    sb.append("    codeAnalysisSaCommittersHwm: ").append(toIndentedString(codeAnalysisSaCommittersHwm)).append("\n");
+    sb.append("    codeAnalysisScaCommittersHwm: ").append(toIndentedString(codeAnalysisScaCommittersHwm)).append("\n");
+    sb.append("    codeSecurityHostTop99p: ").append(toIndentedString(codeSecurityHostTop99p)).append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
-    sb.append("    containerExclAgentAvg: ")
-        .append(toIndentedString(containerExclAgentAvg))
-        .append("\n");
+    sb.append("    containerExclAgentAvg: ").append(toIndentedString(containerExclAgentAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
-    sb.append("    csmContainerEnterpriseComplianceCountSum: ")
-        .append(toIndentedString(csmContainerEnterpriseComplianceCountSum))
-        .append("\n");
-    sb.append("    csmContainerEnterpriseCwsCountSum: ")
-        .append(toIndentedString(csmContainerEnterpriseCwsCountSum))
-        .append("\n");
-    sb.append("    csmContainerEnterpriseTotalCountSum: ")
-        .append(toIndentedString(csmContainerEnterpriseTotalCountSum))
-        .append("\n");
-    sb.append("    csmHostEnterpriseAasHostCountTop99p: ")
-        .append(toIndentedString(csmHostEnterpriseAasHostCountTop99p))
-        .append("\n");
-    sb.append("    csmHostEnterpriseAwsHostCountTop99p: ")
-        .append(toIndentedString(csmHostEnterpriseAwsHostCountTop99p))
-        .append("\n");
-    sb.append("    csmHostEnterpriseAzureHostCountTop99p: ")
-        .append(toIndentedString(csmHostEnterpriseAzureHostCountTop99p))
-        .append("\n");
-    sb.append("    csmHostEnterpriseComplianceHostCountTop99p: ")
-        .append(toIndentedString(csmHostEnterpriseComplianceHostCountTop99p))
-        .append("\n");
-    sb.append("    csmHostEnterpriseCwsHostCountTop99p: ")
-        .append(toIndentedString(csmHostEnterpriseCwsHostCountTop99p))
-        .append("\n");
-    sb.append("    csmHostEnterpriseGcpHostCountTop99p: ")
-        .append(toIndentedString(csmHostEnterpriseGcpHostCountTop99p))
-        .append("\n");
-    sb.append("    csmHostEnterpriseOciHostCountTop99p: ")
-        .append(toIndentedString(csmHostEnterpriseOciHostCountTop99p))
-        .append("\n");
-    sb.append("    csmHostEnterpriseTotalHostCountTop99p: ")
-        .append(toIndentedString(csmHostEnterpriseTotalHostCountTop99p))
-        .append("\n");
-    sb.append("    csmHostProHostsAgentlessScannersSum: ")
-        .append(toIndentedString(csmHostProHostsAgentlessScannersSum))
-        .append("\n");
-    sb.append("    csmHostProHostsAgentlessScannersTop99p: ")
-        .append(toIndentedString(csmHostProHostsAgentlessScannersTop99p))
-        .append("\n");
-    sb.append("    csmHostProOciHostCountTop99p: ")
-        .append(toIndentedString(csmHostProOciHostCountTop99p))
-        .append("\n");
+    sb.append("    csmContainerEnterpriseComplianceCountSum: ").append(toIndentedString(csmContainerEnterpriseComplianceCountSum)).append("\n");
+    sb.append("    csmContainerEnterpriseCwsCountSum: ").append(toIndentedString(csmContainerEnterpriseCwsCountSum)).append("\n");
+    sb.append("    csmContainerEnterpriseTotalCountSum: ").append(toIndentedString(csmContainerEnterpriseTotalCountSum)).append("\n");
+    sb.append("    csmHostEnterpriseAasHostCountTop99p: ").append(toIndentedString(csmHostEnterpriseAasHostCountTop99p)).append("\n");
+    sb.append("    csmHostEnterpriseAwsHostCountTop99p: ").append(toIndentedString(csmHostEnterpriseAwsHostCountTop99p)).append("\n");
+    sb.append("    csmHostEnterpriseAzureHostCountTop99p: ").append(toIndentedString(csmHostEnterpriseAzureHostCountTop99p)).append("\n");
+    sb.append("    csmHostEnterpriseComplianceHostCountTop99p: ").append(toIndentedString(csmHostEnterpriseComplianceHostCountTop99p)).append("\n");
+    sb.append("    csmHostEnterpriseCwsHostCountTop99p: ").append(toIndentedString(csmHostEnterpriseCwsHostCountTop99p)).append("\n");
+    sb.append("    csmHostEnterpriseGcpHostCountTop99p: ").append(toIndentedString(csmHostEnterpriseGcpHostCountTop99p)).append("\n");
+    sb.append("    csmHostEnterpriseOciHostCountTop99p: ").append(toIndentedString(csmHostEnterpriseOciHostCountTop99p)).append("\n");
+    sb.append("    csmHostEnterpriseTotalHostCountTop99p: ").append(toIndentedString(csmHostEnterpriseTotalHostCountTop99p)).append("\n");
+    sb.append("    csmHostProHostsAgentlessScannersSum: ").append(toIndentedString(csmHostProHostsAgentlessScannersSum)).append("\n");
+    sb.append("    csmHostProHostsAgentlessScannersTop99p: ").append(toIndentedString(csmHostProHostsAgentlessScannersTop99p)).append("\n");
+    sb.append("    csmHostProOciHostCountTop99p: ").append(toIndentedString(csmHostProOciHostCountTop99p)).append("\n");
     sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");
     sb.append("    cspmAwsHostTop99p: ").append(toIndentedString(cspmAwsHostTop99p)).append("\n");
-    sb.append("    cspmAzureHostTop99p: ")
-        .append(toIndentedString(cspmAzureHostTop99p))
-        .append("\n");
+    sb.append("    cspmAzureHostTop99p: ").append(toIndentedString(cspmAzureHostTop99p)).append("\n");
     sb.append("    cspmContainerAvg: ").append(toIndentedString(cspmContainerAvg)).append("\n");
     sb.append("    cspmContainerHwm: ").append(toIndentedString(cspmContainerHwm)).append("\n");
     sb.append("    cspmGcpHostTop99p: ").append(toIndentedString(cspmGcpHostTop99p)).append("\n");
     sb.append("    cspmHostTop99p: ").append(toIndentedString(cspmHostTop99p)).append("\n");
-    sb.append("    cspmHostsAgentlessScannersSum: ")
-        .append(toIndentedString(cspmHostsAgentlessScannersSum))
-        .append("\n");
-    sb.append("    cspmHostsAgentlessScannersTop99p: ")
-        .append(toIndentedString(cspmHostsAgentlessScannersTop99p))
-        .append("\n");
+    sb.append("    cspmHostsAgentlessScannersSum: ").append(toIndentedString(cspmHostsAgentlessScannersSum)).append("\n");
+    sb.append("    cspmHostsAgentlessScannersTop99p: ").append(toIndentedString(cspmHostsAgentlessScannersTop99p)).append("\n");
     sb.append("    customTsAvg: ").append(toIndentedString(customTsAvg)).append("\n");
-    sb.append("    cwsContainerCountAvg: ")
-        .append(toIndentedString(cwsContainerCountAvg))
-        .append("\n");
+    sb.append("    cwsContainerCountAvg: ").append(toIndentedString(cwsContainerCountAvg)).append("\n");
     sb.append("    cwsFargateTaskAvg: ").append(toIndentedString(cwsFargateTaskAvg)).append("\n");
     sb.append("    cwsHostTop99p: ").append(toIndentedString(cwsHostTop99p)).append("\n");
-    sb.append("    dataJobsMonitoringHostHrSum: ")
-        .append(toIndentedString(dataJobsMonitoringHostHrSum))
-        .append("\n");
-    sb.append("    dataStreamMonitoringHostCountSum: ")
-        .append(toIndentedString(dataStreamMonitoringHostCountSum))
-        .append("\n");
-    sb.append("    dataStreamMonitoringHostCountTop99p: ")
-        .append(toIndentedString(dataStreamMonitoringHostCountTop99p))
-        .append("\n");
+    sb.append("    dataJobsMonitoringHostHrSum: ").append(toIndentedString(dataJobsMonitoringHostHrSum)).append("\n");
+    sb.append("    dataStreamMonitoringHostCountSum: ").append(toIndentedString(dataStreamMonitoringHostCountSum)).append("\n");
+    sb.append("    dataStreamMonitoringHostCountTop99p: ").append(toIndentedString(dataStreamMonitoringHostCountTop99p)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dbmHostTop99p: ").append(toIndentedString(dbmHostTop99p)).append("\n");
     sb.append("    dbmQueriesCountAvg: ").append(toIndentedString(dbmQueriesCountAvg)).append("\n");
-    sb.append("    doJobsMonitoringOrchestratorsJobHoursSum: ")
-        .append(toIndentedString(doJobsMonitoringOrchestratorsJobHoursSum))
-        .append("\n");
-    sb.append("    ephInfraHostAgentSum: ")
-        .append(toIndentedString(ephInfraHostAgentSum))
-        .append("\n");
-    sb.append("    ephInfraHostAlibabaSum: ")
-        .append(toIndentedString(ephInfraHostAlibabaSum))
-        .append("\n");
+    sb.append("    doJobsMonitoringOrchestratorsJobHoursSum: ").append(toIndentedString(doJobsMonitoringOrchestratorsJobHoursSum)).append("\n");
+    sb.append("    ephInfraHostAgentSum: ").append(toIndentedString(ephInfraHostAgentSum)).append("\n");
+    sb.append("    ephInfraHostAlibabaSum: ").append(toIndentedString(ephInfraHostAlibabaSum)).append("\n");
     sb.append("    ephInfraHostAwsSum: ").append(toIndentedString(ephInfraHostAwsSum)).append("\n");
-    sb.append("    ephInfraHostAzureSum: ")
-        .append(toIndentedString(ephInfraHostAzureSum))
-        .append("\n");
-    sb.append("    ephInfraHostBasicInfraBasicAgentSum: ")
-        .append(toIndentedString(ephInfraHostBasicInfraBasicAgentSum))
-        .append("\n");
-    sb.append("    ephInfraHostBasicInfraBasicVsphereSum: ")
-        .append(toIndentedString(ephInfraHostBasicInfraBasicVsphereSum))
-        .append("\n");
-    sb.append("    ephInfraHostBasicSum: ")
-        .append(toIndentedString(ephInfraHostBasicSum))
-        .append("\n");
+    sb.append("    ephInfraHostAzureSum: ").append(toIndentedString(ephInfraHostAzureSum)).append("\n");
+    sb.append("    ephInfraHostBasicInfraBasicAgentSum: ").append(toIndentedString(ephInfraHostBasicInfraBasicAgentSum)).append("\n");
+    sb.append("    ephInfraHostBasicInfraBasicVsphereSum: ").append(toIndentedString(ephInfraHostBasicInfraBasicVsphereSum)).append("\n");
+    sb.append("    ephInfraHostBasicSum: ").append(toIndentedString(ephInfraHostBasicSum)).append("\n");
     sb.append("    ephInfraHostEntSum: ").append(toIndentedString(ephInfraHostEntSum)).append("\n");
     sb.append("    ephInfraHostGcpSum: ").append(toIndentedString(ephInfraHostGcpSum)).append("\n");
-    sb.append("    ephInfraHostHerokuSum: ")
-        .append(toIndentedString(ephInfraHostHerokuSum))
-        .append("\n");
-    sb.append("    ephInfraHostOnlyAasSum: ")
-        .append(toIndentedString(ephInfraHostOnlyAasSum))
-        .append("\n");
-    sb.append("    ephInfraHostOnlyVsphereSum: ")
-        .append(toIndentedString(ephInfraHostOnlyVsphereSum))
-        .append("\n");
-    sb.append("    ephInfraHostOpentelemetryApmSum: ")
-        .append(toIndentedString(ephInfraHostOpentelemetryApmSum))
-        .append("\n");
-    sb.append("    ephInfraHostOpentelemetrySum: ")
-        .append(toIndentedString(ephInfraHostOpentelemetrySum))
-        .append("\n");
+    sb.append("    ephInfraHostHerokuSum: ").append(toIndentedString(ephInfraHostHerokuSum)).append("\n");
+    sb.append("    ephInfraHostOnlyAasSum: ").append(toIndentedString(ephInfraHostOnlyAasSum)).append("\n");
+    sb.append("    ephInfraHostOnlyVsphereSum: ").append(toIndentedString(ephInfraHostOnlyVsphereSum)).append("\n");
+    sb.append("    ephInfraHostOpentelemetryApmSum: ").append(toIndentedString(ephInfraHostOpentelemetryApmSum)).append("\n");
+    sb.append("    ephInfraHostOpentelemetrySum: ").append(toIndentedString(ephInfraHostOpentelemetrySum)).append("\n");
     sb.append("    ephInfraHostProSum: ").append(toIndentedString(ephInfraHostProSum)).append("\n");
-    sb.append("    ephInfraHostProplusSum: ")
-        .append(toIndentedString(ephInfraHostProplusSum))
-        .append("\n");
-    sb.append("    ephInfraHostProxmoxSum: ")
-        .append(toIndentedString(ephInfraHostProxmoxSum))
-        .append("\n");
-    sb.append("    errorTrackingApmErrorEventsSum: ")
-        .append(toIndentedString(errorTrackingApmErrorEventsSum))
-        .append("\n");
-    sb.append("    errorTrackingErrorEventsSum: ")
-        .append(toIndentedString(errorTrackingErrorEventsSum))
-        .append("\n");
-    sb.append("    errorTrackingEventsSum: ")
-        .append(toIndentedString(errorTrackingEventsSum))
-        .append("\n");
-    sb.append("    errorTrackingRumErrorEventsSum: ")
-        .append(toIndentedString(errorTrackingRumErrorEventsSum))
-        .append("\n");
-    sb.append("    eventManagementCorrelationCorrelatedEventsSum: ")
-        .append(toIndentedString(eventManagementCorrelationCorrelatedEventsSum))
-        .append("\n");
-    sb.append("    eventManagementCorrelationCorrelatedRelatedEventsSum: ")
-        .append(toIndentedString(eventManagementCorrelationCorrelatedRelatedEventsSum))
-        .append("\n");
-    sb.append("    eventManagementCorrelationSum: ")
-        .append(toIndentedString(eventManagementCorrelationSum))
-        .append("\n");
-    sb.append("    fargateContainerProfilerProfilingFargateAvg: ")
-        .append(toIndentedString(fargateContainerProfilerProfilingFargateAvg))
-        .append("\n");
-    sb.append("    fargateContainerProfilerProfilingFargateEksAvg: ")
-        .append(toIndentedString(fargateContainerProfilerProfilingFargateEksAvg))
-        .append("\n");
-    sb.append("    fargateTasksCountAvg: ")
-        .append(toIndentedString(fargateTasksCountAvg))
-        .append("\n");
-    sb.append("    fargateTasksCountHwm: ")
-        .append(toIndentedString(fargateTasksCountHwm))
-        .append("\n");
-    sb.append("    featureFlagsConfigRequestsSum: ")
-        .append(toIndentedString(featureFlagsConfigRequestsSum))
-        .append("\n");
-    sb.append("    flexLogsComputeLargeAvg: ")
-        .append(toIndentedString(flexLogsComputeLargeAvg))
-        .append("\n");
-    sb.append("    flexLogsComputeMediumAvg: ")
-        .append(toIndentedString(flexLogsComputeMediumAvg))
-        .append("\n");
-    sb.append("    flexLogsComputeSmallAvg: ")
-        .append(toIndentedString(flexLogsComputeSmallAvg))
-        .append("\n");
-    sb.append("    flexLogsComputeXlargeAvg: ")
-        .append(toIndentedString(flexLogsComputeXlargeAvg))
-        .append("\n");
-    sb.append("    flexLogsComputeXsmallAvg: ")
-        .append(toIndentedString(flexLogsComputeXsmallAvg))
-        .append("\n");
+    sb.append("    ephInfraHostProplusSum: ").append(toIndentedString(ephInfraHostProplusSum)).append("\n");
+    sb.append("    ephInfraHostProxmoxSum: ").append(toIndentedString(ephInfraHostProxmoxSum)).append("\n");
+    sb.append("    errorTrackingApmErrorEventsSum: ").append(toIndentedString(errorTrackingApmErrorEventsSum)).append("\n");
+    sb.append("    errorTrackingErrorEventsSum: ").append(toIndentedString(errorTrackingErrorEventsSum)).append("\n");
+    sb.append("    errorTrackingEventsSum: ").append(toIndentedString(errorTrackingEventsSum)).append("\n");
+    sb.append("    errorTrackingRumErrorEventsSum: ").append(toIndentedString(errorTrackingRumErrorEventsSum)).append("\n");
+    sb.append("    eventManagementCorrelationCorrelatedEventsSum: ").append(toIndentedString(eventManagementCorrelationCorrelatedEventsSum)).append("\n");
+    sb.append("    eventManagementCorrelationCorrelatedRelatedEventsSum: ").append(toIndentedString(eventManagementCorrelationCorrelatedRelatedEventsSum)).append("\n");
+    sb.append("    eventManagementCorrelationSum: ").append(toIndentedString(eventManagementCorrelationSum)).append("\n");
+    sb.append("    fargateContainerProfilerProfilingFargateAvg: ").append(toIndentedString(fargateContainerProfilerProfilingFargateAvg)).append("\n");
+    sb.append("    fargateContainerProfilerProfilingFargateEksAvg: ").append(toIndentedString(fargateContainerProfilerProfilingFargateEksAvg)).append("\n");
+    sb.append("    fargateTasksCountAvg: ").append(toIndentedString(fargateTasksCountAvg)).append("\n");
+    sb.append("    fargateTasksCountHwm: ").append(toIndentedString(fargateTasksCountHwm)).append("\n");
+    sb.append("    featureFlagsConfigRequestsSum: ").append(toIndentedString(featureFlagsConfigRequestsSum)).append("\n");
+    sb.append("    flexLogsComputeLargeAvg: ").append(toIndentedString(flexLogsComputeLargeAvg)).append("\n");
+    sb.append("    flexLogsComputeMediumAvg: ").append(toIndentedString(flexLogsComputeMediumAvg)).append("\n");
+    sb.append("    flexLogsComputeSmallAvg: ").append(toIndentedString(flexLogsComputeSmallAvg)).append("\n");
+    sb.append("    flexLogsComputeXlargeAvg: ").append(toIndentedString(flexLogsComputeXlargeAvg)).append("\n");
+    sb.append("    flexLogsComputeXsmallAvg: ").append(toIndentedString(flexLogsComputeXsmallAvg)).append("\n");
     sb.append("    flexLogsStarterAvg: ").append(toIndentedString(flexLogsStarterAvg)).append("\n");
-    sb.append("    flexLogsStarterStorageIndexAvg: ")
-        .append(toIndentedString(flexLogsStarterStorageIndexAvg))
-        .append("\n");
-    sb.append("    flexLogsStarterStorageRetentionAdjustmentAvg: ")
-        .append(toIndentedString(flexLogsStarterStorageRetentionAdjustmentAvg))
-        .append("\n");
+    sb.append("    flexLogsStarterStorageIndexAvg: ").append(toIndentedString(flexLogsStarterStorageIndexAvg)).append("\n");
+    sb.append("    flexLogsStarterStorageRetentionAdjustmentAvg: ").append(toIndentedString(flexLogsStarterStorageRetentionAdjustmentAvg)).append("\n");
     sb.append("    flexStoredLogsAvg: ").append(toIndentedString(flexStoredLogsAvg)).append("\n");
-    sb.append("    forwardingEventsBytesSum: ")
-        .append(toIndentedString(forwardingEventsBytesSum))
-        .append("\n");
+    sb.append("    forwardingEventsBytesSum: ").append(toIndentedString(forwardingEventsBytesSum)).append("\n");
     sb.append("    gcpHostTop99p: ").append(toIndentedString(gcpHostTop99p)).append("\n");
     sb.append("    herokuHostTop99p: ").append(toIndentedString(herokuHostTop99p)).append("\n");
-    sb.append("    incidentManagementMonthlyActiveUsersHwm: ")
-        .append(toIndentedString(incidentManagementMonthlyActiveUsersHwm))
-        .append("\n");
-    sb.append("    incidentManagementSeatsHwm: ")
-        .append(toIndentedString(incidentManagementSeatsHwm))
-        .append("\n");
-    sb.append("    indexedEventsCountSum: ")
-        .append(toIndentedString(indexedEventsCountSum))
-        .append("\n");
+    sb.append("    incidentManagementMonthlyActiveUsersHwm: ").append(toIndentedString(incidentManagementMonthlyActiveUsersHwm)).append("\n");
+    sb.append("    incidentManagementSeatsHwm: ").append(toIndentedString(incidentManagementSeatsHwm)).append("\n");
+    sb.append("    indexedEventsCountSum: ").append(toIndentedString(indexedEventsCountSum)).append("\n");
     sb.append("    indexedPointsSum: ").append(toIndentedString(indexedPointsSum)).append("\n");
     sb.append("    infraCpuAvg: ").append(toIndentedString(infraCpuAvg)).append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuAgentAvg: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentAvg))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuAgentBasicAvg: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentBasicAvg))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuAgentBasicSum: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentBasicSum))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuAgentSum: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentSum))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuAwsAvg: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAwsAvg))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuAwsSum: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAwsSum))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuAzureAvg: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAzureAvg))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuAzureSum: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuAzureSum))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuGcpAvg: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuGcpAvg))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuGcpSum: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuGcpSum))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuNutanixAvg: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixAvg))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuNutanixBasicAvg: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixBasicAvg))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuNutanixBasicSum: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixBasicSum))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuNutanixSum: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixSum))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuOpentelemetryAvg: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuOpentelemetryAvg))
-        .append("\n");
-    sb.append("    infraCpuDefaultInfraHostVcpuOpentelemetrySum: ")
-        .append(toIndentedString(infraCpuDefaultInfraHostVcpuOpentelemetrySum))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuAgentAvg: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuAgentAvg))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuAgentSum: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuAgentSum))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuAwsAvg: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuAwsAvg))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuAwsSum: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuAwsSum))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuAzureAvg: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuAzureAvg))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuAzureSum: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuAzureSum))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuGcpAvg: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuGcpAvg))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuGcpSum: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuGcpSum))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuNutanixAvg: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuNutanixAvg))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuNutanixSum: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuNutanixSum))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuOpentelemetryAvg: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuOpentelemetryAvg))
-        .append("\n");
-    sb.append("    infraCpuObservedInfraHostVcpuOpentelemetrySum: ")
-        .append(toIndentedString(infraCpuObservedInfraHostVcpuOpentelemetrySum))
-        .append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAgentAvg: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentAvg)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAgentBasicAvg: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentBasicAvg)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAgentBasicSum: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentBasicSum)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAgentSum: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuAgentSum)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAwsAvg: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuAwsAvg)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAwsSum: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuAwsSum)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAzureAvg: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuAzureAvg)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuAzureSum: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuAzureSum)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuGcpAvg: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuGcpAvg)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuGcpSum: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuGcpSum)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuNutanixAvg: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixAvg)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuNutanixBasicAvg: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixBasicAvg)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuNutanixBasicSum: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixBasicSum)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuNutanixSum: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuNutanixSum)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuOpentelemetryAvg: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuOpentelemetryAvg)).append("\n");
+    sb.append("    infraCpuDefaultInfraHostVcpuOpentelemetrySum: ").append(toIndentedString(infraCpuDefaultInfraHostVcpuOpentelemetrySum)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAgentAvg: ").append(toIndentedString(infraCpuObservedInfraHostVcpuAgentAvg)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAgentSum: ").append(toIndentedString(infraCpuObservedInfraHostVcpuAgentSum)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAwsAvg: ").append(toIndentedString(infraCpuObservedInfraHostVcpuAwsAvg)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAwsSum: ").append(toIndentedString(infraCpuObservedInfraHostVcpuAwsSum)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAzureAvg: ").append(toIndentedString(infraCpuObservedInfraHostVcpuAzureAvg)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuAzureSum: ").append(toIndentedString(infraCpuObservedInfraHostVcpuAzureSum)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuGcpAvg: ").append(toIndentedString(infraCpuObservedInfraHostVcpuGcpAvg)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuGcpSum: ").append(toIndentedString(infraCpuObservedInfraHostVcpuGcpSum)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuNutanixAvg: ").append(toIndentedString(infraCpuObservedInfraHostVcpuNutanixAvg)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuNutanixSum: ").append(toIndentedString(infraCpuObservedInfraHostVcpuNutanixSum)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuOpentelemetryAvg: ").append(toIndentedString(infraCpuObservedInfraHostVcpuOpentelemetryAvg)).append("\n");
+    sb.append("    infraCpuObservedInfraHostVcpuOpentelemetrySum: ").append(toIndentedString(infraCpuObservedInfraHostVcpuOpentelemetrySum)).append("\n");
     sb.append("    infraCpuSum: ").append(toIndentedString(infraCpuSum)).append("\n");
-    sb.append("    infraEdgeMonitoringDevicesTop99p: ")
-        .append(toIndentedString(infraEdgeMonitoringDevicesTop99p))
-        .append("\n");
-    sb.append("    infraHostBasicInfraBasicAgentTop99p: ")
-        .append(toIndentedString(infraHostBasicInfraBasicAgentTop99p))
-        .append("\n");
-    sb.append("    infraHostBasicInfraBasicVsphereTop99p: ")
-        .append(toIndentedString(infraHostBasicInfraBasicVsphereTop99p))
-        .append("\n");
-    sb.append("    infraHostBasicTop99p: ")
-        .append(toIndentedString(infraHostBasicTop99p))
-        .append("\n");
+    sb.append("    infraEdgeMonitoringDevicesTop99p: ").append(toIndentedString(infraEdgeMonitoringDevicesTop99p)).append("\n");
+    sb.append("    infraHostBasicInfraBasicAgentTop99p: ").append(toIndentedString(infraHostBasicInfraBasicAgentTop99p)).append("\n");
+    sb.append("    infraHostBasicInfraBasicVsphereTop99p: ").append(toIndentedString(infraHostBasicInfraBasicVsphereTop99p)).append("\n");
+    sb.append("    infraHostBasicTop99p: ").append(toIndentedString(infraHostBasicTop99p)).append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
-    sb.append("    infraStorageMgmtObjectsCountAvg: ")
-        .append(toIndentedString(infraStorageMgmtObjectsCountAvg))
-        .append("\n");
+    sb.append("    infraStorageMgmtObjectsCountAvg: ").append(toIndentedString(infraStorageMgmtObjectsCountAvg)).append("\n");
     sb.append("    ingestPointsSum: ").append(toIndentedString(ingestPointsSum)).append("\n");
-    sb.append("    ingestedEventsBytesSum: ")
-        .append(toIndentedString(ingestedEventsBytesSum))
-        .append("\n");
+    sb.append("    ingestedEventsBytesSum: ").append(toIndentedString(ingestedEventsBytesSum)).append("\n");
     sb.append("    iotApmHostSum: ").append(toIndentedString(iotApmHostSum)).append("\n");
     sb.append("    iotApmHostTop99p: ").append(toIndentedString(iotApmHostTop99p)).append("\n");
     sb.append("    iotDeviceSum: ").append(toIndentedString(iotDeviceSum)).append("\n");
     sb.append("    iotDeviceTop99p: ").append(toIndentedString(iotDeviceTop99p)).append("\n");
-    sb.append("    llmObservability15dayRetentionSpansSum: ")
-        .append(toIndentedString(llmObservability15dayRetentionSpansSum))
-        .append("\n");
-    sb.append("    llmObservability30dayRetentionSpansSum: ")
-        .append(toIndentedString(llmObservability30dayRetentionSpansSum))
-        .append("\n");
-    sb.append("    llmObservability60dayRetentionSpansSum: ")
-        .append(toIndentedString(llmObservability60dayRetentionSpansSum))
-        .append("\n");
-    sb.append("    llmObservability90dayRetentionSpansSum: ")
-        .append(toIndentedString(llmObservability90dayRetentionSpansSum))
-        .append("\n");
-    sb.append("    llmObservabilityMinSpendSum: ")
-        .append(toIndentedString(llmObservabilityMinSpendSum))
-        .append("\n");
-    sb.append("    llmObservabilitySum: ")
-        .append(toIndentedString(llmObservabilitySum))
-        .append("\n");
-    sb.append("    logsArchiveSearchGbScannedSum: ")
-        .append(toIndentedString(logsArchiveSearchGbScannedSum))
-        .append("\n");
+    sb.append("    llmObservability15dayRetentionSpansSum: ").append(toIndentedString(llmObservability15dayRetentionSpansSum)).append("\n");
+    sb.append("    llmObservability30dayRetentionSpansSum: ").append(toIndentedString(llmObservability30dayRetentionSpansSum)).append("\n");
+    sb.append("    llmObservability60dayRetentionSpansSum: ").append(toIndentedString(llmObservability60dayRetentionSpansSum)).append("\n");
+    sb.append("    llmObservability90dayRetentionSpansSum: ").append(toIndentedString(llmObservability90dayRetentionSpansSum)).append("\n");
+    sb.append("    llmObservabilityMinSpendSum: ").append(toIndentedString(llmObservabilityMinSpendSum)).append("\n");
+    sb.append("    llmObservabilitySum: ").append(toIndentedString(llmObservabilitySum)).append("\n");
+    sb.append("    logsArchiveSearchGbScannedSum: ").append(toIndentedString(logsArchiveSearchGbScannedSum)).append("\n");
     sb.append("    metricNamesSum: ").append(toIndentedString(metricNamesSum)).append("\n");
-    sb.append("    mobileRumLiteSessionCountSum: ")
-        .append(toIndentedString(mobileRumLiteSessionCountSum))
-        .append("\n");
-    sb.append("    mobileRumSessionCountAndroidSum: ")
-        .append(toIndentedString(mobileRumSessionCountAndroidSum))
-        .append("\n");
-    sb.append("    mobileRumSessionCountFlutterSum: ")
-        .append(toIndentedString(mobileRumSessionCountFlutterSum))
-        .append("\n");
-    sb.append("    mobileRumSessionCountIosSum: ")
-        .append(toIndentedString(mobileRumSessionCountIosSum))
-        .append("\n");
-    sb.append("    mobileRumSessionCountReactnativeSum: ")
-        .append(toIndentedString(mobileRumSessionCountReactnativeSum))
-        .append("\n");
-    sb.append("    mobileRumSessionCountRokuSum: ")
-        .append(toIndentedString(mobileRumSessionCountRokuSum))
-        .append("\n");
-    sb.append("    mobileRumSessionCountSum: ")
-        .append(toIndentedString(mobileRumSessionCountSum))
-        .append("\n");
+    sb.append("    mobileRumLiteSessionCountSum: ").append(toIndentedString(mobileRumLiteSessionCountSum)).append("\n");
+    sb.append("    mobileRumSessionCountAndroidSum: ").append(toIndentedString(mobileRumSessionCountAndroidSum)).append("\n");
+    sb.append("    mobileRumSessionCountFlutterSum: ").append(toIndentedString(mobileRumSessionCountFlutterSum)).append("\n");
+    sb.append("    mobileRumSessionCountIosSum: ").append(toIndentedString(mobileRumSessionCountIosSum)).append("\n");
+    sb.append("    mobileRumSessionCountReactnativeSum: ").append(toIndentedString(mobileRumSessionCountReactnativeSum)).append("\n");
+    sb.append("    mobileRumSessionCountRokuSum: ").append(toIndentedString(mobileRumSessionCountRokuSum)).append("\n");
+    sb.append("    mobileRumSessionCountSum: ").append(toIndentedString(mobileRumSessionCountSum)).append("\n");
     sb.append("    mobileRumUnitsSum: ").append(toIndentedString(mobileRumUnitsSum)).append("\n");
-    sb.append("    ndmNetflowEventsSum: ")
-        .append(toIndentedString(ndmNetflowEventsSum))
-        .append("\n");
-    sb.append("    netflowIndexedEventsCountSum: ")
-        .append(toIndentedString(netflowIndexedEventsCountSum))
-        .append("\n");
-    sb.append("    networkDeviceWirelessTop99p: ")
-        .append(toIndentedString(networkDeviceWirelessTop99p))
-        .append("\n");
+    sb.append("    ndmNetflowEventsSum: ").append(toIndentedString(ndmNetflowEventsSum)).append("\n");
+    sb.append("    netflowIndexedEventsCountSum: ").append(toIndentedString(netflowIndexedEventsCountSum)).append("\n");
+    sb.append("    networkDeviceWirelessTop99p: ").append(toIndentedString(networkDeviceWirelessTop99p)).append("\n");
     sb.append("    networkPathSum: ").append(toIndentedString(networkPathSum)).append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
-    sb.append("    observabilityPipelinesBytesProcessedSum: ")
-        .append(toIndentedString(observabilityPipelinesBytesProcessedSum))
-        .append("\n");
+    sb.append("    observabilityPipelinesBytesProcessedSum: ").append(toIndentedString(observabilityPipelinesBytesProcessedSum)).append("\n");
     sb.append("    ociHostSum: ").append(toIndentedString(ociHostSum)).append("\n");
     sb.append("    ociHostTop99p: ").append(toIndentedString(ociHostTop99p)).append("\n");
     sb.append("    onCallSeatHwm: ").append(toIndentedString(onCallSeatHwm)).append("\n");
-    sb.append("    onlineArchiveEventsCountSum: ")
-        .append(toIndentedString(onlineArchiveEventsCountSum))
-        .append("\n");
-    sb.append("    opentelemetryApmHostTop99p: ")
-        .append(toIndentedString(opentelemetryApmHostTop99p))
-        .append("\n");
-    sb.append("    opentelemetryHostTop99p: ")
-        .append(toIndentedString(opentelemetryHostTop99p))
-        .append("\n");
+    sb.append("    onlineArchiveEventsCountSum: ").append(toIndentedString(onlineArchiveEventsCountSum)).append("\n");
+    sb.append("    opentelemetryApmHostTop99p: ").append(toIndentedString(opentelemetryApmHostTop99p)).append("\n");
+    sb.append("    opentelemetryHostTop99p: ").append(toIndentedString(opentelemetryHostTop99p)).append("\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
-    sb.append("    productAnalyticsSum: ")
-        .append(toIndentedString(productAnalyticsSum))
-        .append("\n");
-    sb.append("    profilingAasCountTop99p: ")
-        .append(toIndentedString(profilingAasCountTop99p))
-        .append("\n");
-    sb.append("    profilingHostTop99p: ")
-        .append(toIndentedString(profilingHostTop99p))
-        .append("\n");
+    sb.append("    productAnalyticsSum: ").append(toIndentedString(productAnalyticsSum)).append("\n");
+    sb.append("    profilingAasCountTop99p: ").append(toIndentedString(profilingAasCountTop99p)).append("\n");
+    sb.append("    profilingHostTop99p: ").append(toIndentedString(profilingHostTop99p)).append("\n");
     sb.append("    proxmoxHostSum: ").append(toIndentedString(proxmoxHostSum)).append("\n");
     sb.append("    proxmoxHostTop99p: ").append(toIndentedString(proxmoxHostTop99p)).append("\n");
     sb.append("    publishedAppHwm: ").append(toIndentedString(publishedAppHwm)).append("\n");
-    sb.append("    rumBrowserAndMobileSessionCount: ")
-        .append(toIndentedString(rumBrowserAndMobileSessionCount))
-        .append("\n");
-    sb.append("    rumBrowserLegacySessionCountSum: ")
-        .append(toIndentedString(rumBrowserLegacySessionCountSum))
-        .append("\n");
-    sb.append("    rumBrowserLiteSessionCountSum: ")
-        .append(toIndentedString(rumBrowserLiteSessionCountSum))
-        .append("\n");
-    sb.append("    rumBrowserReplaySessionCountSum: ")
-        .append(toIndentedString(rumBrowserReplaySessionCountSum))
-        .append("\n");
-    sb.append("    rumIndexedSessionsSum: ")
-        .append(toIndentedString(rumIndexedSessionsSum))
-        .append("\n");
-    sb.append("    rumIngestedSessionsSum: ")
-        .append(toIndentedString(rumIngestedSessionsSum))
-        .append("\n");
-    sb.append("    rumLiteSessionCountSum: ")
-        .append(toIndentedString(rumLiteSessionCountSum))
-        .append("\n");
-    sb.append("    rumMobileLegacySessionCountAndroidSum: ")
-        .append(toIndentedString(rumMobileLegacySessionCountAndroidSum))
-        .append("\n");
-    sb.append("    rumMobileLegacySessionCountFlutterSum: ")
-        .append(toIndentedString(rumMobileLegacySessionCountFlutterSum))
-        .append("\n");
-    sb.append("    rumMobileLegacySessionCountIosSum: ")
-        .append(toIndentedString(rumMobileLegacySessionCountIosSum))
-        .append("\n");
-    sb.append("    rumMobileLegacySessionCountReactnativeSum: ")
-        .append(toIndentedString(rumMobileLegacySessionCountReactnativeSum))
-        .append("\n");
-    sb.append("    rumMobileLegacySessionCountRokuSum: ")
-        .append(toIndentedString(rumMobileLegacySessionCountRokuSum))
-        .append("\n");
-    sb.append("    rumMobileLiteSessionCountAndroidSum: ")
-        .append(toIndentedString(rumMobileLiteSessionCountAndroidSum))
-        .append("\n");
-    sb.append("    rumMobileLiteSessionCountFlutterSum: ")
-        .append(toIndentedString(rumMobileLiteSessionCountFlutterSum))
-        .append("\n");
-    sb.append("    rumMobileLiteSessionCountIosSum: ")
-        .append(toIndentedString(rumMobileLiteSessionCountIosSum))
-        .append("\n");
-    sb.append("    rumMobileLiteSessionCountKotlinmultiplatformSum: ")
-        .append(toIndentedString(rumMobileLiteSessionCountKotlinmultiplatformSum))
-        .append("\n");
-    sb.append("    rumMobileLiteSessionCountReactnativeSum: ")
-        .append(toIndentedString(rumMobileLiteSessionCountReactnativeSum))
-        .append("\n");
-    sb.append("    rumMobileLiteSessionCountRokuSum: ")
-        .append(toIndentedString(rumMobileLiteSessionCountRokuSum))
-        .append("\n");
-    sb.append("    rumMobileLiteSessionCountUnitySum: ")
-        .append(toIndentedString(rumMobileLiteSessionCountUnitySum))
-        .append("\n");
-    sb.append("    rumMobileReplaySessionCountAndroidSum: ")
-        .append(toIndentedString(rumMobileReplaySessionCountAndroidSum))
-        .append("\n");
-    sb.append("    rumMobileReplaySessionCountIosSum: ")
-        .append(toIndentedString(rumMobileReplaySessionCountIosSum))
-        .append("\n");
-    sb.append("    rumMobileReplaySessionCountKotlinmultiplatformSum: ")
-        .append(toIndentedString(rumMobileReplaySessionCountKotlinmultiplatformSum))
-        .append("\n");
-    sb.append("    rumMobileReplaySessionCountReactnativeSum: ")
-        .append(toIndentedString(rumMobileReplaySessionCountReactnativeSum))
-        .append("\n");
-    sb.append("    rumReplaySessionCountSum: ")
-        .append(toIndentedString(rumReplaySessionCountSum))
-        .append("\n");
+    sb.append("    rumBrowserAndMobileSessionCount: ").append(toIndentedString(rumBrowserAndMobileSessionCount)).append("\n");
+    sb.append("    rumBrowserLegacySessionCountSum: ").append(toIndentedString(rumBrowserLegacySessionCountSum)).append("\n");
+    sb.append("    rumBrowserLiteSessionCountSum: ").append(toIndentedString(rumBrowserLiteSessionCountSum)).append("\n");
+    sb.append("    rumBrowserReplaySessionCountSum: ").append(toIndentedString(rumBrowserReplaySessionCountSum)).append("\n");
+    sb.append("    rumIndexedSessionsSum: ").append(toIndentedString(rumIndexedSessionsSum)).append("\n");
+    sb.append("    rumIngestedSessionsSum: ").append(toIndentedString(rumIngestedSessionsSum)).append("\n");
+    sb.append("    rumLiteSessionCountSum: ").append(toIndentedString(rumLiteSessionCountSum)).append("\n");
+    sb.append("    rumMobileLegacySessionCountAndroidSum: ").append(toIndentedString(rumMobileLegacySessionCountAndroidSum)).append("\n");
+    sb.append("    rumMobileLegacySessionCountFlutterSum: ").append(toIndentedString(rumMobileLegacySessionCountFlutterSum)).append("\n");
+    sb.append("    rumMobileLegacySessionCountIosSum: ").append(toIndentedString(rumMobileLegacySessionCountIosSum)).append("\n");
+    sb.append("    rumMobileLegacySessionCountReactnativeSum: ").append(toIndentedString(rumMobileLegacySessionCountReactnativeSum)).append("\n");
+    sb.append("    rumMobileLegacySessionCountRokuSum: ").append(toIndentedString(rumMobileLegacySessionCountRokuSum)).append("\n");
+    sb.append("    rumMobileLiteSessionCountAndroidSum: ").append(toIndentedString(rumMobileLiteSessionCountAndroidSum)).append("\n");
+    sb.append("    rumMobileLiteSessionCountFlutterSum: ").append(toIndentedString(rumMobileLiteSessionCountFlutterSum)).append("\n");
+    sb.append("    rumMobileLiteSessionCountIosSum: ").append(toIndentedString(rumMobileLiteSessionCountIosSum)).append("\n");
+    sb.append("    rumMobileLiteSessionCountKotlinmultiplatformSum: ").append(toIndentedString(rumMobileLiteSessionCountKotlinmultiplatformSum)).append("\n");
+    sb.append("    rumMobileLiteSessionCountReactnativeSum: ").append(toIndentedString(rumMobileLiteSessionCountReactnativeSum)).append("\n");
+    sb.append("    rumMobileLiteSessionCountRokuSum: ").append(toIndentedString(rumMobileLiteSessionCountRokuSum)).append("\n");
+    sb.append("    rumMobileLiteSessionCountUnitySum: ").append(toIndentedString(rumMobileLiteSessionCountUnitySum)).append("\n");
+    sb.append("    rumMobileReplaySessionCountAndroidSum: ").append(toIndentedString(rumMobileReplaySessionCountAndroidSum)).append("\n");
+    sb.append("    rumMobileReplaySessionCountIosSum: ").append(toIndentedString(rumMobileReplaySessionCountIosSum)).append("\n");
+    sb.append("    rumMobileReplaySessionCountKotlinmultiplatformSum: ").append(toIndentedString(rumMobileReplaySessionCountKotlinmultiplatformSum)).append("\n");
+    sb.append("    rumMobileReplaySessionCountReactnativeSum: ").append(toIndentedString(rumMobileReplaySessionCountReactnativeSum)).append("\n");
+    sb.append("    rumReplaySessionCountSum: ").append(toIndentedString(rumReplaySessionCountSum)).append("\n");
     sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
-    sb.append("    rumSessionReplayAddOnSum: ")
-        .append(toIndentedString(rumSessionReplayAddOnSum))
-        .append("\n");
-    sb.append("    rumTotalSessionCountSum: ")
-        .append(toIndentedString(rumTotalSessionCountSum))
-        .append("\n");
+    sb.append("    rumSessionReplayAddOnSum: ").append(toIndentedString(rumSessionReplayAddOnSum)).append("\n");
+    sb.append("    rumTotalSessionCountSum: ").append(toIndentedString(rumTotalSessionCountSum)).append("\n");
     sb.append("    rumUnitsSum: ").append(toIndentedString(rumUnitsSum)).append("\n");
     sb.append("    scaFargateCountAvg: ").append(toIndentedString(scaFargateCountAvg)).append("\n");
     sb.append("    scaFargateCountHwm: ").append(toIndentedString(scaFargateCountHwm)).append("\n");
-    sb.append("    sdsApmScannedBytesSum: ")
-        .append(toIndentedString(sdsApmScannedBytesSum))
-        .append("\n");
-    sb.append("    sdsEventsScannedBytesSum: ")
-        .append(toIndentedString(sdsEventsScannedBytesSum))
-        .append("\n");
-    sb.append("    sdsLogsScannedBytesSum: ")
-        .append(toIndentedString(sdsLogsScannedBytesSum))
-        .append("\n");
-    sb.append("    sdsRumScannedBytesSum: ")
-        .append(toIndentedString(sdsRumScannedBytesSum))
-        .append("\n");
-    sb.append("    sdsTotalScannedBytesSum: ")
-        .append(toIndentedString(sdsTotalScannedBytesSum))
-        .append("\n");
-    sb.append("    serverlessAppsApmApmAzureAppserviceInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmApmAzureAppserviceInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmApmAzureAzurefunctionInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmApmAzureAzurefunctionInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmApmAzureContainerappInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmApmAzureContainerappInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmApmFargateEcsTasksAvg: ")
-        .append(toIndentedString(serverlessAppsApmApmFargateEcsTasksAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmApmGcpCloudfunctionInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmApmGcpCloudfunctionInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmApmGcpCloudrunInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmApmGcpCloudrunInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmApmGcpGkeAutopilotPodsAvg: ")
-        .append(toIndentedString(serverlessAppsApmApmGcpGkeAutopilotPodsAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmAvg: ")
-        .append(toIndentedString(serverlessAppsApmAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg: ")
-        .append(toIndentedString(serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg))
-        .append("\n");
-    sb.append("    serverlessAppsApmExclFargateAvg: ")
-        .append(toIndentedString(serverlessAppsApmExclFargateAvg))
-        .append("\n");
-    sb.append("    serverlessAppsAzureContainerAppInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsAzureContainerAppInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsAzureCountAvg: ")
-        .append(toIndentedString(serverlessAppsAzureCountAvg))
-        .append("\n");
-    sb.append("    serverlessAppsAzureFunctionAppInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsAzureFunctionAppInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsAzureWebAppInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsAzureWebAppInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsDsmFargateTasksAvg: ")
-        .append(toIndentedString(serverlessAppsDsmFargateTasksAvg))
-        .append("\n");
-    sb.append("    serverlessAppsEcsAvg: ")
-        .append(toIndentedString(serverlessAppsEcsAvg))
-        .append("\n");
-    sb.append("    serverlessAppsEksAvg: ")
-        .append(toIndentedString(serverlessAppsEksAvg))
-        .append("\n");
-    sb.append("    serverlessAppsExclFargateAvg: ")
-        .append(toIndentedString(serverlessAppsExclFargateAvg))
-        .append("\n");
-    sb.append("    serverlessAppsExclFargateAzureContainerAppInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsExclFargateAzureContainerAppInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsExclFargateAzureFunctionAppInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsExclFargateAzureFunctionAppInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsExclFargateAzureWebAppInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsExclFargateAzureWebAppInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsExclFargateGoogleCloudRunInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsExclFargateGoogleCloudRunInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg: ")
-        .append(toIndentedString(serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg))
-        .append("\n");
-    sb.append("    serverlessAppsGoogleCloudFunctionsInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsGoogleCloudFunctionsInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsGoogleCloudRunInstancesAvg: ")
-        .append(toIndentedString(serverlessAppsGoogleCloudRunInstancesAvg))
-        .append("\n");
-    sb.append("    serverlessAppsGoogleCountAvg: ")
-        .append(toIndentedString(serverlessAppsGoogleCountAvg))
-        .append("\n");
-    sb.append("    serverlessAppsInfraGcpGkeAutopilotPodsAvg: ")
-        .append(toIndentedString(serverlessAppsInfraGcpGkeAutopilotPodsAvg))
-        .append("\n");
-    sb.append("    serverlessAppsTotalCountAvg: ")
-        .append(toIndentedString(serverlessAppsTotalCountAvg))
-        .append("\n");
-    sb.append("    siem12moRetentionSum: ")
-        .append(toIndentedString(siem12moRetentionSum))
-        .append("\n");
-    sb.append("    siem6moRetentionSum: ")
-        .append(toIndentedString(siem6moRetentionSum))
-        .append("\n");
-    sb.append("    siemAnalyzedLogsAddOnCountSum: ")
-        .append(toIndentedString(siemAnalyzedLogsAddOnCountSum))
-        .append("\n");
+    sb.append("    sdsApmScannedBytesSum: ").append(toIndentedString(sdsApmScannedBytesSum)).append("\n");
+    sb.append("    sdsEventsScannedBytesSum: ").append(toIndentedString(sdsEventsScannedBytesSum)).append("\n");
+    sb.append("    sdsLogsScannedBytesSum: ").append(toIndentedString(sdsLogsScannedBytesSum)).append("\n");
+    sb.append("    sdsRumScannedBytesSum: ").append(toIndentedString(sdsRumScannedBytesSum)).append("\n");
+    sb.append("    sdsTotalScannedBytesSum: ").append(toIndentedString(sdsTotalScannedBytesSum)).append("\n");
+    sb.append("    serverlessAppsApmApmAzureAppserviceInstancesAvg: ").append(toIndentedString(serverlessAppsApmApmAzureAppserviceInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmApmAzureAzurefunctionInstancesAvg: ").append(toIndentedString(serverlessAppsApmApmAzureAzurefunctionInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmApmAzureContainerappInstancesAvg: ").append(toIndentedString(serverlessAppsApmApmAzureContainerappInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmApmFargateEcsTasksAvg: ").append(toIndentedString(serverlessAppsApmApmFargateEcsTasksAvg)).append("\n");
+    sb.append("    serverlessAppsApmApmGcpCloudfunctionInstancesAvg: ").append(toIndentedString(serverlessAppsApmApmGcpCloudfunctionInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmApmGcpCloudrunInstancesAvg: ").append(toIndentedString(serverlessAppsApmApmGcpCloudrunInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmApmGcpGkeAutopilotPodsAvg: ").append(toIndentedString(serverlessAppsApmApmGcpGkeAutopilotPodsAvg)).append("\n");
+    sb.append("    serverlessAppsApmAvg: ").append(toIndentedString(serverlessAppsApmAvg)).append("\n");
+    sb.append("    serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg: ").append(toIndentedString(serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg: ").append(toIndentedString(serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg: ").append(toIndentedString(serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg: ").append(toIndentedString(serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg: ").append(toIndentedString(serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg: ").append(toIndentedString(serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg)).append("\n");
+    sb.append("    serverlessAppsApmExclFargateAvg: ").append(toIndentedString(serverlessAppsApmExclFargateAvg)).append("\n");
+    sb.append("    serverlessAppsAzureContainerAppInstancesAvg: ").append(toIndentedString(serverlessAppsAzureContainerAppInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsAzureCountAvg: ").append(toIndentedString(serverlessAppsAzureCountAvg)).append("\n");
+    sb.append("    serverlessAppsAzureFunctionAppInstancesAvg: ").append(toIndentedString(serverlessAppsAzureFunctionAppInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsAzureWebAppInstancesAvg: ").append(toIndentedString(serverlessAppsAzureWebAppInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsDsmFargateTasksAvg: ").append(toIndentedString(serverlessAppsDsmFargateTasksAvg)).append("\n");
+    sb.append("    serverlessAppsEcsAvg: ").append(toIndentedString(serverlessAppsEcsAvg)).append("\n");
+    sb.append("    serverlessAppsEksAvg: ").append(toIndentedString(serverlessAppsEksAvg)).append("\n");
+    sb.append("    serverlessAppsExclFargateAvg: ").append(toIndentedString(serverlessAppsExclFargateAvg)).append("\n");
+    sb.append("    serverlessAppsExclFargateAzureContainerAppInstancesAvg: ").append(toIndentedString(serverlessAppsExclFargateAzureContainerAppInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsExclFargateAzureFunctionAppInstancesAvg: ").append(toIndentedString(serverlessAppsExclFargateAzureFunctionAppInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsExclFargateAzureWebAppInstancesAvg: ").append(toIndentedString(serverlessAppsExclFargateAzureWebAppInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg: ").append(toIndentedString(serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsExclFargateGoogleCloudRunInstancesAvg: ").append(toIndentedString(serverlessAppsExclFargateGoogleCloudRunInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg: ").append(toIndentedString(serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvg)).append("\n");
+    sb.append("    serverlessAppsGoogleCloudFunctionsInstancesAvg: ").append(toIndentedString(serverlessAppsGoogleCloudFunctionsInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsGoogleCloudRunInstancesAvg: ").append(toIndentedString(serverlessAppsGoogleCloudRunInstancesAvg)).append("\n");
+    sb.append("    serverlessAppsGoogleCountAvg: ").append(toIndentedString(serverlessAppsGoogleCountAvg)).append("\n");
+    sb.append("    serverlessAppsInfraGcpGkeAutopilotPodsAvg: ").append(toIndentedString(serverlessAppsInfraGcpGkeAutopilotPodsAvg)).append("\n");
+    sb.append("    serverlessAppsTotalCountAvg: ").append(toIndentedString(serverlessAppsTotalCountAvg)).append("\n");
+    sb.append("    siem12moRetentionSum: ").append(toIndentedString(siem12moRetentionSum)).append("\n");
+    sb.append("    siem6moRetentionSum: ").append(toIndentedString(siem6moRetentionSum)).append("\n");
+    sb.append("    siemAnalyzedLogsAddOnCountSum: ").append(toIndentedString(siemAnalyzedLogsAddOnCountSum)).append("\n");
     sb.append("    snmpDeviceCountSum: ").append(toIndentedString(snmpDeviceCountSum)).append("\n");
-    sb.append("    snmpDeviceCountTop99p: ")
-        .append(toIndentedString(snmpDeviceCountTop99p))
-        .append("\n");
-    sb.append("    syntheticsBrowserCheckCallsCountSum: ")
-        .append(toIndentedString(syntheticsBrowserCheckCallsCountSum))
-        .append("\n");
-    sb.append("    syntheticsCheckCallsCountSum: ")
-        .append(toIndentedString(syntheticsCheckCallsCountSum))
-        .append("\n");
-    sb.append("    syntheticsMobileTestRunsSum: ")
-        .append(toIndentedString(syntheticsMobileTestRunsSum))
-        .append("\n");
-    sb.append("    syntheticsParallelTestingMaxSlotsHwm: ")
-        .append(toIndentedString(syntheticsParallelTestingMaxSlotsHwm))
-        .append("\n");
-    sb.append("    traceSearchIndexedEventsCountSum: ")
-        .append(toIndentedString(traceSearchIndexedEventsCountSum))
-        .append("\n");
-    sb.append("    twolIngestedEventsBytesSum: ")
-        .append(toIndentedString(twolIngestedEventsBytesSum))
-        .append("\n");
-    sb.append("    universalServiceMonitoringHostTop99p: ")
-        .append(toIndentedString(universalServiceMonitoringHostTop99p))
-        .append("\n");
+    sb.append("    snmpDeviceCountTop99p: ").append(toIndentedString(snmpDeviceCountTop99p)).append("\n");
+    sb.append("    syntheticsBrowserCheckCallsCountSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountSum)).append("\n");
+    sb.append("    syntheticsCheckCallsCountSum: ").append(toIndentedString(syntheticsCheckCallsCountSum)).append("\n");
+    sb.append("    syntheticsMobileTestRunsSum: ").append(toIndentedString(syntheticsMobileTestRunsSum)).append("\n");
+    sb.append("    syntheticsParallelTestingMaxSlotsHwm: ").append(toIndentedString(syntheticsParallelTestingMaxSlotsHwm)).append("\n");
+    sb.append("    traceSearchIndexedEventsCountSum: ").append(toIndentedString(traceSearchIndexedEventsCountSum)).append("\n");
+    sb.append("    twolIngestedEventsBytesSum: ").append(toIndentedString(twolIngestedEventsBytesSum)).append("\n");
+    sb.append("    universalServiceMonitoringHostTop99p: ").append(toIndentedString(universalServiceMonitoringHostTop99p)).append("\n");
     sb.append("    vsphereHostTop99p: ").append(toIndentedString(vsphereHostTop99p)).append("\n");
-    sb.append("    vulnManagementHostCountTop99p: ")
-        .append(toIndentedString(vulnManagementHostCountTop99p))
-        .append("\n");
-    sb.append("    workflowExecutionsUsageSum: ")
-        .append(toIndentedString(workflowExecutionsUsageSum))
-        .append("\n");
+    sb.append("    vulnManagementHostCountTop99p: ").append(toIndentedString(vulnManagementHostCountTop99p)).append("\n");
+    sb.append("    workflowExecutionsUsageSum: ").append(toIndentedString(workflowExecutionsUsageSum)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -10640,7 +7711,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

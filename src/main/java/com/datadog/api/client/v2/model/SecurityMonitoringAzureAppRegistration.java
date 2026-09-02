@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** An Azure App Registration discovered for the organization. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>An Azure App Registration discovered for the organization.</p>
+ */
 @JsonPropertyOrder({
   SecurityMonitoringAzureAppRegistration.JSON_PROPERTY_CLIENT_ID,
   SecurityMonitoringAzureAppRegistration.JSON_PROPERTY_ERROR_COUNT,
@@ -25,18 +41,17 @@ import java.util.Objects;
   SecurityMonitoringAzureAppRegistration.JSON_PROPERTY_SUBSCRIPTION_COUNT,
   SecurityMonitoringAzureAppRegistration.JSON_PROPERTY_TENANT_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringAzureAppRegistration {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
   public static final String JSON_PROPERTY_ERROR_COUNT = "error_count";
   private Long errorCount;
 
-  public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
-      "resource_collection_enabled";
+  public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED = "resource_collection_enabled";
   private Boolean resourceCollectionEnabled;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_COUNT = "subscription_count";
@@ -49,130 +64,118 @@ public class SecurityMonitoringAzureAppRegistration {
 
   @JsonCreator
   public SecurityMonitoringAzureAppRegistration(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_ID) String clientId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ERROR_COUNT) Long errorCount,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
-          Boolean resourceCollectionEnabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SUBSCRIPTION_COUNT)
-          Long subscriptionCount,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TENANT_ID) String tenantId) {
-    this.clientId = clientId;
-    this.errorCount = errorCount;
-    this.resourceCollectionEnabled = resourceCollectionEnabled;
-    this.subscriptionCount = subscriptionCount;
-    this.tenantId = tenantId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CLIENT_ID)String clientId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ERROR_COUNT)Long errorCount,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)Boolean resourceCollectionEnabled,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SUBSCRIPTION_COUNT)Long subscriptionCount,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TENANT_ID)String tenantId) {
+        this.clientId = clientId;
+        this.errorCount = errorCount;
+        this.resourceCollectionEnabled = resourceCollectionEnabled;
+        this.subscriptionCount = subscriptionCount;
+        this.tenantId = tenantId;
   }
-
   public SecurityMonitoringAzureAppRegistration clientId(String clientId) {
     this.clientId = clientId;
     return this;
   }
 
   /**
-   * The client ID of the App Registration.
-   *
+   * <p>The client ID of the App Registration.</p>
    * @return clientId
-   */
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getClientId() {
-    return clientId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getClientId() {
+        return clientId;
+      }
   public void setClientId(String clientId) {
     this.clientId = clientId;
   }
-
   public SecurityMonitoringAzureAppRegistration errorCount(Long errorCount) {
     this.errorCount = errorCount;
     return this;
   }
 
   /**
-   * The number of errors encountered while crawling resources for this App Registration.
-   *
+   * <p>The number of errors encountered while crawling resources for this App Registration.</p>
    * @return errorCount
-   */
-  @JsonProperty(JSON_PROPERTY_ERROR_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getErrorCount() {
-    return errorCount;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ERROR_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getErrorCount() {
+        return errorCount;
+      }
   public void setErrorCount(Long errorCount) {
     this.errorCount = errorCount;
   }
-
-  public SecurityMonitoringAzureAppRegistration resourceCollectionEnabled(
-      Boolean resourceCollectionEnabled) {
+  public SecurityMonitoringAzureAppRegistration resourceCollectionEnabled(Boolean resourceCollectionEnabled) {
     this.resourceCollectionEnabled = resourceCollectionEnabled;
     return this;
   }
 
   /**
-   * Whether resource collection is enabled for this App Registration.
-   *
+   * <p>Whether resource collection is enabled for this App Registration.</p>
    * @return resourceCollectionEnabled
-   */
-  @JsonProperty(JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getResourceCollectionEnabled() {
-    return resourceCollectionEnabled;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getResourceCollectionEnabled() {
+        return resourceCollectionEnabled;
+      }
   public void setResourceCollectionEnabled(Boolean resourceCollectionEnabled) {
     this.resourceCollectionEnabled = resourceCollectionEnabled;
   }
-
   public SecurityMonitoringAzureAppRegistration subscriptionCount(Long subscriptionCount) {
     this.subscriptionCount = subscriptionCount;
     return this;
   }
 
   /**
-   * The number of Azure subscriptions associated with this App Registration.
-   *
+   * <p>The number of Azure subscriptions associated with this App Registration.</p>
    * @return subscriptionCount
-   */
-  @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getSubscriptionCount() {
-    return subscriptionCount;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getSubscriptionCount() {
+        return subscriptionCount;
+      }
   public void setSubscriptionCount(Long subscriptionCount) {
     this.subscriptionCount = subscriptionCount;
   }
-
   public SecurityMonitoringAzureAppRegistration tenantId(String tenantId) {
     this.tenantId = tenantId;
     return this;
   }
 
   /**
-   * The Azure tenant ID of the App Registration.
-   *
+   * <p>The Azure tenant ID of the App Registration.</p>
    * @return tenantId
-   */
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTenantId() {
-    return tenantId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TENANT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTenantId() {
+        return tenantId;
+      }
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -181,7 +184,7 @@ public class SecurityMonitoringAzureAppRegistration {
   @JsonAnySetter
   public SecurityMonitoringAzureAppRegistration putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -205,12 +208,14 @@ public class SecurityMonitoringAzureAppRegistration {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringAzureAppRegistration object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringAzureAppRegistration object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -219,29 +224,14 @@ public class SecurityMonitoringAzureAppRegistration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringAzureAppRegistration securityMonitoringAzureAppRegistration =
-        (SecurityMonitoringAzureAppRegistration) o;
-    return Objects.equals(this.clientId, securityMonitoringAzureAppRegistration.clientId)
-        && Objects.equals(this.errorCount, securityMonitoringAzureAppRegistration.errorCount)
-        && Objects.equals(
-            this.resourceCollectionEnabled,
-            securityMonitoringAzureAppRegistration.resourceCollectionEnabled)
-        && Objects.equals(
-            this.subscriptionCount, securityMonitoringAzureAppRegistration.subscriptionCount)
-        && Objects.equals(this.tenantId, securityMonitoringAzureAppRegistration.tenantId)
-        && Objects.equals(
-            this.additionalProperties, securityMonitoringAzureAppRegistration.additionalProperties);
+    SecurityMonitoringAzureAppRegistration securityMonitoringAzureAppRegistration = (SecurityMonitoringAzureAppRegistration) o;
+    return Objects.equals(this.clientId, securityMonitoringAzureAppRegistration.clientId) && Objects.equals(this.errorCount, securityMonitoringAzureAppRegistration.errorCount) && Objects.equals(this.resourceCollectionEnabled, securityMonitoringAzureAppRegistration.resourceCollectionEnabled) && Objects.equals(this.subscriptionCount, securityMonitoringAzureAppRegistration.subscriptionCount) && Objects.equals(this.tenantId, securityMonitoringAzureAppRegistration.tenantId) && Objects.equals(this.additionalProperties, securityMonitoringAzureAppRegistration.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        clientId,
-        errorCount,
-        resourceCollectionEnabled,
-        subscriptionCount,
-        tenantId,
-        additionalProperties);
+    return Objects.hash(clientId,errorCount,resourceCollectionEnabled,subscriptionCount,tenantId, additionalProperties);
   }
 
   @Override
@@ -250,9 +240,7 @@ public class SecurityMonitoringAzureAppRegistration {
     sb.append("class SecurityMonitoringAzureAppRegistration {\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    errorCount: ").append(toIndentedString(errorCount)).append("\n");
-    sb.append("    resourceCollectionEnabled: ")
-        .append(toIndentedString(resourceCollectionEnabled))
-        .append("\n");
+    sb.append("    resourceCollectionEnabled: ").append(toIndentedString(resourceCollectionEnabled)).append("\n");
     sb.append("    subscriptionCount: ").append(toIndentedString(subscriptionCount)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    additionalProperties: ")
@@ -263,7 +251,8 @@ public class SecurityMonitoringAzureAppRegistration {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

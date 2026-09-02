@@ -6,34 +6,50 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The reason why the findings are muted or unmuted. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The reason why the findings are muted or unmuted.</p>
+ */
 @JsonSerialize(using = MuteFindingsReason.MuteFindingsReasonSerializer.class)
 public class MuteFindingsReason extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "PENDING_FIX",
-              "FALSE_POSITIVE",
-              "OTHER",
-              "NO_FIX",
-              "DUPLICATE",
-              "RISK_ACCEPTED",
-              "NO_PENDING_FIX",
-              "HUMAN_ERROR",
-              "NO_LONGER_ACCEPTED_RISK"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("PENDING_FIX", "FALSE_POSITIVE", "OTHER", "NO_FIX", "DUPLICATE", "RISK_ACCEPTED", "NO_PENDING_FIX", "HUMAN_ERROR", "NO_LONGER_ACCEPTED_RISK"));
 
   public static final MuteFindingsReason PENDING_FIX = new MuteFindingsReason("PENDING_FIX");
   public static final MuteFindingsReason FALSE_POSITIVE = new MuteFindingsReason("FALSE_POSITIVE");
@@ -43,27 +59,26 @@ public class MuteFindingsReason extends ModelEnum<String> {
   public static final MuteFindingsReason RISK_ACCEPTED = new MuteFindingsReason("RISK_ACCEPTED");
   public static final MuteFindingsReason NO_PENDING_FIX = new MuteFindingsReason("NO_PENDING_FIX");
   public static final MuteFindingsReason HUMAN_ERROR = new MuteFindingsReason("HUMAN_ERROR");
-  public static final MuteFindingsReason NO_LONGER_ACCEPTED_RISK =
-      new MuteFindingsReason("NO_LONGER_ACCEPTED_RISK");
+  public static final MuteFindingsReason NO_LONGER_ACCEPTED_RISK = new MuteFindingsReason("NO_LONGER_ACCEPTED_RISK");
+
 
   MuteFindingsReason(String value) {
     super(value, allowedValues);
   }
 
   public static class MuteFindingsReasonSerializer extends StdSerializer<MuteFindingsReason> {
-    public MuteFindingsReasonSerializer(Class<MuteFindingsReason> t) {
-      super(t);
-    }
+      public MuteFindingsReasonSerializer(Class<MuteFindingsReason> t) {
+          super(t);
+      }
 
-    public MuteFindingsReasonSerializer() {
-      this(null);
-    }
+      public MuteFindingsReasonSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(MuteFindingsReason value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(MuteFindingsReason value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

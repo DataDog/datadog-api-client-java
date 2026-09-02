@@ -6,27 +6,44 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A tool definition available to an LLM span. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A tool definition available to an LLM span.</p>
+ */
 @JsonPropertyOrder({
   LLMObsSpanToolDefinition.JSON_PROPERTY_DESCRIPTION,
   LLMObsSpanToolDefinition.JSON_PROPERTY_NAME,
   LLMObsSpanToolDefinition.JSON_PROPERTY_SCHEMA,
   LLMObsSpanToolDefinition.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsSpanToolDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -45,47 +62,42 @@ public class LLMObsSpanToolDefinition {
   }
 
   /**
-   * Description of what the tool does.
-   *
+   * <p>Description of what the tool does.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public LLMObsSpanToolDefinition name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the tool.
-   *
+   * <p>Name of the tool.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public LLMObsSpanToolDefinition schema(Map<String, Object> schema) {
     this.schema = schema;
     return this;
   }
-
   public LLMObsSpanToolDefinition putSchemaItem(String key, Object schemaItem) {
     if (this.schema == null) {
       this.schema = new HashMap<>();
@@ -95,51 +107,49 @@ public class LLMObsSpanToolDefinition {
   }
 
   /**
-   * JSON schema describing the tool's input parameters.
-   *
+   * <p>JSON schema describing the tool's input parameters.</p>
    * @return schema
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCHEMA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getSchema() {
-    return schema;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCHEMA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getSchema() {
+        return schema;
+      }
   public void setSchema(Map<String, Object> schema) {
     this.schema = schema;
   }
-
   public LLMObsSpanToolDefinition version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * Version of the tool definition.
-   *
+   * <p>Version of the tool definition.</p>
    * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getVersion() {
-    return version;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getVersion() {
+        return version;
+      }
   public void setVersion(String version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -148,7 +158,7 @@ public class LLMObsSpanToolDefinition {
   @JsonAnySetter
   public LLMObsSpanToolDefinition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -172,12 +182,14 @@ public class LLMObsSpanToolDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsSpanToolDefinition object is equal to o. */
+  /**
+   * Return true if this LLMObsSpanToolDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -187,16 +199,13 @@ public class LLMObsSpanToolDefinition {
       return false;
     }
     LLMObsSpanToolDefinition llmObsSpanToolDefinition = (LLMObsSpanToolDefinition) o;
-    return Objects.equals(this.description, llmObsSpanToolDefinition.description)
-        && Objects.equals(this.name, llmObsSpanToolDefinition.name)
-        && Objects.equals(this.schema, llmObsSpanToolDefinition.schema)
-        && Objects.equals(this.version, llmObsSpanToolDefinition.version)
-        && Objects.equals(this.additionalProperties, llmObsSpanToolDefinition.additionalProperties);
+    return Objects.equals(this.description, llmObsSpanToolDefinition.description) && Objects.equals(this.name, llmObsSpanToolDefinition.name) && Objects.equals(this.schema, llmObsSpanToolDefinition.schema) && Objects.equals(this.version, llmObsSpanToolDefinition.version) && Objects.equals(this.additionalProperties, llmObsSpanToolDefinition.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, schema, version, additionalProperties);
+    return Objects.hash(description,name,schema,version, additionalProperties);
   }
 
   @Override
@@ -215,7 +224,8 @@ public class LLMObsSpanToolDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

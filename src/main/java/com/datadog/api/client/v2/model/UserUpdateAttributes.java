@@ -6,28 +6,44 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of the edited user. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of the edited user.</p>
+ */
 @JsonPropertyOrder({
   UserUpdateAttributes.JSON_PROPERTY_DISABLED,
   UserUpdateAttributes.JSON_PROPERTY_EMAIL,
   UserUpdateAttributes.JSON_PROPERTY_NAME,
   UserUpdateAttributes.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserUpdateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
 
@@ -46,105 +62,97 @@ public class UserUpdateAttributes {
   }
 
   /**
-   * When set to <code>true</code>, the user is deactivated and can no longer log in. When <code>
-   * false</code>, the user is active.
-   *
+   * <p>When set to <code>true</code>, the user is deactivated and can no longer log in.
+   * When <code>false</code>, the user is active.</p>
    * @return disabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getDisabled() {
-    return disabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DISABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getDisabled() {
+        return disabled;
+      }
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
-
   public UserUpdateAttributes email(String email) {
     this.email = email;
     return this;
   }
 
   /**
-   * The email address of the user, used for login and notifications. Must be a valid email format.
-   *
+   * <p>The email address of the user, used for login and notifications.
+   * Must be a valid email format.</p>
    * @return email
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEmail() {
-    return email;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EMAIL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEmail() {
+        return email;
+      }
   public void setEmail(String email) {
     this.email = email;
   }
-
   public UserUpdateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The full display name of the user as shown in the Datadog UI. Maximum 55 characters, cannot
-   * contain <code>&lt;</code> or <code>&gt;</code>.
-   *
+   * <p>The full display name of the user as shown in the Datadog UI.
+   * Maximum 55 characters, cannot contain <code>&lt;</code> or <code>&gt;</code>.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public UserUpdateAttributes title(String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
 
   /**
-   * The job title of the user (for example, "Senior Engineer" or "Product Manager").
-   *
+   * <p>The job title of the user (for example, "Senior Engineer" or "Product Manager").</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getTitle() {
-    return title.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getTitle() {
+        return title.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
-
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
+  @JsonProperty(JSON_PROPERTY_TITLE)public void setTitle_JsonNullable(JsonNullable<String> title) {
     this.title = title;
   }
-
   public void setTitle(String title) {
     this.title = JsonNullable.<String>of(title);
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -153,7 +161,7 @@ public class UserUpdateAttributes {
   @JsonAnySetter
   public UserUpdateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -177,12 +185,14 @@ public class UserUpdateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this UserUpdateAttributes object is equal to o. */
+  /**
+   * Return true if this UserUpdateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -192,16 +202,13 @@ public class UserUpdateAttributes {
       return false;
     }
     UserUpdateAttributes userUpdateAttributes = (UserUpdateAttributes) o;
-    return Objects.equals(this.disabled, userUpdateAttributes.disabled)
-        && Objects.equals(this.email, userUpdateAttributes.email)
-        && Objects.equals(this.name, userUpdateAttributes.name)
-        && Objects.equals(this.title, userUpdateAttributes.title)
-        && Objects.equals(this.additionalProperties, userUpdateAttributes.additionalProperties);
+    return Objects.equals(this.disabled, userUpdateAttributes.disabled) && Objects.equals(this.email, userUpdateAttributes.email) && Objects.equals(this.name, userUpdateAttributes.name) && Objects.equals(this.title, userUpdateAttributes.title) && Objects.equals(this.additionalProperties, userUpdateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(disabled, email, name, title, additionalProperties);
+    return Objects.hash(disabled,email,name,title, additionalProperties);
   }
 
   @Override
@@ -220,7 +227,8 @@ public class UserUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

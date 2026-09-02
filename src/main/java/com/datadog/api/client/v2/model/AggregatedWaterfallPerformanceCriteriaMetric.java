@@ -6,65 +6,74 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Performance metric used to filter view instances by threshold. */
-@JsonSerialize(
-    using =
-        AggregatedWaterfallPerformanceCriteriaMetric
-            .AggregatedWaterfallPerformanceCriteriaMetricSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Performance metric used to filter view instances by threshold.</p>
+ */
+@JsonSerialize(using = AggregatedWaterfallPerformanceCriteriaMetric.AggregatedWaterfallPerformanceCriteriaMetricSerializer.class)
 public class AggregatedWaterfallPerformanceCriteriaMetric extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "loading_time",
-              "largest_contentful_paint",
-              "first_contentful_paint",
-              "interaction_to_next_paint"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("loading_time", "largest_contentful_paint", "first_contentful_paint", "interaction_to_next_paint"));
 
-  public static final AggregatedWaterfallPerformanceCriteriaMetric LOADING_TIME =
-      new AggregatedWaterfallPerformanceCriteriaMetric("loading_time");
-  public static final AggregatedWaterfallPerformanceCriteriaMetric LARGEST_CONTENTFUL_PAINT =
-      new AggregatedWaterfallPerformanceCriteriaMetric("largest_contentful_paint");
-  public static final AggregatedWaterfallPerformanceCriteriaMetric FIRST_CONTENTFUL_PAINT =
-      new AggregatedWaterfallPerformanceCriteriaMetric("first_contentful_paint");
-  public static final AggregatedWaterfallPerformanceCriteriaMetric INTERACTION_TO_NEXT_PAINT =
-      new AggregatedWaterfallPerformanceCriteriaMetric("interaction_to_next_paint");
+  public static final AggregatedWaterfallPerformanceCriteriaMetric LOADING_TIME = new AggregatedWaterfallPerformanceCriteriaMetric("loading_time");
+  public static final AggregatedWaterfallPerformanceCriteriaMetric LARGEST_CONTENTFUL_PAINT = new AggregatedWaterfallPerformanceCriteriaMetric("largest_contentful_paint");
+  public static final AggregatedWaterfallPerformanceCriteriaMetric FIRST_CONTENTFUL_PAINT = new AggregatedWaterfallPerformanceCriteriaMetric("first_contentful_paint");
+  public static final AggregatedWaterfallPerformanceCriteriaMetric INTERACTION_TO_NEXT_PAINT = new AggregatedWaterfallPerformanceCriteriaMetric("interaction_to_next_paint");
+
 
   AggregatedWaterfallPerformanceCriteriaMetric(String value) {
     super(value, allowedValues);
   }
 
-  public static class AggregatedWaterfallPerformanceCriteriaMetricSerializer
-      extends StdSerializer<AggregatedWaterfallPerformanceCriteriaMetric> {
-    public AggregatedWaterfallPerformanceCriteriaMetricSerializer(
-        Class<AggregatedWaterfallPerformanceCriteriaMetric> t) {
-      super(t);
-    }
+  public static class AggregatedWaterfallPerformanceCriteriaMetricSerializer extends StdSerializer<AggregatedWaterfallPerformanceCriteriaMetric> {
+      public AggregatedWaterfallPerformanceCriteriaMetricSerializer(Class<AggregatedWaterfallPerformanceCriteriaMetric> t) {
+          super(t);
+      }
 
-    public AggregatedWaterfallPerformanceCriteriaMetricSerializer() {
-      this(null);
-    }
+      public AggregatedWaterfallPerformanceCriteriaMetricSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        AggregatedWaterfallPerformanceCriteriaMetric value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(AggregatedWaterfallPerformanceCriteriaMetric value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

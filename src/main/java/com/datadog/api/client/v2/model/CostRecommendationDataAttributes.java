@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes describing a single cost recommendation. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes describing a single cost recommendation.</p>
+ */
 @JsonPropertyOrder({
   CostRecommendationDataAttributes.JSON_PROPERTY_DD_RESOURCE_KEY,
   CostRecommendationDataAttributes.JSON_PROPERTY_POTENTIAL_DAILY_SAVINGS,
@@ -27,10 +42,10 @@ import java.util.Objects;
   CostRecommendationDataAttributes.JSON_PROPERTY_RESOURCE_TYPE,
   CostRecommendationDataAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CostRecommendationDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DD_RESOURCE_KEY = "dd_resource_key";
   private String ddResourceKey;
 
@@ -55,116 +70,103 @@ public class CostRecommendationDataAttributes {
   }
 
   /**
-   * Datadog resource key identifying the recommended resource.
-   *
+   * <p>Datadog resource key identifying the recommended resource.</p>
    * @return ddResourceKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DD_RESOURCE_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDdResourceKey() {
-    return ddResourceKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DD_RESOURCE_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDdResourceKey() {
+        return ddResourceKey;
+      }
   public void setDdResourceKey(String ddResourceKey) {
     this.ddResourceKey = ddResourceKey;
   }
-
-  public CostRecommendationDataAttributes potentialDailySavings(
-      CostRecommendationDataAttributesPotentialDailySavings potentialDailySavings) {
+  public CostRecommendationDataAttributes potentialDailySavings(CostRecommendationDataAttributesPotentialDailySavings potentialDailySavings) {
     this.potentialDailySavings = potentialDailySavings;
     this.unparsed |= potentialDailySavings.unparsed;
     return this;
   }
 
   /**
-   * Estimated daily savings if the recommendation is applied.
-   *
+   * <p>Estimated daily savings if the recommendation is applied.</p>
    * @return potentialDailySavings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POTENTIAL_DAILY_SAVINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CostRecommendationDataAttributesPotentialDailySavings getPotentialDailySavings() {
-    return potentialDailySavings;
-  }
-
-  public void setPotentialDailySavings(
-      CostRecommendationDataAttributesPotentialDailySavings potentialDailySavings) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_POTENTIAL_DAILY_SAVINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CostRecommendationDataAttributesPotentialDailySavings getPotentialDailySavings() {
+        return potentialDailySavings;
+      }
+  public void setPotentialDailySavings(CostRecommendationDataAttributesPotentialDailySavings potentialDailySavings) {
     this.potentialDailySavings = potentialDailySavings;
     if (potentialDailySavings != null) {
       this.unparsed |= potentialDailySavings.unparsed;
     }
   }
-
   public CostRecommendationDataAttributes recommendationType(String recommendationType) {
     this.recommendationType = recommendationType;
     return this;
   }
 
   /**
-   * The kind of recommendation (for example, <code>terminate</code> or <code>rightsize</code>).
-   *
+   * <p>The kind of recommendation (for example, <code>terminate</code> or <code>rightsize</code>).</p>
    * @return recommendationType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRecommendationType() {
-    return recommendationType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RECOMMENDATION_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getRecommendationType() {
+        return recommendationType;
+      }
   public void setRecommendationType(String recommendationType) {
     this.recommendationType = recommendationType;
   }
-
   public CostRecommendationDataAttributes resourceId(String resourceId) {
     this.resourceId = resourceId;
     return this;
   }
 
   /**
-   * Cloud provider identifier of the resource.
-   *
+   * <p>Cloud provider identifier of the resource.</p>
    * @return resourceId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESOURCE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getResourceId() {
-    return resourceId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESOURCE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getResourceId() {
+        return resourceId;
+      }
   public void setResourceId(String resourceId) {
     this.resourceId = resourceId;
   }
-
   public CostRecommendationDataAttributes resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
   }
 
   /**
-   * Resource type (for example, <code>aws_ec2_instance</code>).
-   *
+   * <p>Resource type (for example, <code>aws_ec2_instance</code>).</p>
    * @return resourceType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getResourceType() {
-    return resourceType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getResourceType() {
+        return resourceType;
+      }
   public void setResourceType(String resourceType) {
     this.resourceType = resourceType;
   }
-
   public CostRecommendationDataAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public CostRecommendationDataAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -174,30 +176,30 @@ public class CostRecommendationDataAttributes {
   }
 
   /**
-   * Tags attached to the recommended resource.
-   *
+   * <p>Tags attached to the recommended resource.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -206,7 +208,7 @@ public class CostRecommendationDataAttributes {
   @JsonAnySetter
   public CostRecommendationDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -230,12 +232,14 @@ public class CostRecommendationDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CostRecommendationDataAttributes object is equal to o. */
+  /**
+   * Return true if this CostRecommendationDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -244,30 +248,14 @@ public class CostRecommendationDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CostRecommendationDataAttributes costRecommendationDataAttributes =
-        (CostRecommendationDataAttributes) o;
-    return Objects.equals(this.ddResourceKey, costRecommendationDataAttributes.ddResourceKey)
-        && Objects.equals(
-            this.potentialDailySavings, costRecommendationDataAttributes.potentialDailySavings)
-        && Objects.equals(
-            this.recommendationType, costRecommendationDataAttributes.recommendationType)
-        && Objects.equals(this.resourceId, costRecommendationDataAttributes.resourceId)
-        && Objects.equals(this.resourceType, costRecommendationDataAttributes.resourceType)
-        && Objects.equals(this.tags, costRecommendationDataAttributes.tags)
-        && Objects.equals(
-            this.additionalProperties, costRecommendationDataAttributes.additionalProperties);
+    CostRecommendationDataAttributes costRecommendationDataAttributes = (CostRecommendationDataAttributes) o;
+    return Objects.equals(this.ddResourceKey, costRecommendationDataAttributes.ddResourceKey) && Objects.equals(this.potentialDailySavings, costRecommendationDataAttributes.potentialDailySavings) && Objects.equals(this.recommendationType, costRecommendationDataAttributes.recommendationType) && Objects.equals(this.resourceId, costRecommendationDataAttributes.resourceId) && Objects.equals(this.resourceType, costRecommendationDataAttributes.resourceType) && Objects.equals(this.tags, costRecommendationDataAttributes.tags) && Objects.equals(this.additionalProperties, costRecommendationDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        ddResourceKey,
-        potentialDailySavings,
-        recommendationType,
-        resourceId,
-        resourceType,
-        tags,
-        additionalProperties);
+    return Objects.hash(ddResourceKey,potentialDailySavings,recommendationType,resourceId,resourceType,tags, additionalProperties);
   }
 
   @Override
@@ -275,9 +263,7 @@ public class CostRecommendationDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CostRecommendationDataAttributes {\n");
     sb.append("    ddResourceKey: ").append(toIndentedString(ddResourceKey)).append("\n");
-    sb.append("    potentialDailySavings: ")
-        .append(toIndentedString(potentialDailySavings))
-        .append("\n");
+    sb.append("    potentialDailySavings: ").append(toIndentedString(potentialDailySavings)).append("\n");
     sb.append("    recommendationType: ").append(toIndentedString(recommendationType)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
@@ -290,7 +276,8 @@ public class CostRecommendationDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

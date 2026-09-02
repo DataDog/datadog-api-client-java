@@ -6,24 +6,50 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Supported include types. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Supported include types.</p>
+ */
 @JsonSerialize(using = IncludeType.IncludeTypeSerializer.class)
 public class IncludeType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("schema", "raw_schema", "oncall", "incident", "relation"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("schema", "raw_schema", "oncall", "incident", "relation"));
 
   public static final IncludeType SCHEMA = new IncludeType("schema");
   public static final IncludeType RAW_SCHEMA = new IncludeType("raw_schema");
@@ -31,24 +57,24 @@ public class IncludeType extends ModelEnum<String> {
   public static final IncludeType INCIDENT = new IncludeType("incident");
   public static final IncludeType RELATION = new IncludeType("relation");
 
+
   IncludeType(String value) {
     super(value, allowedValues);
   }
 
   public static class IncludeTypeSerializer extends StdSerializer<IncludeType> {
-    public IncludeTypeSerializer(Class<IncludeType> t) {
-      super(t);
-    }
+      public IncludeTypeSerializer(Class<IncludeType> t) {
+          super(t);
+      }
 
-    public IncludeTypeSerializer() {
-      this(null);
-    }
+      public IncludeTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(IncludeType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(IncludeType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

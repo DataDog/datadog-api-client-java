@@ -6,54 +6,71 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Type of the assertion. */
-@JsonSerialize(
-    using =
-        SyntheticsAssertionMCPRespectsSpecificationType
-            .SyntheticsAssertionMCPRespectsSpecificationTypeSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Type of the assertion.</p>
+ */
+@JsonSerialize(using = SyntheticsAssertionMCPRespectsSpecificationType.SyntheticsAssertionMCPRespectsSpecificationTypeSerializer.class)
 public class SyntheticsAssertionMCPRespectsSpecificationType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("mcpRespectsSpecification"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("mcpRespectsSpecification"));
 
-  public static final SyntheticsAssertionMCPRespectsSpecificationType MCP_RESPECTS_SPECIFICATION =
-      new SyntheticsAssertionMCPRespectsSpecificationType("mcpRespectsSpecification");
+  public static final SyntheticsAssertionMCPRespectsSpecificationType MCP_RESPECTS_SPECIFICATION = new SyntheticsAssertionMCPRespectsSpecificationType("mcpRespectsSpecification");
+
 
   SyntheticsAssertionMCPRespectsSpecificationType(String value) {
     super(value, allowedValues);
   }
 
-  public static class SyntheticsAssertionMCPRespectsSpecificationTypeSerializer
-      extends StdSerializer<SyntheticsAssertionMCPRespectsSpecificationType> {
-    public SyntheticsAssertionMCPRespectsSpecificationTypeSerializer(
-        Class<SyntheticsAssertionMCPRespectsSpecificationType> t) {
-      super(t);
-    }
+  public static class SyntheticsAssertionMCPRespectsSpecificationTypeSerializer extends StdSerializer<SyntheticsAssertionMCPRespectsSpecificationType> {
+      public SyntheticsAssertionMCPRespectsSpecificationTypeSerializer(Class<SyntheticsAssertionMCPRespectsSpecificationType> t) {
+          super(t);
+      }
 
-    public SyntheticsAssertionMCPRespectsSpecificationTypeSerializer() {
-      this(null);
-    }
+      public SyntheticsAssertionMCPRespectsSpecificationTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SyntheticsAssertionMCPRespectsSpecificationType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SyntheticsAssertionMCPRespectsSpecificationType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

@@ -1,23 +1,32 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.HamrOrgConnectionRequest;
-import com.datadog.api.client.v2.model.HamrOrgConnectionResponse;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.HamrOrgConnectionResponse;
+import com.datadog.api.client.v2.model.HamrOrgConnectionRequest;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HighAvailabilityMultiRegionApi {
   private ApiClient apiClient;
-
   public HighAvailabilityMultiRegionApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -45,47 +54,43 @@ public class HighAvailabilityMultiRegionApi {
   }
 
   /**
-   * Create or update HAMR organization connection.
-   *
-   * <p>See {@link #createHamrOrgConnectionWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return HamrOrgConnectionResponse
-   * @throws ApiException if fails to make API call
-   */
-  public HamrOrgConnectionResponse createHamrOrgConnection(HamrOrgConnectionRequest body)
-      throws ApiException {
+ * Create or update HAMR organization connection.
+ *
+ * See {@link #createHamrOrgConnectionWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @return HamrOrgConnectionResponse
+ * @throws ApiException if fails to make API call
+ */
+  public HamrOrgConnectionResponse  createHamrOrgConnection(HamrOrgConnectionRequest body) throws ApiException {
     return createHamrOrgConnectionWithHttpInfo(body).getData();
   }
 
   /**
-   * Create or update HAMR organization connection.
-   *
-   * <p>See {@link #createHamrOrgConnectionWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;HamrOrgConnectionResponse&gt;
-   */
-  public CompletableFuture<HamrOrgConnectionResponse> createHamrOrgConnectionAsync(
-      HamrOrgConnectionRequest body) {
-    return createHamrOrgConnectionWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create or update HAMR organization connection.
+ *
+ * See {@link #createHamrOrgConnectionWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @return CompletableFuture&lt;HamrOrgConnectionResponse&gt;
+ */
+  public CompletableFuture<HamrOrgConnectionResponse>createHamrOrgConnectionAsync(HamrOrgConnectionRequest body) {
+    return createHamrOrgConnectionWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create or update the High Availability Multi-Region (HAMR) organization connection. This
-   * endpoint allows you to configure the HAMR connection between the authenticated organization and
-   * a target organization, including setting the connection status (ONBOARDING, PASSIVE, FAILOVER,
-   * ACTIVE, RECOVERY)
+   * <p>Create or update the High Availability Multi-Region (HAMR) organization connection.
+   * This endpoint allows you to configure the HAMR connection between the authenticated organization
+   * and a target organization, including setting the connection status (ONBOARDING, PASSIVE, FAILOVER, ACTIVE, RECOVERY)</p>
    *
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;HamrOrgConnectionResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -95,8 +100,7 @@ public class HighAvailabilityMultiRegionApi {
    *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<HamrOrgConnectionResponse> createHamrOrgConnectionWithHttpInfo(
-      HamrOrgConnectionRequest body) throws ApiException {
+  public ApiResponse<HamrOrgConnectionResponse> createHamrOrgConnectionWithHttpInfo(HamrOrgConnectionRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createHamrOrgConnection";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -108,133 +112,98 @@ public class HighAvailabilityMultiRegionApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createHamrOrgConnection");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createHamrOrgConnection");
     }
     // create path and map variables
     String localVarPath = "/api/v2/hamr";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.HighAvailabilityMultiRegionApi.createHamrOrgConnection",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<HamrOrgConnectionResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.HighAvailabilityMultiRegionApi.createHamrOrgConnection", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<HamrOrgConnectionResponse>() {});
   }
 
   /**
    * Create or update HAMR organization connection.
    *
-   * <p>See {@link #createHamrOrgConnectionWithHttpInfo}.
+   * See {@link #createHamrOrgConnectionWithHttpInfo}.
    *
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;HamrOrgConnectionResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<HamrOrgConnectionResponse>>
-      createHamrOrgConnectionWithHttpInfoAsync(HamrOrgConnectionRequest body) {
+  public CompletableFuture<ApiResponse<HamrOrgConnectionResponse>> createHamrOrgConnectionWithHttpInfoAsync(HamrOrgConnectionRequest body) {
     // Check if unstable operation is enabled
     String operationId = "createHamrOrgConnection";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<HamrOrgConnectionResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<HamrOrgConnectionResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createHamrOrgConnection"));
-      return result;
+        CompletableFuture<ApiResponse<HamrOrgConnectionResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createHamrOrgConnection"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/hamr";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.HighAvailabilityMultiRegionApi.createHamrOrgConnection",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.HighAvailabilityMultiRegionApi.createHamrOrgConnection", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<HamrOrgConnectionResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<HamrOrgConnectionResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<HamrOrgConnectionResponse>() {});
   }
 
   /**
-   * Get HAMR organization connection.
-   *
-   * <p>See {@link #getHamrOrgConnectionWithHttpInfo}.
-   *
-   * @return HamrOrgConnectionResponse
-   * @throws ApiException if fails to make API call
-   */
-  public HamrOrgConnectionResponse getHamrOrgConnection() throws ApiException {
+ * Get HAMR organization connection.
+ *
+ * See {@link #getHamrOrgConnectionWithHttpInfo}.
+ *
+ * @return HamrOrgConnectionResponse
+ * @throws ApiException if fails to make API call
+ */
+  public HamrOrgConnectionResponse  getHamrOrgConnection() throws ApiException {
     return getHamrOrgConnectionWithHttpInfo().getData();
   }
 
   /**
-   * Get HAMR organization connection.
-   *
-   * <p>See {@link #getHamrOrgConnectionWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;HamrOrgConnectionResponse&gt;
-   */
-  public CompletableFuture<HamrOrgConnectionResponse> getHamrOrgConnectionAsync() {
-    return getHamrOrgConnectionWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get HAMR organization connection.
+ *
+ * See {@link #getHamrOrgConnectionWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;HamrOrgConnectionResponse&gt;
+ */
+  public CompletableFuture<HamrOrgConnectionResponse>getHamrOrgConnectionAsync() {
+    return getHamrOrgConnectionWithHttpInfoAsync().thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Retrieve the High Availability Multi-Region (HAMR) organization connection details for the
-   * authenticated organization. This endpoint returns information about the HAMR connection
-   * configuration, including the target organization, datacenter, status, and whether this is the
-   * primary or secondary organization in the HAMR relationship.
+   * <p>Retrieve the High Availability Multi-Region (HAMR) organization connection details for the authenticated organization.
+   * This endpoint returns information about the HAMR connection configuration, including the target organization,
+   * datacenter, status, and whether this is the primary or secondary organization in the HAMR relationship.</p>
    *
    * @return ApiResponse&lt;HamrOrgConnectionResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -244,8 +213,7 @@ public class HighAvailabilityMultiRegionApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<HamrOrgConnectionResponse> getHamrOrgConnectionWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<HamrOrgConnectionResponse> getHamrOrgConnectionWithHttpInfo() throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getHamrOrgConnection";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -257,77 +225,47 @@ public class HighAvailabilityMultiRegionApi {
     // create path and map variables
     String localVarPath = "/api/v2/hamr";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.HighAvailabilityMultiRegionApi.getHamrOrgConnection",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<HamrOrgConnectionResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.HighAvailabilityMultiRegionApi.getHamrOrgConnection", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<HamrOrgConnectionResponse>() {});
   }
 
   /**
    * Get HAMR organization connection.
    *
-   * <p>See {@link #getHamrOrgConnectionWithHttpInfo}.
+   * See {@link #getHamrOrgConnectionWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;HamrOrgConnectionResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<HamrOrgConnectionResponse>>
-      getHamrOrgConnectionWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<HamrOrgConnectionResponse>> getHamrOrgConnectionWithHttpInfoAsync() {
     // Check if unstable operation is enabled
     String operationId = "getHamrOrgConnection";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<HamrOrgConnectionResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/hamr";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.HighAvailabilityMultiRegionApi.getHamrOrgConnection",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.HighAvailabilityMultiRegionApi.getHamrOrgConnection", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<HamrOrgConnectionResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<HamrOrgConnectionResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<HamrOrgConnectionResponse>() {});
   }
 }

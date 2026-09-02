@@ -6,17 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Contains the identifiers and URL for a successfully created Linear issue. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Contains the identifiers and URL for a successfully created Linear issue.</p>
+ */
 @JsonPropertyOrder({
   IssueCaseLinearIssueResult.JSON_PROPERTY_ACCOUNT_ID,
   IssueCaseLinearIssueResult.JSON_PROPERTY_ISSUE_ID,
@@ -24,10 +41,10 @@ import java.util.Objects;
   IssueCaseLinearIssueResult.JSON_PROPERTY_ISSUE_URL,
   IssueCaseLinearIssueResult.JSON_PROPERTY_TEAM_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IssueCaseLinearIssueResult {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -49,114 +66,106 @@ public class IssueCaseLinearIssueResult {
   }
 
   /**
-   * Linear account identifier.
-   *
+   * <p>Linear account identifier.</p>
    * @return accountId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAccountId() {
-    return accountId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAccountId() {
+        return accountId;
+      }
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
-
   public IssueCaseLinearIssueResult issueId(String issueId) {
     this.issueId = issueId;
     return this;
   }
 
   /**
-   * Linear issue identifier.
-   *
+   * <p>Linear issue identifier.</p>
    * @return issueId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ISSUE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIssueId() {
-    return issueId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ISSUE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIssueId() {
+        return issueId;
+      }
   public void setIssueId(String issueId) {
     this.issueId = issueId;
   }
-
   public IssueCaseLinearIssueResult issueKey(String issueKey) {
     this.issueKey = issueKey;
     return this;
   }
 
   /**
-   * Linear issue key.
-   *
+   * <p>Linear issue key.</p>
    * @return issueKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ISSUE_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIssueKey() {
-    return issueKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ISSUE_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIssueKey() {
+        return issueKey;
+      }
   public void setIssueKey(String issueKey) {
     this.issueKey = issueKey;
   }
-
   public IssueCaseLinearIssueResult issueUrl(String issueUrl) {
     this.issueUrl = issueUrl;
     return this;
   }
 
   /**
-   * Linear issue URL.
-   *
+   * <p>Linear issue URL.</p>
    * @return issueUrl
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ISSUE_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIssueUrl() {
-    return issueUrl;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ISSUE_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIssueUrl() {
+        return issueUrl;
+      }
   public void setIssueUrl(String issueUrl) {
     this.issueUrl = issueUrl;
   }
-
   public IssueCaseLinearIssueResult teamId(String teamId) {
     this.teamId = teamId;
     return this;
   }
 
   /**
-   * Linear team identifier.
-   *
+   * <p>Linear team identifier.</p>
    * @return teamId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTeamId() {
-    return teamId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEAM_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTeamId() {
+        return teamId;
+      }
   public void setTeamId(String teamId) {
     this.teamId = teamId;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -165,7 +174,7 @@ public class IssueCaseLinearIssueResult {
   @JsonAnySetter
   public IssueCaseLinearIssueResult putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -189,12 +198,14 @@ public class IssueCaseLinearIssueResult {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IssueCaseLinearIssueResult object is equal to o. */
+  /**
+   * Return true if this IssueCaseLinearIssueResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -204,18 +215,13 @@ public class IssueCaseLinearIssueResult {
       return false;
     }
     IssueCaseLinearIssueResult issueCaseLinearIssueResult = (IssueCaseLinearIssueResult) o;
-    return Objects.equals(this.accountId, issueCaseLinearIssueResult.accountId)
-        && Objects.equals(this.issueId, issueCaseLinearIssueResult.issueId)
-        && Objects.equals(this.issueKey, issueCaseLinearIssueResult.issueKey)
-        && Objects.equals(this.issueUrl, issueCaseLinearIssueResult.issueUrl)
-        && Objects.equals(this.teamId, issueCaseLinearIssueResult.teamId)
-        && Objects.equals(
-            this.additionalProperties, issueCaseLinearIssueResult.additionalProperties);
+    return Objects.equals(this.accountId, issueCaseLinearIssueResult.accountId) && Objects.equals(this.issueId, issueCaseLinearIssueResult.issueId) && Objects.equals(this.issueKey, issueCaseLinearIssueResult.issueKey) && Objects.equals(this.issueUrl, issueCaseLinearIssueResult.issueUrl) && Objects.equals(this.teamId, issueCaseLinearIssueResult.teamId) && Objects.equals(this.additionalProperties, issueCaseLinearIssueResult.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, issueId, issueKey, issueUrl, teamId, additionalProperties);
+    return Objects.hash(accountId,issueId,issueKey,issueUrl,teamId, additionalProperties);
   }
 
   @Override
@@ -235,7 +241,8 @@ public class IssueCaseLinearIssueResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

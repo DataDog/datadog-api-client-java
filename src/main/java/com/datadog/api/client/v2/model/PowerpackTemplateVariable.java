@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,24 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Powerpack template variables. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Powerpack template variables.</p>
+ */
 @JsonPropertyOrder({
   PowerpackTemplateVariable.JSON_PROPERTY_AVAILABLE_VALUES,
   PowerpackTemplateVariable.JSON_PROPERTY_DEFAULTS,
   PowerpackTemplateVariable.JSON_PROPERTY_NAME,
   PowerpackTemplateVariable.JSON_PROPERTY_PREFIX
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PowerpackTemplateVariable {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVAILABLE_VALUES = "available_values";
   private JsonNullable<List<String>> availableValues = JsonNullable.<List<String>>undefined();
 
@@ -47,15 +60,13 @@ public class PowerpackTemplateVariable {
 
   @JsonCreator
   public PowerpackTemplateVariable(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.name = name;
   }
-
   public PowerpackTemplateVariable availableValues(List<String> availableValues) {
     this.availableValues = JsonNullable.<List<String>>of(availableValues);
     return this;
   }
-
   public PowerpackTemplateVariable addAvailableValuesItem(String availableValuesItem) {
     if (this.availableValues == null || !this.availableValues.isPresent()) {
       this.availableValues = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -69,36 +80,30 @@ public class PowerpackTemplateVariable {
   }
 
   /**
-   * The list of values that the template variable drop-down is limited to.
-   *
+   * <p>The list of values that the template variable drop-down is limited to.</p>
    * @return availableValues
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<String> getAvailableValues() {
-    return availableValues.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<String> getAvailableValues() {
+        return availableValues.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getAvailableValues_JsonNullable() {
     return availableValues;
   }
-
-  @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)
-  public void setAvailableValues_JsonNullable(JsonNullable<List<String>> availableValues) {
+  @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)public void setAvailableValues_JsonNullable(JsonNullable<List<String>> availableValues) {
     this.availableValues = availableValues;
   }
-
   public void setAvailableValues(List<String> availableValues) {
     this.availableValues = JsonNullable.<List<String>>of(availableValues);
   }
-
   public PowerpackTemplateVariable defaults(List<String> defaults) {
     this.defaults = defaults;
     return this;
   }
-
   public PowerpackTemplateVariable addDefaultsItem(String defaultsItem) {
     if (this.defaults == null) {
       this.defaults = new ArrayList<>();
@@ -108,83 +113,74 @@ public class PowerpackTemplateVariable {
   }
 
   /**
-   * One or many template variable default values within the saved view, which are unioned together
-   * using <code>OR</code> if more than one is specified.
-   *
+   * <p>One or many template variable default values within the saved view, which are unioned together using <code>OR</code> if more than one is specified.</p>
    * @return defaults
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFAULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDefaults() {
-    return defaults;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DEFAULTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getDefaults() {
+        return defaults;
+      }
   public void setDefaults(List<String> defaults) {
     this.defaults = defaults;
   }
-
   public PowerpackTemplateVariable name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the variable.
-   *
+   * <p>The name of the variable.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public PowerpackTemplateVariable prefix(String prefix) {
     this.prefix = JsonNullable.<String>of(prefix);
     return this;
   }
 
   /**
-   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable
-   * drop-down.
-   *
+   * <p>The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.</p>
    * @return prefix
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getPrefix() {
-    return prefix.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getPrefix() {
+        return prefix.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PREFIX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getPrefix_JsonNullable() {
     return prefix;
   }
-
-  @JsonProperty(JSON_PROPERTY_PREFIX)
-  public void setPrefix_JsonNullable(JsonNullable<String> prefix) {
+  @JsonProperty(JSON_PROPERTY_PREFIX)public void setPrefix_JsonNullable(JsonNullable<String> prefix) {
     this.prefix = prefix;
   }
-
   public void setPrefix(String prefix) {
     this.prefix = JsonNullable.<String>of(prefix);
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -193,7 +189,7 @@ public class PowerpackTemplateVariable {
   @JsonAnySetter
   public PowerpackTemplateVariable putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -217,12 +213,14 @@ public class PowerpackTemplateVariable {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this PowerpackTemplateVariable object is equal to o. */
+  /**
+   * Return true if this PowerpackTemplateVariable object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -232,17 +230,13 @@ public class PowerpackTemplateVariable {
       return false;
     }
     PowerpackTemplateVariable powerpackTemplateVariable = (PowerpackTemplateVariable) o;
-    return Objects.equals(this.availableValues, powerpackTemplateVariable.availableValues)
-        && Objects.equals(this.defaults, powerpackTemplateVariable.defaults)
-        && Objects.equals(this.name, powerpackTemplateVariable.name)
-        && Objects.equals(this.prefix, powerpackTemplateVariable.prefix)
-        && Objects.equals(
-            this.additionalProperties, powerpackTemplateVariable.additionalProperties);
+    return Objects.equals(this.availableValues, powerpackTemplateVariable.availableValues) && Objects.equals(this.defaults, powerpackTemplateVariable.defaults) && Objects.equals(this.name, powerpackTemplateVariable.name) && Objects.equals(this.prefix, powerpackTemplateVariable.prefix) && Objects.equals(this.additionalProperties, powerpackTemplateVariable.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableValues, defaults, name, prefix, additionalProperties);
+    return Objects.hash(availableValues,defaults,name,prefix, additionalProperties);
   }
 
   @Override
@@ -261,7 +255,8 @@ public class PowerpackTemplateVariable {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
