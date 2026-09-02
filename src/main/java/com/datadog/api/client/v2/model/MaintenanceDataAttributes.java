@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The attributes of a maintenance. */
 @JsonPropertyOrder({
+  MaintenanceDataAttributes.JSON_PROPERTY_CANCELED_DESCRIPTION,
   MaintenanceDataAttributes.JSON_PROPERTY_COMPLETED_DATE,
   MaintenanceDataAttributes.JSON_PROPERTY_COMPLETED_DESCRIPTION,
   MaintenanceDataAttributes.JSON_PROPERTY_COMPONENTS_AFFECTED,
@@ -38,6 +39,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MaintenanceDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CANCELED_DESCRIPTION = "canceled_description";
+  private String canceledDescription;
+
   public static final String JSON_PROPERTY_COMPLETED_DATE = "completed_date";
   private OffsetDateTime completedDate;
 
@@ -73,6 +77,27 @@ public class MaintenanceDataAttributes {
 
   public static final String JSON_PROPERTY_UPDATES = "updates";
   private List<MaintenanceDataAttributesUpdatesItems> updates = null;
+
+  public MaintenanceDataAttributes canceledDescription(String canceledDescription) {
+    this.canceledDescription = canceledDescription;
+    return this;
+  }
+
+  /**
+   * The description shown when the maintenance is canceled.
+   *
+   * @return canceledDescription
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CANCELED_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCanceledDescription() {
+    return canceledDescription;
+  }
+
+  public void setCanceledDescription(String canceledDescription) {
+    this.canceledDescription = canceledDescription;
+  }
 
   public MaintenanceDataAttributes completedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
@@ -428,7 +453,8 @@ public class MaintenanceDataAttributes {
       return false;
     }
     MaintenanceDataAttributes maintenanceDataAttributes = (MaintenanceDataAttributes) o;
-    return Objects.equals(this.completedDate, maintenanceDataAttributes.completedDate)
+    return Objects.equals(this.canceledDescription, maintenanceDataAttributes.canceledDescription)
+        && Objects.equals(this.completedDate, maintenanceDataAttributes.completedDate)
         && Objects.equals(this.completedDescription, maintenanceDataAttributes.completedDescription)
         && Objects.equals(this.componentsAffected, maintenanceDataAttributes.componentsAffected)
         && Objects.equals(
@@ -448,6 +474,7 @@ public class MaintenanceDataAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        canceledDescription,
         completedDate,
         completedDescription,
         componentsAffected,
@@ -467,6 +494,9 @@ public class MaintenanceDataAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MaintenanceDataAttributes {\n");
+    sb.append("    canceledDescription: ")
+        .append(toIndentedString(canceledDescription))
+        .append("\n");
     sb.append("    completedDate: ").append(toIndentedString(completedDate)).append("\n");
     sb.append("    completedDescription: ")
         .append(toIndentedString(completedDescription))
