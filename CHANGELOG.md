@@ -1,5 +1,52 @@
 # CHANGELOG
 
+## 2.60.0/2026-09-02
+
+### Added
+* Add opentelemetry metrics destination to observability pipelines public api spec [#4249](https://github.com/DataDog/datadog-api-client-java/pull/4249)
+* Add incident and Slack reaction triggers to Workflow Automation [#4248](https://github.com/DataDog/datadog-api-client-java/pull/4248)
+* Publish unstable STIX ingestion API [#4247](https://github.com/DataDog/datadog-api-client-java/pull/4247)
+* [AGV-1597] Add is_iac support to send X-Datadog-Managed-By header [#4239](https://github.com/DataDog/datadog-api-client-java/pull/4239)
+* Add warmup, fail_on_no_groups_found, and fail_on_no_data to Deployment Gates monitor rule options [#4238](https://github.com/DataDog/datadog-api-client-java/pull/4238)
+* Add server.response.body.raw WAF address [#4224](https://github.com/DataDog/datadog-api-client-java/pull/4224)
+* Fix estimate endpoint query params to match live schema [#4219](https://github.com/DataDog/datadog-api-client-java/pull/4219)
+* Add zstd/compression to archive destinations [#4217](https://github.com/DataDog/datadog-api-client-java/pull/4217)
+* Sync LLM Obs annotation access docs [#4212](https://github.com/DataDog/datadog-api-client-java/pull/4212)
+* RUM - Make exclusion filter operations public [#4210](https://github.com/DataDog/datadog-api-client-java/pull/4210)
+* Add OpenAPI docs for usage quotas admin [#4209](https://github.com/DataDog/datadog-api-client-java/pull/4209)
+* API spec for severity modifiers automation pipelines [#4200](https://github.com/DataDog/datadog-api-client-java/pull/4200)
+* Add bundle_config to Monitor Notification Rule [#4199](https://github.com/DataDog/datadog-api-client-java/pull/4199)
+* Document RUM retention quota config API [#4198](https://github.com/DataDog/datadog-api-client-java/pull/4198)
+* Add Integration Accounts v2 API for Twilio and Elastic Cloud [#4194](https://github.com/DataDog/datadog-api-client-java/pull/4194)
+* Add endpoint_target field to Splunk HEC destination [#4193](https://github.com/DataDog/datadog-api-client-java/pull/4193)
+* Add public Execution Policies endpoints [#4188](https://github.com/DataDog/datadog-api-client-java/pull/4188)
+* Add OpenAPI spec for RUM Teams Ownership public API [#4183](https://github.com/DataDog/datadog-api-client-java/pull/4183)
+* Add tags to Action Connection API spec [#4181](https://github.com/DataDog/datadog-api-client-java/pull/4181)
+* Add Work Management note to Case Management API tag description [#4179](https://github.com/DataDog/datadog-api-client-java/pull/4179)
+* Add OAuth support for v2 Logs queries [#4178](https://github.com/DataDog/datadog-api-client-java/pull/4178)
+* Declare OAuth support for Events Search [#4176](https://github.com/DataDog/datadog-api-client-java/pull/4176)
+* Add is_deleted query parameter to ListSLOs [#4148](https://github.com/DataDog/datadog-api-client-java/pull/4148)
+
+### Changed
+* Promote usage quotas admin endpoints to public unstable [#4244](https://github.com/DataDog/datadog-api-client-java/pull/4244)
+* AI Gateway - Fully type private beta control plane API [#4233](https://github.com/DataDog/datadog-api-client-java/pull/4233)
+* Fix SCA OpenAPI drift [#4229](https://github.com/DataDog/datadog-api-client-java/pull/4229)
+* Mark Data Deletion API as GA and update documentation [#4215](https://github.com/DataDog/datadog-api-client-java/pull/4215)
+* Update CODEOWNERS to IDP pack [#4197](https://github.com/DataDog/datadog-api-client-java/pull/4197)
+* Remove status_pages_settings_write as an accepted permission from Status Pages publishing APIs [#4190](https://github.com/DataDog/datadog-api-client-java/pull/4190)
+* Rename Tag Policies to Tag Rules and move to /api/v2/governance/tag_rules [#4162](https://github.com/DataDog/datadog-api-client-java/pull/4162)
+
+### Fixed
+* Fix CreateTeamConnections example missing required type fields [#4232](https://github.com/DataDog/datadog-api-client-java/pull/4232)
+* Fix ARM API security spec drift [#4222](https://github.com/DataDog/datadog-api-client-java/pull/4222)
+
+### Removed
+* Rename spec to RUM Retention Quotas and remove unsupported mode [#4218](https://github.com/DataDog/datadog-api-client-java/pull/4218)
+* Make LLM Observability data deletion endpoint private [#4187](https://github.com/DataDog/datadog-api-client-java/pull/4187)
+
+### Deprecated
+* Mark unused AWS logs v1 endpoints as deprecated [#4011](https://github.com/DataDog/datadog-api-client-java/pull/4011)
+
 ## 2.59.0/2026-08-12
 
 ### Changed
