@@ -24,9 +24,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   CreateFeatureFlagAttributes.JSON_PROPERTY_DEFAULT_VARIANT_KEY,
   CreateFeatureFlagAttributes.JSON_PROPERTY_DESCRIPTION,
+  CreateFeatureFlagAttributes.JSON_PROPERTY_DISTRIBUTION_CHANNEL,
   CreateFeatureFlagAttributes.JSON_PROPERTY_JSON_SCHEMA,
   CreateFeatureFlagAttributes.JSON_PROPERTY_KEY,
   CreateFeatureFlagAttributes.JSON_PROPERTY_NAME,
+  CreateFeatureFlagAttributes.JSON_PROPERTY_REQUIRE_APPROVAL,
+  CreateFeatureFlagAttributes.JSON_PROPERTY_STALENESS_STATUS,
+  CreateFeatureFlagAttributes.JSON_PROPERTY_TAGS,
   CreateFeatureFlagAttributes.JSON_PROPERTY_VALUE_TYPE,
   CreateFeatureFlagAttributes.JSON_PROPERTY_VARIANTS
 })
@@ -40,6 +44,9 @@ public class CreateFeatureFlagAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public static final String JSON_PROPERTY_DISTRIBUTION_CHANNEL = "distribution_channel";
+  private FeatureFlagDistributionChannel distributionChannel;
+
   public static final String JSON_PROPERTY_JSON_SCHEMA = "json_schema";
   private JsonNullable<String> jsonSchema = JsonNullable.<String>undefined();
 
@@ -48,6 +55,15 @@ public class CreateFeatureFlagAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_REQUIRE_APPROVAL = "require_approval";
+  private Boolean requireApproval;
+
+  public static final String JSON_PROPERTY_STALENESS_STATUS = "staleness_status";
+  private CreateFeatureFlagStalenessStatus stalenessStatus;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_VALUE_TYPE = "value_type";
   private ValueType valueType;
@@ -59,12 +75,10 @@ public class CreateFeatureFlagAttributes {
 
   @JsonCreator
   public CreateFeatureFlagAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
       @JsonProperty(required = true, value = JSON_PROPERTY_KEY) String key,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUE_TYPE) ValueType valueType,
       @JsonProperty(required = true, value = JSON_PROPERTY_VARIANTS) List<CreateVariant> variants) {
-    this.description = description;
     this.key = key;
     this.name = name;
     this.valueType = valueType;
@@ -116,14 +130,41 @@ public class CreateFeatureFlagAttributes {
    *
    * @return description
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateFeatureFlagAttributes distributionChannel(
+      FeatureFlagDistributionChannel distributionChannel) {
+    this.distributionChannel = distributionChannel;
+    this.unparsed |= !distributionChannel.isValid();
+    return this;
+  }
+
+  /**
+   * The distribution channel for the feature flag.
+   *
+   * @return distributionChannel
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISTRIBUTION_CHANNEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FeatureFlagDistributionChannel getDistributionChannel() {
+    return distributionChannel;
+  }
+
+  public void setDistributionChannel(FeatureFlagDistributionChannel distributionChannel) {
+    if (!distributionChannel.isValid()) {
+      this.unparsed = true;
+    }
+    this.distributionChannel = distributionChannel;
   }
 
   public CreateFeatureFlagAttributes jsonSchema(String jsonSchema) {
@@ -195,6 +236,82 @@ public class CreateFeatureFlagAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CreateFeatureFlagAttributes requireApproval(Boolean requireApproval) {
+    this.requireApproval = requireApproval;
+    return this;
+  }
+
+  /**
+   * Indicates whether this feature flag requires approval for changes.
+   *
+   * @return requireApproval
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUIRE_APPROVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRequireApproval() {
+    return requireApproval;
+  }
+
+  public void setRequireApproval(Boolean requireApproval) {
+    this.requireApproval = requireApproval;
+  }
+
+  public CreateFeatureFlagAttributes stalenessStatus(
+      CreateFeatureFlagStalenessStatus stalenessStatus) {
+    this.stalenessStatus = stalenessStatus;
+    this.unparsed |= !stalenessStatus.isValid();
+    return this;
+  }
+
+  /**
+   * The staleness status for the feature flag at creation.
+   *
+   * @return stalenessStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STALENESS_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateFeatureFlagStalenessStatus getStalenessStatus() {
+    return stalenessStatus;
+  }
+
+  public void setStalenessStatus(CreateFeatureFlagStalenessStatus stalenessStatus) {
+    if (!stalenessStatus.isValid()) {
+      this.unparsed = true;
+    }
+    this.stalenessStatus = stalenessStatus;
+  }
+
+  public CreateFeatureFlagAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateFeatureFlagAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Tags associated with the feature flag.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
   public CreateFeatureFlagAttributes valueType(ValueType valueType) {
@@ -313,9 +430,13 @@ public class CreateFeatureFlagAttributes {
     CreateFeatureFlagAttributes createFeatureFlagAttributes = (CreateFeatureFlagAttributes) o;
     return Objects.equals(this.defaultVariantKey, createFeatureFlagAttributes.defaultVariantKey)
         && Objects.equals(this.description, createFeatureFlagAttributes.description)
+        && Objects.equals(this.distributionChannel, createFeatureFlagAttributes.distributionChannel)
         && Objects.equals(this.jsonSchema, createFeatureFlagAttributes.jsonSchema)
         && Objects.equals(this.key, createFeatureFlagAttributes.key)
         && Objects.equals(this.name, createFeatureFlagAttributes.name)
+        && Objects.equals(this.requireApproval, createFeatureFlagAttributes.requireApproval)
+        && Objects.equals(this.stalenessStatus, createFeatureFlagAttributes.stalenessStatus)
+        && Objects.equals(this.tags, createFeatureFlagAttributes.tags)
         && Objects.equals(this.valueType, createFeatureFlagAttributes.valueType)
         && Objects.equals(this.variants, createFeatureFlagAttributes.variants)
         && Objects.equals(
@@ -327,9 +448,13 @@ public class CreateFeatureFlagAttributes {
     return Objects.hash(
         defaultVariantKey,
         description,
+        distributionChannel,
         jsonSchema,
         key,
         name,
+        requireApproval,
+        stalenessStatus,
+        tags,
         valueType,
         variants,
         additionalProperties);
@@ -341,9 +466,15 @@ public class CreateFeatureFlagAttributes {
     sb.append("class CreateFeatureFlagAttributes {\n");
     sb.append("    defaultVariantKey: ").append(toIndentedString(defaultVariantKey)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    distributionChannel: ")
+        .append(toIndentedString(distributionChannel))
+        .append("\n");
     sb.append("    jsonSchema: ").append(toIndentedString(jsonSchema)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    requireApproval: ").append(toIndentedString(requireApproval)).append("\n");
+    sb.append("    stalenessStatus: ").append(toIndentedString(stalenessStatus)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    valueType: ").append(toIndentedString(valueType)).append("\n");
     sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
     sb.append("    additionalProperties: ")
