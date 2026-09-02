@@ -7,10 +7,13 @@ import com.datadog.api.client.v2.model.CreateFeatureFlagAttributes;
 import com.datadog.api.client.v2.model.CreateFeatureFlagData;
 import com.datadog.api.client.v2.model.CreateFeatureFlagDataType;
 import com.datadog.api.client.v2.model.CreateFeatureFlagRequest;
+import com.datadog.api.client.v2.model.CreateFeatureFlagStalenessStatus;
 import com.datadog.api.client.v2.model.CreateVariant;
+import com.datadog.api.client.v2.model.FeatureFlagDistributionChannel;
 import com.datadog.api.client.v2.model.FeatureFlagResponse;
 import com.datadog.api.client.v2.model.ValueType;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -25,9 +28,12 @@ public class Example {
                     .attributes(
                         new CreateFeatureFlagAttributes()
                             .defaultVariantKey("variant-Example-Feature-Flag-1")
-                            .description("Test feature flag for BDD scenarios")
+                            .distributionChannel(FeatureFlagDistributionChannel.SERVER)
                             .key("test-feature-flag-Example-Feature-Flag")
                             .name("Test Feature Flag Example-Feature-Flag")
+                            .requireApproval(false)
+                            .stalenessStatus(CreateFeatureFlagStalenessStatus.PERMANENT)
+                            .tags(Collections.singletonList("env:api-client-test"))
                             .valueType(ValueType.BOOLEAN)
                             .variants(
                                 Arrays.asList(
