@@ -1344,6 +1344,7 @@ public class ApiClient {
           put("v2.queryEventFilteredUsers", false);
           put("v2.queryUsers", false);
           put("v2.updateConnection", false);
+          put("v2.listProductCatalogSKUs", false);
           put("v2.getPrunedTraceByID", false);
           put("v2.getTraceByID", false);
           put("v2.getAsmServiceByName", false);
