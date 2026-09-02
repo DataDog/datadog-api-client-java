@@ -151,8 +151,13 @@ public final class TestRunner {
       throw new IllegalStateException("Generated request plan pagination mismatch");
     }
 
+    if (plan.get("operation_version") != null) {
+      world.setOperationVersion(plan.get("operation_version").toString());
+    }
+
     world.setupAPI(
-        world.getVersion(), World.toClassName(plan.get("api").toString().replace("-", "")));
+        world.getOperationVersion(),
+        World.toClassName(plan.get("api").toString().replace("-", "")));
     world.newRequest(plan.get("operation_id").toString());
 
     List<Map<String, Object>> parameters = (List<Map<String, Object>>) request.get("parameters");
